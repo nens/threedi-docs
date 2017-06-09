@@ -1,0 +1,7 @@
+version: '2'
+services:
+  sphinx:
+    build: .
+    command: "make html"
+    volumes:
+      - .:/code
