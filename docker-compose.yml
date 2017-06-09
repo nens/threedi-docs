@@ -1,6 +1,8 @@
 version: '2'
+
 services:
-  sphinx:
+
+  builder:
     build: .
     command: "make html"
     volumes:
