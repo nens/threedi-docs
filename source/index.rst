@@ -10,11 +10,12 @@ Welcome to 3Di's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   introduction
+   formulas
 
 
 Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
