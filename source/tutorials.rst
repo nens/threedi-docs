@@ -28,23 +28,35 @@ In 3Di we can use several raster input types. For a Flood model we need a DEM an
 You may use any source for your raster information. Below we discuss some examples for the DEM and friction information.
 
 **DEM**
+
 For the Digital Elevation Model (DEM) satellite or LIDAR based information is often used. When working with crude SRTM-data for instance, it is important to derive the genuine surface level and remove any artefacts. Also, adding bathymetry information to your raster could be useful, since the satellite and LIDAR techniques are unable to *see* under water.
 
 **Friction**
+
 Information about bed friction is usually derived from landcover, giving high friction to dense forest and lower values to agricultural land. In 3Di these values can be given in Manning or Chezy.
 
 **Requirements**
+
 How you derive your raster information is entirely up to you. For 3Di you must make sure your raster-files eventually meet the following requirements:
 
 #. Format GEOTIFF (.tif)
+
 #. Projection in meters (EPSG:28992 in NL)
+
 #. Projection complete according to OGC (check epsg.io)
+
 #. Projection fits data location
+
 #. Pixel size is square
+
 #. NODATA = -9999
+
 #. Type = Float32
+
 #. All raster-files must have the same pixel size, origin, size and NODATA pixels
+
 #. Data values must meet input types
+
 #. Advised: Origin is rounded to pixel size precision
 
 
@@ -53,9 +65,10 @@ Examples using GDAL
 
 There are several packages available that correctly allow you to meet these requirements. Below are some examples using GDAL. 
 
-*If you are using Windows, GDAL should be installed together with QGIS and available through the OSGeo4W Shell. Try finding it through your start menu. A full list of GDAL functionality and help can be found under the* `gdal documentation <www.gdal.org/gdal_utilities.html>`_.
+*If you are using Windows, GDAL should be installed together with QGIS and available through the OSGeo4W Shell. Try finding it through your start menu. A full list of GDAL functionality and help can be found under the* `gdal documentation <https://www.gdal.org/gdal_utilities.html>`_.
 
 **Retrieve raster information**
+
 This example shows you how to find and retrieve the meta-information of your raster through the OSGeo4W Shell. Make sure you have some raster-type data available.
 
 - Start the OSGEO4W Shell
@@ -65,6 +78,7 @@ This example shows you how to find and retrieve the meta-information of your ras
 This will give you a list of all raster information available for your raster-file. Check whether your file meets the requirements listed above. Note that information that is not listed, is missing and must be added.
 
 **Change raster information**
+
 To change or update your raster information you must be aware that some changes will affect your data content. For instance, updating your pixel size will require resampling or aggregating your existing data. 
 
 We will use gdalwarp to update our raster information. This is a versatile command that enables you to re-project, aggregate and change the data type of your raster all in one command. The first example shows you how to change the NODATA value and transform it into a GeoTiff for any given raster. If you already found your raster in the OSGeo4W Shell you can use the following commands:
@@ -74,14 +88,15 @@ We will use gdalwarp to update our raster information. This is a versatile comma
 
 *Note that the words that start with ‘-‘ are options in gdalwarp. They are followed by a parameter specific to that option. Also, if your NODATA value is specified in the raster information, you may omit the srcnodata option.*
 
-The next example sets all raster-information in one command. It is a useful example as long as you remember how it may change the actual data in your pixels. 
+The next example sets all raster-information in one command. It is a useful example as long as you remember how it may change the actual data in your pixels::
 
-``gdalwarp -s_srs EPSG:XXXX -t_srs EPSG:28992 -of Gtiff –ot Float32 -tap -tr 0.5 -0.5 -srcNODATA XXXX 
--dstnodata -9999 -cutline study-area.shp -crop_to_cutline <raster-file>  warp_output.tif``
+    gdalwarp -s_srs EPSG:XXXX -t_srs EPSG:28992 -of Gtiff –ot Float32 
+	-tap -tr 0.5 -0.5 -srcnodata XXXX -dstnodata -9999 -cutline study-area.shp -crop_to_cutline <raster-file>  warp_output.tif
 
-The example uses an extra shape-file of the study area. This is convenient when you are using several raster-files. It ensures that all raster-files you make have the same extent and NODATA pixels. You should make sure however that the shape-file’s projection matches that of your raster information. If you are not sure what any of the commands do, you can check the `gdal documentation <www.gdal.org/gdal_utilities.html>`_ or try options separate generating several output files and checking the with gdalinfo.
+The example uses an extra shape-file of the study area. This is convenient when you are using several raster-files. It ensures that all raster-files you make have the same extent and NODATA pixels. You should make sure however that the shape-file’s projection matches that of your raster information. If you are not sure what any of the commands do, you can check the `gdal documentation <https://www.gdal.org/gdal_utilities.html>`_ or try options separate generating several output files and checking the with gdalinfo.
 
 **Compression**
+
 Once your raster meets all requirements there is one last thing to consider. 3Di is cloud based so we advise you to compress all raster-files before uploading. The example below shows you how.
 
 ``gdal_translate -co COMPRESS=DEFLATE warp_output.tif compressed.tif``
@@ -103,17 +118,27 @@ Global settings
 The global settings table (v2_global_settings) contains all general settings for your model. It must contain at least one row for your model to work. You can find a complete overview of all settings through through :ref:`database-overview`. Here we discuss some basic settings and how to set up your calculation grid or quadtree, but you will need the database overview as well.
 
 **Basic settings**
-Some basic settings you must fill out have to do with keeping track of your scenario and the type of model you are making. Consider the following steps: 
+
+Some basic settings you must fill out have to do with keeping track of your scenario and the type of model you are making. Consider the following steps:
+ 
 #. The first basic settings you must fill out are the scenario id and a simple name for your scenario.  The scenario name will be shown in the 3Di web portal once you uploaded your model. 
+
 #. Set use_2d_flow to 1 (we are making a 2D flood model) and set use_1d_flow and use_0d_flow to 0.
+
 #. Set the default simulation timestep (sim_time_step) to (for instance) 30. 3Di will automatically decrease the timestep if no solution can be found in the given timestep size. 
+
 #. Set your output timestep (output_time_step) to 300. This setting is important since 3Di may generate a large results-file when you choose your output timestep too small. 
+
 #. The flooding threshold determines when water starts to flow from one cell to the next. Set it to 0.01 meter. This ensures a more stable and quicker simulation.
+
 #. Set the dem file and friction file relative paths to the raster-files you created. Make sure you use the full filename’s (including .tif).
+
 #. Set the friction type so that it matches your friction raster-file.
+
 #. Check the 3Di database overview for the remaining settings and fill-out all those listed as mandatory. Except kmax and grid_space, they are explained below.
 
 **Quadtree**
+
 The quadtree or calculation grid consists of all the calculation cells combined. It can consist of different size calculation cells but are all square. In each cell a volume and water level is computed. Velocity and discharge are computed on the edges between these cells. The size of the cells depends on two global settings: kmax and grid_space.
 The grid_space defines the size of the smallest calculation cell in your quadtree. The kmax is your maximum refinement level that determines the biggest possible calculation cell. If you do not define any local grid refinement, all calculation cells will become the maximum size. 
 Below, a picture is shown to remind you to the way the quadtree is created. Every large cell can be split onto four smaller cells by adding local grid refinement. 
@@ -124,6 +149,19 @@ Below, a picture is shown to remind you to the way the quadtree is created. Ever
    Grid refinement
 
 For now, set your grid_space and kmax. Your grid space must be a multitude of your raster pixel size. If we assume you are using a pixel size of 5 meter, set your grid space to 10 meter. Then set kmax to 4, your biggest calculations cells will this become 80 meters tall and wide. The next section shows you how to add local grid refinement.
+
+Local grid refinement
+""""""""""""""""""""""
+
+Adding local grid refinement allows you to calculate the flow of water in one area in more detail while maintaining larger calculation cells in other areas. Generally speaking, you will use grid refinement in areas of your model where you expect high variability in water levels and flow. For instance, near a breach location, levee or river bent. In other areas, like a floodplain or relatively flat farm land, you can use larger cells as they tend to flood quite gradually. 
+You can add local grid refinement by drawing lines and storing them in the v2_grid_refinement table in your spatialite database. Any calculation cell that is intersected by a grid refinement line will be split until it meets the given grid refinement. You can set the refinement level for every line segment. Set it to 1 for your smallest calculation cell equal to grid_space.
+
+Try adding some grid refinement lines to your model. You can for instance draw lines over some dikes. You will not be able to see the resulting quadtree until after you uploaded your model.
+
+Levees or obstacles
+""""""""""""""""""""
+If you have read some more about 3Di and the subgrid technique, you will know that flow from one calculation cell to the next is determined on the edge of each cell and depends on the local pixel values along the edge. In the case of a thin dike this could mean your calculation cell edges don’t fall over the highest pixel values of the dike. This means 3Di will not pick up on to correct height of your dike. To solve this, you must add levees or obstacles to your model. 
+The obstacle allows you to set the minimum crest level on the edge of a calculation cell. You can find the layer v2_obstacle in the spatialite database. The obstacle line you draw determines which edges are affected. The image below shows an example.
 
 .. figure:: image/levee-in-non-uniform-grid.png
    :alt: Levee in quadtree
