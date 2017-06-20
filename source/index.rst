@@ -11,7 +11,14 @@ Welcome to 3Di's documentation!
    :caption: Contents:
 
    introduction
+   2D-flow
+   1D-flow
+   structures
+   hydrology
+   numerics
+   tutorials
    formulas
+   database-overview
 
 
 Indices and tables
