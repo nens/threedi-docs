@@ -12,7 +12,7 @@ Modelling tutorials
 
 The tutorials below are aimed add giving you some examples on how to create your model in 3Di. They show you how to create different types of models for different purposes or add elements to existing models. The first tutorial aims to give you an introduction to 3Di and therefore explain the steps and reasons behind them quite extensively. The later tutorials assume you have sufficient knowledge about 3Di and modelling in general. They are less extensive and can be used as cheat sheets for performing different tasks.
 
-All tutorials assume you have some knowledge of 3Di and are able to use QGIS. Make sure you have a working 64bit QGIS version available and install the specially designed 3Di QGIS-plugin using `this <http://example.com/>`_ link.
+All tutorials assume you have some knowledge of 3Di and are able to use QGIS. Make sure you have a working 64bit QGIS version available and install the specially designed 3Di QGIS-plugin using `this <https://github.com/nens/threedi-qgis-plugin/wiki>`_ link.
 
 
 2D Flood model
@@ -53,7 +53,7 @@ Examples using GDAL
 
 There are several packages available that correctly allow you to meet these requirements. Below are some examples using GDAL. 
 
-*If you are using Windows, GDAL should be installed together with QGIS and available through the OSGeo4W Shell. Try finding it through your start menu. A full list of GDAL functionality and help can be found under the `gdal documentation <www.gdal.org/gdal_utilities.html>`_.*
+*If you are using Windows, GDAL should be installed together with QGIS and available through the OSGeo4W Shell. Try finding it through your start menu. A full list of GDAL functionality and help can be found under the* `gdal documentation <www.gdal.org/gdal_utilities.html>`_.
 
 **Retrieve raster information**
 This example shows you how to find and retrieve the meta-information of your raster through the OSGeo4W Shell. Make sure you have some raster-type data available.
@@ -76,7 +76,8 @@ We will use gdalwarp to update our raster information. This is a versatile comma
 
 The next example sets all raster-information in one command. It is a useful example as long as you remember how it may change the actual data in your pixels. 
 
-``gdalwarp -s_srs EPSG:XXXX -t_srs EPSG:28992 -of Gtiff –ot Float32 -tap -tr 0.5 -0.5 -srcNODATA XXXX -dstnodata -9999 -cutline study-area.shp -crop_to_cutline <raster-file>  warp_output.tif``
+``gdalwarp -s_srs EPSG:XXXX -t_srs EPSG:28992 -of Gtiff –ot Float32 -tap -tr 0.5 -0.5 -srcNODATA XXXX 
+-dstnodata -9999 -cutline study-area.shp -crop_to_cutline <raster-file>  warp_output.tif``
 
 The example uses an extra shape-file of the study area. This is convenient when you are using several raster-files. It ensures that all raster-files you make have the same extent and NODATA pixels. You should make sure however that the shape-file’s projection matches that of your raster information. If you are not sure what any of the commands do, you can check the `gdal documentation <www.gdal.org/gdal_utilities.html>`_ or try options separate generating several output files and checking the with gdalinfo.
 
@@ -117,14 +118,14 @@ The quadtree or calculation grid consists of all the calculation cells combined.
 The grid_space defines the size of the smallest calculation cell in your quadtree. The kmax is your maximum refinement level that determines the biggest possible calculation cell. If you do not define any local grid refinement, all calculation cells will become the maximum size. 
 Below, a picture is shown to remind you to the way the quadtree is created. Every large cell can be split onto four smaller cells by adding local grid refinement. 
 
-.. figure:: grid-refinement.png
+.. figure:: image/grid-refinement-in-3-layers.png
    :alt: Grid refinement
 
    Grid refinement
 
 For now, set your grid_space and kmax. Your grid space must be a multitude of your raster pixel size. If we assume you are using a pixel size of 5 meter, set your grid space to 10 meter. Then set kmax to 4, your biggest calculations cells will this become 80 meters tall and wide. The next section shows you how to add local grid refinement.
 
-.. figure:: levee.png
+.. figure:: image/levee-in-non-uniform-grid.png
    :alt: Levee in quadtree
 
    Levee in quadtree

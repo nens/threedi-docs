@@ -8,7 +8,4 @@ The table below shows the complete overview of tables that 3Di uses in the spati
 Database overview
 ^^^^^^^^^^^^^^^^^^
 
-.. figure:: gegevensmodel.pdf
-   :alt: Database overview
-
-   Overview of tables that 3Di uses in the spatialite database
+You can download the complete overview of tables that 3Di uses in the spatialite database :download:`here <pdf/database-overview.pdf>`.
