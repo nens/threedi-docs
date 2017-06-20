@@ -1,6 +1,8 @@
 Formulas
 ========
 
+UNDER CONSTRUCTION
+
 I've currently set it up so that images are generated. These are usable in the
 PDF output. The javascript formulas are not.
 
