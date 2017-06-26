@@ -6,23 +6,4 @@
 Welcome to 3Di's documentation!
 ===============================
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-   introduction
-   2D-flow
-   1D-flow
-   structures
-   hydrology
-   numerics
-   tutorials
-   formulas
-   database-overview
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`search`
+We're working on nice documentation for https://3di.lizard.net here.
