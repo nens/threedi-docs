@@ -49,8 +49,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = '3Di'
-copyright = '2017, Reinout van Rees'
-author = 'Reinout van Rees'
+copyright = '2017, Nelen & Schuurmans'
+author = 'Nelen & Schuurmans'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
