@@ -16,9 +16,10 @@ Welcome to 3Di's documentation!
    1D-flow
    structures
    hydrology
+   formulas
    numerics
    tutorials
-   formulas
+   advanced-configuration
    database-overview
 
 

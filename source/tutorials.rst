@@ -15,7 +15,7 @@ The tutorials below are aimed add giving you some examples on how to create your
 All tutorials assume you have some knowledge of 3Di and are able to use QGIS. Make sure you have a working 64bit QGIS version available and install the specially designed 3Di QGIS-plug-in using `this <https://github.com/nens/threedi-qgis-plugin/wiki>`_ link.
 
 
-2D Flood model
+Flood model
 ^^^^^^^^^^^^^^^^
 In this tutorial we will set up a relatively simple model with a DEM and some levee’s that can simulate floods.
 
