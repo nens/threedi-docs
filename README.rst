@@ -45,3 +45,12 @@ http://www.sphinx-doc.org/en/stable/ext/math.html
 
 
 Any questions: ask Reinout.
+
+Some commands needed for the OSGEO4W Shell with sphinx
+------------------------------------------------------
+From the git directory run the following commands::
+    
+    pip install sphinx
+    sphinx-build threedi-docs\source build
+
+You will recieve some warnings, check them. You are not able to evaluate LateX formulas this way.

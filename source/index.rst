@@ -9,6 +9,7 @@ Welcome to 3Di's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   :numbered:
 
    introduction
    2D-flow
