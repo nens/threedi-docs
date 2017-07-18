@@ -1,11 +1,8 @@
-Tutorials
-=========
+Modelling in 3Di
+================
 
 We have two types of tutorials: General tutorials and Modelling tutorials. General tutorials are aimed at how to make 3Di simulations through the web portal and manage revisions in the model database. Modelling tutorials help you with creating or modifying your 3Di model. You will find both below.
 
-General tutorials
------------------
-UNDER CONSTRUCTION
 
 Modelling tutorials
 -------------------

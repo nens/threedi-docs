@@ -8,7 +8,8 @@ Welcome to 3Di's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Basic Principles
+   :name: basic_modelling
    :numbered:
 
    introduction
@@ -18,9 +19,19 @@ Welcome to 3Di's documentation!
    hydrology
    formulas
    numerics
-   tutorials
    advanced-configuration
    database-overview
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: Tutorials
+   :name: tutorials
+   :numbered:
+   
+   threedi_portal
+   threedi_versioning
+   editing_models
+   
 
 
 Indices and tables
