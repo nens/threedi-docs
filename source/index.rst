@@ -12,6 +12,7 @@ Welcome to 3Di's documentation!
    :name: introduction
    
    a_introduction
+   a_contributors
    
 .. toctree::
    :maxdepth: 2
@@ -50,7 +51,7 @@ Welcome to 3Di's documentation!
    :numbered:
    
    d_introduction
-   d_software
+   d_before_you_begin
    d_threedi_portal
    d_threedi_versioning
    d_rasters
@@ -58,7 +59,6 @@ Welcome to 3Di's documentation!
    d_water_system
    d_sewerage
    d_advanced-configuration
-   d_database-overview
 
 
 Indices and tables
