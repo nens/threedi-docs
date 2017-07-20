@@ -8,19 +8,40 @@ Welcome to 3Di's documentation!
 
 .. toctree::
    :maxdepth: 2
+   :caption: Introduction
+   :name: introduction
+   
+   a_introduction
+   
+.. toctree::
+   :maxdepth: 2
    :caption: Basic Principles
-   :name: basic_modelling
+   :name: basic_principles
    :numbered:
 
-   introduction
-   2D-flow
-   1D-flow
-   structures
-   hydrology
-   formulas
-   numerics
-   advanced-configuration
-   database-overview
+   b_introduction
+   b_surfaceflow
+   b_channelflow
+   b_hydrology
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: Technical details
+   :name: technical_details
+   :numbered:
+   
+   c_introduction
+   c_surfaceflow
+   c_levees
+   c_channelflow
+   c_structures
+   c_control
+   c_infiltration
+   c_interflow
+   c_inflow
+   c_external-forcing
+   c_breaches
+   c_numerics
    
 .. toctree::
    :maxdepth: 2
@@ -28,10 +49,16 @@ Welcome to 3Di's documentation!
    :name: tutorials
    :numbered:
    
-   threedi_portal
-   threedi_versioning
-   editing_models
-   
+   d_introduction
+   d_software
+   d_threedi_portal
+   d_threedi_versioning
+   d_rasters
+   d_flood_model
+   d_water_system
+   d_sewerage
+   d_advanced-configuration
+   d_database-overview
 
 
 Indices and tables
