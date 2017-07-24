@@ -99,7 +99,7 @@ The timeseries field in the spatialite database can only be filled by pasting yo
 Embedded channels
 ------------------------
 
-Embedded channels are usefull when you wish to add more detailed profiles to a course raster-file. Also, they are the most efficient way to add channels since they don't add to the numer of calculation points. In fact, the volume in the channel is integrated with that of the 2D calculation grid cell. When modelling embedded channels, considre the following:
+Embedded channels are usefull when you wish to add more detailed profiles to a course raster-file. Also, they are the most efficient way to add channels since they don't add to the numer of calculation points. In fact, the volume in the channel is integrated with that of the 2D calculation grid cell. When modelling embedded channels, consider the following:
 
 * The water level in the embedded channel is always equal to the water level in the underlaying 2D grid cell,
 
