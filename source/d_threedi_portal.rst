@@ -78,7 +78,7 @@ Click the user name at the top right of the screen to show the user menu. The us
 * **Give up director status** (see :ref:`director_status`).
 * **Process results** to archive the results of the run.
 * **Load model** to load another (version of the) model (see :ref:`load_model`).
-* **Reset model** to reset the model xxx (see § 3.10) xxx.
+* **Reset model** to reset the model (see :ref:`reset_model`).
 * **Quit session** to end the current session (NOTE: After closing the session it may take several minutes until a new session can be started).
 * **Logout** to logout the user (NOTE: After logout, the session will stay available for 2 hours for other users of the same organization).
 

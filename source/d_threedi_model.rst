@@ -1,8 +1,6 @@
 Running the 3Di model
 =====================
 
-UNDER CONSTRUCTION
-
 This section helps you get started with interactive simulation with the integral 3Di modeling tools. Through the 3Di portal (version 2.0) the models of your organization can be loaded and simulations can be started. During the session others can follow the simulations 'live'. Also interventions can be done in the model during the simulation. Results are presented in real-time. All the steps from adjusting the input of water to viewing the calculation results are described in this section.
 
 *The 3Di portal supports both version 1.0 as version 2.0 models. When a functionality is specifically valid for only one version, this is indicated with* **v1** *or* **v2** *.*
@@ -109,12 +107,14 @@ If breach locations are predefined in the model, these can be activated as follo
 To show the flow rate over time, select a breach location using the point information tool. 
 
 Advanced settings
-----------------
+-----------------
 
 Advanced settings are available by clicking the pi icon in the top right corner. In this menu some advanced settings can be altered. 
 
 .. figure:: image/d3.9_advanced_settings.png
 	:alt: Advanced settings
+
+.. _reset_model:
 
 Reset model and log out
 -----------------------
