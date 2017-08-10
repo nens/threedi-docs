@@ -1,3 +1,5 @@
+.. _before_you_begin:
+
 Before You Begin
 ================
 
@@ -16,6 +18,12 @@ To use 3Di you need these software packages:
 
 * Recent version of TortoiseHG (`Get TortoiseHG <https://tortoisehg.bitbucket.io/download/index.html>`_)
 
+After installation of TortoiseHG the program can be started by selecting the TortoiseHg Workbench program from the Windows Start menu. In a first use, activate the 'large files extension' by selecting from the File menu 'Settings' and then' Extensions' and select 'large files’. Press OK and exit TortoiseHG.
+
+.. figure:: image/d_tortoise_extensions.png
+	:scale: 75%
+	:alt: Extensions
+
 Web Portals
 -----------
 
@@ -28,8 +36,6 @@ You can use 3Di through the following web portals:
 * models.lizard.net to find existing or add new repositories
 
 * <your-organisation>.lizard.net to view and donwload saved simulations
-
-
 
 .. _database-overview:
 

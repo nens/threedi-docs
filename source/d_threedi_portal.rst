@@ -1,7 +1,7 @@
+.. _guide_to_portal:
+
 Guide to the 3Di portal
 =======================
-
-The *Guide to the 3Di portal* helps you get started with the integral 3Di modeling tools. Through the 3Di portal (version 2.0) the models of your organization can be loaded and simulations can be started. During the session others can follow the simulations 'live'. Also interventions can be done in the model during the simulation. Results are presented in real-time. All the steps from logging in to loading of a model are described in this section. The 3Di portal is user friendly and easy to use.
 
 Login
 ------
@@ -12,8 +12,8 @@ Follow the steps below to access the 3Di portal:
 #) Log in with your username and password.
 
 	* Username and password can be requested via servicedesk@nelen-schuurmans.nl.
-	* You can clear the fields by clicking the 'Reset values' button.
-	* Forgot your password? Request a new password via 'Reset my password'.
+	* You can clear the fields by clicking the **Reset values** button.
+	* Forgot your password? Request a new password via **Reset my password**.
 
 .. figure:: image/d2.2_login.png
 	:scale: 50%
@@ -22,23 +22,23 @@ Follow the steps below to access the 3Di portal:
 Welcome to 3Di
 --------------
 
-After logging in to the 3Di portal, the screen 'Welcome to 3Di' will show:
+After logging in to the 3Di portal, the screen *Welcome to 3Di* will show:
 
 .. figure:: image/d2.3_welcome.png 
 	:alt: Welcome to 3Di screen
 
 In this screen, there are two possibilities:
 
-* Start a new session using the 'New session' tab.
-* Follow an ongoing session via the 'Follow running session' tab.
+* Start a new session using the *New session* tab.
+* Follow an ongoing session via the *Follow running session* tab.
 
 Start a new session
 --------------------
 
-Select the 'New session' tab and select the model you want to start.
+Select the *New session* tab and select the model you want to start.
 
 * A new session will be started.
-* The approximate time it will take to start the machine is shown when 'Booting machine'.
+* The approximate time it will take to start the machine is shown when **Booting machine**.
 * It may take several minutes to load the model.
 
 .. figure:: image/d2.4_start_session.png 
@@ -49,7 +49,7 @@ Select the 'New session' tab and select the model you want to start.
 Following a session
 --------------------
 
-Through the tab 'Follow running session' an active session of your organization can be followed. The number of followers of a session is not limited.
+Through the tab *Follow running session* an active session of your organization can be followed. The number of followers of a session is not limited.
 
 Main session
 ------------
@@ -61,10 +61,10 @@ When starting or following a session, the model will show in the complete extend
 
 If the model contains 1D-elements, they are immediately visible. Depending on which 1D elements are present in the model, you will see:
 
-* Watercourses (light blue dots).
-* Structures, such as weirs, divers and pumping stations.
-* Sewer pipes (red dots for dry weather flow, blue dots for rainwater flow).
-* Calculation points (white and grey dots).
+* **Watercourses** (light blue dots).
+* **Structures**, such as weirs, divers and pumping stations.
+* **Sewer pipes** (red dots for dry weather flow, blue dots for rainwater flow).
+* **Calculation points** (white and grey dots).
 
 For the visualization of the 2D domain of the model, see the :ref:`layers_menu`.
 
@@ -90,7 +90,7 @@ Click the user name at the top right of the screen to show the user menu. The us
 Director status
 ----------------
 
-After starting a new session you'll be made 'Director' automatically. Other users can follow the director via the 'Follow running session' tab. A session can be followed by more than one user at once but only one user, the director, can run and adjust the model. A follower can take over the session by clicking on the 'Director' option in the user menu. The name of the director of the session will be displayed, so everybody can see who the director is. The director can also give up his status via 'Give Up director' option. When another user is director, the star icon will be displayed on the bottom right. 
+After starting a new session you'll be made *Director* automatically. Other users can follow the director via the *Follow running session* tab. A session can be followed by more than one user at once but only one user, the director, can run and adjust the model. A follower can take over the session by clicking on the *Director* option in the user menu. The name of the director of the session will be displayed, so everybody can see who the director is. The director can also give up his status via *Give Up director* option. When another user is director, the star icon will be displayed on the bottom right. 
 
 *Time out
 After 30 minutes of inactivity you will automatically lose your director status. After two hours of inactivity, the session will be closed.*
@@ -105,15 +105,15 @@ Click on the globe at the top right of the screen. The layers menu appears. One 
 .. figure:: image/d2.9_layer_menu.png 
 	:alt: Layer menu
 
-* Click on 'Foreground' and then 'DEM' (1).
+* Click on **Foreground** and then **DEM** (1).
 * The 2D model domain is now visible. The green color represents lower values, orange represents higher values (2).
-* By clicking again on 'DEM' you can make this map layer invisible again.
-* Under the 'Foreground' tab, also the other 2D layers are displayed, if used in the model.
+* By clicking again on **DEM** you can make this map layer invisible again.
+* Under the **Foreground** tab, also the other 2D layers are displayed, if used in the model.
 
-In the 'Animation' menu you will find the options to customize the color scaling of water depth and to adapt the interpolation method in the display:
+In the *Animation* menu you will find the options to customize the color scaling of water depth and to adapt the interpolation method in the display:
 
 * **Linear interpolation**: In a linear interpolation the water levels that are shown on the map are linearly interpolated between the cells and the result is visually more attractive. This is the default.
-* **Nearest interpolation**: The interpolation 'nearest' better reflects the computational results of the model, but looks less good. This option is only advised for 3Di experts to better analyze the computational results.
+* **Nearest interpolation**: The interpolation *nearest* better reflects the computational results of the model, but looks less good. This option is only advised for 3Di experts to better analyze the computational results.
 
 In the layers menu also other options can be selected:
 
@@ -127,7 +127,7 @@ In the layers menu also other options can be selected:
 Load model
 ----------
 
-After selecting a model, either when starting a session or using the button 'load model' in the user menu, the model will be loaded.
+After selecting a model, either when starting a session or using the button *load model* in the user menu, the model will be loaded.
 
 .. figure:: image/d2.10_loading_model.png 
 	:alt: Loading model
