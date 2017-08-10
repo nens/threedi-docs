@@ -13,7 +13,7 @@ To model the sewerage system you will need different types of structures. A sewe
 
 * use_of_nested_newton
 
-If you want to make a solely 1D-sewerage model you have to define the inflow parameters. For more information, check <a href="/c_inflow.html">Chapter 9</a> in the Technical Details.
+If you want to make a solely 1D-sewerage model you have to define the inflow parameters. For more information, :ref:`inflow`.
 
 Manholes
 ------------------------
@@ -21,9 +21,7 @@ Manholes are the base of your sewerage model, because they define the locations 
 
 To add a manhole consider the following steps:
 
-#. First, load these tables from the spatialite database if you haven’t already:
-
-    a. v2_connection_nodes (point geometry)
+#. First, load the table v2_connection_nodes (point geometry) from the spatialite database if you haven’t already.
 	
 #. Each manhole needs to be linked to a connection node, which determines its geographical location.
 
@@ -31,7 +29,7 @@ To add a manhole consider the following steps:
 	
 #. The manholes must have manhole_indicators (what kind of manhole it is) and calculation_type. The calculation_type defines whether, and how, the water can flow in or out of the manhole.
 
-#. In case of a purely 1D sewerage model, the manhole storage area has to be defined in the global settings. This determines the size of the 'cylinder' that is used as a substitute to determine the volume at street level when the water rises above the drain_level in case of connection manholes.
+#. In case of a purely 1D sewerage model, the manhole storage area has to be defined in the global settings. This determines the size of the 'cylinder' that is used as a substitute to determine the volume at street level when the water rises above the drain_level in case of connected manholes.
 
 
 Structures
