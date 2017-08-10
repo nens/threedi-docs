@@ -66,13 +66,13 @@ Structures in 3Di are always a connection between two connection nodes. 3Di supp
 
 Check out het :ref:`database-overview` for how use the structure attributes. Below, some specific details are listed.
 
-* The shape of the weir, orifice and culvert are stored in the cross section definition table. So make sure you have some available before you start adding these structures.
+* The shape of the weir, orifice and culvert is stored in the cross section definition table. So make sure you have some available before you start adding these structures.
 
 * Culverts are the only structure type that has a geometry, it is a line. This means it can be f.i. curved. The culvert length is derived from it's geometry. All other structures are defined only as a link between nodes. They have no length. 
 
-* To add a structure,  make sure you have two connection nodes available at the end of two channels. Fill in the correct start and end connection node id in the sqlite tables. You must work in the v2_structure table, editing in views is not supported.
+* To add a structure, make sure you have two connection nodes available at the ends of two channels. Fill in the correct start and end connection node id in the sqlite tables. You must work in the v2_structure table, editing in views is not supported.
 
-* The pumpstation  pumps from the start node to the end node. You can choose how it is controlled using the *type* attribute. 
+* The pumpstation pumps from the start node to the end node. You can choose how it is controlled using the *type* attribute. 
 
 * If you wish to model several structures that are only connected to each other, for instance a culvert followed by a culvert. You must add storage area to the connection node. Normally the storage area is derived from the cross section of the adjoining channel, but when there is no channel connected to a connection node, by default is has no storage. So add it manually, or your model won't work. 
 
@@ -93,7 +93,7 @@ The timeseries field in the spatialite database can only be filled by pasting yo
     30,2.000000
     45,3.000000
     60,2.000000
-    99999,2.000000
+    9999,2.000000
 
     
 Embedded channels
