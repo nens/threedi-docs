@@ -15,7 +15,7 @@ The first thing you must do is activate 1D flow in the global settings. Also con
 Channels
 ------------------------
 
-To add a channel or network of channel consider the following steps:
+To add a channel or network of channels consider the following steps:
 
 #. First, load these tables from the spatialite database if you haven’t already:
 
