@@ -86,7 +86,7 @@ Check out het :ref:`database-overview` for how use the structure attributes. Bel
 
 Boundary conditions for the 1D system are placed on connection nodes. They can only be placed on connection nodes that are connected to a single isolated channel or pipe. So not on structures or embedded or connected channels. Check the different types of boundary conditions available in the :ref:`database-overview`.
 
-The timeseries field in the spatialite database can only be filled by pasting your timeseries into the spaitialite as QGIS does not allow you to enter a newline. U may use this example::
+The timeseries field in the spatialite database can only be filled by copy-pasting your timeseries into the spatialite as QGIS does not allow you to enter a newline. You may use this example::
     
     0,0.000000
     15,1.000000

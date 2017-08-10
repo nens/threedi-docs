@@ -1,7 +1,7 @@
 Sewerage
 ============
 
-To model the sewerage system you will need different types of structures. A sewerage model can be purely the sewerage system itself (1D), or it can interact with the surface (1D/2D). This tutorial shows you what steps you need to take to add these elements to an existing model. The first thing you must do is activate 1D flow in the global settings. Also consider the following parameters in the global or numerical settings:
+To model the sewerage system you will need different types of structures. A sewerage model can be solely the sewerage system itself (1D), or it can interact with the surface using 2D raster-files (1D/2D). This tutorial shows you what steps you need to take to add these elements to an existing model. The first thing you must do is activate 1D flow in the global settings. Also consider the following parameters in the global or numerical settings:
 
 * manhole_storage_area
 
@@ -13,10 +13,11 @@ To model the sewerage system you will need different types of structures. A sewe
 
 * use_of_nested_newton
 
+If you want to make a solely 1D-sewerage model you have to define the inflow parameters. For more information, check chapter 9 in the Technical Details :ref:`c_inflow`.
 
 Manholes
 ------------------------
-Manholes define the locations where the 1D sewerage system can interact with the surface. Each manhole must have a volume and refer to a connection node.
+Manholes are the base of your sewerage model, because they define the locations where the 1D sewerage system can interact with the surface. Each manhole must have a volume and refer to a connection node.
 
 To add a manhole consider the following steps:
 
@@ -26,7 +27,7 @@ To add a manhole consider the following steps:
 	
 #. Each manhole needs to be linked to a connection node, which determines its geographical location.
 
-#. Furthermore, each manhole must have dimensions. You have several option to define these dimensions, check the :ref:`database-overview` for more details. Note that manholes do not refer to the cross section definition table (as do the structures). The drain_level details the elevation at which the manhole can interact with the 2D-rasters and water can flow in our out of the manhole. This is only used in case of connected manholes.
+#. Furthermore, each manhole must have dimensions. You have several options to define these dimensions. Check the :ref:`database-overview` for more details. Note that manholes do not refer to the cross section definition table (as do the structures). The drain_level determines the elevation at which the manhole can interact with the surface and water can flow in or out of the manhole. This is only used in case of connected manholes.
 	
 #. The manholes must have manhole_indicators (what kind of manhole it is) and calculation_type. The calculation_type defines whether, and how, the water can flow in or out of the manhole.
 
@@ -56,7 +57,23 @@ Check out het :ref:`database-overview` for how use the structure attributes. Bel
 
 Impervious surfaces
 ------------------------
-It is also possible to use a pure 1D-sewerage model without any 2D component. If that is the case make sure you activate "use_0d_inflow" in the global settings. 
-In this case you force the '0d-surfaces' into the sewerage system. This is done by linking the '0d-surfaces' (v2_impervious_surface) to a connection node (using v2_impervious_surface_map), check the :ref:`database-overview` for more details.
+It is also possible to use a solely 1D-sewerage model without any 2D component. If that is the case make sure you activate "use_0d_inflow" in the global settings. 
+In this case you force the '0d-surfaces' into the sewerage system. This is done by linking the '0d-surfaces' (v2_impervious_surface) to a connection node (using v2_impervious_surface_map), check the :ref:`database-overview` for more details. 
 
+#. Dry weather flow, i.e. (household) wastewater is defined in the v2_impervious_surface table.
+
+
+1D boundary conditions
+------------------------
+
+Boundary conditions for the 1D system are placed on connection nodes. They can only be placed on connection nodes that are connected to a single structure. So not on structures or embedded or connected channels. Check the different types of boundary conditions available in the :ref:`database-overview`.
+
+The timeseries field in the spatialite database can only be filled by copy-pasting your timeseries into the spatialite as QGIS does not allow you to enter a newline. You may use this example::
+    
+    0,0.000000
+    15,1.000000
+    30,2.000000
+    45,3.000000
+    60,2.000000
+    9999,2.000000
 
