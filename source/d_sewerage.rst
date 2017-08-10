@@ -13,7 +13,7 @@ To model the sewerage system you will need different types of structures. A sewe
 
 * use_of_nested_newton
 
-If you want to make a solely 1D-sewerage model you have to define the inflow parameters. For more information, check chapter 9 in the Technical Details :ref:`c_inflow`.
+If you want to make a solely 1D-sewerage model you have to define the inflow parameters. For more information, check <a href="/c_inflow.html">Chapter 9</a> in the Technical Details.
 
 Manholes
 ------------------------
@@ -52,7 +52,7 @@ Check out het :ref:`database-overview` for how use the structure attributes. Bel
 
 * To add a structure you have to define the correct start and end connection node id in the sqlite tables. You must work in the v2_structure table, editing in views is not supported.
 
-* The pumpstation pumps from the start node to the end node. You can choose how it is controlled using the *type* attribute. It is possible to leave the end node blank ('NULL'). In that case the pumpstation pumps water 'out of the model' and functions as a boundary condition. This could, for example, simulate the final pumpstation that pumps the water to the sewage treatment plant.
+* The pumpstation pumps from the start node to the end node. You can choose how it is controlled using the *type* attribute. It is possible to leave the end node blank (*NULL*). In that case the pumpstation pumps water 'out of the model' and functions as a boundary condition. This could, for example, simulate the final pumpstation that pumps the water to the sewage treatment plant.
 
 
 Impervious surfaces
