@@ -13,7 +13,7 @@ To model the sewerage system you will need different types of structures. A sewe
 
 * use_of_nested_newton
 
-If you want to make a solely 1D-sewerage model you have to define the inflow parameters. For more information, :ref:`inflow`.
+If you want to make a solely 1D-sewerage model you have to define the inflow parameters. For more information, see :ref:`chapter9-inflow`.
 
 Manholes
 ------------------------
@@ -25,7 +25,7 @@ To add a manhole consider the following steps:
 	
 #. Each manhole needs to be linked to a connection node, which determines its geographical location.
 
-#. Furthermore, each manhole must have dimensions. You have several options to define these dimensions. Check the :ref:`database-overview` for more details. Note that manholes do not refer to the cross section definition table (as do the structures). The drain_level determines the elevation at which the manhole can interact with the surface and water can flow in or out of the manhole. This is only used in case of connected manholes.
+#. Furthermore, each manhole must have dimensions. You have several options to define these dimensions. Check out the the :ref:`database-overview` for more details. Note that manholes do not refer to the cross section definition table (as do the structures). The drain_level determines the elevation at which the manhole can interact with the surface and water can flow in or out of the manhole. This is only used in case of connected manholes.
 	
 #. The manholes must have manhole_indicators (what kind of manhole it is) and calculation_type. The calculation_type defines whether, and how, the water can flow in or out of the manhole.
 
@@ -44,7 +44,7 @@ Sewerage structures in 3Di are always a connection between two connection nodes,
 
 #. Pumpstation
 
-Check out het :ref:`database-overview` for how use the structure attributes. Below, some specific details are listed.
+Check out the :ref:`database-overview` for how use the structure attributes. Below, some specific details are listed.
 
 * The shape of the pipe, weir and orifice is stored in the cross section definition table. So make sure you have some available before you start adding these structures.
 
