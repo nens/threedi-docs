@@ -29,7 +29,7 @@ To add a manhole consider the following steps:
 	
 #. The manholes must have manhole_indicators (what kind of manhole it is) and calculation_type. The calculation_type defines whether, and how, the water can flow in or out of the manhole.
 
-#. In case of a purely 1D sewerage model, the manhole storage area has to be defined in the global settings. This determines the size of the 'cylinder' that is used as a substitute to determine the volume at street level when the water rises above the drain_level in case of connected manholes.
+#. In case of a purely 1D sewerage model, the manhole storage area has to be defined in the global settings. This determines the size of the 'storage' that is used as a substitute to determine the volume at street level when the water rises above the drain_level in case of connected manholes.
 
 
 Structures
@@ -56,9 +56,9 @@ Check out the :ref:`database-overview` for how use the structure attributes. Bel
 Impervious surfaces
 ------------------------
 It is also possible to use a solely 1D-sewerage model without any 2D component. If that is the case make sure you activate "use_0d_inflow" in the global settings. 
-In this case you force the '0d-surfaces' into the sewerage system. This is done by linking the '0d-surfaces' (v2_impervious_surface) to a connection node (using v2_impervious_surface_map), check the :ref:`database-overview` for more details. 
+In this case you force the '0D-surfaces' into the sewerage system. This is done by linking the '0D-surfaces' (v2_impervious_surface) to a connection node (using v2_impervious_surface_map), check the :ref:`database-overview` for more details. 
 
-#. Dry weather flow, i.e. (household) wastewater is defined in the v2_impervious_surface table.
+To calculate the dry weather flow, i.e. (household) wastewater, you have to define the 'nr_of_inhabitants' and 'dry_weather_flow' in the v2_impervious_surface table.
 
 
 1D boundary conditions
