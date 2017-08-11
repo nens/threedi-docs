@@ -20,10 +20,6 @@ Welcome to 3Di's documentation!
    :name: basic_principles
    :numbered:
 
-   b_introduction
-   b_surfaceflow
-   b_channelflow
-   b_hydrology
    
 .. toctree::
    :maxdepth: 2
@@ -31,17 +27,7 @@ Welcome to 3Di's documentation!
    :name: technical_details
    :numbered:
    
-   c_introduction
-   c_surfaceflow
-   c_levees
-   c_channelflow
-   c_structures
-   c_control
-   c_infiltration
-   c_interflow
    c_inflow
-   c_external-forcing
-   c_breaches
    c_numerics
    
 .. toctree::
@@ -60,7 +46,6 @@ Welcome to 3Di's documentation!
    d_water_system
    d_sewerage
    d_api
-   d_advanced-configuration
 
 
 Indices and tables
