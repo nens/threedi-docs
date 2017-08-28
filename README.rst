@@ -21,6 +21,9 @@ And then every time you want to re-generate your documentation::
 If you're not so lucky, you'll need to pip-install sphinx and you need latex
 (see the `Dockerfile` for the short list of packages that we install).
 
+Commits are automatically tested on jenkins:
+https://jenkins.lizard.net/blue/organizations/jenkins/nens%2Fthreedi-docs/
+
 
 Special commands
 ----------------
@@ -46,11 +49,14 @@ http://www.sphinx-doc.org/en/stable/ext/math.html
 
 Any questions: ask Reinout.
 
+
 Some commands needed for the OSGEO4W Shell with sphinx
 ------------------------------------------------------
+
 From the git directory run the following commands::
-    
+
     pip install sphinx
     sphinx-build threedi-docs\source build
 
-You will recieve some warnings, check them. You are not able to evaluate LateX formulas this way.
+You will recieve some warnings, check them. You are not able to evaluate LateX
+formulas this way.
