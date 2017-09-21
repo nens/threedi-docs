@@ -29,6 +29,7 @@ Welcome to 3Di's documentation!
    
    c_inflow
    c_numerics
+   c_calculation_grid_data
    
 .. toctree::
    :maxdepth: 2
