@@ -14,9 +14,11 @@ Information in the tables is stored relative to possible future water levels. Th
 .. figure:: image/crossection_table_increments.png
    :alt: Figure 1: Table increments 2D
    
+   
 .. figure:: image/table_1d_increments.png
    :alt: Figure2: Table increments 1D
 
+   
 .. figure:: image/volume_table_2d_increments.png
    :alt: Figure 3: Table structure 2D
 
