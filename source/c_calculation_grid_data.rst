@@ -18,19 +18,19 @@ Between the deepest and highest pixel values within a calculation cell or for a 
 * Infiltration rates (2D)
 
 .. figure:: image/crossection_table_increments.png
-   :align: center
    :scale: 75 %
+   :align: center
    :alt: Figure 1 Table increments 2D
 
 
 .. figure:: image/table_1d_increments.png
-   :align: center
    :scale: 75 %
+   :align: center
    :alt: Figure2 Table increments 1D
 
 .. figure:: image/volume_table_2d_increments.png
-   :align: center
    :scale: 75 %
+   :align: center
    :alt: Figure 3 Table structure 2D
 
 
