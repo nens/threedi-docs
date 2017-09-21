@@ -21,7 +21,7 @@ Information in the tables is stored relative to possible future water levels. Th
    :alt: Figure 3: Table structure 2D
 
 
-Between the deepest and highest pixel values within a calculation cell or for a compounded 1D profile. The information for which tables need to be calculated are:
+Between the deepest and highest pixel values within a calculation cell or for a compounded 1D profile. The information for which tables need to be calculated are::
 
  * Volumes per calculation cell (1D and 2D)
  * Cross-sectional area per half of cell face (2D)
@@ -34,7 +34,7 @@ Table step size
 
 The user has control over the table sizes and compression by setting a table step size (table_step_size) for the tables in the global settings. The table step size define the interval between succeeding increments in the tables. The increment size determines the amount of increments in a table and thus the amount of compression, since the table is only needed for information between the deepest and highest pixel values for the non-linear part within a calculation cell. 
 
-In 3Di one general table step size can be set for all of the above mentioned tables. However there are two extra tables step size parameters that can overall the table step size for some of the tables. The optional table steps size are:
+In 3Di one general table step size can be set for all of the above mentioned tables. However there are two extra tables step size parameters that can overall the table step size for some of the tables. The optional table steps size are::
 
 * table_step_size_1d
 * table_step_size_volume_2d
