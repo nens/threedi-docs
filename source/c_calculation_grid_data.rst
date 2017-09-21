@@ -19,7 +19,7 @@ Between the deepest and highest pixel values within a calculation cell or for a 
 
 .. figure:: image/crossection_table_increments.png
     :scale: 75 %
-    :label: Figure 1 Table increments 2D
+:alt: Figure 1 Table increments 2D
 
 
 .. figure:: image/table_1d_increments.png
