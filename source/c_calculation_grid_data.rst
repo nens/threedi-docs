@@ -12,10 +12,11 @@ Information in the tables is stored relative to possible future water levels. Th
 
 Between the deepest and highest pixel values within a calculation cell or for a compounded 1D profile. The information for which tables need to be calculated are:
 
- - Volumes per calculation cell (1D and 2D)
- - Cross-sectional area per half of cell face (2D)
- - Friction parameters per waterlevel (2D)
- - Infiltration rates (2D)
+* Volumes per calculation cell (1D and 2D)
+* Cross-sectional area per half of cell face (2D)
+* Friction parameters per waterlevel (2D)
+* Infiltration rates (2D)
+
 
  .. figure:: image/crossection_table_increments.png
      :alt: Figure 1 Table increments 2D
