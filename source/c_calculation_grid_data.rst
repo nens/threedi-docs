@@ -19,19 +19,20 @@ Between the deepest and highest pixel values within a calculation cell or for a 
 
 
 .. figure:: image/crossection_table_increments.png
-	:scale: 50 %
-	:alt: Figure 1 Table increments 2D
+    :scale: 50 %
+    :alt: Figure 1 Table increments 2D
    
    
 .. figure:: image/table_1d_increments.png
-	:scale: 50 %
-	:alt: Figure2 Table increments 1D
+    :scale: 50 %
+    :alt: Figure2 Table increments 1D
 
 
 .. figure:: image/volume_table_2d_increments.png
 	:scale: 50 %
 	:alt: Figure 3 Table structure 2D
 
+	
 
 Table step size
 ^^^^^^^^^^^^^^^
