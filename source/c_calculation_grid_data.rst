@@ -17,10 +17,11 @@ Between the deepest and highest pixel values within a calculation cell or for a 
 * Friction parameters per waterlevel (2D)
 * Infiltration rates (2D)
 
-
+|beginfigref|
 .. figure:: image/crossection_table_increments.png
     :scale: 75 %
-    :alt: Figure 1 Table increments 2D
+    :label: Figure 1 Table increments 2D
+|endfigref|
 
 .. figure:: image/table_1d_increments.png
     :scale: 75 %
