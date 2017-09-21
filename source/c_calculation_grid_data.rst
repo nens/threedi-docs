@@ -10,6 +10,7 @@ Table structure
 
 Information in the tables is stored relative to possible future water levels. This is only necessary for the range of water levels where the relation with the information is non-linear as displayed in figure 1-3. 
 
+
 .. figure:: image/crossection_table_increments.png
    :alt: Figure 1: Table increments 2D
    
@@ -21,6 +22,7 @@ Information in the tables is stored relative to possible future water levels. Th
 
 
 Between the deepest and highest pixel values within a calculation cell or for a compounded 1D profile. The information for which tables need to be calculated are:
+
  * Volumes per calculation cell (1D and 2D)
  * Cross-sectional area per half of cell face (2D)
  * Friction parameters per waterlevel (2D)
