@@ -54,7 +54,7 @@ Through the tab *Follow running session* an active session of your organization 
 Main session
 ------------
 
-When starting or following a session, the model will show in the complete extend. On the top left you can see the name of the loaded model, and if applicable, the revision number. At the top right you can see the user name with which you logged in. The map is zoomed in on the model area.
+When starting or following a session, the model will show in the complete extent. On the top left you can see the name of the loaded model, and if applicable, the revision number. At the top right you can see the user name with which you logged in. The map is zoomed in on the model area.
 
 .. figure:: image/d2.6_main.png 
 	:alt: Main session
@@ -62,7 +62,7 @@ When starting or following a session, the model will show in the complete extend
 If the model contains 1D-elements, they are immediately visible. Depending on which 1D elements are present in the model, you will see:
 
 * **Watercourses** (light blue dots).
-* **Structures**, such as weirs, divers and pumping stations.
+* **Structures**, such as weirs, culverts and pumping stations.
 * **Sewer pipes** (red dots for dry weather flow, blue dots for rainwater flow).
 * **Calculation points** (white and grey dots).
 

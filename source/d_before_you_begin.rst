@@ -35,7 +35,7 @@ You can use 3Di through the following web portals:
 
 * models.lizard.net to find existing or add new repositories
 
-* <your-organisation>.lizard.net to view and donwload saved simulations
+* <your-organisation>.lizard.net to view and downloadsaved simulations
 
 .. _database-overview:
 

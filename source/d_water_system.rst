@@ -29,7 +29,7 @@ To add a channel or network of channels consider the following steps:
 
 #. Channels are drawn in between connection nodes, so start by adding nodes on the start- and endpoints of your channels. If you wish to add structures later on, make sure to add enough nodes as they are also linked between connection nodes (and thus not placed on top of channels).
 
-#. After saving your edits in QGIS the connection node’s id’s are filled automatically. You can fill out the other attributes of the connection nodes later on.
+#. After saving your edits in QGIS the connection nodes ids are filled automatically. You can fill out the other attributes of the connection nodes later on.
 
 #. Now draw your channels from connection node to connection node. Make sure you snap the start- and endpoints to the connection nodes and fill out the connection_node_start_id and connection_node_end_id for every channel feature. Then fill all the attribute fields for all channels except id and save.
 
@@ -107,7 +107,7 @@ Embedded channels are usefull when you wish to add more detailed profiles to a c
 
 * Make sure the embedded channel profile always partially lays below the surface level in you DEM (you can't have floating embedded channels),
 
-* Make sure no more than one channel vertice falls inside a singel raster-file pixel,
+* Make sure no more than one channel vertice falls inside a single raster-file pixel,
 
 * Embedded channels only function when they connect several 2D grid cells, so make sure no embedded channel falls completely inside one 2D grid cell,
 

@@ -12,7 +12,7 @@ Once all your raster-files meet the requirements we can set up the model through
 Global settings
 -------------------
 
-The global settings table (v2_global_settings) contains all general settings for your model. It must contain at least one row for your model to work. You can find a complete overview of all settings through through :ref:`database-overview`. Here we discuss some basic settings and how to set up your calculation grid or quad tree, but you will need the database overview as well.
+The global settings table (v2_global_settings) contains all general settings for your model. It must contain at least one row for your model to work. You can find a complete overview of all settings through :ref:`database-overview`. Here we discuss some basic settings and how to set up your calculation grid or quad tree, but you will need the database overview as well.
 
 Some basic settings you must fill out have to do with keeping track of your scenario and the type of model you are making. Consider the following steps:
  
@@ -26,7 +26,7 @@ Some basic settings you must fill out have to do with keeping track of your scen
 
 #. The flooding threshold determines when water starts to flow from one cell to the next. Set it to 0.01 meter. This ensures a more stable and quicker simulation.
 
-#. Set the dem file and friction file relative paths to the raster-files you created. Make sure you use the full filename’s (including .tif).
+#. Set the dem file and friction file relative paths to the raster-files you created. Make sure you use the full filenames (including .tif).
 
 #. Set the friction type so that it matches your friction raster-file.
 
