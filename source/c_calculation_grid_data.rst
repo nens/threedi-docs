@@ -23,7 +23,7 @@ Between the deepest and highest pixel values within a computational cell and for
    :alt: Figure 1 Table increments 2D
 
 .. figure:: image/table_1d_increments.png
-   :scale: 60 %
+   :scale: 50 %
    :align: center
    :alt: Figure2 Table increments 1D
 
