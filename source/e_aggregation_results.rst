@@ -12,7 +12,10 @@ var_name
 ^^^^^^^^
 
 A user-defined variable name to dinstinguish between aggregated configuration of variables.
+
 flow_variable
+^^^^^^^^^^^^^
+
 Flow variable for which to determine aggregated results. The flow variables for which to determine aggregated results are:
 
 * discharge
