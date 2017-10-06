@@ -5,7 +5,8 @@ Results for a 3Di simulation are normally written in two one results file called
 Sometimes summarized results during certain intervals in the simulation is also very useful information. For this purpose an aggregated results file is available called `flow_aggregate.nc`. The configuration for this aggregation file is available in the models spatialite and the table is called v2_aggregation_settings. 
 The configuration with its options will be explained below. The layout of the table is:
 
-
+.. figure:: image/aggregation_table.png
+   :alt: Table layout aggration options
 
 var_name
 ^^^^^^^^
