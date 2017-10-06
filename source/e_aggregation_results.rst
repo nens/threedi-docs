@@ -8,7 +8,6 @@ The configuration with its options will be explained below. The layout of the ta
 .. figure:: image/aggregation_table.png
    :alt: Table layout aggration options
 
-
 Configuration options
 ---------------------
 
