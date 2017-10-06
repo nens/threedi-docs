@@ -9,7 +9,7 @@ The configuration with its options will be explained below. The layout of the ta
    :alt: Table layout aggration options
 
 var_name
---------
+^^^^^^^^
 
 A user-defined variable name to dinstinguish between aggregated configuration of variables.
 flow_variable
@@ -27,7 +27,7 @@ Flow variable for which to determine aggregated results. The flow variables for 
 * lateral_discharge
 
 aggregation_method
-------------------
+^^^^^^^^^^^^^^^^^^
 
 The different aggregation methods that can be used on a flow variable are:
 
@@ -39,14 +39,14 @@ The different aggregation methods that can be used on a flow variable are:
 * cum_negative = This is integration over time of variable in negative direction [dt * variable]. For instance cumulative volume across flowline in negative direction for timestep (configurated interval)
 
 timestep
---------
+^^^^^^^^
 
 Timestep is the interval in seconds for writing and determining the aggregated flow results. An example is when the maximum waterlevel needs to be determined every 300 seconds. Every 300 seconds the maximum waterlevel in that interval is determined and written to file at the end of this interval.
 aggregation_in_space
 When the user wants the flow information to be summed over the entire domain, the aggregation_in_space field can be set to true. For instance the when the maximum volume for the entire domain is desired at certain intervals. 
 
-**Output layout**
-^^^^^^^^^^^^^^^^^
+Output layout
+-------------
 
 The variable name of the aggregated flow results in the flow_aggregate.nc is named based on the following convention:
 
