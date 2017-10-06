@@ -33,6 +33,13 @@ Welcome to 3Di's documentation!
    
 .. toctree::
    :maxdepth: 2
+   :caption: Results
+   :name: results
+   :numbered:
+   e_aggregation_results
+   
+.. toctree::
+   :maxdepth: 2
    :caption: Tutorials
    :name: tutorials
    :numbered:
