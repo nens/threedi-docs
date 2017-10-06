@@ -14,6 +14,7 @@ var_name
 A user-defined variable name to dinstinguish between aggregated configuration of variables.
 flow_variable
 Flow variable for which to determine aggregated results. The flow variables for which to determine aggregated results are:
+
 * discharge
 * flow_velocity
 * infiltration
@@ -29,6 +30,7 @@ aggregation_method
 ------------------
 
 The different aggregation methods that can be used on a flow variable are:
+
 * max = maximum value of variable in timestep (configurated interval)
 * min = minimum value of variable in timestep (configurated interval)
 * avg = average value of variable in timestep (configurated interval)
@@ -43,8 +45,8 @@ Timestep is the interval in seconds for writing and determining the aggregated f
 aggregation_in_space
 When the user wants the flow information to be summed over the entire domain, the aggregation_in_space field can be set to true. For instance the when the maximum volume for the entire domain is desired at certain intervals. 
 
-Output layout
-^^^^^^^^^^^^^
+**Output layout**
+^^^^^^^^^^^^^^^^^
 
 The variable name of the aggregated flow results in the flow_aggregate.nc is named based on the following convention:
 
