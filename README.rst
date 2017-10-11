@@ -60,3 +60,21 @@ From the git directory run the following commands::
 
 You will recieve some warnings, check them. You are not able to evaluate LateX
 formulas this way.
+
+
+Making a release
+----------------
+
+Only released versions are shown publicly on readthedocs. To make a release,
+install zest.releaser::
+
+  $ pip install zest.releaser
+
+(It is also installed inside the docker, but your git credentials won't work
+in there.)
+
+Make a release by running::
+
+  $ fullrelease
+
+You can normally answer all the questions with <enter>.
