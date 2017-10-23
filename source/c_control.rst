@@ -25,14 +25,6 @@ The different types of controls are now explained. All the types of control that
 
 -	Memory control
 
--	PID control
-
--	Time control
-
--	Delta control
-   
-At the moment table control and memory control are implemented and will be explained below.
-
 .. _table_control:
 
 Table control
