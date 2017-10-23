@@ -3,7 +3,7 @@ Numerics
 
 There are various numerical settings that can either improve the solution under certain conditions, and some can speed up the computations and others will improve the stability. The various options are here explained.
 
-Nummerical Settings
+Numerical Settings
 -------------------
 
 Preissman slot
@@ -42,7 +42,7 @@ There are several methods available to solve the matrix consisting of the unknow
 
 Maximum number of non lineair iterations (max_nonlin_iterations) is the number the computational core will try to reach the convergence value of the Newton iteration. In cases where is extensive flooding and drying of areas, this number can be raised as it might need more iterations to find the correct solution. The Newton iteration needs a value that defines convergence. Initially, 3Di requires a much lower value, but in case the system has difficulties with finding a solution, it will loosen this requirement with a maximum of the by the user set convergence_eps. 
 
-Nested newton iterations are needed in case profiles where 1D is narrowing with height. Mathematically, in case d^2V/d\zeta^2<0. This occurs, for example, a lot in sewer systems. For these cases, the Newton iteration method does not guarantee a solution, so the system is split in two systems that do guarantee a solution. In case 3Di cannot find a solution it will always try, whether it can find a solution using the nested Newton method. However, in case one has an application that consists of many of these profiles it is faster to tell the system that it should always used the nested Newton method (use_of_nested_newton).
+Nested newton iterations are needed in case profiles in 1D are narrowing with height. Mathematically, in case d^2V/d\zeta^2<0. This occurs, for example, a lot in sewer systems. For these cases, the Newton iteration method does not guarantee a solution, so the system is split in two systems that do guarantee a solution. In case 3Di cannot find a solution it will always try, whether it can find a solution using the nested Newton method. However, in case one has an application that consists of many of these profiles it is faster to tel the system that it should always used the nested Newton method (use_of_nested_newton).
 
 **Maximum Degree**
 
@@ -54,7 +54,7 @@ One of the methods to solve a matrix is by Gauss-Jordan elimination, substitutio
 
 [use_of_cg] (default =20) [convergence_cg] (default = 1.0^-9) [precon_cg] (default =1) [convergence_cg] (default=1.0^-9)
 
-This is an iterative method to solve matrices. Therefore, also a convergence definition (convergence_cg) is required. It is possible to prepare this method to make it more efficient during the simulation. The system will then bepreconditioned (precon_cg), this will take time in the initializing phase, but will safe time during the simulation itself. To limit the possible amount of iterations in order to guarantee swiftness of the solver, there can be put a maximum of iterations before the convergence threshold is loosened.
+This is an iterative method to solve matrices. Therefore, also a convergence definition (convergence_cg) is required. It is possible to prepare this method to make it more efficient during the simulation. The system will then be preconditioned (precon_cg), this will take time in the initializing phase, but will safe time during the simulation itself. To limit the possible amount of iterations in order to guarantee swiftness of the solver, there can be put a maximum of iterations before the convergence threshold is loosened.
 
 **CFL condition**
 
@@ -114,7 +114,7 @@ Limiter for cross-sectional area
 
 [limiter_slope_crossectional_area_2d ] default = 0
 
-In sloping areas we are dealing with a situation where the primaryassumption of a subgrid-based method does not yield. The method assumes that the water level variation in space is much smaller than the variation of the bed. This is untrue for larger cells in sloping areas. The consequence is that in that case all the water is concentrated at the lower end of the cell. The depth that defines the cross-sectional area, that determines the discharge within a time step, is overestimated (black boxes Figure 2). 
+In sloping areas we are dealing with a situation where the primary assumption of a subgrid-based method does not yield. The method assumes that the water level variation in space is much smaller than the variation of the bed. This is untrue for larger cells in sloping areas. The consequence is that in that case all the water is concentrated at the lower end of the cell. The depth that defines the cross-sectional area, that determines the discharge within a time step, is overestimated (black boxes Figure 2). 
 
 *limiter_slope_crossectional_area_2d = 1*
 
@@ -126,7 +126,7 @@ This is a very stable upwind method to redefine the water level depth. It is ass
 
 *limiter_slope_crossectional_area_2d = 3, in combination with thin_layer_definition = xx [m]*
 
-In this case the limiter is more or less effective depending onthe local depth. In case the depth at the edge base on the down wind water level is larger than the definition that is given of a thin layer, the cross-sectional area is based on the high resolution grid. When this 'down wind' depth is smaller than the thin layer definition, then the limiter described for option 2 is determining the cross-sectional area. In the in between phase the two types of cross-sections are weighed to define a new value.
+In this case the limiter is more or less effective depending of the local depth. In case the depth at the edge base on the down wind water level is larger than the definition that is given of a thin layer, the cross-sectional area is based on the high resolution grid. When this 'down wind' depth is smaller than the thin layer definition, then the limiter described for option 2 is determining the cross-sectional area. In the in between phase the two types of cross-sections are weighed to define a new value.
 
 This is decribed in the figure below. Mathematical derivation will follow.
 

@@ -30,6 +30,7 @@ Welcome to 3Di's documentation!
    c_inflow
    c_numerics
    c_calculation_grid_data
+   c_control
    
 .. toctree::
    :maxdepth: 2
@@ -55,6 +56,7 @@ Welcome to 3Di's documentation!
    d_water_system
    d_sewerage
    d_api
+   d_control_structures
 
 
 Indices and tables
