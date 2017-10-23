@@ -19,7 +19,7 @@ The measurement of a flow variable can be performed at one or more locations. At
 Control types
 -------------
 
-The different types of controls are now explained. All the types of control that will be implemented are:
+The different types of controls are now explained. The implemented types of control are:
 
 -	Table control
 
