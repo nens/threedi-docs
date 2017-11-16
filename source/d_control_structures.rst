@@ -11,21 +11,23 @@ Start by connecting to the spatialite database through QGIS [1]. Even when you h
 .. figure:: image/d_control_structures_01.png
 	:alt: Open control plugin
 
-Measuring station
------------------
-
-The second tab shows to overview of the measuring stations in your model. Measuring stations are for instance connection nodes. To add a new station, select the table and id at your desired location. Then click new.
-
-To view all available measuring stations in your model, click *view* or *view all*. 
 
 Measuring group
 ---------------
 
-Under the next tab, measuring group, you can view and add new measuring groups. The measuring group is a selection of station. Each group may consist of one or more stations station. Their combined weight must equal 1.
+The second tab shows the measuring groups, where you can view and add new measuring groups. The measuring group is a selection of stations. Each group may consist of one or more stations. Their combined weight must equal 1.
 
-To add a measuring group, click new and a new pop-up will appear. Here you can load an existing group to copy it into a new group through *Load measuring group*. Or load indivudual measuring stations into the group. One control group can be used to control several sturctures.
+To add a measuring group, click new and a new pop-up will appear. Here you can load an existing group to copy it into a new group through *Load measuring group*. Or create indivudual measuring stations into the group. One measuring group can be used to control several structures.
 
-To view all available measuring groups in your model, click *view*.
+To view an available measuring groups in your model, select the measuring group id and click *view*.	
+
+
+Measuring station
+-----------------
+
+The second tab shows to overview of the measuring stations in your model. Measuring stations are for instance connection nodes. To view all available measuring stations in your model, click *view* or *view all*. 
+
+
 
 Rule
 ----
@@ -34,6 +36,7 @@ In the rule tab, you will create and manage your existing rules. At this moment,
 
 To view available rules in your model, click *view*. 
 
+
 Control group
 -------------
 
@@ -41,4 +44,4 @@ In the control group a measuring group and a rule are combined to create a contr
 
 Add a control by clicking new and fill in the name and description of the control you are about to create. Then select the measuring group id and rule id for your first rule and click new. Add extra combinations if you wish to use multiple controls in your model. Only one control group will be active, so make sure all rules for your model are listed in one group. When your done, click *Save*.
 
-You can define multiple groups in one spatialite database, but only one is active per model scenario (or glabal settings entry). You must therefore specify the *control group id* in the global settings for your scenario(s). This is the final step in activating the controls.
+You can define multiple groups in one spatialite database, but only one is active per model scenario (or global settings entry). You must therefore specify the *control group id* in the global settings for your scenario(s). This is the final step in activating the controls.
