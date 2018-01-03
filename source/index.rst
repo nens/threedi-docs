@@ -19,6 +19,8 @@ Welcome to 3Di's documentation!
    :caption: Basic Principles
    :name: basic_principles
    :numbered:
+   
+   b_wind
 
    
 .. toctree::
