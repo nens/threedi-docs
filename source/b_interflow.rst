@@ -61,7 +61,7 @@ There are 4 types or settings of interflow that determine the way the volume it 
 Provide a porosity, porosity layer thickness and the depth of the interflow layer. Porosity can be given global or per pixel. The porosity and the thickness of the porosity layer determine the volume stored in the calculation cell. De depth of the interflow layer determines the water level. The volume in the interflow layer is scaled to the interflow layer depth to determine the water level. 
 
 .. math::
-   :label: interflow_volume
+   :label: porosity_scaled
    
    \hat{\alpha} = (\alpha * L) / max(H_I, L)
 

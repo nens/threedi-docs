@@ -13,11 +13,11 @@ The standard wind data gives the speed and direction of the wind at a height of 
 
    u_{wind}(z,t) = \frac{u^*}{\kappa} * log( \frac{z}{z_0} )
 
-In which:
-u\ :sub:`wind`\ = wind speed at level z, 
-u\ :sup:`*`\ = resistance speed, 
-κ = von Karmen constant and 
-z\ :sub:`0`\ = roughness height
+In which: 
+| u\ :sub:`wind`\ = wind speed at level z, 
+| u\ :sup:`*`\ = resistance speed, 
+| κ = von Karmen constant and 
+| z\ :sub:`0`\ = roughness height.
 
 Drag coefficient
 ================
@@ -62,8 +62,13 @@ If we take into account gravity, friction and wind forces, the equation looks li
 
    \frac{d(Hu)}{dt} = -gH \frac{\delta \zeta}{\delta x} - \frac{\tau _{friction}}{\rho} + \frac{\tau_w}{\rho}
 
-In which: u = flow velocity, H = water depth, ζ = water level, ρ = density of water, 
-τ\ :sub:`friction`\ = friction shear stress and τ\ :sub:`w`\ = wind shear stress.
+In which: 
+| u = flow velocity, 
+| H = water depth, 
+| ζ = water level, 
+| ρ = density of water, 
+| τ\ :sub:`friction`\ = friction shear stress and 
+| τ\ :sub:`w`\ = wind shear stress.
 
 The shear stresses are dependent on the local velocity of water and wind. The wind shear stress is described by:
 
@@ -73,11 +78,11 @@ The shear stresses are dependent on the local velocity of water and wind. The wi
    \tau_w = - \rho_a C_w L \left | u_{wind} \right | u_{wind}^{//}
 
 In which: 
-ρ\ :sub:`a`\ = density of the air, 
-C\ :sub:`w`\ = drag-coefficient of the wind, 
-L = Local wind shield factor, 
-\|u\ :sub:`wind`\| = wind speed and 
-u\ :sub:`wind`\ \ :sup:`//`\ = wind speed in the channel direction. 
+| ρ\ :sub:`a`\ = density of the air, 
+| C\ :sub:`w`\ = drag-coefficient of the wind, 
+| L = Local wind shield factor, 
+| \|u\ :sub:`wind`\| = wind speed and 
+| u\ :sub:`wind`\ \ :sup:`//`\ = wind speed in the channel direction. 
 
 - De drag-coefficient translates the wind speed on a 10 m elevation to the speed on the ground. 
 
@@ -105,11 +110,11 @@ In the 2D domain the impact of wind is formulated by:
    \frac{dv}{dx}+g\frac{d\zeta}{dy} = -\frac{|u|v}{H_f}+\frac{\rho_{lucht}}{\rho_{water}V} \iint \chi^2 C_d \left \| \frac{U_{wind}^y}{\chi} - v \right \| \left ( \frac{U_{wind}^{y}}{\chi} - v \right ) d \Omega^y 
 
 The additional variables (in comparison tot 1D are): 
-u,v = velocity of the water in x- en y –direction, 
-\|u\| = absolute velocity of the water, 
-H\ :sub:`f`\ = Friction depth on basis of subgrids, 
-U\ :sub:`wind`\ \ :sup:`x`\, U\ :sub:`wind`\ \ :sup:`x`\ = wind component in x- and y- direction and 
-Ω\ :sup:`x`\, Ω\ :sup:`y`\ = Domain of the impulse balance in x- en y- direction.
+| u,v = velocity of the water in x- en y –direction, 
+| \|u\| = absolute velocity of the water, 
+| H\ :sub:`f`\ = Friction depth on basis of subgrids, 
+| U\ :sub:`wind`\ \ :sup:`x`\, U\ :sub:`wind`\ \ :sup:`y`\ = wind component in x- and y- direction and 
+| Ω\ :sup:`x`\, Ω\ :sup:`y`\ = Domain of the impulse balance in x- en y- direction.
 
 Important to know
 ================= 
