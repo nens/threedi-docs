@@ -1,7 +1,7 @@
 Conservation of mass
 =========================
 
-To make simulations of flow in order to make simulate the behavior under varying condition, one is often forced to use the computational power of computers. Since the introduction of computers various methods have been introduced and improved. Some aspects are true for all types of methods. Here, we will limit ourselves to the methods used in the computational core of 3Di.
+To capture or predict flow under varying conditions, one is often forced to use the computational power of computers. Since the introduction of computers various methods have been introduced and improved. Some aspects are true for all types of methods. Here, we will limit ourselves to the methods used in the computational core of 3Di.
 
 3Di is a subgrid based, two dimensional, depth averaged hydrodynamical model. Flow is described by water levels and velocities. These are computed by 2 fundamental laws of physics; i) Conservation of mass and ii) Conservation of momentum. In this section we will describe how we deal with conservation of mass in combination with the so-called subgrid method.
 
@@ -24,7 +24,13 @@ The conservation of Mass can be described mathematically as:
 
    \frac{\Delta \rho V}{\Delta t}=\sum_i^{in} \rho_i Q_i -\sum_k^{out} \rho_k Q_k + \sum_i \rho_j S_j 
 
-In which :math:'\rho' is the density, :math:'V' is the volume, :math:'Q' is a discharge and :math:'Q' is a sink or source term. The counters :math:'i, j, k' count over all existing discharges, sink and source terms. In 3Di we do not account for density variations, so the density :math:'\rho' is assumed uniform and constant. This simplifies the equation for conservation of mass, to the following equation for conservation of volume:
+| In which: 
+| ρ is the density, 
+| V is the volume, 
+| Q is a discharge and 
+| Q is a sink or source term. 
+
+The counters i, j, k count over all existing discharges, sink and source terms. In 3Di we do not account for density variations, so the density ρ is assumed uniform and constant. This simplifies the equation for conservation of mass, to the following equation for conservation of volume:
 
 .. math::
    :label: volume_conservation    
@@ -56,7 +62,9 @@ Flow is strongly affected by the bathymetry. Therefore, to simulate flow accurat
    A virtual box for conservation of mass.
 
 The basic idea is that water level vary much more gradually than the bathymetry (figure b1.4). Therefore while we assume within a water level domain the water level to be uniform, the bathymetry is allowed to vary. Therefore, the volume and the cross-sectional areas can be defined using the high resolution bathymetry information. It also means that a computational cell can be dry, wet or partly wet. This has two implications:
+
 - The volume becomes a non-linear relation with the water level, because when the water level rises, the wet surface area increases is well. Such a system can be solved using a newton iteration. To compute the volumes at the next time step.
+
 - As we are allowed to have a non-linear volume, we can allow automatically deal with flooding and drying. No artificial thresholds are necessary, to deal with this. 
 
 .. figure:: image/b1_4.png
