@@ -8,10 +8,10 @@ Welcome to 3Di's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :cation: Release Notes
+   :caption: Release Notes
    :: release_note
    
-   relesenotes
+   releasenotes
    
 .. toctree::
    :maxdepth: 2
