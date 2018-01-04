@@ -1,5 +1,5 @@
 Infiltration
-=========
+============
  
 Infiltration is the process of water slowly sinking into the soil. The infiltration capacity depends on the type of soil and landuse. In 3Di the infiltration capacity is given for every pixel of the input raster and given in mm/day. In the subgrid method, the infiltration is handled per calculation cell: the information per pixel is tabulated to form a relation between water level and infiltration capacity. The table is build using the same resolution (or step size) as the other tables.
 
@@ -29,9 +29,9 @@ The infiltration is implicitly added to the continuity equation. This means that
 .. math::
    :label: infiltration
  
-   Q_inf = I * ( H^(k+1) / H^n )
+   Q_{inf} = I * ( H^{(k+1)} / H^n )
  
-in which, 
+| in which,  
 | k = the indices for the inner Newton iteration loop, 
 | n = the timestep and 
 | Q\ :sub:`inf`\ = the infiltrated volume per time interval.

@@ -41,7 +41,12 @@ The volume in the interflow layer is determined as follows:
    
      V = \sum{ \hat{\alpha} H_I A} + H A_,
 
-In which, alpha is the local porosity, H\ :sub:`I`\  is the thickness of the interflow layer, A the pixel surface and H the water depth.
+| In which, 
+| a is the local porosity, 
+| H\ :sub:`I`\  is the thickness of the interflow layer, 
+| A the pixel surface and 
+| H the water depth.
+
 
 For all interflow types the water level is assumes uniform per calculation cell. The volume in the interflow layer is zero when the water level is at the bottom of the interflow layer. The interflow layer is completely filled when the water level is above the higher DEM pixel in the calculation cell. The volume in the calculation cell is the volume in the interflow layer plus any volume in the 2D domain. The volumes are not stored separately.
 
@@ -63,9 +68,17 @@ Provide a porosity, porosity layer thickness and the depth of the interflow laye
 .. math::
    :label: porosity_scaled
    
-   \hat{\alpha} = (\alpha * L) / max(H_I, L)
+   \hat{\alpha} = \frac{\alpha * L}{max(H_I, L)}
 
-In which: a = input porosity, L = interflow layer depth and H\ :sub:`I`\ = D\ :sub:`sur`\ – D\ :sub:`inp`\, in which D\ :sub:`sur`\  = surface level elevation and D\ :sub:`inp`\  = elevation of the impervious layer. For type 1 Interflow, the depth of the interflow layer is measured from the deepest DEM pixel in the calculation cell. The scaled porosity is then used to determine the volume in the interflow layer according to equation (1).
+| In which: 
+| a = input porosity, 
+| L = interflow layer depth and 
+| H\ :sub:`I`\ = D\ :sub:`sur`\ – D\ :sub:`inp`\, in which: 
+| D\ :sub:`sur`\  = surface level elevation and 
+| D\ :sub:`inp`\  = elevation of the impervious layer.
+
+ 
+For type 1 Interflow, the depth of the interflow layer is measured from the deepest DEM pixel in the calculation cell. The scaled porosity is then used to determine the volume in the interflow layer according to equation (1).
 
 **Type 2** Fixed thickness of the porosity layer in the model domain and uniform impervious layer elevation over the model domain
 
@@ -93,10 +106,15 @@ The flow in the interflow layer is determined according to Darcy's equation for 
 .. math::
    :label: interflow_flow
    
-   u_I = \kappa frac{\delta \zeta}{\delta x}
-   v_I = \kappa frac{\delta \zeta}{\delta y}
+   u_I = \kappa \frac{\delta \zeta}{\delta x}
+   v_I = \kappa \frac{\delta \zeta}{\delta y}
 
-In which: u\ :sub:`I`\ , v\ :sub:`I`\  = the horizontal flow velocity in the interflow layer. The conductivity is give by constant κ and ζ the water level in the calculation cell. The continuity equation is not expanded and thus only one volume is used for 2D flow. The head difference between calculation cells forces 2D flow both in the interflow layer and on the surface.
+| In which: 
+| u\ :sub:`I`\ , 
+| v\ :sub:`I`\  = the horizontal flow velocity in the interflow layer. 
+
+
+The conductivity is given by constant κ and ζ is the water level in the calculation cell. The continuity equation is not expanded and thus only one volume is used for 2D flow. The head difference between calculation cells forces 2D flow both in the interflow layer and on the surface.
 
 The hydraulic conductivity κ is related to the soil type and land use and is given in m/day. It can be given globally or as a raster with different values per pixel. For the latter all pixel values within one calculation cell are averaged.
 

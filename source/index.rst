@@ -20,9 +20,11 @@ Welcome to 3Di's documentation!
    :name: basic_principles
    :numbered:
    
+   b_rainfall
    b_infiltration
    b_interflow
    b_wind
+   b_sewerage
 
    
 .. toctree::
