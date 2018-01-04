@@ -20,6 +20,7 @@ Welcome to 3Di's documentation!
    :name: basic_principles
    :numbered:
    
+   b_massconservation
    b_wind
 
    
