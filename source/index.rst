@@ -8,6 +8,13 @@ Welcome to 3Di's documentation!
 
 .. toctree::
    :maxdepth: 2
+   :cation: Release Notes
+   :: release_note
+   
+   relesenotes
+   
+.. toctree::
+   :maxdepth: 2
    :caption: Introduction
    :name: introduction
    
@@ -20,13 +27,17 @@ Welcome to 3Di's documentation!
    :name: basic_principles
    :numbered:
    
-   b_rainfall
+   b_massconservation
+   b_sewerage
    b_infiltration
    c_inflow
    b_interflow
    b_wind
-   b_sewerage
+   b_levees_obstacles
+   b_rainfall
+   b_wind
    c_control
+
 
    
 .. toctree::
