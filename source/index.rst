@@ -9,7 +9,7 @@ Welcome to 3Di's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Release Notes
-   :: release_note
+   :name: release_note
    
    releasenotes
    
