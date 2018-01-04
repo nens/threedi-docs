@@ -1,4 +1,4 @@
-.. _chapter9-inflow:
+.. _inflow:
 
 Inflow
 ============

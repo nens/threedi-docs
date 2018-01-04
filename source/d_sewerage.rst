@@ -13,7 +13,7 @@ To model the sewerage system you will need different types of structures. A sewe
 
 * use_of_nested_newton
 
-If you want to make a solely 1D-sewerage model you have to define the inflow parameters. For more information, see :ref:`chapter9-inflow`.
+If you want to make a solely 1D-sewerage model you have to define the inflow parameters. For more information, see :ref:`inflow`.
 
 Manholes
 ------------------------
