@@ -1,4 +1,4 @@
-B1 – Conservation of mass
+Conservation of mass
 =========================
 
 To make simulations of flow in order to make simulate the behavior under varying condition, one is often forced to use the computational power of computers. Since the introduction of computers various methods have been introduced and improved. Some aspects are true for all types of methods. Here, we will limit ourselves to the methods used in the computational core of 3Di.

@@ -22,6 +22,7 @@ Welcome to 3Di's documentation!
    
    b_massconservation
    b_wind
+   b_levees_obstacles
 
    
 .. toctree::
