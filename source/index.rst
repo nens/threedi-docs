@@ -16,15 +16,17 @@ Welcome to 3Di's documentation!
    
 .. toctree::
    :maxdepth: 2
-   :caption: Basic Principles
+   :caption: Concepts
    :name: basic_principles
    :numbered:
    
    b_rainfall
    b_infiltration
+   c_inflow
    b_interflow
    b_wind
    b_sewerage
+   c_control
 
    
 .. toctree::
@@ -33,18 +35,10 @@ Welcome to 3Di's documentation!
    :name: technical_details
    :numbered:
    
-   c_inflow
    c_numerics
    c_calculation_grid_data
-   c_control
-   
-.. toctree::
-   :maxdepth: 2
-   :caption: Results
-   :name: results
-   :numbered:
-   
    e_aggregation_results
+   c_state_files
    
 .. toctree::
    :maxdepth: 2
