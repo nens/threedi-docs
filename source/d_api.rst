@@ -21,7 +21,7 @@ Then take the following steps:
 
 2. Select POST (instead of GET) left of URL
 
-3. Enter this URL: https://3di.lizard.net/api/v1/calculation/start
+3. Enter this URL: https://3di.lizard.net/api/v1/calculation/start/
 
 4. Select basic authorisation
 
