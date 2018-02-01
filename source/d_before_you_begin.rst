@@ -42,4 +42,9 @@ You can use 3Di through the following web portals:
 Database overview
 -----------------
 
-The database overview shows the complete overview of tables that 3Di uses in the spatialite database. You can download the complete overview of tables that 3Di uses in the spatialite database :download:`here <pdf/database-overview.pdf>`.
+The database overview shows the complete overview of tables that 3Di uses in the spatialite database. You can download the complete overview of tables that 3Di uses in the spatialite database :download:`here <pdf/database-overview.pdf>`. Also, this :download:`flowchart <image/flowchart_edit_model.png>` may help you while editing your model.
+
+Empty database
+--------------
+
+If you like to set up a new model it may be helpfull to start from an empty database. Download an empty spatialite database :download:`here <other/empty.sqlite>`.
