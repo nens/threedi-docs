@@ -8,17 +8,11 @@ Welcome to 3Di's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Release Notes
-   :name: release_note
-   
-   releasenotes
-   
-.. toctree::
-   :maxdepth: 2
    :caption: Introduction
    :name: introduction
    
    a_introduction
+   a_releasenotes
    a_contributors
    
 .. toctree::
@@ -32,7 +26,6 @@ Welcome to 3Di's documentation!
    b_infiltration
    c_inflow
    b_interflow
-   b_wind
    b_levees_obstacles
    b_rainfall
    b_wind

@@ -56,7 +56,7 @@ Flow is strongly affected by the bathymetry. Therefore, to simulate flow accurat
 .. figure:: image/b1_3.png
    :scale: 20%
    :alt: virtual_conservation_box
-   :align: centre
+   :align: center
 
    
    A virtual box for conservation of mass.

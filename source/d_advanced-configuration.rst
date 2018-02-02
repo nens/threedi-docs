@@ -1,8 +1,0 @@
-Advanced Configuration
-=======================
-
-Aggregation settings
----------------------
-
-
-
