@@ -1,4 +1,4 @@
-Obstacles, levees and breaches
+Obstacles and levees
 =============================================
 
 Basic idea
