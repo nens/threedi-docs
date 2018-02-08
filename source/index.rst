@@ -22,6 +22,7 @@ Welcome to 3Di's documentation!
    :numbered:
    
    b_massconservation
+   b_channelflow
    b_sewerage
    b_infiltration
    c_inflow
