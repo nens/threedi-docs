@@ -59,8 +59,8 @@ Welcome to 3Di's documentation!
    d_flood_model
    d_water_system
    d_sewerage
-   d_api
    d_control_structures
+   d_api
 
 
 Indices and tables
