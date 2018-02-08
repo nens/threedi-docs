@@ -1,40 +1,49 @@
 Interflow
 =========
 
-The interflow layer can be added to any 2D model for the following reasons:
 
-#. For subsurface storage
+In a 2D model, the water flows over the surface and it can infiltrate into the soil. Surface water flow is described by the shallow water equations. The infiltration is based on the available water above the surface, the maximum infiltration rate and the storage capacity of the soil. All these parameters are defined on a geographical raster, and translated to a set of values for each computational cell.
 
-#. For fast surface flow for very small water depths (thin water layer)
+The interflow layer is an extra layer that can be defined below the surface. Surface water can be stored in the interflow layer and water can also flow through the interflow layer. The flow through the interflow layer is described by the Darcy equation. The Darcy type of flow is believed to be more realistic for surface/subsurface flow in rainfall runoff conditions. This is because, in these cases, one deals with very thin water layers for which small (unknown) structures in the soil and on the ground level affect the flow. In such case the flow resembles more a Darcy type of flow. 
 
-#. In case we assume the soil is saturated, for flow through the unsaturated zone.
-
-The basic principles for interflow and how it may be used in these applications are explained below.
+Basic Principles
+------------------
 
 .. figure:: image/b_interflow_applications.png
    :alt: Applications of the interflow layer
 
-   Applications of the interflow layer
+The interflow layer is defined by setting the thickness of the interflow layer, the porosity and the permeability rate. The storage capacity of the interflow layer depends how the variables are interpretated and this depends on the interflow type the users specifies. 
 
-Basic principles
----------------------
+.. list-table:: Settings for interflow layer
+   :widths: 45 45 45
+   :header-rows: 1
 
-The interflow layer is a layer below the 2D domain. In this layer water can be stored and water may flow from one calculation cell to the next. The storage in the interflow layer is added to the total volume in the calculation cell. The water level is determined relative to the bottom of the interflow layer. All the water that enters a calculation cell will be stored in the interflow layer. Once the water level rises above the surface level, water is stored in the 2D domain as well. The flow in the interflow layer is computed separately from the flow in the 2D domain.
+   * - Parameter
+     - Uniform in Model Domain
+     - Spatially Varying in Model Domain
+   * - Porosity
+     - .. math:: 
+         \checkmark
+     - .. math:: 
+         \checkmark
+   * - Porosity Layer
+     - .. math:: 
+         \checkmark
+     - 			x
+   * - Hydraulic Connectivity
+     - .. math:: 
+         \checkmark
+     - .. math:: 
+         \checkmark
+   * - Impervious Layer Elevation
+     - .. math:: 
+         \checkmark
+     - x
 
-The volume in the interflow layer is determined by:
-
-- The surface level elevation (DEM)
-
-- Porosity
-
-- Porosity layer thickness or depth of the impervious layer
-
-The latter depends on the interflow type setting used.
-
-Volume
+Computation of Volume
 -----------------------
 
-The volume in the interflow layer is determined as follows:
+The volume of water in a computational cell consist of the volume in the porous layer and that of the open water layer. In principle, the porous volume is based on the porosity and the thickness of the interflow layer. These combined, determine the storage capacity of a computational cell: 
 
 .. math::
    :label: interflow_volume
@@ -42,11 +51,26 @@ The volume in the interflow layer is determined as follows:
      V = \sum{ \hat{\alpha} H_I A} + H A_,
 
 | In which, 
-| a is the local porosity, 
-| H\ :sub:`I`\  is the thickness of the interflow layer, 
-| A the pixel surface and 
-| H the water depth.
+- | a is the local porosity, 
+- | H\ :sub:`I`\  is the thickness of the interflow layer, 
+- | A is the pixel surface and 
+- | H is the water depth.
 
+If an interflow layer is defined, water is first stored in the interflow layer and only when the waterlevel rises above the groundlevel water is stored on the surface. This implies, that H\ :sub:`I`\ can be maximally the thickness of the interflow layer and H>0 when the water level is above the ground level. However, when within a computational cell the ground level varies, the moment that the water level rises above the ground level is different per subgrid cell as the water level is uniform within a computational cell. 3Di allows four different methods to deal with the subgrid information, this is defined bij the interflow type. 
+
+The porosity depth can be defined model wide only. The porosity can vary spatially in the model domain. The interflow type determines a so-called porosity factor. This factor determines whether the porosity remains as set or that the storage capacity is  and porosity depth is constant then this means that each cell has the same maximum volume that can be stored in the interflow layer. 
+
+.. figure:: image/b_interflow_simple.png
+   :alt: Sketch of interflow layer
+
+To fully understand interflow with subgrids, it is important to realize that each cell (one cell has multiple subgrids) has one volume value and hence one water level. The flow from one cell to another has two components, namely interflow and surface flow. (Only when using the groundwater flow option in 3Di, two volumes are computed for each cell, a groundwater volume and a surface water volume).
+
+.. figure:: image/b_interflow_build_volume.png
+   :alt: Sketch of interflow layer
+
+Normally the volume of water in a cell is computed from the surface of the lowest subgrid. If interflow is used, the volume is computed from another reference level, namely the impermeable layer. In the example of the figure above, the lowest elevation is 0.0 m and the interflow depth is defined by 1.0 m. This means that the reference (or impermeable) level is at -1.0 m for this cell. 
+
+The interflow layer is completely dry (V=0 m\ :sup:`3`\) if the water level in a cell is at the level of the impermeable layer (-1.0 m). The interflow flow layer is completely filled (saturated), if the water level is at the same level of the highest subgrid in this cell (+1.0 m). Note that the volume is build out of two volumes, interflow volume and surface volume.
 
 For all interflow types the water level is assumes uniform per calculation cell. The volume in the interflow layer is zero when the water level is at the bottom of the interflow layer. The interflow layer is completely filled when the water level is above the higher DEM pixel in the calculation cell. The volume in the calculation cell is the volume in the interflow layer plus any volume in the 2D domain. The volumes are not stored separately.
 
@@ -55,6 +79,10 @@ For all interflow types the water level is assumes uniform per calculation cell.
    :alt: Overview of different states using interflow
 
    Overview of different states using interflow
+   
+   
+Computation of Flow
+-----------------------
 
 Types
 --------
@@ -121,29 +149,13 @@ The hydraulic conductivity κ is related to the soil type and land use and is gi
 Good to know
 ------------
 
-**Infiltration** Interflow does not affect or interact with infiltration. Depending on the infiltration settings infiltration will either stop when the lowest DEM pixel (per calculation cell) is dry or when the volume in the calculation cell equals zero. 
+**Infiltration** In principle, nothing about infiltration has changed with or without interflow. Infiltration is not to interflow layer itself, but from the interflow to the subsoil. The infiltration volume is removed from the interflow layer. Infiltration stops when the water level is below the lowest pixel.
 
-**Rainfall or Laterals** Interflow does not affect or interact with Rainfall or laterals. Negative lateral discharge continues as long as there is volume in the calculation cell and positive discharge or rainfall is added to interflow volume before it reaches the surface.
+**Laterals** Nothing actually changes for the laterals. The extraction of water continues until the total volume is zero. This means that the water level can be lower than the DEM.
 
 **Obstacles and levees** Flow in the interflow layer is affected (stopped) by obstacles and levees. Flow in the interflow layer does not flow under levees.
 
 **Connection with 1D** There is no separate link between interflow and 1D-elements. So no seepage from deep channels, all flow between 1D and 2D happens via the 2D surface.
 
 **Embedded channels or pipes** Both embedded elements and interflow affect the volume in 2D calculation cells and it is therefore not advised to use them together.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
