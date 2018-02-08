@@ -41,7 +41,7 @@ Welcome to 3Di's documentation!
    
    c_numerics
    c_calculation_grid_data
-   e_aggregation_results
+   c_aggregation_results
    c_state_files
    
 .. toctree::
@@ -61,6 +61,7 @@ Welcome to 3Di's documentation!
    d_sewerage
    d_control_structures
    d_api
+   d_results_from_lizard
 
 
 Indices and tables
