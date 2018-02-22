@@ -27,7 +27,7 @@ When introducing an interflow layer, one introduces only new flow links and extr
    
      V = \alpha H_I A + H A,
 
-| In which, 
+| In which:
 - | :math:`\alpha` is the local porosity, 
 - | :math:`H_I` is the thickness of the interflow layer, 
 - | :math:`A` is the pixel surface and 
@@ -36,10 +36,11 @@ When introducing an interflow layer, one introduces only new flow links and extr
 .. figure:: image/b_interflow_simple.png
    :alt: Sketch of interflow layer
 
-The water level rises from the deepest level in a cell. Therefore water is first stored in the interflow layer and only when the water level rises above the ground level is water stored on the surface. This implies, that :math: `H_I` can be maximally the thickness of the interflow layer and H>0 when the water level is above the ground level. The porosity depends on the soil characteristics, below one finds some examples.
+The water level rises from the deepest level in a cell. Therefore, water is first stored in the interflow layer and only when the water level rises above the surface level is water stored on the surface. This implies, that :math:`H_I` can be maximally the thickness of the interflow layer and H>0 when the water level is above the surface level. The porosity depends on the soil characteristics, below one finds some examples.
 
 .. figure:: image/b_interflow_examples_porosity.png
    :alt: Applications of the interflow layer
+   :scale: 75 %
    
    Applications of the interflow layer
 
@@ -54,58 +55,52 @@ The flow through the interflow layer is calculated by the 2D implementation of D
    Q_I^x = \kappa A_I^x \frac{\delta \zeta}{\delta x}\\
    Q_I^y = \kappa A_I^y \frac{\delta \zeta}{\delta y}
 
-| In which: 
-| :math:`Q_I^x` and :math:`Q_I^y` = the horizontal discharges in the interflow layer. 
-| :math:`\kappa` = the hydraulic condutivity
-| :math:`A_I^x` and :math:`A_I^y` = the cross-sectional area.
+
+| In which:
+- | :math:`Q_I^x` and :math:`Q_I^y` = the horizontal discharges in the interflow layer. 
+- | :math:`\kappa` = the hydraulic condutivity
+- | :math:`A_I^x` and :math:`A_I^y` = the cross-sectional area.
 
 Note: The Darcy’s velocity does not take into account that medium is a grain-aggregate. In reality water flows through pore-paths (inter-connected pores) only. The interflow velocity computed in 3Di is related to the discharge through the concept of effective porosity.
 
 Interflow in combination with the subgrid approach
 ----------------------------------------------------
 
-The basic principles of interflow are simple, but applied with subgrids things become more complicated. To fully understand interflow with subgrids, it is important to realize that each cell (one cell has multiple subgrids) has one volume value and hence one water level. The flow from one cell to another has two components, namely interflow and surface flow. (Only when using the groundwater flow option in 3Di, two volumes are computed for each cell, a groundwater volume and a surface water volume).
+The basic principles of interflow are simple, but applied with subgrid method, it becomes more complicated. To fully understand interflow with subgrids, it is important to realize that each computational cell (one computational cell has multiple subgrid  cells) has one volume value and hence one water level. The flow from one cell to another has two components, namely interflow and surface flow. (Only when using the groundwater flow option in 3Di, two volumes are computed for each cell, a groundwater volume and a surface water volume).
 
-However, when within a computational cell the ground level varies, the moment that the water level rises above the ground level is different per subgrid cell as the water level is uniform within a computational cell. 3Di allows four different methods to deal with the subgrid information. The user defines this by setting the interflow type. 
+However, when within a computational cell the surface level varies, the moment that the water level rises above the ground level is different per subgrid cell as the water level is uniform within a computational cell. 3Di allows four different methods to deal with the subgrid information. The user defines this by setting the interflow type. 
 
-Without the interflow layer, the volume of water in a cell is computed from the surface of the lowest subgrid cell. If interflow is used, the volume is computed from another reference level, namely the impermeable layer. In the example of the figure above, the lowest elevation is 0.0 m and the interflow depth is defined by 1.0 m. This means that the reference (or impermeable) level is at -1.0 m for this cell. 
-
-The interflow layer is completely dry (V=0 m\ :sup:`3`\) if the water level in a cell is at the level of the impermeable layer (-1.0 m). The interflow flow layer is completely filled (saturated), if the water level is at the same level of the highest subgrid in this cell (+1.0 m). The relation between the water level and the volume, as shown in the graph below, can be split into three parts. In part I, is there only water in the interflow layer. The curve is fully determined by the porosity distribution. In part II, water is partly in the interflow layer and partly above the ground level. In part III, the volume rises linearly with the water level as the interflow layer is fully saturated.
+Without the interflow layer, the volume of water in a cell is computed from the surface of the lowest subgrid cell. If interflow is used, the volume is computed from another reference level, namely the impervious layer. In the example of the figure below, the lowest elevation is 0.0 m and the interflow depth is defined at 1.0 m. This means that the reference (or impervious) level is at -1.0 m in this cell. 
 
 
 .. figure:: image/b_interflow_build_volume.png
+   :scale: 150 %
    :alt: Sketch of interflow layer for, form left to right, Part I, II and III
    
    Sketch of interflow layer for, form left to right, Part I, II and III
+
+
+The interflow layer is completely dry (V=0 m\ :sup:`3`\) if the water level in a cell is at the level of the impervious layer (-1.0 m). The interflow layer is completely filled (saturated), if the water level is at the same level as the highest surface level of a subgrid cell in this computational cell (+1.0 m). The relation between the water level and the volume, as shown in the graph below, can be split into three parts. In part I; there is only water in the interflow layer. The curve is fully determined by the porosity distribution. In part II; water is partly in the interflow layer and partly above the ground level. In part III; the volume rises linearly with the water level as the interflow layer is fully saturated and the whole surface area of the cell is wet.
+
    
-.. figure:: image/b_interflow_volumewaterlevel.png
+.. figure:: image/b_interflow_volume_curve.png
+   :scale: 50 %
    :alt: Relation between water level and volume
    
    Relation between water level and volume
 
 
-The user defines the thickness of the interflow layer. As the groundlevel varies, the level of the impermeable layer would vary too. Nummerically, it has advantages to choose within a computational cell a uniform reference level. So the defined thickness of the interflow layer is always relative to the lowest pixel. The lowest pixel either defined in the computational cell or in the modelling domain. This is up to the user. To be able to control the storage capacity, the porosity within a subgrid cell can be rescaled, to guarentee for an unchanged storage capacity. Whether, this rescaling is performed depends also on the user settings.
+The user defines the thickness of the interflow layer. As the surface level varies, the level of the impermeable layer would vary too. Nummerically, it has advantages to choose within a computational cell a uniform reference level. So the defined thickness of the interflow layer is always relative to the lowest pixel. The lowest pixel is either defined in the computational cell or in the modelling domain. This is up to the user. To be able to control the storage capacity, the porosity within a subgrid cell can be rescaled, to guarentee for an unchanged storage capacity. Whether, this rescaling is performed depends also on the user settings. In the next paragraph, the four option are explained in detail.
 
-It is advised to use the option for automatic rescaling of the defined porosity. By using automatic rescaling the storage volume in the interflow layer is according to the expected volume based on the defined porosity and defined depth of the interflow layer. If rescaling is used, then the user also has to define a reference level of the permeable layer. This extra reference level has no physical meaning and has been added for advanced numerical purposes, such as stability. The porosity is rescaled to this extra permeable reference level.  
-This results in four different types for interflow. A more detailed description is given below including some volume computations. 
+Using the automatic rescaling of the porosity, the storage volume in the interflow layer is according to the expected volume based on the defined porosity and defined depth of the interflow layer. If rescaling is used, then the user also has to define a reference level for the impervious layer. This extra reference level has no physical meaning and has been added for advanced numerical purposes, such as stability. The porosity is rescaled to this extra permeable reference level. In case the porosity is kept constant, the storage capacity in areas with higher surfae levels is larger than in lower lying areas. However, in this case the relation between the water level and the volume remains linear (except at the transsition of surface level). 
 
-echnical explanation of the four interflow types
+Technical explanation of the four interflow types
 ---------------------------------------------------
 
-.. figure:: image/b_interflow_states.png
-   :alt: Overview of different states using interflow
+There are 4 types or settings of interflow that determine the  relation between porosity, water level and volume. For types 1 and 2 the user explicitly defines the thickness of the porosity layer and the depth of the impervious (the reference) layer. In theory both should have the same value. But early practice showed that using a very deep impervious layer, results in a more stable simulation. When choosing interflow type 1 or 2, the porosity is rescaled in order to preserve the storage capacity as would be based on the thickness and the porosity. For interflow type 3 and four the porosity remains constant.
 
-   Overview of different states using interflow
-
-
-Types
---------
-
-There are 4 types or settings of interflow that determine the way the volume it determined.  For types 1 and 2 the user explicitly defines the thickness of the porosity layer and the depth of the impervious layer. In theory both should have the same value. But early practice showed that using a very deep depth in the interflow layers results in a more stable simulation. By choosing the thickness of the porosity layer the volume in the interflow layer can still be controlled. The water levels do become artificial low, which can be confusing. In the figure above the water level may sink to 10000 meter.
-
-**Type 1** Fixed thickness of the porosity layer in the model domain and uniform impervious layer elevation per calculation cell
-
-Provide a porosity, porosity layer thickness and the depth of the interflow layer. Porosity can be given global or per pixel. The porosity and the thickness of the porosity layer determine the volume stored in the calculation cell. De depth of the interflow layer determines the water level. The volume in the interflow layer is scaled to the interflow layer depth to determine the water level. 
+**Type 1** 
+For type 1 the user defines a fixed thickness of the interflow layer throuhout the model domain and am uniform impervious layer elevation, which is determined relative per computational cell. One is also to define a porosity, which can be defined globally or with a raster. The porosity and the thickness of the interflow layer determine the storage capacity in the calculation cell. De elevation of the impervious layer determines whether the cell is dry or wet. To guarentee the storage capacity defined by the thickness of the layer and the porosity, the  porosity in the interflow layer is rescaled (:math:`\hat{\alpha}`) to the elevation of the impervious layer, according to:
 
 .. math::
    :label: porosity_scaled
@@ -113,31 +108,32 @@ Provide a porosity, porosity layer thickness and the depth of the interflow laye
    \hat{\alpha} = \frac{\alpha * L}{max(H_I, L)}
 
 | In which: 
-| a = input porosity, 
-| L = interflow layer depth and 
-| H\ :sub:`I`\ = D\ :sub:`sur`\ – D\ :sub:`inp`\, in which: 
-| D\ :sub:`sur`\  = surface level elevation and 
-| D\ :sub:`inp`\  = elevation of the impervious layer.
+- | :math:`\alpha` = input porosity, 
+- | :math:`L` = interflow layer depth and 
+- | :math:`H_I = D_{sur} – D_{inp}`, 
+defining,
+| :math:`D_{sur}` = surface level elevation and 
+| :math:`D_{inp}`  = elevation of the impervious layer.
 
- 
-For type 1 Interflow, the depth of the interflow layer is measured from the deepest DEM pixel in the calculation cell. The scaled porosity is then used to determine the volume in the interflow layer according to equation (1).
+The rescaled porosity is than used to compute the volumes and the water levels. 
 
-**Type 2** Fixed thickness of the porosity layer in the model domain and uniform impervious layer elevation over the model domain
+**Type 2** This interflow type resembles type 1. The porosity is determined according to the method described under type 1. The only difference is that the elevation of the impervious layer is not determined relative to the lowest surface level within one computational cel, but relative to the lowest pixel in the entire model domain.
 
-The porosity is determined in the same as as under type 1, but the elevation of the impervious layer is determines relative to the lowest DEM pixel in the entire model.
+**Type 3** When using interflow type 3, the volume in the interflow layer depends on the porosity per pixel and the depth of the impervious layer is relative to the deepest surface level in the computational cell. The porosity can be given globally or as a raster with different values per pixel. In type 3 the porosity is not rescaled.
 
-**Type 3** Relative thickness of the porosity layer and uniform interflow depth per calculation cell
+**Type 4** is similar to type 3 but determines the depth of the interflow layer relative to the lowest surface level in the whole model.
 
-The volume in the interflow layer depends on the porosity per pixel and the depth to the impervious layer. The porosity can be given globally or as a raster with different values per pixel. In type 3 the porosity is scaled based on the distance between the lowest DEM pixel in the calculation cell and the elevation of the impervious layer while the volume is determined per pixel. This means that although you are able to spatially vary porosity in more detail, the volume in pixels that lie above the lowest pixel of the calculation cell is overestimated. 
+*The figure and the table below show an example of de volumes in a calculation cell with interflow relative to the water level. In the last column the interflow settings are given. The rows in the table correspond to the situations displayed in the figure. The calculation cell's area is one square meter and for simplicity the cells contains only 4 pixels*
 
-**Type 4** Relative thickness of the porosity layer and uniform interflow depth over the model domain
 
-Type 4 works in the same way as type 3 but determines the depth of the interflow layer as the difference between the lowest DEM pixel in the whole model and the impervious surface elevation.
+.. figure:: image/b_interflow_states.png
+   :alt: Overview of different states using interflow
 
-*The table below shows an example of de volumes in a calculation cell with interflow relative to the water level. In the last column the interflow settings are given. The rows in the table correspond to the situations displayed in figure 2. The calculation cell's area is one square meter and for simplicity the cells contains only 4 pixels*
-
-.. figure:: image/b_interflow_example.png
+   Overview of different states using interflow
+   
+   .. figure:: image/b_interflow_example.png
    :alt: Interflow example table
+
 
 Settings for interflow
 --------------------------
