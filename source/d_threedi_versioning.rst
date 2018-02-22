@@ -1,6 +1,6 @@
 .. _model_installation_guide:
 
-Model installation guide
+Versions and scenarios
 ========================
 
 This section of the tutorial is intended to help modellers and specialists to get their 3Di models ready to run. It explains how to download, adjust and upload the models. If you don't know how to run a model in the portal yet, please refer to :ref:`guide_to_portal` and :ref:`running_model`. The first parts of this section give an overview on how to get a model ready to use on the 3Di portal. The last part contains more in depth explanation for advanced users.

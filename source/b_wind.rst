@@ -1,4 +1,4 @@
-Wind effects in the 1D and 2D domain 
+Wind effects  
 ------------------------------------
 
 The water levels and the flow velocities can be influenced by the wind. The extent to which this happens depends on the wind force that exerts on the water surface. Historical, actual and forecasts wind data are available from the meteorological institutes. Wind speed and wind force can vary in space and in time. It is possible to take both the spatial and temporal variations into account in 3Di. In addition, it is possible to take local shield factor into account, caused by buildings or trees.  

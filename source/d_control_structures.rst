@@ -1,4 +1,4 @@
-Setting up Control Structures
+Control Structures
 =============================
 
 This sections shows you how to set up a control on structures in your model. It uses a new tool from the QGIS 3Di Toolbox, so make sure you have installed a recent version of the QGIS plugin. Also, check out the workings of the controls at :ref:`control`.

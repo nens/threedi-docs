@@ -22,6 +22,7 @@ Welcome to 3Di's documentation!
    :numbered:
    
    b_massconservation
+   b_channelflow
    b_sewerage
    b_infiltration
    c_inflow
@@ -41,7 +42,7 @@ Welcome to 3Di's documentation!
    
    c_numerics
    c_calculation_grid_data
-   e_aggregation_results
+   c_aggregation_results
    c_state_files
    
 .. toctree::
@@ -59,8 +60,9 @@ Welcome to 3Di's documentation!
    d_flood_model
    d_water_system
    d_sewerage
-   d_api
    d_control_structures
+   d_api
+   d_results_from_lizard
 
 
 Indices and tables
