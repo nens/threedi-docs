@@ -18,7 +18,7 @@ Choices in saving a state file
 
 2.       The end of the simulation; When this option is chosen, the simulation will run until the indicated end of simulation is reached. Just before stopping the simulation, the state of the model is saved.
 
-3.       The moment that the model is “stable” to conditions specified by the user; Choosing to save the model when it is “stable”, requires the user to also choose a condition of the model is should meet. This condition depends on both: variable(s) to monitor and corresponding threshold value(s). Only when this condition is met, the state is saved. The variables that can be monitored are water level (s1) and flow velocity (u1) For example: the user can choose to save a model when: “variable” s1 in all calculation nodes, changes less than “threshold” 0.001 [m] within one calculation time step.
+3.       The moment that the model is “stable” to conditions specified by the user; Choosing to save the model when it is “stable”, requires the user to also choose a condition of the model it should meet. This condition depends on both: variable(s) to monitor and corresponding threshold value(s). Only when this condition is met, the state is saved. The variables that can be monitored are water level (s1) and flow velocity (u1). For example: the user can choose to save a model when: “variable” s1 in all calculation nodes, changes less than “threshold” 0.001 [m] within one calculation time step.
 
 Saving state files
 ------------------
