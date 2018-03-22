@@ -10,7 +10,7 @@ The dynamic flow through complex sewer networks can be computed fast, stable and
 
 The sewer network has to be defined in the 3Di model schematization. A sewer network is based on manholes connected by pipes. In the model a wide variety of cross sections and manhole shapes are available, including user-defined ones. In the sewer network one can specify any type of hydraulic structure, such as single or multiple stage pumps, weirs of any shape, rectangular and circular gates, culverts and storage and overflow basins. All structures handle free, submerged and transient flow conditions. Real-time control, including PID control, are available for all structures to simulate real time controlled networks. 
 
-Combination of sewer network with other oD, 1D and 2D networks
+Combination of sewer network with other 0D, 1D and 2D networks
 -----------------------------------------------------------------
 
 A sewer network is a special type of 1D network. Another type of the 1D network is an open water network. Both type of 1D networks can be combined in one model. There is no limitation to number of sewer pipes, the number of networks or the complexity of the networks.

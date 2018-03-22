@@ -156,8 +156,7 @@ Below two tables are included with a summary of the possible settings for interf
    * - Porosity Layer
      - .. math:: 
          \checkmark
-     - 	.. math:: 
-         \ding{55}
+     - 	X
    * - Hydraulic Connectivity
      - .. math:: 
          \checkmark
@@ -166,8 +165,7 @@ Below two tables are included with a summary of the possible settings for interf
    * - Impervious Layer Elevation
      - .. math:: 
          \checkmark
-     - .. math:: 
-         \ding{55}
+     - X
 
 .. list-table:: Interflow Types
    :widths: 30 30 30 30
