@@ -157,7 +157,7 @@ Below two tables are included with a summary of the possible settings for interf
      - .. math:: 
          \checkmark
      - 	.. math:: 
-         \xmark
+         \ding{55}
    * - Hydraulic Connectivity
      - .. math:: 
          \checkmark
@@ -166,8 +166,8 @@ Below two tables are included with a summary of the possible settings for interf
    * - Impervious Layer Elevation
      - .. math:: 
          \checkmark
-     - - 	.. math:: 
-         \xmark
+     - .. math:: 
+         \ding{55}
 
 .. list-table:: Interflow Types
    :widths: 30 30 30 30
