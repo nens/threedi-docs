@@ -28,10 +28,10 @@ When introducing an interflow layer, one introduces only new flow links and extr
      V = \alpha H_I A + H A,
 
 | In which:
-- | :math:`\alpha` is the local porosity, 
-- | :math:`H_I` is the thickness of the interflow layer, 
-- | :math:`A` is the pixel surface and 
-- | :math:`H` is the water depth.
+| :math:`\alpha` is the local porosity, 
+| :math:`H_I` is the thickness of the interflow layer, 
+| :math:`A` is the pixel surface and 
+| :math:`H` is the water depth.
 
 .. figure:: image/b_interflow_simple.png
    :alt: Sketch of interflow layer
@@ -57,9 +57,9 @@ The flow through the interflow layer is calculated by the 2D implementation of D
 
 
 | In which:
-- | :math:`Q_I^x` and :math:`Q_I^y` = the horizontal discharges in the interflow layer. 
-- | :math:`\kappa` = the hydraulic condutivity
-- | :math:`A_I^x` and :math:`A_I^y` = the cross-sectional area.
+| :math:`Q_I^x` and :math:`Q_I^y` = the horizontal discharges in the interflow layer. 
+| :math:`\kappa` = the hydraulic condutivity
+| :math:`A_I^x` and :math:`A_I^y` = the cross-sectional area.
 
 Note: The Darcy’s velocity does not take into account that medium is a grain-aggregate. In reality water flows through pore-paths (inter-connected pores) only. The interflow velocity computed in 3Di is related to the discharge through the concept of effective porosity.
 
@@ -108,10 +108,11 @@ For type 1 the user defines a fixed thickness of the interflow layer throuhout t
    \hat{\alpha} = \frac{\alpha * L}{max(H_I, L)}
 
 | In which: 
-- | :math:`\alpha` = input porosity, 
-- | :math:`L` = interflow layer depth and 
-- | :math:`H_I = D_{sur} – D_{inp}`, 
-defining,
+| :math:`\alpha` = input porosity, 
+| :math:`L` = interflow layer depth and 
+| :math:`H_I = D_{sur} – D_{inp}`, 
+
+|defining,
 | :math:`D_{sur}` = surface level elevation and 
 | :math:`D_{inp}`  = elevation of the impervious layer.
 
@@ -131,7 +132,7 @@ The rescaled porosity is than used to compute the volumes and the water levels.
 
    Overview of different states using interflow
    
-   .. figure:: image/b_interflow_example.png
+.. figure:: image/b_interflow_example.png
    :alt: Interflow example table
 
 
@@ -155,7 +156,8 @@ Below two tables are included with a summary of the possible settings for interf
    * - Porosity Layer
      - .. math:: 
          \checkmark
-     - 			x
+     - 	.. math:: 
+         \xmark
    * - Hydraulic Connectivity
      - .. math:: 
          \checkmark
@@ -164,7 +166,8 @@ Below two tables are included with a summary of the possible settings for interf
    * - Impervious Layer Elevation
      - .. math:: 
          \checkmark
-     - x
+     - - 	.. math:: 
+         \xmark
 
 .. list-table:: Interflow Types
    :widths: 30 30 30 30
