@@ -7,4 +7,4 @@ The 3Di engine is based on state-of-the-art numerical schemes. The engine makes 
 
 The 3Di engine is developed by Prof. dr. ir. G. S. Stelling, who worked on the subgrid technique in close collaboration with Prof. dr. ir. V. Casulli. Most of the techniques used within the 3Di engine are published in scientific papers. 
 
-This document presents a description of the methods used in 3Di and tutorials how it is used. This document will help the novice as well as the experienced 3Di-user. For the beginner it contains background information and key points for creating a first model, while for the experienced user it will serve as a reference work. 
+This document presents a description of the methods used in 3Di and tutorials how it is used. This document will help the novice as well as the experienced 3Di-user. For the beginner it contains background information and key points for creating a first model, while for the experienced user it will serve as a reference work. Information about courses, examples, demonstrations and how to contact us can be found on: http://www.3di.nu/.
