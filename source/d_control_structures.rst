@@ -1,3 +1,5 @@
+.. _control_structures:
+
 Control Structures
 =============================
 
