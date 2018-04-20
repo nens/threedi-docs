@@ -52,14 +52,8 @@ This is to ensure stability and to ensure conservation of mass.
 Horton based infiltration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-background, time dependend, solution to vertical darcy
+Under construction. This will become available with the release of 22nd of May.
 
-defintion of ground water nodes
-
-
-infiltration vs exfiltration
-
-input: groundwater table 
 
 
 
