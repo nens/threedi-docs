@@ -24,6 +24,7 @@ Welcome to 3Di's documentation!
    b_massconservation
    b_surfaceflow
    b_channelflow
+   c_structures
    b_sewerage
    b_infiltration
    c_inflow

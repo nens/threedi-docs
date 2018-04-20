@@ -40,3 +40,4 @@ If the model wishes to include an obstacle that may not be detected by the calcu
 
 In the computational core a levee and obstacle are dealt with the same way. However, defining them is slightly different. Levees are a separate category of obstacle, because they need more variable characteristics than obstacles.
  
+More details on how to use obstacles, levees and breaches can be found in :ref:`flood_model`.

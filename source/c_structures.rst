@@ -69,17 +69,17 @@ The long crested weir uses the conservation of mass and energy equations to comp
    Illustration of long crested weir.
 
 
-Orifice
-------------
+Orifice and Culvert
+--------------------
 
-Orifices are used in sewerage to limit flow or can be used to model a bridge. In 3Di the flow through orifices is computed in the same way as weirs. The only difference between the two is that there are two separate input tables.
-   
+Orifices are used in sewerage to limit flow or can be used to model a bridge or culvert. The separate culvert table differs from orifices in the way the flow is calculated. Culverts are closely related to pipes in this sense. The Culvert table can be used for longer sections of pipe-like structures and may be curved. Shorter, straight culverts are best modeled using the culvert table since that will result in a more stable and quicker calculation. 
 
-Culvert
-------------
+For orifices, the energy loss caused by the decrease in flow velocity at the outlet are accounted for by 3Di. The discharge coefficients for orifices can be used to account for any additional energy loss. 
 
-Culverts are f.e. placed under driveways to make sure water can still flow from one side to the other. Culverts are closely related to pipes.The only difference between the two is that culverts have a geometry, and thus can be curved. 
+For culverts, the discharge coefficient has not yet been implemented.
+
+The input parameters for orifices are similar to those for weirs, specified in the section above. Culverts use invert levels at the start and end instead of the crest level in weirs and orifices.
 
 
 
-Sturing
+Control on structures is described in a separate section: :ref:`control_structures`.
