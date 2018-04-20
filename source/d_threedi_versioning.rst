@@ -147,9 +147,14 @@ By clicking the name of the repository it shows an overview of the model scenari
 .. figure:: image/d4.6_model_repository_2.png
 	:alt: Model administration page - details
 
-After a model scenario has been made visible, it can be visualised on the 3Di portal. 
+After a model scenario has been made visible, it can be visualized on the 3Di portal. 
 
 .. _multiple_scenarios:
+
+Pinning a scenario
+------------------
+
+New revisions are added to the website automatically. Default, the latest three revisions are remain available. If you would like to save an older revision, click on the gear symbol next to the revision. Then select revision you would like to save or pin. You can pin up to two revisions.
 
 Advanced: multiple scenarios in one repository
 ----------------------------------------------

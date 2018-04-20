@@ -1,3 +1,5 @@
+.. _flood_model:
+
 Flood model
 ========================
 
@@ -66,3 +68,20 @@ The obstacle allows you to set the minimum crest level on the edge of a calculat
    Levee in quadtree
 
 The levee can be used in the same way as the obstacle but allows you the set some additional parameters that are used when a breach is simulated. For your model, draw a line over your dike and fill out it’s crest level. You can use different segments when the dike varies in height. Make sure all your levee segments are drawn within the extent of your raster-files.
+
+Breach locations
+----------------
+
+There are two ways to add breach locations to a model, manually for each breach or automatically for selected channels. In both cases the table v2_connected_pnt and v2_calculation_points must be filled completely and correctly. The calculation points are points on which 3Di will place water level calculation points. The connected points refer to these calculation points by a unique id. The location of the connected points marks the location where the 1D2D connection is made to the 2D Quadtree. If a straight line between the calculation point and the connected point crosses a levee, a breach location is generated.
+
+To add a breach location next to a levee consider the following steps:
+
+#. Start with a model that has a connected channel and levees. Go to the channel for which you would like to add a breach location.
+
+#. Select “toolbox for working with 3Di” from the 3Di-toolbox and choose either: 
+
+    A. *predict_calc_points*, when you want to select one breach point at a time. This option requires you to place a connected point, near to the levee, on the opposite side of the levee. The tool will automatically assign a breach point to the levee. You must also fill in the levee ID and maximum breach depth in the connected point table.
+    
+    #. *create_breach_locations*, when you want the toolbox to create multiple breach locations along the levee, nearest to the channel. This option will automatically assign the breach locations to the levee given your settings. Remember to check the breach locations and fill in any empty columns in v2_connected_pnt.
+    
+No actual breach points will become visible for these two options in Qgis. These will become visible only on the 3Di live site.
