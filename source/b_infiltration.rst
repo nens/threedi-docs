@@ -49,13 +49,12 @@ The infiltration is implicitly added to the continuity equation. This means that
 
 This is to ensure stability and to ensure conservation of mass.
 
+.. _hortoninfiltration:
+
 Horton based infiltration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Under construction. This will become available with the release of 22nd of May.
-
-
-
+The second possibility to add infiltration to a system, is infiltration based on the Horton equation. This describes a infiltration rate that is initially higher and decays to an equilibrium infiltration. This type of infiltration is always used incombination with a groundwater level. In such, the infiltration is always limited. More information about the Horton based infiltration can be found here :ref:`grwhortoninfiltration`.
 
 
 
