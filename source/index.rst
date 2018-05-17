@@ -22,8 +22,8 @@ Welcome to 3Di's documentation!
    :numbered:
    
    b_massconservation
-   b_groundwater
    b_surfaceflow
+   b_groundwater
    b_channelflow
    c_structures
    b_sewerage
