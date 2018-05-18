@@ -1,9 +1,8 @@
 Aggregated output
 =================
 
-Results for a 3Di simulation are normally written in a results file called *results_3di.nc*. This file contains the flow information (Snap Shots) at different times in the simulation. The interval at which these flow information are written is defined by the user via the parameter *output_time_step*. 
-Aggregated results from certain intervals during the simulation can be very useful. For this purpose an aggregated results file is available called *aggregate_ results_3di.nc*. The configuration for this aggregation file is available in the models spatialite and the table is called v2_aggregation_settings. 
-The configuration with its options will be explained below. The layout of the table is:
+Results for a 3Di simulation are normally written in a results file called *results_3di.nc* (previously *subgrid_map.nc*). This file contains the flow information (Snap Shots) at different times in the simulation. The interval at which these flow information are written is defined by the user via the parameter *output_time_step*. 
+Aggregated results from certain intervals during the simulation can be very useful. For this purpose an aggregated results file is available called *aggregate_ results_3di.nc* (previously *flow_aggregate.nc*). The configuration for this aggregation file is available in the models spatialite and the table is called v2_aggregation_settings. The configuration with its options will be explained below. The layout of the table is:
 
 .. figure:: image/aggregation_table.png
    :alt: Table layout aggregation options
