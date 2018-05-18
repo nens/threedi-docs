@@ -2,9 +2,33 @@ Results in the NetCDF
 ========================
 
 
-The raw results of 3Di, or snap shots of the flow variables are stored in a NetCDF-file. This is a common file type, for which there are several standars packages in matlab, python and excell availble to extrct the data from it. It is also the file from which the 3Di plugin recieves its information.
+The raw results of 3Di, or snap shots of the flow variables are stored in a NetCDF-file. This is a common file type, for which there are several standard packages in matlab, python and excell available to extract the data from it. It is also the file from which the 3Di Plugin receives its information.
 
-In  the file called: Subgrid_map.nc exists the following information:
+From the spring release 2018 3Di switched to the so-called CF-standards for Netcdf. All results produced after that release are saved in the file *results_3di.nc*. This was previously *subgrid_map.nc*. 
+
+	
+Concerning the file *results_3di.nc*
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The Documentation for the new results file will be released as soon as possible. For the time being, a short overview of the changes:
+
+* The new NetCDF can be used in the 3Di Plugin from Version **1.0** and beyond.
+
+* The NetCdf is written according to the `CF conventions <http://cfconventions.org/>`_ . Therefore, the information of the 1D domain and 2D domain are split into two. 
+
+* Overall, the names of the variable above are not changed, only it is preceded by *Mesh2D_[variable name]* or with *Mesh1D_[variable name]*. 
+
+* Groundwater variables, water levels, velocities and discharges are part of the 2D Mesh and are filling up the second half of the arrays.
+
+* A *z*-coordinate is added to the grid for nodes and lines. At nodes it is the value of the lowest point in that cell. At lines it is the lowest point at the edge or the exchange height for 1D2D connections.
+
+
+
+
+
+Concerning the file *subgrid_map.nc*
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+In the file called: subgrid_map.nc exists the following information:
 
 Information of the grid
 ________________________
@@ -232,3 +256,18 @@ ______________________
 -	Number of potential breaches (nBreaches)
 
 	-	  [levnms]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

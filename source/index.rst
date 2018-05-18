@@ -23,6 +23,7 @@ Welcome to 3Di's documentation!
    
    b_massconservation
    b_surfaceflow
+   b_groundwater
    b_channelflow
    c_structures
    b_sewerage

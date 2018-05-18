@@ -3,6 +3,7 @@ Infiltration
 
 3Di supports to methods for computing infiltration. The so-called *simple infiltration* and the *Horton based infiltration*. The simple infiltration uses an infiltration rate that is constant in time, while the Horton based infiltration is based on the concept of infiltration that reaches in time an equilibrium rate. In 3Di, the infiltration computed with the first method removes the water from the model. For the second method, a ground water layer is defined from which water can also exfiltrate in case the groundwater level reaches the surface level.
 
+.. _simpleinfiltration:
 
 Simple Infiltration
 ^^^^^^^^^^^^^^^^^^^^
@@ -49,13 +50,12 @@ The infiltration is implicitly added to the continuity equation. This means that
 
 This is to ensure stability and to ensure conservation of mass.
 
+.. _hortoninfiltration:
+
 Horton based infiltration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Under construction. This will become available with the release of 22nd of May.
-
-
-
+The second possibility to add infiltration to a system, is infiltration based on the Horton equation. This describes a infiltration rate that is initially higher and decays to an equilibrium infiltration. This type of infiltration is always used incombination with a groundwater level. In such, the infiltration is always limited. More information about the Horton based infiltration can be found here :ref:`grwhortoninfiltration`.
 
 
 
