@@ -38,11 +38,12 @@ G. For modelling a soil water zone groundwater can be combined with infterflow.
    Overview of groundwater concepts (2)
 
  
- In the section below, while using *Figure 2* with the key concepts of the groundwater model, the assumptions made are explained in more detail.
+In the section below, while using *Figure 2* with the key concepts of the groundwater model, the assumptions made are explained in more detail.
 
 
 Groundwater concepts
 -----------------------
+
 The physical groundwater concepts on which this groundwater method is based, are thoroughly described in the book of *Jacob Bear and Arnold Verruijt, Modeling Groundwater Flow and Pollution*. Based on the numbers and letters shown in *Figure 2*, the key concepts and assumptions made of the groundwater model are illustrated. The aim is to simplify the processes involved in the top aquifer, but to preserve enough accuracy for reliable simulations of the surface interaction. In the top panel of *Figure 2* a general overview of some groundwater processes are illustrated and in the bottom panel are the processes indicated that are taken into account in 3Di.
 
 
@@ -83,8 +84,10 @@ The physical groundwater concepts on which this groundwater method is based, are
 
 .. _grwhortoninfiltration:
 
+
 Horton based infiltration
 -----------------------------------
+
 Mentioned above, the infiltration process is rather complex, therefore many models use a parametrization for this process. In 3Di, a Horton based infiltration is chosen. Three variables determine the infiltration rate in time. It is based on the notion that the infiltration rate decays to an equilibrium value. Mathematically:
 
 .. math::
@@ -107,6 +110,7 @@ The infiltration rate will start its decay as soon as the cell becomes wet. Curr
    
 Input
 ~~~~~~~~~~~~
+
 For the use of Horton infiltration, one chooses indirectly to take a groundwater level into account. This to ensure a limit to the infiltration; when the groundwater level reaches the surface. To take the storage capacity of the soil into account, one needs to define the impervious surface layer and the phreatic storage capacity, as well. The three Horton parameters (in *[mm/day]*), the impervious surface layer ([m] relative to a reference level)  and the phreatic storage capacity (*[-]* between 0-1) can be defined globally and spatially varying. In case one uses the spatially varying option, a user needs to define a method for analyzing the rasters (taking the minimum, maximum or the average in a computational domain). 
 
 The initial conditions for the groundwater level can be added to the *v2_global_settings*  table using a global value or a raster for spatially varying values.
@@ -115,12 +119,14 @@ You can download the complete overview of tables that 3Di uses in the spatialite
 
 Output
 ~~~~~~~~~~~ 
+
 Similar to the other variables, the results are saved in the result files, snap-shots and aggregated results. In contrast to infiltration computed according to :ref:`simpleinfiltration`, the Horton-based infiltration is computed on a flow line. Both a discharge (*[m\ :sup:`{3}`\ /s]*) and a velocity (*[m/s]*) are available as output. Note, that the velocity is the infiltration rate and not the effective velocity. The effective velocity is the velocity that the water front would subside through the soil. 
 
 .. _grwflow:
 
 Groundwater flow 
 --------------------
+
 The flow in the subsurface is computed under the assumption of hydrostatic pressure. This is also known as the Dupuit assumption. This implies that the flow in the saturated zone is fully horizontal and described by the Darcy equations:
 
 .. math::
@@ -154,15 +160,18 @@ The discharges ([m\ :sup:`3`\ /s]), the velocities *[m/s]* and the groundwater l
 
 Sources and Sinks, Leakage
 -----------------------------
+
 We offer the possibility to define a bottom boundary condition for the subsurface domain. At this boundary condition sources and sinks can be defined. The range of applications is rather wide, as it can be used as the interaction with deeper groundwater layers, local pumping and/or evaporation. The formulation for leakage is therefore made as general as possible to offer the user as much freedom as possible. Naturally, there cannot be water extracted, which isn't there but otherwise it is up to the user.
 
 
 Input
 ~~~~~~~~~~~~
+
 The input for leakage is simple, it can be defined globally and with a raster to define a spatially varying values. The values can be positive or negative. Positive values are representing water going into the domain. The dimension of leakage is in *mm/day*. You can download the complete overview of tables that 3Di uses in the spatialite database :download:`here <pdf/database-overview.pdf>`.
 
 Output
 ~~~~~~~~~~~ 
+
 Sources and sinks are defined in the cell centers. This yields also for leakage values. The fluxes per cell [m\ :sup:`3`\ /s] can be found in the result files. Note that when the flow limits the extraction, the limited values are recorded in the result files. 
 
 
@@ -170,6 +179,7 @@ Sources and sinks are defined in the cell centers. This yields also for leakage 
 
 Numerical implementation [#f1]_
 -----------------------------------
+
 The numerical implementation of the horizontal and vertical flow is based on the concept of staggered grids. This implies that pressure points are defined in the cell centers and flow is defined at the cell edges. The spatial resolution of the 2D surface flow equals that of the groundwater flow. Therefore, the connections between the surface and the subsurface are completely vertical and orthogonal to the surface and subsurface layers. 
 
 Considering the timescales of groundwater flow compared to surface water flow, they are generally considerable longer. This would favor an explicit formulation. However, the moment that the groundwater level reaches the surface, the timescales are the same. Therefore, the horzontal flow is computed explicitly, but the vertical interaction is computed implicitly. 
