@@ -22,6 +22,8 @@ Welcome to 3Di's documentation!
    :numbered:
    
    b_massconservation
+   b_surfaceflow
+   b_groundwater
    b_channelflow
    c_structures
    b_sewerage
@@ -43,6 +45,7 @@ Welcome to 3Di's documentation!
    
    c_numerics
    c_calculation_grid_data
+   c_netcdf_results
    c_aggregation_results
    c_state_files
    

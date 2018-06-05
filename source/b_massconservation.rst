@@ -28,7 +28,7 @@ The conservation of Mass can be described mathematically as:
 | ρ is the density, 
 | V is the volume, 
 | Q is a discharge and 
-| Q is a sink or source term. 
+| S is a sink or source term. 
 
 The counters i, j, k count over all existing discharges, sink and source terms. In 3Di we do not account for density variations, so the density ρ is assumed uniform and constant. This simplifies the equation for conservation of mass, to the following equation for conservation of volume:
 
