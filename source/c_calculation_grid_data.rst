@@ -1,5 +1,7 @@
-Calculation grid data
-=====================
+Tabulated data storage
+===================================
+
+.. _tables
 
 In 3Di we make use of detailed data to compute the hydrodynamics via the so-called subgrid technique. For all spatially varying parameters, high resolution raster data is used. For example, we use high resolution raster data for the bathymetry to calculate detailed volumes in our model, but also roughness coefficients to calculate friction are based on high resolution raster data. In 1D elements we use detailed vector attribute data and compress this in the same manner to subsequently calculate for instance 1D volumes or friction. 
 

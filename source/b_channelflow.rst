@@ -1,5 +1,7 @@
-Channels
+1D Network
 ============
+
+.. _flow1d:
 
 The 3Di model offers the possibility to simulate 1D flow. This means that the calculated flow velocity and discharge is averaged over both depth and width.  Effects of variations in depth and width are included but flow within a segment has only one direction. A 1D element can be a watercourse (open water) or a sewer pipe. This section is limited to channels.
 
@@ -48,3 +50,15 @@ For all sections, the 1D shallow water equations are solved. The basis for the c
    :align: center
    
    Example network of connected channel sections and 2D quadtree with channel sections in blue, 1D2D connections in orange and the 2D quadtree in gray
+   
+Pressurized flow
+---------------------
+However, a typical characteristic of some 1D elements is that they can have closed cross-sections (Figure b1.5). In this the violate one of the requirements in order to solve the non-linear system. Therefore, a new method had to be introduced to solve such non-linear systems. This was introduced with the so-called nested Newton method (Casulli & Stelling 2013).
+
+.. figure:: image/b1_5.png
+   :scale: 50%
+   :alt: open_closed_crosssections
+   
+   Examples of cross-sectional areas. An open and closed cross-sectional area
+
+By this not only flooding and drying is automatically accounted for, also pressurized flow can simply be solved. One of the advantages is that the volume in an element, like a pipe can be limited, while the water level can still rise. At some point, when the pipe is full, the water level than represents a pressure (Figure b1-6). 

@@ -21,6 +21,7 @@ Welcome to 3Di's documentation!
    :name: basic_principles
    :numbered:
    
+   b_grid
    b_massconservation
    b_surfaceflow
    b_groundwater
