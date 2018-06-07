@@ -1,0 +1,156 @@
+Problem Solving
+===============
+
+This section will help you solve some problems or errors that may occur when using 3Di. Errors can occur in various components or steps of the modeling process: 
+
+#. Generating a 3Di model from the spatialite data or 'INP generation' which occurs in http://3Di.lizard.net/models, or
+
+#. During simulation on the live site or in an API calculation.
+
+The sections below mention different types of errors and how to find them.
+
+INP generation
+--------------
+
+After uploading or pushing a new revision 3Di.lizard.net/models will generate a model automatically. If an error occurs during this process the status bar will turn red and show FAIL. By clicking FAIL the log messaging is shown. You may now look for errors either through the web page or by downloading the file in the upper right corner of the screen. Look for any line that starts with *ERROR* and see if you recognize the examples below.
+
+ERROR can not detect use case from settings.
++++++++++++++++++++++++++++++++++++++++++++++
+Followed by::
+
+            Settings from v2_globalsettings are: use_2d_flow True
+            use_1d_flow False dem_file rasters/dem.tif
+            conf.manhole_storage_area 100.0
+
+The use case was not specified correctly. Check the manhole storage area given your use case (1D, 0D, 2D or an combination). Manhole storage area must be NULL when using only 2D. For other settings see the global settings section in the database overview, download :download:`here <pdf/database-overview.pdf>`.
+
+AttributeError: 'NoneType' object has no attribute '__tablename__'
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Some table that should be empty are not. For instance when v2_connected_pnt table (used for breaches) is filled while your model has no 1D elements. 
+
+
+TypeError: Improper geometry input type: <type 'NoneType'>
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Some feauture in a table with geometry has an improper geometry. This usually means the geometry field is empty. 
+
+ERROR: No crosssection on channel with pk 558 
+++++++++++++++++++++++++++++++++++++++++++++++
+
+A channel in your model has no cross section definitionn. The error displays the pk (primary key) or channel id for which channel the cross section location is missing.
+
+Fortran runtime error: Bad integer for item 2 in list input
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Most likely you have failed to provide the channel, culvert or pipe calculation type, like isolated, connected, embedded or double connected.
+
+ERROR  : Bad integer for item 2 in list input (= network file)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Similar to the error above. In addition, for every connection node the type is derived from the connecting channels, pipes or manhole. When the node is not connected to any of these, the type cannot be derived. Add a manhole to set the type for these nodes.
+
+ERROR  : Connected 1D calculation node at nodata value of raster. 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Followed by::
+
+        Channel ID and pixel coordinates are:           2034          1681           559
+        ERROR  : Calculation node          18398
+
+A connected calculation node is outside the DEM. May be an end or start node as well as a calculation node halfway a channel segment.
+
+ERROR  : There is at least one erroneous location of a 2D open boundary. 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Followed by::
+
+    It is not located at an active edge. This (these) boundarie(s) is (are) ignored
+
+The 2D boundary condition line is outside the DEM raster. Place 2D boundary lines in the centre of the last row of pixels of the DEM.
+
+
+AttributeError: 'NoneType' object has no attribute 'full_name'
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+This error may be caused by the following:
+
+* One or more rasters are missing.
+
+* The minimum grid space and DEM resolution are not aligned properly, the amount of pixels in the smallest calculation grid must be an even number.
+
+* A channel may have a cross section location exactly on the start or endpoint or be far from it.
+
+* Rasters are not aligned or have different geometries.
+
+* grid refinement or levees are outside the DEM.
+
+Error in node sequence of network file 
++++++++++++++++++++++++++++++++++++++++
+
+Some required fields are left blank, like the crest level of a weir. Fields may be empty in v2_orifice, v2_channel, v2_weir, v2_culvert or v2_pumpstation.
+
+ERROR: Error in 1d administration: 
+++++++++++++++++++++++++++++++++++
+
+Followed by::
+
+        Number of input boundaries is not the same to the number of boundaries found by the computational core
+
+A boundary condition is linked to a node with more than one connection. A boundary may not be spaced on a junction of multiple channels, pipes or structures.
+
+
+Simulation
+----------
+
+If an error occurs during simulation a pop-up is displayed in the right bottom corner. The pop-up shows the error message and you will receive an email with some more details.
+
+The INP generation system tries to avoid any errors during simulation. When an error during simulation does occur, most often there is a problem with one of the underlying services or servers. The user can best contact the Servicedesk for more help. The list of errors below may also help you.
+
+ERROR - F - Matrix diagonal element, near zero
+++++++++++++++++++++++++++++++++++++++++++++++
+
+At one calculation point there is no storage area or the wet cross section area is near zero or even negative. This may be caused by various reasons listed below:
+
+* Structure levels are below cross section reference levels, f.i. a culvert below the bed level. This is not possible as when water level drops below the bed level, flow through the culvert has no area to flow to. Update reference or structure levels so that they match. Reference levels can be below structure levels.
+
+* A lateral inflow from laterals or an inflow surface is connected to a node without storage area, f.i. an pump end node or boundary node. Removes laterals or inflow from these nodes.
+
+* Water level boundary is below structure level.
+
+* All definition values for width and height must be positive.
+
+* Pump start level is below pump stop level.
+
+The error is followed by a reference to the node without any storage or link without wet cross section area. This look something like::
+
+    near zero, aii(nod)<1.0d-10,nod,aii(nod),su(nod)  14614   14439  0.0000E+00  0.0000E+00
+    
+The first number (14614 in this example) refers to the calculation node on which the error occurs. This number can be found using the QGIS plugin when a result of this model is available. The number can be located using the *node_results*. The id's in this table match the one given here. The second number is a link id and can be found using the *line_result* layer.
+
+ERROR : The combination of cross-section types is invalid for input channel number:
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Not all cross section definition types can be combined for a single channel. Only type 1 (rectangle) and type 2 (circle) or type 5 and 6 (both tabulated) can be combined.
+
+ERROR - F - Impossible line connection at calculation node:            729
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+This error may occur when using embedded in combination with structures. Make sure no structure is placed entirely inside a 2D calculation cell.
+
+RuntimeError: NetCDF: String match to name in use
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Check the aggregation NetCDF name settings, names must be unique.
+
+
+Servicedesk
+------------
+
+If you are unable to find or solve an error you may contact the Nelen & Schuurmans servicedesk. The servicedesk will: 
+
+#. always assist you in solving any problems you have using the various 3Di web pages, and
+
+#. help you solve problems in model schematisation if you are subscribed to 3Di support.
+
+Contact the servicedesk by sending an email to servicedesk@nelen-schuurmans.nl. Please provide as much information as you can about the error and the model and revision number for which the error occurs.
