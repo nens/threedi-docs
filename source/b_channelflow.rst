@@ -1,7 +1,9 @@
+.. _flow1d:
+
 1D Network
 ============
 
-.. _flow1d:
+
 
 The 3Di model offers the possibility to simulate 1D flow. This means that the calculated flow velocity and discharge is averaged over both depth and width.  Effects of variations in depth and width are included but flow within a segment has only one direction. A 1D element can be a watercourse (open water) or a sewer pipe. This section is limited to channels.
 

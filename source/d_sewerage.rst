@@ -31,6 +31,7 @@ To add a manhole consider the following steps:
 
 #. In case of a purely 1D sewerage model, the manhole storage area has to be defined in the global settings. This determines the size of the 'storage' that is used as a substitute to determine the volume at street level when the water rises above the drain_level in case of connected manholes.
 
+.. _structures:
 
 Structures
 ------------------------

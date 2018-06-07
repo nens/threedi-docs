@@ -1,3 +1,5 @@
+.. _cons_volume:
+
 Conservation of mass
 ========================
 
