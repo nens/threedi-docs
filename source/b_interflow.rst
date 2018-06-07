@@ -1,7 +1,7 @@
-Interflow
-=========
-
 .. _interflow:
+
+Interflow
+===========
 
 In a 2D model, the water flows over the surface and can infiltrate into the soil. Surface water flow is described by the shallow water equations. The infiltration is based on the available water above the surface, the maximum infiltration rate and the storage capacity of the soil. All these parameters are defined on a geographical raster, and translated to a set of values for each computational cell.
 

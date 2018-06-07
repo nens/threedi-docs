@@ -68,6 +68,7 @@ Welcome to 3Di's documentation!
    d_control_structures
    d_api
    d_results_from_lizard
+   d_problem_solving
 
 
 Indices and tables

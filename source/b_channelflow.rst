@@ -10,10 +10,10 @@ The 3Di model offers the possibility to simulate 1D flow. This means that the ca
 Some model elements of the water system can be modelled better in 1D. This mainly involves specific characteristics of these elements which are very important for the model (like the discharge equation of a weir). Currently available within 3Di are the following 1D elements; channels, structures, like weirs, orifices and culverts, and levees or obstacles.
 Simulating the 1D water courses is possible in three ways. This includes three types of 1D elements; Isolated, (Double) Connected and Embedded.  The difference between these 1D elements is their interaction with 2D flow.
 
-Types of channels
-------------------
+Types of 1D elements
+-----------------------
 
-The water system of channels and ditches can be schematised as a 1D network in 3Di that can interact with the 2D calculation cells of the quadtree. There are three different types of channels to be distinguished for different purposes:
+The water system of channels, ditches and pipes (1D elements) can be schematised as a 1D network in 3Di. This network can interact with the 2D computational domain. There are three different types of 1D elements to be distinguished for different purposes:
 
 - Embedded
 
