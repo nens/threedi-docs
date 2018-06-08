@@ -12,6 +12,9 @@ The first thing you must do is activate 1D flow in the global settings. Also con
 
 * use_of_nested_newton
 
+
+.. _channels:
+
 Channels
 ------------------------
 

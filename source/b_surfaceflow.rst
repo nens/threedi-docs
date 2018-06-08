@@ -1,6 +1,8 @@
-Surface Flow
-============
+.. _surface_flow:
 
-The flow computed by 3Di is based on the 2D and 1D depth-averaged shallow water equations. These equations are based on the conservation of momentum. 3Di considers the various processes; inertia, advection, pressure and friction for computing the horizontal flow. 
+2D Surface Flow
+================
 
-Currently, we are working on improving the documentation. This section will soon be improved.
+The 2D surface flow is based on the 2D depth-averaged shallow water equations. These equations are based on the conservation of momentum. 3Di considers the various processes; inertia, advection, pressure and friction for computing the horizontal flow. 
+
+The documentation in general and this section specifically will soon be further improved.
