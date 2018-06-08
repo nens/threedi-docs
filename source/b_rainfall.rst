@@ -1,7 +1,7 @@
+.. _rain:
+
 Rainfall
 ========
-
-.. _rain:
 
 In 3Di rainfall can be used as model input in different ways. The most simple one is letting it rain on the 2D surface, in other words on the 2D computational cells. The general rainfall unit is mm/hr. In 3Di calculation, the rainfall is automatically converted into rainfall volume (m3 [cell area x rainfall intensity x delta t]). 
 

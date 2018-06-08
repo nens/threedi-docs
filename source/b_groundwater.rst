@@ -6,22 +6,18 @@ Groundwater
 Introduction
 ---------------------
 
-Flow in the subsurface is very complex on a large scale, as also the effects on smaller scales can have a significant effect. In order to take all processes into account, models with significant computational times are required, even when surface flow, sewer systems and other processes are neglected. A schematic overview of some of the large scale processes are given in *Figure 1*. *Number I*   indicates surface flow and overland flow. From the surface (*Number II* ) water can infiltrate or exfiltrate to and from the subsurface, where it can flow further in the horizontal or the vertical direction (*Number III* ). From thereon, several aquifers can overlap and interact. As they are separated by (semi-)impervious layers, they can exist under different pressures. Exchange can occur in both up- and downward direction (*Numbers IV and V* ).  One aquifer can consist of a zone of saturation and the zone of acration (unsaturated zone). In addition, within one aquifier the soil characteristics vary over time and space (*Number VI* ). To limit the modelling domain and the number of processes to be taken into account, the current method for modelling groundwater flow in 3Di, is focused on the processes in the top aquifer of the sub-surface layer (the red box of *Number VII* ).
+Surface water is not only affected by rain and in and outflow of water originating from other regions. In reality, surface water is fully coupled to and interacts with groundwater. This implies that the behaviour and the quantity of water at the surface is affected by groundwater too. The flow in the subsurface is influenced strongly by processes on both very large and small scales in time and space. In order to take all processes into account, models with significant computational times are required, even when surface flow, sewer systems and other processes are neglected. 3Di aims at a modelling method that can handle short term effects of heavy precipitation and inundation, including the interaction with groundwater. For the computation of surface flow detailed information about the topography and the land use is often available. However, the information about the soil is often much less accurate and detailed. This lack of data and the complexity of the processes involved, favor a scenario-approach when dealing with groundwater flow. Especially, when investigating the sensitivity of areas to flooding and hindrance originating from groundwater. This approach requires a fast numerical model that can integrate the effects of the sewer system, surface water and overland flow. Therefore, processes need to be simplified. First, a short summary of the concepts implemented in 3Di is presented. In the sections that follow, some more detail and context is given about large scale groundwater flow, the implementation and the choices made in the model.
 
-   
-.. figure:: image/b_grw_largescaleoverview.png
-   :alt: largescale_figure
 
-   Overview of large scale groundwater concepts (1) 
-   
-We are aiming at a modelling method that can handle short term effects of heavy precipitation and inundation, including the interaction with groundwater. For the computation of surface flow detailed information about the topography and the land use is often available. The information about the soil is often much less accurate and detailed. This lack of data favors a scenario-approach when dealing with groundwater flow. Especially, when investigating the sensitivity of areas to flooding and hindrance originating from groundwater. This approach requires a fast numerical model that can integrate the effects of the sewer system, surface water and overland flow. Therefore, processes need to be simplified. Here, a summary of the basic assumptions is presented. In the sections below, we elaborate on these assumtions. 
+Summary of concepts in 3Di
+------------------------------
 
 .. figure:: image/b_grw_overview_ass.png
    :alt: master_figure2
 
-   Overview of groundwater concepts in 3Di (2)
+   Overview of groundwater concepts in 3Di (1)
    
-The Figure above shows a cross-section of a region with surface and sub-surface water. The Letters in the Figure refer to the following decription:
+The Figure above shows a cross-section of a region with surface and sub-surface water. The Letters in the Figure refer to the following description of the main assumtions made for the computation of groundwater flow:
 
 A. The phreatic surface is assumed equal to the water table. The soil below is assumed fully saturated and the soil above assumed completely dry.
 
@@ -38,21 +34,21 @@ F. At the bottom boundary, effects of deeper groundwater layers or extraction of
 G. For modelling a soil water zone, groundwater can be combined with :ref:`interflow`.
 
 
-In the section below, while using *Figure 2*  and *3*  with the key concepts of the groundwater model, the assumptions made are explained in more detail.
+In the section below, while using the Letters and Numbers in *Figure 1*  and *3 * the key concepts and the assumptions made for the groundwater computations are explained in more detail.
 
 
 Groundwater concepts
 -----------------------
 
+The subsurface is a general term for the whole domain below the surface, where many processes of the hydrological cycle take place. 3Di aims at a fast, but accurate computation of the flow, especially concerning the interaction between groundwater and surface water. Therefore, the domain of computation focuses on the top aquifer. However, before zooming in at this layer, a schematic overview of some of the large scale processes is given in *Figure 1*. The various processes that are discussed here are indicated by Romain numbers.  *Number I*   indicates surface flow and overland flow. From the surface (*Number II* ) water can infiltrate or exfiltrate to and from the subsurface, where it can flow further in the horizontal or the vertical direction (*Number III* ). From thereon, several aquifers can overlap and interact. As they are separated by (semi-)impervious layers, they can exist under different pressure regimes. The exchange can, therefore, occur in both up- and downward direction (*Numbers IV and V* ).  One aquifer can consist of a zone of saturation and the zone of acration (unsaturated zone). In addition, within one aquifer, the soil characteristics vary over time and space (*Number VI* ). To limit the modelling domain and the number of processes to be taken into account, the current method for modelling groundwater flow in 3Di, is focused on the processes in the top aquifer of the sub-surface layer (the red box of *Number VII* ).
 
-.. figure:: image/b_grw_overview.png
-   :alt: master_figure
    
-   Overview of general groundwater concepts (3)
+.. figure:: image/b_grw_largescaleoverview.png
+   :alt: largescale_figure
 
+   Overview of large scale groundwater concepts (2) 
 
-Most of the groundwater concepts on which this groundwater method is based, are thoroughly described in the book of *Jacob Bear and Arnold Verruijt, Modeling Groundwater Flow and Pollution*. However, here a short overview is given of the key concepts and assumptions made for the groundwater method used in 3Di. These concepts are illustrated in the Figures above and indicated with Letters and Numbers. The general aim is to simplify the processes involved in the top aquifer, but to preserve enough accuracy for reliable simulations of the surface interaction. In the two *Figures*  above, a general overview of some groundwater processes are illustrated (Figure 3) and the processes indicated that are taken into account in 3Di (Figure (2) of which in the previous section a summary was presented).
-
+Most of the groundwater concepts on which the groundwater method in 3Di is based, are thoroughly described in the book of *Jacob Bear and Arnold Verruijt, Modeling Groundwater Flow and Pollution*. However, here a short overview is given of the key concepts and assumptions made for the groundwater method used in 3Di. These concepts are illustrated in the Figures 1 and 3 and indicated with Letters and Numbers. The general aim is to simplify the processes involved in the top aquifer, but to preserve enough accuracy for reliable simulations of the surface-subsurface interaction. The numbers below refer to those in Figure 3 and the letters refer to those in Figure 1. 
 
 1. When only looking at the top aquifer in a system, only one phreatic surface can be defined. This is the level at which the pressure is atmospheric (assumed zero). Below the phreatic surface is the soil fully saturated. 
 
@@ -64,6 +60,11 @@ Most of the groundwater concepts on which this groundwater method is based, are 
  
 | 
 4. The main flow in an aquifer follows the phreatic surface, therefore the phreatic surface is considered to be a stream-line. Within an aquifer the slope of the phreatic surface (:math:`i`) is generally small. It is often much smaller than 1 ( :math:`i<<1` ) *[Dupuit (1863)]*. In such case, one can assume the stream-lines to be horizontal, and use only the horizontal Darcy equations to compute the flow. The groundwater level gradients are than defined by the height of the phreatic surface. This is consistent with assuming a hydrostatic pressure within the aquifer. This assumption is called the Dupuit approximation (*Letter B* ).
+ 
+.. figure:: image/b_grw_overview.png
+   :alt: master_figure
+   
+   Overview of general groundwater concepts (3) 
  
 |
 5. The Dupuit approximation can be locally valid, while in other regions it can be invalid. *Number 5*  indicates an example where the gradient of the stream-lines is high. The dashed red line indicates where the Dupuit assumption is invalid. In stationary cases, one can apply the so-called Dupuit-Forchheimer discharge formula to compute the outflow from groundwater to surface water. The computation of the discharge is still quite accurate, even though the groundwater levels deviate.  In regions further than ones or twice the :math:`\Delta h`, the solution approximates again the actual solution. In 3Di (*Letter C* ), the Dupuit-Forchheimer discharge formula is at these interfaces not applied, as they are often not a priori known. However, for practical purpose this is often only a local deviation.
@@ -98,7 +99,9 @@ Most of the groundwater concepts on which this groundwater method is based, are 
 Horton based infiltration
 -----------------------------------
 
-Mentioned above, the infiltration process is rather complex, therefore many models use a parametrization for this process. In 3Di, a Horton based infiltration is chosen. Three variables determine the infiltration rate in time. It is based on the notion that the infiltration rate decays to an equilibrium value. Mathematically:
+Mentioned above, the infiltration process is rather complex, therefore many models use a parametrization for this process. In 3Di, two types of infiltration formulations are implemented; Horton based infiltration and a constant infiltration. Only the Horton based infiltration is coupled to groundwater. More information about the constant infiltration can be found at :ref:`simpleinfiltration`. Here, only the Horton infiltration is discussed.
+
+Horton based infiltration formulation describes infiltration rate that is decaying in time. Three variables determine the infiltration rate. It is based on the notion that the infiltration rate decays to an equilibrium value, due to changes in the soil characteristics. Mathematically, it is defined by:
 
 .. math::
    :label: inf_horton
@@ -115,7 +118,7 @@ in which :math:`f` is the infiltration rate varying in time and space, :math:`f_
    Infiltration rate according to Horton; with :math:`f_{equ}=300.0` mm/day and :math:`f_{ini}=100.0` mm/day and :math:`T=3.0` days.    (4)
 
 
-The infiltration rate will start its decay as soon as the cell becomes wet. Currently there is no process to restore the infiltration rate to its initial value. This would happen in real life when an area becomes dry again due to run-off or evaporation.   
+The infiltration rate will start its decay as soon as the cell becomes wet. Currently, there is no process to restore the infiltration rate to its initial value. This would happen in real life when an area becomes dry again due to run-off or evaporation.   
    
    
 Input
@@ -130,7 +133,7 @@ You can download the complete overview of tables that 3Di uses in the spatialite
 Output
 ~~~~~~~~~~~ 
 
-Similar to the other variables, the results are saved in the result files, snap-shots and aggregated results. In contrast to infiltration computed according to :ref:`simpleinfiltration`, the Horton-based infiltration is computed on a flow line. Both a discharge (*[m\ :sup:`{3}`\ /s]*) and a velocity (*[m/s]*) are available as output. Note, that the velocity is the infiltration rate and not the effective velocity. The effective velocity is the velocity that the water front would subside through the soil. 
+Similar to the other variables, the results are saved in the result files, snap-shots and aggregated results. In contrast to infiltration computed according to :ref:`simpleinfiltration`, the Horton-based infiltration is computed on a flow line. Both a discharge (:math:`[m^3/s]`) and a velocity (*[m/s]*) are available as output. Note, that the velocity is the infiltration rate and not the effective velocity. The effective velocity is the velocity that the water front would subside through the soil. 
 
 .. _grwflow:
 
@@ -142,11 +145,11 @@ The flow in the subsurface is computed under the assumption of hydrostatic press
 .. math::
    :label: eq_darcy
    
-   Q_x=-K_x A_x \frac{\partial \zeta}{\partial x}
+   Q_x=-K_x A_x \frac{\partial \phi}{\partial x}
  
-   Q_y=-K_y A_y \frac{\partial \zeta}{\partial y}
+   Q_y=-K_y A_y \frac{\partial \phi}{\partial y}
    
-with :math:`Q_x, Q_y` the x- and y- component of the discharges, :math:`A_x, A_y` the corresponding cross-sectional areas and the gradients of the preatic surface (:math:`\zeta`). Even though, the Dupuit assumption can be invalid locally, it is very applicable on the larger scale. A famous analytical case, based on these assumptions is the Hooghoudt equation. It describes the groundwater level in between two open water channels, see *Figure (5)*. 
+with :math:`Q_x, Q_y` the x- and y- component of the discharges, :math:`A_x, A_y` the corresponding cross-sectional areas and the gradients of the preatic surface (:math:`\phi`). Even though, the Dupuit assumption can be invalid locally, it is very applicable on the larger scale. A famous analytical case, based on these assumptions is the Hooghoudt equation. It describes the groundwater level in between two open water channels, see *Figure (5)*. 
 
 .. figure:: image/b_grw_hooghoudt.png
    :figwidth: 400 px
@@ -190,11 +193,11 @@ Sources and sinks are defined in the cell centers. This yields also for leakage 
 Numerical implementation [#f1]_
 -----------------------------------
 
-The numerical implementation of the horizontal and vertical flow is based on the concept of staggered grids. This implies that pressure points are defined in the cell centers and flow is defined at the cell edges. The spatial resolution of the 2D surface flow equals that of the groundwater flow. Therefore, the connections between the surface and the subsurface are completely vertical and orthogonal to the surface and subsurface layers. 
+The numerical implementation of the horizontal and vertical flow is based on the concept of staggered grids as explained in :ref:`grid`. This implies that pressure points are defined in the cell centers and flow is defined at the cell edges. The spatial resolution of the 2D surface flow equals that of the groundwater flow. Therefore, the connections between the surface and the subsurface are completely vertical and orthogonal to the surface and subsurface layers. 
 
-Considering the timescales of groundwater flow compared to surface water flow, they are generally considerable longer. This would favor an explicit formulation. However, the moment that the groundwater level reaches the surface, the timescales are the same. Therefore, the horzontal flow is computed explicitly, but the vertical interaction is computed implicitly. 
+The timescales of groundwater flow compared to those of surface water flow, are generally considerably longer. This would favor an explicit formulation. However, the moment that the groundwater level reaches the surface, the timescales are the same. Therefore, only the horizontal flow is computed explicitly, but the vertical interaction is computed implicitly. 
 
-For the sources and sinks, we choose an implementation where the sources are computed explicitly, but the sinks are implicitly computed. This is to guarantee mass conservation.
+For the sources and sinks, we choose an implementation where the sources are computed explicitly, but the sinks are implicitly taken into account. This is to guarantee mass conservation.
 
 
 We are working on a full description of the numerical implementation to be published in *International Journal For Numerical Methods in Fluids*.
