@@ -1,9 +1,7 @@
 Release notes
 =============
 
-**Monday the 28th of May 2018 the 3Di web interface will be unavailable between 8.00 AM and 12.00 AM (CEST).**
-
-The next 3Di releases are planned on the 28th of May 2018 and at the end of the summer. Below you can find the release notes. 
+The next release of 3Di is planned in October 2018. We will inform you about the details of this release in due course.
 
 
 Release 3Di – Spring Release 2018  
