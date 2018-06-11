@@ -3,7 +3,7 @@
 The grid
 -----------
 
-To allow flow to be computed numerically, space and time need to be discritised. For time are time-steps defined, and for space is a grid defined. In the sections below we elaborate on the grid specified for computations in the 1D and in the 2D domain.
+To allow flow to be computed numerically, space and time need to be discretised. For time are time-steps defined, and for space is a grid defined. In the sections below we elaborate on the grid specified for computations in the 1D and in the 2D domain.
 
 Computational grid for 2D domain
 ===================================

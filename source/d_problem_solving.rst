@@ -122,7 +122,7 @@ At one calculation point there is no storage area or the wet cross section area 
 
 * Pump start level is below pump stop level.
 
-The error is followed by a reference to the node without any storage or link without wet cross section area. This look something like::
+The error is followed by a reference to the node without any storage or link without wet cross section area. This will look something like::
 
     near zero, aii(nod)<1.0d-10,nod,aii(nod),su(nod)  14614   14439  0.0000E+00  0.0000E+00
     

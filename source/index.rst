@@ -56,7 +56,6 @@ Welcome to 3Di's documentation!
    :name: tutorials
    :numbered:
    
-   d_introduction
    d_before_you_begin
    d_threedi_portal
    d_threedi_model
