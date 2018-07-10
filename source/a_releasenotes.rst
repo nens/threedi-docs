@@ -4,6 +4,35 @@ Release notes
 The next release of 3Di is planned in October 2018. We will inform you about the details of this release in due course.
 
 
+Release 3Di - Hotfix
++++++++++++++++++++++++++
+
+On Thursday the 5th of July, we released a new version of 3Di to solve some minor bugs. The following has been added or changed:
+
+
+LiveSite and API
+^^^^^^^^^^^^^^^^^^^^
+- The wind forcing was not working properly after the previous release.
+
+- Some computations, run with the rain radar input from The Netherlands, endured from a specific technical problem with map projections between the live site and rain radar. This is fixed.
+
+Input
+^^^^^^^^
+The log-messages concerning errors in input data is improved. Users can find the error messages in the logging files on the model page. However, 3Di became also more strict to errors. If errors occur in the grid generation, a simulation cannot be initiated. An example of an error, that is often ignored: is when the lower stop level of a pump is defined below the bottom level of the connection node. Naturally, this is an impossible configuration. Therefor, this needs to be fixed by the modeller. 
+
+Furthermore, if a certain error occurs more than 10 times it will stop printing the error. This is to ensure that the log files remain compact and readable. This does not mean that the error is less important. An example of an error message that is encountered many times is when users supply rasters that are not aligned. 
+
+
+Inflow model
+^^^^^^^^^^^^^^^^
+In 1D modelling, a mapping table is build to map connection nodes with the (impervious) surfaces related to the inflow model. Previously, we needed the ids of the mapping table to be incremental with no missing numbers. This is not required anymore. An example: after building a mapping table, the user deletes one of these mappings. In the past this meant that the ids of the table needed to be rebuild. In the current situation, no further action from the user is required. 
+
+Computational core
+^^^^^^^^^^^^^^^^^^^^
+
+The formulation to compute the flow through a breach is improved, in response to lack of the flow through a breach in case of a very small breach and high infiltration. 
+
+
 Release 3Di – Spring Release 2018  
 +++++++++++++++++++++++++++++++++++++
 

@@ -1,13 +1,20 @@
 Problem Solving
 ===============
 
-This section will help you solve some problems or errors that may occur when using 3Di. Errors can occur in various components or steps of the modeling process: 
+This section will help you solve some problems or errors that may occur when using 3Di. Some issues are due to the software, these will be summarized in the section Known Issues, including a temporary solution. Errors, due to input data or other user settings can occur in various components or steps of the modeling process: 
 
 #. Generating a 3Di model from the spatialite data or 'INP generation' which occurs in http://3Di.lizard.net/models, or
 
-#. During simulation on the live site or in an API calculation.
+#. During simulation via the live site or via an API call.
 
-The sections below mention different types of errors and how to find them.
+The section 'Frequently endured issues' below mention different types of errors and how to find them.
+
+Known Issues
+^^^^^^^^^^^^^^
+- The setting max_infiltration_capacity_file found in the global settings table is depricated. The setting was not removed from the global settings table, but is added to the infiltration_simple_table. Values from there are taken into account. This will be solved with the next release.
+
+Frequently endured issues
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 INP generation
 --------------
