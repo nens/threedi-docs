@@ -52,3 +52,5 @@ Empty database
 --------------
 
 If you like to set up a new model it may be helpful to start from an empty database. Download an empty spatialite database :download:`here <other/empty.sqlite>`.
+
+Please be aware not to add any columns to existing tables in the spatialite as they may interfere with future migrations.
