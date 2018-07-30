@@ -276,9 +276,11 @@ Please keep in mind that these volumes might be calculated with output time step
 
 **Positive overflow volume**
 :math:`Q_{pos}=\sum_{t=0}^{t_{max}} (Q(t)>0) \Delta t_avg`
+Weirs can be drawn in both positive and negative direction. 3Di shows the overflow relative to the drawing direction of the weir. So a positive overflow does not necessarily mean that the flow is going out of the model. It indicates that the flow is going in the same direction of the drawing direction of the weir. The overflow volume is being shown relative to the maximum overflow volume in the simulation.
 
 **Negative overflow volume**
 :math:`Q_{neg}=\sum_{t=0}^{t_{max}} (Q(t)<0) \Delta t_{gem}`
+3Di shows the overflow relative to the drawing direction of the weir. So a negative overflow does not necessarily mean that the flow is going inwards into the model. It indicates that the flow is going in the opposite direction of the drawing direction of the weir. The overflow volume is being shown relative to the maximum overflow volume in the simulation.
 
 **Overflow hydraulic gradient**
 :math:`h_{s,start}= \zeta_{max,start}-CL`
