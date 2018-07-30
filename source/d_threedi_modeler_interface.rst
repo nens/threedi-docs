@@ -6,7 +6,7 @@ Guide to the 3Di QGIS plugin
 Installation
 ------------
 
-Releases of the plugin are available at the Lizard QGIS plugin repository. To add the plugin open QGIS and via the menu bar go to `Plugins > Manage And Install Plugins'. Go to 'Settings' ('extra' in Dutch version). Add a plugin repository ('plug-in opslagplaatsen' in Dutch) with name: 'Lizard' and URL: https://plugins.lizard.net/plugins.xml and reload. Go to 'all' and install the plugin by selecting '3di toolbox'. New versions of the plugin are upgradeable via the same menu.
+Releases of the plugin are available at the Lizard QGIS plugin repository. To add the plugin open QGIS and via the menu bar go to `Plugins > Manage And Install Plugins'. Go to 'Settings' ('extra' in Dutch version). Add a plugin repository ('plug-in opslagplaatsen' in Dutch) with name: 'Lizard' and URL: https://plugins.lizard.net/plugins.xml and reload. Go to 'all' and install the plugin by selecting '3Di toolbox'. New versions of the plugin are upgradeable via the same menu.
 
 The plugin works with QGIS 2.18 (LTR) and up, it is recommended to use the latest version of the 2.18 release (the plugin is tested against this version).
 
@@ -22,20 +22,24 @@ Adding data sources
 
 For most use cases you will want to add data sources:
 
-1.	Click on the Select 3di results button.
+1.	Click on the Select 3Di results button.
 2.	Select and load your Spatialite and netCDF files.
+
+.. figure:: image/d_pluginqgis_loading.png
+	:scale: 100%
+	:alt: Selection tools
 
 The plugin will automatically generate the network layers from the netCDF and add it to the map if you select a netCDF with geometry information. 
 
 Graph tool
 ^^^^^^^^^^
 
-The graph tool is for visualizing time series. Click on the graph tool button to open it in a dock. You can now select features with the standard selection toolbar:
+The graph tool is for visualizing time series. Click on the graph tool button to open it in a dock. You can now select features using the standard selection toolbar.
 
 .. figure:: image/d_qgis_selection_tools.png
 	:scale: 100%
 	:alt: Selection tools
-on the map if you have an active layer and add them to the graph using the Add button. Multiple features are supported. 
+Select features on the map from the active layer (nodes or flow lines) and add them to the graph using the Add button at the graph window. One can view all time series that are available in the NetCDF
 
 It is also possible to use advanced selection criteria with the select by attributes. 
 

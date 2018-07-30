@@ -20,7 +20,7 @@ Welcome to 3Di's documentation!
    :caption: Concepts
    :name: basic_principles
    :numbered:
-   
+
    b_grid
    b_massconservation
    b_surfaceflow
@@ -36,7 +36,6 @@ Welcome to 3Di's documentation!
    b_wind
    c_control
 
-
    
 .. toctree::
    :maxdepth: 2
@@ -46,15 +45,17 @@ Welcome to 3Di's documentation!
    
    c_numerics
    c_calculation_grid_data
-   c_netcdf_results
-   c_aggregation_results
    c_state_files
    
 .. toctree::
    :maxdepth: 2
-   :caption: Output and tools
-   :name: Output and tools
-   :numbered:   
+   :caption: Results and tools
+   :name: results and tools
+   :numbered:
+   
+   d_threedi_modeler_interface
+   c_netcdf_results
+   c_aggregation_results
    
 .. toctree::
    :maxdepth: 2
@@ -64,7 +65,6 @@ Welcome to 3Di's documentation!
    
    d_before_you_begin
    d_threedi_portal
-   d_threedi_modeler_interface
    d_threedi_model
    d_threedi_versioning
    d_rasters
@@ -75,7 +75,6 @@ Welcome to 3Di's documentation!
    d_api
    d_results_from_lizard
    d_problem_solving
-
 
 Indices and tables
 ==================
