@@ -91,7 +91,7 @@ The following layers will be added to the layers panel:
 *    Line results groundwater
 *    Line results
 
-In case of a 1D model an animation for dischare looks like this:
+In case of a 1D model an animation for discharge looks like this:
 
 .. figure:: image/d_qgis_animation_discharge.png
 	:scale: 50%
@@ -210,53 +210,66 @@ Manholes
 **Maximum waterdepth in the streets** is calculated as follows:
 :math:`H_{max}=max[h(t_{n} )]-SL`,
 where SL stands for Surface Level
+Useful only for connected connection nodes in a complete 1d simulation. 
 
 **Water depth in manholes at the last time step** 
 :math:`H=h(t_{max} )-MBL`, with MBL=manhole bottom level.
+Useful for a quick check to see whether the system behaves normally. E.g. a DWF system water depth should not be too high at the end of a simulation. 
 
 **Filled percentage of manhole storage areas**
 :math:`P=(h(t_{max} )-MBL)/(SL-MBL) * 100\%`
+with MBL = manhole bottom level, SL = Surface level.
+This gives the percentage of the possible manhole volume that is being used in the simulation. 
 
 Duration of water on streets:
 :math:`T=COUNTIF((h(t_{n} )-SL)>0)* \delta t_{avg}`
+This gives duration of water on streets. Keep in mind that it might use the output time step of the simulation.  
+
 
 Pipes
 ^^^^^^^^^^
 
-**Discharge (max)** is maximum discharge in a pipe occurred during a simulation. **Velocity (max)** is maximum velocity in a pipe  occurred during a simulation. 
+**Discharge (max)** is maximum discharge in a pipe occurred during a simulation. **Velocity (max)** is maximum velocity in a pipe occurred during a simulation. 
 
 **gradient** is calculated as follows:
 :math:`| SL_{pipestart} - SL_{pipeend} | / L_{pipe}`,
 Where SL = water level and L = geometrical length of pipe. 
+A difference in gradient between pipes might indicate an hydraulic problem. 
 
-To determine the maximum discharge the timestep with the absolute largest discharge is determined first: 
+The **maximum discharge** is calculated by looking at the absolute maximum timestep. 
 :math:`Q_{(t)} $ if  $ \Sigma |Q_{(t)}|` is maximal 
 
-Flow velocity during final timestep
+**Flow velocity during final timestep**
 :math:`u(t_{max} )`
+Useful to check if there are unwanted connections within the system. E.g. in a dry calculation the flow velocity at the end of the simulation should be around zero. 
 
-Flow velocity is shown for the whole system but also seperate for Dry Weather Flow and Combined Sewer Flow, and Storm Water Flow. 
+**Flow velocity** is shown for the whole system but also seperate for Dry Weather Flow and Combined Sewer Flow, and Storm Water Flow. 
 
 Pumps
 ^^^^^^^^
+For all calculations below the Q of the pump capacity and Q of calculations are set in the same units of measure. 
+Please keep in mind that these volumes might be calculated with output time step (actual value). For a proper water balance we advice you to use the aggregation NetCDF. 
 
-:math:`Q_{cap} =` pump capacity in [l/s]
+:math:`Q_{cap} =` pump capacity
 
-**Percentage of maximum pump capacity** during final time step:
-:math:`Q(t_{max} )/(Q_{cap}/1000) 100\%`
+**Percentage of maximum pump capacity** during final time step. 
+:math:`Q(t_{max} )/(Q_{cap}) 100\%`
 
 **Max percentage pump capacity**
-:math:`P = \frac{Max[Q(t_n )]}{Q_{cap}/1000} 100\%`
+:math:`P = \frac{Max[Q(t_n )]}{Q_{cap}} 100\%`
+Useful to see which pumps are in use in the simulation and to what extent. 
 
 **Total pumped volume**
 :math:`Vol_{tot}=\sum_(t=0)^(t_{max}) (Q(t)) \Delta t_{avg}`
 
 **Duration of maximum pump capacity (in hours)**
-:math:`Vol_{tot}/(Q_cap/1000)/3600`
+:math:`Vol_{tot}/(Q_cap)/3600`
 
 
 Weirs
 ^^^^^^
+
+Please keep in mind that these volumes might be calculated with output time step (actual value). For a proper water balance we advice you to use the aggregation NetCDF. 
 
 **Overflow volume:**
 :math:`Q_{cum}=\sum_{t=1}^{t_max} Q(t) \Delta t_{avg}`
@@ -271,12 +284,3 @@ Weirs
 :math:`h_{s,start}= \zeta_{max,start}-CL`
 :math:`h_{s,end}= \zeta_{max,end}-CL`,
 with :math:`\zeta` the water level and :math:`CL` the crest level.
-
-**Lay-out overflow gradient**
-:math:`Max[h_{s,start},h_{s,end}]`
-
-**Maximum overflow discharge**
-:math:`Q_{max}=Max[|Q_n|]`
-
-**Maximum overflow velocity**
-:math:`u_{max}=Max{|u_n |}`
