@@ -3,7 +3,7 @@ API - Batch calculations
 
 With the API you can request simulations without having to acces the 3Di web portal and follow your simulation. It is ideal for making various calibration runs. Also, it allows you to use several types of external forcing not available through the web portal and save and use states or restart files.
 
-Visit https://3di.lizard.net/api/v1/calculation/start for all options.
+Visit https://3di.lizard.net/api/v1/calculation/start/ for all options.
 
 Using POSTMAN
 -------------
@@ -56,3 +56,11 @@ Then take the following steps:
 
    
 Note that postman stores your password which poses a possible security risk.
+
+*Times*
+
+All times used in the API are noted in UTC. This means you must consider Timezones and Daylight Saving Offsets. For a rainfall event in the Netherlands during summer this means you must consider an offset of 2 hours and use the following notation::
+
+    2016-06-22T18:00+02:00
+
+This rainfall event will start at 20:00 hour local time.
