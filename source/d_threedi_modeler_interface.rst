@@ -208,75 +208,75 @@ Manholes
 ^^^^^^^^
 
 **Maximum waterdepth in the streets** is calculated as follows:
-$ max(h(t_{n} ))-SL  $
-Where SL stands for Surface Level
-**Waterdepth in manholes during the last timestep** 
-$ h(t_{max} )-MBL $
-with MBL=manhole bottom level
-**Filled percentage of manhole storage areas**
-$ (h(t_{max} )-MBL)/(SL-MBL) * 100\% $
-with MBL = manhole bottom level and SL = Surface Level
+:math:`H_{max}=max[h(t_{n} )]-SL`,
+where SL stands for Surface Level
 
-Duration of water on streets (with SL=surface level):
-$ COUNTIF((h(t_{n} )-SL)>0)* \delta t_{avg} $
-with SL = Surface Level
+**Water depth in manholes at the last time step** 
+:math:`H=h(t_{max} )-MBL`, with MBL=manhole bottom level.
+
+**Filled percentage of manhole storage areas**
+:math:`P=(h(t_{max} )-MBL)/(SL-MBL) * 100\%`
+
+Duration of water on streets:
+:math:`T=COUNTIF((h(t_{n} )-SL)>0)* \delta t_{avg}`
 
 Pipes
 ^^^^^^^^^^
 
-**Discharge (max) ** is maximum discharge in a pipe. **Velocity (max) ** is maximum velocity in a pipe. 
+**Discharge (max)** is maximum discharge in a pipe occurred during a simulation. **Velocity (max)** is maximum velocity in a pipe  occurred during a simulation. 
 
 **gradient** is calculated as follows:
-:math:`| h_{pipestart} - h_{pipeend} | / l_{pipe}`
+:math:`| SL_{pipestart} - SL_{pipeend} | / L_{pipe}`,
+Where SL = water level and L = geometrical length of pipe. 
 
-Where h = water level and l = geometrical length of pipe
 To determine the maximum discharge the timestep with the absolute largest discharge is determined first: 
+:math:`Q_{(t)} $ if  $ \Sigma |Q_{(t)}|` is maximal 
 
-$ Q_{(t)} $ if  $ \Sigma |Q_{(t)}|  $  is maximal 
-
-Flow velocity during last timestep
-$ u(t_{max} ) $
+Flow velocity during final timestep
+:math:`u(t_{max} )`
 
 Flow velocity is shown for the whole system but also seperate for Dry Weather Flow and Combined Sewer Flow, and Storm Water Flow. 
 
 Pumps
 ^^^^^^^^
-Q_cap = pumpcapacity in l/s
 
-**Percentage of maximum pumpcapacity** during last timestep:
-Q(t_max )/(Q_cap/1000)∙100%
+:math:`Q_{cap} =` pump capacity in [l/s]
 
-**Max percentage pumpcapacity**
-(MAX(Q(t_n )))/(Q_cap/1000)∙100%
+**Percentage of maximum pump capacity** during final time step:
+:math:`Q(t_{max} )/(Q_{cap}/1000) 100\%`
+
+**Max percentage pump capacity**
+:math:`P = \frac{Max[Q(t_n )]}{Q_{cap}/1000} 100\%`
 
 **Total pumped volume**
-〖VOL〗_tot=∑_(t=0)^(t_max)▒(Q(t)) ∙ ∆t_avg
+:math:`Vol_{tot}=\sum_(t=0)^(t_{max}) (Q(t)) \Delta t_{avg}`
 
 **Duration of maximum pump capacity (in hours)**
-〖VOL〗_tot/(Q_cap/1000)/3600 
+:math:`Vol_{tot}/(Q_cap/1000)/3600`
 
 
 Weirs
 ^^^^^^
 
 **Overflow volume:**
-∑_(t=1)^(t_max)▒(Q(t)) ∙ ∆t_avg
+:math:`Q_{cum}=\sum_{t=1}^{t_max} Q(t) \Delta t_{avg}`
 
 **Positive overflow volume**
-∑_(t=0)^(t_max)▒(Q(t)>0) ∙ ∆t_avg
+:math:`Q_{pos}=\sum_{t=0}^{t_{max}} (Q(t)>0) \Delta t_avg`
 
 **Negative overflow volume**
-∑_(t=0)^(t_max)▒(Q(t)<0) ∙ ∆t_gem
+:math:`Q_{neg}=\sum_{t=0}^{t_{max}} (Q(t)<0) \Delta t_{gem}`
 
 **Overflow hydraulic gradient**
-h_(s,start)= 〖WL〗_(max,start)-crest_level 
-h_(s,end)= 〖WL〗_(max,end)-crest_level 
+:math:`h_{s,start}= \zeta_{max,start}-CL`
+:math:`h_{s,end}= \zeta_{max,end}-CL`,
+with :math:`\zeta` the water level and :math:`CL` the crest level.
 
 **Lay-out overflow gradient**
-MAX(h_(s,start),h_(s,end))
+:math:`Max[h_{s,start},h_{s,end}]`
 
 **Maximum overflow discharge**
-MAX(|Q_n |)
+:math:`Q_{max}=Max[|Q_n|]`
 
 **Maximum overflow velocity**
-MAX(|u_n |)
+:math:`u_{max}=Max{|u_n |}`
