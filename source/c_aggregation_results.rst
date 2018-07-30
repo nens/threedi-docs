@@ -20,16 +20,17 @@ flow_variable
 
 Flow variable for which to determine aggregated results. The flow variables for which to determine aggregated results are:
 
-* discharge
-* flow_velocity
-* infiltration
-* pump_discharge
-* rain
-* volume
 * waterlevel
+* flow_velocity
+* discharge
+* volume
+* pump_discharge
 * wet_cross-section
-* wet_surface
 * lateral_discharge
+* wet_surface
+* rain
+* simple_infiltration
+* leakage
 
 aggregation_method
 ^^^^^^^^^^^^^^^^^^
