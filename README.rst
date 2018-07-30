@@ -34,6 +34,11 @@ commands from within docker, too. For example::
   $ docker-compose run builder make latexpdf
 
 
+Make html and auto rebuild when files are changed::
+
+  $ make livehtml
+
+
 Some sphinx/restructuredtext notes
 ----------------------------------
 
