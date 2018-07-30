@@ -49,7 +49,8 @@ Welcome to 3Di's documentation!
    c_netcdf_results
    c_aggregation_results
    c_state_files
-   
+   c_threedigrid
+
 .. toctree::
    :maxdepth: 2
    :caption: Tutorials
