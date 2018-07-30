@@ -92,11 +92,7 @@ Most of the groundwater concepts on which the groundwater method in 3Di is based
 |  
 9. The soil water zone is the layer just below the surface. Often this is a fully saturated area, but the processes in this layer are heavily affected by the vegetation, precipitation and evaporation. Therefor, often the simulation of this layer is difficult. In case of heavy precipitation, this layer becomes saturated in a sort time. In such case, a user can simulate this layer with use of the interflow layer (*Label G* ).
 
-
-
-
 .. _grwhortoninfiltration:
-
 
 Horton based infiltration
 -----------------------------------
@@ -117,7 +113,7 @@ in which :math:`f` is the infiltration rate varying in time and space, :math:`f_
    :alt: Horton infiltration
    :align: right   
 
-   Infiltration rate according to Horton; with :math:`f_{equ}=300.0` mm/day and :math:`f_{ini}=100.0` mm/day and :math:`T=3.0` days.    (4)
+   Infiltration rate according to Horton; with :math:`f_{ini}=300.0` mm/day and :math:`f_{equ}=100.0` mm/day and :math:`T=3.0` hours.    (4)
 
 
 The infiltration rate will start its decay as soon as the cell becomes wet. Currently, there is no process to restore the infiltration rate to its initial value. This would happen in real life when an area becomes dry again due to run-off or evaporation.   

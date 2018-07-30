@@ -52,6 +52,12 @@ Welcome to 3Di's documentation!
    
 .. toctree::
    :maxdepth: 2
+   :caption: Output and tools
+   :name: Output and tools
+   :numbered:   
+   
+.. toctree::
+   :maxdepth: 2
    :caption: Tutorials
    :name: tutorials
    :numbered:
