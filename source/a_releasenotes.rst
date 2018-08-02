@@ -15,6 +15,7 @@ A user can adjust several rasters during a simulation. For example, users can lo
 QGIS Plugin 
 ^^^^^^^^^^^^^^^^
 In the new version of the QGIS-plugin the following features will be added: 
+
 - Statistics on sewer models on the map. These are intended for a quick evaluation of test calculations. 
 - There will be a new *Water balance tool*. Users can get a quick overview of the local water balance. The area of interest can be selected by a few clicks on the map.
 
