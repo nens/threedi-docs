@@ -82,7 +82,7 @@ Some facts and figures:
 ++++++++++++++++++++++++++++
 
 -	The use of high resolution information goes hand in hand with large amounts of data. To compress this data, it is stored during the computations in tables. More information about this can be found in :ref:`tables`.
--	There are more variables that are defined at the high resolution grid; such as roughness, infiltration capacity and hydraulic connectivity. These will be introduced later in the documentation.
+-	There are more variables  defined at the high resolution grid; such as roughness, infiltration capacity and hydraulic connectivity. These will be introduced later in the documentation.
 
      
 Input
