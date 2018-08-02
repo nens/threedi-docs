@@ -34,28 +34,31 @@ The use case was not specified correctly. Check the manhole storage area given y
 AttributeError: 'NoneType' object has no attribute '__tablename__'
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Some table that should be empty are not. For instance when v2_connected_pnt table (used for breaches) is filled while your model has no 1D elements. 
+Some tables that should be empty are not. For instance when v2_connected_pnt table (used for breaches) is filled, while your model has no 1D elements. Try emptying the tables you do not use. You can see which tables in the spatialite database are filled by dragging the spatialite into your QGIS project. A pop-up screen appears showing all geometry tables including the number of records per table. Check each table without a geometry. 
 
 
 TypeError: Improper geometry input type: <type 'NoneType'>
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Some feature in a table with geometry has an improper geometry. This usually means the geometry field is empty. 
+Some feature(s) in a table with geometry has an improper geometry. This usually means the geometry field is empty. This may happen when you delete all vertices, while editing while the record in the table still exists. You must either fix the (missing) geometry or remove the given record. 
+
 
 ERROR: No cross section on channel with pk 558 
 ++++++++++++++++++++++++++++++++++++++++++++++
 
-A channel in your model has no cross section definition. The error displays the pk (primary key) or channel id for which channel the cross section location is missing.
+For a channel in your model is no cross-section defined. The error displays the pk (primary key) or channel id for which channel the cross-section location is missing. Add a cross-section location and definition to the given channel.
+
+If you expect this may be the case for multiple channels or cross-sections you can check your model using joins in QGIS. Join the definition table to the location table and see which location has no definition by opening the table. Do the same for channels; join the locations to the channel and check the table for any missing locations.
 
 Fortran runtime error: Bad integer for item 2 in list input
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Most likely you have failed to provide the channel, culvert or pipe calculation type, like isolated, connected, embedded or double connected.
+Most likely you have failed to provide the channel, culvert or pipe calculation type, options are isolated, connected, embedded or double connected. Fill the calculation type for each of these tables.
 
 ERROR  : Bad integer for item 2 in list input (= network file)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Similar to the error above. In addition, for every connection node the type is derived from the connecting channels, pipes or manhole. When the node is not connected to any of these, the type cannot be derived. Add a manhole to set the type for these nodes.
+Similar to the error above. In addition, for every connection node the type is derived from the connecting channels, culvert, pipes or manhole. When the node is not connected to any of these, the type cannot be derived. Add a manhole to nodes that are not connected to any channel, culvert, pipe to set the type for these nodes.
 
 ERROR  : Connected 1D calculation node at nodata value of raster. 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -65,7 +68,7 @@ Followed by::
         Channel ID and pixel coordinates are:           2034          1681           559
         ERROR  : Calculation node          18398
 
-A connected calculation node is outside the DEM. May be an end or start node as well as a calculation node halfway a channel segment.
+A connected calculation node is outside the DEM. It may be an end or start node as well as a calculation node halfway a channel segment. Check if any channels or nodes are outside the DEM and set them to isolated.
 
 ERROR  : There is at least one erroneous location of a 2D open boundary. 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -82,20 +85,20 @@ AttributeError: 'NoneType' object has no attribute 'full_name'
 
 This error may be caused by the following:
 
-* One or more rasters are missing.
+* One or more rasters are missing. For instance, there is no DEM given or the given them does not exists in the repository. Make sure you added it in Tortoise
 
-* The minimum grid space and DEM resolution are not aligned properly, the amount of pixels in the smallest calculation grid must be an even number.
+* The minimum grid space and DEM resolution are not aligned properly, the amount of pixels in the smallest computational grid cell must be an even number. Change the grid_size in the global settings or update your rasters to meet this requirement.
 
-* A channel may have a cross section location exactly on the start or endpoint or be far from it.
+* A channel may have a cross section location exactly on the start or endpoint or the profile location is not snapped to any vertex. Check your locations using geometry functions like intersect.
 
-* Rasters are not aligned or have different geometries.
+* Rasters are not aligned or have different geometries. Check your rasters using Gdalinfo and :ref:`rasters`.
 
-* grid refinement or levees are outside the DEM.
+* Grid refinement or levees are outside the DEM.
 
 Error in node sequence of network file 
 +++++++++++++++++++++++++++++++++++++++
 
-Some required fields are left blank, like the crest level of a weir. Fields may be empty in v2_orifice, v2_channel, v2_weir, v2_culvert or v2_pumpstation.
+Some required fields are left blank, like the crest level of a weir. Fields may be empty in v2_orifice, v2_channel, v2_weir, v2_culvert or v2_pumpstation. Check your recent edits and compare them with the :download:`database overview <pdf/database-overview.pdf>`.
 
 ERROR: Error in 1d administration: 
 ++++++++++++++++++++++++++++++++++
@@ -104,7 +107,7 @@ Followed by::
 
         Number of input boundaries is not the same to the number of boundaries found by the computational core
 
-A boundary condition is linked to a node with more than one connection. A boundary may not be spaced on a junction of multiple channels, pipes or structures.
+A boundary condition is linked to a node with more than one connection. A boundary may not be spaced on a junction of multiple channels, pipes or structures. Check the elements that are linked to the connection nodes that have boundary conditions.
 
 
 Simulation
@@ -138,12 +141,12 @@ The first number (14614 in this example) refers to the calculation node on which
 ERROR : The combination of cross-section types is invalid for input channel number:
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Not all cross section definition types can be combined for a single channel. Only type 1 (rectangle) and type 2 (circle) or type 5 and 6 (both tabulated) can be combined.
+Not all cross-section definition types can be combined for a single channel. Only type 1 (rectangle) and type 2 (circle) or type 5 and 6 (both tabulated) can be combined. If you have multiple cross-section types on one channel change these or split the channel.
 
 ERROR - F - Impossible line connection at calculation node:            729
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-This error may occur when using embedded in combination with structures. Make sure no structure is placed entirely inside a 2D calculation cell.
+This error may occur when using embedded in combination with structures. Make sure no structure is placed entirely inside a 2D computational cell. You can only check this when you have a copy of the 2D computational grid. You can obtain this by making a purely 2D model of your DEM and grid refinement of try making one using the 'create grid' function in the QGIS processing toolbox.
 
 Runtime Error: NetCDF: String match to name in use
 ++++++++++++++++++++++++++++++++++++++++++++++++++
