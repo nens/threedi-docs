@@ -34,25 +34,25 @@ The use case was not specified correctly. Check the manhole storage area given y
 AttributeError: 'NoneType' object has no attribute '__tablename__'
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Some table that should be empty are not. For instance when v2_connected_pnt table (used for breaches) is filled while your model has no 1D elements. Try emptying tables you don't use. You can see which tables in the spatialite database are filled by dragging the spatialite into your QGIS project. A pop-up screen appears showing all geometry table including the number of records per table. Check table without a geometry separately. 
+Some tables that should be empty are not. For instance when v2_connected_pnt table (used for breaches) is filled, while your model has no 1D elements. Try emptying the tables you do not use. You can see which tables in the spatialite database are filled by dragging the spatialite into your QGIS project. A pop-up screen appears showing all geometry tables including the number of records per table. Check each table without a geometry. 
 
 
 TypeError: Improper geometry input type: <type 'NoneType'>
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Some feature(s) in a table with geometry has an improper geometry. This usually means the geometry field is empty. This may happen when you delete all vertices while editing while the record in the table still exists. You must either fix the (missing) geometry or remove the given record. 
+Some feature(s) in a table with geometry has an improper geometry. This usually means the geometry field is empty. This may happen when you delete all vertices, while editing while the record in the table still exists. You must either fix the (missing) geometry or remove the given record. 
 
 ERROR: No crosssection on channel with pk 558 
 ++++++++++++++++++++++++++++++++++++++++++++++
 
-A channel in your model has no cross section. The error displays the pk (primary key) or channel id for which channel the cross section location is missing. Add a cross section location and definition to to the given channel.
+For a channel in your model is no cross-section defined. The error displays the pk (primary key) or channel id for which channel the cross-section location is missing. Add a cross-section location and definition to the given channel.
 
-If you expect this may be the case for multiple channels or cross section you can check your model using joins in QGIS. Join the definition table to the location table and see which location has no definition by opening the table. Do the same for channels; join the locations to the channel and check the table for any missing locations.
+If you expect this may be the case for multiple channels or cross-sections you can check your model using joins in QGIS. Join the definition table to the location table and see which location has no definition by opening the table. Do the same for channels; join the locations to the channel and check the table for any missing locations.
 
 Fortran runtime error: Bad integer for item 2 in list input
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Most likely you have failed to provide the channel, culvert or pipe calculation type, like isolated, connected, embedded or double connected. Fill the calculation type for each of these tables.
+Most likely you have failed to provide the channel, culvert or pipe calculation type, options are isolated, connected, embedded or double connected. Fill the calculation type for each of these tables.
 
 ERROR  : Bad integer for item 2 in list input (= network file)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -86,7 +86,7 @@ This error may be caused by the following:
 
 * One or more rasters are missing. For instance, there is no DEM given or the given them does not exists in the repository. Make sure you added it in Tortoise
 
-* The minimum grid space and DEM resolution are not aligned properly, the amount of pixels in the smallest calculation grid must be an even number. Change the grid_size in the global settings or update your rasters to meet this requirement.
+* The minimum grid space and DEM resolution are not aligned properly, the amount of pixels in the smallest computational grid cell must be an even number. Change the grid_size in the global settings or update your rasters to meet this requirement.
 
 * A channel may have a cross section location exactly on the start or endpoint or the profile location is not snapped to any vertex. Check your locations using geometry functions like intersect.
 
@@ -140,12 +140,12 @@ The first number (14614 in this example) refers to the calculation node on which
 ERROR : The combination of cross-section types is invalid for input channel number:
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Not all cross section definition types can be combined for a single channel. Only type 1 (rectangle) and type 2 (circle) or type 5 and 6 (both tabulated) can be combined. If you have multiple cross section types on one channel change these or split the channel.
+Not all cross-section definition types can be combined for a single channel. Only type 1 (rectangle) and type 2 (circle) or type 5 and 6 (both tabulated) can be combined. If you have multiple cross-section types on one channel change these or split the channel.
 
 ERROR - F - Impossible line connection at calculation node:            729
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-This error may occur when using embedded in combination with structures. Make sure no structure is placed entirely inside a 2D calculation cell. You can only check this when you have a copy of the 2D calculation grid. You can obtain this by making a purely 2D model of your DEM and grid refinement of try making one using the 'create grid' function in the QGIS processing toolbox.
+This error may occur when using embedded in combination with structures. Make sure no structure is placed entirely inside a 2D computational cell. You can only check this when you have a copy of the 2D computational grid. You can obtain this by making a purely 2D model of your DEM and grid refinement of try making one using the 'create grid' function in the QGIS processing toolbox.
 
 RuntimeError: NetCDF: String match to name in use
 ++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -59,7 +59,7 @@ Note that postman stores your password which poses a possible security risk.
 
 *Times*
 
-All times used in the API are noted in UTC. This means you must consider Timezones and Daylight Saving Offsets. For a rainfall event in the Netherlands during summer this means you must consider an offset of 2 hours and use the following notation::
+All times used in the API are noted in UTC. This means you must consider Time zones and Daylight Saving Offsets. For a rain event in The Netherlands during summer this means you must consider an offset of 2 hours and use the following notation::
 
     2016-06-22T18:00+02:00
 
