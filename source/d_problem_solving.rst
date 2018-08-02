@@ -40,12 +40,12 @@ Some table that should be empty are not. For instance when v2_connected_pnt tabl
 TypeError: Improper geometry input type: <type 'NoneType'>
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Some feauture in a table with geometry has an improper geometry. This usually means the geometry field is empty. 
+Some feature in a table with geometry has an improper geometry. This usually means the geometry field is empty. 
 
-ERROR: No crosssection on channel with pk 558 
+ERROR: No cross section on channel with pk 558 
 ++++++++++++++++++++++++++++++++++++++++++++++
 
-A channel in your model has no cross section definitionn. The error displays the pk (primary key) or channel id for which channel the cross section location is missing.
+A channel in your model has no cross section definition. The error displays the pk (primary key) or channel id for which channel the cross section location is missing.
 
 Fortran runtime error: Bad integer for item 2 in list input
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -72,9 +72,9 @@ ERROR  : There is at least one erroneous location of a 2D open boundary.
 
 Followed by::
 
-    It is not located at an active edge. This (these) boundarie(s) is (are) ignored
+    It is not located at an active edge. This (these) boundary(ies) is (are) ignored
 
-The 2D boundary condition line is outside the DEM raster. Place 2D boundary lines in the centre of the last row of pixels of the DEM.
+The 2D boundary condition line is outside the DEM raster. Place 2D boundary lines in the center of the last row of pixels of the DEM.
 
 
 AttributeError: 'NoneType' object has no attribute 'full_name'
@@ -145,7 +145,7 @@ ERROR - F - Impossible line connection at calculation node:            729
 
 This error may occur when using embedded in combination with structures. Make sure no structure is placed entirely inside a 2D calculation cell.
 
-RuntimeError: NetCDF: String match to name in use
+Runtime Error: NetCDF: String match to name in use
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Check the aggregation NetCDF name settings, names must be unique.
