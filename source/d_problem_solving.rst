@@ -42,7 +42,8 @@ TypeError: Improper geometry input type: <type 'NoneType'>
 
 Some feature(s) in a table with geometry has an improper geometry. This usually means the geometry field is empty. This may happen when you delete all vertices, while editing while the record in the table still exists. You must either fix the (missing) geometry or remove the given record. 
 
-ERROR: No crosssection on channel with pk 558 
+
+ERROR: No cross section on channel with pk 558 
 ++++++++++++++++++++++++++++++++++++++++++++++
 
 For a channel in your model is no cross-section defined. The error displays the pk (primary key) or channel id for which channel the cross-section location is missing. Add a cross-section location and definition to the given channel.
@@ -74,7 +75,7 @@ ERROR  : There is at least one erroneous location of a 2D open boundary.
 
 Followed by::
 
-    It is not located at an active edge. This (these) boundarie(s) is (are) ignored
+    It is not located at an active edge. This (these) boundary(ies) is (are) ignored
 
 The 2D boundary condition line is outside the DEM raster. Place 2D boundary lines in the center of the last row of pixels of the DEM.
 
@@ -147,7 +148,7 @@ ERROR - F - Impossible line connection at calculation node:            729
 
 This error may occur when using embedded in combination with structures. Make sure no structure is placed entirely inside a 2D computational cell. You can only check this when you have a copy of the 2D computational grid. You can obtain this by making a purely 2D model of your DEM and grid refinement of try making one using the 'create grid' function in the QGIS processing toolbox.
 
-RuntimeError: NetCDF: String match to name in use
+Runtime Error: NetCDF: String match to name in use
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Check the aggregation NetCDF name settings, names must be unique.
