@@ -4,31 +4,36 @@ Release notes
 Release 3Di – Autumn Release 2018  
 +++++++++++++++++++++++++++++++++++++++++++++
 
-On Monday the 1st of October 2018 the latest version of 3Di will be released. This release contains: 
+On Monday October 1st 2018 the latest version of 3Di will be released. The 3Di team focussed on implementing the option to edit the bathymetry during a simulation. In addition to this we worked on software maintenance. You will be notified shortly about the details of the winter release. 
 
-LiveSite
-^^^^^^^^^^
-- Raster edits in live site 3di.lizard.net.
+Live site
+^^^^^^^^^^^^
+- Users can edit the bathymetry during a simulation. An extra button has been added in the tool bar on the bottom left of the screen. When this tool is selected, one can indicate the area that is to be adjusted. 
+- Since the previous release, it was possible to simulate groundwater flow with 3Di. However, in the live site, there was no visible feedback to the user about what happens in this layer. By clicking on a location, one sees a graph of the water level and the depth variation in time. We added an extra graph for the groundwater level.
 
-A user can adjust several rasters during a simulation. For example, users can lower the bed to create more storage.
+Application Programming Interface
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+For external programs DEM edits are also available via the API. However, we advise for detailed studies, to adjust the bathymetry prior to the simulation. Note, the change in bathymetry does not affect the post-processing and might give you counter-intuitive results.
 
-QGIS Plugin 
-^^^^^^^^^^^^^^^^
-In the new version of the QGIS-plugin the following features will be added: 
+Computational core
+^^^^^^^^^^^^^^^^^^^^^^
+3Di also accepts Chezy roughness values in order to compute the friction in the 2D domain.
 
-- Statistics on sewer models on the map. These are intended for a quick evaluation of test calculations. 
-- There will be a new *Water balance tool*. Users can get a quick overview of the local water balance. The area of interest can be selected by a few clicks on the map.
+Bug fixes
+^^^^^^^^^^^^^^
+As mentioned in the previous correspondence, we will be more strict when processing the model input. Please make sure, that the following warnings do not occur anymore, as from this release on, the input generation will notify you for errors when these occur:
 
-Error and warning messages
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Prior to a simulation the input data is processed. When during the processing certain things appear to be exceptional or wrong, warnings and errors are written in the log files.  A few of these warnings will be changed to error messages.:
-
+- Friction type has to be specified for 2D (required as we now support both Manning and Chezy)
 - Levee at inactive location in raster. Levee entree is skipped and lies between pixel coordinates ([i0,j0] and [i1,j1])
 - Friction raster and DEM are not aligned, please check coordinates:
 - Maximum infiltration raster and DEM are not aligned, erroneous coordinates are:
 - Maximum infiltration raster and DEM are not aligned, number of erroneous coordinates exceed 10. File is not further evaluated and values are set to default value
 
-This is to improve the feedback to users about erroneous elements in the model, before the model starts with the calculation. When you receive one or more error messages, you cannot start a simulation, until your errors are resolved. We ask users to check the warning and error messages after the model generation and try to solve them before contacting the servicedesk. 
+Documentation
+^^^^^^^^^^^^^^^^
+We updated the overview of the spatialite database, as we found an error in the cross-section defenistion. You can download the new database overview :download:`here <pdf/database-overview.pdf>`.
+
+On Monday October 1st 2018 the 3Di web interface will be unavailable between 8.00 AM and 12.00 AM (CEST). 
 
 
 Release 3Di - Hotfix
