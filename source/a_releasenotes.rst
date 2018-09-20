@@ -21,7 +21,7 @@ Computational core
 
 Bug fixes
 ^^^^^^^^^^^^^^
-As mentioned in the previous correspondence, we will be more strict when processing the model input. Please make sure, that the following warnings do not occur anymore, as from this release on, the input generation will notify you for errors.
+As mentioned in the previous correspondence, we will be more strict when processing the model input. Please make sure, that the following warnings do not occur anymore, as from this release on, the input generation will notify you for errors when these occur:
 
 - Friction type has to be specified for 2D (required as we now support both Manning and Chezy)
 - Levee at inactive location in raster. Levee entree is skipped and lies between pixel coordinates ([i0,j0] and [i1,j1])
@@ -34,31 +34,6 @@ Documentation
 We updated the overview of the spatialite database, as we found an error in the cross-section defenistion. You can download the new database overview :download:`here <pdf/database-overview.pdf>`.
 
 On Monday October 1st 2018 the 3Di web interface will be unavailable between 8.00 AM and 12.00 AM (CEST). 
-
-
-LiveSite
-^^^^^^^^^^
-- Raster edits in live site 3di.lizard.net.
-
-A user can adjust several rasters during a simulation. For example, users can lower the bed to create more storage.
-
-QGIS Plugin 
-^^^^^^^^^^^^^^^^
-In the new version of the QGIS-plugin the following features will be added: 
-
-- Statistics on sewer models on the map. These are intended for a quick evaluation of test calculations. 
-- There will be a new *Water balance tool*. Users can get a quick overview of the local water balance. The area of interest can be selected by a few clicks on the map.
-
-Error and warning messages
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Prior to a simulation the input data is processed. When during the processing certain things appear to be exceptional or wrong, warnings and errors are written in the log files.  A few of these warnings will be changed to error messages.:
-
-- Levee at inactive location in raster. Levee entree is skipped and lies between pixel coordinates ([i0,j0] and [i1,j1])
-- Friction raster and DEM are not aligned, please check coordinates:
-- Maximum infiltration raster and DEM are not aligned, erroneous coordinates are:
-- Maximum infiltration raster and DEM are not aligned, number of erroneous coordinates exceed 10. File is not further evaluated and values are set to default value
-
-This is to improve the feedback to users about erroneous elements in the model, before the model starts with the calculation. When you receive one or more error messages, you cannot start a simulation, until your errors are resolved. We ask users to check the warning and error messages after the model generation and try to solve them before contacting the servicedesk. 
 
 
 Release 3Di - Hotfix
