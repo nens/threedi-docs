@@ -11,7 +11,7 @@ The section 'Frequently endured issues' below mention different types of errors 
 
 Known Issues
 ^^^^^^^^^^^^^^
-- The setting max_infiltration_capacity_file found in the global settings table is depricated. The setting was not removed from the global settings table, but is added to the infiltration_simple_table. Values from there are taken into account. This will be solved with the next release.
+- The setting max_infiltration_capacity_file found in the global settings table is depricated. The setting was not removed from the global settings table, but is added to the infiltration_simple_table. Values from there are taken into account. This is solved in the autumn release 2018.
 
 Frequently endured issues
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
