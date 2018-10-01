@@ -4,36 +4,106 @@ Release notes
 Release 3Di – Autumn Release 2018  
 +++++++++++++++++++++++++++++++++++++++++++++
 
-On Monday October 1st 2018 the latest version of 3Di will be released. The 3Di team focussed on implementing the option to edit the bathymetry during a simulation. In addition to this we worked on software maintenance. You will be notified shortly about the details of the winter release. 
+The newest version of 3Di is now available. With this update, it is possible to edit the bathymetry layer in the 3Di live site. 
+The following has been adjusted in 3Di:
 
-Live site
-^^^^^^^^^^^^
-- Users can edit the bathymetry during a simulation. An extra button has been added in the tool bar on the bottom left of the screen. When this tool is selected, one can indicate the area that is to be adjusted. 
-- Since the previous release, it was possible to simulate groundwater flow with 3Di. However, in the live site, there was no visible feedback to the user about what happens in this layer. By clicking on a location, one sees a graph of the water level and the depth variation in time. We added an extra graph for the groundwater level.
+- Bathymetry edits in live site
+- Groundwater levels visible in live site
+- Friction based on the Chezy formulation in 2D domain
+- Adjusted logging
+- Documentation update
 
-Application Programming Interface
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-For external programs DEM edits are also available via the API. However, we advise for detailed studies, to adjust the bathymetry prior to the simulation. Note, the change in bathymetry does not affect the post-processing and might give you counter-intuitive results.
+Moreover, we took measures for the maintenance of the 3Di software. Soon you will receive an update with several developments around our QGIS plugin. 
 
-Computational core
+Please note! Due to technical problems, not all input files are updated to the newest 3Di version. We expect all models to be available October 8th. You can update the input files of your own model to the newest version manually, by following the tutorial at the end of these release notes. You are also welcome to contact our service desk to update the model for you.
+
+
+Bathymetry edits in Live Site
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+A DEM (Digital Elevation Model) edit is the newest tool in our live site, it allows to adjust the height of the bathymetry. This can be done at any time during the simulation by drawing a polygon. The DEM edit is immediately committed when finishing the polygon. The result can be checked using the 'Cross profile' tool. A DEM edit is also possible via our `API <:https://3di.lizard.net/api/v1/docs/>`_ , thereby allowing external applications to perform a DEM edit as well. However, the steps performed by ‘process results’ do not take the DEM edit into account.  Take this into consideration when interpreting the results. 
+
+Groundwater
+^^^^^^^^^^^^^
+
+In our previous release ground water has been added to 3Di. From now on groundwater levels are visible in the live site in the cross-profiles and in a pop-up panel for waterlevels.
+
+Chezy resistance (2D)
 ^^^^^^^^^^^^^^^^^^^^^^
-3Di also accepts Chezy roughness values in order to compute the friction in the 2D domain.
+From the start of 3Di, the Manning formulation is implemented to compute friction. In some cases users prefer to use a different friction formulation, for this the Chezy formulation is now available in the 2D domain.
 
-Bug fixes
-^^^^^^^^^^^^^^
-As mentioned in the previous correspondence, we will be more strict when processing the model input. Please make sure, that the following warnings do not occur anymore, as from this release on, the input generation will notify you for errors when these occur:
 
+Spatialite database in documentation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The overview of the spatialite database is updated in our documentation, because we found an error in a cross-section definition. It concerns type 1 rectangle. We advise everyone to download the newest database overview: :download:`here <pdf/database-overview.pdf>` 
+
+Error and warning messages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The next cases will be marked  as “Error” instead of “Warning”. 
+- Non-Existing foreign key relations, for example non-existing connections to impervious surfaces
 - Friction type has to be specified for 2D (required as we now support both Manning and Chezy)
 - Levee at inactive location in raster. Levee entree is skipped and lies between pixel coordinates ([i0,j0] and [i1,j1])
 - Friction raster and DEM are not aligned, please check coordinates:
 - Maximum infiltration raster and DEM are not aligned, erroneous coordinates are:
 - Maximum infiltration raster and DEM are not aligned, number of erroneous coordinates exceed 10. File is not further evaluated and values are set to default value
 
-Documentation
-^^^^^^^^^^^^^^^^
-We updated the overview of the spatialite database, as we found an error in the cross-section defenistion. You can download the new database overview :download:`here <pdf/database-overview.pdf>`.
+We hope by doing this, to improve the feedback for users about errors in the model, before the model starts with the computation. When you receive one or more errors, you cannot proceed with your simulation until your errors are resolved. We ask users to check the warning and error messages after the model generation and try to solve them before contacting the service desk.
 
-On Monday October 1st 2018 the 3Di web interface will be unavailable between 8.00 AM and 12.00 AM (CEST). 
+
+Tutorial: Update input for 3Di model 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+To run some simulations in first week of October, you may need to update the input files of your model manually. This tutorial explains the manual steps:
+
+- Browse to https://3di.lizard.net/models
+- Search your model. If not listed, click on ‘also show repositories that do not have inp files yet’. Only the version of your latest commit of your model will be listed, during this week. When you need an older and/or pinned version, please contact the service desk. We will make this version for you available.
+
+.. figure:: image/rn_tut_1.png
+
+- After you have found your model, click the icon in the column ‘initialize inp generation’
+
+.. figure:: image/rn_tut_2.png
+
+- Depending on the size of your model, the input generation can take a few minutes up to 15 minutes before it appears.
+- As soon as the model appears, the column ‘last run’ will show a green button with the word ‘success’ or a red button with ‘failed’. In case, the generation failed, take a look at the log files.
+- Click on the button ‘success’ 
+
+.. figure:: image/rn_tut_3.png
+
+- Click on the pencil icon on the left [1] and then on the button ‘visible’. [2]
+
+.. figure:: image/rn_tut_4.png
+
+- Store your result (save icon appears on the location of the pencil icon) [1].
+- Your model is now ready for use in the live site and for use with the API.
+
+
+Update 3Di model 
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+To run some simulations in first week of October, you may need to update the input files of your model manually. This tutorial explains the manual steps:
+
+- Browse to https://3di.lizard.net/models
+- Search your model. If not listed, click on ‘also show repositories that do not have inp files yet’. Only the version of your latest commit of your model will be listed, during this week. When you need an older and/or pinned version, please contact the service desk. We will make this version for you available.
+
+.. figure:: image/rn_tut_1.png
+
+- After you have found your model, click the icon in the column ‘initialize inp generation’
+
+.. figure:: image/rn_tut_2.png
+
+- Depending on the size of your model, the input generation can take a few minutes up to 15 minutes before it appears.
+- As soon as the model appears, the column ‘last run’ will show a green button with the word ‘success’ or a red button with ‘failed’. In case, the generation failed, take a look at the log files.
+- Click on the button ‘success’ 
+
+.. figure:: image/rn_tut_3.png
+
+- Click on the pencil icon on the left [1] and then on the button ‘visible’. [2]
+
+.. figure:: image/rn_tut_4.png
+
+- Store your result (save icon appears on the location of the pencil icon) [1].
+- Your model is now ready for use in the live site and for use with the API.
+
+
+
 
 
 Release 3Di - Hotfix
