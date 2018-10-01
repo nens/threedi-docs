@@ -76,35 +76,6 @@ To run some simulations in first week of October, you may need to update the inp
 - Your model is now ready for use in the live site and for use with the API.
 
 
-Update 3Di model 
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-To run some simulations in first week of October, you may need to update the input files of your model manually. This tutorial explains the manual steps:
-
-- Browse to https://3di.lizard.net/models
-- Search your model. If not listed, click on ‘also show repositories that do not have inp files yet’. Only the version of your latest commit of your model will be listed, during this week. When you need an older and/or pinned version, please contact the service desk. We will make this version for you available.
-
-.. figure:: image/rn_tut_1.png
-
-- After you have found your model, click the icon in the column ‘initialize inp generation’
-
-.. figure:: image/rn_tut_2.png
-
-- Depending on the size of your model, the input generation can take a few minutes up to 15 minutes before it appears.
-- As soon as the model appears, the column ‘last run’ will show a green button with the word ‘success’ or a red button with ‘failed’. In case, the generation failed, take a look at the log files.
-- Click on the button ‘success’ 
-
-.. figure:: image/rn_tut_3.png
-
-- Click on the pencil icon on the left [1] and then on the button ‘visible’. [2]
-
-.. figure:: image/rn_tut_4.png
-
-- Store your result (save icon appears on the location of the pencil icon) [1].
-- Your model is now ready for use in the live site and for use with the API.
-
-
-
-
 
 Release 3Di - Hotfix
 +++++++++++++++++++++++++
