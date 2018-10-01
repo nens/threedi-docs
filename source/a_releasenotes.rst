@@ -15,6 +15,9 @@ The following has been adjusted in 3Di:
 
 Moreover, we took measures for the maintenance of the 3Di software. Soon you will receive an update with several developments around our QGIS plugin. 
 
+Please note! Due to technical problems, not all input files are updated to the newest 3Di version. We expect all models to be available October 8th. You can update the input files of your own model to the newest version manually, by following the tutorial at the end of these release notes. You are also welcome to contact our service desk to update the model for you.
+
+
 Bathymetry edits in Live Site
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 A DEM (Digital Elevation Model) edit is the newest tool in our live site, it allows to adjust the height of the bathymetry. This can be done at any time during the simulation by drawing a polygon. The DEM edit is immediately committed when finishing the polygon. The result can be checked using the 'Cross profile' tool. A DEM edit is also possible via our `API <:https://3di.lizard.net/api/v1/docs/>`_ , thereby allowing external applications to perform a DEM edit as well. However, the steps performed by ‘process results’ do not take the DEM edit into account.  Take this into consideration when interpreting the results. 
@@ -44,6 +47,63 @@ The next cases will be marked  as “Error” instead of “Warning”.
 - Maximum infiltration raster and DEM are not aligned, number of erroneous coordinates exceed 10. File is not further evaluated and values are set to default value
 
 We hope by doing this, to improve the feedback for users about errors in the model, before the model starts with the computation. When you receive one or more errors, you cannot proceed with your simulation until your errors are resolved. We ask users to check the warning and error messages after the model generation and try to solve them before contacting the service desk.
+
+
+Tutorial: Update input for 3Di model 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+To run some simulations in first week of October, you may need to update the input files of your model manually. This tutorial explains the manual steps:
+
+- Browse to https://3di.lizard.net/models
+- Search your model. If not listed, click on ‘also show repositories that do not have inp files yet’. Only the version of your latest commit of your model will be listed, during this week. When you need an older and/or pinned version, please contact the service desk. We will make this version for you available.
+
+.. figure:: image/rn_tut_1.png
+
+- After you have found your model, click the icon in the column ‘initialize inp generation’
+
+.. figure:: image/rn_tut_2.png
+
+- Depending on the size of your model, the input generation can take a few minutes up to 15 minutes before it appears.
+- As soon as the model appears, the column ‘last run’ will show a green button with the word ‘success’ or a red button with ‘failed’. In case, the generation failed, take a look at the log files.
+- Click on the button ‘success’ 
+
+.. figure:: image/rn_tut_3.png
+
+- Click on the pencil icon on the left [1] and then on the button ‘visible’. [2]
+
+.. figure:: image/rn_tut_4.png
+
+- Store your result (save icon appears on the location of the pencil icon) [1].
+- Your model is now ready for use in the live site and for use with the API.
+
+
+Update 3Di model 
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+To run some simulations in first week of October, you may need to update the input files of your model manually. This tutorial explains the manual steps:
+
+- Browse to https://3di.lizard.net/models
+- Search your model. If not listed, click on ‘also show repositories that do not have inp files yet’. Only the version of your latest commit of your model will be listed, during this week. When you need an older and/or pinned version, please contact the service desk. We will make this version for you available.
+
+.. figure:: image/rn_tut_1.png
+
+- After you have found your model, click the icon in the column ‘initialize inp generation’
+
+.. figure:: image/rn_tut_2.png
+
+- Depending on the size of your model, the input generation can take a few minutes up to 15 minutes before it appears.
+- As soon as the model appears, the column ‘last run’ will show a green button with the word ‘success’ or a red button with ‘failed’. In case, the generation failed, take a look at the log files.
+- Click on the button ‘success’ 
+
+.. figure:: image/rn_tut_3.png
+
+- Click on the pencil icon on the left [1] and then on the button ‘visible’. [2]
+
+.. figure:: image/rn_tut_4.png
+
+- Store your result (save icon appears on the location of the pencil icon) [1].
+- Your model is now ready for use in the live site and for use with the API.
+
+
+
 
 
 Release 3Di - Hotfix
