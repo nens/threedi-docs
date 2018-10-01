@@ -11,7 +11,9 @@ The section 'Frequently endured issues' below mention different types of errors 
 
 Known Issues
 ^^^^^^^^^^^^^^
-- The setting max_infiltration_capacity_file found in the global settings table is depricated. The setting was not removed from the global settings table, but is added to the infiltration_simple_table. Values from there are taken into account. This is solved in the autumn release 2018.
+- When applying 2D boundary conditons, it is not allowed to have more than one grid resolution on the edge. However, there is no clear error message for this. This will be improved in the Winter Release.
+- In the livesite it is not possible to visualise structures together with the schematisation.
+- Note that when you have performed a DEM edit, the results maps are processed based on the original DEM. Please, take this into consideration when analizing these results.
 
 Frequently endured issues
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -152,6 +154,10 @@ Runtime Error: NetCDF: String match to name in use
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Check the aggregation NetCDF name settings, names must be unique.
+
+No Limit to infiltration
++++++++++++++++++++++++++++++
+The setting max_infiltration_capacity_file found in the global settings table is depricated. The setting was not removed from the global settings table, but is added to the infiltration_simple_table. Values from there are taken into account. This is solved in the autumn release 2018, however older versions of the spatialite still have this setting there.
 
 
 Servicedesk
