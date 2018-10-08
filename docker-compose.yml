@@ -6,4 +6,4 @@ services:
     build: .
     command: "make html"
     volumes:
-      - D:\3di\git\threedi-docs:/code
+      - .:/code
