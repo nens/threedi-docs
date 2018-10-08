@@ -4,213 +4,360 @@ Results 3Di
 
 Raw results of flow variables from a simulation are written to file. To keep filesize in check, the user can define an interval for writing snapshots to the result file. The result file is created using netcdf, which is a set of software libraries and self-describing, machine-independent data formats that support the creation, access, and sharing of array-oriented scientific data. The set of libraries can be used with multiple tools and programming languages, such as matlab, python and excel, to extract the data from the netcdf data formats. It is also the file from which the 3Di Plugin receives its information. An overview of the data format in the output file is given in this chapter, to help users in reading data from file. To facilitate the user in the direct access to the results from the output file, users can make use of the python package *threedigrid*. Which can be downloaded from `https://pypi.org/project/threedigrid <https://pypi.org/project/threedigrid/>`_.
 
-
 During the spring release of 2018 the output file has been changed. The changes include a name change from *subgrid_map.nc* to *results_3di.nc* and changes to the data format within the output file. An overview of both data formats is present. 
 	
 Data format *results_3di.nc*
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The new output netcdf file consists of all flow variable results on both the 1D and the 2D mesh. In the data format of the file the 2D and 1D mesh are split up so each part of the mesh has its own result and mesh variable. A description of all the flow and mesh variables for the 1D and 2D mesh are given below:
 
 2D Mesh Cell/Node variables:
 ----------------------------
 
-**Coordinates**::
 
-  Mesh2DFace_xcc (x-coordinate of cell center)
+Coordinates:
+++++++++++++
+
+  Mesh2DFace_xcc: 
+
+  - Name: Flow Face 2D center x coordinate
   - Unit: [m]
 
-  Mesh2DFace_ycc (y-coordinate of cell center)
-  - Unit = [m]
+  Mesh2DFace_ycc:
+
+  - Name: Flow Face 2D center y coordinate
+  - Unit: [m]
  
-  Mesh2DFace_zcc (z-coordinate deepest cell pixel)
-  - Unit = [m MSL]
+  Mesh2DFace_zcc:
 
-  Mesh2DContour_x (x-coordinate of the 4 cell corners)
-  - Unit = m
+  - Name: Flow Face 2D center z coordinate
+  - Unit: [m MSL]
+
+  Mesh2DContour_x:
+
+  - Name: List of x-coordinates forming Face
+  - Unit: m
   
-  Mesh2DContour_y (y-coordinate of the 4 cell corners)
-  - Unit = m
+  Mesh2DContour_y:
+
+  - Name: List of y-coordinates forming Face
+  - Unit: m
 
 
-**Attributes**::
+Attributes:
++++++++++++
 
-  Mesh2DNode_id (Cell/Node id)
+  Mesh2DNode_id:
 
-  Mesh2DFace_sumax (total cell surface)
-  - Unit = m2
+  - Name: Node Identifier
 
-  Mesh2DNode_type (Type of calculation cell/node)
-  - Types = surface_water_2d, grounwater_2d, groundwater_2d, open_water_boundary_2d, groundwater_boundary_2d
+  Mesh2DFace_sumax:
+
+  - Name: Total cell surface
+  - Unit: m2
+
+  Mesh2DNode_type:
+
+  - Name: Type of 2D mesh node/face
+  - Types: surface_water_2d, grounwater_2d, groundwater_2d, open_water_boundary_2d, groundwater_boundary_2d
+
+Dimensions:
++++++++++++
+
+  nMesh2D_nodes:
+  
+  - Name: Number of 2D mesh nodes/faces.
 
 
-**Flow Variables**::
+Flow Variables:
++++++++++++++++
 
-  Mesh2D_s1 (Waterlevel in 2D Cell)
-  - Unit = m MSL
+  Mesh2D_s1:
 
-  Mesh2D_vol (Volume in 2D Cell)
-  - Unit = m3
+  - Name: Waterlevel
+  - Unit: m MSL
 
-  Mesh2D_su (Wet surface of 2D Cell)
-  - Unit = m2
+  Mesh2D_vol:
 
-  Mesh2D_ucx (x-component of cell centered velocity)
-  - Unit = m/s
+  - Name: Water volume
+  - Unit: m3
 
-  Mesh2D_ucy (y-component of cell centered velocity)
-  - Unit = m/s
+  Mesh2D_su:
 
-  Mesh2D_rain (Rain in 2D cell)
-  - Unit = m3/s
+  - Name: Wet surface area
+  - Unit: m2
 
-  Mesh2D_q_lat (Lateral discharge in/from 2D cell)
-  - Unit = m3/s
+  Mesh2D_ucx:
 
-  Mesh2D_infiltration_rate_simple (Infiltration rate when using simple infiltration)
-  - Unit = m3/s
+  - Name: Flow velocity in x direction in cell centre
+  - Unit: m/s
 
-  Mesh2D_leak (Leakage from and to groundwater layer)
-  - Unit = m3/s
+  Mesh2D_ucy:
+
+  - Name: Flow velocity in y direction in cell centre
+  - Unit: m/s
+
+  Mesh2D_rain:
+
+  - Name: Rain
+  - Unit: m3/s
+
+  Mesh2D_q_lat:
+
+  - Name: Lateral discharge
+  - Unit: m3/s
+
+  Mesh2D_infiltration_rate_simple:
+
+  - Name: Infiltration rate
+  - Unit: m3/s
+
+  Mesh2D_leak:
+
+  - Name: Leakage rate
+  - Unit: m3/s
+
 
 2D Mesh Line variables:
 -----------------------
 
-**Coordinates**::
+Coordinates:
+++++++++++++
 
-  Mesh2DLine_xcc (x-coordinate of edge center)
+  Mesh2DLine_xcc:
+
+  - Name: Flow line 2D center x coordinate.
   - Unit = m
 
-  Mesh2DLine_ycc (y-coordinate of edge center)
+  Mesh2DLine_ycc:
+
+  - Name: Flow line 2D center y coordinate.
   - Unit = m
 
-  Mesh2DLine_zcc (z-coordinate of edge center)
+  Mesh2DLine_zcc:
+
+  - Flow line 2D center z coordinate.
   - Unit = m
 
-**Attributes**::
+Attributes:
++++++++++++
 
-  Mesh2DLine_type (Type of Cell edge)
-  - Types = open_water_2d, open_water_obstacles_2d, vertical_infiltration_2d, groundwater_2d, open_water_boundary_2d, groundwater_boundary_2d
+  Mesh2DLine_type:
 
-**Flow variables**::
+  - Name: Type of Cell edge
+  - Types: open_water_2d, open_water_obstacles_2d, vertical_infiltration_2d, groundwater_2d, open_water_boundary_2d, groundwater_boundary_2d
 
-  Mesh2D_u1 (Flow velocity on cell edge)
-  - Unit = m/s
+Dimensions:
++++++++++++
 
-  Mesh2D_q (Discharge on cell edge)
-  - Unit = m3/s
+  nMesh2D_lines:
 
-  Mesh2D_au (Wet cross-section of cell edge)
-  - Unit = m
+  - Name: Number of 2D Mesh lines.
 
-  Mesh2D_up1 (flow velocity in interflow layer)
-  - Unit = m/s
+Flow variables:
++++++++++++++++
 
-  Mesh2D_qp (discharge in interflow layer)
-  - Unit = m/s
+  Mesh2D_u1:
+
+  - Name: Flow velocity on 2D flow line
+  - Unit: m/s
+
+  Mesh2D_q:
+
+  - Name: Discharge on flow line
+  - Unit: m3/s
+
+  Mesh2D_au:
+
+  - Name: Wet cross-sectional area
+  - Unit: m
+
+  Mesh2D_up1:
+
+  - Name: Flow velocity in interflow layer
+  - Unit: m/s
+
+  Mesh2D_qp:
+
+  - Name: Discharge in interflow layer
+  - Unit: m/s
 
 1D Mesh Node variables:
 -----------------------
 
-**Coordinates**::
+Coordinates:
+++++++++++++
 
-  Mesh1DNode_xcc (x-coordinate of node center)
-  - Unit: [m]
+  Mesh1DNode_xcc:
+
+  - Name: Node 1D x coordinate
+  - Unit: m
 		
-  Mesh1DNode_ycc (y-coordinate of node center)
-  - Unit = [m]
+  Mesh1DNode_ycc:
 
-  Mesh1DNode_zcc (z-coordinate of node center)
-  - Unit = [m MSL]
+  - Name: Node 1D y coordinate
+  - Unit: m
 
-**Attributes**::
+  Mesh1DNode_zcc:
 
-  Mesh1DNode_id (Node id)
+  - Name: Node 1D z coordinate
+  - Unit: m MSL
 
-  Mesh1DNode_sumax (total Node surface)
-  - Unit = m2
+Attributes:
++++++++++++
 
-  Mesh1DNode_type (Type of calculation cell/node)
+  Mesh1DNode_id:
+
+  - Name: Node Identifier
+
+  Mesh1DNode_sumax:
+
+  - Name: Total cell surface
+  - Unit: m2
+
+  Mesh1DNode_type:
+
   - Types = node_without_storage_1d, open_water_with_storage_1d, open_water_boundary_1d
 
-**Flow Variables**::
+Dimensions:
++++++++++++
 
-  Mesh1D_s1 (Waterlevel in 1D Node)
-  - Unit = m MSL
+  nMesh1D_nodes:
 
-  Mesh1D_vol (Volume in 2D Node)
-  - Unit = m3
+  - Name: Number of 1D mesh nodes
 
-  Mesh1D_su (Wet surface of 1D Node)
-  - Unit = m2
 
-  Mesh1D_rain (Inflow in 1D from rain)
+Flow variables:
++++++++++++++++
+
+  Mesh1D_s1:
+
+  - Name: Waterlevel in 1D Node
+  - Unit: m MSL
+
+  Mesh1D_vol:
+
+  - Name: Water volume in 1D Node
+  - Unit: m3
+
+  Mesh1D_su: 
+
+  - Name: Wet surface of 1D Node
+  - Unit: m2
+
+  Mesh1D_rain:
+
+  - Name: Inflow in 1D from rain
   - Unit = m3/s
 
-  Mesh2D_q_lat (Lateral discharge in/from 2D cell)
-  - Unit = m3/s
+  Mesh1D_q_lat:
 
-  Mesh2D_infiltration_rate_simple (Infiltration rate when using simple infiltration)
-  - Unit = m3/s
-
-  Mesh2D_leak (Leakage from and to groundwater layer)
+  - Name: Lateral discharge in/from 1D cell
   - Unit = m3/s
 
 1D Mesh Line variables:
 -----------------------
 
-**Coordinates**::
+Coordinates:
+++++++++++++
 
-  Mesh1DLine_xcc (x-coordinate of edge center)
-  - Unit = m
+  Mesh1DLine_xcc:
+  
+  - Name: Flow line 1D x center coordinate
+  - Unit: m
 
- Mesh1DLine_ycc (y-coordinate of edge center)
-  - Unit = m
+  Mesh1DLine_ycc:
+  
+  - Name: Flow line 1D center y coordinate
+  - Unit: m
 
-  Mesh1DLine_zcc (z-coordinate of edge center)
-  - Unit = m
+  Mesh1DLine_zcc:
 
-**Attributes**::
+  - Name: Flow line 1D z center coordinate
+  - Unit = m MSL
 
-  Mesh1DLine_id (Node id)
+Attributes:
++++++++++++
 
-  Mesh1DLine_type (Type of Cell edge)
-  - Types = embedded_1d, isolated_1d, connected_1d, long_crested_structure_1d, short_crested_structure_1d, double_connected_1d, from_node_with_storage_1d2d, from_node_without_storage_1d2d, potential_breach_1d2d, groundwater_1d2d, boundary_1d
+  Mesh1DLine_id:
 
-**Flow variables**::
+  - Name: Line identifier
 
-  Mesh1D_u1 (Flow velocity on cell edge)
-  - Unit = m/s
+  Mesh1DLine_type:
 
-  Mesh1D_q (Discharge on cell edge)
-  - Unit = m3/s
+  - Types: embedded_1d, isolated_1d, connected_1d, long_crested_structure_1d, short_crested_structure_1d, double_connected_1d, from_node_with_storage_1d2d, from_node_without_storage_1d2d, potential_breach_1d2d, groundwater_1d2d, boundary_1d
 
-  Mesh1D_au (Wet cross-section of cell edge)
-  - Unit = m
+Dimensions:
++++++++++++
 
-  Mesh1D_breach_depth (Depth of breach on 1D2D connection)
-  - Unit = m
+nMesh1D_lines:
 
-  Mesh1D_breach_width (Depth of breach on 1D2D connection)
-  - Unit = m
+  - Name: Number of 1D Mesh lines
+
+Flow variables:
++++++++++++++++
+
+  Mesh1D_u1:
+
+  - Name: Flow velocity on 1D flow line
+  - Unit: m/s
+
+  Mesh1D_q: 
+
+  - Name: Discharge on 1D flow line
+  - Unit: m3/s
+
+  Mesh1D_au:
+
+  - Name: Wet cross-sectional area
+  - Unit: m
+
+  Mesh1D_breach_depth:
+
+  - Name: Breach depth on 1D2D connection)
+  - Unit: m
+
+  Mesh1D_breach_width:
+
+  - Name: Breach width on 1D2D connection)
+  - Unit: m
 
 Pump variables:
 ---------------
 
-**Coordinates**::
+Coordinates:
+++++++++++++
 
-  Mesh1DPump_xcc (x-coordinate of pump suction side)
-  - Unit = m
+  Mesh1DPump_xcc:
 
-  Mesh1DPump_ycc (y-coordinate of pump suction side)
-  - Unit = m
+  - Name: Start point Pump 1D x-coordinate
+  - Unit: m
 
-**Attributes**::
+  Mesh1DPump_ycc: 
 
-  Mesh1DPump_id (Pump id)
+  - Name: Start point Pump 1D y-coordinate
+  - Unit: m
 
-**Flow variables**::
+Attributes:
++++++++++++
 
-  Mesh1D_q_pump (Pump discharge)
-  - Unit = m3/s
+  Mesh1DPump_id:
+
+  - Name: Pump identifier
+
+Dimensions:
++++++++++++
+
+  nPumps:
+
+  - Name: Number of 1D pumps
+
+Flow variables:
++++++++++++++++
+
+  Mesh1D_q_pump:
+
+  - Name: Pump discharge
+  - Unit: m3/s
 
 Data format *subgrid_map.nc*
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
