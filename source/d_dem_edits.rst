@@ -12,4 +12,4 @@ By clicking the pencil icon in the lower left corner of the screen, edits in the
 .. figure:: image/d_draw_dem_polygon.png
    :alt: Performing a dem edit
    
-A DEM edit is also possible via our API: `3di.lizard.net/api/v1/docs/ <https://3di.lizard.net/api/v1/docs/>`_.  , thereby allowing external applications to perform a DEM edit as well. However, the steps performed by ‘process results’ do not take the DEM edit into account.  Take this into consideration when interpreting the results. 
+A DEM edit is also possible via our API: `3di.lizard.net/api/v1/calculation/start/ <https://3di.lizard.net/api/v1/calculation/start/>`_  , thereby allowing external applications to perform a DEM edit as well. However, the steps performed by ‘process results’ do not take the DEM edit into account.  Take this into consideration when interpreting the results. 
