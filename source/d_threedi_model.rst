@@ -80,13 +80,11 @@ By clicking the pencil icon in the lower left corner of the screen, edits in the
 .. figure:: image/d_draw_dem_polygon.png
    :alt: Performing a dem edit
    
-For v1 models, any layer that is included in the model can be adjusted.
+For v1 models, any layer that is included in the model can be adjusted. 
    
-For v2 models it is also possible to make a DEM edit via the API: `3di.lizard.net/api/v1/calculation/start/ <https://3di.lizard.net/api/v1/calculation/start/>`_  , thereby allowing external applications to perform a DEM edit as well. However, the steps performed by ‘process results’ do not take the DEM edit into account.  Take this into consideration when interpreting the results. 
+For v2 models it is also possible to make a DEM edit via the API: `3di.lizard.net/api/v1/calculation/start/ <https://3di.lizard.net/api/v1/calculation/start/>`_  , thereby allowing external applications to perform a DEM edit as well. However, the steps performed by ‘process results’ do not take the DEM edit into account.  Take this into consideration when interpreting the results near your edit. 
 
 
-
-	
 
 Wind (v2)
 ---------
