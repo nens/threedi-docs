@@ -73,7 +73,6 @@ Welcome to 3Di's documentation!
    d_control_structures
    d_api
    d_results_from_lizard
-   d_dem_edits
    d_problem_solving
 
 
