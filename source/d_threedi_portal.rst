@@ -100,7 +100,7 @@ After 30 minutes of inactivity you will automatically lose your director status.
 Layers menu
 ----------------
 
-Click on the globe at the top right of the screen. The layers menu appears. One of the options is to visualize the 2D domain of the model, on the basis of the DEM (height map):
+Click on the globe at the top right of the screen. The layers menu appears. One of the options is to visualize the 2D domain of the model, on the basis of the DEM (Digital Elevation Map), the height map or bathymetry raster:
 
 .. figure:: image/d2.9_layer_menu.png 
 	:alt: Layer menu

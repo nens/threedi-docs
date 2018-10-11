@@ -66,15 +66,25 @@ With the droplet icon part of the model can be put under water, a so called floo
 
 By clicking the *additional settings* button (wrench icon) an additional settings becomes available. It can be selected whether the flood fill value is considered an absolute value (e.g. relative to a global reference level, like MSL), or as a relative value (i.e. relative to the local elevation).
 
-Customize model layers (v1)
----------------------------
+DEM edit/ Raster edit
+------------------------------------------------
 
-After choosing a foreground layer (:ref:`Layers_menu`) various 2D layers can be adjusted by clicking on the drawing icon (**v1**). It depends on the model which layers can be adjusted. By selecting the *additional settings* button (wrench icon), the layer that needs to be adjusted and the value can be selected.
+A DEM edit is a tool in our live site, it allows to adjust the height of the bathymetry. This can be done at any time during the simulation. 
 
-Using the polygon button on the left of the screen, a polygon can be drawn on the map. The polygon is finalized when either clicking on the first point again or double clicking. In the plane the new value (visible at the bottom of the screen) is used in the rest of the calculation for the specific layer that was adjusted. The changes take effect as soon as the user starts the calculation.
+.. figure:: image/d_dem_edits.png
+   :alt: Dem edits
 
-.. figure:: image/d3.5_customize_layers.png
-	:alt: Customize model layers
+To edit the bathymetry of the model, make sure the DEM-layer is activated. This can be done by clicking on 'Map layers' (globe icon), then open the layer group 'Foreground' and then activate the DEM-layer by clicking on 'DEM'.  
+By clicking the pencil icon in the lower left corner of the screen, edits in the DEM can be made. The slider on the right of the icons can be used to set the new height of the DEM. This is the absolute value in meters relative to sea level. The polygon icon on the left side of the screen can be used to draw a polygon on the DEM, to indicate the location of the edit. When clicking this icon a cursor showing the text 'Click to start draw polygon' pops up. A polygon can be drawn by clicking multiple vertices on the DEM and closing it by clicking on the first point again. The DEM edit is immediately committed when finishing the polygon. The result can be checked using the 'Cross profile' tool.
+
+.. figure:: image/d_draw_dem_polygon.png
+   :alt: Performing a dem edit
+   
+For v1 models, any layer that is included in the model can be adjusted. 
+   
+For v2 models it is also possible to make a DEM edit via the API: `3di.lizard.net/api/v1/calculation/start/ <https://3di.lizard.net/api/v1/calculation/start/>`_  , thereby allowing external applications to perform a DEM edit as well. However, the steps performed by ‘process results’ do not take the DEM edit into account.  Take this into consideration when interpreting the results near your edit. 
+
+
 
 Wind (v2)
 ---------
@@ -107,6 +117,7 @@ If breach locations are predefined in the model, these can be activated as follo
 	:alt: Breach location
 
 To show the flow rate over time, select a breach location using the point information tool. 
+
 
 Advanced settings
 -----------------
