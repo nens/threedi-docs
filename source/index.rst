@@ -46,8 +46,8 @@ Welcome to 3Di's documentation!
    
    c_numerics
    c_calculation_grid_data
-   c_netcdf_results
-   c_aggregation_results
+   c_results
+   c_aggregate_results
    c_state_files
    
 .. toctree::
