@@ -71,5 +71,5 @@ The damages are estimated based on the land-use type, depth of the inundation, y
 
 The estimated damages are available on a 0.5 m x 0.5 m resolution. Direct, indirect and total damages are available in separate raster layers. In addition, a CSV formatted file with total damages can be downloaded from Lizard.
 
-Further documentation (only in Dutch) can be downloaded from :download:`here <pdf/nabewerking-3di-resultaten-in-lizard.pdf>`. The used damage table are available in :download:`Excel <other/3di-v2.2018-05-15.xlsx>` and :download:`CFG <other/3di-v2.2018-05-15.cfg>` and CFG (for use on `waterschadeschatter.nl <https://www.waterschadeschatter.nl>`_. The damage estimation in Lizard was developed together with Hoogheemraadschap Hollands Noorderkwartier.
+Further documentation (only in Dutch) can be downloaded from :download:`here <pdf/nabewerking-3di-resultaten-in-lizard.pdf>`. The used damage table are available in :download:`Excel <other/3di-v2.2018-05-15.xlsx>` and :download:`CFG <other/3di-v2.2018-05-15.cfg>` (for use on `waterschadeschatter.nl <https://www.waterschadeschatter.nl>`_. The damage estimation in Lizard was developed together with Hoogheemraadschap Hollands Noorderkwartier.
 
