@@ -55,7 +55,7 @@ To view results in Lizard, follow these steps
    
 Stored results can be managed using the following URL: <your-organisation>.lizard.net/management/scenarios
 
-Damage Estimation
+Damage Estimation 
 ---------------------
 
 Depending on your location Lizard provides estimates of damage caused by inundation or flooding. To use the damage estimation your study or model area must be within the Netherlands. 
