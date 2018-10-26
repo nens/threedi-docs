@@ -59,8 +59,8 @@ Note that postman stores your password which poses a possible security risk.
 
 *Times*
 
-All times used in the API are noted in UTC. This means you must consider Time zones and Daylight Saving Offsets. For a rain event in The Netherlands during summer this means you must consider an offset of 2 hours and use the following notation::
+All dates and times used in the API are based on the so-called ISO8601 standards. You can use your local times and add the off set to UTC Time. More about these standards can be found on `Wikipedia <https://en.wikipedia.org/wiki/ISO_8601>`_. In the example below:
 
     2016-06-22T18:00+02:00
 
-This rainfall event will start at 20:00 hour local time.
+This rainfall event will start at 18:00 hour local time.

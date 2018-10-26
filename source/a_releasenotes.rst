@@ -1,6 +1,16 @@
 Release notes
 =============
 
+**Reminder: On Wednesday 14 November 3Di will also be unavailable during the day due to maintenance on our serves** 
+
+
+Release 3Di – Fall Release 2018  
+++++++++++++++++++++++++++++++++++++++++++++
+
+On Monday 26 November the next 3Di release is scheduled. With this release we introduce a new process in 3Di. From this release onwards, it is possible to take interception into account in your simulation. Moreover, it will be possible to take energy losses into account for culverts. In addition to this, we performed lots of maintenance work as a preparatory step for the major release next spring.  
+
+On Monday 26 November 3Di will be unavailable between 08:00-12:00 CEST.
+
 Release 3Di – Autumn Release 2018  
 +++++++++++++++++++++++++++++++++++++++++++++
 

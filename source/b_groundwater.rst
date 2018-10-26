@@ -19,7 +19,7 @@ Summary of concepts in 3Di
 
    Overview of groundwater concepts in 3Di (1)
    
-The Figure above shows a cross-section of a region with surface and sub-surface water. The Letters in the Figure refer to the following description of the main assumtions made for the computation of groundwater flow:
+The Figure above shows a cross-section of a region with surface and sub-surface water. The Letters in the Figure refer to the following description of the main assumptions made for the computation of groundwater flow:
 
 A. The phreatic surface is assumed equal to the water table. The soil below is assumed fully saturated and the soil above assumed completely dry.
 
