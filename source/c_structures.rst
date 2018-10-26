@@ -1,9 +1,13 @@
+.. _structures:
+
 Structures
 ============
 
 Structures can be an integral part of water systems. In 3Di they are placed between or on connection nodes as links between channels and pipes. They have different properties depending on there type and can have different functions depending on the settings the user defines. The sections below give an overview of the structures available in 3Di.
 
-Pumpstation
+.. _pump:
+
+Pump station
 ------------
 
 In 3Di, the modeler can add pumps to a 1D channel and/or 1D sewer networks. There is no distinction made for pumps in sewer systems and channel networks, since their function is the same. Characteristics for the pump, as needed for a specific water system, can be set by configuring attributes of the pumps. The attributes specify at which water levels the pump starts moving water from one node to the other and what the discharge is. 
@@ -40,6 +44,8 @@ Furthermore, there are two methods to add a pump in a 3Di:
 Finally, pumps can either be set to work implicitly, explicitly or as a combination of both. When set implicit, pumps will only pump a fraction of their capacity depending on the downstream supply. This prevents pumps from switching on and off in a short period of time and makes the calculation more stable. The implicit ratio for pumps can be set in the numerical settings. 
 
 
+.. _weir:
+
 Weir
 ------------
 
@@ -68,6 +74,8 @@ The long crested weir uses the conservation of mass and energy equations to comp
      
    Illustration of long crested weir.
 
+
+.. _culvert:
 
 Orifice and Culvert
 --------------------

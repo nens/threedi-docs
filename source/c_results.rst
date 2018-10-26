@@ -2,17 +2,23 @@ Results 3Di
 ===========
 
 
-Raw results of flow variables from a simulation are written to file. To keep filesize in check, the user can define an interval for writing snapshots to the result file. The result file is created using netcdf, which is a set of software libraries and self-describing, machine-independent data formats that support the creation, access, and sharing of array-oriented scientific data. The set of libraries can be used with multiple tools and programming languages, such as matlab, python and excel, to extract the data from the netcdf data formats. It is also the file from which the 3Di Plugin receives its information. An overview of the data format in the output file is given in this chapter, to help users in reading data from file. To facilitate the user in the direct access to the results from the output file, users can make use of the python package *threedigrid*. Which can be downloaded from `https://pypi.org/project/threedigrid <https://pypi.org/project/threedigrid/>`_.
+The results of a simulation are written to file. The result file is created using NetCDF, which is a set of software libraries and self-describing, machine-independent data formats that support the creation, access, and sharing of array-oriented scientific data. The set of libraries can be used by multiple tools and programming languages, such as matlab, python and excel, to extract the data from the netcdf data formats. 
 
-During the spring release of 2018 the output file has been changed. The changes include a name change from *subgrid_map.nc* to *results_3di.nc* and changes to the data format within the output file. An overview of both data formats is present. 
-	
+The 3Di Plugin visualizes the information stored in this file. An overview of the data format in the output file is given in this chapter, to help users in reading data from file. To facilitate users in the direct access to the results from the output file, users can make use of the python package *threedigrid*. Which can be downloaded from `https://pypi.org/project/threedigrid <https://pypi.org/project/threedigrid/>`_. This package helps to link the output data to the input data.
+
+During the spring release of 2018 the output file has been changed. The changes include a change in name from *subgrid_map.nc* to *results_3di.nc* and changes to the data format within the output file. An overview of both data formats is presented below. 
+
+These files consists of all relevant variables that are necessary to analyze the results of a simulation. The user defines the output time step. The snapshots of the flow are saved at these intervals. Note, that the output time step in combination with the size of the model will define the size of the output file. In addition to these snap shots, 3Di can generate aggregated results. More about this can be found in  :ref: `aggregationnetcdf`.
+
+
 Data format *results_3di.nc*
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The new output netcdf file consists of all flow variable results on both the 1D and the 2D mesh. In the data format of the file the 2D and 1D mesh are split up so each part of the mesh has its own result and mesh variable. A description of all the flow and mesh variables for the 1D and 2D mesh are given below:
+The current output NetCDF file consists of all flow variables of the 1D and the 2D mesh. The results file is constructed according to the `CF Conventions <http://cfconventions.org/>`_ . In this data format, the 2D and 1D mesh are split, so each part of the mesh has its own result and mesh variable. A description of all the flow and mesh variables for the 1D and 2D mesh are given below:
 
 2D Mesh Cell/Node variables:
 ----------------------------
 
+This concerns the meta information that defines the computational grid.
 
 Coordinates:
 ++++++++++++
@@ -71,11 +77,14 @@ Dimensions:
 Flow Variables:
 +++++++++++++++
 
+These are the variable that are defined in the cell centers.
+
   Mesh2D_s1:
 
-  - Name: Waterlevel
+  - Name: Water level
   - Unit: m MSL
-
+Depending on the node, it is the surface or the groundwater level.
+  
   Mesh2D_vol:
 
   - Name: Water volume
@@ -88,14 +97,18 @@ Flow Variables:
 
   Mesh2D_ucx:
 
-  - Name: Flow velocity in x direction in cell centre
+  - Name: Flow velocity in x direction in cell center
   - Unit: m/s
 
+This is an interpolated velocity value that is based on the velocities on cell faces. 
+  
   Mesh2D_ucy:
 
-  - Name: Flow velocity in y direction in cell centre
+  - Name: Flow velocity in y direction in cell center
   - Unit: m/s
 
+ This is an interpolated velocity value that is based on the velocities on cell faces. 
+  
   Mesh2D_rain:
 
   - Name: Rain
@@ -111,14 +124,20 @@ Flow Variables:
   - Name: Infiltration rate
   - Unit: m3/s
 
+This variable only exist in cases where groundwater is not taken into account.
+
   Mesh2D_leak:
 
   - Name: Leakage rate
   - Unit: m3/s
+  
+This variable only exist in cases where groundwater is  taken into account.
 
 
 2D Mesh Line variables:
 -----------------------
+
+This concerns the meta information that defines the connections between the computational cells.
 
 Coordinates:
 ++++++++++++
@@ -161,6 +180,8 @@ Flow variables:
   - Name: Flow velocity on 2D flow line
   - Unit: m/s
 
+This variable, in case of Horton-based infiltration and groundwater flow, also consists of the vertical flow and the groundwater flow. This depends on the line number. This also yields for most of the other line variables.
+
   Mesh2D_q:
 
   - Name: Discharge on flow line
@@ -176,6 +197,7 @@ Flow variables:
   - Name: Flow velocity in interflow layer
   - Unit: m/s
 
+  
   Mesh2D_qp:
 
   - Name: Discharge in interflow layer
@@ -183,6 +205,8 @@ Flow variables:
 
 1D Mesh Node variables:
 -----------------------
+
+The results for the 1D variables are structured in a similar way. Note that embedded nodes do not have a 1D water level, volume etc information. This information can be found in the 2D results.
 
 Coordinates:
 ++++++++++++

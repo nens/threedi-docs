@@ -1,8 +1,11 @@
+.. _aggregationnetcdf:
+
 Aggregated output
 =================
 
-Results for a 3Di simulation are normally written in a results file called *results_3di.nc* (previously *subgrid_map.nc*). This file contains the flow information (Snap Shots) at different times in the simulation. The interval at which these flow information are written is defined by the user via the parameter *output_time_step*. 
-Aggregated results from certain intervals during the simulation can be very useful. The aggregated resulst for instance are input for the water balance tool in QGIS. For this purpose an aggregated results file is available called *aggregate_ results_3di.nc* (previously *flow_aggregate.nc*). On each Mesh variable (s1, u1, etc.) described in the results section aggregation can be executed. The configuration for this aggregation file is available in the models spatialite and the table is called v2_aggregation_settings. The configuration with its options will be explained below. The layout of the table is:
+Results for a 3Di simulation are written in a results file called *results_3di.nc* (previously *subgrid_map.nc*). This file contains the flow information (snap shots) at different times in the simulation. The interval at which this information is written, is defined by the user via the parameter *output_time_step*. 
+
+Aggregated results over certain intervals during the simulation can be very useful. For instance, the aggregated results are the input for the water balance tool in QGIS. For a consistent water balance, the results of various snap shots is not enough in case of an output time step which is larger than the computational time step. For this purpose, an aggregated results file is available called *aggregate_ results_3di.nc* (previously *flow_aggregate.nc*). The structure of the file is very similar as the other result file. Each Mesh variable (s1, u1, etc.) described in the results section can be aggregated. The configuration for this aggregation file is available in the models spatialite and the table is called v2_aggregation_settings. The configuration and its options are explained below. The layout of the table is:
 
 .. figure:: image/aggregation_table.png
    :alt: Table layout aggregation options
@@ -10,7 +13,7 @@ Aggregated results from certain intervals during the simulation can be very usef
 Configuration options
 ---------------------
 
-In the spatialite a table can be filled to configure variables and their aggregation methods to aquire the desired aggregation results. The possible flow variables and their specific inputs are described along with all the possible aggregation methods. Users can determine multiple aggregation options for each *flow_variable* as long as the *aggregation_method* is not used twice for the *same* flow_variable.
+In the spatialite a table can be filled to configure variables and their aggregation methods to acquire the desired aggregation results. The possible flow variables and their specific inputs are described along with all the possible aggregation methods. Users can determine multiple aggregation options for each *flow_variable* as long as the *aggregation_method* is not used twice for the same flow_variable.
 
 var_name
 ^^^^^^^^
@@ -22,7 +25,7 @@ flow_variable
 
 The different flow variable for which to determine aggregated results are. The flow variables for input to generate aggregated results are:
 
-* waterlevel
+* water level
 * flow_velocity
 * discharge
 * volume
@@ -39,17 +42,17 @@ aggregation_method
 
 The different aggregation methods that can be used on a flow variable are:
 
-* max: maximum value of variable in timestep (configurated interval)
-* min: minimum value of variable in timestep (configurated interval)
-* avg: average value of variable in timestep (configurated interval)
-* cum: This is integration over time of variable [dt * variable]. For instance cumulative net volume across flowline in timestep (configurated interval)
-* cum_positive: This is integration over time of variable in positive direction [dt * variable]. For instance cumulative volume across flowline in positive direction for timestep (configurated interval)
-* cum_negative: This is integration over time of variable in negative direction [dt * variable]. For instance cumulative volume across flowline in negative direction for timestep (configurated interval)
+* max: maximum value of the variable in the configured interval (time step).
+* min: minimum value of the variable in the configured interval (time step).
+* avg: average value of the variable in the configured interval (time step).
+* cum: This is integration over time of the variable [dt * variable]. For instance, the cumulative net discharge across a flow line in the configured interval.
+* cum_positive: This is integration over time of the variable [dt * variable] in positive direction. For instance, the cumulative net discharge in positive direction across a flow line in the configured interval.
+* cum_negative: This is integration over time of the variable [dt * variable] in negative direction. For instance, the cumulative net discharge in negative direction across a flow line in the configured interval.
 
-timestep
+time step
 ^^^^^^^^
 
-Timestep is the interval in seconds for writing and determining the aggregated flow results. An example is when the maximum waterlevel needs to be determined every 300 seconds. Every 300 seconds the maximum waterlevel in that interval is determined at the end of this interval.
+Time step is the interval in seconds for writing and determining the aggregated flow results. In the example above, the maximum water level is determined over every 600 seconds. The minimum water level is determined over a period ov 500 seconds. 
 
 aggregation_in_space
 ^^^^^^^^^^^^^^^^^^^^

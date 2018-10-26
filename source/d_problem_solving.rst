@@ -13,6 +13,7 @@ Known Issues
 ^^^^^^^^^^^^^^
 - When applying 2D boundary conditons, it is not allowed to have more than one grid resolution on the edge. However, there is no clear error message for this. This will be improved in the Winter Release.
 - In the livesite it is not possible to visualise structures together with the schematisation.
+- The visualisation of the groundwater level in the Livesite, shows some artifacts in case the groundwater level rises above the surface. This will corrected in the Fall Release.
 - Note that when you have performed a DEM edit, the results maps are processed based on the original DEM. Please, take this into consideration when analizing these results.
 
 Frequently endured issues
