@@ -1,7 +1,10 @@
-View 3Di stored results in lizard
+Results in Lizard
 =================================
 
 3Di users that have access to Lizard can view and playback stored scenarios. Depending on your contract and location you may be able to view estimates of damage caused by inundation or flooding (waterschadeschatter).
+
+View stored results
+---------------------
 
 To view results in Lizard, follow these steps
 
@@ -49,4 +52,24 @@ To view results in Lizard, follow these steps
    :align: center
    
    Lizard export button
+   
+Stored results can be managed using the following URL: <your-organisation>.lizard.net/management/scenarios
+
+Damage Estimation
+---------------------
+
+Depending on your location Lizard provides estimates of damage caused by inundation or flooding. To use the damage estimation your study or model area must be within the Netherlands. 
+
+The damages are estimated based on the landuse type, depth of the inundation, year of the month and repair time and are closely linked to the dutch waterschadeschatter.nl. The damage can be used by selecting the 'damage estimation' option and providing the parameters. The landuse map can be viewed in lizard and is fixed. The water depth is derived using the maximum water level and the most recent AHN elevation. The damage estimation does not use the DEM provided in the model.
+
+
+.. figure:: image/d_store_results.png
+   :alt: Store results
+   
+.. figure:: image/d_store_results2.png
+   :alt: Store results 2
+
+The estimated damages are available on a 0.5 x 0.5 m resolution. Direct, indirect and total damages are available in seperate raster layers. In addition, a CSV formatted file with total damages can be dowbloaded from Lizard.
+
+Futher documentation can be downloaded :download:`here <pdf/nabewerking-3di-resultaten-in-lizard.pdf>`. The used damage table are available in :download:`Excel <other/3di-v2.2018-05-15.xlsx>` and :download:`CFG <other/3di-v2.2018-05-15.cfg>` and CFG (for use on `waterschadeschatter.nl <https://www.waterschadeschatter.nl>`_. The damage estimation in Lizard was developed together with Hoogheemraadschap Hollands Norderkwartier.
 
