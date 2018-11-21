@@ -38,6 +38,7 @@ The different flow variable for which to determine aggregated results are. The f
 * leakage
 * interception
 
+
 aggregation_method
 ^^^^^^^^^^^^^^^^^^
 
@@ -49,7 +50,8 @@ The different aggregation methods that can be used on a flow variable are:
 * cum: This is integration over time of the variable [dt * variable]. For instance, the cumulative net discharge across a flow line in the configured interval.
 * cum_positive: This is integration over time of the variable [dt * variable] in positive direction. For instance, the cumulative net discharge in positive direction across a flow line in the configured interval.
 * cum_negative: This is integration over time of the variable [dt * variable] in negative direction. For instance, the cumulative net discharge in negative direction across a flow line in the configured interval.
-* current: the value at the output time
+* current: Uses the current value of a variable. This is required in case one checks the water balance for variables that are the result of the processes. This is a setting only valid for *volume* and *intercepted_volume*.
+
 
 time step
 ^^^^^^^^^^^^
