@@ -66,6 +66,7 @@ Welcome to 3Di's documentation!
    d_threedi_portal
    d_threedi_model
    d_threedi_versioning
+   d_qgis_plugin
    d_rasters
    d_flood_model
    d_water_system
