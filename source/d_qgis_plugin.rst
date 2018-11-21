@@ -76,7 +76,7 @@ For new models, these settings are included in the empty spatialite database (:r
       VALUES (6, 9999, 'interception_cum', 'interception', 'cum', 
               'FALSE', 300);
 
-Note that in bote cases you must update the global settings id to the id of the scenario for which you wish to generate aggregated results. For multiple scenarios you must add these settings mltiple times (and update row id's).
+Note that in bote cases you must update the global settings id to the id of the scenario for which you wish to generate aggregated results. For multiple scenarios you must add these settings mltiple times (and update row id's). Also, you may choose to change the aggregation timestep, but make sure to use the same timestep for alle aggregation settings.
 
 Using the water balance tool 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
