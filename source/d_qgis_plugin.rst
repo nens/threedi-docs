@@ -73,7 +73,31 @@ For new models, these settings are included in the empty spatialite database (:r
   INSERT INTO v2_aggregation_settings(
               id, global_settings_id, var_name, flow_variable, aggregation_method, 
               aggregation_in_space, timestep)
-      VALUES (6, 9999, 'interception_cum', 'interception', 'cum', 
+      VALUES (6, 9999, 'interception_current', 'interception', 'current', 
+              'FALSE', 300);
+  
+  INSERT INTO v2_aggregation_settings(
+              id, global_settings_id, var_name, flow_variable, aggregation_method, 
+              aggregation_in_space, timestep)
+      VALUES (7, 9999, 'discharge_cum', 'discharge', 'cum', 
+              'FALSE', 300);
+  
+  INSERT INTO v2_aggregation_settings(
+              id, global_settings_id, var_name, flow_variable, aggregation_method, 
+              aggregation_in_space, timestep)
+      VALUES (8, 9999, 'discharge_cum_neg', 'discharge', 'cum_negative', 
+              'FALSE', 300);
+  
+  INSERT INTO v2_aggregation_settings(
+              id, global_settings_id, var_name, flow_variable, aggregation_method, 
+              aggregation_in_space, timestep)
+      VALUES (9, 9999, 'discharge_cum_pos', 'discharge', 'cum_positive', 
+              'FALSE', 300);
+  
+  INSERT INTO v2_aggregation_settings(
+              id, global_settings_id, var_name, flow_variable, aggregation_method, 
+              aggregation_in_space, timestep)
+      VALUES (10, 9999, 'volume_current', 'discharge', 'current', 
               'FALSE', 300);
 
 Note that in bote cases you must update the global settings id to the id of the scenario for which you wish to generate aggregated results. For multiple scenarios you must add these settings mltiple times (and update row id's). Also, you may choose to change the aggregation timestep, but make sure to use the same timestep for alle aggregation settings.

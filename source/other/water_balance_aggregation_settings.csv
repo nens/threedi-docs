@@ -4,4 +4,8 @@ id,timestep,var_name,aggregation_in_space,aggregation_method,flow_variable
 3,300,simple_infiltration_cum,FALSE,cum,simple_infiltration
 4,300,rain_cum,FALSE,cum,rain
 5,300,leakage_cum,FALSE,cum,leakage
-6,300,interception_cum,FALSE,cum,interception
+6,300,interception_current,FALSE,current,interception
+7, 300,discharge_cum,FALSE,cum,discharge
+8, 300,discharge_cum_neg,FALSE,cum_negative,discharge
+9, 300,discharge_cum_pos,FALSE,cum_positive,discharge
+10,300,volume_current,FALSE,current,volume
