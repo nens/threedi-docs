@@ -48,7 +48,7 @@ Rainfall on 0D and 2D
 
 - large systems in which a small area is modeled in detail while upstream catchments are lumped in 0D inflow.
 
-When using both 0D and 2D rainfall one must be aware that the user is responsible for defining the correct areas in 0D and in 2D. This in order to avoid an overestimation of the area capturing rain.
+When using both 0D and 2D rainfall one must be aware that the user is responsible for defining the correct areas in 0D and in 2D. This in order to avoid an overestimation of the area capturing rain. This can be ensured by cutting areas from the DEM or by including interception (:ref:`interception`). 
 
 .. figure:: image/b_rainfall_hybrid.png
    :alt: rainfall_hybrid
