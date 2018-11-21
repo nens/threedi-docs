@@ -40,17 +40,4 @@ If the model wishes to include an obstacle that may not be detected by the calcu
 
 In the computational core a levee and obstacle are dealt with the same way. However, defining them is slightly different. Levees are a separate category of obstacle, because they need more variable characteristics than obstacles. Levees may be used to simulate a breach.
 
-Breaches from 1D channels to 2D grid
------------------------------------------
-
-In the case of a levee or dike breach, the dimensions of the breach determine how much water enters through the breach and thus how quickly the flood spreads. The growth of a breach is a very complex process, many aspects of which are unknown. It is a phenomenon where hydrodynamics, morphology, groundwater and soil mechanics interact. This interaction is complex and largely unknown. Nevertheless, rules of thumb have been developed that describe the breach growth.
-
-In a 3Di model, flow may occur between 1D and 2D elements. In certain cases this exchange is limited by a dike. The exchange height is then determined by the height of the dike and the cells where the exchange takes place is determined by the location of the dike. When a few extra properties of the dike are specified for these connections, a breach can be modeled that can grow over time.
-
-Breach growth formulation
-+++++++++++++++++
-
-The breach growth formula of Verheij and Knaap (2003) is used in 3Di to describe the growth of the breach. For this formulation it is expected that the material of the dike is known (sand or clay), an initial breach width, the maximum breaking depth and the length of time to reach this depth.
-
- 
 More details on how to use obstacles, levees and breaches can be found in :ref:`flood_model`.

@@ -32,6 +32,7 @@ Welcome to 3Di's documentation!
    c_inflow
    b_interflow
    b_levees_obstacles
+   c_breaches
    b_rainfall
    b_wind
    c_control
