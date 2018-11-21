@@ -1,4 +1,4 @@
-Obstacles, levees and breaches
+Obstacles and levees
 =============================================
 
 Basic idea
@@ -38,6 +38,6 @@ If the model wishes to include an obstacle that may not be detected by the calcu
 
    Figure 2: A computational grid for 2D flow including local grid refinements. The momentum domains in x- (pink) and y-direction (blue) are indicated by the planes. The obstacle elements are given with a green line and the flow links with a dashed blue line. The flow links closed by the obstacle are marked with a thick red line.  
 
-In the computational core a levee and obstacle are dealt with the same way. However, defining them is slightly different. Levees are a separate category of obstacle, because they need more variable characteristics than obstacles. Levees may be used to simulate a breach.
+In the computational core a levee and obstacle are dealt with the same way. However, defining them is slightly different. Levees are a separate category of obstacle, because they need more variable characteristics than obstacles. Levees may be used to simulate :ref:`breaches`.
 
 More details on how to use obstacles, levees and breaches can be found in :ref:`flood_model`.
