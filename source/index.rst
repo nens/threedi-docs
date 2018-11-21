@@ -29,6 +29,7 @@ Welcome to 3Di's documentation!
    c_structures
    b_sewerage
    b_infiltration
+   b_interception
    c_inflow
    b_interflow
    b_levees_obstacles
@@ -49,12 +50,7 @@ Welcome to 3Di's documentation!
    c_results
    c_aggregate_results
    c_state_files
-   
-.. toctree::
-   :maxdepth: 2
-   :caption: Output and tools
-   :name: Output and tools
-   :numbered:   
+   c_external_forcing
    
 .. toctree::
    :maxdepth: 2

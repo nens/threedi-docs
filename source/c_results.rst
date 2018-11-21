@@ -1,6 +1,7 @@
-Results 3Di
-===========
+.. _3dinetcdf:
 
+Results 3Di
+=================
 
 The results of a simulation are written to file. The result file is created using NetCDF, which is a set of software libraries and self-describing, machine-independent data formats that support the creation, access, and sharing of array-oriented scientific data. The set of libraries can be used by multiple tools and programming languages, such as matlab, python and excel, to extract the data from the netcdf data formats. 
 
@@ -8,7 +9,7 @@ The 3Di Plugin visualizes the information stored in this file. An overview of th
 
 During the spring release of 2018 the output file has been changed. The changes include a change in name from *subgrid_map.nc* to *results_3di.nc* and changes to the data format within the output file. An overview of both data formats is presented below. 
 
-These files consists of all relevant variables that are necessary to analyze the results of a simulation. The user defines the output time step. The snapshots of the flow are saved at these intervals. Note, that the output time step in combination with the size of the model will define the size of the output file. In addition to these snap shots, 3Di can generate aggregated results. More about this can be found in  :ref: `aggregationnetcdf`.
+These files consists of all relevant variables that are necessary to analyze the results of a simulation. The user defines the output time step. The snapshots of the flow are saved at these intervals. Note, that the output time step in combination with the size of the model will define the size of the output file. In addition to these snap shots, 3Di can generate aggregated results. More about this can be found in  :ref:`aggregationnetcdf`.
 
 
 Data format *results_3di.nc*
@@ -81,7 +82,7 @@ These are the variable that are defined in the cell centers.
 
   Mesh2D_s1:
 
-  - Name: Water level
+  - Name: waterlevel
   - Unit: m MSL
 Depending on the node, it is the surface or the groundwater level.
   
@@ -132,7 +133,11 @@ This variable only exist in cases where groundwater is not taken into account.
   - Unit: m3/s
   
 This variable only exist in cases where groundwater is  taken into account.
-
+	
+	Mesh2D_intercepted_volume:
+	
+	 - Name: intercepted_volume 
+	 - Unit: m3
 
 2D Mesh Line variables:
 -----------------------
@@ -437,7 +442,7 @@ ________________________
 
 		-	dimension [-]
 
--	Deepenst point of a computational cell (bath)
+-	Deepest point of a computational cell (bath)
 
 		-	size [number of computational nodes]
 	
@@ -450,7 +455,7 @@ ________________________
 		-	dimension [-]
 	
 
-Mapping adminstratie:
+Mapping administration:
 __________________________
 -	Mapping of input and out put of connection nodes (node_mapping)
 	
@@ -464,11 +469,11 @@ __________________________
 	
 		-	dimension [-]
 	
-Variabeles computed per computational cell:
+Variables computed per computational cell:
 _____________________________________________
 -	Time (time)
 
-		-	size [number of timesteps]
+		-	size [number of time steps]
 		
 		-	dimension [s]
 		
@@ -520,7 +525,7 @@ _____________________________________________
 		
 		-	dimension [m3/s]
 	
-Variabelen per line:
+Variable per line:
 _____________________
 -	Velocity (u1)
 
@@ -552,7 +557,7 @@ _____________________
 	
 	-	dimension [m3/s]
 
-Variabels concerning pumps:
+Variables concerning pumps:
 ____________________________
 -	Discharge (q_pump)
 
