@@ -52,7 +52,7 @@ The different aggregation methods that can be used on a flow variable are:
 * current: the value at the output time
 
 time step
-^^^^^^^^
+^^^^^^^^^^^^
 
 Time step is the interval in seconds for writing and determining the aggregated flow results. In the example above, the maximum water level is determined over every 600 seconds. The minimum water level is determined over a period ov 500 seconds. 
 
@@ -92,13 +92,10 @@ An example of the output name is::
   output_name: Mesh2D_s1_max and Mesh1D_s1_max
   time_name: time_s1_max
 
-QGIS plugin: water balance tool
+Settings for water balance tool
 -----------------------------------
 
-To use the water balance tool in the 3Di QGIS plugin you must set a specific set of aggregation settings. These settings are listed below.
+To use the water balance tool in the 3Di QGIS plugin you must set a specific set of aggregation settings. These settings are listed under :ref:`waterbalanceactivate`.
 
-.. csv-table:: Aggregation settings for water balance tool
-   :file: other/water_balance_aggregation_settings.csv
-   :widths: 5, 10, 20, 15, 15, 20
-   :header-rows: 1
+
   

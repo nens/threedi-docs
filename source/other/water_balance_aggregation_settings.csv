@@ -1,7 +1,7 @@
 id,timestep,var_name,aggregation_in_space,aggregation_method,flow_variable
-1,300,pump_discharge,FALSE,cum,pump_discharge
-2,300,lateral_discharge,FALSE,cum,lateral_discharge
-3,300,simple_infiltration,FALSE,cum,simple_infiltration
-4,300,rain,FALSE,cum,rain
-5,300,leakage,FALSE,cum,leakage
-6,300,interception,FALSE,cum,interception
+1,300,pump_discharge_cum,FALSE,cum,pump_discharge
+2,300,lateral_discharge_cum,FALSE,cum,lateral_discharge
+3,300,simple_infiltration_cum,FALSE,cum,simple_infiltration
+4,300,rain_cum,FALSE,cum,rain
+5,300,leakage_cum,FALSE,cum,leakage
+6,300,interception_cum,FALSE,cum,interception

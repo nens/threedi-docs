@@ -5,12 +5,14 @@ QGIS Plugin
 
 Introduction
 --------------
-3Di Toolbox is a QGIS plugin for working with 3Di models and netCDF results. For more information see `3Di Toolbox plug-in <https://github.com/nens/threedi-qgis-plugin/wiki>`_.
+3Di Toolbox is a QGIS plugin for working with 3Di models and netCDF results. For more information see `3Di Toolbox plug-in <https://github.com/nens/threedi-qgis-plugin/wiki>`_. The section below explains the use of the water balance tool. More subjects will be added soon.
 
 Water Balance Tool
 -------------------------
 
 The water balance tool can be used to calculate incoming and outgoing flows in (part of) your model and visualize the volumes of these flows in graphs. 
+
+.. _waterbalanceactivate:
 
 Activating the water balance tool
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -25,12 +27,61 @@ To be able to use the water balance tool, aggregation results with specific vari
 .. figure:: image/d_qgisplugin_wb_error_no_aggregation.png 
 	:alt: Error no aggregation settings
     
-To use the water balance tool the model simulation needs to be (re)done with aggregation settings using the listed flow variables. The aggregation settings can be activated and configured in the model table v2_aggregation_settings (See: :ref:`aggregationnetcdf`). 
+To use the water balance tool the model simulation needs to be (re)done with aggregation settings using the listed flow variables. The aggregation settings can be activated and configured in the model table v2_aggregation_settings. For more information on the aggregationsettings, see :ref:`aggregationnetcdf`. The default settings for the water balance tool are listed below.
+
+.. csv-table:: Aggregation settings for water balance tool
+   :file: other/water_balance_aggregation_settings.csv
+   :widths: 5, 10, 20, 15, 15, 20
+   :header-rows: 1
+   
+For new models, these settings are included in the empty spatialite database (:ref:`empty_database`). For existing models, these settings must be added to the v2_aggregation_settings table. These SQL queries will help help you in doing so::
+
+  -- empty v2_aggregation_settings table
+  DELETE FROM v2_aggregation_settings;
+  
+  -- add aggregation settings one by one
+  INSERT INTO v2_aggregation_settings(
+              id, global_settings_id, var_name, flow_variable, aggregation_method, 
+              aggregation_in_space, timestep)
+      VALUES (1, 9999, 'discharge_pump_cum', 'discharge_pump', 'cum', 
+              'FALSE', 300);
+  
+  INSERT INTO v2_aggregation_settings(
+              id, global_settings_id, var_name, flow_variable, aggregation_method, 
+              aggregation_in_space, timestep)
+      VALUES (2, 9999, 'lateral_discharge_cum', 'lateral_discharge', 'cum', 
+              'FALSE', 300);
+  
+  INSERT INTO v2_aggregation_settings(
+              id, global_settings_id, var_name, flow_variable, aggregation_method, 
+              aggregation_in_space, timestep)
+      VALUES (3, 9999, 'simple_infiltration_cum', 'simple_infiltration', 'cum', 
+              'FALSE', 300);
+  
+  INSERT INTO v2_aggregation_settings(
+              id, global_settings_id, var_name, flow_variable, aggregation_method, 
+              aggregation_in_space, timestep)
+      VALUES (4, 9999, 'rain_cum', 'rain', 'cum', 
+              'FALSE', 300);
+  
+  INSERT INTO v2_aggregation_settings(
+              id, global_settings_id, var_name, flow_variable, aggregation_method, 
+              aggregation_in_space, timestep)
+      VALUES (5, 9999, 'leakage_cum', 'leakage', 'cum', 
+              'FALSE', 300);
+  
+  INSERT INTO v2_aggregation_settings(
+              id, global_settings_id, var_name, flow_variable, aggregation_method, 
+              aggregation_in_space, timestep)
+      VALUES (6, 9999, 'interception_cum', 'interception', 'cum', 
+              'FALSE', 300);
+
+Note that in bote cases you must update the global settings id to the id of the scenario for which you wish to generate aggregated results. For multiple scenarios you must add these settings mltiple times (and update row id's).
 
 Using the water balance tool 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-First a polygon needs to be drawn to define the part of the model where the water balance needs to be calculated for. This can be done by clicking multiple points on the map of the model. Click 'Finalize polygon' to finish the polygon. The graph shows the water balance over time for the selected area. By right-clicking the graph a menu appears in which the range of the y-axis and x-axis can be set. By adjusting the x-axis the time over which the water balance is calculated can be set. By clicking the button 'Hide on map' the polygon over which the water balance is calculated is hidden.
+After loading a model and matching results, a polygon needs to be drawn to define the part of the model where the water balance needs to be calculated for. This can be done by clicking multiple points on the map of the model. Click 'Finalize polygon' to finish the polygon. The graph shows the water balance over time for the selected area. By right-clicking the graph a menu appears in which the range of the x-axis and y-axis can be set. By adjusting the x-axis the time over which the water balance is calculated can be set. By clicking the button 'Hide on map' the polygon over which the water balance is calculated is hidden.
 
 .. figure:: image/d_qgisplugin_wb_draw_polygon.png 
 	:alt: Draw polygon to define water balance area
