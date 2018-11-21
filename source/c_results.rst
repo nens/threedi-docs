@@ -9,7 +9,7 @@ The 3Di Plugin visualizes the information stored in this file. An overview of th
 
 During the spring release of 2018 the output file has been changed. The changes include a change in name from *subgrid_map.nc* to *results_3di.nc* and changes to the data format within the output file. An overview of both data formats is presented below. 
 
-These files consists of all relevant variables that are necessary to analyze the results of a simulation. The user defines the output time step. The snapshots of the flow are saved at these intervals. Note, that the output time step in combination with the size of the model will define the size of the output file. In addition to these snap shots, 3Di can generate aggregated results. More about this can be found in  :ref:`aggregationnetcdf`.
+These files consist of all relevant variables that are necessary to analyze the results of a simulation. The user defines the output time step. The snapshots of the flow are saved at these intervals. Note, that the output time step in combination with the size of the model will define the size of the output file. In addition to these snap shots, 3Di can generate aggregated results. More about this can be found in  :ref:`aggregationnetcdf`.
 
 
 Data format *results_3di.nc*
