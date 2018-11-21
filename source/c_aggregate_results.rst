@@ -25,7 +25,7 @@ flow_variable
 
 The different flow variable for which to determine aggregated results are. The flow variables for input to generate aggregated results are:
 
-* water level
+* waterlevel
 * flow_velocity
 * discharge
 * volume
@@ -36,6 +36,7 @@ The different flow variable for which to determine aggregated results are. The f
 * rain
 * simple_infiltration
 * leakage
+* interception
 
 aggregation_method
 ^^^^^^^^^^^^^^^^^^
@@ -48,6 +49,7 @@ The different aggregation methods that can be used on a flow variable are:
 * cum: This is integration over time of the variable [dt * variable]. For instance, the cumulative net discharge across a flow line in the configured interval.
 * cum_positive: This is integration over time of the variable [dt * variable] in positive direction. For instance, the cumulative net discharge in positive direction across a flow line in the configured interval.
 * cum_negative: This is integration over time of the variable [dt * variable] in negative direction. For instance, the cumulative net discharge in negative direction across a flow line in the configured interval.
+* current: the value at the output time
 
 time step
 ^^^^^^^^
@@ -59,7 +61,7 @@ aggregation_in_space
 This setting is not yet implemented and is therefore always *False*.
 
 Output format in result file
-----------------------------
+-----------------------------
 
 The variable name of the aggregated flow results in the *aggregate_ results_3di.nc* are named based on the chosen flow variable and the chosen aggregation method:
 
@@ -81,6 +83,7 @@ The translation between the input flow variable name and the format in the the o
 * rain - rain
 * simple_infiltration - infiltration_rate_simple
 * leakage - leak
+* interception - intercepted_volume
 
 An example of the output name is::
 
@@ -88,3 +91,14 @@ An example of the output name is::
   aggregation_method: max
   output_name: Mesh2D_s1_max and Mesh1D_s1_max
   time_name: time_s1_max
+
+QGIS plugin: water balance tool
+-----------------------------------
+
+To use the water balance tool in the 3Di QGIS plugin you must set a specific set of aggregation settings. These settings are listed below.
+
+.. csv-table:: Aggregation settings for water balance tool
+   :file: other/water_balance_aggregation_settings.csv
+   :widths: 5, 10, 20, 15, 15, 20
+   :header-rows: 1
+  
