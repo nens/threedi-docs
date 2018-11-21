@@ -1,7 +1,7 @@
 API - Batch calculations
 ========================
 
-With the API you can request simulations without having to acces the 3Di web portal and follow your simulation. It is ideal for making various calibration runs. Also, it allows you to use several types of external forcing not available through the web portal and save and use states or restart files.
+With the API you can request simulations without having to access the 3Di web portal and follow your simulation. It is ideal for making various calibration runs. Also, it allows you to use several types of external forcing not available through the web portal and save and use states or restart files.
 
 Visit https://3di.lizard.net/api/v1/calculation/start/ for all options.
 
