@@ -36,7 +36,8 @@ The different flow variable for which to determine aggregated results are. The f
 * rain
 * simple_infiltration
 * leakage
-* intercepted_volume
+* interception
+
 
 aggregation_method
 ^^^^^^^^^^^^^^^^^^
@@ -51,8 +52,9 @@ The different aggregation methods that can be used on a flow variable are:
 * cum_negative: This is integration over time of the variable [dt * variable] in negative direction. For instance, the cumulative net discharge in negative direction across a flow line in the configured interval.
 * current: Uses the current value of a variable. This is required in case one checks the water balance for variables that are the result of the processes. This is a setting only valid for *volume* and *intercepted_volume*.
 
+
 time step
-^^^^^^^^
+^^^^^^^^^^^^
 
 Time step is the interval in seconds for writing and determining the aggregated flow results. In the example above, the maximum water level is determined over every 600 seconds. The minimum water level is determined over a period ov 500 seconds. 
 
@@ -61,7 +63,7 @@ aggregation_in_space
 This setting is not yet implemented and is therefore always *False*.
 
 Output format in result file
-----------------------------
+-----------------------------
 
 The variable name of the aggregated flow results in the *aggregate_ results_3di.nc* are named based on the chosen flow variable and the chosen aggregation method:
 
@@ -91,3 +93,11 @@ An example of the output name is::
   aggregation_method: max
   output_name: Mesh2D_s1_max and Mesh1D_s1_max
   time_name: time_s1_max
+
+Settings for water balance tool
+-----------------------------------
+
+To use the water balance tool in the 3Di QGIS plugin you must set a specific set of aggregation settings. These settings are listed under :ref:`waterbalanceactivate`.
+
+
+  

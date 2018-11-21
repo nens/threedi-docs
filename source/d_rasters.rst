@@ -75,7 +75,7 @@ We will use gdalwarp to update our raster information. This is a versatile comma
 
 The next example sets all raster-information in one command. It is a useful example as long as you remember how it may change the actual data in your pixels::
 
-    gdalwarp -s_srs EPSG:XXXX -t_srs EPSG:28992 -of Gtiff –ot Float32 -tap -tr 0.5 -0.5 -srcnodata XXXX -dstnodata -9999 -cutline study-area.shp -crop_to_cutline <raster-file>  warp_output.tif
+    gdalwarp -s_srs EPSG:XXXX -t_srs EPSG:28992 -of Gtiff -ot Float32 -tap -tr 0.5 -0.5 -srcnodata XXXX -dstnodata -9999 -cutline study-area.shp -crop_to_cutline <raster-file>  warp_output.tif
 
 The example uses an extra shape-file of the study area. This is convenient when you are using several raster-files. It ensures that all raster-files you make have the same extent and NODATA pixels. You should make sure however that the shape-file’s projection matches that of your raster information. If you are not sure what any of the commands do, you can check the `gdal documentation <http://www.gdal.org/gdal_utilities.html>`_ or try options separate generating several output files and checking the with gdalinfo.
 

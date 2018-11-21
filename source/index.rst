@@ -33,6 +33,7 @@ Welcome to 3Di's documentation!
    c_inflow
    b_interflow
    b_levees_obstacles
+   c_breaches
    b_rainfall
    b_wind
    c_control
@@ -62,6 +63,7 @@ Welcome to 3Di's documentation!
    d_threedi_portal
    d_threedi_model
    d_threedi_versioning
+   d_qgis_plugin
    d_rasters
    d_flood_model
    d_water_system
