@@ -106,11 +106,11 @@ Note that in both cases, in case of a new model or an existing model, you must u
 Using the water balance tool 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-After loading a model and matching results, a polygon needs to be drawn to define the domain of the model for which the water balance needs to be calculated for. This can be done by clicking multiple points on the map of the model. Click 'Finalize polygon' to finish the polygon. The graph shows the water balance over time for the selected area. 
+After loading a model and matching results, a polygon needs to be drawn to define the domain of the model for which the water balance needs to be calculated for. This can be done by clicking multiple points on the map of the model. Click *Finalize polygon* to finish the polygon. The graph shows the water balance over time for the selected area. 
 
 By right-clicking the graph, a menu appears in which the range of the x-axis and y-axis can be adjusted. The visible x-axis determines the period over which the water balance is calculated. 
 
-By clicking the button 'Hide on map' the polygon over which the water balance is calculated is hidden.
+By clicking the button *Hide on map* the polygon over which the water balance is calculated is hidden.
 
 .. figure:: image/d_qgisplugin_wb_draw_polygon.png 
 	:alt: Draw polygon to define water balance area
@@ -118,7 +118,7 @@ By clicking the button 'Hide on map' the polygon over which the water balance is
 Display settings
 ~~~~~~~~~~~~~~~~~~
 
-The different colours show the different flow types, explained in the legend on the right. By hovering over a flow type in the legend, the corresponding plane lights up in the graph and the corresponding flow lines will be marked with red dotted lines in the map of the model. The different flow types can be activated and deactivated in the graph by clicking the box next to the flow type name. All flow types can be activated or deactivated using the buttons 'activate all' and 'deactivate all'. 
+The different colours show the different flow types, explained in the legend on the right. By hovering over a flow type in the legend, the corresponding plane lights up in the graph and the corresponding flow lines will be marked with red dotted lines in the map of the model. The different flow types can be activated and deactivated in the graph by clicking the box next to the flow type name. All flow types can be activated or deactivated using the buttons *activate all* and *deactivate all*. 
 
 .. figure:: image/d_qgisplugin_wb_marked_flow.png 
 	:alt: Marked flow types
@@ -135,9 +135,42 @@ Total balance
 
 By clicking the button *Show total balance* a new screen will pop-up, showing the total volume balance over the period set on the x-axis of the graph (shown in title). To adjust this period, close the screen with the bar diagrams, right click on the water balance graph, open the option *x-axis*, activate the option *manual* and set the minimum and maximum time. Then, click again on *Show total balance* to create the water balance diagrams for the new time range. The diagrams can be edited by clicking the graph button at the top. A menu pops-up in which you can choose which diagram you want to edit. Click *OK* to proceed to the *Figure options*-menu. Under the tab *Axes* the ranges and labels for the axes can be set. Under the tab *Curves* the layout of the lines in the graph can be changed. The diagrams can be saved as image by clicking the save-button at the top. 
 
-.. figure:: image/d_qgisplugin_wb_totalbalance.png 
+The top diagram shows the net water balance from all domains. The bottom diagrams show the water balance per domain. 
+
+.. figure:: image/d_qgisplugin_wb_totalbalance_gw.png 
 	:alt: Total balance
-    
+
+
+Explanation of flow types 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+| **2D Surface water domain**
+| *2D Boundaries:* Inflow and outflow through 2D boundary conditions
+| *2D Flow:* Inflow and outflow in the surface domain crossing the borders of your polygon
+| *2D Laterals:* Inflow and outflow through 2D laterals
+| *2D: 1D-2D exhange:* Flow exchange between the 2D surface domain and the 1D network elements (e.g. surface runoff from rain into a 1D-channel) within your polygon
+| *2D: 1D-2D-flow:* Flow exchange between the 2D surface domain and the 1D network elements crossing the borders of your polygon
+| *Infiltration/exfiltration (domain exchange):* Flow exchange between the 2D surface domain and the 2D groundwater domain
+| *Rain:* Incoming water from rain
+| *Simple infiltration:* Flow out of the 2D domain through simple infiltration
+
+| **2D Groundwater domain**
+| *Groundwater flow:* Inflow and outflow through the 2D groundwater domain crossing the borders of your polygon
+| *Infiltration/exfiltration (domain exchange):* Flow exchange between the 2D surface domain and the 2D groundwater domain (generally inflowing water through infiltration). 
+| *Leakage:* Inflowing water from leakage
+
+| **1D Network domain**
+| *1D Boundaries:* Inflow and outflow through 1D boundary conditions
+| *1D Flow:* Inflow and outflow in 1D network elements crossing the borders of your polygon
+| *1D Laterals:* Inflow and outflow through 1D laterals
+| *1D: 1D-2D exhange:* Flow exchange between the 2D surface domain and the 1D network elements (e.g. surface runoff from rain into a 1D-channel) within your polygon
+| *1D: 1D-2D-flow:* Flow exchange between the 2D surface domain and the 1D network elements crossing the borders of your polygon
+| *Pump:* Inflow and outflow through pumpstations
+
+
+
+
     
 
 
