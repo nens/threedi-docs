@@ -84,7 +84,7 @@ Orifices are used in sewerage to limit flow or can be used to model a bridge or 
 
 For orifices, the energy loss caused by the decrease in flow velocity at the outlet are accounted for by 3Di. The discharge coefficients for orifices can be used to account for any additional energy loss. 
 
-For culverts, the discharge coefficient has not yet been implemented.
+For culverts, the discharge coefficient has been implemented starting from November 26st 2018. Previously, the discharge coefficient column was available in the v2_culvert table but dit not have any effect. Note that model results made before this date may differ from new results when the column was already filled.
 
 The input parameters for orifices are similar to those for weirs, specified in the section above. Culverts use invert levels at the start and end instead of the crest level in weirs and orifices.
 
