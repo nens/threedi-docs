@@ -35,8 +35,9 @@ Water balance Tool
 
 A new version of the 3Di QGIS plugin is released as well. Hereby, we also release the 3Di water balance tool. Users can select an area on the map and see the exact water balance, including an overview of the flows between the 2D surface water, 2D groundwater and the 1D flow domains for a certain area and period. To be able to use this water balance an aggregation NetCDF is required. This exciting new tool helps users to get an improved insight in their water system. With this water balance tool, we help experts in their analysis and understanding of the modeling results. 
 
-The water balance tool is funded by Deltares, Top Sector Water via a TKI project and Nelen & Schuurmans.
 For more information have a look at our documentation on the :ref:`waterbalance`. Here, one finds an overview of the aggregation settings required for the use of the water balance tool as well.
+
+The water balance tool is an initiative of Deltares and a co-creation of experts of Deltares and Nelen & Schuurmans. It is co-funded by the Ministry of Economic Affairs (Top Sector Water).
 
 Option for custom rain event
 -------------------------------
@@ -54,7 +55,7 @@ Threedigrid has been extended with some more information of your model to allow 
 
 Moreover, several bug fixes have been performed.  These include; 
 
-- Improved session counts
+- The message *No more sessions available* was sometimes visible, when it was not true. We have added a new session count system, which eliminates this bug
 - No more potentially leaking levees in case of interflow
 - Removed check for type 2 pumps on lower stop level.
 - Added check for overlapping vertices in channels and culverts
