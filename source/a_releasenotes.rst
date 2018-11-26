@@ -1,15 +1,66 @@
 Release notes
 =============
 
-**Reminder: On Wednesday 14 November 3Di will also be unavailable during the day due to maintenance on our serves** 
-
 
 Release 3Di – Fall Release 2018  
-++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++
 
-On Monday 26 November the next 3Di release is scheduled. With this release we introduce a new process in 3Di. From this release onwards, it is possible to take interception into account in your simulation. Moreover, it will be possible to take energy losses into account for culverts. In addition to this, we performed lots of maintenance work as a preparatory step for the major release next spring.  
+The newest version of 3Di is released on 26th of November 2018. With this update, the following features are available for all users of 3Di:
 
-On Monday 26 November 3Di will be unavailable between 08:00-12:00 CEST.
+- Interception
+- Culvert discharge coefficients
+- Water balance tool
+- Option for custom rain event
+- Software updates and bug fixes
+ 
+Interception
+------------------
+
+With this release, we introduce a new process in 3Di to extend the processes of the hydrological cycle. It is now possible to take interception into account during your simulation. Interception refers to precipitation that does not reach the bottom, but is instead intercepted by buildings or vegetation.
+
+The interception layer can be used in the following situations:
+
+- The obvious application is to take the effect of interception into account due to vegetation, green roofs and other buildings. 
+- However, it can also be used in the so-called hybride models, where urban areas are modelled and the inflow to the sewer from buildings is directly coupled to the sewer system.
+
+It is possible to edit the interception layer in the 3Di live site. 
+
+Culvert discharge coefficients
+-------------------------------------
+
+From this release, the culvert discharge coefficient will be enabled. The coefficient allows to take inlet losses for culverts into account and can be defined for positive and negative flow directions.  The coefficient is defined via an attribute per culvert in the table 'v2_culvert'. Prior to the release, the coefficients were already available in the spatialite. However, these coefficients were not yet taken into account. After the release, these will become active, this might, of course, affect the results. In case, these coefficients were unintended, set these coefficients to 1, and you will return to your previous results. 
+
+Water balance Tool 
+---------------------
+
+A new version of the 3Di QGIS plugin is released as well. Hereby, we also release the 3Di water balance tool. Users can select an area on the map and see the exact water balance, including an overview of the flows between the 2D surface water, 2D groundwater and the 1D flow domains for a certain area and period. To be able to use this water balance an aggregation NetCDF is required. This exciting new tool helps users to get an improved insight in their water system. With this water balance tool, we help experts in their analysis and understanding of the modeling results. 
+
+The water balance tool is funded by Deltares, Top Sector Water via a TKI project and Nelen & Schuurmans.
+For more information have a look at our documentation on the :ref:`waterbalance`. Here, one finds an overview of the aggregation settings required for the use of the water balance tool as well.
+
+Option for custom rain event
+-------------------------------
+
+In the 3Di live site, the options for rain events are extended. It is now possible to define a time-varying rain event. 
+
+
+Software updates and bug fixes
+---------------------------------
+
+Behind the scenes there have been some major changes to the 3Di software. We have fundamentally improved the server-interaction. Note, this changed some minor things. When you want to load a new model, quit your previous session first. Your session on the live site will close after 1 hour of inactivity. Use the API, for longer simulations with no interaction. 
+
+
+Threedigrid has been extended with some more information of your model to allow for a more accessible analysis. 
+
+Moreover, several bug fixes have been performed.  These include; 
+
+- Improved session counts
+- No more potentially leaking levees in case of interflow
+- Removed check for type 2 pumps on lower stop level.
+- Added check for overlapping vertices in channels and culverts
+- Fix in visualizing the groundwater results in the live site
+- Fix for dealing with obstacles after a DEM-edit
+
 
 Release 3Di – Autumn Release 2018  
 +++++++++++++++++++++++++++++++++++++++++++++

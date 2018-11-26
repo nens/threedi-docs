@@ -7,6 +7,8 @@ Introduction
 --------------
 The 3Di Toolbox is a QGIS plugin for working with 3Di models and netCDF results. For more information see `3Di Toolbox plug-in <https://github.com/nens/threedi-qgis-plugin/wiki>`_. The section below explains the use of the water balance tool. More subjects will be added soon, as this is only one of the features of the 3Di Toolbox.
 
+.. _waterbalance:
+
 Water Balance Tool
 -------------------------
 

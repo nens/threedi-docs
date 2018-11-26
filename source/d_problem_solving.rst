@@ -11,16 +11,19 @@ The section 'Frequently endured issues' below mention different types of errors 
 
 Known Issues
 ^^^^^^^^^^^^^^
-- When applying 2D boundary conditons, it is not allowed to have more than one grid resolution on the edge. However, there is no clear error message for this. This will be improved in the Winter Release.
-- In the livesite it is not possible to visualise structures together with the schematisation.
-- The visualisation of the groundwater level in the Livesite, shows some artifacts in case the groundwater level rises above the surface. This will corrected in the Fall Release.
-- Note that when you have performed a DEM edit, the results maps are processed based on the original DEM. Please, take this into consideration when analizing these results.
+
+- When applying 2D boundary conditions, it is not allowed to have more than one grid resolution on the edge. However, there is no clear error message for this. This will be improved in the Carnaval Release.
+
+- In the live site it is not possible to visualize structures together with the schematisation.
+
 
 Frequently endured issues
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Per category, we include the frequently endured issues. In case you think a specific issue should be included, let us know.
+
 INP generation
---------------
+-----------------
 
 After uploading or pushing a new revision 3Di.lizard.net/models will generate a model automatically. If an error occurs during this process the status bar will turn red and show FAIL. By clicking FAIL the log messaging is shown. You may now look for errors either through the web page or by downloading the file in the upper right corner of the screen. Look for any line that starts with *ERROR* and see if you recognize the examples below.
 
