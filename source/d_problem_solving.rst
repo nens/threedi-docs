@@ -20,7 +20,7 @@ Known Issues
 Frequently endured issues
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Per category, we include the frequently endured issues. In case you think a specific issue should be included, let us know.
+Per category, we include the frequently endured issues. In case you think a specific issue should be included, please let us know.
 
 INP generation
 -----------------
