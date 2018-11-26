@@ -80,14 +80,11 @@ The long crested weir uses the conservation of mass and energy equations to comp
 Orifice and Culvert
 --------------------
 
-Orifices are used in sewerage to limit flow or can be used to model a bridge or culvert. The separate culvert table differs from orifices in the way the flow is calculated. Culverts are closely related to pipes in this sense. The Culvert table can be used for longer sections of pipe-like structures and may be curved. Shorter, straight culverts are best modeled using the culvert table since that will result in a more stable and quicker calculation. 
+Orifices are used in sewerage to limit flow or can be used to model a bridge or culvert. The separate culvert table differs from orifices in the way the flow is calculated. Culverts are closely related to pipes in this sense. The Culvert table can be used for longer sections of pipe-like structures and may be curved. Shorter, straight culverts are best modeled as an orrifice. An orrifice is treated as a weir to allow for larger time steps. 
 
-For orifices, the energy loss caused by the decrease in flow velocity at the outlet are accounted for by 3Di. The discharge coefficients for orifices can be used to account for any additional energy loss. 
+For culverts and orifices, the energy loss caused by the change in flow velocity at the in- and outlet are accounted for by 3Di. The discharge coefficients for orifices can be used to account for any additional energy loss. 
 
-For culverts, the discharge coefficient has not yet been implemented.
-
-The input parameters for orifices are similar to those for weirs, specified in the section above. Culverts use invert levels at the start and end instead of the crest level in weirs and orifices.
-
+The input parameters for orifices are similar to those for weirs, specified in the section above. Culverts use invert levels at the start and end instead of the crest level in weirs and orifices. The input parameters are all described in the spatialite database :download:`here <pdf/database-overview.pdf>`.
 
 
 Control on structures is described in a separate section: :ref:`control_structures`.
