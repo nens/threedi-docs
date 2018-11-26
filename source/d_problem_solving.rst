@@ -23,7 +23,7 @@ Frequently endured issues
 Per category, we include the frequently endured issues. In case you think a specific issue should be included, let us know.
 
 INP generation
---------------
+-----------------
 
 After uploading or pushing a new revision 3Di.lizard.net/models will generate a model automatically. If an error occurs during this process the status bar will turn red and show FAIL. By clicking FAIL the log messaging is shown. You may now look for errors either through the web page or by downloading the file in the upper right corner of the screen. Look for any line that starts with *ERROR* and see if you recognize the examples below.
 
