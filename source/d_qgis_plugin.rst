@@ -148,28 +148,38 @@ Explanation of flow types
 
 In the overviews the flow is split in several domains. These distinguish themselves based on how the flow is computed. Therefore, you will find the 2D flow, groundwater and the 1D flow domain. Below a more detailed doscription of the various components.
 
-| **2D Surface water domain**
-| *2D Boundaries:* Inflow and outflow through 2D boundaries
-| *2D Flow:* Inflow and outflow in the surface domain crossing the borders of the polygon
-| *2D Laterals:* Sources or sinks based on 2D laterals
-| *2D: 1D-2D exhange:* Flow exchange between the 2D surface domain and the 1D network elements within your polygon (for example, surface run-off from rain into a 1D-channel or water that overflows the banks in your channel). 
-| *2D: 1D-2D-flow:* Flow exchange between the 2D surface domain and the 1D network elements crossing the borders of your polygon
-| *Infiltration/exfiltration (domain exchange):* Flow exchange between the 2D surface domain and the 2D groundwater domain
-| *Rain:* Incoming water from rain
-| *Simple infiltration:* Flow out of the 2D domain based on simple infiltration
+**2D Surface water domain**
 
-| **2D Groundwater domain**
-| *Groundwater flow:* Inflow and outflow through the 2D groundwater domain crossing the borders of your polygon
-| *Infiltration/exfiltration (domain exchange):* Flow exchange between the 2D surface domain and the 2D groundwater domain (generally inflowing water through infiltration). 
-| *Leakage:* sources or sinks based on leakage
 
-| **1D Network domain**
-| *1D Boundaries:* Inflow and outflow over a 1D boundary
-| *1D Flow:* Inflow and outflow in 1D network elements crossing the borders of your polygon
-| *1D Laterals:* Sources and sinks based on 1D laterals
-| *1D: 1D-2D exhange:* Flow exchange between the 2D surface domain and the 1D network elements (e.g. surface runoff from rain into a 1D-channel) within your polygon
-| *1D: 1D-2D-flow:* Flow exchange between the 2D surface domain and the 1D network elements crossing the borders of your polygon
-| *Pump:* Inflow and outflow through pumpstations
+- *2D Boundary flow:* Inflow and outflow through 2D boundaries
+- *2D Flow:* Inflow and outflow in the surface domain crossing the borders of the polygon
+- *Lateral flow to 2D:* Sources or sinks based on 2D laterals
+- *2D: 2D flow to 1D:* Flow exchange between the 2D surface domain and the 1D network elements within your polygon (for example, surface run-off from rain into a 1D-channel or water that overflows the banks in your channel). 
+- *2D: 2D flow to 1D (domain exchange):* Flow exchange between the 2D surface domain and the 1D network elements crossing the borders of your polygon
+- *In/exfiltration (domain exchange):* Flow exchange between the 2D surface domain and the 2D groundwater domain
+- *Rain:* Incoming water from rain
+- *Constant infiltration:* Flow out of the 2D domain based on simple infiltration
+- *interception:* Intercepted volume
+
+
+**2D Groundwater domain**
+
+
+- *Groundwater flow:* Inflow and outflow through the 2D groundwater domain crossing the borders of your polygon
+- *In/exfiltration (domain exchange):* Flow exchange between the 2D surface domain and the 2D groundwater domain (generally inflowing water through infiltration). 
+- *leakage:* sources or sinks based on leakage
+
+
+**1D Network domain**
+
+
+- *0D rainfall runoff on 1D:* Inflow volume from 0D module
+- *1D Boundary flow:* Inflow and outflow over a 1D boundary
+- *1D Flow:* Inflow and outflow in 1D network elements crossing the borders of your polygon
+- *1D Laterals:* Sources and sinks based on 1D laterals
+- *1D: 2D flow to 1D:* Flow exchange between the 2D surface domain and the 1D network elements (e.g. surface runoff from rain into a 1D-channel) within your polygon
+- *1D: 2D flow to 1D (domain exchange)* Flow exchange between the 2D surface domain and the 1D network elements crossing the borders of your polygon
+- *Pump:* pumped volume
 
 
 

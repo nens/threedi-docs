@@ -37,4 +37,4 @@ To find the saved states via the API you can navigate to: 3di.lizard.net/api/v1/
 Using state files
 -----------------
 
-To use a saved state to start a calculation with, the user should choose the parameter *used_saved_state* and provide the unique id. The calculation will start by reading the values for all variables from the saved state file and ignore initial conditions that were set in the model schematization.
+To use a saved state to start a calculation with, the user should choose the parameter *use_saved_state* and provide the unique id. The calculation will start by reading the values for all variables from the saved state file and ignore initial conditions that were set in the model schematization.

@@ -161,7 +161,26 @@ Check the aggregation NetCDF name settings, names must be unique.
 
 No Limit to infiltration
 +++++++++++++++++++++++++++++
+
 The setting max_infiltration_capacity_file found in the global settings table is depricated. The setting was not removed from the global settings table, but is added to the infiltration_simple_table. Values from there are taken into account. This is solved in the autumn release 2018, however older versions of the spatialite still have this setting there.
+
+Results Analysis
+-------------------
+
+ThreeDiToolbox Installation
++++++++++++++++++++++++++++++++++++++
+
+During installation and/or upgrading of the *ThreeDiToolbox* (QGIS Plugin), one may encounter problems.
+Various options are described at `ThreeDiToolbox <https://github.com/nens/ThreeDiToolbox/wiki#>`_
+
+
+ThreeDiGrid  
++++++++++++++++++++++++++++
+
+The python package that can assist in analysing and making your own tools based on the 3Di results can be found at this `location <https://github.com/nens/threedigrid>`_. The full threedigrid documentation can be found via the following link: `Threedigrid documentation <https://threedigrid.readthedocs.io/en/latest/readme.html>`_.
+
+
+
 
 
 Servicedesk
