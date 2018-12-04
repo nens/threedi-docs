@@ -2,6 +2,17 @@ Release notes
 =============
 
 
+Release 3Di – Hotfix
+++++++++++++++++++++++++++++
+
+On the 5th of December 2018 3Di, will be updated with some minor fixes. These include:
+
+-  The cross-sections in case of a breach in combination with interflow
+-  The 1D discharge written in the results NetCDF and the aggregation NetCDF in some special cases
+-  Included a correct initialisation for aggregation setting 'current' 
+
+
+
 Release 3Di – Fall Release 2018  
 +++++++++++++++++++++++++++++++++++++++++++++
 
