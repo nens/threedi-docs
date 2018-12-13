@@ -48,7 +48,7 @@ Add aggregation settings one by one::
 	INSERT INTO v2_aggregation_settings(
 				id, global_settings_id, var_name, flow_variable, aggregation_method, 
 				aggregation_in_space, timestep)
-		VALUES (1, 9999, 'discharge_pump_cum', 'discharge_pump', 'cum', 
+		VALUES (1, 9999, 'pump_discharge_cum', 'pump_discharge', 'cum', 
 				'FALSE', 300);
 	
 	INSERT INTO v2_aggregation_settings(
