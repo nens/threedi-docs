@@ -39,70 +39,72 @@ The aggregation settings can be found and configured in the model table *v2_aggr
 
 The time step is of course adjustable. For new models, these settings are included in the empty spatialite database (:ref:`empty_database`). For existing models, these settings must be added to the *v2_aggregation_settings* -table. These SQL queries will help you in doing so:
 
-  -- empty v2_aggregation_settings table
-  DELETE FROM v2_aggregation_settings;
-  
-  -- add aggregation settings one by one
-  INSERT INTO v2_aggregation_settings(
-              id, global_settings_id, var_name, flow_variable, aggregation_method, 
-              aggregation_in_space, timestep)
-      VALUES (1, 9999, 'discharge_pump_cum', 'discharge_pump', 'cum', 
-              'FALSE', 300);
-  
-  INSERT INTO v2_aggregation_settings(
-              id, global_settings_id, var_name, flow_variable, aggregation_method, 
-              aggregation_in_space, timestep)
-      VALUES (2, 9999, 'lateral_discharge_cum', 'lateral_discharge', 'cum', 
-              'FALSE', 300);
-  
-  INSERT INTO v2_aggregation_settings(
-              id, global_settings_id, var_name, flow_variable, aggregation_method, 
-              aggregation_in_space, timestep)
-      VALUES (3, 9999, 'simple_infiltration_cum', 'simple_infiltration', 'cum', 
-              'FALSE', 300);
-  
-  INSERT INTO v2_aggregation_settings(
-              id, global_settings_id, var_name, flow_variable, aggregation_method, 
-              aggregation_in_space, timestep)
-      VALUES (4, 9999, 'rain_cum', 'rain', 'cum', 
-              'FALSE', 300);
-  
-  INSERT INTO v2_aggregation_settings(
-              id, global_settings_id, var_name, flow_variable, aggregation_method, 
-              aggregation_in_space, timestep)
-      VALUES (5, 9999, 'leakage_cum', 'leakage', 'cum', 
-              'FALSE', 300);
-  
-  INSERT INTO v2_aggregation_settings(
-              id, global_settings_id, var_name, flow_variable, aggregation_method, 
-              aggregation_in_space, timestep)
-      VALUES (6, 9999, 'interception_current', 'interception', 'current', 
-              'FALSE', 300);
-  
-  INSERT INTO v2_aggregation_settings(
-              id, global_settings_id, var_name, flow_variable, aggregation_method, 
-              aggregation_in_space, timestep)
-      VALUES (7, 9999, 'discharge_cum', 'discharge', 'cum', 
-              'FALSE', 300);
-  
-  INSERT INTO v2_aggregation_settings(
-              id, global_settings_id, var_name, flow_variable, aggregation_method, 
-              aggregation_in_space, timestep)
-      VALUES (8, 9999, 'discharge_cum_neg', 'discharge', 'cum_negative', 
-              'FALSE', 300);
-  
-  INSERT INTO v2_aggregation_settings(
-              id, global_settings_id, var_name, flow_variable, aggregation_method, 
-              aggregation_in_space, timestep)
-      VALUES (9, 9999, 'discharge_cum_pos', 'discharge', 'cum_positive', 
-              'FALSE', 300);
-  
-  INSERT INTO v2_aggregation_settings(
-              id, global_settings_id, var_name, flow_variable, aggregation_method, 
-              aggregation_in_space, timestep)
-      VALUES (10, 9999, 'volume_current', 'discharge', 'current', 
-              'FALSE', 300);
+Empty v2_aggregation_settings table::
 
+	DELETE FROM v2_aggregation_settings;
+  
+Add aggregation settings one by one::
+
+	INSERT INTO v2_aggregation_settings(
+				id, global_settings_id, var_name, flow_variable, aggregation_method, 
+				aggregation_in_space, timestep)
+		VALUES (1, 9999, 'discharge_pump_cum', 'discharge_pump', 'cum', 
+				'FALSE', 300);
+	
+	INSERT INTO v2_aggregation_settings(
+				id, global_settings_id, var_name, flow_variable, aggregation_method, 
+				aggregation_in_space, timestep)
+		VALUES (2, 9999, 'lateral_discharge_cum', 'lateral_discharge', 'cum', 
+				'FALSE', 300);
+	
+	INSERT INTO v2_aggregation_settings(
+				id, global_settings_id, var_name, flow_variable, aggregation_method, 
+				aggregation_in_space, timestep)
+		VALUES (3, 9999, 'simple_infiltration_cum', 'simple_infiltration', 'cum', 
+				'FALSE', 300);
+	
+	INSERT INTO v2_aggregation_settings(
+				id, global_settings_id, var_name, flow_variable, aggregation_method, 
+				aggregation_in_space, timestep)
+		VALUES (4, 9999, 'rain_cum', 'rain', 'cum', 
+				'FALSE', 300);
+	
+	INSERT INTO v2_aggregation_settings(
+				id, global_settings_id, var_name, flow_variable, aggregation_method, 
+				aggregation_in_space, timestep)
+		VALUES (5, 9999, 'leakage_cum', 'leakage', 'cum', 
+				'FALSE', 300);
+	
+	INSERT INTO v2_aggregation_settings(
+				id, global_settings_id, var_name, flow_variable, aggregation_method, 
+				aggregation_in_space, timestep)
+		VALUES (6, 9999, 'interception_current', 'interception', 'current', 
+				'FALSE', 300);
+	
+	INSERT INTO v2_aggregation_settings(
+				id, global_settings_id, var_name, flow_variable, aggregation_method, 
+				aggregation_in_space, timestep)
+		VALUES (7, 9999, 'discharge_cum', 'discharge', 'cum', 
+				'FALSE', 300);
+	
+	INSERT INTO v2_aggregation_settings(
+				id, global_settings_id, var_name, flow_variable, aggregation_method, 
+				aggregation_in_space, timestep)
+		VALUES (8, 9999, 'discharge_cum_neg', 'discharge', 'cum_negative', 
+				'FALSE', 300);
+	
+	INSERT INTO v2_aggregation_settings(
+				id, global_settings_id, var_name, flow_variable, aggregation_method, 
+				aggregation_in_space, timestep)
+		VALUES (9, 9999, 'discharge_cum_pos', 'discharge', 'cum_positive', 
+				'FALSE', 300);
+	
+	INSERT INTO v2_aggregation_settings(
+				id, global_settings_id, var_name, flow_variable, aggregation_method, 
+				aggregation_in_space, timestep)
+		VALUES (10, 9999, 'volume_current', 'discharge', 'current', 
+				'FALSE', 300);
+	
 Note that in both cases, in case of a new model or an existing model, you must update the global settings id to the id of the scenario for which you wish to generate aggregated results. For multiple scenarios, you must add these settings multiple times (and update row id's). Also, you may choose to change the aggregation time step, but make sure to use the same time step for all aggregation variables.
 
 Using the water balance tool 
