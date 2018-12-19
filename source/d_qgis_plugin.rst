@@ -141,7 +141,7 @@ By clicking the button *Show total balance* a new screen will pop-up, showing th
 
 The top diagram shows the net water balance from all domains. The bottom diagrams show the water balance per domain. 
 
-.. figure:: image/d_qgisplugin_wb_totalbalance_gw.png 
+.. figure:: image/d_qgisplugin_wb_totalbalance_new.png 
 	:alt: Total balance
 
 
