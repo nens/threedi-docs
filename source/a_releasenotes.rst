@@ -1,6 +1,20 @@
 Release notes
 =============
 
+Release 3Di - Hotfix
+++++++++++++++++++++++++
+
+On Monday January 14th, we will release a hotfix on our 3Di servers. We expect a very limited downtime around 8.00 AM (CEST).
+
+After the hotfix, the following issues will be fixed: 
+
+- Bug concerning the chosen boundary condition type for some cases that include 1D and 2D boundaries
+- For a specific combination of SpatiaLite-settings, e.g. multiple entries in v2_global_settings table, egg-shaped profiles were not processed correctly 
+- DEM edits are now possible outside the -10 m and +10 m range 
+ 
+Furthermore, on de LiveSite a wider range of design rainfall events is availble. This concern some specific Dutch rainfall events (DPRA buien).
+
+The next full release of 3Di is scheduled for the 4th of March. Therefore, the Web Interface will be unavailable between 8.00 AM and 12.00 AM (CEST).
 
 Release 3Di – Hotfix
 ++++++++++++++++++++++++++++
