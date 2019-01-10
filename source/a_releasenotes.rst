@@ -10,7 +10,7 @@ After the hotfix, the following issues will be fixed:
 
 - Bug concerning the chosen boundary condition type for some cases that include 1D and 2D boundaries
 - For a specific combination of SpatiaLite-settings, e.g. multiple entries in v2_global_settings table, egg-shaped profiles were not processed correctly 
-- DEM edits are now possible outside the -10 and +10 range 
+- DEM edits are now possible outside the -10 m and +10 m range 
  
 Furthermore, on de LiveSite a wider range of design rainfall events is availble. This concern some specific Dutch rainfall events (DPRA buien).
 
