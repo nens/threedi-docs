@@ -14,138 +14,132 @@ These files consist of all relevant variables that are necessary to analyze the 
 
 Data format *results_3di.nc*
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The current output NetCDF file consists of all flow variables of the 1D and the 2D mesh. The results file is constructed according to the `CF Conventions <http://cfconventions.org/>`_ . In this data format, the 2D and 1D mesh are split, so each part of the mesh has its own result and mesh variable. A description of all the flow and mesh variables for the 1D and 2D mesh are given below:
+The current output NetCDF file consists of all flow variables of the 1D and the 2D mesh. The results file is constructed according to the `CF Conventions <http://cfconventions.org/>`_ . In this data format, the 2D and 1D mesh are split, so each part of the mesh has its own result and mesh variable. A description of all the flow and mesh variables for the 1D and 2D mesh are given below.
+
+For the results in the 1D and in the 2D domain, results are split between node and line variable. Node variables are typically, variables related to volumes. This concens volumes, water levels and all the source and sink terms. Line variables are related to flow variables, in other words velocities and discharges. This distiction is also clear in the 3Di Plugin and in the contsruction of the result files.
 
 2D Mesh Cell/Node variables:
 ----------------------------
 
-This concerns the meta information that defines the computational grid.
+First the meta information of the computational grid is defined. 
 
-Coordinates:
-++++++++++++
+**Coordinates**
 
-  Mesh2DFace_xcc: 
+  Mesh2DFace_xcc: x-coordinate of the center of the computational cell
 
   - Name: Flow Face 2D center x coordinate
   - Unit: [m]
 
-  Mesh2DFace_ycc:
+  Mesh2DFace_ycc: y-coordinate of the center of the computational cell
 
   - Name: Flow Face 2D center y coordinate
   - Unit: [m]
  
-  Mesh2DFace_zcc:
+  Mesh2DFace_zcc: The deepest point in either the surface water cell or the groundwater cell
 
   - Name: Flow Face 2D center z coordinate
   - Unit: [m MSL]
 
-  Mesh2DContour_x:
+  Mesh2DContour_x: x-coordinates of the location of the edge of the cell
 
   - Name: List of x-coordinates forming Face
   - Unit: m
   
-  Mesh2DContour_y:
+  Mesh2DContour_y: y-coordinates of the location of the edge of the cell
 
   - Name: List of y-coordinates forming Face
   - Unit: m
 
 
-Attributes:
-+++++++++++
+**Attributes** Some administrative information
 
-  Mesh2DNode_id:
+
+  Mesh2DNode_id:  IDfrom the computational core
 
   - Name: Node Identifier
 
-  Mesh2DFace_sumax:
+  Mesh2DFace_sumax: Maximum surface area in a computational cell
 
   - Name: Total cell surface
   - Unit: m2
 
-  Mesh2DNode_type:
+  Mesh2DNode_type: Type of 2D computational cell
 
   - Name: Type of 2D mesh node/face
   - Types: surface_water_2d, grounwater_2d, groundwater_2d, open_water_boundary_2d, groundwater_boundary_2d
 
-Dimensions:
-+++++++++++
+**Dimensions** Lenght of the arrays
 
   nMesh2D_nodes:
   
   - Name: Number of 2D mesh nodes/faces.
 
 
-Flow Variables:
-+++++++++++++++
+**Flow Variables** These are the variable that are defined in the cell centers.
 
-These are the variable that are defined in the cell centers.
-
-  Mesh2D_s1:
+ Mesh2D_s1: Water level, depending on the node type, it is the surface or the groundwater level.
 
   - Name: waterlevel
   - Unit: m MSL
-Depending on the node, it is the surface or the groundwater level.
-  
-  Mesh2D_vol:
+
+  Mesh2D_vol: water volume in a cell
 
   - Name: Water volume
   - Unit: m3
 
-  Mesh2D_su:
+  Mesh2D_su: current wet surface area
 
   - Name: Wet surface area
   - Unit: m2
 
-  Mesh2D_ucx:
+  Mesh2D_ucx: Interpolated flow velocity in the cell center in x-direction
 
   - Name: Flow velocity in x direction in cell center
   - Unit: m/s
 
-This is an interpolated velocity value that is based on the velocities on cell faces. 
-  
-  Mesh2D_ucy:
+ 
+  Mesh2D_ucy: Interpolated flow velocity in the cell center in y-direction
 
   - Name: Flow velocity in y direction in cell center
   - Unit: m/s
 
- This is an interpolated velocity value that is based on the velocities on cell faces. 
   
-  Mesh2D_rain:
+  Mesh2D_rain: Current amount of rain in computational cell
 
   - Name: Rain
   - Unit: m3/s
 
-  Mesh2D_q_lat:
+  Mesh2D_q_lat: Point discharge in computational cell
 
   - Name: Lateral discharge
   - Unit: m3/s
 
-  Mesh2D_infiltration_rate_simple:
+  Mesh2D_infiltration_rate_simple: Current amount of infiltration in computational cell
 
   - Name: Infiltration rate
   - Unit: m3/s
 
-This variable only exist in cases where groundwater is not taken into account.
-
-  Mesh2D_leak:
+  Mesh2D_leak: Current amount of leakage in computational cell. 
 
   - Name: Leakage rate
   - Unit: m3/s
-  
-This variable only exist in cases where groundwater is  taken into account.
-	
-	Mesh2D_intercepted_volume:
+  	
+Mesh2D_intercepted_volume: Amount of intercepted volume
 	
 	 - Name: intercepted_volume 
 	 - Unit: m3
 
+Mesh2D_q_sss: Current amount of surface sources and sinks discharge in computational cell. 
+
+  - Name: Surface sources and sinks discharge
+  - Unit: m3/s	 
+	 
 2D Mesh Line variables:
 -----------------------
 
-This concerns the meta information that defines the connections between the computational cells.
+The meta information, that defines the structure for the line variables is mentioned first.
 
-Coordinates:
-++++++++++++
+**Coordinates**
 
   Mesh2DLine_xcc:
 
@@ -162,30 +156,27 @@ Coordinates:
   - Flow line 2D center z coordinate.
   - Unit = m
 
-Attributes:
-+++++++++++
+**Attributes**
+
 
   Mesh2DLine_type:
 
   - Name: Type of Cell edge
   - Types: open_water_2d, open_water_obstacles_2d, vertical_infiltration_2d, groundwater_2d, open_water_boundary_2d, groundwater_boundary_2d
 
-Dimensions:
-+++++++++++
+**Dimensions**
 
   nMesh2D_lines:
 
   - Name: Number of 2D Mesh lines.
 
-Flow variables:
-+++++++++++++++
+** Flow variables**
 
-  Mesh2D_u1:
+
+  Mesh2D_u1: This variable, in case of Horton-based infiltration and groundwater flow, also consists of the vertical flow and the groundwater flow. This depends on the line TYPE. This also yields for most of the other line variables.
 
   - Name: Flow velocity on 2D flow line
   - Unit: m/s
-
-This variable, in case of Horton-based infiltration and groundwater flow, also consists of the vertical flow and the groundwater flow. This depends on the line number. This also yields for most of the other line variables.
 
   Mesh2D_q:
 
@@ -213,8 +204,7 @@ This variable, in case of Horton-based infiltration and groundwater flow, also c
 
 The results for the 1D variables are structured in a similar way. Note that embedded nodes do not have a 1D water level, volume etc information. This information can be found in the 2D results.
 
-Coordinates:
-++++++++++++
+**Coordinates**
 
   Mesh1DNode_xcc:
 
@@ -231,8 +221,7 @@ Coordinates:
   - Name: Node 1D z coordinate
   - Unit: m MSL
 
-Attributes:
-+++++++++++
+**Attributes**
 
   Mesh1DNode_id:
 
@@ -247,16 +236,14 @@ Attributes:
 
   - Types = node_without_storage_1d, open_water_with_storage_1d, open_water_boundary_1d
 
-Dimensions:
-+++++++++++
+**Dimensions**
 
   nMesh1D_nodes:
 
   - Name: Number of 1D mesh nodes
 
 
-Flow variables:
-+++++++++++++++
+**Node variables**
 
   Mesh1D_s1:
 
@@ -286,8 +273,7 @@ Flow variables:
 1D Mesh Line variables:
 -----------------------
 
-Coordinates:
-++++++++++++
+**Coordinates**
 
   Mesh1DLine_xcc:
   
@@ -304,8 +290,7 @@ Coordinates:
   - Name: Flow line 1D z center coordinate
   - Unit = m MSL
 
-Attributes:
-+++++++++++
+**Attributes**
 
   Mesh1DLine_id:
 
@@ -315,15 +300,13 @@ Attributes:
 
   - Types: embedded_1d, isolated_1d, connected_1d, long_crested_structure_1d, short_crested_structure_1d, double_connected_1d, from_node_with_storage_1d2d, from_node_without_storage_1d2d, potential_breach_1d2d, groundwater_1d2d, boundary_1d
 
-Dimensions:
-+++++++++++
+**Dimensions**
 
 nMesh1D_lines:
 
   - Name: Number of 1D Mesh lines
 
-Flow variables:
-+++++++++++++++
+**Flow variables**
 
   Mesh1D_u1:
 
@@ -342,7 +325,7 @@ Flow variables:
 
   Mesh1D_breach_depth:
 
-  - Name: Breach depth on 1D2D connection)
+  - Name: Breach depth on 1D2D connection
   - Unit: m
 
   Mesh1D_breach_width:
@@ -353,8 +336,7 @@ Flow variables:
 Pump variables:
 ---------------
 
-Coordinates:
-++++++++++++
+**Coordinates**
 
   Mesh1DPump_xcc:
 
@@ -366,22 +348,19 @@ Coordinates:
   - Name: Start point Pump 1D y-coordinate
   - Unit: m
 
-Attributes:
-+++++++++++
+**Attributes**
 
   Mesh1DPump_id:
 
   - Name: Pump identifier
 
-Dimensions:
-+++++++++++
+**Dimensions**
 
   nPumps:
 
   - Name: Number of 1D pumps
 
-Flow variables:
-+++++++++++++++
+**Flow variables**
 
   Mesh1D_q_pump:
 

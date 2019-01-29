@@ -1,3 +1,5 @@
+.. _apicalculations:
+
 API - Batch calculations
 ========================
 

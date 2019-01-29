@@ -7,18 +7,18 @@ To capture or predict flow under varying conditions, one is often forced to use 
 
 3Di is a two-layer, subgrid based hydrodynamical model, where a surface and a subsurface layer can be defined in combination with a 1D network. The computations of flow in each domain are based on two fundamental laws of physics; i) Conservation of mass and ii) Conservation of momentum. In this section we will describe how we deal with conservation of mass.
 
-Conservation of mass states that mass cannot disappear or appear in a certain domain without clear source. For a defined domain, when all fluxes (discharges) in and out of that domain are known, the change in mass can be computed. This can be described mathematically as:
+Conservation of mass states that mass cannot disappear or appear in a certain domain without clear source. For a defined domain, when all fluxes in and out of that domain are known, the change in mass can be computed. This can be described mathematically as:
 
 .. math::
    :label: mass_conservation    
 
-   \frac{\Delta \rho V}{\Delta t}=\sum_i^{in} \rho_i Q_i -\sum_k^{out} \rho_k Q_k + \sum_i \rho_j S_j 
+   \frac{\Delta \rho V}{\Delta t}=\sum_i^{in} \rho Q_i -\sum_k^{out} Q_k + \sum_j S_j 
 
 | In which: 
 | :math:`\rho` is the density, 
 | :math:`V_\Omega` is the volume, 
-| :math:`Q` is a discharge and 
-| :math:`S` is a sink or source term. 
+| :math:`Q` are discharges and 
+| :math:`S` are source or sink terms. 
 |
 
 .. figure:: image/b1_2.png
@@ -36,7 +36,7 @@ The counters i, j, k count over all existing discharges, sink and source terms. 
    
    \frac{\Delta V}{\Delta t}=\sum_i^{in} Q_i -\sum_k^{out} Q_k + \sum_i S_j 
 
-It is important to define the domain for which this is true. In the finite volume approach, used in 3Di, a volume domain equals a computational cell, i.e. the water level domain. For such a domain, as shown in the Figure, all discharges (in blue) sources and sink terms (in yellow) entering and leaving the box are to be defined or computed. The discharges are computed based on the momentum equations. The Sections :ref:`surface_flow`, :ref:`flow1d`, :ref:`interflow` and :ref:`groundwater` elaborate about the computation of flow in the specific domains. Sources and sink terms are generally terms for water that is added or extracted in a domain. Examples of such are :ref:`simpleinfiltration` and :ref:`rain`. In 3Di, the conservation of volume is where all flow phenomena are combined. This is independent whether flow originates from the 1D, 2D surface or subsurface domain. So, if the discharges are defined, the system can be solved.
+It is important to define the domain for which this is true. In the finite volume approach, used in 3Di, a volume domain equals a computational cell, i.e. the water level domain. For such a domain, as shown in the Figure, all discharges (in blue) sources and sink terms (in yellow) entering and leaving the box are to be defined or computed. The discharges are computed based on the momentum equations. The Sections :ref:`surface_flow`, :ref:`flow1d`, :ref:`interflow` and :ref:`groundwater` elaborate about the computation of flow in the specific domains. Sources and sink terms are generally terms for water that is added or extracted in a domain. Some generic source and sink options are described in :ref:`sources_sinks`. Other examples of such are :ref:`simpleinfiltration` and :ref:`rain`. In 3Di, the conservation of volume is where all flow phenomena are combined. This is independent whether flow originates from the 1D, 2D surface or subsurface domain. So, if the discharges are defined, the system can be solved.
 
 
 

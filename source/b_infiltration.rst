@@ -33,29 +33,30 @@ Input
 ------
 The user can define all the aspects for simple infiltration in the *simple_infiltration_table*.
  
-Technical description
------------------------------
-
-The infiltration is implicitly added to the continuity equation. This means that the infiltration discharge depends on the infiltration capacity and the water level at the new and the old time level:
- 
-.. math::
-   :label: infiltration
- 
-   Q_{inf} = I * ( H^{(k+1)} / H^n )
- 
-| in which,  
-| k = the indices for the inner Newton iteration loop, 
-| n = the timestep and 
-| Q\ :sub:`inf`\ = the infiltrated volume per time interval.
-
-This is to ensure stability and to ensure conservation of mass.
-
 .. _hortoninfiltration:
 
 Horton based infiltration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The second possibility to add infiltration to a system, is infiltration based on the Horton equation. This describes a infiltration rate that is initially higher and decays to an equilibrium infiltration. This type of infiltration is always used incombination with a groundwater level. In such, the infiltration is always limited. More information about the Horton based infiltration can be found here :ref:`grwhortoninfiltration`.
+The second possibility to add infiltration to a system, is infiltration based on the Horton equation. This describes a infiltration rate that is initially higher and decays to an equilibrium infiltration. This type of infiltration is always used in combination with a groundwater level. In such, the infiltration is always limited. More information about the Horton based infiltration can be found here :ref:`grwhortoninfiltration`.
+
+.. Technical description
+.. -----------------------------
+.. 
+.. The infiltration is implicitly added to the continuity equation. This means that the infiltration discharge depends on the infiltration capacity and the water level at the new and the old time level:
+..  
+.. .. math::
+..    :label: infiltration
+..  
+..    Q_{inf} = I * ( H^{(k+1)} / H^n )
+..  
+.. | in which,  
+.. | k = the indices for the inner Newton iteration loop, 
+.. | n = the time step and 
+.. | Q\ :sub:`inf`\ = the infiltrated volume per time interval.
+.. 
+.. This is to ensure stability and to ensure conservation of mass.
+.. 
 
 
 

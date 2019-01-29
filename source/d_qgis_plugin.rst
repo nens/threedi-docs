@@ -37,7 +37,7 @@ The aggregation settings can be found and configured in the model table *v2_aggr
    :header-rows: 1
    
 
-The time step is of course adjustable. For new models, these settings are included in the empty spatialite database (:ref:`empty_database`). For existing models, these settings must be added to the *v2_aggregation_settings* -table. These SQL queries will help you in doing so:
+The time step is adjustable. For new models, these settings are included in the empty spatialite database (:ref:`empty_database`). For existing models, these settings must be added to the *v2_aggregation_settings* -table. These SQL queries will help you in doing so:
 
 Empty v2_aggregation_settings table::
 
@@ -104,6 +104,18 @@ Add aggregation settings one by one::
 				aggregation_in_space, timestep)
 		VALUES (10, 9999, 'volume_current', 'volume', 'current', 
 				'FALSE', 300);
+				
+	INSERT INTO v2_aggregation_settings(
+				id, global_settings_id, var_name, flow_variable, aggregation_method, 
+				aggregation_in_space, timestep)
+		VALUES (10, 9999, 'qsss_cum_pos', 'surface_source_sink_discharge', 'cum_positive', 
+				'FALSE', 300);
+				
+	INSERT INTO v2_aggregation_settings(
+				id, global_settings_id, var_name, flow_variable, aggregation_method, 
+				aggregation_in_space, timestep)
+		VALUES (10, 9999, 'qsss_cum_neg', 'surface_source_sink_discharge', 'cum_negative', 
+				'FALSE', 300);				
 	
 Note that in both cases, in case of a new model or an existing model, you must update the global settings id to the id of the scenario for which you wish to generate aggregated results. For multiple scenarios, you must add these settings multiple times (and update row id's). Also, you may choose to change the aggregation time step, but make sure to use the same time step for all aggregation variables.
 
