@@ -80,6 +80,8 @@ Add aggregation settings::
 	
 Note that in both cases, in case of a new model or an existing model, you must update the global settings id to the id of the scenario for which you wish to generate aggregated results. For multiple scenarios, you must add these settings multiple times (and update row id's). Also, you may choose to change the aggregation time step, but make sure to use the same time step for all aggregation variables.
 
+Note2 that at this time you should only include the aggregation settings for pump_discharge, simple_infiltration, leakage and interception if these are included in your model.
+
 Using the water balance tool 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
