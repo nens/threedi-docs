@@ -1,7 +1,22 @@
 Results in Lizard
 =================================
 
-3Di users that have access to Lizard can view and playback stored scenarios. Depending on your contract and location you may be able to view estimates of damage caused by inundation or flooding (waterschadeschatter).
+In general, stored results can be downloaded using the 3Di QGIS plugin or viewed and downloaded from the Lizard platform. The 'Basic Results' option includes the following derivations from calculation results for Lizard users: 
+
+* Water level 
+* temporal Water depth 
+* temporal Waterlevel
+* Maximum flow velocity 
+* Maximum rate of rise 
+* Maximum water depth 
+* Flood hazard rating 
+
+The 'damage_estimation' option uses a module called "WaterSchadeSchatter" (currently only available in the Netherlands) which provides two products derived from the maximum water depth:
+
+* Damage estimation map 
+* Damage estimation table 
+
+3Di users that have access to Lizard can view and playback stored scenarios through the portal. 
 
 View stored results
 ---------------------
