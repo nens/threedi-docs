@@ -1,6 +1,6 @@
 .. _obstacles:
 
-Obstacles and levees
+Obstacles, Levees and Breaches
 =============================================
 
 
@@ -47,13 +47,9 @@ More details on how to use obstacles, levees and breaches can be found in :ref:`
 .. _breaches:
 
 Breaches
-========
+------------
 
 3Di can simulate the consequences of a breach in a levee. In such case, the dimensions of the breach determine flow through the breach and therefore the flood. The growth of a breach is a very complex process. It is a phenomenon where hydrodynamics, morphology, groundwater and soil mechanics interact. Many aspects of this interaction is still unknown, and therefore it is difficult to model. Moreover, detailed modeling would require very detailed information about the levee. Generally, there is only a limited amount of information about the soil, structure, moisture content etc of the levee.   Nevertheless, rules of thumb have been developed that describe the breach growth, which allow us to make an estimate of the breach growth. 
-
-
-Breaches from 1D channels to 2D grid
------------------------------------------
 
 In a 3Di model, flow may occur between 1D and 2D elements. In certain cases this exchange is limited by a levee. The exchange height is determined by the height of the levee. When a few extra properties of the levee are specified for these connections, a breach can be modelled that can grow over time. More information on levees, can be found in :ref:`obstacles`
 
