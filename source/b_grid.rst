@@ -26,7 +26,7 @@ In 3Di we make use of a so-called structured, staggered grid. This implies for t
    
    Example of a vertical staggered grid
    
-The hydrodynamic computations are based on the conservation of volume and momentum. In the next sections (:ref:`cons_volume`,  :ref:`flow1d`, :ref:`surface_flow`, and :ref:`groundwater`), the methods concerned for the computations are discussed. However, in order to solve the equations, the domains in which they are valid, need to be defined. In the Figure above, the volume and momentum domains are shown.
+The hydrodynamic computations are based on the conservation of volume and momentum. In the next sections (:ref:`cons_volume`,  :ref:`onedee_flow`, :ref:`surface_flow`, and :ref:`groundwater`), the methods concerned for the computations are discussed. However, in order to solve the equations, the domains in which they are valid, need to be defined. In the Figure above, the volume and momentum domains are shown.
    
 Grid Refinement in 2D
 ++++++++++++++++++++++++
@@ -100,7 +100,7 @@ The grid space is the measure of the dimension of a computational cell. It is im
 Computational grid for 1D domain
 ====================================
 
-For studying the flow of narrow features in the landscape or sewer systems, it is advantageous to use one dimensional models. This allows for an extensive description of the system, without actually computing cross-flow phenomena. These are in those cases limited and the use of a 1D representation will reduce the computational cost. In 3Di 1D networks can be defined, representing open channels, manholes, weirs, orifices, culverts and closed pipes. There are several options to couple the 1D and the 2D domain (see Section :ref:`flow1d`). All options for the coupling allow for a fully integrated computation, this means that the full 1D and 2D systems are solved as one.
+For studying the flow of narrow features in the landscape or sewer systems, it is advantageous to use one dimensional models. This allows for an extensive description of the system, without actually computing cross-flow phenomena. These are in those cases limited and the use of a 1D representation will reduce the computational cost. In 3Di 1D networks can be defined, representing open channels, manholes, weirs, orifices, culverts and closed pipes. There are several options to couple the 1D and the 2D domain (see Section :ref:`onedee_flow`). All options for the coupling allow for a fully integrated computation, this means that the full 1D and 2D systems are solved as one.
 
 To compute the flow in a 1D network a grid is to be defined as well. Consistent with the grid defined for the 2D domain, a staggered grid is used again. Pressure/ water level points are allocated with a velocity point. An example can be seen in the Figure below. 
 

@@ -24,18 +24,12 @@ Welcome to 3Di's documentation!
    b_grid
    b_massconservation
    b_surfaceflow
-   b_groundwater
-   b_channelflow
-   c_structures
-   b_sources_sinks
-   b_interception
-   c_inflow
    b_interflow
-   b_levees_obstacles
-   c_breaches
+   b_onedee_flow
+   b_hydrology
+   b_sources_sinks  
+   b_levees_obstacles_breaches
    b_wind
-   b_sewerage
-   c_control
 
 
    
@@ -59,17 +53,9 @@ Welcome to 3Di's documentation!
    :numbered:
    
    d_before_you_begin
-   d_threedi_portal
-   d_threedi_model
-   d_threedi_versioning
+   d_web_portals
    d_qgis_plugin
-   d_rasters
-   d_flood_model
-   d_water_system
-   d_sewerage
-   d_control_structures
-   d_api
-   d_results_from_lizard
+   d_modeling
    d_problem_solving
 
 

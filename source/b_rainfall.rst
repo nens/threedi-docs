@@ -20,7 +20,7 @@ Input
    
 The options for rain:
 
-1. **Radar-based rain** - Based on the radar rain images, temporally and spatially varying rain information is available. The Dutch `Nationale Regenradar <https://nationaleregenradar.nl/>`_is available for all Dutch applications. On request, the information from other radars can be made available to 3Di as well.
+1. **Radar-based rain** - Based on the radar rain images, temporally and spatially varying rain information is available. The Dutch `Nationale Regenradar <https://nationaleregenradar.nl/>`_ is available for all Dutch applications. On request, the information from other radars can be made available to 3Di as well.
 
 #. **Design rain** - Time varying rain intensity can be used globally during a computation. The so-called design rain events are time series, which are traditionally used to test the functioning of a sewer system in the Netherlands. These originate from `RIONED <https://www.riool.net/neerslaggebeurtenissen-1>`_. However, all time-series from Lizard can directly be coupled to a 3Di simulation.
 

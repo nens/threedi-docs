@@ -13,13 +13,14 @@ Here, laterals, surface sources and sinks and leakage will be discussed. They al
    :maxdepth: 2
    :caption: Various types of sources and sinks
    :name: various_sources_sinks
-   :numbered:
    
    b_rainfall
    b_infiltration
    b_laterals
    b_surface_sources_sinks
    b_leakage
+   c_inflow
+   b_boundary_conditions
 
 
 
