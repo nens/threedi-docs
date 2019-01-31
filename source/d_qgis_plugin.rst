@@ -43,65 +43,38 @@ Empty v2_aggregation_settings table::
 
 	DELETE FROM v2_aggregation_settings;
   
-Add aggregation settings one by one::
+Add aggregation settings::
 
 	INSERT INTO v2_aggregation_settings(
 				id, global_settings_id, var_name, flow_variable, aggregation_method, 
 				aggregation_in_space, timestep)
 		VALUES (1, 9999, 'pump_discharge_cum', 'pump_discharge', 'cum', 
-				'FALSE', 300);
-	
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
+				'FALSE', 300)
+		UNION ALL
 		VALUES (2, 9999, 'lateral_discharge_cum', 'lateral_discharge', 'cum', 
-				'FALSE', 300);
-	
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
+				'FALSE', 300)
+		UNION ALL
 		VALUES (3, 9999, 'simple_infiltration_cum', 'simple_infiltration', 'cum', 
-				'FALSE', 300);
-	
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
+				'FALSE', 300)
+		UNION ALL
 		VALUES (4, 9999, 'rain_cum', 'rain', 'cum', 
-				'FALSE', 300);
-	
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
+				'FALSE', 300)
+		UNION ALL
 		VALUES (5, 9999, 'leakage_cum', 'leakage', 'cum', 
-				'FALSE', 300);
-	
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
+				'FALSE', 300)
+		UNION ALL
 		VALUES (6, 9999, 'interception_current', 'interception', 'current', 
-				'FALSE', 300);
-	
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
+				'FALSE', 300)
+		UNION ALL
 		VALUES (7, 9999, 'discharge_cum', 'discharge', 'cum', 
-				'FALSE', 300);
-	
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
+				'FALSE', 300)
+		UNION ALL
 		VALUES (8, 9999, 'discharge_cum_neg', 'discharge', 'cum_negative', 
-				'FALSE', 300);
-	
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
+				'FALSE', 300)
+		UNION ALL
 		VALUES (9, 9999, 'discharge_cum_pos', 'discharge', 'cum_positive', 
-				'FALSE', 300);
-	
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
+				'FALSE', 300)
+		UNION ALL
 		VALUES (10, 9999, 'volume_current', 'volume', 'current', 
 				'FALSE', 300);
 	
