@@ -1,6 +1,6 @@
 .. _sssdischarges:
 
-Surface sources and sinks
+Surface source and sink 
 =============================
 
 3Di does not cover all processes that can affect a water system. To allow users to add and extract water from the 2D surface domain, the Surface Sources and Sinks function is implemented. It allows users to define their own source and sink rates related to a certain process. An example would be to capture evaporation effects. These rates are treated similar to the other source and sink terms. 

@@ -1,6 +1,6 @@
 .. _running_model:
 
-Running the 3Di model
+Running a 3Di model
 =====================
 
 This section helps you get started with interactive simulation with the integral 3Di modeling tools. Through the 3Di portal (version 2.0) the models of your organization can be loaded and simulations can be started. During the session others can follow the simulations 'live'. Also interventions can be done in the model during the simulation. Results are presented in real-time. All the steps from adjusting the input of water to viewing the calculation results are described in this section.
@@ -128,6 +128,33 @@ Advanced settings are available by clicking the pi icon in the top right corner.
 	:alt: Advanced settings
 
 .. _reset_model:
+
+Store results
+--------------
+
+Results can be stored by clicking *Store Results*. In general, stored results can be downloaded using the 3Di QGIS plugin or viewed and downloaded from the Lizard platform.
+
+The *process basic results* option includes the following derivations from simulation results for Lizard users:
+
+
+- Water level - temporal
+
+- Water depth - temporal
+
+- Maximum flow velocity
+
+- Maximum rate of rise
+
+- Maximum water depth
+
+- Flood hazard rating
+
+The *damage_estimation* option uses a module called *WaterSchadeSchatter* (currently only available in The Netherlands)
+which provides two products derived from the maximum water depth.
+
+- Damage estimation map
+
+- Damage estimation table
 
 Reset model and log out
 -----------------------

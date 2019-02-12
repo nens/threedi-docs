@@ -17,28 +17,25 @@ Welcome to 3Di's documentation!
    
 .. toctree::
    :maxdepth: 2
-   :caption: Concepts
+   :caption: Physics
    :name: basic_principles
    :numbered:
    
-   b_grid
    b_massconservation
-   b_surfaceflow
-   b_interflow
-   b_onedee_flow
-   b_hydrology
+   b_flow
    b_sources_sinks  
    b_levees_obstacles_breaches
    b_wind
+   b_interception
 
-
-   
+  
 .. toctree::
    :maxdepth: 2
-   :caption: Technical details
-   :name: technical_details
+   :caption: Model concepts
+   :name: Model_concepts
    :numbered:
    
+   b_grid
    c_numerics
    c_calculation_grid_data
    c_results

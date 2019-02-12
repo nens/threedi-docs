@@ -43,7 +43,7 @@ The computational cost of a simulation is strongly related to the number of comp
    
 In case groundwater is taken into account, the grid refinement is present in both the surface layer and the groundwater layer. 
 
-
+.. _subgridmethod:
    
 Subgrid method
 ++++++++++++++++
@@ -93,8 +93,7 @@ The numerical grid is generated based on some the following settings:
 - Number of refinement levels
 - Grid refinements
 
-The grid space is the measure of the dimension of a computational cell. It is important that a width and the height of a grid cell contains an even number of subgrid cells. In case the dimensions of a subgrid cell are 0.5 x 0.5 :math:`m^2`, the grid space can be 5.0 x 5.0 :math:`m^2`. In case the dimensions of a subgrid cell are 1.0 x 1.0 :math:`m^2`, the grid space can not be 5.0 x 5.0 :math:`m^2`. The grid space is defined in the v2_global_settings table and is the dimension of the smallest grid size. The *kmax* setting in the same table, is the number of refinement levels. Locations where the refinements need to be defined can be added by a line using the v2_grid_refinement table, or by an area using v2_grid_refinement_area. In case, at a certain location, two refinement levels are defined, 3Di will refine to the highest level indicated. 3Di wil always aim at a minimum of grid cell, so it will coarsen the grid as fast as possible, but it will only be possible to do that in steps of four.
-- Number of refinement levels 
+The grid space is the measure of the dimension of a computational cell. It is important that a width and the height of a grid cell contains an even number of subgrid cells. In case the dimensions of a subgrid cell are *0.5 x 0.5 m*:sup:`2`, the grid space can be 5.0 x 5.0 :math:`m^2`. In case the dimensions of a subgrid cell are *1.0 x 1.0 m*:sup:`2`, the grid space can not be *5.0 x 5.0 m*:sup:`2`. The grid space is defined in the v2_global_settings table and is the dimension of the smallest grid size. The *kmax* setting is the number of refinement levels. Locations where the refinements need to be defined can be added by a line using the v2_grid_refinement table, or by an area using v2_grid_refinement_area. In case two refinement levels are defined at the same location, 3Di will refine to the highest level indicated. 3Di will always aim at a minimum number of grid cells, it will coarsen the grid as fast as possible, but it will only be possible to do that in steps of four.
 
 
 Computational grid for 1D domain
