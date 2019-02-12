@@ -170,10 +170,11 @@ The meta information, that defines the structure for the line variables is menti
 
   - Name: Number of 2D Mesh lines.
 
-** Flow variables**
+**Flow variables**
 
 
-  Mesh2D_u1: This variable, in case of Horton-based infiltration and groundwater flow, also consists of the vertical flow and the groundwater flow. This depends on the line TYPE. This also yields for most of the other line variables.
+  Mesh2D_u1: 
+  This variable, in case of Horton-based infiltration and groundwater flow, also consists of the vertical flow and the groundwater flow. This depends on the Line Type. This also yields for most of the other line variables.
 
   - Name: Flow velocity on 2D flow line
   - Unit: m/s
@@ -245,27 +246,27 @@ The results for the 1D variables are structured in a similar way. Note that embe
 
 **Node variables**
 
-  Mesh1D_s1:
+  Mesh1D_s1: Waterlevel in 1D Node
 
-  - Name: Waterlevel in 1D Node
+  - Name: Waterlevel
   - Unit: m MSL
 
-  Mesh1D_vol:
+  Mesh1D_vol: Water Volume in a cell
 
-  - Name: Water volume in 1D Node
+  - Name: Water volume 
   - Unit: m3
 
-  Mesh1D_su: 
+  Mesh1D_su: Current wet surface area
 
   - Name: Wet surface of 1D Node
   - Unit: m2
 
-  Mesh1D_rain:
+  Mesh1D_rain:  Inflow in 1D from rain or dry wetter discharge
 
   - Name: Inflow in 1D from rain
   - Unit = m3/s
 
-  Mesh1D_q_lat:
+  Mesh1D_q_lat: Point source/sink flux in 1D cell
 
   - Name: Lateral discharge in/from 1D cell
   - Unit = m3/s
@@ -308,7 +309,7 @@ nMesh1D_lines:
 
 **Flow variables**
 
-  Mesh1D_u1:
+  Mesh1D_u1:Flow velocity on 1D flow line, including 1D2D connections.
 
   - Name: Flow velocity on 1D flow line
   - Unit: m/s
@@ -330,7 +331,7 @@ nMesh1D_lines:
 
   Mesh1D_breach_width:
 
-  - Name: Breach width on 1D2D connection)
+  - Name: Breach width on 1D2D connection
   - Unit: m
 
 Pump variables:
