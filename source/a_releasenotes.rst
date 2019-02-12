@@ -1,6 +1,36 @@
 Release notes
 =============
 
+Release 3Di - Carnival Release 2019
+++++++++++++++++++++++++++++++++++++
+
+We will release a new version of 3Di on March the 4th. The Carnival release contains various new features. Moreover, we are preparing for a huge product upgrade of the back-end of 3Di. We will explain this in more detail in the next releases. Please keep in mind the 3Di web interfaces will not be available between 8.00 AM and 10.00 AM (CEST).
+
+Usage
+^^^^^^
+
+
+We are happy to introduce a brand new usage `page <https://usage.3di.lizard.net>`_. Users will have an overview of their use of 3Di. This contains the time spend and available for simulations, how many sessions are currently available and who is simulating at that moment. Moreover an overview is given of all simulations that have been performed.
+
+Surface source and sink terms
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+After the Carnival release, it is possible to add a surface source and sink term to your 3Di model. The surface source and sink term will allow users to add or substract water from your 2D surface domain. This can be used for many purposes. An example could be a simplified method to capture evapotranspiration effects during your simulation. This feature will only be available via the API. In a follow-up release of 3Di, we will support not only for timeseries, but also for time-varying rasters. In the example mentioned above, it would allow for a time-varying evapotranspiration based on satellite imagery. The description of the :ref:`sssdischarges` is already available.
+
+QGIS 3.4 support
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We are happy to announce the support on QGIS 3.4 for all 3Di related QGIS tools and plugins! We follow the lead of the QGIS in releases and in support of our plugins. This means that we will also stop active development on QGIS 2.18. New features will only be available for QGIS 3.4 as this is the new Long Term Release from QGIS. A compact overview can be found `here <changelog.qgis.org/en/qgis/version/3.4-LTR/>`_.
+Some nice animations of several of the new features are published `here <https://north-road.com/2017/12/24/24-days-of-qgis-3-0-features/>`_.
+Specifically for 3Di, one of the most exciting new features is the new *Mesh support*. This will allow to visualise easily your water levels and velocities in the 2D  domain. This will show the raw data as available in the NetCDF. When using the Crayfish plugin, users can create movies. Note, that results of surface source and sink terms will only be visualised in the plugin supported by QGIS 3.4.
+
+Raster Checker
+^^^^^^^^^^^^^^
+
+Raster contain important input data for 3Di rasters  an import input in models. It can be a challenge to have perfectly fitting rasters with all the proper settings. Therefore, we introduce the Raster Checker. It is a tool that assist the user in checking the consistency of the provided rasters. For example, it checks the alignment of the rasters and the correct settings for nodata values and the pixel dimensions. The checks cover the errors that are most common. The tool will give an overview of the anomalies. We are also working on a Raster Solver. This tool will assist users in fixing the errors immediately.
+
+
+
 Release 3Di - Hotfix
 ++++++++++++++++++++++++
 
@@ -39,7 +69,7 @@ The newest version of 3Di is released on 26th of November 2018. With this update
 - Software updates and bug fixes
  
 Interception
-------------------
+^^^^^^^^^^^^^
 
 With this release, we introduce a new process in 3Di to extend the processes of the hydrological cycle. It is now possible to take interception into account during your simulation. Interception refers to precipitation that does not reach the bottom, but is instead intercepted by buildings or vegetation.
 
@@ -51,12 +81,12 @@ The interception layer can be used in the following situations:
 It is possible to edit the interception layer in the 3Di live site. 
 
 Culvert discharge coefficients
--------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 From this release, the culvert discharge coefficient will be enabled. The coefficient allows to take inlet losses for culverts into account and can be defined for positive and negative flow directions.  The coefficient is defined via an attribute per culvert in the table 'v2_culvert'. Prior to the release, the coefficients were already available in the spatialite. However, these coefficients were not yet taken into account. After the release, these will become active, this might, of course, affect the results. In case, these coefficients were unintended, set these coefficients to 1, and you will return to your previous results. 
 
 Water balance Tool 
----------------------
+^^^^^^^^^^^^^^^^^^
 
 A new version of the 3Di QGIS plugin is released as well. Hereby, we also release the 3Di water balance tool. Users can select an area on the map and see the exact water balance, including an overview of the flows between the 2D surface water, 2D groundwater and the 1D flow domains for a certain area and period. To be able to use this water balance an aggregation NetCDF is required. This exciting new tool helps users to get an improved insight in their water system. With this water balance tool, we help experts in their analysis and understanding of the modeling results. 
 
@@ -65,13 +95,13 @@ For more information have a look at our documentation on the :ref:`waterbalance`
 The water balance tool is an initiative of Deltares and a co-creation of experts of Deltares and Nelen & Schuurmans. It is co-funded by the Ministry of Economic Affairs (Top Sector Water).
 
 Option for custom rain event
--------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In the 3Di live site, the options for rain events are extended. It is now possible to define a time-varying rain event. 
 
 
 Software updates and bug fixes
----------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Behind the scenes there have been some major changes to the 3Di software. We have fundamentally improved the server-interaction. Note, this changed some minor things. When you want to load a new model, quit your previous session first. Your session on the live site will close after 1 hour of inactivity. Use the API, for longer simulations with no interaction. 
 

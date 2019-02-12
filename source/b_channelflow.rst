@@ -6,22 +6,6 @@ Channel Flow
 Some model elements of the water system can be modelled better in 1D. This mainly involves specific characteristics of these elements which are very important for the model (like the discharge equation of a weir). Currently available within 3Di are the following 1D elements; channels, structures, like weirs, orifices and culverts, and levees or obstacles. This section is limited to channels.
 Simulating the 1D water courses is possible in three ways. This includes three types of 1D elements; Isolated, (Double) Connected and Embedded.  The difference between these 1D elements is their interaction with 2D flow.
 
-Types of 1D elements
------------------------
-
-The water system of channels, ditches and pipes (1D elements) can be schematised as a 1D network in 3Di. This network can interact with the 2D computational domain. There are three different types of 1D elements to be distinguished for different purposes:
-
-- Embedded
-
-- Connected
-
-- Isolated
-
-These three types of channels differ in the way they exchange water with the 2D environment. The embedded channel is fully integrated in the 2D quadtree. This channel shares the water level of the calculation cell but it contains its own velocity points to model the real flow through the channel. Embedded velocity points will be put on the edges of the calculations cells. The channels are thus depending on the calculation cell dimensions. The embedded channel can be used for most ditches in polders where the water level in the channels is lower than the surface level under normal conditions. 
-
-A connected channel is linked to a 2D quadtree by means of an overflow relation. Hereby you can think of a belt channel/ drainage system. The water level in the belt channel is mostly higher than the surface level in the polder, the levee of the channel makes sure that the water stays in the drainage system. With the connected channel it is possible to model the belt channel levee. If the level of water in the belt channel rises above the levee, than the discharge that flows over the embankment will be calculated using an overflow equation. The bottom of the connected channel can also exceed the height in the 2D elevation grid.
-
-The isolated channel is fully disconnected from the 2D quadtree, the water level is independent of the water level in the 2D and there will be no exchange. The isolated channel can be used for modelling external forcings. These channels can also be outside the elevation grid and the calculation grid (spatially). Therefore parts of the water system which are beyond the study area can still be modelled. 
 
 While modelling think of the type of 1D channel type that fits the watercourses in the study area best. For small ditches in an area without elevation, where the flow velocity is low it is sometimes useful not to use 1D channels. Digging ditches in the elevation map will probably lead to sufficient drainage and will make it possible to use bigger calculation cells. The size of the calculation cells is also important. If you expect water differences, make sure that there are small calculation cells in that area. If there is an unsuspected flooding somewhere then reduce the size of the cells in that area or choose a connected channel. Remember that a calculation cell can only have one water level. The volume will then be distributed over the calculation cell whereby as a result the lowest part are inundated first. Therefore it may look like the watercourses are leaking like the example below.
 
@@ -49,14 +33,3 @@ For all sections, the 1D shallow water equations are solved. The basis for the c
    
    Example network of connected channel sections and 2D quadtree with channel sections in blue, 1D2D connections in orange and the 2D quadtree in gray
    
-Pressurized flow
----------------------
-However, a typical characteristic of some 1D elements is that they can have closed cross-sections (Figure b1.5). In this the violate one of the requirements in order to solve the non-linear system. Therefore, a new method had to be introduced to solve such non-linear systems. This was introduced with the so-called nested Newton method (Casulli & Stelling 2013).
-
-.. figure:: image/b1_5.png
-   :scale: 50%
-   :alt: open_closed_crosssections
-   
-   Examples of cross-sectional areas. An open and closed cross-sectional area
-
-By this not only flooding and drying is automatically accounted for, also pressurized flow can simply be solved. One of the advantages is that the volume in an element, like a pipe can be limited, while the water level can still rise. At some point, when the pipe is full, the water level than represents a pressure (Figure b1-6). 

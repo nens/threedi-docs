@@ -31,7 +31,7 @@ D. The porosity (phreatic storage capacity) is a single, spatially variable valu
 
 E. The infiltration is based on the Horton equation.
 
-F. At the bottom boundary, effects of deeper groundwater layers or extraction of water can be defined. This bottom boundary condition is called *leakage* and is assumed constant in time and spatially variable. 
+F. At the bottom boundary, effects of deeper groundwater layers or extraction of water can be defined. This bottom boundary condition is called *leakage* and is assumed constant in time and spatially variable. An elaborate explanation of Leakage can be found :ref:`grwleakage`.
 
 G. For modelling a soil water zone, groundwater can be combined with :ref:`interflow`.
 

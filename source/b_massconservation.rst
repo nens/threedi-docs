@@ -17,8 +17,8 @@ Conservation of mass states that mass cannot disappear or appear in a certain do
 | In which: 
 | :math:`\rho` is the density, 
 | :math:`V_\Omega` is the volume, 
-| :math:`Q` are discharges and 
-| :math:`S` are source or sink terms. 
+| :math:`Q` discharge,
+| :math:`S` source or sink term. 
 |
 
 .. figure:: image/b1_2.png
@@ -36,7 +36,7 @@ The counters i, j, k count over all existing discharges, sink and source terms. 
    
    \frac{\Delta V}{\Delta t}=\sum_i^{in} Q_i -\sum_k^{out} Q_k + \sum_i S_j 
 
-It is important to define the domain for which this is true. In the finite volume approach, used in 3Di, a volume domain equals a computational cell, i.e. the water level domain. For such a domain, as shown in the Figure, all discharges (in blue) sources and sink terms (in yellow) entering and leaving the box are to be defined or computed. The discharges are computed based on the momentum equations. The Sections :ref:`surface_flow`, :ref:`onedee_flow`, :ref:`interflow` and :ref:`groundwater` elaborate about the computation of flow in the specific domains. Sources and sink terms are generally terms for water that is added or extracted in a domain. Some generic source and sink options are described in :ref:`sources_sinks`. Other examples of such are :ref:`simpleinfiltration` and :ref:`rain`. In 3Di, the conservation of volume is where all flow phenomena are combined. This is independent whether flow originates from the 1D, 2D surface or subsurface domain. So, if the discharges are defined, the system can be solved.
+It is important to define the domain for which this is true. In the finite volume approach, used in 3Di, a volume domain equals a computational cell, i.e. the water level domain. For such a domain, as shown in the Figure, all discharges (in blue) sources and sink terms (in yellow) entering and leaving the domain are to be defined or computed. The discharges are computed based on the momentum equations. The Section :ref:`flow` elaborates on the computation of flow in the various domains, such as 2D surface water, ground water, 1D surface and sewerage flow. Sources and sink terms are generally terms for water that is added or extracted in a domain. The various source and sink options are described in :ref:`sources_sinks`. Examples of source and sink terms are :ref:`simpleinfiltration` and :ref:`rain`. In 3Di, the conservation of volume combines all flow phenomena. This is independent whether flow originates from the 1D, 2D surface or subsurface domain. This allows a fully integrated approach of a water system.
 
 
 

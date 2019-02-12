@@ -21,4 +21,4 @@ This document presents a description of the methods used in 3Di and tutorials ho
 
 * Finally, :ref:`before_you_begin` is the place to start if you want to get stuck in using existing models or changing them.
 
-Information about courses, examples, demonstrations and how to contact us can be found on: http://www.3di.nu/.
+Information about courses, examples, demonstrations and how to contact us can be found on: https://3diwatermanagement.com/.
