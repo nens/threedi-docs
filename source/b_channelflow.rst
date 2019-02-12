@@ -1,13 +1,9 @@
-.. _flow1d:
+.. _channelflow:
 
-1D Network
+Channel Flow
 ============
 
-
-
-The 3Di model offers the possibility to simulate 1D flow. This means that the calculated flow velocity and discharge is averaged over both depth and width.  Effects of variations in depth and width are included but flow within a segment has only one direction. A 1D element can be a watercourse (open water) or a sewer pipe. This section is limited to channels.
-
-Some model elements of the water system can be modelled better in 1D. This mainly involves specific characteristics of these elements which are very important for the model (like the discharge equation of a weir). Currently available within 3Di are the following 1D elements; channels, structures, like weirs, orifices and culverts, and levees or obstacles.
+Some model elements of the water system can be modelled better in 1D. This mainly involves specific characteristics of these elements which are very important for the model (like the discharge equation of a weir). Currently available within 3Di are the following 1D elements; channels, structures, like weirs, orifices and culverts, and levees or obstacles. This section is limited to channels.
 Simulating the 1D water courses is possible in three ways. This includes three types of 1D elements; Isolated, (Double) Connected and Embedded.  The difference between these 1D elements is their interaction with 2D flow.
 
 Types of 1D elements

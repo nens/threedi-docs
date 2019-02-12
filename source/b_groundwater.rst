@@ -83,7 +83,6 @@ Most of the groundwater concepts on which the groundwater method in 3Di is based
 	q(x,y,z,t) = -\kappa(x,y,z) \frac{\partial \phi}{\partial z}
 |	
     
-	
 	where :math:`\phi` is the hydraulic head. This equation is seemingly simple, but the hydraulic head and the hydraulic connectivity are both dependent on the saturation of the soil. Due to the complexity of the infiltration processes, there are various formulations for infiltration, such as Green and Ampt, Horton and Philip infiltration. There are several differences between those formulations. However, they share that the infiltration rate is initially higher and decreases more or less exponentially to an equilibrium rate. For now, only the Horton-based infiltration, see :ref:`grwhortoninfiltration`, is implemented, which is a formulation, originally, for ponded infiltration only. The formulation described by Horton (1875-1945) takes into account that when the soil contains more water, the infiltration rate will decrease. This can be seen in the graph in the  at *Label E* .
 
 |
@@ -91,6 +90,7 @@ Most of the groundwater concepts on which the groundwater method in 3Di is based
  
 |  
 9. The soil water zone is the layer just below the surface. Often this is a fully saturated area, but the processes in this layer are heavily affected by the vegetation, precipitation and evaporation. Therefor, often the simulation of this layer is difficult. In case of heavy precipitation, this layer becomes saturated in a sort time. In such case, a user can simulate this layer with use of the interflow layer (*Label G* ).
+
 
 .. _grwhortoninfiltration:
 

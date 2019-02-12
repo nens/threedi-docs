@@ -1,7 +1,7 @@
 Water system
 ================
 
-To model the water system of a polder you will need different types of structures and perhaps a larger level of detail than available in your bathymetry files. For this purpose, 3Di offers channels and structures that can be linked to the 2D computational grid. We refer to them as the 1D components. This tutorial shows you the steps needed to add these elements to an existing model.  More background information, can be found at :ref:`flow1d`.
+To model the water system of a polder you will need different types of structures and perhaps a larger level of detail than available in your bathymetry files. For this purpose, 3Di offers channels and structures that can be linked to the 2D computational grid. We refer to them as the 1D components. This tutorial shows you the steps needed to add these elements to an existing model.  More background information, can be found at :ref:`onedee_flow`.
 
 The first thing you must do is activate 1D flow in the global settings. Also consider the following parameters in the global or numerical settings:
 

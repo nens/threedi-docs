@@ -31,10 +31,10 @@ To add a manhole consider the following steps:
 
 #. In case of a purely 1D sewerage model, the manhole storage area has to be defined in the global settings. This determines the size of the 'storage' that is used as a substitute to determine the volume at street level when the water rises above the drain_level in case of connected manholes.
 
-.. _structures:
+.. _structures_sewerage:
 
-Structures
-------------------------
+Structures (sewerage)
+---------------------------
 Sewerage structures in 3Di are always a connection between two connection nodes, without their own geometry. 3Di supports four types of structures in sewerage systems:
 
 #. Pipe
