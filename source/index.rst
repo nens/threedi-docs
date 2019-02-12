@@ -27,15 +27,14 @@ Welcome to 3Di's documentation!
    b_groundwater
    b_channelflow
    c_structures
-   b_sewerage
-   b_infiltration
+   b_sources_sinks
    b_interception
    c_inflow
    b_interflow
    b_levees_obstacles
    c_breaches
-   b_rainfall
    b_wind
+   b_sewerage
    c_control
 
 

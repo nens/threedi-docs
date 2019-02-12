@@ -14,6 +14,9 @@ There are several options for the user concerning rain. Rain is always set as an
    :alt: rainnodata
    
    It can only rain in areas where the bathymetry is defined. The areas with nodata values in the Bathymetry file are white.
+
+Input
+^^^^^^^^^^^^   
    
 The options for rain:
 

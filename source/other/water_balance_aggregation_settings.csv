@@ -5,7 +5,9 @@ id,timestep,var_name,aggregation_in_space,aggregation_method,flow_variable
 4,300,rain_cum,FALSE,cum,rain
 5,300,leakage_cum,FALSE,cum,leakage
 6,300,interception_current,FALSE,current,interception
-7, 300,discharge_cum,FALSE,cum,discharge
-8, 300,discharge_cum_neg,FALSE,cum_negative,discharge
-9, 300,discharge_cum_pos,FALSE,cum_positive,discharge
+7,300,discharge_cum,FALSE,cum,discharge
+8,300,discharge_cum_neg,FALSE,cum_negative,discharge
+9,300,discharge_cum_pos,FALSE,cum_positive,discharge
 10,300,volume_current,FALSE,current,volume
+11,300,qsss_cum_neg,FALSE,cum_negative,surface_source_sink_discharge
+12,300,qsss_cum_pos,FALSE,cum_positive,surface_source_sink_discharge

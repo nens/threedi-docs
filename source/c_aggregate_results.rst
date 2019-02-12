@@ -37,6 +37,7 @@ The different flow variable for which to determine aggregated results are. The f
 * simple_infiltration
 * leakage
 * interception
+* surface_source_sink_discharge
 
 
 aggregation_method
@@ -86,6 +87,7 @@ The translation between the input flow variable name and the format in the the o
 * simple_infiltration - infiltration_rate_simple
 * leakage - leak
 * interception - intercepted_volume
+* surface_source_sink_discharge - q_sss
 
 An example of the output name is::
 
