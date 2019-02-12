@@ -5,7 +5,8 @@ QGIS Plugin
 
 Introduction
 --------------
-The 3Di Toolbox is a QGIS plugin for working with 3Di models and netCDF results. For more information see `3Di Toolbox plug-in <https://github.com/nens/threedi-qgis-plugin/wiki>`_. The section below explains the use of the water balance tool. More subjects will be added soon, as this is only one of the features of the 3Di Toolbox.
+The 3Di Toolbox is a QGIS plugin for working with 3Di models and netCDF results. The newest plugin (release of March 4th) only works in QGIS 3. An older version of the plugin will remain available for QGIS 2.18. For more information on installing the plugin see `3Di Toolbox plug-in <https://github.com/nens/threedi-qgis-plugin/wiki>`_. For more information on viewing and editing 3Di models in QGIS see :ref:`adjust_model`). 
+The section below explains the use of the water balance tool and the raster checker. More subjects will be added soon, as these are only a few of the features of the 3Di Toolbox.
 
 .. _waterbalance:
 
@@ -196,7 +197,34 @@ In the overviews the flow is split in several domains. These distinguish themsel
 - *Pump:* pumped volume
 
 
+.. _3ditoolbox:
 
+Toolbox for working with 3Di models
+--------------------------------------
+
+The 3Di toolbox is actived by clicking the toolbox icon in the 3Di-Toolbox bar. 
+
+.. figure:: image/d_qgisplugin_activate_toolbox.png 
+	:alt: 3Di Toolbox Bar
+
+
+After clicking the toolbox icon, a new window in QGIS is opened. Click the arrow next to the *Tools* icon to open the toolbox and view the different tools that are available. 
+
+.. figure:: image/d_qgisplugin_toolbox_window.png 
+	:alt: Toolbox Window
+
+
+.. _rasterchecker:
+
+Rasterchecker
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The *Rasterchecker* is a tool which performs several checks on the rasters you use in your 3Di model. For example it checks whether your rasters have the correct nodata value, have the right projection, and whether they are aligned to each other. Doing a rastercheck is strongly recommended before running your 3Di model as it will crash when it encounters any errors in your rasters. 
+
+Before the *Rasterchecker* can be used, you first need to make a connection with the SQlite of your model. This can be done by opening the *Data Source Manager* under the drop down menu *Layer* on top of the screen. Go to *SpatiaLite* and click *New*. Browse to the location of your model Sqlite and open it. Now you can close the *Data Source Manager* window.   
+
+The * Rasterchecker* can be accessed by opening the Toolbox. The *Rasterchecker* can be found under *Step 1 - Check data*. By double clicking *raster_checker.py* the *Rasterchecker* is opened in a seperate window. 
+Under *Model schematisation database* you can choose the spatialite of your model. Under *Options* you can choose for *2. Compare pixel alignment* as an extra check on top of the standard checks that are preformed. The *Compare pixel alignment*-check checks whether the pixels of the used rasters are exactly on top of each other. This is necessary to run a 3Di model. 
 
     
 
