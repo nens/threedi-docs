@@ -4,11 +4,10 @@ Release notes
 Release 3Di - Carnival Release 2019
 ++++++++++++++++++++++++++++++++++++
 
-We will release a new version of 3Di on March the 4th. The Carnival release contains various new features. Moreover, we are preparing for a huge product upgrade of the back-end of 3Di. We will explain this in more detail in the next releases. Please keep in mind the 3Di web interfaces will not be available between 8.00 AM and 10.00 AM (CEST).
+We will release a new version of 3Di on March the 4th. The Carnival release contains various new features. Moreover, we are preparing for a huge product upgrade of the back-end of 3Di. We will explain this in more detail in the next releases. Please keep in mind, the 3Di web interfaces will not be available on the 4th of  March between 8.00 AM and 10.00 AM (CEST). Below you will already find an overview of what you can expect. 
 
 Usage
 ^^^^^^
-
 
 We are happy to introduce a brand new usage `page <https://usage.3di.lizard.net>`_. Users will have an overview of their use of 3Di. This contains the time spend and available for simulations, how many sessions are currently available and who is simulating at that moment. Moreover an overview is given of all simulations that have been performed.
 
@@ -16,6 +15,12 @@ Surface source and sink terms
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 After the Carnival release, it is possible to add a surface source and sink term to your 3Di model. The surface source and sink term will allow users to add or substract water from your 2D surface domain. This can be used for many purposes. An example could be a simplified method to capture evapotranspiration effects during your simulation. This feature will only be available via the API. In a follow-up release of 3Di, we will support not only for timeseries, but also for time-varying rasters. In the example mentioned above, it would allow for a time-varying evapotranspiration based on satellite imagery. The description of the :ref:`sssdischarges` is already available.
+
+Download option for migrated SpatiaLite files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The models in the 3Di repository are migrated after every 3Di release to make sure they are still working. To allow users not only to keep on using their older models, but also to make new features directly available we offer the option to download the migrated Spatialite. Users will find, after thre release, their migrated Spatialite in their model repository at https://3di.lizard.net/models.
+
 
 QGIS 3.4 support
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
