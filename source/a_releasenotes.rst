@@ -19,7 +19,7 @@ After the Carnival release, it is possible to add a surface source and sink term
 Download option for migrated SpatiaLite files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The models in the 3Di repository are migrated after every 3Di release to make sure they are still working. To allow users not only to keep on using their older models, but also to make new features directly available we offer the option to download the migrated Spatialite. Users will find, after thre release, their migrated Spatialite in their model repository at https://3di.lizard.net/models.
+The models in the 3Di repository are migrated after every 3Di release. This to ensure they are still available and working. After this release, the migrated spatialite can be downloaded. New features can than be directly added to existing models. Users will find, after the release, their migrated Spatialite in their model repository at https://3di.lizard.net/models.
 
 
 QGIS 3.4 support
