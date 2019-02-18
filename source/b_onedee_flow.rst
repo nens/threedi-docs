@@ -12,9 +12,9 @@ The 3Di model offers the possibility to simulate 1D flow. This means that the ca
    :maxdepth: 2
    :caption: Flow in the 1D Domain
    :name: onedeeflowtypes
-   
-   
-   b_1Dtypes
+
+
+   b_1dtypes
    b_1Dpressurized
    b_channelflow
    c_structures
