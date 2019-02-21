@@ -221,11 +221,29 @@ Rasterchecker
 
 The *Rasterchecker* is a tool which performs several checks on the rasters you use in your 3Di model. For example it checks whether your rasters have the correct nodata value, have the right projection, and whether they are aligned to each other. Doing a rastercheck is strongly recommended before running your 3Di model as it will crash when it encounters any errors in your rasters. 
 
-Before the *Rasterchecker* can be used, you first need to make a connection with the SQlite of your model. This can be done by opening the *Data Source Manager* under the drop down menu *Layer* on top of the screen. Go to *SpatiaLite* and click *New*. Browse to the location of your model Sqlite and open it. Now you can close the *Data Source Manager* window.   
+Before the *Rasterchecker* can be used, you first need to make a connection with the SQlite of your model. This can be done by opening the *Data Source Manager* under the drop down menu *Layer* on top of the screen. Go to *SpatiaLite* and click *New*. Browse to the location of your model Sqlite and open it. Now you can close the *Data Source Manager* window.
 
-The * Rasterchecker* can be accessed by opening the Toolbox. The *Rasterchecker* can be found under *Step 1 - Check data*. By double clicking *raster_checker.py* the *Rasterchecker* is opened in a seperate window. 
-Under *Model schematisation database* you can choose the spatialite of your model. Under *Options* you can choose for *2. Compare pixel alignment* as an extra check on top of the standard checks that are preformed. The *Compare pixel alignment*-check checks whether the pixels of the used rasters are exactly on top of each other. This is necessary to run a 3Di model. 
+.. figure:: image/d_qgisplugin_load_sqlite.png 
+	:alt: Data Source Manager
+
+
+The *Rasterchecker* can be accessed by opening the Toolbox. The *Rasterchecker* can be found under *Step 1 - Check data*. By double clicking *raster_checker.py* the *Rasterchecker* is opened in a seperate window. 
+Under *Model schematisation database* you can choose the spatialite of your model. Under *Options* you can choose for *2. Compare pixel alignment* as an extra check on top of the standard checks that are preformed. The *Compare pixel alignment*-check checks whether the pixels of the used rasters are exactly on top of each other. This is necessary to run a 3Di model. Click *OK* to start the rasterchecker. When the checks is finished the following message pops up:
+
+.. figure:: image/d_qgisplugin_rasterchecker_done.png 
+	:alt: Rasterchecker Done
+
+The logfile of the rastercheck is written to same location as the location of the SQlite. The logfile can be opened with a text editor such as Notepad. The header of the logfile is as follows: 
+
+.. figure:: image/d_qgisplugin_rasterchecker_log_header.png 
+	:alt: Rasterchecker Done
+
+Numbers 1 to 18 show which checks are done. Under subheading 'Found following raster references' the rasters used in your model are stated.
+Below this a report is showing the feedback per check for each raster. The first column (*level*) shows the level of the notification (info, warning or error). The second column (*setting_id*) shows the id of the row in the settings table where the raster reference was found. The third column (*check_id*) shows the number of the check (in the list above). The fourth column (*feedback*) shows the outcomes of the check. 
+
+.. figure:: image/d_qgisplugin_rasterchecker_log_checks.png 
+	:alt: Rasterchecker Feedback
+
+If one of your rasters is not alligned with the DEM, check number 18 will give an error. Please make sure all your rasters have the same extent and nodata pixels. 
 
     
-
-
