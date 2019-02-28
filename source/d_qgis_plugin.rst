@@ -5,7 +5,7 @@ QGIS Plugin
 
 Introduction
 --------------
-The 3Di Toolbox is a QGIS plugin for working with 3Di models and netCDF results. The newest plugin (release of March 4th) is only supported by QGIS 3. An older version of the plugin will remain available for QGIS 2.18. For more information on installing the plugin see `3Di Toolbox plug-in <https://github.com/nens/threedi-qgis-plugin/wiki>`_. For more information on viewing and editing 3Di models in QGIS see :ref:`adjust_model`). 
+The 3Di Toolbox is a QGIS plugin for working with 3Di models and netCDF results. The newest plugin (release of March 4th) is only supported by QGIS 3.4.5. An older version of the plugin will remain available for QGIS 2.18. For more information on installing the plugin see `3Di Toolbox plug-in <https://github.com/nens/threedi-qgis-plugin/wiki>`_. For more information on viewing and editing 3Di models in QGIS see :ref:`adjust_model`). 
 The section below explains the use of the water balance tool and the raster checker. More subjects will be added soon, as these are only a few of the features of the 3Di Toolbox.
 
 .. _waterbalance:
@@ -222,10 +222,14 @@ After clicking the toolbox icon, a new window in QGIS is opened. Click the arrow
 Rasterchecker
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The *Rasterchecker* is a tool to check the rasters that are used in your 3Di model for consistency. The tool verifies for example
+The *Rasterchecker* launched with the QGIS 3.4.5 version of the Plugin. It  is a tool to check the rasters that are used in your 3Di model for consistency. The tool verifies for example
+
 - The correct nodata value
+
 - Consistent projection
+
 - That all rasters are aligned
+
 There are up to 18 checks performed. They are listed below. It is strongly recommended to run this tool before updating the model repository. It will  model as it will crash when it encounters any errors in your rasters. It will prevent a failed input generation.
 
 Before the *Rasterchecker* can be used, you first need to make a connection with the SQlite of your model. This can be done by opening the *Data Source Manager* under the drop down menu *Layer* on top of the screen. Go to *SpatiaLite* and click *New*. Browse to the location of your model Sqlite and open it. Now you can close the *Data Source Manager* window.
