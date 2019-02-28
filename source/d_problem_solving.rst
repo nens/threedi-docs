@@ -12,9 +12,21 @@ The section 'Frequently endured issues' below mention different types of errors 
 Known Issues
 ^^^^^^^^^^^^^^
 
-- When applying 2D boundary conditions, it is not allowed to have more than one grid resolution on the edge. However, there is no clear error message for this. This will be improved in the Carnaval Release.
+- When applying 2D boundary conditions, it is not allowed to have more than one grid resolution on the edge. However, there is no clear error message for this. 
 
 - In the live site it is not possible to visualize structures together with the schematisation.
+
+- Note, that in v2_control tables (v2_control_table, v2_control_memory, v2_control_pid, v2_control_timed) the unit for adjusting the pump discharge capacity is actually *m3/s*, even tough the unit used normally is *L/s*.
+
+- For simulations including interflow or embedded elements, not all results can be viewed. Moreover, the water balance ignores part of the flow, therefore it will seem to be inconsistent.
+
+- There are some issues related to projections. We are encountered this for our UK-based models (.sqlite). These models will show a shift in the  geometries in QGIS. The reprojection from EPGS:27700 (British National Grid) to WGS84 is based on an outdated reprojection in the spatialite. There is a solution for this: 
+1. In QGIS open the (table without geometry) table "spatial_ref_sys"
+2. go to row srid 27700
+3. update column proj4text (overwrite existing value) with 
++proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +datum=OSGB36 +units=m +no_defs
+
+This might also be the case for other projections. 
 
 
 Frequently endured issues

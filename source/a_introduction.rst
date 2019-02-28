@@ -13,12 +13,15 @@ The 3Di engine is developed by Prof. dr. ir. G. S. Stelling, who worked on the s
 Where to start?
 --------------- 
 
-This document presents a description of the methods used in 3Di and tutorials how it is used. This document will help the novice as well as the experienced 3Di-user. For the novice it contains background information and key points for creating a first model, while for the experienced user it will serve as a reference work. The manual contains the following sections:
+This document presents some tutorials and a description of the methods used in 3Di. This document will help the novice as well as the experienced 3Di-user. For the novice it contains background information and key points for creating a first model, while for the experienced user it will serve as a reference work. The manual contains the following sections:
 
-* Starting from :ref:`grid` the concepts behind the 3Di engine are explained in detail. Read these sections to learn how 3Di calculations work.
+* The sections under *Tutorials* is the place to start if you want to get going with existing models and changing them. In these section we also describe how to get insight in the results and some best practices. 
 
-* Then, :ref:`numerics` starts of a series of more technical sections you may need when modelling or getting some specific results.
+* The section *Problem Solving* consists of a list that contains the most common Error messages including how to fix them. We also update here some known issues. 
 
-* Finally, :ref:`before_you_begin` is the place to start if you want to get stuck in using existing models or changing them.
+* In the sections under *Physics*, the concepts behind the 3Di engine are explained in detail. Read these sections to get to know the processes and the computations of 3Di.
+
+* In the final part, *Model Concepts* clusters a series of numerical methods used by 3Di.
 
 Information about courses, examples, demonstrations and how to contact us can be found on: https://3diwatermanagement.com/.
+
