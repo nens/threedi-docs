@@ -222,7 +222,7 @@ After clicking the toolbox icon, a new window in QGIS is opened. Click the arrow
 Rasterchecker
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The *Rasterchecker* launched with the QGIS 3.4.5 version of the Plugin. It  is a tool to check the rasters that are used in your 3Di model for consistency. The tool verifies for example
+The *Rasterchecker* is launched with the QGIS 3.4.5 version of the Plugin. It  is a tool to check the rasters that are used in your 3Di model for consistency. The tool verifies for example
 
 - The correct nodata value
 
