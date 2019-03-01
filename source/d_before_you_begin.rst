@@ -16,7 +16,10 @@ To use 3Di you need these software packages:
 
 * Recent version of Google Chrome (`Get Chrome <https://www.google.nl/chrome/browser/desktop/index.html>`_)
 
-* QGIS 2.18 64bit (`Get QGIS <http://www.qgis.org/en/site/forusers/download.html#>`_)
+* QGIS 3.4.5 64bit Long term release(`Get QGIS <http://www.qgis.org/en/site/forusers/download.html#>`_ use the standalone installers)
+
+* Prior to the Carnival Release 2019 QGIS 2.18 was supported
+
 
 * QGiS 3Di plug-in specially designed for 3Di (`Get 3Di plug-in <https://github.com/nens/threedi-qgis-plugin/wiki>`_)
 
