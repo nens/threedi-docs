@@ -5,7 +5,7 @@ QGIS Plugin
 
 Introduction
 --------------
-The 3Di Toolbox is a QGIS plugin for working with 3Di models and netCDF results. The newest plugin (release of March 4th) only works in QGIS 3. An older version of the plugin will remain available for QGIS 2.18. For more information on installing the plugin see `3Di Toolbox plug-in <https://github.com/nens/threedi-qgis-plugin/wiki>`_. For more information on viewing and editing 3Di models in QGIS see :ref:`adjust_model`). 
+The 3Di Toolbox is a QGIS plugin for working with 3Di models and netCDF results. The newest plugin (release of March 4th) is only supported by QGIS 3.4.5. An older version of the plugin will remain available for QGIS 2.18. For more information on installing the plugin see `3Di Toolbox plug-in <https://github.com/nens/threedi-qgis-plugin/wiki>`_. For more information on viewing and editing 3Di models in QGIS see :ref:`adjust_model`). 
 The section below explains the use of the water balance tool and the raster checker. More subjects will be added soon, as these are only a few of the features of the 3Di Toolbox.
 
 .. _waterbalance:
@@ -13,7 +13,7 @@ The section below explains the use of the water balance tool and the raster chec
 Water Balance Tool
 -------------------------
 
-The water balance tool computes the water balance in a sub-domain of your model. It uses the incoming and outgoing flows in that domain and visualizes the various contributions of the flow in graphs. 
+The water balance tool computes the water balance in a sub-domain of your model. It uses the incoming and outgoing flows in that domain and visualizes the various contributions of the flow in graphs. The development was an initiative of Deltares and jointly developed with Nelen & Schuurmans. The water balance tool is co-funded by the Top Sector Water (Ministry of Economic Affairs)
 
 .. _waterbalanceactivate:
 
@@ -30,7 +30,7 @@ To be able to use the water balance tool, aggregated results are required for a 
 .. figure:: image/d_qgisplugin_wb_error_no_aggregation.png 
 	:alt: Error no aggregation settings
     
-The aggregation settings can be found and configured in the model table *v2_aggregation_settings*. For more information on the aggregation settings, see :ref:`aggregationnetcdf`. The default settings for the water balance tool are listed below.
+The aggregation settings can be found and configured in the splt-table *v2_aggregation_settings*. For more information on the aggregation settings, see :ref:`aggregationnetcdf`. The default settings for the water balance tool are listed below.
 
 .. csv-table:: Aggregation settings for water balance tool
    :file: other/water_balance_aggregation_settings.csv
@@ -38,7 +38,7 @@ The aggregation settings can be found and configured in the model table *v2_aggr
    :header-rows: 1
    
 
-The time step is adjustable. For new models, these settings are included in the empty spatialite database (:ref:`empty_database`). For existing models, these settings must be added to the *v2_aggregation_settings* -table. These SQL queries will help you in doing so:
+Of course, the time step, cq, the period over which is aggregated, is adjustable. For new models, these settings are included in the empty spatialite database (:ref:`empty_database`). For existing models, these settings must be added to the *v2_aggregation_settings* -table. These SQL queries will help you in doing so:
 
 Empty v2_aggregation_settings table::
 
@@ -118,16 +118,19 @@ Add aggregation settings one by one::
 		VALUES (10, 9999, 'qsss_cum_neg', 'surface_source_sink_discharge', 'cum_negative', 
 				'FALSE', 300);				
 	
-Note that in both cases, in case of a new model or an existing model, you must update the global settings id to the id of the scenario for which you wish to generate aggregated results. For multiple scenarios, you must add these settings multiple times (and update row id's). Also, you may choose to change the aggregation time step, but make sure to use the same time step for all aggregation variables.
+Note, that in both cases, in case of a new model or an existing model, you must update the global settings id to the id of the scenario for which you wish to generate aggregated results. For multiple scenarios, you must add these settings multiple times (and update row id's). Also, you may choose to change the aggregation time step, but make sure to use the same time step for all aggregation variables in case one wants to use the water balance tool.
 
 Using the water balance tool 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-After loading a model and matching results, a polygon needs to be drawn to define the domain of the model for which the water balance needs to be calculated for. This can be done by clicking multiple points on the map of the model. Click *Finalize polygon* to finish the polygon. The graph shows the water balance over time for the selected area. 
+In a few steps, one can get insight in the water balance of their own system.
 
-By right-clicking the graph, a menu appears in which the range of the x-axis and y-axis can be adjusted. The visible x-axis determines the period over which the water balance is calculated. 
+1) Define a splt and the results that are to be analysed.  
+2) Draw a polygon to define the domain of the model for the area of interest. This can be done by clicking at multiple locations within the model domain. Click *Finalize polygon* to finish the polygon. The graph shows the water balance over time for the selected area. 
 
-By clicking the button *Hide on map* the polygon over which the water balance is calculated is hidden.
+3) By right-clicking the graph, a menu appears in which the range of the x-axis and y-axis can be adjusted. The visible x-axis determines the period over which the water balance is calculated. 
+
+4 ) The button *Hide on map* the polygon over which the water balance is calculated is hidden.
 
 .. figure:: image/d_qgisplugin_wb_draw_polygon.png 
 	:alt: Draw polygon to define water balance area
@@ -208,7 +211,7 @@ The 3Di toolbox is actived by clicking the toolbox icon in the 3Di-Toolbox bar.
 	:alt: 3Di Toolbox Bar
 
 
-After clicking the toolbox icon, a new window in QGIS is opened. Click the arrow next to the *Tools* icon to open the toolbox and view the different tools that are available. 
+After clicking the toolbox icon, a new window in QGIS is opened. Click the arrow next to the *Tools* icon to open the toolbox and view the different tools that are available. In time, the descriptions of the various tools will be explained.
 
 .. figure:: image/d_qgisplugin_toolbox_window.png 
 	:alt: Toolbox Window
@@ -219,7 +222,15 @@ After clicking the toolbox icon, a new window in QGIS is opened. Click the arrow
 Rasterchecker
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The *Rasterchecker* is a tool which performs several checks on the rasters you use in your 3Di model. For example it checks whether your rasters have the correct nodata value, have the right projection, and whether they are aligned to each other. Doing a rastercheck is strongly recommended before running your 3Di model as it will crash when it encounters any errors in your rasters. 
+The *Rasterchecker* is launched with the QGIS 3.4.5 version of the Plugin. It  is a tool to check the rasters that are used in your 3Di model for consistency. The tool verifies for example
+
+- The correct nodata value
+
+- Consistent projection
+
+- That all rasters are aligned
+
+There are up to 18 checks performed. They are listed below. It is strongly recommended to run this tool before updating the model repository. It will  model as it will crash when it encounters any errors in your rasters. It will prevent a failed input generation.
 
 Before the *Rasterchecker* can be used, you first need to make a connection with the SQlite of your model. This can be done by opening the *Data Source Manager* under the drop down menu *Layer* on top of the screen. Go to *SpatiaLite* and click *New*. Browse to the location of your model Sqlite and open it. Now you can close the *Data Source Manager* window.
 
@@ -228,22 +239,25 @@ Before the *Rasterchecker* can be used, you first need to make a connection with
 
 
 The *Rasterchecker* can be accessed by opening the Toolbox. The *Rasterchecker* can be found under *Step 1 - Check data*. By double clicking *raster_checker.py* the *Rasterchecker* is opened in a seperate window. 
-Under *Model schematisation database* you can choose the spatialite of your model. Under *Options* you can choose for *2. Compare pixel alignment* as an extra check on top of the standard checks that are preformed. The *Compare pixel alignment*-check checks whether the pixels of the used rasters are exactly on top of each other. This is necessary to run a 3Di model. Click *OK* to start the rasterchecker. When the checks is finished the following message pops up:
+Under *Model schematisation database* you can choose the spatialite of your model. Under *Options* you can choose for *2. Compare pixel alignment* as an additional check. The *Compare pixel alignment*-check verifies whether the pixels of the used rasters are exactly on top of each other. This is necessary to run a 3Di model. Click *OK* to start the rasterchecker. When the tool is finished the following message pops up:
 
 .. figure:: image/d_qgisplugin_rasterchecker_done.png 
 	:alt: Rasterchecker Done
 
-The logfile of the rastercheck is written to same location as the location of the SQlite. The logfile can be opened with a text editor such as Notepad. The header of the logfile is as follows: 
+The log-file of the rasterchecker can be found at the same location as the location of the SQlite. The log-file can be opened with a text editor such as Notepad. The log-file looks similar to:
 
 .. figure:: image/d_qgisplugin_rasterchecker_log_header.png 
 	:alt: Rasterchecker Done
 
-Numbers 1 to 18 show which checks are done. Under subheading 'Found following raster references' the rasters used in your model are stated.
-Below this a report is showing the feedback per check for each raster. The first column (*level*) shows the level of the notification (info, warning or error). The second column (*setting_id*) shows the id of the row in the settings table where the raster reference was found. The third column (*check_id*) shows the number of the check (in the list above). The fourth column (*feedback*) shows the outcomes of the check. 
+The various raster characteristics that are verified are numbered 1 to 18. When we refer to this number, it is called *check_id*. 
+
+Under subheading 'Found following raster references' the rasters used in your model are stated.
+
+Further down in the log-file, the information for each raster is listed. The first column (*level*) shows the importance of the notification (info, warning or error). The second column (*setting_id*) shows the id of the row in the v2_global_settings table of the SPLT, where the raster reference can be found. The third column contains the *check_id*. The fourth column (*feedback*) shows the outcome of the check. 
 
 .. figure:: image/d_qgisplugin_rasterchecker_log_checks.png 
 	:alt: Rasterchecker Feedback
 
-If one of your rasters is not alligned with the DEM, check number 18 will give an error. Please make sure all your rasters have the same extent and nodata pixels. 
+If one of your rasters is not aligned with the DEM, check_id 18 will give an error. Make sure all your rasters have the same extent and and have nodata pixels at the same location. 
 
     

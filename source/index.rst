@@ -14,6 +14,18 @@ Welcome to 3Di's documentation!
    a_introduction
    a_releasenotes
    a_contributors
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: Tutorials
+   :name: tutorials
+   :numbered:
+
+   d_before_you_begin
+   d_web_portals
+   d_qgis_plugin
+   d_modeling
+   d_problem_solving
 
 .. toctree::
    :maxdepth: 2
@@ -22,13 +34,11 @@ Welcome to 3Di's documentation!
    :numbered:
 
    b_massconservation
+   b_flow
    b_sources_sinks
    b_levees_obstacles_breaches
    b_wind
    b_interception
-
-.. TODO: file not found: b_flow
-
 
 .. toctree::
    :maxdepth: 2
@@ -42,20 +52,6 @@ Welcome to 3Di's documentation!
    c_results
    c_aggregate_results
    c_state_files
-
-.. TODO: file not found: c_external_forcing
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Tutorials
-   :name: tutorials
-   :numbered:
-
-   d_before_you_begin
-   d_web_portals
-   d_qgis_plugin
-   d_modeling
-   d_problem_solving
 
 
 Indices and tables
