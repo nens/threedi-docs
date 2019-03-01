@@ -207,13 +207,13 @@ Toolbox for working with 3Di models
 
 The 3Di toolbox is actived by clicking the toolbox icon in the 3Di-Toolbox bar. 
 
-.. figure:: image/d_qgisplugin_activate_toolbox.png 
+.. figure:: image/d_qgisplugin_activate_toolbox.PNG 
 	:alt: 3Di Toolbox Bar
 
 
 After clicking the toolbox icon, a new window in QGIS is opened. Click the arrow next to the *Tools* icon to open the toolbox and view the different tools that are available. In time, the descriptions of the various tools will be explained.
 
-.. figure:: image/d_qgisplugin_toolbox_window.png 
+.. figure:: image/d_qgisplugin_toolbox_window.PNG 
 	:alt: Toolbox Window
 
 
@@ -234,19 +234,19 @@ There are up to 18 checks performed. They are listed below. It is strongly recom
 
 Before the *Rasterchecker* can be used, you first need to make a connection with the SQlite of your model. This can be done by opening the *Data Source Manager* under the drop down menu *Layer* on top of the screen. Go to *SpatiaLite* and click *New*. Browse to the location of your model Sqlite and open it. Now you can close the *Data Source Manager* window.
 
-.. figure:: image/d_qgisplugin_load_sqlite.png 
+.. figure:: image/d_qgisplugin_load_sqlite.PNG
 	:alt: Data Source Manager
 
 
 The *Rasterchecker* can be accessed by opening the Toolbox. The *Rasterchecker* can be found under *Step 1 - Check data*. By double clicking *raster_checker.py* the *Rasterchecker* is opened in a seperate window. 
 Under *Model schematisation database* you can choose the spatialite of your model. Under *Options* you can choose for *2. Compare pixel alignment* as an additional check. The *Compare pixel alignment*-check verifies whether the pixels of the used rasters are exactly on top of each other. This is necessary to run a 3Di model. Click *OK* to start the rasterchecker. When the tool is finished the following message pops up:
 
-.. figure:: image/d_qgisplugin_rasterchecker_done.png 
+.. figure:: image/d_qgisplugin_rasterchecker_done.PNG 
 	:alt: Rasterchecker Done
 
 The log-file of the rasterchecker can be found at the same location as the location of the SQlite. The log-file can be opened with a text editor such as Notepad. The log-file looks similar to:
 
-.. figure:: image/d_qgisplugin_rasterchecker_log_header.png 
+.. figure:: image/d_qgisplugin_rasterchecker_log_header.PNG
 	:alt: Rasterchecker Done
 
 The various raster characteristics that are verified are numbered 1 to 18. When we refer to this number, it is called *check_id*. 
@@ -255,7 +255,7 @@ Under subheading 'Found following raster references' the rasters used in your mo
 
 Further down in the log-file, the information for each raster is listed. The first column (*level*) shows the importance of the notification (info, warning or error). The second column (*setting_id*) shows the id of the row in the v2_global_settings table of the SPLT, where the raster reference can be found. The third column contains the *check_id*. The fourth column (*feedback*) shows the outcome of the check. 
 
-.. figure:: image/d_qgisplugin_rasterchecker_log_checks.png 
+.. figure:: image/d_qgisplugin_rasterchecker_log_checks.PNG 
 	:alt: Rasterchecker Feedback
 
 If one of your rasters is not aligned with the DEM, check_id 18 will give an error. Make sure all your rasters have the same extent and and have nodata pixels at the same location. 

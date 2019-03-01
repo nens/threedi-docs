@@ -77,7 +77,7 @@ Without the interflow layer, the volume of water in a cell is computed from the 
 
 
 .. figure:: image/b_interflow_build_volume.png
-   :scale: 150 %
+   :scale: 75 %
    :alt: Sketch of interflow layer for, form left to right, Part I, II and III
 
    Sketch of interflow layer for, form left to right, Part I, II and III
