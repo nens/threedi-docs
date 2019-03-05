@@ -18,8 +18,9 @@ And then every time you want to re-generate your documentation::
 
   $ docker-compose up
 
-If you're not so lucky, you'll need to pip-install sphinx and you need latex
-(see the `Dockerfile` for the short list of packages that we install).
+If you're not so lucky, you'll need to pip-install sphinx (``pip install -r
+requirements.txt``, preferably in a virtualenv) and you need latex (see the
+`Dockerfile` for the short list of packages that we install).
 
 Commits are automatically tested on jenkins:
 https://jenkins.lizard.net/blue/organizations/jenkins/nens%2Fthreedi-docs/
