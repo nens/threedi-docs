@@ -4,7 +4,7 @@ Release notes
 Release 3Di - Carnival Release 2019
 ++++++++++++++++++++++++++++++++++++
 
-We will release a new version of 3Di on March the 4th. The Carnival release contains various new features. Moreover, we are preparing for a huge product upgrade of the back-end of 3Di. We will explain this in more detail in the next releases. Please keep in mind, the 3Di web interfaces will not be available on the 4th of  March between 8.00 AM and 10.00 AM (CEST). Below you will already find an overview of what you can expect. 
+The newest version of 3Di is released on March the 4th. This Carnival release contains various new features. Moreover, we are preparing for a huge product upgrade of the back-end of 3Di. We will explain this in more detail in the next releases. Furthermore, a brand new 3Di start page has been made available to all users: 3Di `startpage <https://3diwatermanagement.com/3di-start>`_.
 
 Usage
 ^^^^^^
@@ -19,21 +19,57 @@ After the Carnival release, it is possible to add a surface source and sink term
 Download option for migrated SpatiaLite files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The models in the 3Di repository are migrated after every 3Di release. This to ensure they are still available and working. After this release, the migrated spatialite can be downloaded. New features can than be directly added to existing models. Users will find, after the release, their migrated Spatialite in their model repository at https://3di.lizard.net/models.
+The models in the 3Di repository are migrated after every 3Di release. This to ensure they are still available and working. After this release, the migrated spatialite can be downloaded. New features can than be directly added to existing models. Users will find, after the release, their migrated Spatialite in their model repository at https://3di.lizard.net/models. Users have to download and manually check in the updated Spatialite file in their own repository if they wish to work the latest Spatialite file. This is optional, and only required if you wish to use the newest 3Di features.
 
 
 QGIS 3.4.5 support
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We are happy to announce the support on QGIS 3.4.5 for all 3Di related QGIS tools and plugins! We follow the lead of the QGIS in releases and in support of our plugins. This means that we will also stop active development on QGIS 2.18. New features will only be available for QGIS 3.4.5 as this is the new Long Term Release from QGIS. A compact overview can be found `here <changelog.qgis.org/en/qgis/version/3.4-LTR/>`_.
+We are happy to announce the support on QGIS 3.4.5 for all 3Di related QGIS tools and plugins! We follow the lead of the QGIS in releases and in support of our plugins. This means that we will also stop active development on QGIS 2.18. New features will only be available for QGIS 3.4.5 as this is the new Long Term Release from QGIS. A technical overview can be found `here <changelog.qgis.org/en/qgis/version/3.4-LTR/>`_.
 Some nice animations of several of the new features are published `here <https://north-road.com/2017/12/24/24-days-of-qgis-3-0-features/>`_.
 Specifically for 3Di, one of the most exciting new features is the new *Mesh support*. This will allow to visualise easily your water levels and velocities in the 2D  domain. This will show the raw data as available in the NetCDF. When using the Crayfish plugin, users can create movies. Note, that results of surface source and sink terms will only be visualised in the plugin supported by QGIS 3.4.5.
+
+The 3Di plugin is tested against windows7, windows10, Linux16.04, Linux18.04. The easiest way to install QGIS with the correct dependencies is using the stand-alone installation package (https://www.qgis.org/nl/site/forusers/download.html). Under Windows, it is recommended to use a 64-bits version of QGIS (a compiled 64-bit version of the netCDF library is included. For the 32-bit version of QGIS you have to install/compile a version of the python netCDF library under QGIS yourself).
+
 
 Raster Checker
 ^^^^^^^^^^^^^^
 
-Raster contain important input data for 3Di rasters  an import input in models. It can be a challenge to have perfectly fitting rasters with all the proper settings. Therefore, we introduce the Raster Checker. It is a tool that assist the user in checking the consistency of the provided rasters. For example, it checks the alignment of the rasters and the correct settings for nodata values and the pixel dimensions. The checks cover the errors that are most common. The tool will give an overview of the anomalies. We are also working on a Raster Solver. This tool will assist users in fixing the errors immediately.
+Raster contain important input data for 3Di rasters  an import input in models. It can be a challenge to have perfectly fitting rasters with all the proper settings. Therefore, we introduce the Raster Checker. It is a tool in the 3Di toolbox of the QGIS plugin that assist the user in checking the consistency of the provided rasters. For example, it checks the alignment of the rasters and the correct settings for nodata values and the pixel dimensions. The DEM raster is taken as leading for all checks. The following checks are performed on all referenced raster in the Spatialite file for all global settings entries:
 
+1. Are all filenames of rasters within one setting_id unique? (3Di can handle this, but the RasterChecker not).
+2. Do the referenced rasters (in all v2_tables) exist on your machine?
+3. Is the raster file extension .tif / .tiff?
+4. Is the raster filename valid? (no special characters, no space, max one '.' and '/')
+5. Is the raster single- (not multi-) band?
+6. Is the raster nodata value -9999?
+7. Does the raster have a projected coordinate system (unit: meters)?
+8. Is the raster data type float 32?
+9. Is the raster compressed? (compression=deflate)
+10. Does the pixelsize have max three decimal places?
+11. Are the pixels square?
+12. Are there no extreme pixel values? (dem: -10kmMSL<x<10kmMSL, other rasters: 0<x<10k)
+
+After running the tool a pop up window will appear which shows the name and location of the log file with detailed error logging and a shapefile with point information to show you were errors have been found.
+
+Bug fixes
+^^^^^^^^^^^^^^
+
+The following bugs have been fixed in this 3Di release: 
+
+- Water balance tool now correctly checks whether rain has been applied to simulation
+- Fixed bug in netcdf_groundwater not reading in correctly the aggregate variable
+- Apply conversion from hours to seconds of inundation_period in damage_estimation settings when headless calculation is started from queue (after "currently no sessions available"). When storing results, the applied unit is now consistently in hours in the whole 3Di stack.
+- Error related to case sensitivity in email addresses resolved in user management screen.
+- Show polygon of raster edit for v2 models in live site.
+- Handling DEM edits through levees correctly. Users don’t have to edit the full width of the cell edge anymore to lower the levee. 
+- Use of correct primary key in relation between manholes and connection nodes when visualizing water depth, water level and groundwater level on the live site.
+- Fixed deletion of generated inp-files of deprecated model revisions. Users have access to max three revisions of their models. Before, models were incorrectly being stored on the server. 
+- [3Di QGIS plugin] Select correct scenario results after filtering in list. 
+- [3Di QGIS plugin] Fixed visualization of interception timeseries.
+- [3Di QGIS plugin] Water balance now correctly checks availability of rain in scenario results.
+- API Calls are being checked for invalid options. It is no longer possible to pass an invalid option into the API.
+- Time out on the live site has been adjusted to 15 minutes in case of inactivity.
 
 
 Release 3Di - Hotfix
