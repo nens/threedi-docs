@@ -9,12 +9,12 @@ The newest version of 3Di is released on March the 4th. This Carnival release co
 Usage
 ^^^^^^
 
-We are happy to introduce a brand new usage `page <https://usage.3di.lizard.net>`_. Users will have an overview of their use of 3Di. This contains the time spend and available for simulations, how many sessions are currently available and who is simulating at that moment. Moreover an overview is given of all simulations that have been performed.
+We are happy to introduce a brand new usage `page <https://usage.3di.lizard.net>`_. Users will have an overview of their use of 3Di. This contains the time spend and the time still available for simulations, how many sessions are currently available and who is simulating at that moment. Moreover an overview is given of all simulations that have been performed.
 
 Surface source and sink terms
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-After the Carnival release, it is possible to add a surface source and sink term to your 3Di model. The surface source and sink term will allow users to add or substract water from your 2D surface domain. This can be used for many purposes. An example could be a simplified method to capture evapotranspiration effects during your simulation. This feature will only be available via the API. In a follow-up release of 3Di, we will support not only for timeseries, but also for time-varying rasters. In the example mentioned above, it would allow for a time-varying evapotranspiration based on satellite imagery. The description of the :ref:`sssdischarges` is already available.
+After the Carnival release, it is possible to add a surface source and sink term to your 3Di model. The surface source and sink term will allow users to add or substract water from your 2D surface domain. This can be used for many purposes. An example, could be a simplified method to capture evapotranspiration effects during your simulation. This feature will only be available via the API. In a follow-up release of 3Di, we will support not only time-series, but also time-varying rasters. In the example mentioned above, it would allow for a time-varying evapotranspiration based on satellite imagery. A more detailed description of the :ref:`sssdischarges` is given wit the surface sources and sinks.
 
 Download option for migrated SpatiaLite files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -35,7 +35,7 @@ The 3Di plugin is tested against windows7, windows10, Linux16.04, Linux18.04. Th
 Raster Checker
 ^^^^^^^^^^^^^^
 
-Raster contain important input data for 3Di rasters  an import input in models. It can be a challenge to have perfectly fitting rasters with all the proper settings. Therefore, we introduce the Raster Checker. It is a tool in the 3Di toolbox of the QGIS plugin that assist the user in checking the consistency of the provided rasters. For example, it checks the alignment of the rasters and the correct settings for nodata values and the pixel dimensions. The DEM raster is taken as leading for all checks. The following checks are performed on all referenced raster in the Spatialite file for all global settings entries:
+Rasters contain important input data for 3Di. It can be a challenge to have perfectly fitting rasters with all the proper settings. Therefore, we introduce the Raster Checker. It is a tool in the 3Di toolbox of the QGIS plugin that assist the user in checking the consistency of the provided rasters. For example, it checks the alignment of the rasters and the correct settings for nodata values and the pixel dimensions. The DEM raster is taken as leading for all checks. The following checks are performed on all referenced raster in the Spatialite file for all global settings entries:
 
 1. Are all filenames of rasters within one setting_id unique? (3Di can handle this, but the RasterChecker not).
 2. Do the referenced rasters (in all v2_tables) exist on your machine?
@@ -46,7 +46,7 @@ Raster contain important input data for 3Di rasters  an import input in models. 
 7. Does the raster have a projected coordinate system (unit: meters)?
 8. Is the raster data type float 32?
 9. Is the raster compressed? (compression=deflate)
-10. Does the pixelsize have max three decimal places?
+10. Does the pixel-size have max three decimal places?
 11. Are the pixels square?
 12. Are there no extreme pixel values? (dem: -10kmMSL<x<10kmMSL, other rasters: 0<x<10k)
 
@@ -66,7 +66,7 @@ The following bugs have been fixed in this 3Di release:
 - Use of correct primary key in relation between manholes and connection nodes when visualizing water depth, water level and groundwater level on the live site.
 - Fixed deletion of generated inp-files of deprecated model revisions. Users have access to max three revisions of their models. Before, models were incorrectly being stored on the server. 
 - [3Di QGIS plugin] Select correct scenario results after filtering in list. 
-- [3Di QGIS plugin] Fixed visualization of interception timeseries.
+- [3Di QGIS plugin] Fixed visualization of interception time-series.
 - [3Di QGIS plugin] Water balance now correctly checks availability of rain in scenario results.
 - API Calls are being checked for invalid options. It is no longer possible to pass an invalid option into the API.
 - Time out on the live site has been adjusted to 15 minutes in case of inactivity.
@@ -83,7 +83,7 @@ After the hotfix, the following issues will be fixed:
 - For a specific combination of SpatiaLite-settings, e.g. multiple entries in v2_global_settings table, egg-shaped profiles were not processed correctly 
 - DEM edits are now possible outside the -10 m and +10 m range 
  
-Furthermore, on de LiveSite a wider range of design rainfall events is availble. This concern some specific Dutch rainfall events (DPRA buien).
+Furthermore, in the LiveSite a wider range of design rainfall events is available. This concerns some specific Dutch rainfall events (DPRA buien).
 
 The next full release of 3Di is scheduled for the 4th of March. Therefore, the Web Interface will be unavailable between 8.00 AM and 12.00 AM (CEST).
 
