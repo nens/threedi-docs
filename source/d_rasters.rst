@@ -69,7 +69,7 @@ To change or update your raster information you must be aware that some changes 
 
 We will use gdalwarp to update our raster information. This is a versatile command that enables you to re-project, aggregate and change the data type of your raster all in one command. The first example shows you how to change the NODATA value and transform it into a GeoTiff for any given raster. If you already found your raster in the OSGeo4W Shell you can use the following commands::
 
-    gdalwarp -srcnodata <your-NODATA-value> -dstnodata -9999 <raster-file>  -of Gtiff  warp_output.tif
+    gdalwarp -srcnodata <your-NODATA-value> -dstnodata -9999 <raster-file> -of Gtiff warp_output.tif
 
 *Note that the words that start with ‘-‘ are options in gdalwarp. They are followed by a parameter specific to that option. Also, if your NODATA value is specified in the raster information, you may omit the srcnodata option.*
 
