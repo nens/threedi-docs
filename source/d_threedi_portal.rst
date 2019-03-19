@@ -1,6 +1,6 @@
 .. _guide_to_portal:
 
-Guide to the 3Di portal
+3Di Livesite
 =======================
 
 Login
@@ -142,3 +142,63 @@ The status indicator at the bottom right indicates the status of the model both 
 
 By clicking the status indicator the current status is shown in text.
 
+.. _running_model:
+
+Running a 3Di model
+--------------------
+
+This section helps you get started with interactive simulation with the integral 3Di modeling tools. Through the 3Di portal (version 2.0) the models of your organization can be loaded and simulations can be started. During the session others can follow the simulations 'live'. Also interventions can be done in the model during the simulation. Results are presented in real-time. All the steps from adjusting the input of water to viewing the calculation results are described in this section.
+
+*The 3Di portal supports both version 1.0 as version 2.0 models. When a functionality is specifically valid for only one version, this is indicated with* **v1** *or* **v2** *.*
+
+Start the simulation
+--------------------
+
+The simulation starts by pressing the *Play* button at the bottom right of the screen. The calculation time is displayed next to the *Play* button. 
+
+.. figure:: image/d3.1_start_simulation.png
+	:alt: Start a simulation
+
+By default, the point information tool is switched on. With it you can click anywhere on the map to visualize the time series at that locations. The time series can also be downloaded in CSV format (figure below on left).
+
+Also the height of a cross section can be displayed, together with the water level in that transect. Click for both starting and ending point of the cross section in any place on the map (within the model domain, figure below on right).
+
+.. figure:: image/d3.1_point_vs_cross_section.png
+	:alt: Point (left) or cross section (right) selection
+
+The buttons at the bottom left of the screen are used to interactively adjust the forcing of the model. The functioning of these buttons is described in the following sections.
+
+NOTE: The result of forcing water is not visible until the simulation is running. The color scheme of the water depth is adjustible through the :ref:`layers_menu` under *Animation* at *WMS color range*.
+
+
+Store results
+--------------
+
+Results can be stored by clicking *Store Results*. In general, stored results can be downloaded using the 3Di QGIS plugin or viewed and downloaded from the Lizard platform.
+
+The *process basic results* option includes the following derivations from simulation results for Lizard users:
+
+
+- Water level - temporal
+
+- Water depth - temporal
+
+- Maximum flow velocity
+
+- Maximum rate of rise
+
+- Maximum water depth
+
+- Flood hazard rating
+
+The *damage_estimation* option uses a module called *WaterSchadeSchatter* (currently only available in The Netherlands)
+which provides two products derived from the maximum water depth.
+
+- Damage estimation map
+
+- Damage estimation table
+
+Reset model and log out
+-----------------------
+
+After applying changes to the model, it can be reset to the default situation by clicking *Reset model* in the :ref:`user_menu`. When you are finished showing or running the model you can turn of the *Director* option and log off. The session will remain available for two hours. If you want to end the session, choose *Quit session* before logging off. 

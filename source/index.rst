@@ -17,14 +17,14 @@ Welcome to 3Di's documentation!
    
 .. toctree::
    :maxdepth: 2
-   :caption: Tutorials
-   :name: tutorials
+   :caption: Instruction for use
+   :name: instructionforuse
    :numbered:
 
    d_before_you_begin
-   d_web_portals
-   d_qgis_plugin
    d_modeling
+   d_web_portals
+   d_result_analysis
    d_problem_solving
 
 .. toctree::
