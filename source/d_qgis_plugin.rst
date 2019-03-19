@@ -1,12 +1,153 @@
 .. _qgisplugin:
 
-QGIS Plugin
-================
+Modeller Interface (QGIS Plugin)
+=================================
 
 Introduction
 --------------
-The 3Di Toolbox is a QGIS plugin for working with 3Di models and netCDF results. The newest plugin (release of March 4th) is only supported by QGIS 3.4.5. An older version of the plugin will remain available for QGIS 2.18. For more information on installing the plugin see `3Di Toolbox plug-in <https://github.com/nens/threedi-qgis-plugin/wiki>`_. For more information on viewing and editing 3Di models in QGIS see :ref:`adjust_model`). 
+The 3Di Toolbox is a QGIS plugin for working with 3Di models and netCDF results. The newest plugin (release of March 4th) is only supported by QGIS 3.4.5. An older version of the plugin will remain available for QGIS 2.18. For more information on installing the plugin see `3Di Toolbox plug-in <https://github.com/nens/threedi-qgis-plugin/wiki>`_. For more information on viewing and editing 3Di models in QGIS see :ref:`adjust_model`. 
 The section below explains the use of the water balance tool and the raster checker. More subjects will be added soon, as these are only a few of the features of the 3Di Toolbox.
+
+.. _plugin_installation:
+
+Installation of plugin
+------------------------
+The 3Di Toolbox only works for:
+
+- QGIS 2.18 (until february 2019)
+- QGIS 3.4.5 (LTR after february 2019)
+- 64-bit version of QGIS (see below for more details)
+- 3Di v2 results
+
+To install the 3Di-Toolbox plugin follow the steps below: 
+
+1) Open QGIS and via the menu bar go to 'Plugins > Manage And Install Plugins'. 
+2) Go to 'Settings'. 
+3) Check the box for 'Show also experimental plugins'
+4) Add a plugin repository
+5) Fill in a name and copy the URL: https://plugins.lizard.net/plugins.xml into the URL box. 
+6) Go to 'All' and choose '3Di toolbox' from the list
+7) Install the plugin.
+
+.. figure:: image/d_qgispluging_pluginmanager.png
+	:alt: QGIS Plugin Manager
+    
+.. figure:: image/d_qgispluging_pluginmanager_addlizard_repo.png
+	:alt: Add Lizard repo Plugin
+
+.. figure:: image/d_qgispluging_pluginmanager_install_toolbox.png
+	:alt: Install 3Di Toolbox
+
+.. _plugin_overview:
+    
+Overview of the plugin
+--------------------------------------
+After installation of the plugin a toolbar is added to the QGIS interface. The different tools are explained below. 
+
+.. figure:: image/d_qgispluging_toolbox_overview.png
+	:alt: Plugin overview
+
+1) Clear cache. 
+2) :ref:`load_model_results`
+3) :ref:`3ditoolbox`
+4) Show 3Di results in a graph. 
+5) Show sideview of a 3Di model with results
+6) Statistical tool 
+7) :ref:`waterbalance`
+8) Show animated results
+
+    
+.. _load_model_results:
+    
+Load 3Di model and results
+--------------------------------------
+
+A model can be loaded by clicking the database icon with the blue plus-sign. A new window will be opened. 
+
+1) Under 'Model' you need to load the Sqlite containing your model 
+2) Under 'Results' you can load the NetCDF containing your simulation results (usually named *results_3di.nc*). It is important to select a result file that is actually belonging to the model you used for your simulation (i.e. the NetCDF should match the Sqlite). 
+3) After the loading finished, click 'Close' to return to the QGIS interface
+
+Note: it is not necessary to load results. It is also possible to load a model without results, e.g. for checking and editing the schematization in your Sqlite. To do so, skip step 2. 
+
+.. figure:: image/d_qgisplugin_select_model_results.png
+	:alt: Load 3Di model and results
+
+
+.. _3ditoolbox:
+
+Toolbox for working with 3Di models
+--------------------------------------
+
+The 3Di toolbox is actived by clicking the toolbox icon in the 3Di-Toolbox bar. 
+
+.. figure:: image/d_qgisplugin_activate_toolbox.png 
+	:alt: 3Di Toolbox Bar
+
+
+After clicking the toolbox icon, a new window in QGIS is opened. Click the arrow next to the *Tools* icon to open the toolbox and view the different tools that are available. In time, the descriptions of the various tools will be explained.
+
+.. figure:: image/d_qgisplugin_toolbox_window.png 
+	:alt: Toolbox Window
+
+
+.. _rasterchecker:
+
+Rasterchecker
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The *Rasterchecker* is launched with the QGIS 3.4.5 version of the Plugin. It  is a tool to check the rasters that are used in your 3Di model for consistency. The tool verifies for example
+
+- The correct nodata value
+
+- Consistent projection
+
+- That all rasters are aligned
+
+There are up to 18 checks performed, which are listed below. It is strongly recommended to run this tool before updating the model repository, as it will crash when it encounters any errors in your rasters. It will prevent a failed input generation.
+
+Before the *Rasterchecker* can be used, you first need to make a connection with the SQlite of your model. 
+
+1) Open the *Data Source Manager* under the drop down menu *Layer* on top of the screen. 
+2) Go to *SpatiaLite* and click *New*. Browse to the location of your model Sqlite and open it. 
+3) Now you can close the *Data Source Manager* window.
+
+.. figure:: image/d_qgisplugin_load_sqlite.png
+	:alt: Data Source Manager
+
+
+4) The *Rasterchecker* can be accessed by opening the Toolbox. 
+5) The *Rasterchecker* can be found under *Step 1 - Check data*. By double clicking *raster_checker.py* the *Rasterchecker* is opened in a seperate window. 
+
+.. figure:: image/d_qgisplugin_activate_rasterchecker.png
+	:alt: Data Source Manager
+
+6) Under *Model schematisation database* you can choose the spatialite of your model. 
+7) Click *OK* to start the rasterchecker. When the tool is finished the following message pops up:
+
+.. figure:: image/d_qgisplugin_rasterchecker_done.png 
+	:alt: Rasterchecker Done
+
+8) The log-file of the rasterchecker can be found at the same location as the location of the SQlite. The log-file can be opened with a text editor such as Notepad. The log-file looks similar to:
+
+.. figure:: image/d_qgisplugin_rasterchecker_log_header.png
+	:alt: Rasterchecker Done
+
+9) The various raster characteristics that are verified are numbered 1 to 18. When we refer to this number, it is called *check_id*. 
+10) Under subheading 'Found following raster references' the rasters used in your model are stated.
+
+Further down in the log-file, the information for each raster is listed.
+ 
+11) The first column (*level*) shows the importance of the notification (info, warning or error). 
+12) The second column (*setting_id*) shows the id of the row in the v2_global_settings table of the sqlite, where the raster reference can be found. 
+13) The third column contains the *check_id*. 
+14) The fourth column (*feedback*) shows the outcome of the check. 
+15) If one of your rasters is not aligned with the DEM, check_id 18 will give an error. Make sure all your rasters have the same extent and and have nodata pixels at the same location. 
+
+
+.. figure:: image/d_qgisplugin_rasterchecker_log_checks.png
+	:alt: Rasterchecker Feedback
+
 
 .. _waterbalance:
 
@@ -17,20 +158,12 @@ The water balance tool computes the water balance in a sub-domain of your model.
 
 .. _waterbalanceactivate:
 
-Activating the water balance tool
+Settings to use the water balance tool
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The water balance tool is activated by clicking the balance icon in the 3Di-Toolbox bar. 
-
-.. figure:: image/d_qgisplugin_waterbalance1.png 
-	:alt: 3Di Toolbox Bar
+To be able to use the water balance tool, aggregated results are required for a range of variables. This to ensure, that the shown water balance is consistent and complete. 
     
-To be able to use the water balance tool, aggregated results are required for a range of variables. This to ensure, that the shown water balance is consistent and complete. In case, the aggregated results are missing or incomplete the following error pops up:
-
-.. figure:: image/d_qgisplugin_wb_error_no_aggregation.png 
-	:alt: Error no aggregation settings
-    
-The aggregation settings can be found and configured in the splt-table *v2_aggregation_settings*. For more information on the aggregation settings, see :ref:`aggregationnetcdf`. The default settings for the water balance tool are listed below.
+The aggregation settings can be found and configured in the spatialite-table *v2_aggregation_settings*. For more information on the aggregation settings, see :ref:`aggregationnetcdf`. The default settings for the water balance tool are listed below.
 
 .. csv-table:: Aggregation settings for water balance tool
    :file: other/water_balance_aggregation_settings.csv
@@ -109,13 +242,13 @@ Add aggregation settings one by one::
 	INSERT INTO v2_aggregation_settings(
 				id, global_settings_id, var_name, flow_variable, aggregation_method, 
 				aggregation_in_space, timestep)
-		VALUES (10, 9999, 'qsss_cum_pos', 'surface_source_sink_discharge', 'cum_positive', 
+		VALUES (11, 9999, 'qsss_cum_pos', 'surface_source_sink_discharge', 'cum_positive', 
 				'FALSE', 300);
 				
 	INSERT INTO v2_aggregation_settings(
 				id, global_settings_id, var_name, flow_variable, aggregation_method, 
 				aggregation_in_space, timestep)
-		VALUES (10, 9999, 'qsss_cum_neg', 'surface_source_sink_discharge', 'cum_negative', 
+		VALUES (12, 9999, 'qsss_cum_neg', 'surface_source_sink_discharge', 'cum_negative', 
 				'FALSE', 300);				
 	
 Note, that in both cases, in case of a new model or an existing model, you must update the global settings id to the id of the scenario for which you wish to generate aggregated results. For multiple scenarios, you must add these settings multiple times (and update row id's). Also, you may choose to change the aggregation time step, but make sure to use the same time step for all aggregation variables in case one wants to use the water balance tool.
@@ -125,40 +258,71 @@ Using the water balance tool
 
 In a few steps, one can get insight in the water balance of their own system.
 
-1) Define a splt and the results that are to be analysed.  
-2) Draw a polygon to define the domain of the model for the area of interest. This can be done by clicking at multiple locations within the model domain. Click *Finalize polygon* to finish the polygon. The graph shows the water balance over time for the selected area. 
+1) Define a spatialite and the results that are to be analysed by loading your model and results using the 'Select 3Di results'-button in the toolbox.  
 
-3) By right-clicking the graph, a menu appears in which the range of the x-axis and y-axis can be adjusted. The visible x-axis determines the period over which the water balance is calculated. 
+2) The water balance tool is activated by clicking the balance icon in the 3Di-Toolbox bar. 
 
-4 ) The button *Hide on map* the polygon over which the water balance is calculated is hidden.
+.. figure:: image/d_qgisplugin_waterbalance1.png 
+	:alt: 3Di Toolbox Bar
+    
+In case, the aggregated results are missing or incomplete the following error pops up:
+
+.. figure:: image/d_qgisplugin_wb_error_no_aggregation.png 
+	:alt: Error no aggregation settings
+    
+    
+3) Draw a polygon to define the domain of the model for the area of interest. This can be done by clicking at multiple locations within the model domain. Click *Finalize polygon* to finish the polygon. The graph shows the water balance over time for the selected area. 
+
+4) By right-clicking the graph, a menu appears in which the range of the x-axis and y-axis can be adjusted. The visible x-axis determines the period over which the water balance is calculated. 
+
+5) The button *Hide on map* the polygon over which the water balance is calculated is hidden.
 
 .. figure:: image/d_qgisplugin_wb_draw_polygon.png 
 	:alt: Draw polygon to define water balance area
     
+
+    
 Display settings
 ~~~~~~~~~~~~~~~~~~
 
-The different colours show the different flow types, explained in the legend on the right. By hovering over a flow type in the legend, the corresponding plane lights up in the graph and the corresponding flow lines will be marked with red dotted lines in the map of the model. The different flow types can be activated and deactivated in the graph by clicking the box next to the flow type name. All flow types can be activated or deactivated using the buttons *activate all* and *deactivate all*. 
-
-.. figure:: image/d_qgisplugin_wb_marked_flow.png 
-	:alt: Marked flow types
-    
-
-In the water balance menu different display options can be chosen. In the first drop-down menu (default = '1d and 2d') you can choose to display only 1D-flow ('1d') or 2D-flow ('2d') or both ('1d and 2d'). In the second drop-down menu (default = 'everything') you can choose to display all flows ('everything') or only the main flows ('main flows'). In the last drop-down menu (default = 'm3/s') you can choose to display flow ('m3/s') or cumulative volume ('m3'). 
+6) The different colours show the different flow types, explained in the legend on the right. 
+7) By hovering over a flow type in the legend, the corresponding plane lights up in the graph and the corresponding flow lines will be marked with red dotted lines in the map of the model. 
+8) The different flow types can be activated and deactivated in the graph by clicking the box next to the flow type name. 
+9) All flow types can be activated or deactivated using the buttons *activate all* and *deactivate all*. 
+10) In the water balance menu different display options can be chosen. In the first drop-down menu (default = '1d and 2d') you can choose to display only 1D-flow ('1d') or 2D-flow ('2d') or both ('1d and 2d'). 
+11) In the second drop-down menu (default = 'everything') you can choose to display all flows ('everything') or only the main flows ('main flows').
+12) In the last drop-down menu (default = 'm3/s') you can choose to display flow ('m3/s') or cumulative volume ('m3'). 
 
 Note: the different flow types are 'stacked' in the graph. This means the flow volumes are added to each other when activating multiple flow types. 
 
 Volume change is shown in the graph as well. In this case, the volume change is the result of the total positive and negative flow (inflow and outflow of the area). The volume change is not stacked but shown as a separate line in the graph. 
 
+.. figure:: image/d_qgisplugin_wb_marked_flow.png 
+	:alt: Marked flow types
+    
 Total balance 
 ~~~~~~~~~~~~~~
 
-By clicking the button *Show total balance* a new screen will pop-up, showing the total volume balance over the period set on the x-axis of the graph (shown in title). To adjust this period, close the screen with the bar diagrams, right click on the water balance graph, open the option *x-axis*, activate the option *manual* and set the minimum and maximum time. Then, click again on *Show total balance* to create the water balance diagrams for the new time range. The diagrams can be edited by clicking the graph button at the top. A menu pops-up in which you can choose which diagram you want to edit. Click *OK* to proceed to the *Figure options*-menu. Under the tab *Axes* the ranges and labels for the axes can be set. Under the tab *Curves* the layout of the lines in the graph can be changed. The diagrams can be saved as image by clicking the save-button at the top. 
+13) By clicking the button *Show total balance* a new screen will pop-up, showing the total volume balance over the period set on the x-axis of the graph (shown in title). 
+14) To adjust this period, close the screen with the bar diagrams, right click on the water balance graph, open the option *x-axis*, activate the option *manual* and set the minimum and maximum time. Then, click again on *Show total balance* to create the water balance diagrams for the new time range. 
+
+.. figure:: image/d_qgisplugin_showbalance_axis.png
+	:alt: Adjust axis range
 
 The top diagram shows the net water balance from all domains. The bottom diagrams show the water balance per domain. 
 
-.. figure:: image/d_qgisplugin_wb_totalbalance_new.PNG
+.. figure:: image/d_qgisplugin_wb_totalbalance_new_qgis3.png
 	:alt: Total balance
+
+It is possible to save the graphs as an image or export the water balance data to a CSV-file.
+
+15) To save an image of the graphs, right-click on one of the graphs. Choose 'Export' in the menu that opens. A new window opens.
+16) In the first box you can choose the items you want to export. Click 'Entire Scene' to export all graphs or choose one of the 'Plot'-items to export a graph seperately. 
+17) In the second box you can choose the export format. Choose 'Image file' for an image and choose 'CSV from plot data' to export the actual data. 
+18) Click 'Export' to generate your figure. 
+
+.. figure:: image/d_qgisplugin_export_wb_graph.png
+	:alt: Export waterbalance graph
 
 
 Explanation of flow types 
@@ -177,7 +341,7 @@ In the overviews the flow is split in several domains. These distinguish themsel
 - *In/exfiltration (domain exchange):* Flow exchange between the 2D surface domain and the 2D groundwater domain
 - *Rain:* Incoming water from rain
 - *Constant infiltration:* Flow out of the 2D domain based on simple infiltration
-- *interception:* Intercepted volume
+- *Interception:* Intercepted volume
 
 
 **2D Groundwater domain**
@@ -185,13 +349,13 @@ In the overviews the flow is split in several domains. These distinguish themsel
 
 - *Groundwater flow:* Inflow and outflow through the 2D groundwater domain crossing the borders of your polygon
 - *In/exfiltration (domain exchange):* Flow exchange between the 2D surface domain and the 2D groundwater domain (generally inflowing water through infiltration). 
-- *leakage:* sources or sinks based on leakage
+- *Leakage:* sources or sinks based on leakage
 
 
 **1D Network domain**
 
 
-- *0D rainfall runoff on 1D:* Inflow volume from 0D module
+- *0D Rainfall runoff on 1D:* Inflow volume from 0D module
 - *1D Boundary flow:* Inflow and outflow over a 1D boundary
 - *1D Flow:* Inflow and outflow in 1D network elements crossing the borders of your polygon
 - *1D Laterals:* Sources and sinks based on 1D laterals
@@ -200,64 +364,5 @@ In the overviews the flow is split in several domains. These distinguish themsel
 - *Pump:* pumped volume
 
 
-.. _3ditoolbox:
-
-Toolbox for working with 3Di models
---------------------------------------
-
-The 3Di toolbox is actived by clicking the toolbox icon in the 3Di-Toolbox bar. 
-
-.. figure:: image/d_qgisplugin_activate_toolbox.PNG 
-	:alt: 3Di Toolbox Bar
-
-
-After clicking the toolbox icon, a new window in QGIS is opened. Click the arrow next to the *Tools* icon to open the toolbox and view the different tools that are available. In time, the descriptions of the various tools will be explained.
-
-.. figure:: image/d_qgisplugin_toolbox_window.PNG 
-	:alt: Toolbox Window
-
-
-.. _rasterchecker:
-
-Rasterchecker
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The *Rasterchecker* is launched with the QGIS 3.4.5 version of the Plugin. It  is a tool to check the rasters that are used in your 3Di model for consistency. The tool verifies for example
-
-- The correct nodata value
-
-- Consistent projection
-
-- That all rasters are aligned
-
-There are up to 18 checks performed. They are listed below. It is strongly recommended to run this tool before updating the model repository. It will  model as it will crash when it encounters any errors in your rasters. It will prevent a failed input generation.
-
-Before the *Rasterchecker* can be used, you first need to make a connection with the SQlite of your model. This can be done by opening the *Data Source Manager* under the drop down menu *Layer* on top of the screen. Go to *SpatiaLite* and click *New*. Browse to the location of your model Sqlite and open it. Now you can close the *Data Source Manager* window.
-
-.. figure:: image/d_qgisplugin_load_sqlite.PNG
-	:alt: Data Source Manager
-
-
-The *Rasterchecker* can be accessed by opening the Toolbox. The *Rasterchecker* can be found under *Step 1 - Check data*. By double clicking *raster_checker.py* the *Rasterchecker* is opened in a seperate window. 
-Under *Model schematisation database* you can choose the spatialite of your model. Under *Options* you can choose for *2. Compare pixel alignment* as an additional check. The *Compare pixel alignment*-check verifies whether the pixels of the used rasters are exactly on top of each other. This is necessary to run a 3Di model. Click *OK* to start the rasterchecker. When the tool is finished the following message pops up:
-
-.. figure:: image/d_qgisplugin_rasterchecker_done.PNG 
-	:alt: Rasterchecker Done
-
-The log-file of the rasterchecker can be found at the same location as the location of the SQlite. The log-file can be opened with a text editor such as Notepad. The log-file looks similar to:
-
-.. figure:: image/d_qgisplugin_rasterchecker_log_header.PNG
-	:alt: Rasterchecker Done
-
-The various raster characteristics that are verified are numbered 1 to 18. When we refer to this number, it is called *check_id*. 
-
-Under subheading 'Found following raster references' the rasters used in your model are stated.
-
-Further down in the log-file, the information for each raster is listed. The first column (*level*) shows the importance of the notification (info, warning or error). The second column (*setting_id*) shows the id of the row in the v2_global_settings table of the SPLT, where the raster reference can be found. The third column contains the *check_id*. The fourth column (*feedback*) shows the outcome of the check. 
-
-.. figure:: image/d_qgisplugin_rasterchecker_log_checks.PNG 
-	:alt: Rasterchecker Feedback
-
-If one of your rasters is not aligned with the DEM, check_id 18 will give an error. Make sure all your rasters have the same extent and and have nodata pixels at the same location. 
 
     
