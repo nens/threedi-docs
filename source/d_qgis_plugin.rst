@@ -109,13 +109,13 @@ Add aggregation settings one by one::
 	INSERT INTO v2_aggregation_settings(
 				id, global_settings_id, var_name, flow_variable, aggregation_method, 
 				aggregation_in_space, timestep)
-		VALUES (10, 9999, 'qsss_cum_pos', 'surface_source_sink_discharge', 'cum_positive', 
+		VALUES (11, 9999, 'qsss_cum_pos', 'surface_source_sink_discharge', 'cum_positive', 
 				'FALSE', 300);
 				
 	INSERT INTO v2_aggregation_settings(
 				id, global_settings_id, var_name, flow_variable, aggregation_method, 
 				aggregation_in_space, timestep)
-		VALUES (10, 9999, 'qsss_cum_neg', 'surface_source_sink_discharge', 'cum_negative', 
+		VALUES (12, 9999, 'qsss_cum_neg', 'surface_source_sink_discharge', 'cum_negative', 
 				'FALSE', 300);				
 	
 Note, that in both cases, in case of a new model or an existing model, you must update the global settings id to the id of the scenario for which you wish to generate aggregated results. For multiple scenarios, you must add these settings multiple times (and update row id's). Also, you may choose to change the aggregation time step, but make sure to use the same time step for all aggregation variables in case one wants to use the water balance tool.
