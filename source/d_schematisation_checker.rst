@@ -25,6 +25,15 @@ There are currently different general checks applied on all tables and columns o
 - GeometryCheck
 - GeometryTypeCheck
 
+Apart from the general checks on the database data and structure there are more 3Di specific checks:
+
+- BankLevelCheck
+- CrossSectionShapeCheck
+- TimeSeriesCheck
+- Use0DFlowCheck
+- ConnectionNodes (not yet implemented)
+
+
 TypeCheck
 ---------
 Every cell in every table will be checked if the type of the entered value is correct. A cell is expected to either contain:
@@ -41,7 +50,7 @@ If the supplied datatype does not match with the expected datatype this will be 
 
 id,table,column,value,description,type of check
 1,v2_aggregation_settings,aggregation_in_space,True,Value in v2_aggregation_settings.aggregation_in_space should to be of type integer,<TypeCheck: v2_aggregation_settings.aggregation_in_space>
-If you encounter an error like this, check the row with the id = 1 in table v2_aggregation_settings. In the column ‘aggregation_in_space’ the value ‘True’ was entered while an integer is expected.
+If you encounter an error like this, check the row with the id = 1 in table *v2_aggregation_settings*. In the column *aggregation_in_space* the value *True* was entered while an integer is expected.
 
 EnumCheck
 ---------
@@ -54,11 +63,11 @@ n.b. An empty text or varchar does not equal NULL
 
 ForeignKeyCheck
 ---------------
-Many tables contain foreign key columns which refer to other tables. An example is the column connection_node_start_id in the table v2_channel. This column refers to the column id in the table v2_connection_node. If a channel is entered with connection_node_start_id = 1, there should be an entry in the table v2_connection_nodes with id = 1. If this is not the case a ForeignKeyCheck error will be given.
+Many tables contain foreign key columns which refer to other tables. An example is the column *connection_node_start_id* in the table *v2_channel*. This column refers to the column *id* in the table *v2_connection_node*. If a channel is entered with *connection_node_start_id = 1*, there should be an entry in the table *v2_connection_nodes* with *id = 1*. If this is not the case a ForeignKeyCheck error will be given.
 
 UniqueCheck
 -----------
-Some values have to be unique. An example is the name column in v2_global_settings. If multiple rows are entered with the same name, a UniqueCheck error will be given.
+Some values have to be unique. An example is the name column in *v2_global_settings*. If multiple rows are entered with the same name, a UniqueCheck error will be given.
 
 GeometryCheck
 -------------
@@ -67,3 +76,36 @@ If an entered geometry is invalid the GeometryCheck error will be returned. The 
 GeometryTypeCheck
 -----------------
 This check makes sure the geometry type (point, linestring or polygon) is consistent with the expected geometry type.
+
+BankLevelCheck 
+--------------
+Check if the *bank_level* of *v2_cross_section_locations* is not NULL when the channel it is connected to is *connected* or *double_connected*.
+
+CrossSectionShapeCheck
+----------------------
+Check if all cross section shapes are valid.
+Depending on the type of shape the definition has to follow certain requirements.
+
+Rectangle
+=========
+A width is required, a height is optional. All supplied dimensions should be positive decimal numbers.
+
+Circle
+======
+Only a width is required, should be a positive decimal number.
+
+Egg
+===
+Only a width is required, should be a positive decimal number.
+
+Tabulated rectangle or trapezium
+===================
+A list of widths and heights are required. The lists should contain only positive decimal numbers seperated by spaces and contain the same amount of values. The first value of *height* should always be 0. The list of heights should be in increasing order.
+
+TimeseriesCheck
+---------------
+Check if timeseries are correctly entered and the timesteps are the same as all other timesteps in the same table.
+
+Use0DFlowCheck
+--------------
+If 0D flow is configured in the global settings, there should be at least 1 (impervious) surface in the model.
