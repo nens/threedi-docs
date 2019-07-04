@@ -12,6 +12,15 @@ Usage
 3. Open the schematization checker by opening the *Toolbox* in the 3Di Plugin, select *Step 1: check data*, select *schematisation_checker.py*
 4. Select the SpatiaLite connection of the model database and the location where to store the output of the schematisation checker. Click *run* to run the schematisation checker. Click *open* to open the output.
 
+The output is a comma seperated value file which can be opened in Excel. It contains 6 columns: *id, table, column, value, description and check*:
+
+- **id: identification number of the row where a check encounters an error.
+- **table: the table in which the error occurs.
+- **column: the column which contains the error.
+- **value: the current value in the cell
+- **description: description of the error
+- **check: the type of check that found the error, described below
+
 What is checked?
 ^^^^^^^^^^^^^^^^
 
@@ -31,7 +40,6 @@ Apart from the general checks on the database data and structure there are more 
 - CrossSectionShapeCheck
 - TimeSeriesCheck
 - Use0DFlowCheck
-- ConnectionNodes (not yet implemented)
 
 
 TypeCheck
@@ -45,12 +53,6 @@ Every cell in every table will be checked if the type of the entered value is co
 - geometry (point, linestring or polygon)
 - bool (true or false)
 - datetime (2019-07-02 14:27+02:00)
-
-If the supplied datatype does not match with the expected datatype this will be shown in the schematisation checker output as shown below.
-
-id,table,column,value,description,type of check
-1,v2_aggregation_settings,aggregation_in_space,True,Value in v2_aggregation_settings.aggregation_in_space should to be of type integer,<TypeCheck: v2_aggregation_settings.aggregation_in_space>
-If you encounter an error like this, check the row with the id = 1 in table *v2_aggregation_settings*. In the column *aggregation_in_space* the value *True* was entered while an integer is expected.
 
 EnumCheck
 ---------
