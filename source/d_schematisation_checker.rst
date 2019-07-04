@@ -86,23 +86,12 @@ Check if the *bank_level* of *v2_cross_section_locations* is not NULL when the c
 CrossSectionShapeCheck
 ----------------------
 Check if all cross section shapes are valid.
-Depending on the type of shape the definition has to follow certain requirements.
+Depending on the type of shape the definition has to follow certain requirements:
 
-Rectangle
-~~~~~~~~~
-A width is required, a height is optional. All supplied dimensions should be positive decimal numbers.
-
-Circle
-~~~~~~
-Only a width is required, should be a positive decimal number.
-
-Egg
-~~~
-Only a width is required, should be a positive decimal number.
-
-Tabulated rectangle or trapezium
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-A list of widths and heights are required. The lists should contain only positive decimal numbers seperated by spaces and contain the same amount of values. The first value of *height* should always be 0. The list of heights should be in increasing order.
+- **Rectangle**: A width is required, a height is optional. All supplied dimensions should be positive decimal numbers.
+- **Circle**: Only a width is required, should be a positive decimal number.
+- **Egg**: Only a width is required, should be a positive decimal number.
+- **Tabulated rectangle or trapezium**: A list of widths and heights are required. The lists should contain only positive decimal numbers seperated by spaces and contain the same amount of values. The first value of *height* should always be 0. The list of heights should be in increasing order.
 
 TimeseriesCheck
 ---------------
