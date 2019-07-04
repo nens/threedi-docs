@@ -14,12 +14,12 @@ Usage
 
 The output is a comma seperated value file which can be opened in Excel. It contains 6 columns: *id, table, column, value, description and check*:
 
-- **id: identification number of the row where a check encounters an error.
-- **table: the table in which the error occurs.
-- **column: the column which contains the error.
-- **value: the current value in the cell
-- **description: description of the error
-- **check: the type of check that found the error, described below
+- **id**: identification number of the row where a check encounters an error.
+- **table**: the table in which the error occurs.
+- **column**: the column which contains the error.
+- **value**: the current value in the cell
+- **description**: description of the error
+- **check**: the type of check that found the error, described below
 
 What is checked?
 ^^^^^^^^^^^^^^^^
