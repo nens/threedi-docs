@@ -60,8 +60,9 @@ Some cells expect specific values. For example, the type of a boundary condition
 
 NotNullCheck
 ------------
-If a cell is NULL it does not have a value at all. For some cells this is allowed, but others cells are obliged to contain a value. If this obligation is not met, a NotNullCheck error is given
-n.b. An empty text or varchar does not equal NULL
+If a cell is NULL it does not have a value at all. For some cells this is allowed, but others cells are obliged to contain a value. If this obligation is not met, a NotNullCheck error is given.
+
+n.b. An empty text or varchar does not equal NULL.
 
 ForeignKeyCheck
 ---------------
