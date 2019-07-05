@@ -35,14 +35,14 @@ After installing the TortoiseHG program it can be used to download the active mo
 * The **Hg command** field will update automatically, you don't need to change anything here.
 * Press **Clone** to download the model to the local computer. Enter your username and password when required.
 
-.. figure:: image/d4.3_TortoiseHG_clone.png
+.. figure:: image/d4.3_tortoisehg_clone.png
 	:alt: Clone menu TortoiseHG
 
 In the same way, other models can be downloaded, beginning with the third step in the above list of actions. 
 
 After correctly downloading the files from the 3Di repository the downloaded repository will be visible in the Repository Registry, top left panel in TortoiseHG. In the top right panel all revisions of the repository are available, with the top one being the most recent. This most recent revision is also available in the download directory as chosen by the user. To make other revisions available, see :ref:`previous_revision`. 
 
-.. figure:: image/d4.3_TortoiseHG_menu.png
+.. figure:: image/d4.3_tortoisehg_menu.png
 	:alt: Menu TortoiseHG Workbench
 
 The downloaded files can be divided into three groups:
@@ -84,7 +84,7 @@ By default the pump direction of a pumping station is similar to the direction o
 * Press **Close** to close the Identify Results window.
 * Deactivate the Toggle Editing button on the QGIS toolbar and press **Save** to save the adjustment in the database.
 
-.. figure:: image/d4.4_QGIS_interface.png
+.. figure:: image/d4.4_qgis_interface.png
 	:alt: QGIS interface for model adjustments
 
 Synchronising 3Di repository with TortoiseHG Workbench
