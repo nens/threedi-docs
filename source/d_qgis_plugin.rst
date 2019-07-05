@@ -233,7 +233,7 @@ If an entered geometry is invalid the GeometryCheck error will be returned. The 
 
 This check makes sure the geometry type (point, linestring or polygon) is consistent with the expected geometry type.
 
-**BankLevelCheck **
+**BankLevelCheck**
 
 Check if the *bank_level* of *v2_cross_section_locations* is not NULL when the channel it is connected to is *connected* or *double_connected*.
 
