@@ -17,7 +17,7 @@ Schematization checker
 We proudly announce our newest addition to the 3Di Modeler Interface! Our QGIS toolbox has been expanded with a new tool, called the schematization checker.
 This tool will help you  building your 3Di models. Simply select your 3Di schematisation and run the schematisation checker. It will verify a range of input data and settings. It reports any missing or incorrect data in your 3Di model. This first version of the schematisation checker will find already the most common mistakes made when building a 3Di schematisation. This first version of the schematisation checker does not catch all possible errors in your 3Di schematisation. However, we will add more checks in the future. 
 
-Documentation of the tool can be found here [link]
+Documentation of the tool can be found here `here <https://docs.3di.lizard.net/en/stable/d_qgis_plugin.html>`_.
 
 Just like the ThreeDiToolbox, the schematisation checker is an open source tool. You can find the source code here `here <https://github.com/nens/threedi-modelchecker>`_. Any contributions are greatly appreciated.
 
