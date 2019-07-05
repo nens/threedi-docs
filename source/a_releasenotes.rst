@@ -1,6 +1,57 @@
 Release notes
 =============
 
+Release 3Di - 2019-07 Rhine Release 
+++++++++++++++++++++++++++++++++++++
+
+The newest version of 3Di is released on July the 8th 2019. This 2019-07 Rhine release is a big step towards a fully new way of interacting with 3Di. The following features are released:
+
+- Schematization checker
+- API v3 dev version
+
+We have changed the way we name our releases, from now on releasenames will have the following structure: year-month and the name of a water body.  
+
+Schematization checker
+^^^^^^^^^^^^^^^^^^^^^^
+
+We proudly announce our newest addition to the 3Di Modeler Interface! Our QGIS toolbox has been expanded with a new tool, called the schematization checker.
+This tool will help you  building your 3Di models. Simply select your 3Di schematisation and run the schematisation checker. It will verify a range of input data and settings. It reports any missing or incorrect data in your 3Di model. This first version of the schematisation checker will find already the most common mistakes made when building a 3Di schematisation. This first version of the schematisation checker does not catch all possible errors in your 3Di schematisation. However, we will add more checks in the future. 
+
+Documentation of the tool can be found here [link]
+
+Just like the ThreeDiToolbox, the schematisation checker is an open source tool. You can find the source code here `here <https://github.com/nens/threedi-modelchecker>`_. Any contributions are greatly appreciated.
+
+API v3 dev version
+^^^^^^^^^^^^^^^^^^
+
+We have made a dev release of our new API. It is meant for developers to hook up their applications in an early stage of development. A full working version will be made available for all users in the next release. A sneak preview is given in this `blogpost <https://3diwatermanagement.com/blog/release-3di-2019-07-rhine/>`_.
+
+Bugfixes
+^^^^^^^^
+
+We have also fixed some bugs this release. In case of the computational core it is required to re-run inpy to use the bug-fixed version. 
+
+Computational Core
+^^^^^^^^^^^^^^^^^^
+
+- Leaking levees: Users reported that in some very specific cases levee elements did not block the flow. We have been able to find the exceptions in which did occur. It was due to a combination of the location of the vertices and the edges of subgrid cells. Therefore, the chance it would occur increases in case of larger subgrid cells.
+- Long crested weir: In case of forking 1D elements just before or after a long crested weir, the model would crash. This is now fixed.
+- Sommerfeld edges: We have fixed a bug for the Sommerfeld boundary conditions, which might occur in pure 1D calculations.
+- 1D Laterals: In case of 1D laterals, the results were not correctly written in the netcdf and in the flow summary. 
+
+QGIS/Modeler Interface
+^^^^^^^^^^^^^^^^^^^^^^
+
+- Animation toolbar:  The animation toolbar previously allowed users to select variables from the aggregation netcdf. However, these variables were not supported in the animation tool causing it to crash when a user selects them. We've removed these aggregation variables from the animation tool. Furthermore, the timeslider now displays the selected timestamp index as "Days Hours:Minutes" after the start of the simulation, similar as in the 3Di live-site. Previously it displayed an timestamp index.
+- Load all tables from spatialite in qgis on startup: Not all 3Di tables were loaded when selecting a 3Di model. We have added the missing table. Still missing a table? Let us know
+- Show connection nodes and manhole: Since the previous release, connection nodes and manholes were not visible on the map. This is now fixed.
+- Improved logging: We improved the logging and the accessibility of the 3Di Plugin. Therefore we introduce  a new icon in the toolbar. This will allow you easy access to the log file. Found a bug? Report it via `topdesk <https://nelen-schuurmans.topdesk.net/>`_. and send us a copy of the log file. This will greatly help us in reproducing and fixing the bug!
+- Dependencies management: We have made improvements in the dependency management of the 3Di Plugin. Python dependencies of the plugin are now installed under the python folder of the active user profile instead of in the plugin itself.
+
+Once you have installed the newest version of the plugin, you should be able to install/uninstall and activate/deactivate the plugin via the Qgis plugin manager again. Updating the ThreediToolbox to the newest version should be a breeze in the future!
+- No longer experimental 3Di Plugin: The 3Di Plugin is no longer marked as an experimental plugin. You no longer need to configure the Qgis plugin-manager to also show experimental plugins. The experimental version of the 3Di Plugin will not disappear. In the future, we will be using the experimental marked plugin to distribute beta releases of our 3Di plugin.
+
+
 Release 3Di - Hotfix
 ++++++++++++++++++++++++
 
