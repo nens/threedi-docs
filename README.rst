@@ -35,6 +35,15 @@ commands from within docker, too. For example::
   $ docker-compose run builder make latexpdf
 
 
+Images
+------
+
+Images should be lowercase. If you've added an image, please run this command
+to be sure::
+
+  $ docker-compose run builder python3 fix-uppercase-lowercase.py
+
+
 Some sphinx/restructuredtext notes
 ----------------------------------
 
