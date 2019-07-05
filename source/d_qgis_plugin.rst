@@ -166,26 +166,26 @@ The data from the sufyd will be loaded into the sqlite. A log file of this proce
 
 The following objects are imported:
 
-* Manhole (*KNP)
+* Manhole (``*KNP``)
 	* The number of inhabitants will be added as Impervious surface. 
 	* Attention: the shape of the manhole is refered as 'rnd' = round, 'sqr' = square and 'rect' = rectangle
-*    Pipe (*LEI)
+*    Pipe (``*LEI``)
 	*    The number of inhabitants will be added as Impervious surface
-*    Pumpstation (*GEM)
+*    Pumpstation (``*GEM``)
 	*    If multiple stages are defined, this will be transformed into seperate pumpstations. Up to 10 stages are supported
-*    Weir (*OVS)
+*    Weir (``*OVS``)
 	*    Flow direction (str_rch) is translated into discharge coefficients with a value of 0
 	*    An end node with boundary condition is not automatically added.
-*    Orifice (*DRL)
+*    Orifice (``*DRL``)
 	*    Flow direction (str_rch) is translated into discharge coefficients with a value of 0
-*    Boundary (*UIT)
+*    Boundary (``*UIT``)
 	*    The water level will be the average definition (bws_gem). If not present the summer water level is used and otherwise the winter water level.
-*    Extra manhole storage (*BOP)
+*    Extra manhole storage (``*BOP``)
 	*    The defined storage area is added to a manhole on the bottomlevel of the manhole. The defined bottom_level of the storage (niv_001) is ignored.
 	*    Only one storage area is supported
-*    **Drainage area/ Impervious surface (*AFV)**
+*    **Drainage area/ Impervious surface (``*AFV``)**
 
-*    Linkage nodes (*KPG)
+*    Linkage nodes (``*KPG``)
 	*    The 'fictive' linkages (with typ_gkn == 01) are ignored, only real nodes are combined.
 	*    The second node (ide_kn2) is removed. Impervious surfaces and pipes linked to the removed node are redirected to the first node. Extra manhole storage will be lost.
 
@@ -408,7 +408,7 @@ In the overviews the flow is split in several domains. These distinguish themsel
 
 Show 3Di results in a graph
 -------------------------------
--------------------------------
+
 
 The graph tool can be used for visualizing model results over time. This can be done for both calculation points and flowlines. In this way you can for example see the variation in water level in a node or the variation in discharge through a flow link (e.g. a channel or pipe) over time 
 
