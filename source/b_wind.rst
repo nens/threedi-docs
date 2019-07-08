@@ -108,9 +108,9 @@ In the 2D domain the impact of wind is formulated by:
 .. math::
    :label: wind impact 2D
 
-   \frac{du}{dx}+g\frac{d\zeta}{dx} = -\frac{|u|u}{H_f}+\frac{\rho_{lucht}}{\rho_{water}V} \iint \chi^2 C_d \left \| \frac{U_{wind}^x}{\chi} - u \right \| \left ( \frac{U_{wind}^{x}}{\chi} - u \right ) d \Omega^x 
+   \frac{\partial u}{\partial x}+g\frac{\partial \zeta}{\partial x} = -\frac{|u|u}{H_f}+\frac{\rho_{lucht}}{\rho_{water}V} \iint \chi^2 C_d \left \| \frac{U_{wind}^x}{\chi} - u \right \| \left ( \frac{U_{wind}^{x}}{\chi} - u \right ) d \Omega^x 
 
-   \frac{dv}{dx}+g\frac{d\zeta}{dy} = -\frac{|u|v}{H_f}+\frac{\rho_{lucht}}{\rho_{water}V} \iint \chi^2 C_d \left \| \frac{U_{wind}^y}{\chi} - v \right \| \left ( \frac{U_{wind}^{y}}{\chi} - v \right ) d \Omega^y 
+   \frac{\partial v}{\partial x}+g\frac{\partial \zeta}{\partial y} = -\frac{|u|v}{H_f}+\frac{\rho_{lucht}}{\rho_{water}V} \iint \chi^2 C_d \left \| \frac{U_{wind}^y}{\chi} - v \right \| \left ( \frac{U_{wind}^{y}}{\chi} - v \right ) d \Omega^y 
 
 | The additional variables (in comparison tot 1D are): 
 | u,v = velocity of the water in x- en y –direction, 
