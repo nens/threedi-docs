@@ -23,10 +23,10 @@ Known Issues
 - Length of the side view profile of pipes can be different than the actual length of the pipe. This is due to a projection conversion error in QGIS and does not affect 3Di calculations. 
 
 - There are some issues related to projections. We are encountered this for our UK-based models (.sqlite). These models will show a shift in the  geometries in QGIS. The reprojection from EPGS:27700 (British National Grid) to WGS84 is based on an outdated reprojection in the spatialite. There is a solution for this: 
+
 1. In QGIS open the (table without geometry) table "spatial_ref_sys"
 2. go to row srid 27700
-3. update column proj4text (overwrite existing value) with 
-+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +datum=OSGB36 +units=m +no_defs
+3. update column proj4text (overwrite existing value) with +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +datum=OSGB36 +units=m +no_defs
 
 This might also be the case for other projections. 
 
