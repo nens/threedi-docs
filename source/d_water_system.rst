@@ -87,7 +87,7 @@ Check out the :ref:`database-overview` for a short description of the requiremen
 
 Boundary conditions for the 1D system are placed on connection nodes. They can  be placed on connection nodes that are connected to a single isolated channel or structure, so not on an embedded or connected channel. Check the different types of boundary conditions available in the :ref:`database-overview`.
 
-The time series field in the spatialite database can only be filled by copy-pasting your time serie into the spatialite as QGIS does not allow you to enter a newline. You may use this example:
+The time series field in the spatialite database can only be filled by copy-pasting your time serie into the spatialite as QGIS does not allow you to enter a newline. You may use this example::
     
     0,0.000000
     15,1.000000
