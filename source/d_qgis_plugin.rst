@@ -23,11 +23,10 @@ To install the 3Di-Toolbox plugin follow the steps below:
 
 1) Open QGIS and via the menu bar go to 'Plugins > Manage And Install Plugins'. 
 2) Go to 'Settings'. 
-3) Check the box for 'Show also experimental plugins'
-4) Add a plugin repository
-5) Fill in a name and copy the URL: https://plugins.lizard.net/plugins.xml into the URL box. 
-6) Go to 'All' and choose '3Di toolbox' from the list
-7) Install the plugin.
+3) Add a plugin repository
+4) Fill in a name and copy the URL: https://plugins.lizard.net/plugins.xml into the URL box. 
+5) Go to 'All' and choose '3Di toolbox' from the list
+6) Install the plugin.
 
 .. figure:: image/d_qgispluging_pluginmanager.png
 	:alt: QGIS Plugin Manager
