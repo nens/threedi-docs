@@ -30,6 +30,8 @@ Known Issues
 
 This might also be the case for other projections. 
 
+- Laterals currently do not work for other projection systems than epsg:28992.
+
 - The *manhole_storage_area* in the v2_global_settings table of the data base must be set as an INTEGER.
 
 
