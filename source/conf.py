@@ -86,3 +86,6 @@ todo_include_todos = True
 # a list of builtin themes.
 #
 html_theme = 'sphinx_rtd_theme'
+html_theme_options = {
+    "analytics_id": "UA-111119907-2",
+}
