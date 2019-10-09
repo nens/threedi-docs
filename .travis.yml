@@ -19,3 +19,5 @@ deploy:
     script: bash upload-artifact.sh production
     on:
       tags: true
+notifications:
+  email: false
