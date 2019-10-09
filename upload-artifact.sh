@@ -2,10 +2,22 @@
 set -e
 set -u
 
-# ARTIFACTS_KEY should be set as env variable in the travis UI.
+# ARTIFACTS_KEY_STAGING and ARTIFACTS_KEY_PRODUCTION are set as env variables
+# in the travis UI.
 # TRAVIS_BRANCH is set automatically by travis
-ARTIFACT=lizard-docs.zip
-PROJECT=lizard-docs
+ARTIFACT=threedi-docs.zip
+
+if [ $1 = "production" ]
+then
+    PROJECT=threedi-docs-production
+    ARTIFACTS_KEY=${ARTIFACTS_KEY_PRODUCTION}
+fi
+
+if [ $1 = "staging" ]
+then
+    PROJECT=threedi-docs-staging
+    ARTIFACTS_KEY=${ARTIFACTS_KEY_STAGING}
+fi
 
 curl -X POST \
      --retry 3 \

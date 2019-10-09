@@ -11,11 +11,11 @@ script:
 deploy:
   - provider: script
     skip_cleanup: true
-    script: bash upload-artifact.sh
+    script: bash upload-artifact.sh staging
     on:
       branch: reinout-new-artifact-upload
   - provider: script
     skip_cleanup: true
-    script: bash upload-artifact.sh
+    script: bash upload-artifact.sh production
     on:
       tags: true
