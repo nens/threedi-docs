@@ -6,18 +6,21 @@ script:
   - docker-compose run builder python3 fix-uppercase-lowercase.py
   - docker-compose up
   - zip -r threedi-docs.zip build/html
-# Deploy uploads the zipfile to TODO https://docs.3di.lizard.net (for tags)
-# and to TODO https://staging-docs.3di.lizard.net for build on master.
+
+# Deploy uploads the zipfile to https://artifacts.lizard.net
 deploy:
+  # Master builds end up on https://docs.staging.3di.live
   - provider: script
     skip_cleanup: true
     script: bash upload-artifact.sh staging
     on:
       branch: reinout-new-artifact-upload
+  # Tags end up on https://docs.3di.lizard.net (TODO)
   - provider: script
     skip_cleanup: true
     script: bash upload-artifact.sh production
     on:
       tags: true
+
 notifications:
   email: false
