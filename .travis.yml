@@ -1,0 +1,21 @@
+language: generic
+dist: xenial
+services:
+  - docker
+script:
+  - docker-compose run builder python3 fix-uppercase-lowercase.py
+  - docker-compose up
+  - zip -r three-docs.zip build/html
+# Deploy uploads the zipfile to TODO https://docs.3di.lizard.net (for tags)
+# and to TODO https://staging-docs.3di.lizard.net for build on master.
+deploy:
+  - provider: script
+    skip_cleanup: true
+    script: bash upload-artifact.sh
+    on:
+      branch: reinout-new-artifact-upload
+  - provider: script
+    skip_cleanup: true
+    script: bash upload-artifact.sh
+    on:
+      tags: true
