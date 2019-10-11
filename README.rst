@@ -11,12 +11,9 @@ this for checking if the documentation is OK to be released.
 Commits are automatically tested on "travis":
 https://travis-ci.com/nens/threedi-docs/, this makes sure all images are there
 and that there are no missing files. Travis also uploads the
-documentation. You can check the progress at:
-
-- https://artifacts.lizard.net/overview/threedi-docs-staging/ (master builds)
-
-- https://artifacts.lizard.net/overview/threedi-docs-production/ (tag builds,
-  so releases).
+documentation. You can check the upload status at
+https://artifacts.lizard.net/ if you want to make sure a release happened
+(note: a full travis build can take up to three minutes).
 
 
 Local setup
