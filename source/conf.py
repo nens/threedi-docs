@@ -74,4 +74,6 @@ todo_include_todos = is_development_build
 # a list of builtin themes.
 #
 html_theme = "sphinx_rtd_theme"
-html_theme_options = {"analytics_id": "UA-111119907-2"}
+if not is_development_build:
+    # Only use google analytics on the production doc site.
+    html_theme_options = {"analytics_id": "UA-111119907-2"}
