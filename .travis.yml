@@ -2,10 +2,37 @@ language: generic
 dist: xenial
 services:
   - docker
+cache:
+  directories:
+    - $HOME/docker-cache
+before_install:
+  # If the docker cache is still valid, use the cached docker image.
+  - >
+     scripts/travis-cache-ok.sh &&
+     cat $HOME/docker-cache/our-image.tar | docker load || true
+install:
+  # Rebuild the docker image, but only if the docker cache isn't valid anymore.
+  - scripts/travis-cache-ok.sh || docker-compose build
+
+# What's above here is mostly bookkeeping, "script" below, that's the actual
+# tests.
+
+
 script:
   - docker-compose run builder python3 fix-uppercase-lowercase.py
   - docker-compose up
   - zip -r threedi-docs.zip build/html
+
+
+# Below: that's bookkeeping again.
+
+before_cache:
+  # If the docker cache isn't valid, save the new docker image + checksum.
+  - mkdir -p $HOME/docker-cache
+  - >
+     scripts/travis-cache-ok.sh ||
+     docker save builder > $HOME/docker-cache/our-image.tar
+  - scripts/travis-cache-ok.sh || scripts/create-travis-checksum.sh
 
 # Deploy uploads the zipfile to https://artifacts.lizard.net
 deploy:
