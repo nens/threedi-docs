@@ -3,9 +3,7 @@ version: '3.0'
 services:
 
   builder:
-    image: builder
-    build:
-      context: .
+    image: .
     command: "make html"
     volumes:
       - .:/code
