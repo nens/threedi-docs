@@ -3,7 +3,7 @@
 
 Let's try to do it with restructuredtext/sphinx!
 
-The released documentation is at https://docs.3di.lizard.net/ .
+The released documentation is at https://docs.3di.live/ .
 
 The latest version of master is at https://docs.staging.3di.live/, you can use
 this for checking if the documentation is OK to be released.

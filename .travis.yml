@@ -15,7 +15,7 @@ deploy:
     script: bash upload-artifact.sh staging
     on:
       branch: reinout-new-artifact-upload
-  # Tags end up on https://docs.3di.lizard.net (TODO)
+  # Tags end up on https://docs.3di.live
   - provider: script
     skip_cleanup: true
     script: bash upload-artifact.sh production
