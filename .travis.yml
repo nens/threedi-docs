@@ -6,7 +6,7 @@ cache:
   directories:
     - $HOME/docker-cache
 before_install:
-  - ls -l $HOME/docker-cache
+  - ls -lh $HOME/docker-cache
   # If the docker cache is still valid, use the cached docker image.
   - >
      scripts/travis-cache-ok.sh &&
@@ -30,6 +30,7 @@ script:
 before_cache:
   # If the docker cache isn't valid, save the new docker image + checksum.
   - mkdir -p $HOME/docker-cache
+  - ls -lh $HOME/docker-cache
   - >
      scripts/travis-cache-ok.sh ||
      docker save builder > $HOME/docker-cache/our-image.tar
