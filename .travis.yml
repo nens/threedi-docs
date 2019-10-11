@@ -15,7 +15,7 @@ deploy:
     skip_cleanup: true
     script: bash upload-artifact.sh staging
     on:
-      branch: reinout-new-artifact-upload
+      branch: master
   # Tags end up on https://docs.3di.live
   - provider: script
     skip_cleanup: true
