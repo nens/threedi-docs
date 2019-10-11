@@ -12,13 +12,13 @@ deploy:
   # Master builds end up on https://docs.staging.3di.live
   - provider: script
     skip_cleanup: true
-    script: bash upload-artifact.sh staging
+    script: bash scripts/upload-artifact.sh staging
     on:
       branch: reinout-new-artifact-upload
   # Tags end up on https://docs.3di.live
   - provider: script
     skip_cleanup: true
-    script: bash upload-artifact.sh production
+    script: bash scripts/upload-artifact.sh production
     on:
       tags: true
 
