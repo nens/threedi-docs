@@ -6,6 +6,7 @@ cache:
   directories:
     - $HOME/docker-cache
 before_install:
+  - ls -l $HOME/docker-cache
   # If the docker cache is still valid, use the cached docker image.
   - >
      scripts/travis-cache-ok.sh &&
