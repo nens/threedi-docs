@@ -32,32 +32,31 @@ import sphinx_rtd_theme
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.todo',
-              'sphinx.ext.imgmath','sphinx.ext.imgmath']
+extensions = ["sphinx.ext.todo", "sphinx.ext.imgmath", "sphinx.ext.imgmath"]
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ["_templates"]
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
 # source_suffix = ['.rst', '.md']
-source_suffix = '.rst'
+source_suffix = ".rst"
 
 # The master toctree document.
-master_doc = 'index'
+master_doc = "index"
 
 # General information about the project.
-project = '3Di'
-copyright = '2017, Nelen & Schuurmans'
-author = 'Nelen & Schuurmans'
+project = "3Di"
+copyright = "2017, Nelen & Schuurmans"
+author = "Nelen & Schuurmans"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
 # The short X.Y version.
-version = open('../version.txt').readlines()[0].strip()
+version = open("../version.txt").readlines()[0].strip()
 # The full version, including alpha/beta/rc tags.
 release = version
 
@@ -74,7 +73,7 @@ language = None
 exclude_patterns = []
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+pygments_style = "sphinx"
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
@@ -85,7 +84,5 @@ todo_include_todos = True
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'sphinx_rtd_theme'
-html_theme_options = {
-    "analytics_id": "UA-111119907-2",
-}
+html_theme = "sphinx_rtd_theme"
+html_theme_options = {"analytics_id": "UA-111119907-2"}
