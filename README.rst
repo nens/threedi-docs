@@ -65,8 +65,18 @@ http://www.sphinx-doc.org/en/stable/markup/index.html
 Math support ("it is all LaTeX"):
 http://www.sphinx-doc.org/en/stable/ext/math.html
 
+You can add TODO comments like this::
+
+  .. todo::
+
+     Add screenshot of the graph
+
+These will be hidden *automatically* when rendering the released
+documentation. In the staging documentation, they're visible.
 
 Any questions: ask Reinout.
+
+
 
 
 Some commands needed for the OSGEO4W Shell with sphinx
@@ -83,6 +93,9 @@ formulas this way.
 
 Making a release
 ----------------
+
+If the release is for a new version of 3di, change ``THREEDI_RELEASE`` at the
+top of ``source/conf.py``.
 
 Only released versions are shown on docs.3di.lizard.net. To make a release,
 install zest.releaser::
