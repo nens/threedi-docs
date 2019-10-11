@@ -1,12 +1,13 @@
 FROM python:3
 
-COPY requirements.txt ./
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     texlive \
     texlive-latex-extra \
     dvipng \
-    latexmk
-
+    latexmk \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 WORKDIR /code

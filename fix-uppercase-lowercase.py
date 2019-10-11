@@ -5,12 +5,15 @@ import sys
 
 DOC_DIR = Path(__file__).parent / "source"
 IMAGE_DIR = DOC_DIR / "image"
-IMAGE_LINK_REGEX = re.compile(r"""
+IMAGE_LINK_REGEX = re.compile(
+    r"""
 image/       # image/ prefix
 \S+          # some chars/numbers
 \.           # a dot
 [jpngJPGN]+  # .jpg, .png, .PNG, .JPG
-""", re.VERBOSE)
+""",
+    re.VERBOSE,
+)
 
 
 def fix_image_files():

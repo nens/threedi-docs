@@ -3,8 +3,17 @@
 
 Let's try to do it with restructuredtext/sphinx!
 
-The documentation (open source!) is automatically build on
-http://3di-documentation.readthedocs.io, we can change the URL later on.
+The released documentation is at https://docs.3di.live/ .
+
+The latest version of master is at https://docs.staging.3di.live/, you can use
+this for checking if the documentation is OK to be released.
+
+Commits are automatically tested on "travis":
+https://travis-ci.com/nens/threedi-docs/, this makes sure all images are there
+and that there are no missing files. Travis also uploads the
+documentation. You can check the upload status at
+https://artifacts.lizard.net/ if you want to make sure a release happened
+(note: a full travis build can take up to three minutes).
 
 
 Local setup
@@ -21,9 +30,6 @@ And then every time you want to re-generate your documentation::
 If you're not so lucky, you'll need to pip-install sphinx (``pip install -r
 requirements.txt``, preferably in a virtualenv) and you need latex (see the
 `Dockerfile` for the short list of packages that we install).
-
-Commits are automatically tested on jenkins:
-https://jenkins.lizard.net/blue/organizations/jenkins/nens%2Fthreedi-docs/
 
 
 Special commands
@@ -56,8 +62,18 @@ http://www.sphinx-doc.org/en/stable/markup/index.html
 Math support ("it is all LaTeX"):
 http://www.sphinx-doc.org/en/stable/ext/math.html
 
+You can add TODO comments like this::
+
+  .. todo::
+
+     Add screenshot of the graph
+
+These will be hidden *automatically* when rendering the released
+documentation. In the staging documentation, they're visible.
 
 Any questions: ask Reinout.
+
+
 
 
 Some commands needed for the OSGEO4W Shell with sphinx
@@ -75,7 +91,10 @@ formulas this way.
 Making a release
 ----------------
 
-Only released versions are shown publicly on readthedocs. To make a release,
+If the release is for a new version of 3di, change ``THREEDI_RELEASE`` at the
+top of ``source/conf.py``.
+
+Only released versions are shown on docs.3di.lizard.net. To make a release,
 install zest.releaser::
 
   $ pip install zest.releaser

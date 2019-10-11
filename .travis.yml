@@ -1,0 +1,27 @@
+language: generic
+dist: xenial
+services:
+  - docker
+
+script:
+  - docker-compose run builder python3 fix-uppercase-lowercase.py
+  - docker-compose up
+  - zip -r threedi-docs.zip build/html
+
+# Deploy uploads the zipfile to https://artifacts.lizard.net
+deploy:
+  # Master builds end up on https://docs.staging.3di.live
+  - provider: script
+    skip_cleanup: true
+    script: bash upload-artifact.sh staging
+    on:
+      branch: master
+  # Tags end up on https://docs.3di.live
+  - provider: script
+    skip_cleanup: true
+    script: bash upload-artifact.sh production
+    on:
+      tags: true
+
+notifications:
+  email: false
