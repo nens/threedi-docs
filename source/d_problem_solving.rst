@@ -34,6 +34,7 @@ This might also be the case for other projections.
 
 - The *manhole_storage_area* in the v2_global_settings table of the data base must be set as an INTEGER.
 
+- After downloading a recent result netcdf within the QGIS-plugin the following error occurs: "The selected result data is too old and no longer supported in this version of ThreediToolbox. Please recalculate the results with a newer version of threedicore or use the ThreediToolbox plugin for QGIS 2." This error might also occur when trying to download a NetCDF larger than 2GB. If this happens, try downloading it via the result email or adjust the model settings.  
 
 Frequently endured issues
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
