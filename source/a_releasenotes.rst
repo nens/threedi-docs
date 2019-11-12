@@ -1,6 +1,36 @@
 Release notes
 =============
 
+Release 3Di - 2019-11 Meuse Release 
+++++++++++++++++++++++++++++++++++++
+
+The newest version of 3Di is released on December the 2nd 2019. This 2019-11 Meuse release is a another step towards a fully new way of interacting with 3Di. The following features are released:
+
+- 3Di - Delft FEWS Integration 
+- API v3 beta version
+- Modeler Interface
+- Script sharing
+
+
+3Di - Delft FEWS Integration 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+3Di - API v3 beta version
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+3Di - Modeler Interface
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+d_qgis_plugin.html#view-3di-model-and-results
+
+
+3Di - Script sharing
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+
+
 Release 3Di - 2019-07 Rhine Release 
 ++++++++++++++++++++++++++++++++++++
 
