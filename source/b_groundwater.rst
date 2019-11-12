@@ -1,7 +1,7 @@
 .. _groundwater:
 
-Groundwater
-===========
+2D Groundwater flow
+=====================
 
 Introduction
 ---------------------
@@ -11,8 +11,8 @@ Surface water is not only affected by rain and in and outflow of water originati
 3Di aims at a modelling method that can handle short term effects of heavy precipitation and inundation, including the interaction with groundwater. For the computation of surface flow detailed information about the topography and the land use is often available. However, the information about the soil is often much less accurate and detailed. This lack of data and the complexity of the processes involved, favor a scenario-approach when dealing with groundwater flow. Especially, when investigating the sensitivity of areas to flooding and hindrance originating from groundwater. This approach requires a fast numerical model that can integrate the effects of the sewer system, surface water and overland flow. Therefore, processes need to be simplified. First, a short summary of the concepts implemented in 3Di is presented. In the sections that follow, some more detail and context is given about large scale groundwater flow, the implementation and the choices made in the model.
 
 
-Summary of concepts in 3Di
-------------------------------
+Summary of groundwater concepts in 3Di
+----------------------------------------
 
 .. figure:: image/b_grw_overview_ass.png
    :alt: master_figure2
