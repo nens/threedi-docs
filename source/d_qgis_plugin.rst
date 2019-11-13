@@ -52,7 +52,7 @@ After installation of the plugin a toolbar is added to the QGIS interface. The d
 2) :ref:`load_model_results`
 3) :ref:`3ditoolbox`
 4) :ref:`graph_tool` 
-5) Show sideview of a 3Di model with results
+5) :ref:`sideviewtool`
 6) Statistical tool 
 7) :ref:`waterbalance`
 8) :ref:`animationtool`
@@ -859,6 +859,29 @@ The graph tool can be used for visualizing model results over time. This can be 
 8) In the drop-down menu on the right side of the panel you can choose the type of results you want to see. The y-axis shows the corresponding range and unit of the results type. The x-axis shows the time. *Note: the time is often displayed in kiloseconds (ks). 1 ks = 1000 seconds ≈ 16.7 minutes.*
 9) Below the drop-down menu there is an overview of the nodes/flowlines you selected, with the id of the node/flowline and the type. In this overview you can activate or deactivate the results in the graph by clicking the checkbox next to it. A feature can be deleted by first selecting it in this overview and then click the *Delete* button below the overview. 
 10) The data from the graph can also be exported to an image or csv-file. Right-click the the graph figure and choose 'Export' from the drop-down menu. A new window pops-up in which you can choose the output format and settings. 
+
+.. _sideviewtool:
+
+Show sideview of 3Di model with results
+------------------------------------------
+
+1) Activate the *Show sideview* tool by clicking the map icon in the 3Di toolbar. 
+2) A new panel opens. Click ‘Choose sideview trajectory’. 
+3) A new layer is created with yellow lines. These yellow lines represent all the features through which a sideview can be made (e.g. pipes). Click on a yellow line at the point you want to take as a starting point of your sideview (point A). Click on a second point on the yellow line (point B). The tool automatically detects the shortest route from point A to B. The trajectory is shown as a red line on the map. The sideview of this trajectory is shown in graph. 
+4) You can also define a trajectory with multiple points. Just click on the next point on the yellow line (point C) and the sideview of the shortest route from point B to C is automatically added to the graph. 
+5) The graph contains the following elements: 
+
+	a. The pipe/channel dimensions, represented by the grey area. 
+	b. Dimensions and locations of manholes. 
+	c. Green line: surface levels of manholes
+	d. Green dotted line: drain levels of manholes
+	e. Blue line: the water level.
+
+6) The slider in the *Animation* tool can be used to scroll through time. The blue line representing the water level will move to the water level corresponding with the time in the slider. 
+
+.. figure:: image/d_qgisplugin_sideviewtool.png
+	:alt: Sideview tool
+
 
 .. _animationtool:
 
