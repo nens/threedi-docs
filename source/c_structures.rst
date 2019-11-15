@@ -1,7 +1,7 @@
 .. _structures:
 
-Structures
-============
+1D flow over structures
+=======================
 
 Structures can be an integral part of water systems. In 3Di they are placed between or on connection nodes as links between channels and pipes. They have different properties depending on there type and can have different functions depending on the settings the user defines. The sections below give an overview of the structures available in 3Di.
 
