@@ -48,6 +48,7 @@ Welcome to 3Di's documentation!
 
    b_grid
    c_numerics
+   c_control
    c_calculation_grid_data
    c_results
    c_aggregate_results

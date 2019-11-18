@@ -1,7 +1,7 @@
 .. _interflow:
 
-Interflow
-===========
+2D Interflow
+============
 
 .. TODO: this document isn't included in any toctree
 
@@ -9,8 +9,8 @@ In a 2D model, the water flows over the surface and can infiltrate into the soil
 
 The interflow layer is an extra layer that can be defined below the surface. Surface water can be stored and can flow within the interflow layer. The flow through the interflow layer is described by the Darcy equation. The Darcy type of flow is believed to be more realistic for surface/subsurface flow in rainfall runoff conditions. This is because, in these cases, one deals with very thin water layers for which small (unknown) structures in the soil and on the ground level affect the flow. In such case the flow resembles more a Darcy type of flow than surface water flows.
 
-Basic Principles
-------------------
+Basic Principles of Interflow
+-----------------------------
 
 .. figure:: image/b_interflow_applications.png
    :alt: Applications of the interflow layer
@@ -20,8 +20,8 @@ Basic Principles
 The interflow layer is defined by setting the thickness of the interflow layer, the porosity and the hydraulic conductivity. Together, these variables determine the storage capacity and the flow of the interflow layer. When the ground level is uniform, the thickness of the interflow layer has a unique interpretation, but when the ground level varies within a computational cell, there are multiple interpretation possible. This interpretation can be chosen by the user by setting the interflow type. Before explaning the differences due to the subgrid approach, first, the interflow concept will be explained for a uniform ground level.
 
 
-Computation of Volume
------------------------
+Computation of Volume in 2D domain
+----------------------------------
 
 When introducing an interflow layer, one introduces only new flow links and extra storage capacity, but no new pressure/water level points. This implies that the volume of water in a computational cell consists of the volume in the porous layer and that of the open water layer. The thickness of the interflow layer, the porosity and the water level determine the water volume of a computational cell:
 
@@ -47,8 +47,8 @@ The water level rises from the deepest level in a cell. Therefore, water is firs
 
    Applications of the interflow layer
 
-Computation of Flow
----------------------
+Computation of Flow in the interflow layer
+------------------------------------------
 
 The flow through the interflow layer is calculated by the 2D implementation of Darcy’s law for groundwater flow:
 
