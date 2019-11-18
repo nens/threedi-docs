@@ -113,7 +113,7 @@ The exchange levels can be set by the user or are based on the local bed level. 
 .. math::
    :label: reduced 1D momentum equation
 
-   0 = -g\frac{\partial \zeta}{\partial s} \big\rvert_{1D2}-\frac{\tau_f}{\rho}
+   0 = -g\frac{\partial \zeta}{\partial s} \big\rvert_{1D2D}-\frac{\tau_f}{\rho}
 
 This momentum equation in combination with a cross-section defines the flux between the computational domains. 
 
