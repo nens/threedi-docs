@@ -19,6 +19,8 @@ The 3Di Toolbox only works for:
 - 64-bit version of QGIS (see below for more details)
 - 3Di v2 results
 
+For a more extended description of installing QGIS, the 3Di-Toolbox and troubleshooting go to: https://github.com/nens/ThreeDiToolbox/wiki/Installation
+
 To install the 3Di-Toolbox plugin follow the steps below: 
 
 1) Open QGIS and via the menu bar go to 'Plugins > Manage And Install Plugins'. 
@@ -50,10 +52,10 @@ After installation of the plugin a toolbar is added to the QGIS interface. The d
 2) :ref:`load_model_results`
 3) :ref:`3ditoolbox`
 4) :ref:`graph_tool` 
-5) Show sideview of a 3Di model with results
+5) :ref:`sideviewtool`
 6) Statistical tool 
 7) :ref:`waterbalance`
-8) Show animated results
+8) :ref:`animationtool`
 
     
 .. _load_model_results:
@@ -72,6 +74,323 @@ Note: it is not necessary to load results. It is also possible to load a model w
 .. figure:: image/d_qgisplugin_select_model_results.png
 	:alt: Load 3Di model and results
 
+
+
+.. _view_model_results:
+    
+View 3Di model and results
+--------------------------------------
+
+After loading your 3Di model there are several ways to inspect your model. We have added the following features to QGIS to assist in editing.
+
+- drop down menu's
+- immediate validation
+- automated field fill
+- time series multiple field
+
+Drop down menu's
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We have added drop down menu’s when there is a choice between values. So no more need to look up the values, when you’re in edit mode you can now select the values from a drop down menu. For example when selecting a material for a pipe. 
+
+.. figure:: image/d_qgisplugin_vm_dropdown.png
+    :width: 25pc
+    :height: 25pc
+    :alt: Drop down menu example
+
+Immediate validation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For obligatory fields that need to be filled before simulating we have added non-binding constraints. This means you’ll see green checks next to the field after you’ve filled them in, or orange crosses when you forget something.
+
+.. figure:: image/d_qgisplugin_vm_validation.png
+    :width: 25pc
+    :height: 25pc
+    :alt: Validation example
+	
+
+Time series
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Multiline fields are added for time series to make them easier to fill in. See this example:
+
+.. figure:: image/d_qgisplugin_vm_timeseries.png
+    :width: 50pc
+    :height: 25pc
+    :alt: Timeseries example
+
+
+ 
+Automated field fill 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following fields will be filled automatically:
+
+- Cross section location fetches channel id  automatically (if located on vertex)
+- Channels and culverts automatically fill connection node ids when drawing between nodes with `snapping <https://docs.qgis.org/3.4/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#setting-the-snapping-tolerance-and-search-radius>`_.
+- Invert level from culverts. If invert level is empty culverts assumes the invert level based on manhole bottom_level 
+
+On top of that default values for some of the fields that are required by the 3Di software are added, this helps you built models faster. The following default values will be used if you don’t fill them in:
+
+**v2_simple_infiltration:**
+
+============================= ===============
+Column name						Default value 
+============================= ===============
+display_name  					new
+infiltration_surface_option		0
+============================= ===============
+
+**v2_global_settings:**
+
+============================= ===============
+Column name						Default value 
+============================= ===============
+table_step_size  				0.01
+frict_type						2: Manning
+start_date	 					today
+start_time	 					today 00:00
+numerical_settings_id 			1
+dist_calc_points				10000
+flooding_threshold	 			0.001
+============================= ===============
+
+**v2_2d_lateral:**
+
+============================= ===============
+Column name						Default value 
+============================= ===============
+type  							1: surface
+============================= ===============
+
+**v2_connection_nodes:**
+
+============================= ===============
+Column name						Default value 
+============================= ===============
+code  							new
+============================= ===============
+
+
+**v2_channel:**
+
+============================= =============================================
+Column name						Default value 
+============================= =============================================
+code							new
+frict_type						2: Manning
+channel_id						id of channel when placed on vertex
+============================= =============================================
+
+
+**v2_culvert:**
+
+=============================== ============================================================
+Column name						Default value 
+=============================== ============================================================
+display_name					new
+code							new
+calculation_type				101: isolated
+dist_calc_points				10000
+invert_level_start_point		bottom_level of manhole when snapped to one
+invert_level_end_point			bottom_level of manhole when snapped to one
+frict_type: 					2: Manning
+discharge_coefficient_positive	0.8
+discharge_coefficient_negative	0.8
+zoom_category					4
+connection_node_start_id		id of connection node on start point (when snapped)
+connection_node_end_id			id of connection node on end point (when snapped)
+=============================== ============================================================
+
+
+**v2_channel:**
+
+============================= ============================================================
+Column name						Default value 
+============================= ============================================================
+display_name					new
+code							new
+zoom_category					5
+connection_node_start_id		id of connection node on start point (when snapped)
+connection_node_end_id			id of connection node on end point (when snapped)
+============================= ============================================================
+
+
+**v2_pipe:**
+
+============================= ===============
+Column name						Default value 
+============================= ===============
+display_name					new
+code							new
+calculation_type				1: isolated
+dist_calc_points				10000
+friction_type					2: Manning
+zoom_category					3
+============================= ===============
+
+
+**v2_weir:**
+
+=============================== ==============================
+Column name						Default value 
+=============================== ==============================
+display_name					new
+code							new
+crest_type						4: short crested
+discharge_coefficient_positive	0.8
+discharge_coefficient_negative	0.8
+friction_value					0.02
+friction_type					2: manning
+zoom_category					3
+external						True
+=============================== ==============================
+
+
+**v2_orifice:**
+
+=============================== ==============================
+Column name						Default value 
+=============================== ==============================
+display_name					new
+code							new
+crest_type						4: short crested
+discharge_coefficient_positive	0.8
+discharge_coefficient_negative	0.8
+friction_value					0.02
+friction_type					2: Manning
+zoom_category					3
+=============================== ==============================
+
+
+**v2_manhole:**
+
+============================= ===============
+Column name						Default value 
+============================= ===============
+display_name					new
+code							new
+zoom_category					1
+manhole_indicator				0: inspection
+============================= ===============
+
+
+**v2_pumpstation:**
+
+============================= ===========================================================================
+Column name						Default value 
+============================= ===========================================================================
+display_name					new
+code							new
+type 							1: pump behavior is based on water levels on the suction side
+zoom_category					3
+============================= ===========================================================================
+
+
+**v2_cross_section_definition:**
+
+============================= ===============
+Column name						Default value 
+============================= ===============
+code  							new
+============================= ===============
+
+
+**v2_obstacle:**
+
+============================= ===============
+Column name						Default value 
+============================= ===============
+code  							new
+============================= ===============
+
+
+**v2_levee:**
+
+============================= ===============
+Column name						Default value 
+============================= ===============
+code  							new
+============================= ===============
+
+
+**v2_grid_refinement:**
+
+============================= ===============
+Column name						Default value 
+============================= ===============
+display_name					new
+code							new
+refinement_level				1
+============================= ===============
+
+
+**v2_grid_refinement_area:**
+
+============================= ===============
+Column name						Default value 
+============================= ===============
+display_name					new
+code							new
+refinement_level				1
+============================= ===============
+
+
+**v2_numerical_settings:**
+
+==================================== =================
+Column name								Default value 
+==================================== =================
+limiter_grad_1d							True
+limiter_grad_2d							False
+limiter_slope_crossectional_area_2d		False
+limiter_slope_friction_2d				False
+convergence_cg							0
+convergence_eps							0
+use_of_cg								20
+max_nonlin_iterations					20
+precon_cg								1
+integration_method						0
+flow_direction_threshold				0
+general_numerical_threshold				0
+thin_water_layer_definition				0.05
+minimum_friction_velocity				0.05
+minimum_surface_area					0
+cfl_strictness_factor_1d				1
+cfl_strictness_factor_2d				1
+frict_shallow_water_correction  		0
+pump_implicit_ratio						1
+preissmann_slot							0
+==================================== =================
+
+
+**v2_impervious_surface:**
+
+============================= =========================
+Column name						Default value 
+============================= =========================
+display_name					new
+code							new
+area							area based on geometry
+zoom_category					0
+============================= =========================
+
+
+**v2_surface:**
+
+============================= =========================
+Column name						Default value 
+============================= =========================
+display_name					new
+code							new
+area							area based on geometry
+zoom_category					0
+============================= =========================
+
+
+**Notables:**
+The 3Di database has some fields that are not in use. To clean the view we have hidden them in the form view. They are still available in the database.
+We have made some field names easier to read: prefixes are excluded (e.g. \pipe_).
 
 .. _3ditoolbox:
 
@@ -329,73 +648,73 @@ Add aggregation settings one by one::
 	INSERT INTO v2_aggregation_settings(
 				id, global_settings_id, var_name, flow_variable, aggregation_method, 
 				aggregation_in_space, timestep)
-		VALUES (1, 9999, 'pump_discharge_cum', 'pump_discharge', 'cum', 
+		VALUES (1, 1, 'pump_discharge_cum', 'pump_discharge', 'cum', 
 				'FALSE', 300);
 	
 	INSERT INTO v2_aggregation_settings(
 				id, global_settings_id, var_name, flow_variable, aggregation_method, 
 				aggregation_in_space, timestep)
-		VALUES (2, 9999, 'lateral_discharge_cum', 'lateral_discharge', 'cum', 
+		VALUES (2, 1, 'lateral_discharge_cum', 'lateral_discharge', 'cum', 
 				'FALSE', 300);
 	
 	INSERT INTO v2_aggregation_settings(
 				id, global_settings_id, var_name, flow_variable, aggregation_method, 
 				aggregation_in_space, timestep)
-		VALUES (3, 9999, 'simple_infiltration_cum', 'simple_infiltration', 'cum', 
+		VALUES (3, 1, 'simple_infiltration_cum', 'simple_infiltration', 'cum', 
 				'FALSE', 300);
 	
 	INSERT INTO v2_aggregation_settings(
 				id, global_settings_id, var_name, flow_variable, aggregation_method, 
 				aggregation_in_space, timestep)
-		VALUES (4, 9999, 'rain_cum', 'rain', 'cum', 
+		VALUES (4, 1, 'rain_cum', 'rain', 'cum', 
 				'FALSE', 300);
 	
 	INSERT INTO v2_aggregation_settings(
 				id, global_settings_id, var_name, flow_variable, aggregation_method, 
 				aggregation_in_space, timestep)
-		VALUES (5, 9999, 'leakage_cum', 'leakage', 'cum', 
+		VALUES (5, 1, 'leakage_cum', 'leakage', 'cum', 
 				'FALSE', 300);
 	
 	INSERT INTO v2_aggregation_settings(
 				id, global_settings_id, var_name, flow_variable, aggregation_method, 
 				aggregation_in_space, timestep)
-		VALUES (6, 9999, 'interception_current', 'interception', 'current', 
+		VALUES (6, 1, 'interception_current', 'interception', 'current', 
 				'FALSE', 300);
 	
 	INSERT INTO v2_aggregation_settings(
 				id, global_settings_id, var_name, flow_variable, aggregation_method, 
 				aggregation_in_space, timestep)
-		VALUES (7, 9999, 'discharge_cum', 'discharge', 'cum', 
+		VALUES (7, 1, 'discharge_cum', 'discharge', 'cum', 
 				'FALSE', 300);
 	
 	INSERT INTO v2_aggregation_settings(
 				id, global_settings_id, var_name, flow_variable, aggregation_method, 
 				aggregation_in_space, timestep)
-		VALUES (8, 9999, 'discharge_cum_neg', 'discharge', 'cum_negative', 
+		VALUES (8, 1, 'discharge_cum_neg', 'discharge', 'cum_negative', 
 				'FALSE', 300);
 	
 	INSERT INTO v2_aggregation_settings(
 				id, global_settings_id, var_name, flow_variable, aggregation_method, 
 				aggregation_in_space, timestep)
-		VALUES (9, 9999, 'discharge_cum_pos', 'discharge', 'cum_positive', 
+		VALUES (9, 1, 'discharge_cum_pos', 'discharge', 'cum_positive', 
 				'FALSE', 300);
 	
 	INSERT INTO v2_aggregation_settings(
 				id, global_settings_id, var_name, flow_variable, aggregation_method, 
 				aggregation_in_space, timestep)
-		VALUES (10, 9999, 'volume_current', 'volume', 'current', 
+		VALUES (10, 1, 'volume_current', 'volume', 'current', 
 				'FALSE', 300);
 				
 	INSERT INTO v2_aggregation_settings(
 				id, global_settings_id, var_name, flow_variable, aggregation_method, 
 				aggregation_in_space, timestep)
-		VALUES (11, 9999, 'qsss_cum_pos', 'surface_source_sink_discharge', 'cum_positive', 
+		VALUES (11, 1, 'qsss_cum_pos', 'surface_source_sink_discharge', 'cum_positive', 
 				'FALSE', 300);
 				
 	INSERT INTO v2_aggregation_settings(
 				id, global_settings_id, var_name, flow_variable, aggregation_method, 
 				aggregation_in_space, timestep)
-		VALUES (12, 9999, 'qsss_cum_neg', 'surface_source_sink_discharge', 'cum_negative', 
+		VALUES (12, 1, 'qsss_cum_neg', 'surface_source_sink_discharge', 'cum_negative', 
 				'FALSE', 300);				
 	
 Note, that in both cases, in case of a new model or an existing model, you must update the global settings id to the id of the scenario for which you wish to generate aggregated results. For multiple scenarios, you must add these settings multiple times (and update row id's). Also, you may choose to change the aggregation time step, but make sure to use the same time step for all aggregation variables in case one wants to use the water balance tool.
@@ -540,5 +859,68 @@ The graph tool can be used for visualizing model results over time. This can be 
 8) In the drop-down menu on the right side of the panel you can choose the type of results you want to see. The y-axis shows the corresponding range and unit of the results type. The x-axis shows the time. *Note: the time is often displayed in kiloseconds (ks). 1 ks = 1000 seconds ≈ 16.7 minutes.*
 9) Below the drop-down menu there is an overview of the nodes/flowlines you selected, with the id of the node/flowline and the type. In this overview you can activate or deactivate the results in the graph by clicking the checkbox next to it. A feature can be deleted by first selecting it in this overview and then click the *Delete* button below the overview. 
 10) The data from the graph can also be exported to an image or csv-file. Right-click the the graph figure and choose 'Export' from the drop-down menu. A new window pops-up in which you can choose the output format and settings. 
+
+.. _sideviewtool:
+
+Show sideview of 3Di model with results
+------------------------------------------
+
+1) Activate the *Show sideview* tool by clicking the map icon in the 3Di toolbar. 
+2) A new panel opens. Click ‘Choose sideview trajectory’. 
+3) A new layer is created with yellow lines. These yellow lines represent all the features through which a sideview can be made (e.g. pipes). Click on a yellow line at the point you want to take as a starting point of your sideview (point A). Click on a second point on the yellow line (point B). The tool automatically detects the shortest route from point A to B. The trajectory is shown as a red line on the map. The sideview of this trajectory is shown in graph. 
+4) You can also define a trajectory with multiple points. Just click on the next point on the yellow line (point C) and the sideview of the shortest route from point B to C is automatically added to the graph. 
+5) The graph contains the following elements: 
+
+	a. The pipe/channel dimensions, represented by the grey area. 
+	b. Dimensions and locations of manholes. 
+	c. Green line: surface levels of manholes
+	d. Green dotted line: drain levels of manholes
+	e. Blue line: the water level.
+
+6) The slider in the *Animation* tool can be used to scroll through time. The blue line representing the water level will move to the water level corresponding with the time in the slider. 
+
+.. figure:: image/d_qgisplugin_sideviewtool.png
+	:alt: Sideview tool
+
+
+.. _animationtool:
+
+Show animated results
+-------------------------------
+The *Animation on* tool can be used to view the results in the flowlines and nodes over time. This is useful to get insight in, for example, flow directions, distribution of discharge and distribution of water levels. 
+
+1) Activate the *Animation* tool by clicking 'Animation on'. A blue progress bar appears at the top of the map window. Wait till this progess bar has disappeared before you continue. 
+2) The first drop-down menu can be used to choose the kind of results you want to see for flowlines (e.g. discharge). 
+3) The second drop-down menu can be used to choose the kind of results you want to see for nodes (e.g. water level). 
+4) The slider can be used to scroll through the time of your simulation. 
+5) The timestep of the slider is shown in the box on the right side. Time notation is in DAYS:HOURS:MINUTES from start of simulation. 
+
+.. figure:: image/d_qgisplugin_animation_on.png
+	:alt: Animation on bar
+
+When the *Animation* tool is activated, temporary layers are created to show the chosen results:
+
+.. figure:: image/d_qgisplugin_animationlayers.png
+	:alt: Animation layers
+
+The thickness of the lines show the quantity, the arrows show the flow direction and type of connection (1D, 2D or 1D-2D). The quantity of the node results is displayed by different colours. 
+When groundwater is not used in the model, the layers 'line_results_groundwater' and 'node_results_groundwater' can be turned off. 
+
+An example of the animated flowlines is shown in the figure below. 
+
+.. figure:: image/d_qgisplugin_stroming.png
+	:alt: Animation flow
+
+Here, the purple arrows show flow over the 2D domain. The pink arrows show the flow from the 1D domain to the 2D domain or vice versa. In this case this is flow from the terrain into a sewerage manhole. The blue arrows show the flow through the 1D elements, in this case the sewerage pipes. 
+
+The line results can also be filtered to distinguish between type of flow. To do this right click on the 'line_results' layer and choose 'Filter' from the drop-down menu. A new window will pop up: 
+
+.. figure:: image/d_qgisplugin_filter.png
+	:alt: Filter
+
+Double click on 'type' and click 'Sample' to see which types are available. In the 'filter expression' field you can specify the types of flowlines you want to show, e.g. "type" = '2d'. In the picture below an example of 2D flow is shown. 
+
+.. figure:: image/d_qgisplugin_2d_flow.png
+	:alt: Filter
 
 
