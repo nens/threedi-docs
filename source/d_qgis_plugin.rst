@@ -91,7 +91,7 @@ After loading your 3Di model schematisation, there are several ways to inspect y
 Drop down menus
 ^^^^^^^^^^^^^^^
 
-We have added drop down menus for multiple value attributes in tables. This to assist you in selecting the proper values. The figure below shows an example for selecting a material for a pipe. 
+We have added drop down menus for multiple value attributes in tables. This to assist you in selecting the proper values. The figure below shows an example for selecting a shape for a cross section definition. 
 
 .. figure:: image/d_qgisplugin_vm_dropdown.png
     :width: 25pc
