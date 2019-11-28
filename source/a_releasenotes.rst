@@ -1,6 +1,83 @@
 Release notes
 =============
 
+Release 3Di - 2019-11 Meuse Release 
+++++++++++++++++++++++++++++++++++++
+
+Modeler interface
+^^^^^^^^^^^^^^^^^
+
+Based on user feedback during our user meetings in the Netherlands and Denmark we have made it one of our commitments to make 3Di more easy to use. The first step we have made by building user friendly views in QGIS. Not only that but we have implemented a lot of features like default values, selectable options, assistance with obligated fields and lots more. This will make it easier and faster to build models using 3Di.
+
+For a full list of adjustments, have a look `here <https://docs.3di.lizard.net/d_qgis_plugin.html#view-and-edit-3di-model-a-schematisation>`_. 
+
+
+Modeler interface installer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We offer a brand new installer dedicated to model building and analyzing. In this installation we include our plugin, additional useful third party plugins and a custom (simplified) layout. As a user you have two choices:
+- use our Modeler Interface installer (for standard use of 3Di)
+- use QGIS and install our plugin (for advanced users)
+
+Download here
+
+If you have problems within your organization installing QGIS 3.x and are still using QGIS 2.18 please contact our `local partner <https://landgoed.it/producten/>`_. (dutch only) that advises organization on the implementation of QGIS.  
+
+
+Delft-FEWS 3Di integration
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We are proud to announce that we have made it possible to hook up your 3Di model with FEWS. In FEWS you can now stop, start and analyze your 3Di model (include movie of Texel). This makes it more easy to deploy 3Di in an operational context. Interested to know more about this possibility? Read this `blogpost <https://3diwatermanagement.com/blog/3di-in-operational-forecasting/>`_. or contact us directly via jonas@nelen-schuurmans.nl
+
+Script sharing - Invitation to participate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A lot of our users have built custom scripts on our API. To give everyone a chance to share their scripts we have opened a repository on github to share the code:
+
+`github.com/threedi <https://github.com/threedi>`_.
+
+
+Not only is this a good way to show others what you’ve built, it also works as a versioning system.
+
+Don’t worry, if people are using your scripts from github it does not mean your script suddenly doesn’t work anymore on your own laptop.   
+
+Brand new API
+^^^^^^^^^^^^^
+
+This new architecture enables us to built faster, deploy easier. It also enables us to automate a lot of the testing that was done before every release, enabling smoother releases. 
+
+As a regular user you don’t need to do anything to use the new API. We will start rolling out an interface in the modeler interface that will automatically use the new API.
+
+Are you interest to know more about our API? Read our blog-post here.
+
+Damage calculations
+^^^^^^^^^^^^^^^^^^^
+
+For our Dutch users only: We have updated the base maps for damage calculations to incorporate the latest AHN3 for the following areas: 
+- Waterschap Vallei en Veluwe
+- Waterschap Rijn en IJssel
+- Waterschap Limburg
+
+Documentation
+^^^^^^^^^^^^^
+
+We are always working to improve our documentation. Most important changes are:
+- new database sheet
+- description of our QGIS plugin
+
+Did you know that our documentation is complete open source? If you like to contribute, let us know via servicedesk@nelen-schuurmans.nl
+
+Deprecation warning
+^^^^^^^^^^^^^^^^^^^
+
+With our new structure we are also going to phase out some of our current stack.
+- v1 models. All our users that are still using those we have already contacted about this. Do you still have a v1 model and we have not contacted you? Please let us know. 
+- Current live site. Don’t worry, we will only phase it out after we have complete support for current functionality in the new one. We will organise a master class and webinars to help you understand the new user interface.
+API v1. This will be replaced with v3. Estimated now is that this will be 4-2019
+
+
+
+
 Release 3Di - 2019-07 Rhine Release 
 ++++++++++++++++++++++++++++++++++++
 
