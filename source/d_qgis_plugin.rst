@@ -48,12 +48,12 @@ After installation of the plugin a toolbar is added to the QGIS interface. The d
 .. figure:: image/d_qgispluging_toolbox_overview.png
 	:alt: Plugin overview
 
-1) Clear cache. 
+1) Clear cache 
 2) :ref:`load_model_results`
 3) :ref:`3ditoolbox`
 4) :ref:`graph_tool` 
 5) :ref:`sideviewtool`
-6) Statistical tool 
+6) Statistical tool
 7) :ref:`waterbalance`
 8) :ref:`animationtool`
 
@@ -561,7 +561,9 @@ The following objects are imported:
 
 * Manhole (``*KNP``)
 	* The number of inhabitants will be added as an *Impervious surface*. 
+	
 Note: the shape of the manhole is refered as 'rnd' = round, 'sqr' = square and 'rect' = rectangle
+
 *    Pipe (``*LEI``)
 	*    The number of inhabitants will be added as *Impervious surface*
 *    Pump station (``*GEM``)
@@ -587,11 +589,10 @@ Viewing and Analysing 3Di results
 
 We have various tools developped to assist users in analysing a viewing their results. In this section, some of these are described.
 
-The water balance tool
-^^^^^^^^^^^^^^^^^^^^^^
-
 .. _waterbalance:
 
+The water balance tool
+^^^^^^^^^^^^^^^^^^^^^^
 
 The water balance tool computes the water balance in a sub-domain of your model. It uses the incoming and outgoing flows in that domain and visualizes the various contributions of the flow in graphs. The development was an initiative of Deltares and jointly developed with Nelen & Schuurmans. The water balance tool is co-funded by the Top Sector Water (Ministry of Economic Affairs)
 
