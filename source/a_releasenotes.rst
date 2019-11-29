@@ -1,6 +1,148 @@
 Release notes
 =============
 
+Release 3Di - 2019-11 Meuse Release 
++++++++++++++++++++++++++++++++++++
+
+In this release we have the following:
+
+- Modeller interface
+- Modeller interface installer
+- Operational flood forecasting with 3Di
+- Script sharing - Invitation to participate
+- Brand new API (beta)
+- Damage calculations
+- Documentation
+- Bugfixing
+
+
+Modeller Interface
+^^^^^^^^^^^^^^^^^^
+
+We are happy to announce our brand new user-friendly Modeller Interface. Based on user feedback during our user meetings in the Netherlands and Denmark and suggestions we received in our servicedesk we have implemented a lot of features like default values, selectable options, assistance with obligated fields and lots more. This will make it easier and faster to build models using 3Di.
+Additionally, when loading a model using the 3Di toolbox, automatically a spatialite connection is stored. This makes it easier to use the raster and schematisation checker.
+For a full list of adjustments, have a look at the `qgis documentation page <https://docs.3di.lizard.net/d_qgis_plugin.html#view-and-edit-3di-model-a-schematisation>`_. 
+
+
+Modeller interface installer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We offer a brand new installer in which we have configured QGIS specifically for model building and analyzing. In this installation we include QGIS, our plugin, additional useful third party plugins and a custom (simplified) layout. As a user you have two choices:
+
+- use our Modeller Interface installer (for standard use of 3Di)
+- use QGIS and install our plugin (for advanced users)
+
+Download here
+
+If you experience difficulty within your organization installing QGIS 3.x or the Modeller interface and are still using QGIS 2.18 please contact our `local partner <https://landgoed.it/producten/>`_ (dutch only) that advises organizations on the implementation of QGIS.  
+
+
+Operational flood forecasting with 3Di
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We are proud to announce that we have made it easier to deploy your 3Di model operationally. You can now start, stop, pause and analyze your 3Di model using our brand new API (more on the API below). Interested to know more about this possibility? Read this `blogpost on operational flood forecasting <https://3diwatermanagement.com/blog/operational-flood-forecasting-with-3di/>`_ or contact us directly via jonas@nelen-schuurmans.nl
+
+Script sharing - Invitation to participate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+One of the special things about 3Di is that we have made our software avaible via an API, so users can use it any way they like. Thanks to this possibility a lot of our users have built custom scripts on our API. This can be to start a calculation, built a model or to analyse results in a specific way. To give everyone a chance to share their scripts we have opened a repository on github to share the code:
+
+`github.com/threedi <https://github.com/threedi>`_
+
+Not only is this an opportunity to show to other users what you’ve built, it also works as a versioning system. Would you like to share your scripts but you don't know how github works? Contact us via servicedesk@nelen-schuurmans.nl and we'll help you with this.
+
+Brand new API (beta) 
+^^^^^^^^^^^^^^^^^^^^
+
+We have released our first version of our brand new API. We are very proud to share this with you. This release contains enough features to perform simple calculations but is not a full blown copy of our current API. For users that are not into programming: we are not only working on making the API available in our brand new live site, but also in our modeler interface. It will e.g. be possible to start a calculation from with the Modeller Interface.
+
+With our new API we separate model schematization from scenario settings. As a user you -of course- still build your model and upload it to the 3Di cloud. After this, you can play with scenario settings without the need to upload again or change anything in the model schematization. Using our live site it was already possible to see model behaviour interactively, with our new API it will also be possible to see this interactively from other platforms or request in-between results. Like this it is not required anymore to wait for the full calculation to finish only to discover there was a wrong setting or mistake in the model schematization. 
+
+This new approach is a big change in how the calculation core works. The engine remains the same, but the shell has completely changed. To fully test the new API we make this available as a beta release on request to our users. 
+
+So what do we support right away? 
+
+Scenario’s:
+
+- rain (including more extensive custom rain option)
+- sources & sinks
+- laterals (**new!**)
+- upload own events (using netCDF) (**new!**)
+- initial water level (1D/2D) (**new!**)
+
+Interactiveness:
+
+- start 
+- stop (**new!**)
+- pause (**new!**)
+- progress (**new!**)
+
+States:
+
+- saves state
+- use saved state
+
+Results:
+
+- result download via API (**new!**)
+- metadata on modelrun & model schematization (**new!**)
+
+Here you can find a more `detailed technical overview <https://nens.github.io/threedi-openapi-client/usage/>`_.  of our API.
+
+*How to continue*
+
+This release is our first production release in which we invite beta users to test our new API. Interested to be a beta user? Let us know here
+
+Of course our work is not finished yet. What do we make available in the nearby future?
+
+Scenarios:
+
+- breaches
+- wind
+- raster edits
+- boundary conditions
+
+Interactiveness:
+
+- make changes (after pausing the model)
+- request results (during calculation)
+
+Results:
+
+- postprocessing via Lizard
+
+This new API enables us to built faster and deploy easier. It also enables us to automate a lot of the testing that was done before every release, enabling smoother and bugfree releases. 
+
+As a regular user you don’t need to do anything to use the new API. We will start rolling out an interface in the modeler interface that will automatically use the new API.
+
+Damage calculations
+^^^^^^^^^^^^^^^^^^^
+
+For our Dutch users only: We have updated the base maps for damage calculations to incorporate the latest AHN3 for the following areas: 
+
+- Waterschap Vallei en Veluwe
+- Waterschap Rijn en IJssel
+- Waterschap Limburg
+
+Documentation
+^^^^^^^^^^^^^
+
+We are always working to improve our documentation. Most important changes are:
+
+- `New database sheet  <https://docs.3di.lizard.net/d_before_you_begin.html#database-overview>`_. 
+- `Manual <https://docs.3di.lizard.net/d_qgis_plugin.html#view-and-edit-3di-model-a-schematisation>`_ of our QGIS plugin
+
+Bugfixing
+^^^^^^^^^
+
+The following bugs have been solved in the Modeller Interface:
+
+- Improved raster_checker's 'extreme raster values' check: not rely on meta data, but check actual data. Also include number of warnings in pop-up when finished.
+- Added missing columns to the manhole_view layer.
+- Added 'v2_cross_section_location_view' and 'v2_simple_infiltration' layers to the schematisation group.
+- Fixed schematisation checker, now levees are also checked for empty geometries.
+
+
 Release 3Di - 2019-07 Rhine Release 
 ++++++++++++++++++++++++++++++++++++
 
@@ -14,12 +156,12 @@ We have changed the way we name our releases, from now on releasenames will have
 Schematization checker
 ^^^^^^^^^^^^^^^^^^^^^^
 
-We proudly announce our newest addition to the 3Di Modeler Interface! Our QGIS toolbox has been expanded with a new tool, called the schematization checker.
+We proudly announce our newest addition to the 3Di Modeller Interface! Our QGIS toolbox has been expanded with a new tool, called the schematization checker.
 This tool will help you  building your 3Di models. Simply select your 3Di schematisation and run the schematisation checker. It will verify a range of input data and settings. It reports any missing or incorrect data in your 3Di model. This first version of the schematisation checker will find already the most common mistakes made when building a 3Di schematisation. This first version of the schematisation checker does not catch all possible errors in your 3Di schematisation. However, we will add more checks in the future. 
 
-Documentation of the tool can be found here `here <https://docs.3di.lizard.net/en/stable/d_qgis_plugin.html>`_.
+`Documentation <https://docs.3di.lizard.net/en/stable/d_qgis_plugin.html>`_. of the tool. 
 
-Just like the ThreeDiToolbox, the schematisation checker is an open source tool. You can find the source code here `here <https://github.com/nens/threedi-modelchecker>`_. Any contributions are greatly appreciated.
+Just like the ThreeDiToolbox, the schematisation checker is an open source tool. You can find the `source code <https://github.com/nens/threedi-modelchecker>`_. online Any contributions are greatly appreciated.
 
 API v3 dev version
 ^^^^^^^^^^^^^^^^^^
@@ -39,8 +181,8 @@ Computational Core
 - Sommerfeld edges: We have fixed a bug for the Sommerfeld boundary conditions, which might occur in pure 1D calculations.
 - 1D Laterals: In case of 1D laterals, the results were not correctly written in the netcdf and in the flow summary. 
 
-QGIS/Modeler Interface
-^^^^^^^^^^^^^^^^^^^^^^
+QGIS/Modeller Interface
+^^^^^^^^^^^^^^^^^^^^^^^
 
 - Animation toolbar:  The animation toolbar previously allowed users to select variables from the aggregation netcdf. However, these variables were not supported in the animation tool causing it to crash when a user selects them. We've removed these aggregation variables from the animation tool. Furthermore, the timeslider now displays the selected timestamp index as "Days Hours:Minutes" after the start of the simulation, similar as in the 3Di live-site. Previously it displayed an timestamp index.
 - Load all tables from spatialite in qgis on startup: Not all 3Di tables were loaded when selecting a 3Di model. We have added the missing table. Still missing a table? Let us know
@@ -90,8 +232,8 @@ The models in the 3Di repository are migrated after every 3Di release. This to e
 QGIS 3.4.5 support
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We are happy to announce the support on QGIS 3.4.5 for all 3Di related QGIS tools and plugins! We follow the lead of the QGIS in releases and in support of our plugins. This means that we will also stop active development on QGIS 2.18. New features will only be available for QGIS 3.4.5 as this is the new Long Term Release from QGIS. A technical overview can be found `here <changelog.qgis.org/en/qgis/version/3.4-LTR/>`_.
-Some nice animations of several of the new features are published `here <https://north-road.com/2017/12/24/24-days-of-qgis-3-0-features/>`_.
+We are happy to announce the support on QGIS 3.4.5 for all 3Di related QGIS tools and plugins! We follow the lead of the QGIS in releases and in support of our plugins. This means that we will also stop active development on QGIS 2.18. New features will only be available for QGIS 3.4.5 as this is the new Long Term Release from QGIS. A `technical overview <changelog.qgis.org/en/qgis/version/3.4-LTR/>`_. can be found online.
+Some nice `animations <https://north-road.com/2017/12/24/24-days-of-qgis-3-0-features/>`_. of several of the new features are published online.
 Specifically for 3Di, one of the most exciting new features is the new *Mesh support*. This will allow to visualise easily your water levels and velocities in the 2D  domain. This will show the raw data as available in the NetCDF. When using the Crayfish plugin, users can create movies. Note, that results of surface source and sink terms will only be visualised in the plugin supported by QGIS 3.4.5.
 
 The 3Di plugin is tested against windows7, windows10, Linux16.04, Linux18.04. The easiest way to install QGIS with the correct dependencies is using the stand-alone installation package (https://www.qgis.org/nl/site/forusers/download.html). Under Windows, it is recommended to use a 64-bits version of QGIS (a compiled 64-bit version of the netCDF library is included. For the 32-bit version of QGIS you have to install/compile a version of the python netCDF library under QGIS yourself).
