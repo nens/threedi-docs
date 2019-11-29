@@ -136,14 +136,26 @@ On top of that, some default values for some of the mandatory fields are set. Th
 ============================= ===============
 Column name						Default value 
 ============================= ===============
-table_step_size  				0.01
+dem_obstacle_detection				0
+dist_calc_points					10000
+flooding_threshold					0.001
+frict_avg							0
 frict_type						2: Manning
-start_date	 					today
-start_time	 					today 00:00
-numerical_settings_id 			1
-dist_calc_points				10000
-flooding_threshold	 			0.001
+guess_dams							0
+numerical_settings_id 				1
+start_date						today
+start_time						today 00:00
+table_step_size  					0.01
 ============================= ===============
+
+**v2_aggregation_settings:**
+
+============================= =========================
+Column name						Default value 
+============================= =========================
+aggregation_in_space			False
+============================= =========================
+
 
 **v2_2d_lateral:**
 
@@ -164,13 +176,15 @@ code  							new
 
 **v2_channel:**
 
-============================= =============================================
+============================= ============================================================
 Column name						Default value 
-============================= =============================================
+============================= ============================================================
+display_name					new
 code							new
-frict_type						2: Manning
-channel_id						id of channel when placed on vertex
-============================= =============================================
+zoom_category					5
+connection_node_start_id		id of connection node on start point (when snapped)
+connection_node_end_id			id of connection node on end point (when snapped)
+============================= ============================================================
 
 
 **v2_culvert:**
@@ -191,19 +205,6 @@ zoom_category					4
 connection_node_start_id		id of connection node on start point (when snapped)
 connection_node_end_id			id of connection node on end point (when snapped)
 =============================== ============================================================
-
-
-**v2_channel:**
-
-============================= ============================================================
-Column name						Default value 
-============================= ============================================================
-display_name					new
-code							new
-zoom_category					5
-connection_node_start_id		id of connection node on start point (when snapped)
-connection_node_end_id			id of connection node on end point (when snapped)
-============================= ============================================================
 
 
 **v2_pipe:**
@@ -291,6 +292,15 @@ zoom_category					3
 Column name						Default value 
 ============================= ===============
 code  							new
+============================= ===============
+
+**v2_cross_section_location:**
+
+============================= ===============
+Column name						Default value 
+============================= ===============
+code  							new
+friction_type					2
 ============================= ===============
 
 
