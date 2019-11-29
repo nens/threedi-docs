@@ -13,12 +13,14 @@ In this release we have the following:
 - Brand new API (beta)
 - Damage calculations
 - Documentation
+- Bugfixing
+
 
 Modeller Interface
 ^^^^^^^^^^^^^^^^^^
 
 We are happy to announce our brand new user-friendly Modeller Interface. Based on user feedback during our user meetings in the Netherlands and Denmark and suggestions we received in our servicedesk we have implemented a lot of features like default values, selectable options, assistance with obligated fields and lots more. This will make it easier and faster to build models using 3Di.
-
+Additionally, when loading a model using the 3Di toolbox automatically a spatialite connection is stored. This makes it easier to use the raster and schematisation checker.
 For a full list of adjustments, have a look at the `qgis documentation page <https://docs.3di.lizard.net/d_qgis_plugin.html#view-and-edit-3di-model-a-schematisation>`_. 
 
 
@@ -129,6 +131,16 @@ We are always working to improve our documentation. Most important changes are:
 
 - `New database sheet  <https://docs.3di.lizard.net/d_before_you_begin.html#database-overview>`_. 
 - `Manual <https://docs.3di.lizard.net/d_qgis_plugin.html#view-and-edit-3di-model-a-schematisation>`_ of our QGIS plugin
+
+Bugfixing
+^^^^^^^^^
+
+The following bugs have been solved in the Modeller Interface:
+
+- Improved raster_checker's 'extreme raster values' check: not rely on meta data, but check actual data. Also include number of warnings in pop-up when finished.
+- Added missing columns to the manhole_view layer.
+- Added 'v2_cross_section_location_view' and 'v2_simple_infiltration' layers to the schematisation group.
+- Fixed schematisation checker, now levees are also checked for empty geometries.
 
 
 Release 3Di - 2019-07 Rhine Release 
