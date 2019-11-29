@@ -2,25 +2,24 @@ Release notes
 =============
 
 Release 3Di - 2019-11 Meuse Release 
-++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++
 
 In this release we have the following:
 - Modeller interface
 - Modeller interface installer
 - Delft-FEWS 3Di integration
-- 
 
 
 Modeller Interface
-^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 We are happy to announce our brand new user-friendly Modeller Interface. Based on user feedback during our user meetings in the Netherlands and Denmark and suggestions we received in our servicedesk we have implemented a lot of features like default values, selectable options, assistance with obligated fields and lots more. This will make it easier and faster to build models using 3Di.
 
-For a full list of adjustments, have a look `here <https://docs.3di.lizard.net/d_qgis_plugin.html#view-and-edit-3di-model-a-schematisation>`_. 
+For a full list of adjustments, have a look at the `qgis documentation page <https://docs.3di.lizard.net/d_qgis_plugin.html#view-and-edit-3di-model-a-schematisation>`_. 
 
 
 Modeller interface installer
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We offer a brand new installer dedicated to model building and analyzing. In this installation we include our plugin, additional useful third party plugins and a custom (simplified) layout. As a user you have two choices:
 - use our Modeller Interface installer (for standard use of 3Di)
@@ -34,7 +33,7 @@ If you have problems within your organization installing QGIS 3.x or the Modelle
 Delft-FEWS 3Di integration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We are proud to announce that we have made it easier to deploy your 3Di model in an operational manner. You can now start, stop, pause and analyze your 3Di model using our brand new API. An example implementation would be to hook up your 3Di model with FEWS. Interested to know more about this possibility? Read this `blogpost <https://3diwatermanagement.com/blog/operational-flood-forecasting-with-3di/>`_. or contact us directly via jonas@nelen-schuurmans.nl
+We are proud to announce that we have made it easier to deploy your 3Di model in an operational manner. You can now start, stop, pause and analyze your 3Di model using our brand new API. An example implementation would be to hook up your 3Di model with FEWS. Interested to know more about this possibility? Read this `blogpost on operational flood forecasting <https://3diwatermanagement.com/blog/operational-flood-forecasting-with-3di/>`_. or contact us directly via jonas@nelen-schuurmans.nl
 
 Script sharing - Invitation to participate
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -81,7 +80,7 @@ Results:
 - result download via API (new!)
 - metadata on modelrun & model schematization (new!)
 
-A more detailed technical overview of our API can be found here [ link toevoegen]  
+Here you can find a more `detailed technical overview <https://nens.github.io/threedi-openapi-client/usage/>`_.  of our API.
 
 **How to continue**
 
@@ -108,7 +107,6 @@ As a regular user you don’t need to do anything to use the new API. We will st
 
 Are you interest to know more about our API? Read our blog-post here.
 
-
 Damage calculations
 ^^^^^^^^^^^^^^^^^^^
 
@@ -123,8 +121,6 @@ Documentation
 We are always working to improve our documentation. Most important changes are:
 - `New database sheet  <https://docs.3di.lizard.net/d_before_you_begin.html#database-overview>`_. 
 - `Manual <https://docs.3di.lizard.net/d_qgis_plugin.html#view-and-edit-3di-model-a-schematisation>`_. of our QGIS plugin
-
-Did you know that our documentation is completely open source? If you like to contribute, let us know via servicedesk@nelen-schuurmans.nl
 
 
 Release 3Di - 2019-07 Rhine Release 
@@ -143,9 +139,9 @@ Schematization checker
 We proudly announce our newest addition to the 3Di Modeller Interface! Our QGIS toolbox has been expanded with a new tool, called the schematization checker.
 This tool will help you  building your 3Di models. Simply select your 3Di schematisation and run the schematisation checker. It will verify a range of input data and settings. It reports any missing or incorrect data in your 3Di model. This first version of the schematisation checker will find already the most common mistakes made when building a 3Di schematisation. This first version of the schematisation checker does not catch all possible errors in your 3Di schematisation. However, we will add more checks in the future. 
 
-Documentation of the tool can be found here `here <https://docs.3di.lizard.net/en/stable/d_qgis_plugin.html>`_.
+`Documentation <https://docs.3di.lizard.net/en/stable/d_qgis_plugin.html>`_. of the tool. 
 
-Just like the ThreeDiToolbox, the schematisation checker is an open source tool. You can find the source code here `here <https://github.com/nens/threedi-modelchecker>`_. Any contributions are greatly appreciated.
+Just like the ThreeDiToolbox, the schematisation checker is an open source tool. You can find the `source code <https://github.com/nens/threedi-modelchecker>`_. online Any contributions are greatly appreciated.
 
 API v3 dev version
 ^^^^^^^^^^^^^^^^^^
@@ -166,7 +162,7 @@ Computational Core
 - 1D Laterals: In case of 1D laterals, the results were not correctly written in the netcdf and in the flow summary. 
 
 QGIS/Modeller Interface
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
 
 - Animation toolbar:  The animation toolbar previously allowed users to select variables from the aggregation netcdf. However, these variables were not supported in the animation tool causing it to crash when a user selects them. We've removed these aggregation variables from the animation tool. Furthermore, the timeslider now displays the selected timestamp index as "Days Hours:Minutes" after the start of the simulation, similar as in the 3Di live-site. Previously it displayed an timestamp index.
 - Load all tables from spatialite in qgis on startup: Not all 3Di tables were loaded when selecting a 3Di model. We have added the missing table. Still missing a table? Let us know
@@ -216,8 +212,8 @@ The models in the 3Di repository are migrated after every 3Di release. This to e
 QGIS 3.4.5 support
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We are happy to announce the support on QGIS 3.4.5 for all 3Di related QGIS tools and plugins! We follow the lead of the QGIS in releases and in support of our plugins. This means that we will also stop active development on QGIS 2.18. New features will only be available for QGIS 3.4.5 as this is the new Long Term Release from QGIS. A technical overview can be found `here <changelog.qgis.org/en/qgis/version/3.4-LTR/>`_.
-Some nice animations of several of the new features are published `here <https://north-road.com/2017/12/24/24-days-of-qgis-3-0-features/>`_.
+We are happy to announce the support on QGIS 3.4.5 for all 3Di related QGIS tools and plugins! We follow the lead of the QGIS in releases and in support of our plugins. This means that we will also stop active development on QGIS 2.18. New features will only be available for QGIS 3.4.5 as this is the new Long Term Release from QGIS. A `technical overview <changelog.qgis.org/en/qgis/version/3.4-LTR/>`_. can be found online.
+Some nice `animations <https://north-road.com/2017/12/24/24-days-of-qgis-3-0-features/>`_. of several of the new features are published online.
 Specifically for 3Di, one of the most exciting new features is the new *Mesh support*. This will allow to visualise easily your water levels and velocities in the 2D  domain. This will show the raw data as available in the NetCDF. When using the Crayfish plugin, users can create movies. Note, that results of surface source and sink terms will only be visualised in the plugin supported by QGIS 3.4.5.
 
 The 3Di plugin is tested against windows7, windows10, Linux16.04, Linux18.04. The easiest way to install QGIS with the correct dependencies is using the stand-alone installation package (https://www.qgis.org/nl/site/forusers/download.html). Under Windows, it is recommended to use a 64-bits version of QGIS (a compiled 64-bit version of the netCDF library is included. For the 32-bit version of QGIS you have to install/compile a version of the python netCDF library under QGIS yourself).
