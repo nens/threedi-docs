@@ -20,14 +20,14 @@ Modeller Interface
 ^^^^^^^^^^^^^^^^^^
 
 We are happy to announce our brand new user-friendly Modeller Interface. Based on user feedback during our user meetings in the Netherlands and Denmark and suggestions we received in our servicedesk we have implemented a lot of features like default values, selectable options, assistance with obligated fields and lots more. This will make it easier and faster to build models using 3Di.
-Additionally, when loading a model using the 3Di toolbox automatically a spatialite connection is stored. This makes it easier to use the raster and schematisation checker.
+Additionally, when loading a model using the 3Di toolbox, automatically a spatialite connection is stored. This makes it easier to use the raster and schematisation checker.
 For a full list of adjustments, have a look at the `qgis documentation page <https://docs.3di.lizard.net/d_qgis_plugin.html#view-and-edit-3di-model-a-schematisation>`_. 
 
 
 Modeller interface installer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We offer a brand new installer dedicated to model building and analyzing. In this installation we include our plugin, additional useful third party plugins and a custom (simplified) layout. As a user you have two choices:
+We offer a brand new installer in which we have configured QGIS specifically for model building and analyzing. In this installation we include QGIS, our plugin, additional useful third party plugins and a custom (simplified) layout. As a user you have two choices:
 
 - use our Modeller Interface installer (for standard use of 3Di)
 - use QGIS and install our plugin (for advanced users)
@@ -40,16 +40,16 @@ If you experience difficulty within your organization installing QGIS 3.x or the
 Operational flood forecasting with 3Di
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We are proud to announce that we have made it easier to deploy your 3Di model in an operational manner. You can now start, stop, pause and analyze your 3Di model using our brand new API (more on the API below). Interested to know more about this possibility? Read this `blogpost on operational flood forecasting <https://3diwatermanagement.com/blog/operational-flood-forecasting-with-3di/>`_ or contact us directly via jonas@nelen-schuurmans.nl
+We are proud to announce that we have made it easier to deploy your 3Di model operationally. You can now start, stop, pause and analyze your 3Di model using our brand new API (more on the API below). Interested to know more about this possibility? Read this `blogpost on operational flood forecasting <https://3diwatermanagement.com/blog/operational-flood-forecasting-with-3di/>`_ or contact us directly via jonas@nelen-schuurmans.nl
 
 Script sharing - Invitation to participate
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-A lot of our users have built custom scripts on our API. To give everyone a chance to share their scripts we have opened a repository on github to share the code:
+One of the special things about 3Di is that we have made our software avaible via an API, so users can use it any way they like. Thanks to this possibility a lot of our users have built custom scripts on our API. This can be to start a calculation, built a model or to analyse results in a specific way. To give everyone a chance to share their scripts we have opened a repository on github to share the code:
 
 `github.com/threedi <https://github.com/threedi>`_
 
-Not only is this a good way to show others what you’ve built, it also works as a versioning system. Would you like to share your scripts but you don't know how github works? Contact us via servicedesk@nelen-schuurmans.nl and we'll help you with this.
+Not only is this an opportunity to show to other users what you’ve built, it also works as a versioning system. Would you like to share your scripts but you don't know how github works? Contact us via servicedesk@nelen-schuurmans.nl and we'll help you with this.
 
 Brand new API (beta) 
 ^^^^^^^^^^^^^^^^^^^^
