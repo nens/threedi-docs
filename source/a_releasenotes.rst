@@ -5,10 +5,14 @@ Release 3Di - 2019-11 Meuse Release
 +++++++++++++++++++++++++++++++++++
 
 In this release we have the following:
+
 - Modeller interface
 - Modeller interface installer
-- Delft-FEWS 3Di integration
-
+- Operational flood forecasting with 3Di
+- Script sharing - Invitation to participate
+- Brand new API (beta)
+- Damage calculations
+- Documentation
 
 Modeller Interface
 ^^^^^^^^^^^^^^^^^^
@@ -22,95 +26,98 @@ Modeller interface installer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We offer a brand new installer dedicated to model building and analyzing. In this installation we include our plugin, additional useful third party plugins and a custom (simplified) layout. As a user you have two choices:
+
 - use our Modeller Interface installer (for standard use of 3Di)
 - use QGIS and install our plugin (for advanced users)
 
 Download here
 
-If you have problems within your organization installing QGIS 3.x or the Modeller interface and are still using QGIS 2.18 please contact our `local partner <https://landgoed.it/producten/>`_. (dutch only) that advises organizations on the implementation of QGIS.  
+If you experience difficulty within your organization installing QGIS 3.x or the Modeller interface and are still using QGIS 2.18 please contact our `local partner <https://landgoed.it/producten/>`_ (dutch only) that advises organizations on the implementation of QGIS.  
 
 
-Delft-FEWS 3Di integration
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Operational flood forecasting with 3Di
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We are proud to announce that we have made it easier to deploy your 3Di model in an operational manner. You can now start, stop, pause and analyze your 3Di model using our brand new API. An example implementation would be to hook up your 3Di model with FEWS. Interested to know more about this possibility? Read this `blogpost on operational flood forecasting <https://3diwatermanagement.com/blog/operational-flood-forecasting-with-3di/>`_. or contact us directly via jonas@nelen-schuurmans.nl
+We are proud to announce that we have made it easier to deploy your 3Di model in an operational manner. You can now start, stop, pause and analyze your 3Di model using our brand new API (more on the API below). Interested to know more about this possibility? Read this `blogpost on operational flood forecasting <https://3diwatermanagement.com/blog/operational-flood-forecasting-with-3di/>`_ or contact us directly via jonas@nelen-schuurmans.nl
 
 Script sharing - Invitation to participate
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A lot of our users have built custom scripts on our API. To give everyone a chance to share their scripts we have opened a repository on github to share the code:
 
-`github.com/threedi <https://github.com/threedi>`_.
+`github.com/threedi <https://github.com/threedi>`_
 
-
-Not only is this a good way to show others what you’ve built, it also works as a versioning system.
-
-Don’t worry, if people are using your scripts from github it does not mean your script suddenly doesn’t work anymore on your own laptop.   
+Not only is this a good way to show others what you’ve built, it also works as a versioning system. Would you like to share your scripts but you don't know how github works? Contact us via servicedesk@nelen-schuurmans.nl and we'll help you with this.
 
 Brand new API (beta) 
 ^^^^^^^^^^^^^^^^^^^^
+
+We have released our first version of our brand new API. We are very proud to share this with you. This release contains enough features to perform simple calculations but is not a full blown copy of our current API. For users that are not into programming: we are not only working on making the API available in our brand new live site, but also in our modeler interface. It will e.g. be possible to start a calculation from with the Modeller Interface.
 
 With our new API we separate model schematization from scenario settings. As a user you -of course- still build your model and upload it to the 3Di cloud. After this, you can play with scenario settings without the need to upload again or change anything in the model schematization. Using our live site it was already possible to see model behaviour interactively, with our new API it will also be possible to see this interactively from other platforms or request in-between results. Like this it is not required anymore to wait for the full calculation to finish only to discover there was a wrong setting or mistake in the model schematization. 
 
 This new approach is a big change in how the calculation core works. The engine remains the same, but the shell has completely changed. To fully test the new API we make this available as a beta release on request to our users. 
 
-The December 2nd release contains enough features to do simple calculations but is not a full blown copy (and more!) of our current API.
-For users that are not into programming: we are also working on making the API available in our brand new live site, but also in our modeler interface. It will e.g. be possible to start a calculation from with the Modeller Interface
-
 So what do we support right away? 
 
 Scenario’s:
+
 - rain (including more extensive custom rain option)
 - sources & sinks
-- laterals (new!)
-- upload own events (using netCDF) (new!)
-- initial water level (1D/2D) (new!)
+- laterals (**new!**)
+- upload own events (using netCDF) (**new!**)
+- initial water level (1D/2D) (**new!**)
 
 Interactiveness:
+
 - start 
-- stop (new!)
-- pause (new!)
-- progress (new!)
+- stop (**new!**)
+- pause (**new!**)
+- progress (**new!**)
 
 States:
+
 - saves state
 - use saved state
 
 Results:
-- result download via API (new!)
-- metadata on modelrun & model schematization (new!)
+
+- result download via API (**new!**)
+- metadata on modelrun & model schematization (**new!**)
 
 Here you can find a more `detailed technical overview <https://nens.github.io/threedi-openapi-client/usage/>`_.  of our API.
 
-**How to continue**
+*How to continue*
 
 This release is our first production release in which we invite beta users to test our new API. Interested to be a beta user? Let us know here
 
-Of course our work is not finished yet. What do make available in the nearby future?
+Of course our work is not finished yet. What do we make available in the nearby future?
 
 Scenarios:
+
 - breaches
 - wind
 - raster edits
 - boundary conditions
 
 Interactiveness:
+
 - make changes (after pausing the model)
 - request results (during calculation)
 
 Results:
+
 - postprocessing via Lizard
 
-This new architecture enables us to built faster, deploy easier. It also enables us to automate a lot of the testing that was done before every release, enabling smoother and bugfree releases. 
+This new API enables us to built faster and deploy easier. It also enables us to automate a lot of the testing that was done before every release, enabling smoother and bugfree releases. 
 
 As a regular user you don’t need to do anything to use the new API. We will start rolling out an interface in the modeler interface that will automatically use the new API.
-
-Are you interest to know more about our API? Read our blog-post here.
 
 Damage calculations
 ^^^^^^^^^^^^^^^^^^^
 
 For our Dutch users only: We have updated the base maps for damage calculations to incorporate the latest AHN3 for the following areas: 
+
 - Waterschap Vallei en Veluwe
 - Waterschap Rijn en IJssel
 - Waterschap Limburg
@@ -119,8 +126,9 @@ Documentation
 ^^^^^^^^^^^^^
 
 We are always working to improve our documentation. Most important changes are:
+
 - `New database sheet  <https://docs.3di.lizard.net/d_before_you_begin.html#database-overview>`_. 
-- `Manual <https://docs.3di.lizard.net/d_qgis_plugin.html#view-and-edit-3di-model-a-schematisation>`_. of our QGIS plugin
+- `Manual <https://docs.3di.lizard.net/d_qgis_plugin.html#view-and-edit-3di-model-a-schematisation>`_ of our QGIS plugin
 
 
 Release 3Di - 2019-07 Rhine Release 
