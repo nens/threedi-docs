@@ -4,19 +4,19 @@ Release notes
 Release 3Di - 2019-11 Meuse Release 
 +++++++++++++++++++++++++++++++++++
 
-In this release we have the following:
+In the Meuse release we updated, improved and created a lot of features. These features, with more detailed description below, include:
 
-- Modeller interface (including installer)
+- New Modeller interface (incl. Windows installer)
+- New calcution API (beta)
 - Operational flood forecasting with 3Di
 - Script sharing - Invitation to participate
-- Brand new API (beta)
 - Damage calculations
 - Documentation
-- Bugfixing
+- Bugfixes
 
 
-Modeller Interface
-^^^^^^^^^^^^^^^^^^
+Modeller Interface (incl. installer)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We are happy to announce our brand new user-friendly Modeller Interface. We offer a brand new installer in which we have configured QGIS specifically for model building and analyzing. We do this to assist users in getting a more user friendly experience when building a model. It also helps in positioning our plugin within organisations, now it is clear that our version is meant for 3Di model building while still having the benefit of being powered by QGIS.   
 In this installation we include QGIS, our plugin, additional useful third party plugins and a custom (simplified) layout. So no need to have QGIS installed any more. As a user you have two choices:
@@ -33,35 +33,18 @@ Additionally, when loading a model using the 3Di toolbox, automatically a spatia
 For a full list of adjustments, have a look at the `qgis documentation page <https://docs.3di.lizard.net/d_qgis_plugin.html#view-and-edit-3di-model-a-schematisation>`_. 
 
 
+New calculation API (beta) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Operational flood forecasting with 3Di
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+We have released the first version of the brand new API. We are very proud to share this with you. Because the new API is a beta release in this Meuse release, it does not yet support all features of our current API. The implemented features, however, do support a wide range of possible calcultions. More on that below. 
 
-We are proud to announce that we have made it easier to deploy your 3Di model operationally. You can now start, stop, pause and analyze your 3Di model using our brand new API (more on the API below). Interested to know more about this possibility? Read this `blogpost on operational flood forecasting <https://3diwatermanagement.com/blog/operational-flood-forecasting-with-3di/>`_ or contact us directly via jonas@nelen-schuurmans.nl
+A big improvement with the new API is the separation of model schematization and scenario information. As a user you -of course- still need to create your model schematization and upload this to the 3Di cloud. This uploaded schematization does not have the scenario information included. This information needs to be provided through the new API at the start of a calculation. This unlocks the potential of more efficient scenario based simulations. Multiple simulations can now be run without additional preprocessing of the schematization, when only scenario information changes. Another big improvement in the new API is the improved ability to monitor the status of simulations during while they are running and subsequently the possibitity to stop simulations. It is therefore not required anymore to wait for the full calculation to finish and to then discover something was wrong with a setting or a mistake in the model schematization was made. For more reliability the new calculation API enables us to develop faster and deploy easier, by automating a lot of the testing. This results in smoother and more reliable releases in the future. 
 
-Script sharing - Invitation to participate
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-One of the special things about 3Di is that we have made our software avaible via an API, so users can use it any way they like. Thanks to this possibility a lot of our users have built custom scripts on our API. This can be to start a calculation, built a model or to analyse results in a specific way. To give everyone a chance to share their scripts we have opened a repository on github to share the code:
-
-`github.com/threedi <https://github.com/threedi>`_
-
-Not only is this an opportunity to show to other users what you’ve built, it also works as a versioning system. Would you like to share your scripts but you don't know how github works? Contact us via servicedesk@nelen-schuurmans.nl and we'll help you with this.
-
-Brand new API (beta) 
-^^^^^^^^^^^^^^^^^^^^
-
-We have released our first version of our brand new API. We are very proud to share this with you. This release contains enough features to perform simple calculations but is not a full blown copy of our current API. For users that are not into programming: we are not only working on making the API available in our brand new live site, but also in our modeler interface. It will e.g. be possible to start a calculation from with the Modeller Interface.
-
-With our new API we separate model schematization from scenario settings. As a user you -of course- still build your model and upload it to the 3Di cloud. After this, you can play with scenario settings without the need to upload again or change anything in the model schematization. Using our live site it was already possible to see model behaviour interactively, with our new API it will also be possible to see this interactively from other platforms or request in-between results. Like this it is not required anymore to wait for the full calculation to finish only to discover there was a wrong setting or mistake in the model schematization. 
-
-This new approach is a big change in how the calculation core works. The engine remains the same, but the shell has completely changed. To fully test the new API we make this available as a beta release on request to our users. 
-
-So what do we support right away? 
+This new approach is a big change in how the calculation core works. The engine remains the same, but the shell has completely changed. So what do we support right away? 
 
 Scenario’s:
 
-- rain (including more extensive custom rain option)
+- rain (radar, timeseries, including more extensive custom rain option)
 - sources & sinks
 - laterals (**new!**)
 - upload own events (using netCDF) (**new!**)
@@ -88,9 +71,9 @@ Here you can find a more `detailed technical overview <https://nens.github.io/th
 
 *How to continue*
 
-This release is our first production release in which we invite beta users to test our new API. Interested to be a beta user? Let us know here
+This release is our first production release. To get a feel for the new API and help us improving it, users can request acces to the beta release. Interested to be a beta user? Let us know here
 
-Of course our work is not finished yet. What do we make available in the nearby future?
+Of course our work is not finished yet. The API will be the basis for future calculations and regular users will be facilitated through the Modeller interface for use of the new API. We will start rolling out an interface in the modeler interface that will automatically use the new API in the future. So what features will release in the near future?
 
 Scenarios:
 
@@ -108,14 +91,28 @@ Results:
 
 - postprocessing via Lizard
 
-This new API enables us to built faster and deploy easier. It also enables us to automate a lot of the testing that was done before every release, enabling smoother and bugfree releases. 
 
-As a regular user you don’t need to do anything to use the new API. We will start rolling out an interface in the modeler interface that will automatically use the new API.
+
+Operational flood forecasting with 3Di
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We are proud to announce that we have made it easier to deploy your 3Di model operationally. You can now start, stop, pause and analyze your 3Di model using the aforementioned new API. Interested to know more about operational possibilities of 3Di? Read this `blogpost on operational flood forecasting <https://3diwatermanagement.com/blog/operational-flood-forecasting-with-3di/>`_ or contact us directly via jonas@nelen-schuurmans.nl
+
+
+Script sharing - Invitation to participate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+One of the special things about 3Di is that we have made our software available via an API, so users can integrate it into their work process using their own tools. Thanks to this possibility a lot of our users have already built custom scripts on our API. This can be to start a calculation, built a model or to analyse results in a specific way. To give everyone a chance to share their work and help each other forward, we have opened a repository on github to share the code:
+
+`github.com/threedi <https://github.com/threedi>`_
+
+Not only is this an opportunity to show to other users what you’ve built and keep track of different versions of these scripts. Would you like to share your work but you don't know how github works? Contact us via servicedesk@nelen-schuurmans.nl and we'll help you with this.
+
 
 Damage calculations
 ^^^^^^^^^^^^^^^^^^^
 
-For our Dutch users only: We have updated the base maps for damage calculations to incorporate the latest AHN3 for the following areas: 
+For our Dutch users only: The base maps for damage calculations are updated with the AHN3 data for the following areas:
 
 - Waterschap Vallei en Veluwe
 - Waterschap Rijn en IJssel
@@ -124,15 +121,16 @@ For our Dutch users only: We have updated the base maps for damage calculations 
 Documentation
 ^^^^^^^^^^^^^
 
-We are always working to improve our documentation. Most important changes are:
+As part of a continuous improvement of the documentation, the updates have been made to:
 
 - `New database sheet  <https://docs.3di.lizard.net/d_before_you_begin.html#database-overview>`_. 
 - `Manual <https://docs.3di.lizard.net/d_qgis_plugin.html#view-and-edit-3di-model-a-schematisation>`_ of our QGIS plugin
 
+
 Bugfixing
 ^^^^^^^^^
 
-The following bugs have been solved in the Modeller Interface:
+Modeller Interface:
 
 - Improved raster_checker's 'extreme raster values' check: not rely on meta data, but check actual data. Also include number of warnings in pop-up when finished.
 - Added missing columns to the manhole_view layer.
