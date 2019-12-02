@@ -6,8 +6,7 @@ Release 3Di - 2019-11 Meuse Release
 
 In this release we have the following:
 
-- Modeller interface
-- Modeller interface installer
+- Modeller interface (including installer)
 - Operational flood forecasting with 3Di
 - Script sharing - Invitation to participate
 - Brand new API (beta)
@@ -19,22 +18,20 @@ In this release we have the following:
 Modeller Interface
 ^^^^^^^^^^^^^^^^^^
 
-We are happy to announce our brand new user-friendly Modeller Interface. Based on user feedback during our user meetings in the Netherlands and Denmark and suggestions we received in our servicedesk we have implemented a lot of features like default values, selectable options, assistance with obligated fields and lots more. This will make it easier and faster to build models using 3Di.
-Additionally, when loading a model using the 3Di toolbox, automatically a spatialite connection is stored. This makes it easier to use the raster and schematisation checker.
-For a full list of adjustments, have a look at the `qgis documentation page <https://docs.3di.lizard.net/d_qgis_plugin.html#view-and-edit-3di-model-a-schematisation>`_. 
-
-
-Modeller interface installer
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-We offer a brand new installer in which we have configured QGIS specifically for model building and analyzing. In this installation we include QGIS, our plugin, additional useful third party plugins and a custom (simplified) layout. As a user you have two choices:
+We are happy to announce our brand new user-friendly Modeller Interface. We offer a brand new installer in which we have configured QGIS specifically for model building and analyzing. We do this to assist users in getting a more user friendly experience when building a model. It also helps in positioning our plugin within organisations, now it is clear that our version is meant for 3Di model building while still having the benefit of being powered by QGIS.   
+In this installation we include QGIS, our plugin, additional useful third party plugins and a custom (simplified) layout. So no need to have QGIS installed any more. As a user you have two choices:
 
 - use our Modeller Interface installer (for standard use of 3Di)
 - use QGIS and install our plugin (for advanced users)
 
-Download here
+Download installer here
 
 If you experience difficulty within your organization installing QGIS 3.x or the Modeller interface and are still using QGIS 2.18 please contact our `local partner <https://landgoed.it/producten/>`_ (dutch only) that advises organizations on the implementation of QGIS.  
+
+Based on user feedback during our user meetings in the Netherlands and Denmark and suggestions we received in our servicedesk we have implemented a lot of features like default values, selectable options, assistance with obligated fields and lots more. This will make it easier and faster to build models using 3Di.
+Additionally, when loading a model using the 3Di toolbox, automatically a spatialite connection is stored. This makes it easier to use the raster and schematisation checker.
+For a full list of adjustments, have a look at the `qgis documentation page <https://docs.3di.lizard.net/d_qgis_plugin.html#view-and-edit-3di-model-a-schematisation>`_. 
+
 
 
 Operational flood forecasting with 3Di
