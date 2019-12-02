@@ -1,11 +1,17 @@
 .. _qgisplugin:
 
-Modeller Interface (QGIS Plugin)
+Modeller Interface 
 =================================
 
 Introduction
 --------------
-The 3Di Toolbox is a QGIS plugin for working with 3Di models and netCDF results. Since the Plugin Release of March 4th 2019, the plugin is only supported by QGIS 3.4.5. An older version of the plugin will remain available for QGIS 2.18. For more information on installing the plugin see `3Di Toolbox plug-in <https://github.com/nens/threedi-qgis-plugin/wiki>`_. For more information on viewing and editing 3Di models in QGIS see :ref:`adjust_model`. 
+The modeller interface consists of QGIS with a 3Di Toolbox as a QGIS plugin on top for working with 3Di models and netCDF results. Since the Plugin Release of March 4th 2019, the plugin is only supported by QGIS 3.4.5. An older version of the plugin will remain available for QGIS 2.18. 
+As a user you can choose to either:
+
+- install the `Modeller Interface <https://docs.3di.lizard.net/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.4.13-1-Setup-x86_64.exe>`_  or
+- install QGIS, and install the 3Di toolbox as a QGIS plugin 
+
+For more information on installing the plugin see `3Di Toolbox plug-in <https://github.com/nens/threedi-qgis-plugin/wiki>`_. For more information on viewing and editing 3Di models in QGIS see :ref:`adjust_model`. 
 The section below explains the use of various options of the modeller interface. More subjects will be added regularly.
 
 .. _plugin_installation:
@@ -41,9 +47,11 @@ To install the 3Di-Toolbox plugin follow the steps below:
 
 .. _plugin_overview:
     
-Overview of the plugin
---------------------------------------
+Overview of the 3Di Toolbox
+---------------------------
+
 After installation of the plugin a toolbar is added to the QGIS interface. The different tools are explained below. 
+In the Modeller Interface the 3Di toolbar is directly available.
 
 .. figure:: image/d_qgispluging_toolbox_overview.png
 	:alt: Plugin overview
