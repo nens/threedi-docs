@@ -73,7 +73,7 @@ Here you can find a more `detailed technical overview <https://nens.github.io/th
 
 This release is our first production release. To get a feel for the new API and help us improving it, users can request acces to the beta release. Interested to be a beta user? Let us know here
 
-Of course our work is not finished yet. The API will be the basis for future calculations and regular users will be facilitated through the Modeller interface for use of the new API. We will start rolling out an interface in the modeler interface that will automatically use the new API in the future. So what features will release in the near future?
+Of course we are still developing. The new API will become the main route for future calculations. On top of the programming interface,  regular users will be facilitated through the Modeller interface for use of the new API in the future. We will start rolling out an interface in the modeler interface that will automatically use the new API route. So what features will release in the near future?
 
 Scenarios:
 
