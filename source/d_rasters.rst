@@ -42,7 +42,7 @@ How you derive your raster information is entirely up to you. 3Di rasters have t
 
 
 Using GDAL to check and edit your rasters
-------------------------
+-----------------------------------------
 
 There are several packages available that allow you to meet the requirements stated above. Below are some examples using GDAL. 
 
