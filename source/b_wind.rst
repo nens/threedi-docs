@@ -87,11 +87,11 @@ The shear stresses are dependent on the local velocity of water and wind. The wi
 | u\ :sub:`wind`\ \ :sup:`//`\ = wind speed in the channel direction. 
 
 
-- De drag-coefficient translates the wind speed on a 10 m elevation to the speed on the ground. 
+- The drag-coefficient translates the wind speed on a 10 m elevation to the speed on the ground.
 
 - The local wind shield factor is defined by the user. 
 
-- De wind speed in the direction of the 1D channel is computed by 3Di on basis of the geo orientation of the 1d channel network. 
+- The wind speed in the direction of the 1D channel is computed by 3Di on basis of the geo orientation of the 1d channel network.
 
 In summary, the wind forcing is formulated by:
 
