@@ -23,7 +23,7 @@ The standard wind data gives the speed and direction of the wind at a height of 
 Drag coefficient
 ================
 
-De drag-coefficient translates the wind speed on a 10 m elevation to the speed on the ground. The value is 0.005 by default, but can be defined by the user. At present this factor is global factor for the entire model, but in the future this factor could be defined as a spatial field on basis of land use maps and digital elevation models (DEM).
+The drag-coefficient translates the wind speed on a 10 m elevation to the speed on the ground. The value is 0.005 by default, but can be defined by the user. At present this factor is global factor for the entire model, but in the future this factor could be defined as a spatial field on basis of land use maps and digital elevation models (DEM).
 
 .. figure:: image/b_wind_vertical_profile.png
    :alt: Vertical wind profile
