@@ -8,9 +8,9 @@ On Thursday March 3rd, we have released a minor hotfix on our 3Di servers.
 
 The following issue has been fixed:
 
-- Fix for flow summary concerning boundary inflow and outflow in case boundary starts dry.
-- Check for embedded flowline in cross-section.f90 now based on kcu and not on node id.
-- Better log message for coordinates when two vertices of culvert/channel are at nearly the same location.
+- The flow summary could show a deviation on the in- and outflow discharge values in case these locations would be initially dry.
+- There was an issue concerning structures between two embedded connection nodes.
+- The log messages are improved when vertices of channels and culverts share (nearly) the same location.
 
 
 Release 3Di - 2019-11 Meuse Release 
