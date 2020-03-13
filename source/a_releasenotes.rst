@@ -1,6 +1,16 @@
 Release notes
 =============
 
+Release 3Di - Hotfix March 2020
+++++++++++++++++++++++++
+
+On Thursday the 12th of March, we released a minor hotfix on our 3Di servers. We resolved the issues that are listed below.
+
+- The flow summary could show a deviation on the in- and outflow discharge values in case these locations would be initially dry.
+- There was an issue concerning structures between two embedded connection nodes.
+- The log messages are improved when vertices of channels and culverts share (nearly) the same location.
+
+
 Release 3Di - 2019-11 Meuse Release 
 +++++++++++++++++++++++++++++++++++
 
@@ -24,11 +34,11 @@ In this installation we include QGIS, our plugin, additional useful third party 
 - use our Modeller Interface installer (for standard use of 3Di)
 - use QGIS and install our plugin (for advanced users)
 
-Download installer here
+Download the `installer <https://docs.3di.lizard.net/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.4.13-1-Setup-x86_64.exe>`_ 
 
 If you experience difficulty within your organization installing QGIS 3.x or the Modeller interface and are still using QGIS 2.18 please contact our `local partner <https://landgoed.it/producten/>`_ (dutch only) that advises organizations on the implementation of QGIS.  
 
-Based on user feedback during our user meetings in the Netherlands and Denmark and suggestions we received in our servicedesk we have implemented a lot of features like default values, selectable options, assistance with obligated fields and lots more. This will make it easier and faster to build models using 3Di.
+Based on user feedback during our user meetings in the Netherlands and Denmark and suggestions we received in our servicedesk we have implemented a lot of features like default values, selectable options, assistance with obligated fields and lots more. This makes model building for 3Di more intuitive.
 Additionally, when loading a model using the 3Di toolbox, automatically a spatialite connection is stored. This makes it easier to use the raster and schematisation checker.
 For a full list of adjustments, have a look at the `qgis documentation page <https://docs.3di.lizard.net/d_qgis_plugin.html#view-and-edit-3di-model-a-schematisation>`_. 
 
@@ -36,9 +46,9 @@ For a full list of adjustments, have a look at the `qgis documentation page <htt
 New calculation API (beta) 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We have released the first version of the brand new API. We are very proud to share this with you. Because the new API is a beta release in this Meuse release, it does not yet support all features of our current API. The implemented features, however, do support a wide range of possible calcultions. More on that below. 
+We have released the first version of the brand new API. We are very proud to share this with you. Because the new API is a beta release in this Meuse release, it does not yet support all features of our current API. The implemented features, however, do support a wide range of possible calculations. More on that below. 
 
-A big improvement with the new API is the separation of model schematization and scenario information. As a user you -of course- still need to create your model schematization and upload this to the 3Di cloud. This uploaded schematization does not have the scenario information included. This information needs to be provided through the new API at the start of a calculation. This unlocks the potential of more efficient scenario based simulations. Multiple simulations can now be run without additional preprocessing of the schematization, when only scenario information changes. Another big improvement in the new API is the improved ability to monitor the status of simulations during while they are running and subsequently the possibitity to stop simulations. It is therefore not required anymore to wait for the full calculation to finish and to then discover something was wrong with a setting or a mistake in the model schematization was made. For more reliability the new calculation API enables us to develop faster and deploy easier, by automating a lot of the testing. This results in smoother and more reliable releases in the future. 
+A big improvement with the new API is the separation of model schematization and scenario information. As a user you -of course- still need to create your model schematization and upload this to the 3Di cloud. This uploaded schematization does not have the scenario information included. This information needs to be provided through the new API at the start of a calculation. This unlocks the potential of more efficient scenario based simulations. Multiple simulations can now be run without additional preprocessing of the schematization, when only scenario information changes. Another big improvement in the new API is the improved ability to monitor the status of simulations while they are running, and subsequently the possibitity to stop simulations. It is therefore not required anymore to wait for the full calculation to finish and to then discover something was wrong with a setting or a mistake in the model schematization was made. For more reliability the new calculation API enables us to develop faster and deploy easier, by automating a lot of the testing. This results in smoother and more reliable releases in the future. 
 
 This new approach is a big change in how the calculation core works. The engine remains the same, but the shell has completely changed. So what do we support right away? 
 
@@ -71,9 +81,9 @@ Here you can find a more `detailed technical overview <https://nens.github.io/th
 
 *How to continue*
 
-This release is our first production release. To get a feel for the new API and help us improving it, users can request acces to the beta release. Interested to be a beta user? Let us know here
+This release is our first production release. To get a feel for the new API and help us improving it, users can request acces to the beta release. Interested to be a beta user? Let us know here. 
 
-Of course we are still developing. The new API will become the main route for future calculations. On top of the programming interface,  regular users will be facilitated through the Modeller interface for use of the new API in the future. We will start rolling out an interface in the modeler interface that will automatically use the new API route. So what features will release in the near future?
+Of course we are still developing. The new API will become the main route for future calculations. On top of the programming interface, regular users will be facilitated through the Modeller interface for use of the new API in the future. We will start rolling out an interface in the Modeller interface that will automatically use the new API route. So what features will be released in the near future?
 
 Scenarios:
 
@@ -90,7 +100,6 @@ Interactiveness:
 Results:
 
 - postprocessing via Lizard
-
 
 
 Operational flood forecasting with 3Di
