@@ -4,7 +4,7 @@ Release notes
 Release 3Di - Hotfix March 2020
 ++++++++++++++++++++++++
 
-On Thursday March 12th, we have released a minor hotfix on our 3Di servers.
+On Thursday the 12th of March, we released a minor hotfix on our 3Di servers. We resolved the issues that are listed below.
 
 The following issue has been fixed:
 
