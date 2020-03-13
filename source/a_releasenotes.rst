@@ -6,8 +6,6 @@ Release 3Di - Hotfix March 2020
 
 On Thursday the 12th of March, we released a minor hotfix on our 3Di servers. We resolved the issues that are listed below.
 
-The following issue has been fixed:
-
 - The flow summary could show a deviation on the in- and outflow discharge values in case these locations would be initially dry.
 - There was an issue concerning structures between two embedded connection nodes.
 - The log messages are improved when vertices of channels and culverts share (nearly) the same location.
