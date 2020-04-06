@@ -39,6 +39,18 @@ To use 3Di you need these software packages:
 .. figure:: image/d_tortoise_extensions.png
 	:scale: 75%
 	:alt: Extensions
+..
+
+    Tortoise also has a built-in encrypted password manager, allowing you to push and pull revisions without being prompted for your username and    password each time. To enable the password manager:
+
+    * Open TortoiseHg Workbench
+    * Go to File > Settings > Extensions
+    * Check the box 'mercurial_keyring'.
+    * Restart TortoiseHg Workbench
+    * Now you still have to enable the password manager for each repository you clone, see :ref:`download-repository`
+
+
+
 
 Web Portals
 -----------

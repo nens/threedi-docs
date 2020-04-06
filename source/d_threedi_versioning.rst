@@ -15,12 +15,14 @@ In order to be able to extract the data from the model database, to adjust model
 The model database can be accessed via the Internet address `https://models.lizard.net <https://models.lizard.net>`_. After starting the model database website you can log in with the 3Di username and password. You will see the following page with a list of models that can be downloaded.
 
 .. figure:: image/d4.2_model_database.png
-	:alt: Model database
+    :alt: Model database
 
 In this part of the tutorial we assume that the model only has one version. When using multiple versions, see :ref:`multiple_scenarios`. By selecting the desired model from the list of models you can retrieve the repository address of the model in the model database.
 
 .. figure:: image/d4.2_clone_link.png
-	:alt: Repository address
+    :alt: Repository address
+
+.. _download-repository:
 
 Download 3Di repository using TortoiseHG Workbench
 -----------------------------------------------------------
@@ -36,14 +38,28 @@ After installing the TortoiseHG program it can be used to download the active mo
 * Press **Clone** to download the model to the local computer. Enter your username and password when required.
 
 .. figure:: image/d4.3_tortoisehg_clone.png
-	:alt: Clone menu TortoiseHG
+    :alt: Clone menu TortoiseHG
 
-In the same way, other models can be downloaded, beginning with the third step in the above list of actions. 
+In the same way, other models can be downloaded, beginning with the third step in the above list of actions.
+
+Optionally, to enable the password manager for this repository (you need to have :ref:`enabled the Mercurial Keyring extension <software>`  first):
+
+* In Windows Explorer, go to the folder where your local repository clone is stored.
+* Open the file .hg\\hgrc with a text editor
+* Add these lines at the end of the file::
+
+    [auth]
+    default.schemes = https
+    default.prefix = hg.lizard.net/your-repository-name
+    default.username = your.username
+
+* The first time you push or pull your repository, Tortoise will ask and store your password. The storage is encrypted.
+
 
 After correctly downloading the files from the 3Di repository the downloaded repository will be visible in the Repository Registry, top left panel in TortoiseHG. In the top right panel all revisions of the repository are available, with the top one being the most recent. This most recent revision is also available in the download directory as chosen by the user. To make other revisions available, see :ref:`previous_revision`. 
 
 .. figure:: image/d4.3_tortoisehg_menu.png
-	:alt: Menu TortoiseHG Workbench
+    :alt: Menu TortoiseHG Workbench
 
 The downloaded files can be divided into three groups:
 
@@ -70,7 +86,7 @@ After installation of QGIS, the program can be used to adjust the downloaded mod
 * If desired, add layers without geometry by ticking the box **Also list tables with no geometry**. This applies to the *Settings table* and *Boundary Point*.
 
 .. figure:: image/d4.4_add_spatiallite_layer.png
-	:alt: Add SpatiaLite Layer QGIS
+    :alt: Add SpatiaLite Layer QGIS
 
 By default the pump direction of a pumping station is similar to the direction of the branch (waterway) where the pumping station is located. In order to change the direction, the following actions should be carried out after adding the layer *pumpstation* to QGIS:
 
@@ -85,7 +101,7 @@ By default the pump direction of a pumping station is similar to the direction o
 * Deactivate the Toggle Editing button on the QGIS toolbar and press **Save** to save the adjustment in the database.
 
 .. figure:: image/d4.4_qgis_interface.png
-	:alt: QGIS interface for model adjustments
+    :alt: QGIS interface for model adjustments
 
 Synchronising 3Di repository with TortoiseHG Workbench
 -------------------------------------------------------
@@ -101,11 +117,11 @@ After adjusting the 3Di model the modified files can be synchronised with the mo
 * The **revision number** will now be increased.
 
 .. figure:: image/d4.5_commit.png
-	:scale: 75%
-	:alt: Commit option Windows Explorer
+    :scale: 75%
+    :alt: Commit option Windows Explorer
 
 .. figure:: image/d4.5_commit_details.png
-	:alt: Commit menu TortoiseHG
+    :alt: Commit menu TortoiseHG
 
 The above steps can be repeated multiple times before the adjustments are pushed. By doing so you have the advantage of having the possibility to restore previous revisions if one of the adjustments turns out to be incorrect (see :ref:`previous_revision`). After one or more commits are made and detected by TortoiseHG, the adjustments can be pushed to the model database. 
 
@@ -114,7 +130,7 @@ The above steps can be repeated multiple times before the adjustments are pushed
 * Enter the username and password.
 
 .. figure:: image/d4.5_push_model.png
-	:alt: Push model commits
+    :alt: Push model commits
 
 After the push, all 3Di model adjustments are sent to the central model database making it up to date.
 
@@ -130,7 +146,7 @@ Before a model can be used for calculations, the input files must be generated s
 The administration page can be accessed through `3di.lizard.net/models <http://3di.lizard.net/models>`_. This page shows a list of all available model repositories. Per repository only the last three revisions are being stored. When a revision needs to be stored for a longer period, this can be managed by clicking **Manage revisions**. In this menu you can *pin* a revision, keeping it available even when the revision is no longer part of the last three revisions. 
 
 .. figure:: image/d4.6_model_repository.png
-	:alt: Model administration page - repositories
+    :alt: Model administration page - repositories
 
 By clicking the name of the repository it shows an overview of the model scenarios with associated revisions.
 
@@ -145,7 +161,7 @@ By clicking the name of the repository it shows an overview of the model scenari
 * **Committed** indicates who was the last to push changes for the model.
 
 .. figure:: image/d4.6_model_repository_2.png
-	:alt: Model administration page - details
+    :alt: Model administration page - details
 
 After a model scenario has been made visible, it can be visualized on the 3Di portal. 
 
