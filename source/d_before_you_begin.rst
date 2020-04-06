@@ -9,6 +9,8 @@ All tutorials assume you have some knowledge of 3Di and have access to QGIS, the
 
 Before you begin consider the following.
 
+.. _software:
+
 Software
 --------
 
@@ -16,16 +18,23 @@ To use 3Di you need these software packages:
 
 * Recent version of Google Chrome (`Get Chrome <https://www.google.nl/chrome/browser/desktop/index.html>`_)
 
-* QGIS 3.4.5 64bit Long term release(`Get QGIS <http://www.qgis.org/en/site/forusers/download.html#>`_ use the standalone installers)
+* QGIS 3.10 64bit Long term release(`Get QGIS <http://www.qgis.org/en/site/forusers/download.html#>`_ use the standalone installers)
+
+    After installation of QGIS, set the interface language and locale to American English. This makes it easier to understand the instructions in this documentation. Also, some locales do not support scientific notations of numbers, required for very small numbers (e.g. 1e-09).
+
+    * Go to Settings > Options > General
+    * Tick the box 'Override System Locale'
+    * For User Interface Translation, choose 'American English'
+    * For Locale, choose 'English UnitedStates (en_US)'
+    * Restart QGIS
 
 * Prior to the Carnival Release 2019 QGIS 2.18 was supported
-
 
 * QGiS 3Di plug-in specially designed for 3Di (`Get 3Di plug-in <https://github.com/nens/threedi-qgis-plugin/wiki>`_)
 
 * Recent version of TortoiseHG (`Get TortoiseHG <https://tortoisehg.bitbucket.io/download/index.html>`_)
 
-After installation of TortoiseHG the program can be started by selecting the TortoiseHg Workbench program from the Windows Start menu. In a first use, activate the 'large files extension' by selecting from the File menu 'Settings' and then' Extensions' and select 'large files’. Also fill in your name. Press OK and restart TortoiseHG.
+    After installation of TortoiseHG the program can be started by selecting the TortoiseHg Workbench program from the Windows Start menu. In a first use, activate the 'large files extension' by selecting from the File menu 'Settings' and then' Extensions' and select 'large files’. Also fill in your name. Press OK and restart TortoiseHG.
 
 .. figure:: image/d_tortoise_extensions.png
 	:scale: 75%
