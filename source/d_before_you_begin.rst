@@ -28,8 +28,6 @@ To use 3Di you need these software packages:
     * For Locale, choose 'English UnitedStates (en_US)'
     * Restart QGIS
 
-* Prior to the Carnival Release 2019 QGIS 2.18 was supported
-
 * QGiS 3Di plug-in specially designed for 3Di (`Get 3Di plug-in <https://github.com/nens/threedi-qgis-plugin/wiki>`_)
 
 * Recent version of TortoiseHG (`Get TortoiseHG <https://tortoisehg.bitbucket.io/download/index.html>`_)
