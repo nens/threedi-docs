@@ -18,7 +18,7 @@ To use 3Di you need these software packages:
 
 * Recent version of Google Chrome (`Get Chrome <https://www.google.nl/chrome/browser/desktop/index.html>`_)
 
-* QGIS 3.10 64bit Long term release(`Get QGIS <http://www.qgis.org/en/site/forusers/download.html#>`_ use the standalone installers)
+* QGIS 3.4 64bit Long term release(`Get QGIS <http://www.qgis.org/en/site/forusers/download.html#>`_ use the standalone installers)
 
     After installation of QGIS, set the interface language and locale to American English. This makes it easier to understand the instructions in this documentation. Also, some locales do not support scientific notations of numbers, required for very small numbers (e.g. 1e-09).
 
