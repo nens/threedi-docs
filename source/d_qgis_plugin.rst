@@ -665,9 +665,12 @@ Add aggregation settings for all rows in the global settings table::
     UNION
     SELECT id, 'qsss_cum_neg', 'surface_source_sink_discharge', 'cum_negative', 0, output_time_step FROM v2_global_settings
     ;
+	
+Note that the above query sets the aggregation time step equal to the output time step. If you want to use different aggregation time step, make sure to use the same time step for all aggregation variables in order to enable the use of the water balance tool.
 
-The above query sets the aggregation time step equal to the output time step. If you want to use different aggregation time step, make sure to use the same time step for all aggregation variables in order to enable the use of the water balance tool.
 
+	UPDATE v2_aggregation_settings SET time_step = [fill in a number];
+	
 **Using the water balance tool**
 
 In a few steps, one can get insight in the water balance of their own system.
@@ -873,4 +876,60 @@ Side view tool
     e. Blue line: the water level.
 
 6) The slider in the *Animation* tool can be used to scroll through time. 
+
+
+.. _statisticaltool:
+
+Statistical tool
+^^^^^^^^^^^^^^^^^^
+
+The statistical tool can ben used to calculate sewerage statistics from 3Di results. To use it, first make sure you load a 3Di model together with the results you want to calculate the statistics from. 
+
+.. figure:: image/d_qgisplugin_statisticaltool.png
+	:alt: Statistical Tool
+
+1) Activate the Statistical Tool by clicking the statistics icon in the 3Di toolbar. The tool will immediately start calculating the statistics and a progressbar at the top of the map window shows the progress. 
+2) When the calculations are finished, new layers are added to the QGIS project. These layers contain statistics from the 3Di results on pipes, manholes, pumps and weirs. The layers are explained below. 
+
+*Note: DWF = Dry Weather Flow, CSF = Combined Sewer Flow, SWF = Storm Water Flow*
+
+**Metadata_statistics**
+
+- *table:* Refers to the table, see below 
+- *field:* Refers to the fieldname, see below
+- *from_agg:* If set to 0 the statistics are derived using actual values on the output time step. This is the case if no aggregation value is available. Not using an aggregation netcdf makes the statistics derived using this tool less accurate
+- *input_param:* For advanced users: Refers to the input parameter from the NetCDF
+- *timestep:* When not derived from aggregation netcdf it is important what timestep has been used. It gives an indication of the accuracy of the value.
+
+**Pipes**
+
+- *Discharge (max):* Maximum discharge which occurs during the simulation
+- *Velocity (max):* Maximum velocity which occurs during the simulation 
+- *Gradient (max):* Maximum gradient of the waterlevel in the pipe 
+- *Velocity (end):* Velocity in the pipe occuring at the last timestep
+- *Velocity DWF and CSF (end)*: Velocity at the last timestep for DWF and CSF pipes
+- *Velocity SWF (end):* Velocity at the last timestep for SWF pipes
+
+**Manholes**
+
+- *Fill level (max):* Percentage of manhole that is filled based on maximum water level occuring during the simulation
+- *Fill level DWF and CSF (end):* Percentage of manhole that is filled based on water level at the last time step of the simulation for DWF and CSF manholes. 
+- *Fill level SWF (max):* Percentage of manhole that is filled based on water level at the last time step of the simulation for SWF manholes. 
+- *Duration of water on street:* The total amount of time the water level in the manhole is higher than the surface level of the manhole during the simulation. Note that the unit is in hours, so 0.25 hr means 15 minutes. 
+- *Waterdepth (max):* The max water depth above the manhole surface level that is occuring during the simulation. Values greater than 0 mean there is water on the street. 
+- *Waterdepth DWF and CSF (max):* The max water depth above the manhole surface level that is occuring during the simulation for DWF and CSF manholes. Values greater than 0 mean there is water on the street. 
+- *Waterdepth SWF (max):* The max water depth above the manhole surface level that is occuring during the simulation for SWF manholes. Values greater than 0 mean there is water on the street. 
+
+
+**Pumps**
+
+- *Percentage of pump capacity in use (max):* The percentage of the total pump capacity that is used at the moment the pump is pumping at max. 
+- *Percentage of pump capacity in use (end):* The percentage of the total pump capacity that is used at the last time step of the simulation. 
+- *Total pumped volume:* The total volume that is pumped over the entire simulation. 
+- *Pump duration on  max capacity:* The total amount of time the pump is pumping at its max capacity. 
+
+**Weirs**
+
+- *Head difference (max):* The maximum difference in head between the two sides of the weir. 
+- *Overflow volume (cum):* The total cumulative volume that has flown over the weir. 
 

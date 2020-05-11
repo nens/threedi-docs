@@ -134,6 +134,22 @@ Followed by::
 
 A boundary condition is linked to a node with more than one connection. A boundary may not be spaced on a junction of multiple channels, pipes or structures. Check the elements that are linked to the connection nodes that have boundary conditions.
 
+ValueError: invalid literal for int() with base 10: '5.21585549' 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+This error may be caused by an incorrect time series in one of the boundary condition tables (e.g. v2_1d_boundary_conditions). The time steps should be integers (e.g. 3, 15, 67) and can not contain decimal numbers. The boundary condition itself (second number) does not have to be an integer. 
+
+For example::
+
+        0, 0.33
+        5, 0.46
+
+is a valid time series. And:: 
+
+        0.5, 0.33
+        5.1, 0.46
+
+is an invalid time series. 
 
 Simulation
 ----------
