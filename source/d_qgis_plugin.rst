@@ -711,8 +711,10 @@ Add aggregation settings one by one::
 		VALUES (12, 1, 'qsss_cum_neg', 'surface_source_sink_discharge', 'cum_negative', 
 				'FALSE', 300);				
 	
-Note, in case of a new model or an existing model, the global settings id should be updated to the id of the scenario. For multiple scenarios, you must add these settings multiple times (and update row id's). Also, you may choose to change the aggregation time step, but make sure to use the same time step for all aggregation variables in case one wants to use the water balance tool.
+Note the above query sets the aggregation time step equal to the output time step. This can result in a fairly large aggregation resultfile. If you want to use different aggregation time step, use the following query (after running the large query first) and replace number with the number of choice::
 
+	UPDATE v2_aggregation_settings SET time_step = [fill in a number];
+	
 **Using the water balance tool**
 
 In a few steps, one can get insight in the water balance of their own system.
@@ -925,7 +927,7 @@ Side view tool
 Statistical tool
 ^^^^^^^^^^^^^^^^^^
 
-The statistical tool can ben used to calculate sewerage statistics from 3Di results. To use it, first make sure you loaded a 3Di model together with the results you want to calculate the statistics from. 
+The statistical tool can ben used to calculate sewerage statistics from 3Di results. To use it, first make sure you load a 3Di model together with the results you want to calculate the statistics from. 
 
 .. figure:: image/d_qgisplugin_statisticaltool.png
 	:alt: Statistical Tool
@@ -934,6 +936,13 @@ The statistical tool can ben used to calculate sewerage statistics from 3Di resu
 2) When the calculations are finished, new layers are added to the QGIS project. These layers contain statistics from the 3Di results on pipes, manholes, pumps and weirs. The layers are explained below. 
 
 *Note: DWF = Dry Weather Flow, CSF = Combined Sewer Flow, SWF = Storm Water Flow*
+
+**metadata_statistics**
+- *table:* Refers to the table, see below 
+- *field:* Refers to the fieldname, see below
+- *from_agg:* If set to 0 the statistics are derived using actual values on the output time step. This is the case if no aggregation value is available. Not using an aggregation netcdf makes the statistics derived using this tool less accurate
+- *input_param:* For advanced users: Refers to the input parameter from the NetCDF
+- *timestep:* When not derived from aggregation netcdf it is important what timestep has been used. It gives an indication of the accuracy of the value.
 
 **Pipes**
 
