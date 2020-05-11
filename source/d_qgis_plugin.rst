@@ -596,7 +596,7 @@ Note: the shape of the manhole is refered as 'rnd' = round, 'sqr' = square and '
 *    Extra manhole storage (``*BOP``)
 	*    The defined storage area is added to a manhole on the bottomlevel of the manhole. The defined bottom_level of the storage (niv_001) is ignored.
 	*    Only one storage area is supported
-*    **Drainage area/ Impervious surface** (``*AFV``)
+*    *Drainage area/ Impervious surface* (``*AFV``)
 
 *    Linkage nodes (``*KPG``)
 	*    The 'fictive' linkages (with typ_gkn == 01) are ignored, only real nodes are combined.
