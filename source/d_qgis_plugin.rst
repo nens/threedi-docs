@@ -637,79 +637,33 @@ Empty v2_aggregation_settings table::
 
 	DELETE FROM v2_aggregation_settings;
   
-Add aggregation settings one by one::
+Add aggregation settings for all rows in the global settings table::
 
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
-		VALUES (1, 1, 'pump_discharge_cum', 'pump_discharge', 'cum', 
-				'FALSE', 300);
-	
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
-		VALUES (2, 1, 'lateral_discharge_cum', 'lateral_discharge', 'cum', 
-				'FALSE', 300);
-	
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
-		VALUES (3, 1, 'simple_infiltration_cum', 'simple_infiltration', 'cum', 
-				'FALSE', 300);
-	
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
-		VALUES (4, 1, 'rain_cum', 'rain', 'cum', 
-				'FALSE', 300);
-	
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
-		VALUES (5, 1, 'leakage_cum', 'leakage', 'cum', 
-				'FALSE', 300);
-	
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
-		VALUES (6, 1, 'interception_current', 'interception', 'current', 
-				'FALSE', 300);
-	
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
-		VALUES (7, 1, 'discharge_cum', 'discharge', 'cum', 
-				'FALSE', 300);
-	
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
-		VALUES (8, 1, 'discharge_cum_neg', 'discharge', 'cum_negative', 
-				'FALSE', 300);
-	
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
-		VALUES (9, 1, 'discharge_cum_pos', 'discharge', 'cum_positive', 
-				'FALSE', 300);
-	
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
-		VALUES (10, 1, 'volume_current', 'volume', 'current', 
-				'FALSE', 300);
-				
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
-		VALUES (11, 1, 'qsss_cum_pos', 'surface_source_sink_discharge', 'cum_positive', 
-				'FALSE', 300);
-				
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
-		VALUES (12, 1, 'qsss_cum_neg', 'surface_source_sink_discharge', 'cum_negative', 
-				'FALSE', 300);				
+    INSERT INTO v2_aggregation_settings(global_settings_id, var_name, flow_variable, aggregation_method, aggregation_in_space, timestep)
+    SELECT id, 'pump_discharge_cum', 'pump_discharge', 'cum', 0, output_time_step FROM v2_global_settings
+    UNION
+    SELECT id, 'lateral_discharge_cum', 'lateral_discharge', 'cum', 0, output_time_step FROM v2_global_settings
+    UNION
+    SELECT id, 'simple_infiltration_cum', 'simple_infiltration', 'cum', 0, output_time_step FROM v2_global_settings
+    UNION
+    SELECT id, 'rain_cum', 'rain', 'cum', 0, output_time_step FROM v2_global_settings
+    UNION
+    SELECT id, 'leakage_cum', 'leakage', 'cum', 0, output_time_step FROM v2_global_settings
+    UNION
+    SELECT id, 'interception_current', 'interception', 'current', 0, output_time_step FROM v2_global_settings
+    UNION
+    SELECT id, 'discharge_cum', 'discharge', 'cum', 0, output_time_step FROM v2_global_settings
+    UNION
+    SELECT id, 'discharge_cum_neg', 'discharge', 'cum_negative', 0, output_time_step FROM v2_global_settings
+    UNION
+    SELECT id, 'discharge_cum_pos', 'discharge', 'cum_positive', 0, output_time_step FROM v2_global_settings
+    UNION
+    SELECT id, 'volume_current', 'volume', 'current', 0, output_time_step  FROM v2_global_settings
+    UNION
+    SELECT id, 'qsss_cum_pos', 'surface_source_sink_discharge', 'cum_positive', 0, output_time_step FROM v2_global_settings
+    UNION
+    SELECT id, 'qsss_cum_neg', 'surface_source_sink_discharge', 'cum_negative', 0, output_time_step FROM v2_global_settings
+    ;
 	
 Note the above query sets the aggregation time step equal to the output time step. This can result in a fairly large aggregation resultfile. If you want to use different aggregation time step, use the following query (after running the large query first) and replace number with the number of choice::
 
