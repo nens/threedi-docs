@@ -8,8 +8,8 @@ Introduction
 The modeller interface consists of QGIS with a 3Di Toolbox as a QGIS plugin on top for working with 3Di models and netCDF results. Since the Plugin Release of March 4th 2019, the plugin is only supported by QGIS 3.4.5. An older version of the plugin will remain available for QGIS 2.18. 
 As a user you can choose to either:
 
-- install the `Modeller Interface <https://docs.3di.lizard.net/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.4.13-1-Setup-x86_64.exe>`_  or
-- install QGIS, and install the 3Di toolbox as a QGIS plugin 
+- Install the `Modeller Interface <https://docs.3di.lizard.net/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.4.13-1-Setup-x86_64.exe>`_  or
+- Install QGIS, and install the 3Di toolbox as a QGIS plugin
 
 For more information on installing the plugin see `3Di Toolbox plug-in <https://github.com/nens/threedi-qgis-plugin/wiki>`_. For more information on viewing and editing 3Di models in QGIS see :ref:`adjust_model`. 
 The section below explains the use of various options of the modeller interface. More subjects will be added regularly.
@@ -37,13 +37,13 @@ To install the 3Di-Toolbox plugin follow the steps below:
 6) Install the plugin.
 
 .. figure:: image/d_qgispluging_pluginmanager.png
-	:alt: QGIS Plugin Manager
+    :alt: QGIS Plugin Manager
     
 .. figure:: image/d_qgispluging_pluginmanager_addlizard_repo.png
-	:alt: Add Lizard repo Plugin
+    :alt: Add Lizard repo Plugin
 
 .. figure:: image/d_qgispluging_pluginmanager_install_toolbox.png
-	:alt: Install 3Di Toolbox
+    :alt: Install 3Di Toolbox
 
 .. _plugin_overview:
     
@@ -54,7 +54,7 @@ After installation of the plugin a toolbar is added to the QGIS interface. The d
 In the Modeller Interface the 3Di toolbar is directly available.
 
 .. figure:: image/d_qgispluging_toolbox_overview.png
-	:alt: Plugin overview
+    :alt: Plugin overview
 
 1) Clear cache 
 2) :ref:`load_model_results`
@@ -80,7 +80,7 @@ In case you are loading you model schemetisation for checking and editing your S
 
 
 .. figure:: image/d_qgisplugin_select_model_results.png
-	:alt: Load 3Di model and results
+    :alt: Load 3Di model and results
 
 
 
@@ -115,7 +115,7 @@ For obligatory fields, we have added non-binding constraints. In fields that are
     :width: 25pc
     :height: 25pc
     :alt: Validation example
-	
+
 
 Multi-line fields for time series
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -136,8 +136,9 @@ Some fields are automatically filled to assist in making your model schematisati
 - Channels and culverts automatically fill connection node ids when drawing between nodes with `snapping <https://docs.qgis.org/3.4/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#setting-the-snapping-tolerance-and-search-radius>`_.
 - Invert level from culverts. If invert level is empty culverts assumes the invert level based on manhole bottom_level 
 
-On top of that, some default values for some of the mandatory fields are set. This helps you built models faster. The following default values will be set, in case they are left blanc. Please, check these are default settings and there might be better options for your specific application.
+On top of that, some default values for some of the mandatory fields are set. This helps you build models faster. The following default values will be set, in case they are left blank. The listed values are defaults, so please change them if required for your specific application.
 
+You need to set your QGIS locale to 'English UnitedStates' in order for this functionality to work properly. See the :ref:`Before you begin > Software <software>` section for instructions.
 
 **v2_global_settings:**
 
@@ -415,13 +416,13 @@ Toolbox for working with 3Di models
 The 3Di toolbox is actived by clicking the toolbox icon in the 3Di-Toolbox bar. 
 
 .. figure:: image/d_qgisplugin_activate_toolbox.png 
-	:alt: 3Di Toolbox Bar
+    :alt: 3Di Toolbox Bar
 
 
 After clicking the toolbox icon, a new window is opened. Click the arrow next to the *Tools* icon to open the toolbox and view the different tools that are available. 
 
 .. figure:: image/d_qgisplugin_toolbox_window.png 
-	:alt: Toolbox Window
+    :alt: Toolbox Window
 
 
 .. _rasterchecker:
@@ -445,25 +446,25 @@ To use the *Raster checker*, set up a connection with the SQlite of your model.
 3) Now you can close the *Data Source Manager* window.
 
 .. figure:: image/d_qgisplugin_load_sqlite.png
-	:alt: Data Source Manager
+    :alt: Data Source Manager
 
 
 4) The *Raster checker* can be accessed by opening the Toolbox. 
 5) The *Raster checker* can be found under *Step 1 - Check data*. By double clicking *raster_checker.py* the *Raster checker* is opened in a seperate window. 
 
 .. figure:: image/d_qgisplugin_activate_rasterchecker.png
-	:alt: Data Source Manager
+    :alt: Data Source Manager
 
 6) Under *Model schematisation database* you can choose the spatialite of your model. 
 7) Click *OK* to start the *raster checker*. When the tool is finished the following message pops-up:
 
 .. figure:: image/d_qgisplugin_rasterchecker_done.png 
-	:alt: Raster checker Done
+    :alt: Raster checker Done
 
 8) The log-file of the raster checker can be found at the same location as the location of the SQlite. The log-file can be opened with a text editor such as Notepad. The log-file looks similar to:
 
 .. figure:: image/d_qgisplugin_rasterchecker_log_header.png
-	:alt: Rasterchecker Done
+    :alt: Rasterchecker Done
 
 Here, one can also find the overview of the 18 checks that are performed. 
 
@@ -473,7 +474,7 @@ Here, one can also find the overview of the 18 checks that are performed.
 Further down in the log-file, the outcome of the *raster checker* for each raster is shown.
 
 .. figure:: image/d_qgisplugin_rasterchecker_log_checks.png
-	:alt: Rasterchecker Feedback
+    :alt: Rasterchecker Feedback
 
 11) The first column, named *level*, shows the importance of the notification (info, warning or error). Errors need to be solved.
 12) The second column, named *setting_id*, refers to the id of the row in the v2_global_settings table of the sqlite, where the raster reference can be found. 
@@ -578,29 +579,29 @@ The data from the SUF-HYD will be loaded into the sqlite. A log file of this pro
 The following objects are imported:
 
 * Manhole (``*KNP``)
-	* The number of inhabitants will be added as an *Impervious surface*. 
-	
+    * The number of inhabitants will be added as an *Impervious surface*.
+
 Note: the shape of the manhole is refered as 'rnd' = round, 'sqr' = square and 'rect' = rectangle
 
 *    Pipe (``*LEI``)
-	*    The number of inhabitants will be added as *Impervious surface*
+    *    The number of inhabitants will be added as *Impervious surface*
 *    Pump station (``*GEM``)
-	*    If multiple stages are defined, this will be transformed into seperate pumpstations. Up to 10 stages are supported
+    *    If multiple stages are defined, this will be transformed into seperate pumpstations. Up to 10 stages are supported
 *    Weir (``*OVS``)
-	*    Flow direction (str_rch) is translated into discharge coefficients with a value of 0
-	*    An end node with boundary condition is not automatically added.
+    *    Flow direction (str_rch) is translated into discharge coefficients with a value of 0
+    *    An end node with boundary condition is not automatically added.
 *    Orifice (``*DRL``)
-	*    Flow direction (str_rch) is translated into discharge coefficients with a value of 0
+    *    Flow direction (str_rch) is translated into discharge coefficients with a value of 0
 *    Boundary (``*UIT``)
-	*    The water level will be the average definition (bws_gem). If not present the summer water level is used and otherwise the winter water level.
+    *    The water level will be the average definition (bws_gem). If not present the summer water level is used and otherwise the winter water level.
 *    Extra manhole storage (``*BOP``)
-	*    The defined storage area is added to a manhole on the bottomlevel of the manhole. The defined bottom_level of the storage (niv_001) is ignored.
-	*    Only one storage area is supported
+    *    The defined storage area is added to a manhole on the bottomlevel of the manhole. The defined bottom_level of the storage (niv_001) is ignored.
+    *    Only one storage area is supported
 *    *Drainage area/ Impervious surface (``*AFV``)*
 
 *    Linkage nodes (``*KPG``)
-	*    The 'fictive' linkages (with typ_gkn == 01) are ignored, only real nodes are combined.
-	*    The second node (ide_kn2) is removed. Impervious surfaces and pipes linked to the removed node are redirected to the first node. Extra manhole storage will be lost.
+    *    The 'fictive' linkages (with typ_gkn == 01) are ignored, only real nodes are combined.
+    *    The second node (ide_kn2) is removed. Impervious surfaces and pipes linked to the removed node are redirected to the first node. Extra manhole storage will be lost.
 
 Viewing and Analysing 3Di results
 ---------------------------------
@@ -635,83 +636,37 @@ Of course, the time step, cq, the period over which is aggregated, is adjustable
 
 Empty v2_aggregation_settings table::
 
-	DELETE FROM v2_aggregation_settings;
+    DELETE FROM v2_aggregation_settings;
   
-Add aggregation settings one by one::
+Add aggregation settings for all rows in the global settings table::
 
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
-		VALUES (1, 1, 'pump_discharge_cum', 'pump_discharge', 'cum', 
-				'FALSE', 300);
-	
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
-		VALUES (2, 1, 'lateral_discharge_cum', 'lateral_discharge', 'cum', 
-				'FALSE', 300);
-	
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
-		VALUES (3, 1, 'simple_infiltration_cum', 'simple_infiltration', 'cum', 
-				'FALSE', 300);
-	
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
-		VALUES (4, 1, 'rain_cum', 'rain', 'cum', 
-				'FALSE', 300);
-	
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
-		VALUES (5, 1, 'leakage_cum', 'leakage', 'cum', 
-				'FALSE', 300);
-	
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
-		VALUES (6, 1, 'interception_current', 'interception', 'current', 
-				'FALSE', 300);
-	
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
-		VALUES (7, 1, 'discharge_cum', 'discharge', 'cum', 
-				'FALSE', 300);
-	
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
-		VALUES (8, 1, 'discharge_cum_neg', 'discharge', 'cum_negative', 
-				'FALSE', 300);
-	
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
-		VALUES (9, 1, 'discharge_cum_pos', 'discharge', 'cum_positive', 
-				'FALSE', 300);
-	
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
-		VALUES (10, 1, 'volume_current', 'volume', 'current', 
-				'FALSE', 300);
-				
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
-		VALUES (11, 1, 'qsss_cum_pos', 'surface_source_sink_discharge', 'cum_positive', 
-				'FALSE', 300);
-				
-	INSERT INTO v2_aggregation_settings(
-				id, global_settings_id, var_name, flow_variable, aggregation_method, 
-				aggregation_in_space, timestep)
-		VALUES (12, 1, 'qsss_cum_neg', 'surface_source_sink_discharge', 'cum_negative', 
-				'FALSE', 300);				
-	
-Note, in case of a new model or an existing model, the global settings id should be updated to the id of the scenario. For multiple scenarios, you must add these settings multiple times (and update row id's). Also, you may choose to change the aggregation time step, but make sure to use the same time step for all aggregation variables in case one wants to use the water balance tool.
+    INSERT INTO v2_aggregation_settings(global_settings_id, var_name, flow_variable, aggregation_method, aggregation_in_space, timestep)
+    SELECT id, 'pump_discharge_cum', 'pump_discharge', 'cum', 0, output_time_step FROM v2_global_settings
+    UNION
+    SELECT id, 'lateral_discharge_cum', 'lateral_discharge', 'cum', 0, output_time_step FROM v2_global_settings
+    UNION
+    SELECT id, 'simple_infiltration_cum', 'simple_infiltration', 'cum', 0, output_time_step FROM v2_global_settings
+    UNION
+    SELECT id, 'rain_cum', 'rain', 'cum', 0, output_time_step FROM v2_global_settings
+    UNION
+    SELECT id, 'leakage_cum', 'leakage', 'cum', 0, output_time_step FROM v2_global_settings
+    UNION
+    SELECT id, 'interception_current', 'interception', 'current', 0, output_time_step FROM v2_global_settings
+    UNION
+    SELECT id, 'discharge_cum', 'discharge', 'cum', 0, output_time_step FROM v2_global_settings
+    UNION
+    SELECT id, 'discharge_cum_neg', 'discharge', 'cum_negative', 0, output_time_step FROM v2_global_settings
+    UNION
+    SELECT id, 'discharge_cum_pos', 'discharge', 'cum_positive', 0, output_time_step FROM v2_global_settings
+    UNION
+    SELECT id, 'volume_current', 'volume', 'current', 0, output_time_step  FROM v2_global_settings
+    UNION
+    SELECT id, 'qsss_cum_pos', 'surface_source_sink_discharge', 'cum_positive', 0, output_time_step FROM v2_global_settings
+    UNION
+    SELECT id, 'qsss_cum_neg', 'surface_source_sink_discharge', 'cum_negative', 0, output_time_step FROM v2_global_settings
+    ;
+
+The above query sets the aggregation time step equal to the output time step. If you want to use different aggregation time step, make sure to use the same time step for all aggregation variables in order to enable the use of the water balance tool.
 
 **Using the water balance tool**
 
@@ -722,12 +677,12 @@ In a few steps, one can get insight in the water balance of their own system.
 2) The water balance tool is activated by clicking the balance icon in the 3Di-Toolbox bar. 
 
 .. figure:: image/d_qgisplugin_waterbalance1.png 
-	:alt: 3Di Toolbox Bar
+    :alt: 3Di Toolbox Bar
     
 In case, the aggregated results are missing or incomplete the following error pops up:
 
 .. figure:: image/d_qgisplugin_wb_error_no_aggregation.png 
-	:alt: Error no aggregation settings
+    :alt: Error no aggregation settings
     
     
 3) Draw a polygon to define the domain of the model for the area of interest. This can be done by clicking at multiple locations within the model domain. Click *Finalize polygon* to finish the polygon. The graph shows the water balance over time for the selected area. 
@@ -737,7 +692,7 @@ In case, the aggregated results are missing or incomplete the following error po
 5) The button *Hide on map* the polygon over which the water balance is calculated is hidden.
 
 .. figure:: image/d_qgisplugin_wb_draw_polygon.png 
-	:alt: Draw polygon to define water balance area
+    :alt: Draw polygon to define water balance area
     
 
     
@@ -757,7 +712,7 @@ Note: the different flow types are 'stacked' in the graph. This means the flow v
 Volume change is shown in the graph as well. In this case, the volume change is the result of the total positive and negative flow (inflow and outflow of the area). The volume change is not stacked but shown as a separate line in the graph. 
 
 .. figure:: image/d_qgisplugin_wb_marked_flow.png 
-	:alt: Marked flow types
+    :alt: Marked flow types
     
 **Total balance**
 
@@ -766,12 +721,12 @@ Volume change is shown in the graph as well. In this case, the volume change is 
 14) To adjust this period, close the screen with the bar diagrams, right click on the water balance graph, open the option *x-axis*, activate the option *manual* and set the minimum and maximum time. Then, click again on *Show total balance* to create the water balance diagrams for the new time range. 
 
 .. figure:: image/d_qgisplugin_showbalance_axis.png
-	:alt: Adjust axis range
+    :alt: Adjust axis range
 
 The top diagram shows the net water balance from all domains. The bottom diagrams show the water balance per domain. 
 
 .. figure:: image/d_qgisplugin_wb_totalbalance_new_qgis3.png
-	:alt: Total balance
+    :alt: Total balance
 
 It is possible to save the graphs as an image or export the water balance data to a CSV-file.
 
@@ -781,7 +736,7 @@ It is possible to save the graphs as an image or export the water balance data t
 18) Click 'Export' to generate your figure. 
 
 .. figure:: image/d_qgisplugin_export_wb_graph.png
-	:alt: Export waterbalance graph
+    :alt: Export waterbalance graph
 
 
 **Explanation of flow types**
@@ -835,19 +790,19 @@ The following steps are required to view your results:
 3) In the layer overview window go to the layer group *results: results_3di* and activate the 'flow-lines' layer or the 'nodes' layer: 
 
 .. figure:: image/d_qgisplugin_graphtool_activateresults.png
-	:alt: Results layers
+    :alt: Results layers
 
 4) Activate the *Select features* tool in QGIS, by clicking this logo in the *Attributes toolbar* from QGIS: 
 
 .. figure:: image/d_qgisplugin_graphtool_selectiontool.png
-	:alt: Selection tool
+    :alt: Selection tool
 
 5) Select the specific nodes or flow lines. You can select multiple nodes or flow lines simultaneously, but for speed purposes it is advised to limit it to a maximum of 20 features.
 
 6) Click the *Add* button in the *3Di results plot* panel. The results for the selected features are loaded from the NetCDF and visualized over time in the graph.
 
 .. figure:: image/d_qgisplugin_graphtool_graphwindow.png
-	:alt: Results graph example
+    :alt: Results graph example
 
 7) You can switch between node and flow line results by activating the tab *Q-graph* for flow lines and *H-graph* for nodes. 
 8) In the drop-down menu on the right side of the panel you can choose the type of results you want to see. The y-axis shows the corresponding range and unit of the results type. The x-axis shows the time. *Note: the time is often displayed in kilo-seconds (ks). 1 ks = 1000 seconds ≈ 16.7 minutes.*
@@ -868,12 +823,12 @@ To understand the behaviour of your water system, it is important to get insight
 5) The timestep of the slider is shown in the box on the right side. Time notation is in DAYS:HOURS:MINUTES from the start of the  simulation. 
 
 .. figure:: image/d_qgisplugin_animation_on.png
-	:alt: Animation on bar
+    :alt: Animation on bar
 
 When the *Animation* tool is activated, temporary layers are created to show the chosen results:
 
 .. figure:: image/d_qgisplugin_animationlayers.png
-	:alt: Animation layers
+    :alt: Animation layers
 
 The thickness of the lines scale with the the size of the flow over the lines. The arrows indicate the flow direction. The colours of the nodes, represent different values of the node results.
 
@@ -882,19 +837,19 @@ When groundwater is not used in the model, the layers 'line_results_groundwater'
 An example of the animated flow lines is shown in the figure below. 
 
 .. figure:: image/d_qgisplugin_stroming.png
-	:alt: Animation flow
+    :alt: Animation flow
 
 Here, the purple arrows show flow over the 2D domain. The pink arrows show the flow from the 1D domain to the 2D domain or vice versa. In this case this is flow from the terrain into a sewerage manhole. The blue arrows show the flow in the 1D network.
 
 The line results can also be filtered to distinguish between type of flow. To do this, right click on the 'line_results' layer and choose 'Filter' from the drop-down menu. A new window will pop up: 
 
 .. figure:: image/d_qgisplugin_filter.png
-	:alt: Filter
+    :alt: Filter
 
 Double click on 'type' and click 'Sample' to see which types are available. In the 'filter expression' field you can specify the types of flow lines you want to show, e.g. "type" = '2d'. In the Figure below, an example of filtered 2D flow is shown. 
 
 .. figure:: image/d_qgisplugin_2d_flow.png
-	:alt: Filter
+    :alt: Filter
 
 
 .. _sideviewtool:
@@ -903,7 +858,7 @@ Side view tool
 ^^^^^^^^^^^^^^
 
 .. figure:: image/d_qgisplugin_sideviewtool.png
-	:alt: Sideview tool
+    :alt: Sideview tool
 
 1) Activate the *Show side view* tool by clicking the map icon in the 3Di toolbar. 
 2) A new panel opens. Click ‘Choose sideview trajectory’. 
@@ -911,11 +866,11 @@ Side view tool
 4) A trajectory can contain multiple points. Just click on the next point on the yellow line (point C) and the sideview of the shortest route from point B to C is automatically added to the graph. 
 5) The graph contains the following elements: 
 
-	a. The pipe/channel dimensions, represented by the grey area. 
-	b. Dimensions and locations of manholes. 
-	c. Green line: surface levels of manholes
-	d. Green dotted line: drain levels of manholes
-	e. Blue line: the water level.
+    a. The pipe/channel dimensions, represented by the grey area.
+    b. Dimensions and locations of manholes.
+    c. Green line: surface levels of manholes
+    d. Green dotted line: drain levels of manholes
+    e. Blue line: the water level.
 
 6) The slider in the *Animation* tool can be used to scroll through time. 
 
