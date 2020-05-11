@@ -937,7 +937,8 @@ The statistical tool can ben used to calculate sewerage statistics from 3Di resu
 
 *Note: DWF = Dry Weather Flow, CSF = Combined Sewer Flow, SWF = Storm Water Flow*
 
-**metadata_statistics**
+**Metadata_statistics**
+
 - *table:* Refers to the table, see below 
 - *field:* Refers to the fieldname, see below
 - *from_agg:* If set to 0 the statistics are derived using actual values on the output time step. This is the case if no aggregation value is available. Not using an aggregation netcdf makes the statistics derived using this tool less accurate
