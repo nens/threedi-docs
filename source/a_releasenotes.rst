@@ -2,16 +2,16 @@ Release notes
 =============
 
 Release 3Di - Hotfix March 2020
-++++++++++++++++++++++++
++++++++++++++++++++++++++++++++
 
 On Thursday the 11th of May, we released a minor hotfix on our 3Di live site. We resolved the issues that are listed below.
 
-- Custom rainfall was a few percentages off due to a rounding issue 
-- Background maps are referring to a new endpoint 
+- Custom rainfall was a few percentages off due to a rounding issue
+- Background maps are referring to a new endpoint
 
 
 Release 3Di - Hotfix March 2020
-++++++++++++++++++++++++
++++++++++++++++++++++++++++++++
 
 On Thursday the 12th of March, we released a minor hotfix on our 3Di servers. We resolved the issues that are listed below.
 
@@ -20,7 +20,7 @@ On Thursday the 12th of March, we released a minor hotfix on our 3Di servers. We
 - The log messages are improved when vertices of channels and culverts share (nearly) the same location.
 
 
-Release 3Di - 2019-11 Meuse Release 
+Release 3Di - 2019-11 Meuse Release
 +++++++++++++++++++++++++++++++++++
 
 In the Meuse release we updated, improved and created a lot of features. These features, with more detailed description below, include:
@@ -37,29 +37,29 @@ In the Meuse release we updated, improved and created a lot of features. These f
 Modeller Interface (incl. installer)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We are happy to announce our brand new user-friendly Modeller Interface. We offer a brand new installer in which we have configured QGIS specifically for model building and analyzing. We do this to assist users in getting a more user friendly experience when building a model. It also helps in positioning our plugin within organisations, now it is clear that our version is meant for 3Di model building while still having the benefit of being powered by QGIS.   
+We are happy to announce our brand new user-friendly Modeller Interface. We offer a brand new installer in which we have configured QGIS specifically for model building and analyzing. We do this to assist users in getting a more user friendly experience when building a model. It also helps in positioning our plugin within organisations, now it is clear that our version is meant for 3Di model building while still having the benefit of being powered by QGIS.
 In this installation we include QGIS, our plugin, additional useful third party plugins and a custom (simplified) layout. So no need to have QGIS installed any more. As a user you have two choices:
 
 - use our Modeller Interface installer (for standard use of 3Di)
 - use QGIS and install our plugin (for advanced users)
 
-Download the `installer <https://docs.3di.lizard.net/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.4.13-1-Setup-x86_64.exe>`_ 
+Download the `installer <https://docs.3di.lizard.net/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.4.13-1-Setup-x86_64.exe>`_
 
-If you experience difficulty within your organization installing QGIS 3.x or the Modeller interface and are still using QGIS 2.18 please contact our `local partner <https://landgoed.it/producten/>`_ (dutch only) that advises organizations on the implementation of QGIS.  
+If you experience difficulty within your organization installing QGIS 3.x or the Modeller interface and are still using QGIS 2.18 please contact our `local partner <https://landgoed.it/producten/>`_ (dutch only) that advises organizations on the implementation of QGIS.
 
 Based on user feedback during our user meetings in the Netherlands and Denmark and suggestions we received in our servicedesk we have implemented a lot of features like default values, selectable options, assistance with obligated fields and lots more. This makes model building for 3Di more intuitive.
 Additionally, when loading a model using the 3Di toolbox, automatically a spatialite connection is stored. This makes it easier to use the raster and schematisation checker.
-For a full list of adjustments, have a look at the `qgis documentation page <https://docs.3di.lizard.net/d_qgis_plugin.html#view-and-edit-3di-model-a-schematisation>`_. 
+For a full list of adjustments, have a look at the `qgis documentation page <https://docs.3di.lizard.net/d_qgis_plugin.html#view-and-edit-3di-model-a-schematisation>`_.
 
 
-New calculation API (beta) 
+New calculation API (beta)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We have released the first version of the brand new API. We are very proud to share this with you. Because the new API is a beta release in this Meuse release, it does not yet support all features of our current API. The implemented features, however, do support a wide range of possible calculations. More on that below. 
+We have released the first version of the brand new API. We are very proud to share this with you. Because the new API is a beta release in this Meuse release, it does not yet support all features of our current API. The implemented features, however, do support a wide range of possible calculations. More on that below.
 
-A big improvement with the new API is the separation of model schematization and scenario information. As a user you -of course- still need to create your model schematization and upload this to the 3Di cloud. This uploaded schematization does not have the scenario information included. This information needs to be provided through the new API at the start of a calculation. This unlocks the potential of more efficient scenario based simulations. Multiple simulations can now be run without additional preprocessing of the schematization, when only scenario information changes. Another big improvement in the new API is the improved ability to monitor the status of simulations while they are running, and subsequently the possibitity to stop simulations. It is therefore not required anymore to wait for the full calculation to finish and to then discover something was wrong with a setting or a mistake in the model schematization was made. For more reliability the new calculation API enables us to develop faster and deploy easier, by automating a lot of the testing. This results in smoother and more reliable releases in the future. 
+A big improvement with the new API is the separation of model schematization and scenario information. As a user you -of course- still need to create your model schematization and upload this to the 3Di cloud. This uploaded schematization does not have the scenario information included. This information needs to be provided through the new API at the start of a calculation. This unlocks the potential of more efficient scenario based simulations. Multiple simulations can now be run without additional preprocessing of the schematization, when only scenario information changes. Another big improvement in the new API is the improved ability to monitor the status of simulations while they are running, and subsequently the possibitity to stop simulations. It is therefore not required anymore to wait for the full calculation to finish and to then discover something was wrong with a setting or a mistake in the model schematization was made. For more reliability the new calculation API enables us to develop faster and deploy easier, by automating a lot of the testing. This results in smoother and more reliable releases in the future.
 
-This new approach is a big change in how the calculation core works. The engine remains the same, but the shell has completely changed. So what do we support right away? 
+This new approach is a big change in how the calculation core works. The engine remains the same, but the shell has completely changed. So what do we support right away?
 
 Scenario’s:
 
@@ -71,7 +71,7 @@ Scenario’s:
 
 Interactiveness:
 
-- start 
+- start
 - stop (**new!**)
 - pause (**new!**)
 - progress (**new!**)
@@ -90,7 +90,7 @@ Here you can find a more `detailed technical overview <https://nens.github.io/th
 
 *How to continue*
 
-This release is our first production release. To get a feel for the new API and help us improving it, users can request acces to the beta release. Interested to be a beta user? Let us know here. 
+This release is our first production release. To get a feel for the new API and help us improving it, users can request acces to the beta release. Interested to be a beta user? Let us know here.
 
 Of course we are still developing. The new API will become the main route for future calculations. On top of the programming interface, regular users will be facilitated through the Modeller interface for use of the new API in the future. We will start rolling out an interface in the Modeller interface that will automatically use the new API route. So what features will be released in the near future?
 
@@ -141,7 +141,7 @@ Documentation
 
 As part of a continuous improvement of the documentation, the updates have been made to:
 
-- `New database sheet  <https://docs.3di.lizard.net/d_before_you_begin.html#database-overview>`_. 
+- `New database sheet  <https://docs.3di.lizard.net/d_before_you_begin.html#database-overview>`_.
 - `Manual <https://docs.3di.lizard.net/d_qgis_plugin.html#view-and-edit-3di-model-a-schematisation>`_ of our QGIS plugin
 
 
@@ -156,7 +156,7 @@ Modeller Interface:
 - Fixed schematisation checker, now levees are also checked for empty geometries.
 
 
-Release 3Di - 2019-07 Rhine Release 
+Release 3Di - 2019-07 Rhine Release
 ++++++++++++++++++++++++++++++++++++
 
 The newest version of 3Di is released on July the 8th 2019. This 2019-07 Rhine release is a big step towards a fully new way of interacting with 3Di. The following features are released:
@@ -164,15 +164,15 @@ The newest version of 3Di is released on July the 8th 2019. This 2019-07 Rhine r
 - Schematization checker
 - API v3 dev version
 
-We have changed the way we name our releases, from now on releasenames will have the following structure: year-month and the name of a water body.  
+We have changed the way we name our releases, from now on releasenames will have the following structure: year-month and the name of a water body.
 
 Schematization checker
 ^^^^^^^^^^^^^^^^^^^^^^
 
 We proudly announce our newest addition to the 3Di Modeller Interface! Our QGIS toolbox has been expanded with a new tool, called the schematization checker.
-This tool will help you  building your 3Di models. Simply select your 3Di schematisation and run the schematisation checker. It will verify a range of input data and settings. It reports any missing or incorrect data in your 3Di model. This first version of the schematisation checker will find already the most common mistakes made when building a 3Di schematisation. This first version of the schematisation checker does not catch all possible errors in your 3Di schematisation. However, we will add more checks in the future. 
+This tool will help you  building your 3Di models. Simply select your 3Di schematisation and run the schematisation checker. It will verify a range of input data and settings. It reports any missing or incorrect data in your 3Di model. This first version of the schematisation checker will find already the most common mistakes made when building a 3Di schematisation. This first version of the schematisation checker does not catch all possible errors in your 3Di schematisation. However, we will add more checks in the future.
 
-`Documentation <https://docs.3di.lizard.net/en/stable/d_qgis_plugin.html>`_. of the tool. 
+`Documentation <https://docs.3di.lizard.net/en/stable/d_qgis_plugin.html>`_. of the tool.
 
 Just like the ThreeDiToolbox, the schematisation checker is an open source tool. You can find the `source code <https://github.com/nens/threedi-modelchecker>`_. online Any contributions are greatly appreciated.
 
@@ -184,7 +184,7 @@ We have made a dev release of our new API. It is meant for developers to hook up
 Bugfixes
 ^^^^^^^^
 
-We have also fixed some bugs this release. In case of the computational core it is required to re-run inpy to use the bug-fixed version. 
+We have also fixed some bugs this release. In case of the computational core it is required to re-run inpy to use the bug-fixed version.
 
 Computational Core
 ^^^^^^^^^^^^^^^^^^
@@ -192,7 +192,7 @@ Computational Core
 - Leaking levees: Users reported that in some very specific cases levee elements did not block the flow. We have been able to find the exceptions in which did occur. It was due to a combination of the location of the vertices and the edges of subgrid cells. Therefore, the chance it would occur increases in case of larger subgrid cells.
 - Long crested weir: In case of forking 1D elements just before or after a long crested weir, the model would crash. This is now fixed.
 - Sommerfeld edges: We have fixed a bug for the Sommerfeld boundary conditions, which might occur in pure 1D calculations.
-- 1D Laterals: In case of 1D laterals, the results were not correctly written in the netcdf and in the flow summary. 
+- 1D Laterals: In case of 1D laterals, the results were not correctly written in the netcdf and in the flow summary.
 
 QGIS/Modeller Interface
 ^^^^^^^^^^^^^^^^^^^^^^^
