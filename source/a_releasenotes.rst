@@ -4,6 +4,15 @@ Release notes
 Release 3Di - Hotfix March 2020
 ++++++++++++++++++++++++
 
+On Thursday the 11th of May, we released a minor hotfix on our 3Di live site. We resolved the issues that are listed below.
+
+- Custom rainfall was a few percentages off due to a rounding issue 
+- Background maps are referring to a new endpoint 
+
+
+Release 3Di - Hotfix March 2020
+++++++++++++++++++++++++
+
 On Thursday the 12th of March, we released a minor hotfix on our 3Di servers. We resolved the issues that are listed below.
 
 - The flow summary could show a deviation on the in- and outflow discharge values in case these locations would be initially dry.
