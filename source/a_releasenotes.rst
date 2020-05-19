@@ -1,7 +1,216 @@
 Release notes
 =============
 
-Release 3Di - Hotfix March 2020
+Release 3Di - 2020-05 Zambezi Release
++++++++++++++++++++++++++++++++++++
+
+Release notes
+
+
+In the Zambezi release we updated, improved and created a lot of features. These features, with more detailed description below, include:
+
+- API v3
+- Beta.3di.live
+- Modeller Interface 
+- Bugfixes ThreediToolbox
+
+Our current API implementation is v1. We have decided to move forward to v3 to avoid confusion with models that are sometimes also called v2. In these release notes we refer to v1 for current production and v3 for the newly released software. 
+
+API v3
+^^^^^^
+
+With the release of API v3 and the new live site it is important to note that the current API v1 and live site on 3di.lizard.net will not be turned off immediately. Due to the groundbreaking nature of the developments we will give you 3 months to get used to the new interfaces before we will make a full switch. In the meantime we are hosting webinars and will be providing documentation to make the switch as smooth as possible.
+
+The new API can be found here: https://api.3di.live/v3.0/swagger/ 
+If you use python please use our open api implementation: https://nens.github.io/threedi-openapi-client/
+
+The new API hosts a lot of features. To create an overview we have divided these release notes in different themes:
+
+- Traceability
+- Model meta info
+- Interactivity
+- Separates schematization from scenario information
+
+Traceability
+------------
+
+- Usage including model that has been used
+- Full traceability <include: plaatje of filmpje? toevoegen>
+- Improved logging <include: plaatje toevoegen>
+
+
+Model meta info
+---------------
+
+- Request a model-list from the server 
+- Potential breaches
+- Model geojson including calculation grid
+- Direct results download
+
+Interactiveness
+---------------
+
+- Follow calculations (see progress)
+- Get results while still calculating (using websockets)
+- Interact with calculations (start, stop, pause)
+- Adjust attributes of your schematisation while running (pause first)
+e.g.: adjust a weir height based on a water level treshold somewhere in the model
+<include: all possible adjustments>
+
+Separates schematization from scenario information
+--------------------------------------------------
+
+The API v3 seperates schematization information from scenario information. Under schematization we include the following: 
+- channels
+- pipes
+- structures
+- boundary conditions (location and type)
+
+Scenario information:
+- boundary conditions (time serie)
+- initial water level (saved state, 2D, 1D)
+- laterals (1D, 2D)
+
+This seperation we will make more distinct in the next release. Keep this in mind when using the API v3. To use initial water level for example, a specific call is required indicating to 3Di whether the scenario run should include initial water level from the spatialite, or a different when that is given with the API. 
+
+In the table the current status of implementation of these scenario information:
+============================= =============== =============== ===============
+Forcings						 Spatialite  	API				Live site
+============================= =============== =============== ===============
+Boundary conditions  				v1, v3		 -					v1, v3
+Initial water level					v1, v3		 v1, v3				-
+Laterals							v1			 v3					-
+============================= =============== =============== ===============
+
+For v1 nothing changes, for v3 it means the following:
+- That for boundary conditions at the moment nothing changes, users define them in the spatialite
+- For initial water level, users can define them in the spatialite, but can also define or change them using the API
+- For laterels, users need to define or change them using the API.
+
+
+Enhanced input possibilities
+----------------------------
+
+- Upload own rainfall data, this can be a timeseries or a NetCDF  <include: link to NetCDF format>
+- Re-run the same schematisations immediately while changing initial waterlevel or laterals
+
+<include: Examples of API usage, link to documentation Lars?>
+
+beta.3di.live
+^^^^^^^^^^^^^
+
+We are proud to release the beta version of our completely new live site. This beta live site is released next to the current live site which for the moment stays the production site. We invite you to test out our new beta site on beta.3di.live and give us your feedback.
+
+Changes:
+- Complete overhaul in the design 
+- Show or hide model components & backgrounds easily with the layer menu
+- Easy to use tools
+- Consistent feedback to user on actions
+- Color-blind friendly
+- Language support for Dutch, English and traditional Mandarin
+- Change the colors of your elements
+- Session will close upon closing of tab
+- More datapoints when following live a location. Points will be added independent from the output time step of the simulation
+
+Live site includes:
+
+Forcings on 2D:
+- Rain: constant, radar, design
+- Laterals
+- Pumps
+
+Editable:
+- DEM edit
+
+View:
+- Shows velocity and direction in pipes, channels and structures with moving dots
+- Profile view including surface water, dem and groundwater
+- 2D selection: Water level, ground water level and waterdepth graph 
+- 1D selection : Water level
+- 2D map: Water depth
+- Map layers, possibility to toggle layers on/off and customize colors
+- Raster: DEM on top, other rasters are under the advanced tab below
+
+
+Results:
+- Download graphs as CSV
+- Direct download
+- Postprocessing to Lizard: basic, arrival time maps, damage_estimation.
+
+Please not that initial water level and laterals that are defined in the spatialite are not yet taken into account when visualising on the live site. 
+
+Modeller Interface
+^^^^^^^^^^^^^^^^^^
+
+In the modeller interface we have added the following:
+- wizard to start calculations 
+- bugfixing
+
+Wizard to start calculations
+----------------------------
+
+We have added a toolbox to our repo’s that enables user to start calculations on API v3 directly. There are two ways to install: 
+- As a plugin:  <include: explanation here>.
+- By installing the modeller interface <include: download link here>
+
+The interface is in beta, it includes:
+- login
+- choose model
+- choose billing organisation
+- choose duration of calculation
+- choose rainfall type event (rain, custom, constant)
+- see progress of simulations from other users within the same organisation 
+- download files directly from the server using the download menu
+
+<include: add movie here>
+
+bugfixing Threeditoolbox
+------------------------
+
+We have bugfixed the following:
+
+- graph tool: pump_discharge is now only shown on pumps, discharge only shown on flowlines
+- schematisation checker: check for line connections shorter than 0.05 m
+- schematisation checker: check whether use_1d_flow is turned on when having 1D elements
+- schematisation checker: schematisation checker crashes when a datetime column doesn't contain a date
+
+Important note:
+If you’re using the plugin on a model that you have already looked at before go to the folder with the results and remove the gridadmin.sqlite. You might have to close qgis to be able to do that. Then load in the results again. 
+
+
+How do I start?
+^^^^^^^^^^^^^^^
+
+I want to test the new API, what do I need to do?
+
+Re-run inpy for your model (after May 25). After that it will appear in both v1 and v3.
+
+
+Please note that:
+We have made a change on inpy July 5h 2019. After that change it is not allowed anymore to have levees outside the DEM. 
+So if you re-run a model that was last run before that date first check your levees!
+
+
+============================= =============== ==================
+Component					 	After May 25  	After August 25	
+============================= =============== ==================
+API v1		 					Production		Deprecated
+API v3							Production		Production
+3di.lizard.net					Production		Deprecated	
+beta.3di.live					Beta			Production
+============================= =============== ==================
+
+<include: Documentation here and here. >
+
+Calculation core:
+https://github.com/nens/threedi-calculationcore/blob/2.0.9/CHANGES.rst
+
+Bug in calculation core, with more than 50.000 nodes see hhnk issue
+
+In principle sessions are shared between v1 and v3 but since the live site is still in beta we are going to not force this yet on the v3 to give everyone a chance to try out the new beta live site! 
+
+
+Release 3Di - Hotfix May 2020
 +++++++++++++++++++++++++++++++
 
 On Thursday the 11th of May, we released a minor hotfix on our 3Di live site. We resolved the issues that are listed below.
@@ -26,7 +235,7 @@ Release 3Di - 2019-11 Meuse Release
 In the Meuse release we updated, improved and created a lot of features. These features, with more detailed description below, include:
 
 - New Modeller interface (incl. Windows installer)
-- New calcution API (beta)
+- New calculation API (beta)
 - Operational flood forecasting with 3Di
 - Script sharing - Invitation to participate
 - Damage calculations
