@@ -584,22 +584,35 @@ The following objects are imported:
 Note: the shape of the manhole is refered as 'rnd' = round, 'sqr' = square and 'rect' = rectangle
 
 *    Pipe (``*LEI``)
+
     *    The number of inhabitants will be added as *Impervious surface*
+	
 *    Pump station (``*GEM``)
+
     *    If multiple stages are defined, this will be transformed into seperate pumpstations. Up to 10 stages are supported
+	
 *    Weir (``*OVS``)
+
     *    Flow direction (str_rch) is translated into discharge coefficients with a value of 0
     *    An end node with boundary condition is not automatically added.
+	
 *    Orifice (``*DRL``)
+
     *    Flow direction (str_rch) is translated into discharge coefficients with a value of 0
+	
 *    Boundary (``*UIT``)
+
     *    The water level will be the average definition (bws_gem). If not present the summer water level is used and otherwise the winter water level.
+	
 *    Extra manhole storage (``*BOP``)
+
     *    The defined storage area is added to a manhole on the bottomlevel of the manhole. The defined bottom_level of the storage (niv_001) is ignored.
     *    Only one storage area is supported
+	
 *    *Drainage area/ Impervious surface (``*AFV``)*
 
 *    Linkage nodes (``*KPG``)
+
     *    The 'fictive' linkages (with typ_gkn == 01) are ignored, only real nodes are combined.
     *    The second node (ide_kn2) is removed. Impervious surfaces and pipes linked to the removed node are redirected to the first node. Extra manhole storage will be lost.
 
