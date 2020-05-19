@@ -2,7 +2,7 @@ Release notes
 =============
 
 Release 3Di - 2020-05 Zambezi Release
-+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++
 
 Release notes
 
@@ -43,6 +43,7 @@ Model meta info
 ---------------
 
 - Request a model-list from the server 
+- Request a organisation-list from the server (which a users has access to)
 - Potential breaches
 - Model geojson including calculation grid
 - Direct results download
@@ -54,6 +55,7 @@ Interactiveness
 - Get results while still calculating (using websockets)
 - Interact with calculations (start, stop, pause)
 - Adjust attributes of your schematisation while running (pause first)
+
 e.g.: adjust a weir height based on a water level treshold somewhere in the model
 <include: all possible adjustments>
 
@@ -74,13 +76,15 @@ Scenario information:
 This seperation we will make more distinct in the next release. Keep this in mind when using the API v3. To use initial water level for example, a specific call is required indicating to 3Di whether the scenario run should include initial water level from the spatialite, or a different when that is given with the API. 
 
 In the table the current status of implementation of these scenario information:
-============================= =============== =============== ===============
-Forcings						 Spatialite  	API				Live site
-============================= =============== =============== ===============
-Boundary conditions  				v1, v3		 -					v1, v3
-Initial water level					v1, v3		 v1, v3				-
-Laterals							v1			 v3					-
-============================= =============== =============== ===============
+
+============================= ================= ================= ===============
+Forcings                        Spatialite          API             Live site
+============================= ================= ================= ===============
+Boundary conditions             v1, v3              -               v1, v3
+Initial water level             v1, v3              v1, v3          -
+Laterals                        v1                  v3              -
+============================= ================= ================= ===============
+
 
 For v1 nothing changes, for v3 it means the following:
 - That for boundary conditions at the moment nothing changes, users define them in the spatialite
@@ -137,7 +141,7 @@ Results:
 - Direct download
 - Postprocessing to Lizard: basic, arrival time maps, damage_estimation.
 
-Please not that initial water level and laterals that are defined in the spatialite are not yet taken into account when visualising on the live site. 
+*Please note* that initial water level and laterals that are defined in the spatialite are not yet taken into account when visualising on the live site. 
 
 Modeller Interface
 ^^^^^^^^^^^^^^^^^^
@@ -186,7 +190,7 @@ I want to test the new API, what do I need to do?
 Re-run inpy for your model (after May 25). After that it will appear in both v1 and v3.
 
 
-Please note that:
+*Please note* that
 We have made a change on inpy July 5h 2019. After that change it is not allowed anymore to have levees outside the DEM. 
 So if you re-run a model that was last run before that date first check your levees!
 
