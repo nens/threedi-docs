@@ -63,12 +63,14 @@ Separates schematization from scenario information
 --------------------------------------------------
 
 The API v3 seperates schematization information from scenario information. Under schematization we include the following: 
+
 - channels
 - pipes
 - structures
 - boundary conditions (location and type)
 
 Scenario information:
+
 - boundary conditions (time serie)
 - initial water level (saved state, 2D, 1D)
 - laterals (1D, 2D)
@@ -87,6 +89,7 @@ Laterals                        v1                  v3              -
 
 
 For v1 nothing changes, for v3 it means the following:
+
 - That for boundary conditions at the moment nothing changes, users define them in the spatialite
 - For initial water level, users can define them in the spatialite, but can also define or change them using the API
 - For laterels, users need to define or change them using the API.
@@ -106,6 +109,7 @@ beta.3di.live
 We are proud to release the beta version of our completely new live site. This beta live site is released next to the current live site which for the moment stays the production site. We invite you to test out our new beta site on beta.3di.live and give us your feedback.
 
 Changes:
+
 - Complete overhaul in the design 
 - Show or hide model components & backgrounds easily with the layer menu
 - Easy to use tools
@@ -119,29 +123,32 @@ Changes:
 Live site includes:
 
 Forcings on 2D:
+
 - Rain: constant, radar, design
 - Laterals
 - Pumps
 
 Editable:
+
 - DEM edit
 
 View:
+
 - Shows velocity and direction in pipes, channels and structures with moving dots
 - Profile view including surface water, dem and groundwater
 - 2D selection: Water level, ground water level and waterdepth graph 
 - 1D selection : Water level
 - 2D map: Water depth
 - Map layers, possibility to toggle layers on/off and customize colors
-- Raster: DEM on top, other rasters are under the advanced tab below
-
+- Raster: DEM in a prominent place, other rasters are under the advanced tab below
 
 Results:
+
 - Download graphs as CSV
 - Direct download
 - Postprocessing to Lizard: basic, arrival time maps, damage_estimation.
 
-*Please note* that initial water level and laterals that are defined in the spatialite are not yet taken into account when visualising on the live site. 
+**Please note** that initial water level and laterals that are defined in the spatialite are not yet taken into account when visualising on the live site. 
 
 Modeller Interface
 ^^^^^^^^^^^^^^^^^^
@@ -178,7 +185,7 @@ We have bugfixed the following:
 - schematisation checker: check whether use_1d_flow is turned on when having 1D elements
 - schematisation checker: schematisation checker crashes when a datetime column doesn't contain a date
 
-Important note:
+**Important note:**
 If you’re using the plugin on a model that you have already looked at before go to the folder with the results and remove the gridadmin.sqlite. You might have to close qgis to be able to do that. Then load in the results again. 
 
 
@@ -190,7 +197,7 @@ I want to test the new API, what do I need to do?
 Re-run inpy for your model (after May 25). After that it will appear in both v1 and v3.
 
 
-*Please note* that
+**Please note** that
 We have made a change on inpy July 5h 2019. After that change it is not allowed anymore to have levees outside the DEM. 
 So if you re-run a model that was last run before that date first check your levees!
 
