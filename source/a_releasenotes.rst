@@ -13,6 +13,7 @@ In the Zambezi release we updated, improved and created a lot of features. These
 - Beta.3di.live
 - Modeller Interface 
 - Bugfixes ThreediToolbox
+- Calculation core 
 
 Our current API implementation is v1. We have decided to move forward to v3 to avoid confusion with models that are sometimes also called v2. In these release notes we refer to v1 for current production and v3 for the newly released software. 
 
@@ -196,6 +197,8 @@ I want to test the new API, what do I need to do?
 
 Re-run inpy for your model (after May 25). After that it will appear in both v1 and v3.
 
+Sessions are shared between v1 and v3 but since the live site is still in beta we are going to not force this yet on the v3 to give everyone a chance to try out the new beta live site! 
+
 
 **Please note** that
 We have made a change on inpy July 5h 2019. After that change it is not allowed anymore to have levees outside the DEM. 
@@ -213,12 +216,29 @@ beta.3di.live					Beta			Production
 
 <include: Documentation here and here. >
 
-Calculation core:
-https://github.com/nens/threedi-calculationcore/blob/2.0.9/CHANGES.rst
+Calculation core
+^^^^^^^^^^^^^^^^
 
-Bug in calculation core, with more than 50.000 nodes see hhnk issue
+Features:
+- Added rate limiting 
+- Write results in Float32 to result files (NetCDF).
 
-In principle sessions are shared between v1 and v3 but since the live site is still in beta we are going to not force this yet on the v3 to give everyone a chance to try out the new beta live site! 
+Small bugfixes:
+
+- Small memory allocation problem in lists.
+- Changed allocation for advection administration. Issue for large models and high indices
+- Added methods for setting drag coefficient during initialization.
+- Fixed some memory leaks
+- Some warnings in makegrid and in flow
+- Fixed array definition in prepare
+- Changed default table increment
+- Fixed computation of average in aggregation_methods
+- Fix for length channel, when multiple channels connect to 1 connection node.
+- Correction for computation of friction for rectangle cross-section
+- Fix for flow summary concerning boundary inflow and outflow in case boundary starts dry.
+- Better log-message makegrid for coordinates when two vertices of culvert/channel are at nearly the same location
+
+
 
 
 Release 3Di - Hotfix May 2020
