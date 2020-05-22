@@ -4,9 +4,6 @@ Release notes
 Release 3Di - 2020-05 Zambezi Release
 ++++++++++++++++++++++++++++++++++++++
 
-Release notes
-
-
 In the Zambezi release we updated, improved and created a lot of features. These features, with more detailed description below, include:
 
 - API v3
@@ -16,8 +13,19 @@ In the Zambezi release we updated, improved and created a lot of features. These
 - Calculation core 
 
 Our current API implementation is v1. We have decided to move forward to v3 to avoid confusion with models that are sometimes also called v2. In these release notes we refer to v1 for current production and v3 for the newly released software. 
-
 Sessions are normally shared between v1 and v3 but since the live site is still in beta we are going to not force this yet on the v3 to give everyone a chance to try out the new beta live site! 
+
+
+We keep API v1 for users to give some time to get used to our new API. In the table below the status of each part of 3Di and the future status. 
+
+============================= =============== ==================
+Component                      After May 25     After August 25	
+============================= =============== ==================
+API v1                          Production      Deprecated
+API v3                          Production      Production
+3di.lizard.net                  Production      Deprecated	
+beta.3di.live                   Beta            Production
+============================= =============== ==================
 
 
 API v3
@@ -38,16 +46,47 @@ The new API hosts a lot of features. To create an overview we have divided these
 Traceability
 ------------
 
-- Usage including model that has been used
-- Full traceability <include: plaatje of filmpje? toevoegen>
-- Improved logging <include: plaatje toevoegen>
+- Improved logging 
 
+.. figure:: image/a_releasenotes_improvedlogging.png
+    :alt: Improved logging on calculation core
 
+- Full traceability. Via this page: https://api.staging.3di.live/v3.0/simulations a user can request all information on a simulation. 
+
+As an example the following events are being stored per simulation:
+
+- lizardrasterrain,
+- lizardtimeseriesrain,
+- timeseriesrain,
+- breach,
+- lizardrastersourcessinks,
+- lizardtimeseriessourcessinks,
+- filerastersourcessinks,
+- filetimeseriessourcessinks,
+- timeseriessourcessinks,
+- initial_twodwaterlevel,
+- initial_onedwaterlevelpredefined,
+- initial_groundwaterlevel,
+- initial_groundwaterraster,
+- initial_onedwaterlevel,
+- initial_twodwaterraster,
+- filerasterrain,
+- filetimeseriesrain,
+- initial_savedstate,
+- savedstates,
+- laterals,
+- timedstructurecontrol,
+- rasteredits: 
+- localrain,
+- wind,
+- initial_winddragcoefficient
+
+	
 Model meta info
 ---------------
 
 - Request a model-list from the server 
-- Request an organisation-list from the server (which a users has access to)
+- Request an organisation-list from the server (which a user has access to)
 - Potential breaches
 - Model geojson including calculation grid
 - Direct results download
@@ -55,13 +94,20 @@ Model meta info
 Interactiveness
 ---------------
 
-- Follow calculations (see progress)
+- Follow calculations (see progress of a calculation)
 - Get results while still calculating (using websockets)
 - Interact with calculations (start, stop, pause)
 - Adjust attributes of your schematisation while running (pause first)
 
-e.g.: adjust a weir height based on a water level treshold somewhere in the model
+The following attributes can be changes:
+
+- discharge coefficient of structures and channels 
+- pump capacity, start and stoplevel
+- weir crest level
 <include: all possible adjustments>
+
+3Di already has a lot of structure controls built in the calculation core. With the new API a new option is included: A user can define any control structure by using our API. For example: follow water levels up and downstream of weir and adjust the crest level based on these values. 
+
 
 Separates schematization from scenario information
 --------------------------------------------------
@@ -79,7 +125,7 @@ Scenario information:
 - initial water level (saved state, 2D, 1D)
 - laterals (1D, 2D)
 
-This seperation we will make more distinct in the next release. Keep this in mind when using the API v3. To use initial water level for example, a specific call is required indicating to 3Di whether the scenario run should include initial water level from the spatialite, or a different when that is given with the API. 
+This seperation we will make more distinct in the next releases, keep this in mind when using the API v3. To use initial water level for example, a specific call is required indicating to 3Di whether the scenario run should include initial water level from the spatialite, or a different one when using initial waterlevels directly using the API. 
 
 In the table the current status of implementation of these scenario information:
 
@@ -91,13 +137,11 @@ Initial water level             v1, v3              v1, v3          -
 Laterals                        v1                  v3              -
 ============================= ================= ================= ===============
 
-
 For v1 nothing changes, for v3 it means the following:
 
 - That for boundary conditions at the moment nothing changes, users define them in the spatialite
 - For initial water level, users can define them in the spatialite, but can also define or change them using the API
-- For laterels, users need to define or change them using the API.
-
+- For laterals, users need to define or change them using the API.
 
 Enhanced input possibilities
 ----------------------------
@@ -105,7 +149,7 @@ Enhanced input possibilities
 - Upload own rainfall data, this can be a timeseries or a NetCDF  <include: link to NetCDF format>
 - Re-run the same schematisations immediately while changing initial waterlevel or laterals
 
-<include: Examples of API usage, link to documentation Lars?>
+Here you can find some usage examples: https://nens.github.io/threedi-openapi-client/
 
 beta.3di.live
 ^^^^^^^^^^^^^
@@ -226,17 +270,6 @@ It will depend on your model size and settings how long this will take.
 We have made a change on inpy July 5h 2019. After that change it is not allowed anymore to have levees outside the DEM. 
 So if you re-run a model that was last run before that date first check your levees!
 
-
-============================= =============== ==================
-Component					 	After May 25  	After August 25	
-============================= =============== ==================
-API v1		 					Production		Deprecated
-API v3							Production		Production
-3di.lizard.net					Production		Deprecated	
-beta.3di.live					Beta			Production
-============================= =============== ==================
-
-<include: Documentation here and here. >
 
 Calculation core
 ^^^^^^^^^^^^^^^^
