@@ -33,7 +33,7 @@ master_doc = "index"
 
 # General information about the project.
 project = "3Di"
-copyright = "2019, Nelen & Schuurmans"
+copyright = "2020, Nelen & Schuurmans"
 author = "Nelen & Schuurmans"
 
 documentation_version = open("../version.txt").readlines()[0].strip()
