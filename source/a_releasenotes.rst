@@ -17,6 +17,9 @@ In the Zambezi release we updated, improved and created a lot of features. These
 
 Our current API implementation is v1. We have decided to move forward to v3 to avoid confusion with models that are sometimes also called v2. In these release notes we refer to v1 for current production and v3 for the newly released software. 
 
+Sessions are normally shared between v1 and v3 but since the live site is still in beta we are going to not force this yet on the v3 to give everyone a chance to try out the new beta live site! 
+
+
 API v3
 ^^^^^^
 
@@ -44,7 +47,7 @@ Model meta info
 ---------------
 
 - Request a model-list from the server 
-- Request a organisation-list from the server (which a users has access to)
+- Request an organisation-list from the server (which a users has access to)
 - Potential breaches
 - Model geojson including calculation grid
 - Direct results download
@@ -72,7 +75,7 @@ The API v3 seperates schematization information from scenario information. Under
 
 Scenario information:
 
-- boundary conditions (time serie)
+- boundary conditions (time series)
 - initial water level (saved state, 2D, 1D)
 - laterals (1D, 2D)
 
@@ -120,6 +123,8 @@ Changes:
 - Change the colors of your elements
 - Session will close upon closing of tab
 - More datapoints when following live a location. Points will be added independent from the output time step of the simulation
+- Quicker startup of simulations
+- Tips for usage of the site during startup screen
 
 Live site includes:
 
@@ -132,13 +137,15 @@ Forcings on 2D:
 Editable:
 
 - DEM edit
+- Weir: Change crest level, open, close 
+- Pump: Open/close 
 
 View:
 
-- Shows velocity and direction in pipes, channels and structures with moving dots
+- Shows flow velocity and flow direction in pipes, channels and structures with moving dots
 - Profile view including surface water, dem and groundwater
 - 2D selection: Water level, ground water level and waterdepth graph 
-- 1D selection : Water level
+- 1D selection : Water level, water depth 
 - 2D map: Water depth
 - Map layers, possibility to toggle layers on/off and customize colors
 - Raster: DEM in a prominent place, other rasters are under the advanced tab below
@@ -146,7 +153,7 @@ View:
 Results:
 
 - Download graphs as CSV
-- Direct download
+- Direct download of raw results (for analysis in Modeller Interface)
 - Postprocessing to Lizard: basic, arrival time maps, damage_estimation.
 
 **Please note** that initial water level and laterals that are defined in the spatialite are not yet taken into account when visualising on the live site. 
@@ -162,8 +169,12 @@ Wizard to start calculations
 ----------------------------
 
 We have added a toolbox to our repo’s that enables user to start calculations on API v3 directly. There are two ways to install: 
-- As a plugin:  <include: explanation here>.
 - By installing the modeller interface <include: download link here>
+- As a plugin:  <include: explanation here>. (After installation open the panel as follows: In QGIS menu choose plugins --> 3Di API Client --> 3Di API Client
+
+.. figure:: image/a_releasenotes_how_to_active_qgisapi_plugin.png
+    :alt: How to activate the QGIS API plugin
+	
 
 The interface is in beta, it includes:
 - login
@@ -189,16 +200,27 @@ We have bugfixed the following:
 **Important note:**
 If you’re using the plugin on a model that you have already looked at before go to the folder with the results and remove the gridadmin.sqlite. You might have to close qgis to be able to do that. Then load in the results again. 
 
+.. figure:: image/a_releasenotes_deleting_gridadmin_sqlite.png
+    :alt: How to activate the QGIS API plugin
+	
 
 How do I start?
 ^^^^^^^^^^^^^^^
 
 I want to test the new API, what do I need to do?
 
-Re-run inpy for your model (after May 25). After that it will appear in both v1 and v3.
+Re-run inpy for your model (after May 25). After that it will appear in both v1 and v3. Here a small reminder how to re-run inpy on your models. Go 3di.lizard.net/models and search for your model. Then click on the gear icon:
 
-Sessions are shared between v1 and v3 but since the live site is still in beta we are going to not force this yet on the v3 to give everyone a chance to try out the new beta live site! 
+.. figure:: image/a_releasenotes_how_to_re_run_inpy.png
+    :alt: How to re-run inpy step 1
+	
+In the next page click on the reload icon:
 
+.. figure:: image/a_releasenotes_how_to_re_run_inpy_step2.png
+    :alt: How to re-run inpy step 1
+		
+	
+It will depend on your model size and settings how long this will take.
 
 **Please note** that
 We have made a change on inpy July 5h 2019. After that change it is not allowed anymore to have levees outside the DEM. 
@@ -237,8 +259,6 @@ Small bugfixes:
 - Correction for computation of friction for rectangle cross-section
 - Fix for flow summary concerning boundary inflow and outflow in case boundary starts dry.
 - Better log-message makegrid for coordinates when two vertices of culvert/channel are at nearly the same location
-
-
 
 
 Release 3Di - Hotfix May 2020
