@@ -85,14 +85,17 @@ The following attributes can be changed:
 - Control the pump capacity
 - Control the weir crest level
 - Control for orifice crest level
+
 Combining some of the features in 3Di, allows a whole new range of applications. For example, one can build his/her own control: follow water levels up and downstream of weir and adjust the crest level based on these values. 
 
 Enhanced input possibilities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Additional input options and simulation options were implemented.
-- Upload own rainfall data, this can be a timeseries or a NetCDF  <include: link to NetCDF format>
+Additional input options and simulation options were implemented:
+
+- Upload own rainfall data, this can be a timeseries or a NetCDF  
 - Re-run the same schematisations immediately while changing initial waterlevel or laterals
+
 Here you can find some usage examples: https://nens.github.io/threedi-openapi-client/
 
 beta.3di.live
@@ -106,8 +109,10 @@ Modeller Interface
 ==================
 
 We have added a toolbox to our repo’s that enables user to start simulations via the API v3 directly. There are two ways to install this wizard: 
-- By installing the modeller interface <include: download link here>
-- As a plugin:  <include: explanation here>. (After installation open the panel as follows: In QGIS menu choose plugins --> 3Di API Client --> 3Di API Client
+
+- By installing the `modeller interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.10.6-1-Setup-x86_64.exe>`_
+
+- As a plugin:  :ref:`plugin_installation` (After installation open the panel as follows: In QGIS menu choose plugins --> 3Di API Client --> 3Di API Client
 
 .. figure:: image/a_releasenotes_how_to_active_qgisapi_plugin.png
     :alt: How to activate the QGIS API plugin
@@ -123,7 +128,7 @@ The interface is in beta, it includes:
 - see progress of simulations from other users within the same organisation 
 - download files directly from the server using the download menu
 
-<include: add movie here>
+
 
 Bugfixing Threeditoolbox
 -------------------------
@@ -145,6 +150,7 @@ Calculation core
 ================
 
 Features:
+
 - Refactor Core program interface.
 - Added method for setting wind drag coefficient during initialization.
 - Compression of netCDF results.
@@ -156,6 +162,7 @@ Features:
 
 
 Fixed the following issues:
+
 - Small memory allocation problem in lists.
 - More efficient memory allocation for advection administration. Issue for large models and high indices
 - Fixed memory leaks.
