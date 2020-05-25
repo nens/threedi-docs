@@ -62,6 +62,106 @@ To install the 3Di-Toolbox plugin follow the steps below:
 7) To install the 3Di API client follow steps 1-4 above. Now you choose 3Di API client. 
 8) To active the panel of the API client, choose plugins --> 3Di API client --> 3Di API client. Now the panel will be available.
 
+
+Overview of the 3Di API client
+------------------------------
+
+After installation of the plugin, a panel is available. If you don't see this panel, check the installation instructions.
+
+.. figure:: image/d_qgisplugin_apiclient_overview.png
+    :alt: API client overview
+
+The API client panel consists of the following parts:
+
+- Build (not implemented yet)
+- Check (not implemented yet, please see the schematisation and raster checker in the 3Di toolbox below)
+- Upload (not implemented yet)
+- Simulate 
+- Results
+
+.. _simulate_api_qgis:
+
+Start
+--------
+
+To start simulating you first need to login and choose several options. 
+Start by clicking **start**. In the pop-up window choose **Load from Web**
+
+
+.. figure:: image/d_qgisplugin_apiclient_start.png
+    :alt: Load from web
+	
+Afer providing your username and password a connection is being made with the API.
+
+.. figure:: image/d_qgisplugin_apiclient_login.png
+    :alt: Load from web
+	
+Users that have access to run simulations for more than one organisation will get a menu in which they choose the organisation: 
+
+.. figure:: image/d_qgisplugin_apiclient_login_choose_organisation.png
+    :alt: Choose organisation
+
+Now choose only simulate (only option available at the moment):
+
+.. figure:: image/d_qgisplugin_apiclient_choose_simulate.png
+    :alt: Choose simulate 
+
+	
+Choose the model that you like to run simulations on:
+
+.. figure:: image/d_qgisplugin_apiclient_login_choose_model.png
+    :alt: Choose simulate 
+	
+Now you're ready to start simulating
+	
+Simulate
+--------
+
+Please note that the current implementation is in **beta** and only supports rainfall events and doesn't take into account laterals and initial waterlevels. 
+
+To start simulating click the simulate button. The following window will be shown:
+
+.. figure:: image/d_qgisplugin_apiclient_runningsimulations.png
+    :alt: Choose simulate 
+	
+In this window an overview of current simulations within the organisation. In this panel simulations can be started, but also running simulations can be stopped.
+When starting a new simulation, you need to define a name for the simulation. Other users within your organisation will see this, and it can be used to look up simulations later. 
+
+.. figure:: image/d_qgisplugin_apiclient_new_simulation.png
+    :alt: Choose new simulation 
+		
+The first step in any simulation is choosing the duration of the simulation:
+
+.. figure:: image/d_qgisplugin_apiclient_choose_duration.png
+    :alt: Choose duration
+	
+Then you can choose between a design rain, constant rain or a custom rainfall event. For all events an off set can be defined. The offset is the duration between start simulation and the start of the rainfall event. 
+
+.. figure:: image/d_qgisplugin_apiclient_rain_custom.png
+    :alt: Choose custom rain
+
+When choosing a custom rain, the csv format is minutes, rainfall in mm for that timestep
+
+.. figure:: image/d_qgisplugin_apiclient_csv_format.png
+    :alt: Example CSV
+
+After choosing all the settings check the overview, press Next and Add to Queue. The simulation will start up when there is a session available on the servers within your organisation.
+
+.. figure:: image/d_qgisplugin_apiclient_preview_simulation.png
+    :alt: Example CSV
+	
+
+Results
+--------
+	
+After a simulation is finished the results will be stored on our servers for 7 days. The files can be download via the Results button.
+
+.. figure:: image/d_qgisplugin_apiclient_download_panel.png
+    :alt: Example CSV
+
+After download the NetCDF can be loaded together with the spatialite using the 3Di Toolbox as described below.
+
+
     
 Overview of the 3Di Toolbox
 ---------------------------
