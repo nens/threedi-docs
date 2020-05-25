@@ -58,6 +58,10 @@ To install the 3Di-Toolbox plugin follow the steps below:
     :alt: Install 3Di Toolbox
 
 .. _plugin_overview:
+
+7) To install the 3Di API client follow steps 1-4 above. Now you choose 3Di API client. 
+8) To active the panel of the API client, choose plugins --> 3Di API client --> 3Di API client. Now the panel will be available.
+
     
 Overview of the 3Di Toolbox
 ---------------------------
