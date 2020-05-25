@@ -75,7 +75,7 @@ The API client panel consists of the following parts:
 
 - Build (not implemented yet)
 - Check (not implemented yet, please see the schematisation and raster checker in the 3Di toolbox below)
-- Upload (not implemented yet)
+- Upload 
 - Simulate 
 - Results
 
