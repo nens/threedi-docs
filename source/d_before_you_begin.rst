@@ -18,17 +18,7 @@ To use 3Di you need these software packages:
 
 * Recent version of Google Chrome (`Get Chrome <https://www.google.nl/chrome/browser/desktop/index.html>`_)
 
-* QGIS 3.4 64bit Long term release(`Get QGIS <http://www.qgis.org/en/site/forusers/download.html#>`_ use the standalone installers)
-
-    After installation of QGIS, set the interface language and locale to American English. This makes it easier to understand the instructions in this documentation. Also, some locales do not support scientific notations of numbers, required for very small numbers (e.g. 1e-09).
-
-    * Go to Settings > Options > General
-    * Tick the box 'Override System Locale'
-    * For User Interface Translation, choose 'American English'
-    * For Locale, choose 'English UnitedStates (en_US)'
-    * Restart QGIS
-
-* QGiS 3Di plug-in specially designed for 3Di (`Get 3Di plug-in <https://github.com/nens/threedi-qgis-plugin/wiki>`_)
+* The `Modeller Interface <https://docs.3di.lizard.net/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.4.13-1-Setup-x86_64.exe>`_ or install QGIS with the appropriate plugins. For more details on how to do this see :ref:`plugin_installation`
 
 * Recent version of TortoiseHG (`Get TortoiseHG <https://tortoisehg.bitbucket.io/download/index.html>`_)
 
@@ -49,19 +39,14 @@ To use 3Di you need these software packages:
 
 
 
-
 Web Portals
 -----------
 
-You can use 3Di through the following web portals:
-
-* 3di.lizard.net to make simulations with 3Di models
-
-* 3di.lizard.net/models to configure your model revisions
-
-* models.lizard.net to find existing or add new repositories
+* checkout https://3diwatermanagement.com/3di-start/ for a up-to-date overview of all available 3Di portals
 
 * <your-organisation>.lizard.net to view and download saved simulations
+
+
 
 .. _database-overview:
 

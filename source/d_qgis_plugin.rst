@@ -18,10 +18,22 @@ The section below explains the use of various options of the modeller interface.
 
 Installation of plugin
 ------------------------
+
+* QGIS 3.4 64bit Long term release(`Get QGIS <http://www.qgis.org/en/site/forusers/download.html#>`_ use the standalone installers)
+
+    After installation of QGIS, set the interface language and locale to American English. This makes it easier to understand the instructions in this documentation. Also, some locales do not support scientific notations of numbers, required for very small numbers (e.g. 1e-09).
+
+    * Go to Settings > Options > General
+    * Tick the box 'Override System Locale'
+    * For User Interface Translation, choose 'American English'
+    * For Locale, choose 'English UnitedStates (en_US)'
+    * Restart QGIS
+
+* QGiS 3Di plug-in specially designed for 3Di (`Get 3Di plug-in <https://github.com/nens/threedi-qgis-plugin/wiki>`_)
+
 The 3Di Toolbox works for:
 
-- QGIS 2.18 (until february 2019)
-- QGIS 3.4.5 (LTR after february 2019)
+- QGIS 3.10.x (LTR after february 2020)
 - 64-bit version of QGIS (see below for more details)
 - 3Di v2 results
 
