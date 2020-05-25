@@ -33,63 +33,103 @@ API v3
 
 With the release of API v3 and the new live site it is important to note that the current API v1 and live site on 3di.lizard.net will not be turned off immediately. Due to the groundbreaking nature of the developments we will give you 3 months to get used to the new interfaces before we will make a full switch. In the meantime we are hosting webinars and will be providing documentation to make the switch as smooth as possible.
 
-The new API can be found here: https://api.3di.live/v3.0/swagger/ 
-If you use python please use our open api implementation: https://nens.github.io/threedi-openapi-client/
+The new API can be found here: https://api.3di.live/v3.0/ 
+If you use python please use our open api implementation: https://pypi.org/project/threedi-api-client/
 
-The new API hosts a lot of features. To create an overview we have divided these release notes in different themes:
 
-- Traceability
-- Model meta info
-- Interactivity
-- Separates schematization from scenario information
+**Separation of Model and scenario information**
 
-Traceability
-------------
+The new API hosts a lot of features and developments. Conceptually, the biggest change is the separation of Model (calculation grid) information and scenario inormation. The definition of scenario information is all initial conditions, forcings on waterflow and/or grid attribute changes not resulting in calculation grid geometry changes. 
 
-- Improved logging 
+With the separation of these two information types, we can now construct a simulation for a given model and by storing all scenario information in events, make all simulation information retraceable. Furthermore it makes it easier create an uniform way to interact with simulations.
 
-.. figure:: image/a_releasenotes_improvedlogging.png
-    :alt: Improved logging on calculation core
+The separation of scenario information from model information almost completed. There are two specific scenario events that are not yet fully separated. These are initial waterlevels and boundary conditions, try to keep this in mind when using the API v3. To use initial water level for example, a specific call is required indicating to 3Di whether the scenario run should include initial water level from the spatialite, or a different one when using initial waterlevels directly using the API. While boundary conditions are still completely used from spatialite information. In the upcoming months this separation will be fully implemented.
 
-- Full traceability. Via this page: https://api.staging.3di.live/v3.0/simulations a user can request all information on a simulation. 
+In the table the current status of implementation of these scenario information:
 
-As an example the following events are being stored per simulation:
+============================= ================= ================= ===============
+Forcings                        Spatialite          API             Live site
+============================= ================= ================= ===============
+Boundary conditions             v1, v3              -               v1, v3
+Initial water level             v1, v3              v1, v3          -
+Laterals                        v1                  v3              -
+============================= ================= ================= ===============
 
-- lizardrasterrain,
-- lizardtimeseriesrain,
-- timeseriesrain,
-- breach,
-- lizardrastersourcessinks,
-- lizardtimeseriessourcessinks,
-- filerastersourcessinks,
-- filetimeseriessourcessinks,
-- timeseriessourcessinks,
-- initial_twodwaterlevel,
-- initial_onedwaterlevelpredefined,
-- initial_groundwaterlevel,
-- initial_groundwaterraster,
-- initial_onedwaterlevel,
-- initial_twodwaterraster,
-- filerasterrain,
-- filetimeseriesrain,
-- initial_savedstate,
-- savedstates,
-- laterals,
-- timedstructurecontrol,
-- rasteredits: 
-- localrain,
-- wind,
+Note: For v1 nothing changes
+
+Events during simulation are fully retraceable. Via this page: https://api.staging.3di.live/v3.0/simulations a user can request all information on a simulation. The events stored for scenario events during any simulations are categorized below to give you an idea of the scenario options.
+
+*Initial waterlevels*::
+
+- initial_twodwaterlevel
+- initial_onedwaterlevelpredefined
+- initial_groundwaterlevel
+- initial_groundwaterraster
+- initial_onedwaterlevel
+- initial_twodwaterraster
+
+*Initial state*::
+
+- initial_savedstate
+
+*Rain*::
+
+- lizardrasterrain
+- lizardtimeseriesrain
+- timeseriesrain
+- filerasterrain
+- filetimeseriesrain
+- localrain
+
+*Breach*::
+
+- breach
+
+*Sources Sinks*::
+
+- lizardrastersourcessinks
+- lizardtimeseriessourcessinks
+- filerastersourcessinks
+- filetimeseriessourcessinks
+- timeseriessourcessinks
+
+*Laterals*::
+
+- laterals
+
+*Controls*::
+
+- timedstructurecontrol
+
+*Save state*::
+
+- savedstates
+
+*Raster edits*::
+
+- rasteredits
+
+*Wind*::
+
+- wind
+
+*Initial wind drag coefficients*::
 - initial_winddragcoefficient
 
 	
 Model meta info
 ---------------
 
-- Request a model-list from the server 
+Due to the separation of model and scenario, a model needs to be selected before creating a simulation. For a correct selection and application of scenario events, some extra model meta information is stored in the API. The user can also acces this information for his/her own use. Some selection of the information available for a model is:
+
+- Request a model-list by organisation from the server
 - Request an organisation-list from the server (which a user has access to)
 - Potential breaches
+- Model extents
 - Model geojson including calculation grid
-- Direct results download
+- Direct grid administration download
+- Availability initial waterlevels
+
 
 Interactiveness
 ---------------
@@ -109,39 +149,13 @@ The following attributes can be changes:
 3Di already has a lot of structure controls built in the calculation core. With the new API a new option is included: A user can define any control structure by using our API. For example: follow water levels up and downstream of weir and adjust the crest level based on these values. 
 
 
-Separates schematization from scenario information
---------------------------------------------------
+Improved logging
+----------------
 
-The API v3 seperates schematization information from scenario information. Under schematization we include the following: 
+.. figure:: image/a_releasenotes_improvedlogging.png
+    :alt: Improved logging on calculation core
 
-- channels
-- pipes
-- structures
-- boundary conditions (location and type)
 
-Scenario information:
-
-- boundary conditions (time series)
-- initial water level (saved state, 2D, 1D)
-- laterals (1D, 2D)
-
-This seperation we will make more distinct in the next releases, keep this in mind when using the API v3. To use initial water level for example, a specific call is required indicating to 3Di whether the scenario run should include initial water level from the spatialite, or a different one when using initial waterlevels directly using the API. 
-
-In the table the current status of implementation of these scenario information:
-
-============================= ================= ================= ===============
-Forcings                        Spatialite          API             Live site
-============================= ================= ================= ===============
-Boundary conditions             v1, v3              -               v1, v3
-Initial water level             v1, v3              v1, v3          -
-Laterals                        v1                  v3              -
-============================= ================= ================= ===============
-
-For v1 nothing changes, for v3 it means the following:
-
-- That for boundary conditions at the moment nothing changes, users define them in the spatialite
-- For initial water level, users can define them in the spatialite, but can also define or change them using the API
-- For laterals, users need to define or change them using the API.
 
 Enhanced input possibilities
 ----------------------------
