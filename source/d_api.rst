@@ -1,14 +1,17 @@
 .. _apicalculations:
 
-API - V1
-========================
+API 
+====
+
+API v1
+-------------
+
 
 With the API you can request simulations without having to access the 3Di web portal and follow your simulation. It is ideal for making various calibration runs. Also, it allows you to use several types of external forcing not available through the web portal and save and use states or restart files.
 
 Visit https://3di.lizard.net/api/v1/calculation/start/ for all options.
 
 Using POSTMAN
--------------
 
 The first step is to install POSTMAN as an extension on Google Chrome.
 
@@ -68,11 +71,11 @@ All dates and times used in the API are based on the so-called ISO8601 standards
 This rainfall event will start at 18:00 hour local time.
 
 API v3
-========================
+-------------
 
 API v3 is available here: https://api.3di.live/v3.0/swagger/
 
-Here you can find a more `detailed technical overview <https://nens.github.io/threedi-openapi-client/usage/>`_.  of our API.
+Here you can find a more `detailed technical overview <https://nens.github.io/threedi-openapi-client/usage/>`_  of our API.
 
 To use the API v3 with your own model you need to re-run inpy for your model. After that it will appear in both API v1 and v3. Here a small reminder how to re-run inpy on your models. Go 3di.lizard.net/models and search for your model. Then click on the gear icon:
 
