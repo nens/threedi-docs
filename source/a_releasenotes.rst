@@ -300,21 +300,23 @@ Calculation core
 
 Features:
 - Refactor Core program interface.
+- Added method for setting wind drag coefficient during initialization.
+- Compression of netCDF results.
 - Write results in Float32 to result files (NetCDF).
+- Improved logging and log levels.
 
 Small bugfixes:
 
 - Small memory allocation problem in lists.
-- Changed allocation for advection administration. Issue for large models and high indices
-- Added methods for setting drag coefficient during initialization.
-- Fixed some memory leaks
-- Some warnings in makegrid and in flow
-- Changed default table increment
-- Fixed computation of average in aggregation_methods
-- Fix for length channel, when multiple channels connect to 1 connection node.
-- Correction for computation of friction for rectangle cross-section
+- More efficient memory allocation for advection administration. Issue for large models and high indices
+- Fixed memory leaks.
+- Added warnings in makegrid and in flow.
+- Changed default table increment from 0.001 to 0.1.
+- Fixed computation of aggregation_method average.
+- Fix for length of channel, when multiple channels connect to 1 connection node.
+- Correction for friction computation in rectangle cross-section
 - Fix for flow summary concerning boundary inflow and outflow in case boundary starts dry.
-- Better log-message makegrid for coordinates when two vertices of culvert/channel are at nearly the same location
+- Better log-message in makegrid for coordinates when two vertices of culvert/channel are at nearly the same location
 
 
 Release 3Di - Hotfix May 2020
