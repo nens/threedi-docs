@@ -38,6 +38,7 @@ v1 models                       Nothing changes Deprecated
 With the release of API v3 and the new live site, it is important to note that the current API v1 and live site on 3di.lizard.net will still be available. As this release includes some very significant developments, we introduced 3 months overlap to get used to the new interfaces, before we will make a full switch. In the meantime, we will host webinars and provide documentation to make the switch as smooth as possible.
 The new API can be found here: https://api.3di.live/v3.0/ 
 If you use python, please use our open API implementation: https://pypi.org/project/threedi-api-client/
+More information on how to use the API checkout here: :ref:`api_v3` 
 
 Model information and Scenario Events
 =====================================
@@ -60,7 +61,6 @@ Model meta info
 ^^^^^^^^^^^^^^^
 
 With API v3, some extra model meta information is stored and made available. The user can also access this information. The meta information that is available for a model is:
-
 - Request a model-list by organisation from the server
 - Request an organisation-list from the server (which a user has access to)
 - Potential breaches
@@ -128,7 +128,6 @@ The interface is in beta, it includes:
 - choose rainfall type event (rain, custom, constant)
 - see progress of simulations from other users within the same organisation 
 - download files directly from the server using the download menu
-
 
 
 Bugfixing Threeditoolbox

@@ -70,6 +70,8 @@ All dates and times used in the API are based on the so-called ISO8601 standards
 
 This rainfall event will start at 18:00 hour local time.
 
+.. _api_v3:
+
 API v3
 -------------
 
