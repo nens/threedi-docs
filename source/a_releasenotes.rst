@@ -61,6 +61,7 @@ Model meta info
 ^^^^^^^^^^^^^^^
 
 With API v3, some extra model meta information is stored and made available. The user can also access this information. The meta information that is available for a model is:
+
 - Request a model-list by organisation from the server
 - Request an organisation-list from the server (which a user has access to)
 - Potential breaches
