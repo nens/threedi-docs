@@ -1,6 +1,7 @@
 *************
 Release notes
 *************
+
 Release 3Di - 2020-05 Zambezi Release
 #####################################
 
@@ -147,8 +148,8 @@ If you’re using the plugin on a model that you have already looked at before, 
 .. figure:: image/a_releasenotes_deleting_gridadmin_sqlite.png
     :alt: How to activate the QGIS API plugin
 	
-Calculation core
-================
+Computational core
+==================
 
 Features:
 
@@ -159,10 +160,10 @@ Features:
 - Improved logging and log levels. 
 
 .. figure:: image/a_releasenotes_improvedlogging.png
-    :alt: Improved logging on calculation core
+    :alt: Improved logging on computational core
 
 
-Fixed the following issues:
+Fixed the following issues in computational core v3:
 
 - Small memory allocation problem in lists.
 - More efficient memory allocation for advection administration. Issue for large models and high indices
@@ -172,7 +173,9 @@ Fixed the following issues:
 - Correction for friction computation in rectangle cross-section
 - Fix for flow summary concerning boundary inflow and outflow in case boundary starts dry.
 
+Fixed the following issues in computational core v1 (May 27 2020):
 
+- More efficient memory allocation for advection administration. Issue for large models and high indices
 
 Release 3Di - 2019-11 Meuse Release
 ###################################
