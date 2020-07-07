@@ -2,6 +2,31 @@
 Release notes
 *************
 
+
+Release 3Di Modeller Interface - Hotfix
+########################################
+
+Monday July 6th we have released version 1.14.1 of the 3Di Toolbox containing two bugfixes. The following issues have been fixed:
+
+- In case of a schematization without a pump the graph tool was empty
+- In the sufhyd importer pipe material is now correctly imported from the sufhyd file
+
+To obtain the fixes:
+
+- Download the latest version of the `modeller interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.10.6-1-Setup-x86_64.exe>`_
+- Or update the 3Di Toolbox in the plugin manager. In QGIS: Settings --> plugin manager --> Select the 3Di Toolbox --> Click upgrade plugin
+
+Updating the Modeller Interface without complete reinstallation is also possible. In that case follow these instructions:
+
+Open the Modeller Interface and via the menu bar go to ‘Plugins > Manage And Install Plugins’.
+
+- Go to ‘Settings’.
+- Add a plugin repository
+- Fill in a name and copy the URL: https://plugins.lizard.net/plugins.xml into the URL box.
+- Go to ‘All’ and choose ‘3Di toolbox’ from the list
+- Upgrade the 3Di Toolbox plugin to version 1.14.1
+
+
 Release 3Di - 2020-05 Zambezi Release
 #####################################
 
