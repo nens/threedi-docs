@@ -17,7 +17,7 @@ The section below explains the use of various options of the modeller interface.
 .. _plugin_installation:
 
 Installation of plugin
-------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * QGIS 3.4 64bit Long term release(`Get QGIS <http://www.qgis.org/en/site/forusers/download.html#>`_ use the standalone installers)
 
@@ -82,7 +82,7 @@ The API client panel consists of the following parts:
 .. _simulate_api_qgis:
 
 Start
---------
+^^^^^^^^^^^^^^^
 
 To start simulating you first need to login and choose several options. 
 Start by clicking **start**. In the pop-up window choose **Load from Web**
@@ -115,22 +115,78 @@ Choose the model that you like to run simulations on:
 Now you're ready to start simulating
 	
 Simulate
---------
+^^^^^^^^^^^^^^^
 
-Please note that the current implementation is in **beta** and only supports rainfall events and doesn't take into account laterals and initial waterlevels. 
+Please note that the current implementation is in **beta**. 
+
+The most used API options are included in the newest version of the plugin. Important consideration is a difference between API v1 and v3 how initial waterlevels, laterals and boundaries are handled. Current status is as follows:
+
+============================= ================= ================= ===============
+Forcings                        Spatialite          API             Live site
+============================= ================= ================= ===============
+Boundary conditions             v1, v3              -               v1, v3
+Initial water level             v1, v3              v1, v3          -
+Laterals  1D and 2D             v1                  v3              -
+============================= ================= ================= ===============
+
+This means that for *boundary conditions* nothing changes between API v1 and v3. Values are taken from the spatialite. The following requirements still hold for the boundary conditions: 
+
+- number of entries have to be exactly the same
+- time has to be used the same (e.g. al time series have 0, 10, 20, 40 as time. it is not possible to have a boundary condition with the time as 0,15,20,40)
+
+*Initial water levels* are taken from the spatialite if the users selects this in the wizard, see the section on initial conditions below for a how to. 
+
+*Laterals* are not taken into account when added to the spatialite. A user has to add them to the API call for them to be taken into account. See the section on laterals below for a how to. 
 
 To start simulating click the simulate button. The following window will be shown:
 
 .. figure:: image/d_qgisplugin_apiclient_runningsimulations.png
     :alt: Choose simulate 
 	
-In this window an overview of current simulations within the organisation. In this panel simulations can be started, but also running simulations can be stopped.
+In this window an overview of current simulations within the organisation. In this panel simulations can be started, but also running simulations can be stopped. 
+Using load templates enables you to re-use a previously stored template. All the settings that were defined are automatically used in the wizard. 
+
+After clicking 'new simulation' the start screen of the wizard is shown:
+
+.. figure:: image/d_qgisplugin_apiclient_start_screen_new_simulation.png
+    :alt: Choose new simulation 
+	
+In this window the various options to be used in the calculation can be defined. 
+
+**Boundary conditions**
+Not configurable yet. Boundary conditions are taken from the spatialite directly
+
+**Initial conditions**
+To define the use of a (previously) saved state or initial waterlevels in 1D, 2D or Ground water.
+
+**Breaches**
+To select a breach to open in the model
+
+**Precipitation**
+To define precipitation in the model 
+
+**Multiple simulations** (becomes available when using either breaches or precipitation)
+To define multiple simulations with rainfall or breaches. Useful when simulating multiple events on the same model. 
+
+**Generate saved state after simulation**
+To save the end result of the simulation as saved state 
+
+
+**Post-processing in Lizard**
+Works only for users with this module. Enables storing results in the cloud, automated postprocessing of waterdepth and water levels maps, time of arrival, flood hazard rating and damage estimations (only available in the Netherlands at the moment). Contact us at servicedesk@nelen-schuurmans.nl if you like to use this option and don't have access yet.
+	
+
 When starting a new simulation, you need to define a name for the simulation. Other users within your organisation will see this, and it can be used to look up simulations later. 
 
 .. figure:: image/d_qgisplugin_apiclient_new_simulation.png
     :alt: Choose new simulation 
-		
+
+	
+	
+
+
 The first step in any simulation is choosing the duration of the simulation:
+
 
 .. figure:: image/d_qgisplugin_apiclient_choose_duration.png
     :alt: Choose duration
@@ -152,7 +208,7 @@ After choosing all the settings check the overview, press Next and Add to Queue.
 	
 
 Results
---------
+^^^^^^^^^^^^^^^
 	
 After a simulation is finished the results will be stored on our servers for 7 days. The files can be download via the Results button.
 
