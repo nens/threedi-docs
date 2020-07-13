@@ -159,6 +159,9 @@ Not configurable yet. Boundary conditions are taken from the spatialite directly
 **Initial conditions**
 To define the use of a (previously) saved state or initial waterlevels in 1D, 2D or Ground water.
 
+**Laterals**
+To select a laterals to use in the model
+
 **Breaches**
 To select a breach to open in the model
 
@@ -171,7 +174,6 @@ To define multiple simulations with rainfall or breaches. Useful when simulating
 **Generate saved state after simulation**
 To save the end result of the simulation as saved state 
 
-
 **Post-processing in Lizard**
 Works only for users with this module. Enables storing results in the cloud, automated postprocessing of waterdepth and water levels maps, time of arrival, flood hazard rating and damage estimations (only available in the Netherlands at the moment). Contact us at servicedesk@nelen-schuurmans.nl if you like to use this option and don't have access yet.
 	
@@ -181,15 +183,49 @@ When starting a new simulation, you need to define a name for the simulation. Ot
 .. figure:: image/d_qgisplugin_apiclient_new_simulation.png
     :alt: Choose new simulation 
 
-	
-	
-
 
 The first step in any simulation is choosing the duration of the simulation:
 
 
 .. figure:: image/d_qgisplugin_apiclient_choose_duration.png
     :alt: Choose duration
+	
+The next steps depend on the selection from the initial screen of the wizard. If not checked, these steps will be omitted by the wizard.
+
+**Initial conditions**
+
+Initial conditions either refer to the use of saved state file, or the use of initial water level in 1D, 2D or groundwater (2D). 
+
+.. figure:: image/d_qgisplugin_apiclient_initialconditions_start.png
+    :alt: Choose initial conditions
+	
+1D options:
+
+- Predefined: This refers to the initial water level as defined in the column initial_waterlevel in the connection nodes in the spatialite. 
+- Global value: This would be a generic initial waterlevel value in m MSL which is applied in all 1D nodes of the model.
+
+2D options:
+
+- Raster: This refers to the initial water level raster as uploaded with the model to the model databank.
+- Global value: This would be a generic initial waterlevel value in m MSL which is applied in all 2D nodes of the model.
+
+Groundwater options:
+
+- Raster: This refers to the initial water level raster as uploaded with the model to the model databank.
+- Global value: This would be a generic initial waterlevel value in m MSL which is applied in all 2D ground water nodes of the model.
+
+
+**Breaches**
+To select a breach to open in the model
+
+**Precipitation**
+To define precipitation in the model 
+
+**Multiple simulations** (becomes available when using either breaches or precipitation)
+To define multiple simulations with rainfall or breaches. Useful when simulating multiple events on the same model. 
+
+**Generate saved state after simulation**
+
 	
 Then you can choose between a design rain, constant rain or a custom rainfall event. For all events an off set can be defined. The offset is the duration between start simulation and the start of the rainfall event. 
 
