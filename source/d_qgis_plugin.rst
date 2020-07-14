@@ -63,8 +63,8 @@ To install the 3Di-Toolbox plugin follow the steps below:
 8) To active the panel of the API client, choose plugins --> 3Di API client --> 3Di API client. Now the panel will be available.
 
 
-Overview of the 3Di API client
-------------------------------
+Overview of the 3Di API client **beta** 
+-----------------------------------------
 
 After installation of the plugin, a panel is available. If you don't see this panel, check the installation instructions.
 
@@ -132,7 +132,7 @@ Laterals  1D and 2D             v1                  v3              -
 This means that for *boundary conditions* nothing changes between API v1 and v3. Values are taken from the spatialite. The following requirements still hold for the boundary conditions: 
 
 - number of entries have to be exactly the same
-- time has to be used the same (e.g. al time series have 0, 10, 20, 40 as time. it is not possible to have a boundary condition with the time as 0,15,20,40)
+- time have to be the same value (e.g. al time series have 0, 10, 20, 40 as time. it is not possible to have a boundary condition with the time as 0,15,20,40)
 
 *Initial water levels* are taken from the spatialite if the users selects this in the wizard, see the section on initial conditions below for a how to. 
 
@@ -244,9 +244,6 @@ To define precipitation in the model
 **Multiple simulations** (becomes available when using either breaches or precipitation)
 To define multiple simulations with rainfall or breaches. Useful when simulating multiple events on the same model. 
 
-**Generate saved state after simulation**
-
-	
 Then you can choose between a design rain, constant rain or a custom rainfall event. For all events an off set can be defined. The offset is the duration between start simulation and the start of the rainfall event. 
 
 .. figure:: image/d_qgisplugin_apiclient_rain_custom.png
@@ -262,7 +259,51 @@ After choosing all the settings check the overview, press Next and Add to Queue.
 .. figure:: image/d_qgisplugin_apiclient_preview_simulation.png
     :alt: Example CSV
 	
+**Post processing in Lizard**
 
+Post processing in Lizard is only available for users that have this module.
+
+.. figure:: image/d_qgisplugin_apiclient_postprocessing_lizard.png
+    :alt: Example CSV
+	
+*Basic processed results*
+
+Stores the 3Di output files in the Lizard platform:
+
+- Result NetCDF (containing actual values)
+- Aggregate NetCDF (availability and content dependent on user settings. required for water balance tool in Modeller Interface)
+- Grid administration (gridadmin.h5 file. required to load NetCDF results in Modeller Interface)
+- Calculation core logging (A zip containing logfiles)
+
+As a service the following maps are available in Lizard:
+
+- water depth maps per output time step
+- maximum water depth map
+- flood hazard rating
+- rise velocity
+- water level
+- max water level
+- max velocity
+- rainfall 
+
+All maps can be downloaded as GTiff, either via the interface demo.lizard.net or via the lizard API.
+
+*Arrival time map*
+
+When this is checked a map with arrival time is being calculated showing the time of arrival of water per pixel in hours. 
+
+*Damage estimation*
+
+Only available in the Netherlands: automated estimate of damage as a result of flooding. Takes into account water depth and duration of flood. Result is the following damage maps:
+
+- Water depth (WSS)
+- Damage (direct)
+- Damage (indirect)
+- Total damage
+
+And a damage summary in csv format. For more information check the documentation here: https://docs.3di.lizard.net/d_results_from_lizard.html
+
+	
 Results
 ^^^^^^^^^^^^^^^
 	
