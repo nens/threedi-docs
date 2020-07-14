@@ -229,7 +229,14 @@ Select csv as outputformat. Choose a filename and location to store and click OK
     :alt: Export laterals as csv
 	
 **Breaches**
-To select a breach to open in the model
+
+A breach can be selected using the menu below:
+
+.. figure:: image/d_qgisplugin_apiclient_breaches.png
+    :alt: Breaches 
+
+Required is the ID of the breach in the model, this is the same id as the id of the v2_connected_pnt in the 2D in the spatialite database. 
+
 
 **Precipitation**
 To define precipitation in the model 
