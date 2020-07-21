@@ -5,7 +5,8 @@ Modeller Interface
 
 Introduction
 --------------
-The modeller interface is a QGIS plugin for working with 3Di models and netCDF results. Since the Plugin Release, March 4th 2019, the plugin is only supported by QGIS 3.4.5. An older version of the plugin will remain available for QGIS 2.18. 
+The Modeller Interface is the interface to use on your laptop to build and analyse 3Di models and results locally. To do this, no internet connection is required. It is also the interface to interact with the API and download results from the 3Di calculation servers. It consists of QGIS with a preinstalled plugins: 3Di Toolbox to analyse results, 3Di API Client to start calculations and some third party plugins. The interface has been cleaned compared to a standard QGIS installation to show only relevant buttons for model building analysing. 
+Since March 4th 2019, the Modeller Interface is available for QGIS stable releases (3.4 and 3.10). For 3Di results before this date an older version of the plugin will remain available for QGIS 2.18. 
 As a user you can choose to either:
 
 - Install the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.10.6-1-Setup-x86_64.exe>`_  or
