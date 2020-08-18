@@ -5,7 +5,8 @@ Modeller Interface
 
 Introduction
 --------------
-The modeller interface consists of QGIS with a 3Di Toolbox as a QGIS plugin on top for working with 3Di models and netCDF results. Since the Plugin Release of March 4th 2019, the plugin is only supported by QGIS 3.4.5. An older version of the plugin will remain available for QGIS 2.18. 
+The Modeller Interface is the interface to use on your laptop to build and analyse 3Di models and results locally. To do this, no internet connection is required. It is also the interface to interact with the API and download results from the 3Di calculation servers. It consists of QGIS with a preinstalled plugins: 3Di Toolbox to analyse results, 3Di API Client to start calculations and some third party plugins. The interface has been cleaned compared to a standard QGIS installation to show only relevant buttons for model building analysing. 
+Since March 4th 2019, the Modeller Interface is available for QGIS stable releases (3.4 and 3.10). For 3Di results before this date an older version of the plugin will remain available for QGIS 2.18. 
 As a user you can choose to either:
 
 - Install the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.10.6-1-Setup-x86_64.exe>`_  or
@@ -16,12 +17,12 @@ The section below explains the use of various options of the modeller interface.
 
 .. _plugin_installation:
 
-Installation of plugin
-------------------------
+Plugin Installation 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * QGIS 3.4 64bit Long term release(`Get QGIS <http://www.qgis.org/en/site/forusers/download.html#>`_ use the standalone installers)
 
-    After installation of QGIS, set the interface language and locale to American English. This makes it easier to understand the instructions in this documentation. Also, some locales do not support scientific notations of numbers, required for very small numbers (e.g. 1e-09).
+    After the installation of QGIS, set the interface language and locale to American English. This makes it easier to understand the instructions in this documentation. Some locales do not support scientific notations of numbers, these are required for very small numbers (e.g. 1e-09).
 
     * Go to Settings > Options > General
     * Tick the box 'Override System Locale'
@@ -63,8 +64,8 @@ To install the 3Di-Toolbox plugin follow the steps below:
 8) To active the panel of the API client, choose plugins --> 3Di API client --> 3Di API client. Now the panel will be available.
 
 
-Overview of the 3Di API client
-------------------------------
+Overview of the 3Di API client **beta** 
+-----------------------------------------
 
 After installation of the plugin, a panel is available. If you don't see this panel, check the installation instructions.
 
@@ -82,7 +83,7 @@ The API client panel consists of the following parts:
 .. _simulate_api_qgis:
 
 Start
---------
+^^^^^^^^^^^^^^^
 
 To start simulating you first need to login and choose several options. 
 Start by clicking **start**. In the pop-up window choose **Load from Web**
@@ -101,7 +102,7 @@ Users that have access to run simulations for more than one organisation will ge
 .. figure:: image/d_qgisplugin_apiclient_login_choose_organisation.png
     :alt: Choose organisation
 
-Now choose only simulate (only option available at the moment):
+Now choose 'only simulate' (only option available at the moment):
 
 .. figure:: image/d_qgisplugin_apiclient_choose_simulate.png
     :alt: Choose simulate 
@@ -115,32 +116,141 @@ Choose the model that you like to run simulations on:
 Now you're ready to start simulating
 	
 Simulate
---------
+^^^^^^^^^^^^^^^
 
-Please note that the current implementation is in **beta** and only supports rainfall events and doesn't take into account laterals and initial waterlevels. 
+Please note that the current implementation is in **beta**. 
 
-To start simulating click the simulate button. The following window will be shown:
+The most used API options are included in the newest version of the plugin. Important consideration is a difference between API v1 and v3 how initial waterlevels, laterals and boundaries are handled. The current status is as follows:
+
+============================= ================= ================= ===============
+Forcings                        Spatialite          API             Live site
+============================= ================= ================= ===============
+Boundary conditions             v1, v3              -               v1, v3
+Initial water level             v1, v3              v1, v3          -
+Laterals  1D and 2D             v1                  v3              -
+============================= ================= ================= ===============
+
+This means that for *boundary conditions* nothing changes between API v1 and v3. Values are taken from the spatialite. The following requirements still hold for the boundary conditions: 
+
+- number of entries have to be exactly the same
+- time has to be the same value (e.g. al time series have 0, 10, 20, 40 as time. It is not possible to have a boundary condition with the time as 0,15,20,40)
+
+*Initial water levels* are taken from the spatialite if the users selects this in the wizard, see the section on initial conditions below for a 'how to'. 
+
+*Laterals* are not taken into account when added to the spatialite. The user has to add them to the API call for them to be taken into account. See the section on laterals below for a 'how to'. 
+
+To start simulating click the simulate button. Next, the following window will be shown:
 
 .. figure:: image/d_qgisplugin_apiclient_runningsimulations.png
     :alt: Choose simulate 
 	
-In this window an overview of current simulations within the organisation. In this panel simulations can be started, but also running simulations can be stopped.
-When starting a new simulation, you need to define a name for the simulation. Other users within your organisation will see this, and it can be used to look up simulations later. 
+This window shows an overview of current simulations for the specific organisation. In this panel simulations can be started and also stopped. 
+Using load templates enables you to re-use a previously stored template. All specific defined settings are automatically used in the wizard. 
+
+After clicking 'new simulation' the start screen of the wizard is shown:
+
+.. figure:: image/d_qgisplugin_apiclient_start_screen_new_simulation.png
+    :alt: Choose new simulation 
+	
+In this window various options, to be used in the calculation, can be defined. 
+
+**Boundary conditions**
+Not configurable yet. Boundary conditions are taken from the spatialite directly.
+
+**Initial conditions**
+To define the use of a (previously) saved state or initial waterlevels in 1D, 2D or Ground water.
+
+**Laterals**
+To select laterals to use in the model.
+
+**Breaches**
+To select a breach to open in the model.
+
+**Precipitation**
+To define precipitation in the model.
+
+**Multiple simulations** (becomes available when using either breaches or precipitation)
+To define multiple simulations with rainfall or breaches. Useful when simulating multiple events on the same model. 
+
+**Generate saved state after simulation**
+To save the end result of the simulation as a saved state.
+
+**Post-processing in Lizard**
+Works only for users with this module. Enables storing results in the cloud, automated postprocessing of waterdepth and water levels maps, time of arrival, flood hazard rating and damage estimations (only available in the Netherlands at the moment). Contact us at servicedesk@nelen-schuurmans.nl if you like to use this option and don't have access yet.
+	
+
+When starting a new simulation, you need to define a name for the simulation. Other users within your organisation will see this. It can also be used to look up simulations later. 
 
 .. figure:: image/d_qgisplugin_apiclient_new_simulation.png
     :alt: Choose new simulation 
-		
-The first step in any simulation is choosing the duration of the simulation:
+
+
+The first step in any simulation is choosing the simulation duration:
+
 
 .. figure:: image/d_qgisplugin_apiclient_choose_duration.png
     :alt: Choose duration
 	
-Then you can choose between a design rain, constant rain or a custom rainfall event. For all events an off set can be defined. The offset is the duration between start simulation and the start of the rainfall event. 
+The next steps depend on the selection from the initial screen of the wizard. If not checked, these steps will be omitted by the wizard.
+
+**Initial conditions**
+
+Initial conditions either refer to the use of saved state file, or the use of initial water level in 1D, 2D or groundwater (2D). 
+
+.. figure:: image/d_qgisplugin_apiclient_initialconditions_start.png
+    :alt: Choose initial conditions
+	
+1D options:
+
+- Predefined: this refers to the initial water level as defined in the column initial_waterlevel in the connection nodes in the spatialite. 
+- Global value: this would be a generic initial waterlevel value in m MSL which is applied in all 1D nodes of the model.
+
+2D options:
+
+- Raster: this refers to the initial water level raster as uploaded with the model to the model databank.
+- Global value: this would be a generic initial waterlevel value in m MSL which is applied in all 2D nodes of the model.
+
+Groundwater options:
+
+- Raster: This refers to the initial water level raster as uploaded with the model to the model databank.
+- Global value: This would be a generic initial waterlevel value in m MSL which is applied in all 2D ground water nodes of the model.
+
+**Laterals**
+
+Laterals can be uploaded using csv format for either 1D or 2D. 
+
+.. figure:: image/d_qgisplugin_apiclient_laterals_start.png
+    :alt: Choose laterals 
+
+The CSV file format is generated by a right-mouse click on table: v2_1d_lateral. Then choose export --> save features as --> 
+
+Select csv as outputformat. Choose a filename and location to store and click OK. the file should like like this:
+
+.. figure:: image/d_qgisplugin_apiclient_laterals_export_csv_example.png
+    :alt: Export laterals as csv
+	
+**Breaches**
+
+A breach can be selected using the menu below:
+
+.. figure:: image/d_qgisplugin_apiclient_breaches.png
+    :alt: Breaches 
+
+Required is the ID of the breach in the model, this is the same id as the id of the v2_connected_pnt in the 2D in the spatialite database. 
+
+
+**Precipitation**
+To define precipitation in the model 
+
+**Multiple simulations** (becomes available when using either breaches or precipitation)
+To define multiple simulations with rainfall or breaches. Useful when simulating multiple events on the same model. 
+
+Then you can choose between design rain, constant rain or a custom rainfall event. For all events an off set can be defined. The offset is the duration between start simulation and the start of the rainfall event. 
 
 .. figure:: image/d_qgisplugin_apiclient_rain_custom.png
     :alt: Choose custom rain
 
-When choosing a custom rain, the csv format is minutes, rainfall in mm for that timestep
+When choosing a custom rain, the csv format is minutes, rainfall in mm for that timestep.
 
 .. figure:: image/d_qgisplugin_apiclient_csv_format.png
     :alt: Example CSV
@@ -150,9 +260,53 @@ After choosing all the settings check the overview, press Next and Add to Queue.
 .. figure:: image/d_qgisplugin_apiclient_preview_simulation.png
     :alt: Example CSV
 	
+**Post processing in Lizard**
 
+Post processing in Lizard is only available for users that have this module.
+
+.. figure:: image/d_qgisplugin_apiclient_postprocessing_lizard.png
+    :alt: Example CSV
+	
+*Basic processed results*
+
+Stores the 3Di output files in the Lizard platform:
+
+- Result NetCDF (containing actual values)
+- Aggregate NetCDF (availability and content dependent on user settings. required for water balance tool in Modeller Interface)
+- Grid administration (gridadmin.h5 file. required to load NetCDF results in Modeller Interface)
+- Calculation core logging (A zip containing logfiles)
+
+As a service, the following maps are available in Lizard:
+
+- water depth maps per output time step
+- maximum water depth map
+- flood hazard rating
+- rise velocity
+- water level
+- max water level
+- max velocity
+- rainfall 
+
+All maps can be downloaded as GTiff, either via the interface demo.lizard.net or via the lizard API.
+
+*Arrival time map*
+
+When this is checked a map with arrival time is being calculated showing the time of arrival of water per pixel in hours. 
+
+*Damage estimation*
+
+Only available in the Netherlands: automated estimate of damage as a result of flooding. Takes into account water depth and duration of flood. Result is the following damage maps:
+
+- Water depth (WSS)
+- Damage (direct)
+- Damage (indirect)
+- Total damage
+
+And a damage summary in csv format. For more information check the documentation here: https://docs.3di.lizard.net/d_results_from_lizard.html
+
+	
 Results
---------
+^^^^^^^^^^^^^^^
 	
 After a simulation is finished the results will be stored on our servers for 7 days. The files can be download via the Results button.
 
