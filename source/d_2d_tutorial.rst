@@ -23,7 +23,9 @@ Before you start, please make sure to:
 * Install QGIS (`<https://www.qgis.org/>`_). 
 * Install the 3Di toolbox in QGIS. Please see :ref:`plugin_installation` for instructions.
 * Gain access to the 3Di web portal. Please see :ref:`guide_to_portal` for instructions.
-* Download the Taf dataset for this tutorial here <include download link>. 
+* Download the Taf dataset for this tutorial `here <https://nens.lizard.net/media/3di-tutorials/3di-tutorial-01.zip>`_. 
+    
+    :sub:`The digital elevation model contains United Kingdom public sector information licensed under the Open Government Licence v2.0.`
 
 Model initialisation
 --------------------
