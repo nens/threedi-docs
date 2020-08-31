@@ -38,7 +38,7 @@ The Taf dataset that you have downloaded (see before you start) contains an empt
 The structured .sqlite database contains all elements that can be included in a 3Di model.
 It will slowly be filled in when you build a model. Rename empty.sqlite to LP_Burrows.sqlite.
 
-.. figure:: image/00_FileManagement.png
+.. figure:: image/00_filemanagement.png
     :alt: File Management
 
 2.	Loading the model in QGIS
@@ -53,14 +53,14 @@ C.	Click the “select 3Di results” button on the 3Di Toolbar (white database 
 D.	Select “load” in the model section, and select the LP_Burrows.sqlite database provided with this tutorial.
 E.	You should now see the 3Di model as part of your QGIS layers.
 
-.. figure:: image/01_loadSQL.png
+.. figure:: image/01_loadsql.png
     :alt: Load SQL
 
 You can also import the DEM as a raster layer.
 This can improve your feel with the data, but it is not strictly required.
 It is advised that you set your project reference EPSG:27700 (British National Grid) for this tutorial.
 
-.. figure:: image/02_ModelView.png
+.. figure:: image/02_modelview.png
     :alt: Empty LP_burrows.sqlite and DEM loaded into QGIS and projected on a google satellite background map.
 
     Empty LP_burrows.sqlite and DEM loaded into QGIS and projected on a google satellite background map.
@@ -83,7 +83,7 @@ C. Select “Switch to form view” in the bottom right corner.
 D. Select “Toggle editing mode” and in the top right corner.
 E. Select “Add feature”.
 
-.. figure:: image/04_Toggle_editing.png
+.. figure:: image/04_toggle_editing.png
     :alt: Toggle editing
 
 Now we can start to configure all settings.
@@ -178,7 +178,7 @@ Don’t forget to save your changes after completing all settings.
 
 The settings for the infiltration mechanism are contained in the v2_simple_infiltration table. 
 
-.. figure:: image/05_infiltration.png
+.. image:: image/05_infiltration.png
     :alt: infiltration
 
 Editing the table work in a similar manner as with the v2_global_settings table. Complete the following settings:
@@ -198,7 +198,7 @@ Editing the table work in a similar manner as with the v2_global_settings table.
 
 The numerical settings are contained in the v2_numerical_settings table.
 
-.. figure:: image/06_numerical.png
+.. image:: image/06_numerical.png
     :alt: Numerical settings
 
 As with the previous settings, open the attribute table, toggle the editing mode and add a feature.
@@ -258,7 +258,7 @@ The different rows of the table refer to different model output categories.
 For each category, set the global_settings_id at 1.
 Retain the default values for all other settings.
 
-.. figure:: image/07_v2_aggregation.png
+.. image:: image/07_v2_aggregation.png
     :alt: Aggregation Settings
 
 With the completion of the aggregation settings, we have built a basic working 2D flow model. 
@@ -273,7 +273,7 @@ Before sending our new model to the web portal, it is important to validate that
 The :ref:`rasterchecker` is part of the 3Di toolbox and performs 18 checks to verify the quality of the DEM.
 The raster checker can also be applied to other 3Di-related rasters when relevant.
 
-.. figure:: 08_RasterChecker.png
+.. image:: 08_rasterchecker.png
     :alt: RasterChecker
 
 A log of the performed test is written to the log file in the location as denoted in the result prompt.
@@ -287,7 +287,7 @@ The second validation is that of the model schematisation.
 This is checked with the :ref:`schematisationchecker` in the 3Di toolbox.
 It checks the model tables for many possible errors that could lead to crashes when the model is compiled.
 
-.. figure:: image/10_SchemaChecker.png
+.. image:: image/10_schemachecker.png
     :alt: Schematization Checker
 
 Now open the log file at your specified location.
@@ -295,7 +295,7 @@ You may find the error “Value in v2_aggregation_settings.aggregation_in_space 
 This is a known bug in the schematisation checker, which will be removed in a future update.
 You should not find any other warnings.
 
-.. figure:: image/11_modelerrors.png
+.. image:: image/11_modelerrors.png
     :alt: Model Errors
 
     Log of the schematisation checker
@@ -313,18 +313,18 @@ Take the following actions:
 
     A. Create a new .zip file with your new LP_Burrows.sqlite database and your DEM dem_2m_LPB.tif. Here we name it Tutorial_01_2D_flow.zip Be mindful that the folder structure in the .zip file matches that of your schematisation. Based on the settings in this tutorial, your .sqlite database and your DEM should be in the same folder. Exclude the log files from your .zip folder.
 
-.. figure:: image/12_zipfolder.png
+.. image:: image/12_zipfolder.png
     :alt: ZIP folder
 
     B. Go to `<https://models.lizard.net/model_databank/>`_.
     C. Select “Upload new model”. Make sure that you are logged in for this step.
 
-.. figure:: image/13_databanklogin.png
+.. image:: image/13_databanklogin.png
     :alt: Model databank login
 
     D. Fill in the details of your models. Be sure to select 3Di-v2 as your model type. Select “Submit” when you have completed the form.
 
-.. figure:: image/14_databank.png
+.. image:: image/14_databank.png
     :alt: Login form
 
 10. Compile your model
@@ -336,7 +336,7 @@ A. Go to https://3di.lizard.net/models/.
 B. Use to search function to retrieve your model. Search for the name that you gave your model in step 9d. You may have to select “also show repositories that do not have inp files yet”.
 C. Select “initialize inp generation” for your model.
 
-.. figure:: image/15_repositories.png
+.. image:: image/15_repositories.png
     :alt: Repository overview
 
 Your model will now be compiled.
@@ -356,7 +356,7 @@ The model is now also available on the 3Di live site.
 You can now run your model via the 3Di live site (:ref:`running_model`) or via the API (:ref:`apicalculations`).
 It will be available under the name “LP_Burrows_Tutorial_2D_flow”.
 
-.. figure:: image/17_livesite.png
+.. image:: image/17_livesite.png
     :alt: Live calculation in the live site
 
 Congratulations on building a 2D flooding model from scratch.
