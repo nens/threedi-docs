@@ -5,7 +5,7 @@ Release notes
 Release 3Di Modeller Interface - API Client
 ##############################################
 
-Users can now run simulations from within the Modeller Interface using the following options:
+Tuesday September 1st we have released a new version of the Modeller Interface with the following options:
 
 - initial water levels
 - using saved states
