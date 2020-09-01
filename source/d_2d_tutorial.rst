@@ -42,7 +42,7 @@ It will slowly be filled in when you build a model. Rename empty.sqlite to LP_Bu
     :alt: File Management
 
 2.	Loading the model in QGIS
-+++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++
 
 Our model must be imported in WGIS to view and modify its contents.
 The model can be loaded via the 3Di toolbar (part of the 3Di toolbox plug in) by following these steps: 
@@ -69,7 +69,7 @@ Model building
 --------------
 
 3.	Complete the global settings
-++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++
 
 The global settings are contained in the v2_global_settings table. Open the settings by
 
@@ -174,7 +174,7 @@ Let us now fill in the settings of each tab.
 Don’t forget to save your changes after completing all settings.
 
 4.	Complete the infiltration settings
-+++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++
 
 The settings for the infiltration mechanism are contained in the v2_simple_infiltration table. 
 
@@ -194,7 +194,7 @@ Editing the table work in a similar manner as with the v2_global_settings table.
     "infiltration_surface_option", "0", "See <link to infiltration documentation>"
 
 5.	Complete the numerical settings
-+++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++
 
 The numerical settings are contained in the v2_numerical_settings table.
 
@@ -298,7 +298,7 @@ You should not find any other warnings.
 .. image:: image/11_modelerrors.png
     :alt: Model Errors
 
-    Log of the schematisation checker
+Log of the schematisation checker
 
 If you do not get any further warnings or errors, your model is successfully validated and is ready for activation.
 
@@ -311,18 +311,20 @@ Model activation
 The first stage towards running your model in the web portal is to upload you model to the 3Di model databank.
 Take the following actions:
 
-    A. Create a new .zip file with your new LP_Burrows.sqlite database and your DEM dem_2m_LPB.tif. Here we name it Tutorial_01_2D_flow.zip Be mindful that the folder structure in the .zip file matches that of your schematisation. Based on the settings in this tutorial, your .sqlite database and your DEM should be in the same folder. Exclude the log files from your .zip folder.
+Create a new .zip file with your new LP_Burrows.sqlite database and your DEM dem_2m_LPB.tif. Here we name it Tutorial_01_2D_flow.zip Be mindful that the folder structure in the .zip file matches that of your schematisation. Based on the settings in this tutorial, your .sqlite database and your DEM should be in the same folder. Exclude the log files from your .zip folder.
 
 .. image:: image/12_zipfolder.png
     :alt: ZIP folder
 
-    B. Go to `<https://models.lizard.net/model_databank/>`_.
-    C. Select “Upload new model”. Make sure that you are logged in for this step.
+	
+Go to `<https://models.lizard.net/model_databank/>`_.
+Select “Upload new model”. Make sure that you are logged in for this step.
 
 .. image:: image/13_databanklogin.png
     :alt: Model databank login
 
-    D. Fill in the details of your models. Be sure to select 3Di-v2 as your model type. Select “Submit” when you have completed the form.
+	
+Fill in the details of your models. Be sure to select 3Di-v2 as your model type. Select “Submit” when you have completed the form.
 
 .. image:: image/14_databank.png
     :alt: Login form
