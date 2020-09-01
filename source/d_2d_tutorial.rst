@@ -273,7 +273,7 @@ Before sending our new model to the web portal, it is important to validate that
 The :ref:`rasterchecker` is part of the 3Di toolbox and performs 18 checks to verify the quality of the DEM.
 The raster checker can also be applied to other 3Di-related rasters when relevant.
 
-.. image:: 08_rasterchecker.png
+.. image:: image/08_rasterchecker.png
     :alt: RasterChecker
 
 A log of the performed test is written to the log file in the location as denoted in the result prompt.
