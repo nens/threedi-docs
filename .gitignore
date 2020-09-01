@@ -1,3 +1,5 @@
 *~
 build/
 docs_voorbeeld/
+.vscode/settings.json
+_build/

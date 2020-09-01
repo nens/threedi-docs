@@ -17,8 +17,8 @@ Welcome to 3Di's documentation!
    
 .. toctree::
    :maxdepth: 2
-   :caption: Tutorials
-   :name: tutorials
+   :caption: User manual
+   :name: user_manual
    :numbered:
 
    d_before_you_begin
@@ -26,6 +26,14 @@ Welcome to 3Di's documentation!
    d_qgis_plugin
    d_modeling
    d_problem_solving
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Tutorials
+   :name: tutorials
+   :numbered:
+
+   d_2d_tutorial
 
 .. toctree::
    :maxdepth: 2

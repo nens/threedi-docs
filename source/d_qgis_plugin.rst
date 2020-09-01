@@ -20,7 +20,7 @@ The section below explains the use of various options of the modeller interface.
 Plugin Installation 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* QGIS 3.4 64bit Long term release(`Get QGIS <http://www.qgis.org/en/site/forusers/download.html#>`_ use the standalone installers)
+* QGIS 3.10 64bit Long term release(`Get QGIS <http://www.qgis.org/en/site/forusers/download.html#>`_ use the standalone installers)
 
     After the installation of QGIS, set the interface language and locale to American English. This makes it easier to understand the instructions in this documentation. Some locales do not support scientific notations of numbers, these are required for very small numbers (e.g. 1e-09).
 
