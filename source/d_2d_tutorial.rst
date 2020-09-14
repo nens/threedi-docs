@@ -30,7 +30,7 @@ Before you start, please make sure to:
 Model initialisation
 --------------------
 
-1. Model preparation
+Model preparation
 +++++++++++++++++++++
 
 Before we can start building our model, we need prepare our model and organize our data.
@@ -41,14 +41,10 @@ It will slowly be filled in when you build a model. Rename empty.sqlite to LP_Bu
 .. figure:: image/00_filemanagement.png
     :alt: File Management
 
-2.	Loading the model in QGIS
+Loading the model in QGIS
 +++++++++++++++++++++++++++++++++++
 
-<<<<<<< HEAD
 Our model must be imported in QGIS to view and modify its contents.
-=======
-Our model must be imported in WGIS to view and modify its contents.
->>>>>>> master
 The model can be loaded via the 3Di toolbar (part of the 3Di toolbox plug in) by following these steps: 
 
 A.	Open QGIS.
@@ -72,7 +68,7 @@ It is advised that you set your project reference EPSG:27700 (British National G
 Model building
 --------------
 
-3.	Complete the global settings
+Complete the global settings
 ++++++++++++++++++++++++++++++++++++++
 
 The global settings are contained in the v2_global_settings table. Open the settings by
@@ -177,7 +173,7 @@ Let us now fill in the settings of each tab.
 
 Don’t forget to save your changes after completing all settings.
 
-4.	Complete the infiltration settings
+Complete the infiltration settings
 ++++++++++++++++++++++++++++++++++++++++++++
 
 The settings for the infiltration mechanism are contained in the v2_simple_infiltration table. 
@@ -197,7 +193,7 @@ Editing the table work in a similar manner as with the v2_global_settings table.
     "max_infiltration_capacity_file", "NULL", "infinite infiltration capacity is assumed in this tutorial"
     "infiltration_surface_option", "0", "See <link to infiltration documentation>"
 
-5.	Complete the numerical settings
+Complete the numerical settings
 +++++++++++++++++++++++++++++++++++++++++
 
 The numerical settings are contained in the v2_numerical_settings table.
@@ -251,7 +247,7 @@ Complete the following settings:
     "pump_implicit_ratio", "1"
     "preissmann_slot", "0"
 
-6. Complete the aggregation settings
+Complete the aggregation settings
 +++++++++++++++++++++++++++++++++++++
 
 The aggregation settings control the aggregation of model results.
@@ -270,7 +266,7 @@ With the completion of the aggregation settings, we have built a basic working 2
 Model validation
 ----------------
 
-7. Verify the model rasters using the raster checker
+Verify the model rasters using the raster checker
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Before sending our new model to the web portal, it is important to validate that our model contains no errors.
@@ -284,7 +280,7 @@ A log of the performed test is written to the log file in the location as denote
 This location is typically the location of your DEM-file.
 The log file can be opened to view additional details of the checks performed.
 
-8. Verify the model schematisation using the schematisation checker
+Verify the model schematisation using the schematisation checker
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 The second validation is that of the model schematisation.
@@ -309,7 +305,7 @@ If you do not get any further warnings or errors, your model is successfully val
 Model activation
 ----------------
 
-9. Upload your model to the repository
+Upload your model to the repository
 ++++++++++++++++++++++++++++++++++++++
 
 The first stage towards running your model in the web portal is to upload you model to the 3Di model databank.
@@ -333,7 +329,7 @@ Fill in the details of your models. Be sure to select 3Di-v2 as your model type.
 .. image:: image/14_databank.png
     :alt: Login form
 
-10. Compile your model
+Compile your model
 ++++++++++++++++++++++
 
 Now your model is stored in the model databank, it is ready for compilation. 
@@ -356,7 +352,7 @@ The model is now also available on the 3Di live site.
 
     Your screen after a successful compilation
 
-11. Run your model
+Run your model
 ++++++++++++++++++
 
 You can now run your model via the 3Di live site (:ref:`running_model`) or via the API (:ref:`apicalculations`).
