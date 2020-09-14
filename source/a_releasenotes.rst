@@ -2,9 +2,26 @@
 Release notes
 *************
 
+Release 3Di Modeller Interface - API Client
+##############################################
+
+Tuesday September 1st we have released a new version of the Modeller Interface with the following options:
+
+- initial water levels
+- using saved states
+- laterals (1D/2D)
+- breaches
+- post processing to Lizard
+- being able to run multiple simulations
+- use of templates 
+
+- Download the latest version of the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.10.9-1-Setup-x86_64.exe>`_
+
+More explanation on how it works: :ref:`qgisplugin`
+
 
 Release 3Di Modeller Interface - Hotfix
-########################################
+#########################################
 
 Monday July 6th we have released version 1.14.1 of the 3Di Toolbox containing two bugfixes. The following issues have been fixed:
 
@@ -705,7 +722,7 @@ There will also be a new version of the 3Di Plugin required (Version 1.0). With 
 
 Release 3Di – April 2018
 ########################
-########################
+
 
 On Monday the 23th of April 2018 the latest version of 3Di will be released. The 3Di team worked mainly on improving the performance of computational times when using the API, and on implementing groundwater flow. Groundwater flow will be available to everyone from next month. In this release we have worked on:
 
