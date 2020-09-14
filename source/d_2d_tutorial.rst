@@ -44,7 +44,7 @@ It will slowly be filled in when you build a model. Rename empty.sqlite to LP_Bu
 2.	Loading the model in QGIS
 +++++++++++++++++++++++++++++++++++
 
-Our model must be imported in WGIS to view and modify its contents.
+Our model must be imported in QGIS to view and modify its contents.
 The model can be loaded via the 3Di toolbar (part of the 3Di toolbox plug in) by following these steps: 
 
 A.	Open QGIS.
