@@ -28,7 +28,7 @@ Before you start, please make sure to:
     :sub:`The digital elevation model contains United Kingdom public sector information licensed under the Open Government Licence v2.0.`
 
 Model initialisation
---------------------
+---------------------
 
 Model preparation
 +++++++++++++++++++++
@@ -68,6 +68,10 @@ It is advised that you set your project reference EPSG:27700 (British National G
 Model building
 --------------
 
+The most fundamental element to building a 3Di is choosing your correct settings.
+We will go through all settings that are required for a basic 2D flow model.
+We will introduce extra elements like 1D channels, levees or hydraulic structures in later tutorials. 
+
 Complete the global settings
 ++++++++++++++++++++++++++++++++++++++
 
@@ -100,7 +104,7 @@ Let us now fill in the settings of each tab.
     "id", "1"
     "name", "Tutorial_2D_flow"
     "use_0d_inflow", "0: do not use 0d inflow", "Use only when point sources are present"
-    "use_1d_flow", "No", "This tutorial does not define channels"
+    "use_1d_flow", "No", "This tutorial does not define 1D channels"
     "use_2d_rain", "Yes", "Enables rainfall"
     "use_2d_flow", "Yes", "Enables 2D flow"
 
@@ -108,8 +112,8 @@ Let us now fill in the settings of each tab.
     :header: "Setting", "Value for this tutorial", "Comments"
 
     "grid_space", "64", "Minimum grid cell size in metres"
-    "kmax", "1", "See <link to grid refinement documentation>"
-    "table_step_size", "0.10", "See <link to grid refinement documentation>"
+    "kmax", "1", "See :ref:`computational_grid`"
+    "table_step_size", "0.10", "See :ref:`computational_grid`"
 
 .. csv-table:: Terrain information
     :header: "Setting", "Value for this tutorial", "Comments"
@@ -191,7 +195,7 @@ Editing the table work in a similar manner as with the v2_global_settings table.
     "infiltration_rate", "360", "in mm/hour; uniform silty sand is assumed in this tutorial"
     "infiltration_rate_file", "NULL", "Only used for spatially varying infiltration rates"
     "max_infiltration_capacity_file", "NULL", "infinite infiltration capacity is assumed in this tutorial"
-    "infiltration_surface_option", "0", "See <link to infiltration documentation>"
+    "infiltration_surface_option", "0", "See :ref:`infiltration`"
 
 Complete the numerical settings
 +++++++++++++++++++++++++++++++++++++++++
@@ -262,6 +266,8 @@ Retain the default values for all other settings.
     :alt: Aggregation Settings
 
 With the completion of the aggregation settings, we have built a basic working 2D flow model. 
+
+The overview of all settings for this tutorial can be referenced `here <https://docs.google.com/spreadsheets/d/1qHTS0TdwnYaCYRaohDAVvkaGW2sJ1pt8IX31HZ7OcBY/edit?usp=sharing>`_.
 
 Model validation
 ----------------

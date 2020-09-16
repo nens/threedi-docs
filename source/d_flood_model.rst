@@ -34,6 +34,8 @@ Some basic settings you must fill out have to do with keeping track of your scen
 
 #. Check the 3Di :ref:`database-overview` for the remaining settings and fill-out all those listed as mandatory. Except ``kmax`` and ``grid_space``, they are explained below.
 
+.. _computational_grid:
+
 Computational grid
 -------------------
 
