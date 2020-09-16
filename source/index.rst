@@ -24,6 +24,7 @@ Welcome to 3Di's documentation!
    d_before_you_begin
    d_web_portals
    d_qgis_plugin
+   d_fews_3di_connector
    d_modeling
    d_problem_solving
 
