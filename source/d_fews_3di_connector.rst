@@ -45,11 +45,13 @@ Add forcings (mandatory)
 ++++++++++++++++++++++++
 
 The API provides specific endpoints for different forcings/events. These events are coupled to the simulation by submitting them with the unique identifier of the simulation. Every event needs to be added via a separate API call.
- The following events/forcings endpoints are currently available:
-Rain
-Sources and sinks
-Laterals
- For now adding at least one event is mandatory.
+The following events/forcings endpoints are currently available:
+
+- Rain
+- Sources and sinks
+- Laterals
+
+For now adding at least one event is mandatory.
 
 Start simulation
 +++++++++++++++++
@@ -69,6 +71,7 @@ After (and during) the simulation, the latest state of the simulation can be ret
 
 Get results
 ++++++++++++
+
 Results can be retrieved via the /simulations/{id}/results/timeseries/ endpoint. This endpoint allows to provide filtering parameters for getting time series of a simulation. Under the hood it is going to provide a subset of the filtering/subset options provided by Threedigrid (https://threedigrid.readthedocs.io/en/latest/api.html#filtering). Threedigrid is a Python package created and maintained by Nelen & schuurmans for interacting with 3Di model administration and 3Di model simulation results. The timeseries endpoint will provide access to time series of threedicore entities like calculation points, lines, grid cells et cetera.
 The adapter makes it possible to easily retrieve the 1D or 2D results.
 
