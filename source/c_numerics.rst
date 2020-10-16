@@ -85,6 +85,7 @@ In order to determine the upwind method the direction of the flow is considered.
 
 We also use for various things a general threshold, this one is defined as general_numerical_threshold, the default is 1.0d-8. 
 
+.. _limiters:
 
 Limiters
 --------

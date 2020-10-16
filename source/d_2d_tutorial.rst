@@ -1,3 +1,5 @@
+.. _tutorial1_2dflatmodel:
+
 Tutorial 1: 2D flat model
 =========================
 
@@ -23,7 +25,7 @@ Before you start, please make sure to:
 * Install QGIS (`<https://www.qgis.org/>`_). 
 * Install the 3Di toolbox in QGIS. Please see :ref:`plugin_installation` for instructions.
 * Gain access to the 3Di web portal. Please see :ref:`guide_to_portal` for instructions.
-* Download the Taf dataset for this tutorial `here <https://nens.lizard.net/media/3di-tutorials/3di-tutorial-01.zip>`_. 
+* Download the Taf `dataset <https://nens.lizard.net/media/3di-tutorials/3di-tutorial-01.zip>`_ for this tutorial . 
     
     :sub:`The digital elevation model contains United Kingdom public sector information licensed under the Open Government Licence v2.0.`
 
@@ -89,7 +91,7 @@ E. Select “Add feature”.
 Now we can start to configure all settings.
 3Di requires you to complete all mandatory settings before changes can be saved.
 Attempts to save the settings before all mandatory field have been completed will result in an error message.
-A list of mandatory settings and detailed descriptions can be found `here <https://docs.google.com/spreadsheets/d/1OGusrQRQkzF8lA9MSxm2oGHmGIcN8rnng0VbafidSTg/>`_.
+A list of mandatory settings and detailed descriptions can be found `here <https://docs.3di.lizard.net/d_before_you_begin.html>`_.
 Finally, please not that these settings have been selected specifically for this tutorial.
 
 Let us now fill in the settings of each tab. 

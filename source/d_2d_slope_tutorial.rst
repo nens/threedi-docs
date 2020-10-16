@@ -1,5 +1,7 @@
-Tutorial 2: 2D flow model
-==========================
+.. _tutorial2_2dflowmodel:
+
+Tutorial 2: 2D flow model over sloped terrain
+===============================================
 
 Welcome to the tutorial for 2D flow over a sloped terrain.
 In this tutorial, we will build a basic 2D flow model in mountainous terrain using 3Di.
@@ -25,7 +27,7 @@ You will learn the following skills in this tutorial:
 
 Before you start, please make sure to:
 
-* Install the 3Di modeller interface `here <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.10.9-1-Setup-x86_64.exe>`_. 
+* Install the :ref:`qgisplugin`.
 * Gain access to the 3Di web portal. Please see the :ref:`guide_to_portal` for instructions.
 * Download the starter pack for this tutorial, which includes a partially completed .sqlite-database and rasters (DEM, friction, infiltration, infiltration capacity) for Lake Mead `here <https://nens.lizard.net/media/3di-tutorials/3di-tutorial-02.zip>`_.
 
@@ -38,7 +40,7 @@ Model preparation
 Unpack the starter package and save the contents into a folder.
 You should have a partially configured .sqlite, and a folder named “raster”.
 The raster folder contains a DEM, a friction map, an infiltration map, and an infiltration capacity map.
-The partially configured .sqlite matches the settings of Tutorial 1: flat 2D (<link>), with an updated aggregation time step.
+The partially configured .sqlite matches the settings of :ref:`tutorial1_2dflatmodel`, with an updated aggregation time step.
 
 .. figure:: image/01_basefiles.png
     :alt: The base files
@@ -139,10 +141,10 @@ Modify the settings for mountain environments
 +++++++++++++++++++++++++++++++++++++++++++++
 
 3Di must be configured differently for areas with steep slopes than for flat areas,
-due to the strong variations in water level that may occur within a grid cell (see <Link to 2.2.2 of the model concepts> for a technical description>).
+due to the strong variations in water level that may occur within a grid cell (see :ref:`limiters`  for a technical description>).
 We will modify the settings file, which was created for a flat area, such that it can be applied to sloping areas instead.
 Here we will only discuss the settings that must be changed.
-A full overview of all settings can be found at https://docs.google.com/spreadsheets/d/1qHTS0TdwnYaCYRaohDAVvkaGW2sJ1pt8IX31HZ7OcBY.
+A full overview of all settings can be found at https://docs.3di.lizard.net/_downloads/84a660f75b3e8f891f1cd6c5f0b550f8/database-overview.pdf
 
 First, we will set the numerical settings. Modify the numerical settings via the v2_numerical_settings table.
 
@@ -223,7 +225,7 @@ The discharge of precipitation into Lake Mead takes a long time due to the large
 The number of time steps and the time between model outputs is increased to reflect the slow time scale.
 More time steps and a larger output time step are selected to account for the slower drainage. 
 
-a.	 Select the tab “Time”.
+a.	Select the tab “Time”.
 b.	Set the nr_timesteps to 1440. This amounts to a model duration of 12 h, as the time step is 30 s.
 c.	Set the output_time_step to 900.  This value is in seconds.
 
