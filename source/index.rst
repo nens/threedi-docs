@@ -34,7 +34,7 @@ Welcome to 3Di's documentation!
    :numbered:
 
    d_2d_tutorial
-   d_2d_flow_tutorial
+   d_2d_slope_tutorial
 
 .. toctree::
    :maxdepth: 2

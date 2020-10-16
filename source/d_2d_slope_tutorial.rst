@@ -25,9 +25,9 @@ You will learn the following skills in this tutorial:
 
 Before you start, please make sure to:
 
-* Install the 3Di modeller interface `here <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.10.9-1-Setup-x86_64.exe>`. 
+* Install the 3Di modeller interface `here <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.10.9-1-Setup-x86_64.exe>`_. 
 * Gain access to the 3Di web portal. Please see the :ref:`guide_to_portal` for instructions.
-* Download the starter pack for this tutorial, which includes a partially completed .sqlite-database and rasters (DEM, friction, infiltration, infiltration capacity) for Lake Mead <include download link>. 
+* Download the starter pack for this tutorial, which includes a partially completed .sqlite-database and rasters (DEM, friction, infiltration, infiltration capacity) for Lake Mead `here <https://nens.lizard.net/media/3di-tutorials/3di-tutorial-02.zip>`_.
 
 Model initialisation
 ---------------------
