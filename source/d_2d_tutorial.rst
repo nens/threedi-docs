@@ -89,7 +89,7 @@ E. Select “Add feature”.
 Now we can start to configure all settings.
 3Di requires you to complete all mandatory settings before changes can be saved.
 Attempts to save the settings before all mandatory field have been completed will result in an error message.
-A list of mandatory settings and detailed descriptions can be found <link to mandatory settings>.
+A list of mandatory settings and detailed descriptions can be found `here <https://docs.google.com/spreadsheets/d/1OGusrQRQkzF8lA9MSxm2oGHmGIcN8rnng0VbafidSTg/>`_.
 Finally, please not that these settings have been selected specifically for this tutorial.
 
 Let us now fill in the settings of each tab. 
