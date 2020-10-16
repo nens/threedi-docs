@@ -144,7 +144,7 @@ Modify the settings for mountain environments
 due to the strong variations in water level that may occur within a grid cell (see :ref:`limiters`  for a technical description>).
 We will modify the settings file, which was created for a flat area, such that it can be applied to sloping areas instead.
 Here we will only discuss the settings that must be changed.
-A full overview of all settings can be found at https://docs.3di.lizard.net/_downloads/84a660f75b3e8f891f1cd6c5f0b550f8/database-overview.pdf
+A full overview of all settings can be found at :download:`the database overview <pdf/database-overview.pdf>`
 
 First, we will set the numerical settings. Modify the numerical settings via the v2_numerical_settings table.
 

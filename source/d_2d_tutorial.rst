@@ -91,7 +91,7 @@ E. Select “Add feature”.
 Now we can start to configure all settings.
 3Di requires you to complete all mandatory settings before changes can be saved.
 Attempts to save the settings before all mandatory field have been completed will result in an error message.
-A list of mandatory settings and detailed descriptions can be found `here <https://docs.3di.lizard.net/d_before_you_begin.html>`_.
+A list of mandatory settings and detailed descriptions can be found :download:`in the database overview <pdf/database-overview.pdf>`
 Finally, please not that these settings have been selected specifically for this tutorial.
 
 Let us now fill in the settings of each tab. 
