@@ -135,10 +135,24 @@ Advanced:
 All layers can toggled on or off by simply clicking on them in the layer menu. 
 
 
-.. _load_model:
+.. _notables:
 
-Load model
+Notables
 ----------
+
+
+- When inactive for too long, the session will close 'This simulations is no longer active. You may start a new simulation.'
+- Editing of structures or DEM can only be done after *pausing* a simulation.
+- In the current setup special attention to models with initial water levels in 2D and laterals. 
+- Initial water level in 2D is taken into account, but only with the 'mean' parameter.
+- Laterals in a model are at the moment not used in the live site.
+- The color scheme of the water depth can not be changed in the live site
+- The language of the site will change depending on the language settings of your browser. Currently mandarin, english and dutch are supported. Please keep in mind that model elements are never translated. 
+
+
+
+
+
 
 
 
