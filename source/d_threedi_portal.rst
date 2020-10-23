@@ -83,7 +83,7 @@ User menu
 Click the user icon  at the top right of the screen to show the user menu. The user menu has the following options:
 
 
-* **Calculation speed** (see :ref:`director_status`).
+* **Calculation speed** 
 
 .. figure:: image/d2.8_user_menu.png 
 	:alt: User menu
