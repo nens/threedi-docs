@@ -8,14 +8,14 @@ Login
 
 Follow the steps below to access the 3Di portal:
 
-#) Start the internet browser (Chrome or Firefox) and go to: https://3di.lizard.net/ 
+#) Start the internet browser (Chrome or Firefox) and go to: https://3di.live
 #) Log in with your username and password.
 
 	* Username and password can be requested via servicedesk@nelen-schuurmans.nl.
 	* You can clear the fields by clicking the **Reset values** button.
 	* Forgot your password? Request a new password via **Reset my password**.
 
-.. figure:: image/d2.2_login.png
+.. figure:: image/d2.1_login.png
 	:scale: 50%
 	:alt: Login screen
 	
@@ -24,13 +24,13 @@ Welcome to 3Di
 
 After logging in to the 3Di portal, the screen *Welcome to 3Di* will show:
 
-.. figure:: image/d2.3_welcome.png 
+.. figure:: image/d2.2_login.png 
 	:alt: Welcome to 3Di screen
 
 In this screen, there are two possibilities:
 
 * Start a new session using the *New session* tab.
-* Follow an ongoing session via the *Follow running session* tab.
+* Follow an ongoing session via the *Follow session* tab.
 
 Start a new session
 --------------------
@@ -38,8 +38,8 @@ Start a new session
 Select the *New session* tab and select the model you want to start.
 
 * A new session will be started.
-* The approximate time it will take to start the machine is shown when **Booting machine**.
-* It may take several minutes to load the model.
+* During the start up of the model tips for use of the site will be shown.
+* It may take several minutes to load the model. Actual loading time is dependent on model size, calculation grid and table step size.
 
 .. figure:: image/d2.4_start_session.png 
 	:alt: Start new session
@@ -49,7 +49,7 @@ Select the *New session* tab and select the model you want to start.
 Following a session
 --------------------
 
-Through the tab *Follow running session* an active session of your organization can be followed. The number of followers of a session is not limited.
+Through the tab *Follow session* an active session of your organization can be followed. The number of followers of a session is not limited.
 
 Main session
 ------------

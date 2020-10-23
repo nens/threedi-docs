@@ -2,6 +2,24 @@
 Release notes
 *************
 
+Release 3Di live site
+########################
+
+Tuesday October 27th we have released a brand new version of our live site.
+
+- Completely new design
+- Quick booting of simulations
+- User feedback during interactions
+- Follow simulations
+- Increased amount of data points when following live
+- Ability to change colors of model elements
+- Show or hide model components & backgrounds with the layer menu
+- Easy to use tools
+- Mandarin language support
+- Session automatically quits when closing of browser tab
+
+
+
 Release 3Di Modeller Interface - API Client
 ##############################################
 
