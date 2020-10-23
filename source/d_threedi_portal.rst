@@ -148,6 +148,8 @@ Notables
 - Laterals in a model are at the moment not used in the live site.
 - The color scheme of the water depth can not be changed in the live site
 - The language of the site will change depending on the language settings of your browser. Currently mandarin, english and dutch are supported. Please keep in mind that model elements are never translated. 
+- Manholes are turned off by default. Turning them on and zooming out might cause the live site to slow down.
+- Water depth is not shown in the channel nodes.
 
 
 
