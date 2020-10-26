@@ -2,7 +2,7 @@
 Release notes
 *************
 
-Release 3Di live site
+Release 3Di - Live site
 ########################
 
 Tuesday October 27th we have released a brand new version of our live site.

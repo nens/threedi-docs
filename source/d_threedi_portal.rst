@@ -72,7 +72,6 @@ The left bar from top to bottom contains:
 - edit the DEM of the model
 - show maplayers
 
-
 For the visualization of the model elements, see the :ref:`layers_menu`.
 
 .. _user_menu:
@@ -82,13 +81,11 @@ User menu
 
 Click the user icon  at the top right of the screen to show the user menu. The user menu has the following options:
 
-
 * **Calculation speed** 
 
 .. figure:: image/d2.8_user_menu.png 
 	:alt: User menu
 
-	
 **Calculation speed** 
 Calculation speed on the live site is slowed down in case of fast models. This is done because the live site is meant to have live insights in what is happening. If the model is too fast, it is hard to understand the flows. If you don't want this option to be turned on, toggle the 'off' radio button. The model most likely will speed up in case the % on the top right of the screen was not indicating 100%. In case the server load is already at 100%, no gain will be seen in calculation speed on the live site.
 
@@ -126,11 +123,13 @@ In the calculation section all layers are shown that indicate a results of the s
 - Flow velocity
 - Model grid 
 
-Model rasters
+Model rasters:
+
  - Digital Elevation Model. This shows the DEM that is used in the model. 
 
 Advanced:
-- Here other raster layers will be shown if present in the model. 
+
+- Here other raster layers will be shown if present in the model:
 
 All layers can toggled on or off by simply clicking on them in the layer menu. 
 
@@ -139,7 +138,6 @@ All layers can toggled on or off by simply clicking on them in the layer menu.
 
 Notables
 ----------
-
 
 - When inactive for too long, the session will close 'This simulations is no longer active. You may start a new simulation.'
 - Editing of structures or DEM can only be done after *pausing* a simulation.
@@ -150,11 +148,3 @@ Notables
 - The language of the site will change depending on the language settings of your browser. Currently mandarin, english and dutch are supported. Please keep in mind that model elements are never translated. 
 - Manholes are turned off by default. Turning them on and zooming out might cause the live site to slow down.
 - Water depth is not shown in the channel nodes.
-
-
-
-
-
-
-
-

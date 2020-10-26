@@ -10,7 +10,9 @@ Start the simulation
 
 The simulation starts by pressing the *Play* button at the top of the screen. The calculation time is displayed next to the *Play* button. 
 
-By default, the point information tool is switched on. With it you can click anywhere on the map to visualize the time series at that location. Default waterdepth and waterlevel will be shown. If the model contains groundwater that graph is also shown. The time series can all be downloaded in CSV format. The points over time that are shown are the points calculated by the 3Di calculation core and are independent from the output time step that the modeller has set.
+By default, the point information tool is switched on. With it you can click anywhere on the map to visualize the time series at that location. Default waterdepth and waterlevel will be shown. If the model contains groundwater that graph is also shown. 
+
+The time series can all be downloaded in CSV format. The points over time that are shown are the points calculated by the 3Di calculation core and are independent from the output time step that the modeller has set.
 
 .. figure:: image/d3.1_point_location.png
 	:alt: Point selection
@@ -58,7 +60,6 @@ When the rainfall is active a cloud icon appears on the top right of the screen.
 The numbers of the design rainfall point the following rainfall events:
 Rain 3 till 10 are the Dutch C2100 rainfall events
 Rain 11 till 16 are the DPRA rainfall events
-
 	
 DEM edit/ Raster edit
 ------------------------------------------------
