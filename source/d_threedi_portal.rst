@@ -134,6 +134,17 @@ Advanced:
 All layers can toggled on or off by simply clicking on them in the layer menu. 
 
 
+.. _timeoutlivesite:
+
+Quitting the simulation
+------------------------
+
+In the menu under the user icon, quitting the simulation ends the use of calculation time. If this option is not used the session remains active. One of the following scenario's might apply:
+
+- time out after being inactive is set to 30 minute for a running simulation
+- time out after being inactive is set to 5 minute for a paused simulation
+- leaving the session via a tab will close the simulation after 30 minutes
+
 .. _notables:
 
 Notables
