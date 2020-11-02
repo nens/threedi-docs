@@ -108,9 +108,9 @@ In the 2D domain the impact of wind is formulated by:
 .. math::
    :label: wind impact 2D
 
-   \frac{\partial u}{\partial x}+g\frac{\partial \zeta}{\partial x} = -\frac{|u|u}{H_f}+\frac{\rho_{lucht}}{\rho_{water}V} \iint \chi^2 C_d \left \| \frac{U_{wind}^x}{\chi} - u \right \| \left ( \frac{U_{wind}^{x}}{\chi} - u \right ) d \Omega^x 
+   \frac{d u}{dt}+g\frac{\partial \zeta}{\partial x} = -\frac{|u|u}{H_f}+\frac{\rho_{lucht}}{\rho_{water}V} \iint \chi^2 C_d \left \| \frac{U_{wind}^x}{\chi} - u \right \| \left ( \frac{U_{wind}^{x}}{\chi} - u \right ) d \Omega^x 
 
-   \frac{\partial v}{\partial x}+g\frac{\partial \zeta}{\partial y} = -\frac{|u|v}{H_f}+\frac{\rho_{lucht}}{\rho_{water}V} \iint \chi^2 C_d \left \| \frac{U_{wind}^y}{\chi} - v \right \| \left ( \frac{U_{wind}^{y}}{\chi} - v \right ) d \Omega^y 
+   \frac{dv}{dt}+g\frac{\partial \zeta}{\partial y} = -\frac{|u|v}{H_f}+\frac{\rho_{lucht}}{\rho_{water}V} \iint \chi^2 C_d \left \| \frac{U_{wind}^y}{\chi} - v \right \| \left ( \frac{U_{wind}^{y}}{\chi} - v \right ) d \Omega^y 
 
 | The additional variables (in comparison tot 1D are): 
 | u,v = velocity of the water in x- en y –direction, 
@@ -124,6 +124,7 @@ Important to know
 ================= 
 
 - At present wind input fields are uniform in space.
+- The drag coefficient can only be set via the API
 - In 1D, wind has no impact on closed open channel profiles and sewer pipes. 
 - If a 1D element has both an open and a closed profile, we assume no wind impact. If the user wants to compute the impact of wind in this case, separate 1D elements should be used. 
 

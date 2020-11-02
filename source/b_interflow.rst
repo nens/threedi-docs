@@ -192,12 +192,12 @@ Below two tables are included with a summary of the possible settings for interf
 Good to know
 ------------
 
-**Infiltration** In principle, nothing about infiltration has changed with or without interflow. Infiltration is not to interflow layer itself, but from the interflow to the subsoil. The infiltration volume is removed from the interflow layer. Infiltration stops when the water level is below the lowest pixel.
+**Infiltration** In principle, nothing about infiltration has changed with or without interflow. Infiltration is not to interflow layer itself, but from the interflow to the sub-soil. Infiltration stops when the water level is below the lowest pixel. In case, you would like to allow water to infiltrate deeper than interflow layer, one can use the sources and sinks functionality.
 
 **Laterals** Nothing actually changes for the laterals. The extraction of water continues until the total volume is zero. This means that the water level can be lower than the DEM.
 
-**Obstacles and levees** Flow in the interflow layer is affected (stopped) by obstacles and levees. Flow in the interflow layer does not flow under levees.
+**Obstacles and levees** Flow in the interflow layer is affected (stopped) by obstacles and levees. Flow in the interflow layer does not flow under/through levees.
 
-**Connection with 1D** There is no separate link between interflow and 1D-elements. So no seepage from deep channels, all flow between 1D and 2D happens via the 2D surface.
+**Connection with 1D** There is no separate link between interflow and 1D-elements. So no seepage from deep channels, all flow between 1D and 2D happens via the 2D surface. This also implies that drainage or bank levels of 1D elements cannot be set below the 2D surface.
 
-**Embedded channels or pipes** Both embedded elements and interflow affect the volume in 2D calculation cells and it is therefore not advised to use them together.
+**Embedded channels or pipes** Both embedded elements and interflow affect the volume in 2D computational cells and it is therefore not advised to use them together.
