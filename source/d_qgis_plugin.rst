@@ -897,6 +897,64 @@ Note: the shape of the manhole is refered as 'rnd' = round, 'sqr' = square and '
     *    The 'fictive' linkages (with typ_gkn == 01) are ignored, only real nodes are combined.
     *    The second node (ide_kn2) is removed. Impervious surfaces and pipes linked to the removed node are redirected to the first node. Extra manhole storage will be lost.
 
+.. _addleveebreaches:
+
+Add levee breaches
+^^^^^^^^^^^^^^^^^^
+
+Levee breaches can be created in 3Di-models that contain a connected *v2_channel* 
+(*calculation_type* = 102) and a *v2_levee*-structure. For more information on the 
+theory behind levee breaches in 3Di, see :ref:`breaches`.
+
+Before adding levee breaches, please make sure that the data in *v2_levee*-table is 
+correctly filled out. For simulating breaches, 3Di requires the *crest_level* of the 
+levee in m MSL **(a)**, the *material* of the levee **(b)** and the *max_breach_depth* 
+relative to the crest level in meters **(c)**.
+
+.. image:: image/d_qgisplugin_breach_info_v2_levee_table.png
+
+**IMPORTANT WARNING:** adding levee breaches should generally be the last step in 
+the modelling process. When connected points belonging to a channel are moved 
+across a levee in order to simulate a breach, they are assigned a *calculation_pnt_id*
+that refers to the id number of the old calculation point. Any changes that affect 
+the amount of calculation/connected points or the location of calculation points 
+(like adding a new *v2_channel*) will lead to changes in the id numbers of the 
+calculation points, and hence, to moved connected points referring to the wrong 
+calculation points.
+
+To add levee breaches to your model using the 3Di toolbox, please follow the steps below:
+
+1. Set up a connection with the SQLite or PostgreSQL database of your model (see: :ref:`rasterchecker`).
+2. Click on the 3Di toolbox and select *Step 3 - Modify schematization*.
+3. Choose *Predict calc points* and select your SQLite or PostgreSQL model from the list. Two virtual layers will then be added called *v2_connected_pnt* and *v2_calculation_point*.
+
+.. image:: image/d_qgisplugin_leveebreaches_predict_calc_points.png
+
+4. Select the *v2_connected_pnt*-layer in the QGIS *Layers Panel* **(a)** and click on *Select Feature(s)* in the QGIS *Attributes Toolbar* **(b)**. 
+
+.. image:: image/d_qgisplugin_select_cnn_pnt_layer.png
+
+5. Now select the connected points of the channel on which you want to force a levee breach. Selected points will turn yellow.
+
+.. image:: image/d_qgisplugin_select_levee_points.png
+
+6. Next, double-click on *Create breach locations* and a new window will pop-up.
+
+.. image:: image/d_qgisplugin_create_breach_locs.png
+
+7. In the first box **(a)** the *v2_connected_pnt*-layer that was created in Step 3 is auto-selected from a drop-down menu. If it isn't in the list something went wrong in the previous steps.
+
+.. image:: image/d_qgisplugin_create_breach_locs_window.png
+
+8. In the second box **(b)** you enter a search distance in meters. This is the distance perpendicular to the channel that is searched for a *v2_levee*.
+9. In the third box **(c)** you enter a number that controls at what distance away from the *v2_levee* the new calculation point is created. **IMPORTANT:** The levee breach will only work if the new calculation point is located in a different calculation cell from that of the original calculation point. Hence, is advised to select a *distance_to_levee* that is larger than the size of the calculation cells in which the levee breach occurs.
+10. The *use only selected features* tick box **(d)** should be checked if you want the tool to create breach locations only for the points you selected in the *v2_connected_pnt*-table.
+11. The *dry-run* tick box **(e)** can be checked if you first want to create a temporary layer of the moved connected points. This can be useful to compare the original locations with the new locations.
+12. When the *auto commit changes* tick box **(f)** is checked, all changes made in the *v2_connected_pnt*-layer are immediately saved. Since these changes can't be reverted and they can be easily saved with the click of one button, we recommended leaving this box unchecked.
+13. Click on the *OK*-button **(g)** to create the breach locations. Note that you will still need to save the *v2_connected_pnt*-layer before changes are committed to the model. An example of (not yet committed) connected points that have been moved across a levee to simulate a levee breach, can be seen in the figure below.
+
+.. image:: image/d_qgisplugin_moved_cnn_points.png
+
 Viewing and Analysing 3Di results
 ---------------------------------
 
