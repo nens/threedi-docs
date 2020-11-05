@@ -192,7 +192,8 @@ Below two tables are included with a summary of the possible settings for interf
 Good to know
 ------------
 
-**Infiltration** In principle, nothing about infiltration has changed with or without interflow. Infiltration is not to interflow layer itself, but from the interflow to the sub-soil. Infiltration stops when the water level is below the lowest pixel. In case, you would like to allow water to infiltrate deeper than interflow layer, one can use the sources and sinks functionality.
+
+**Infiltration** Infiltration from the interflow layer is only active when the water level is above the surface level (lowest point of the DEM in that computational cell). Infiltration is not a process that allows water from the surface to the interflow layer, it is from the total cell volume out of the model. When the water level drops below the lowest surface level of the cell, the infiltration stops. In case, you would like to allow the infiltration to contiunu and allow water to exit interflow layer, one can use the surface sources and sinks functionality.  
 
 **Laterals** Nothing actually changes for the laterals. The extraction of water continues until the total volume is zero. This means that the water level can be lower than the DEM.
 
