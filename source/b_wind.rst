@@ -124,8 +124,7 @@ Important to know
 ================= 
 
 - At present wind input fields are uniform in space.
-- The drag coefficient can only be set via the API
+- The drag coefficient can only be set via the API.
 - In 1D, wind has no impact on closed open channel profiles and sewer pipes. 
 - If a 1D element has both an open and a closed profile, we assume no wind impact. If the user wants to compute the impact of wind in this case, separate 1D elements should be used. 
-
 
