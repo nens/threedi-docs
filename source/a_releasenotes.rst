@@ -2,6 +2,17 @@
 Release notes
 *************
 
+Release 3Di Live site - Hotfix
+################################
+
+Friday November 13th we have released some bugfixes to the new live site:
+
+- Wind direction is now correct
+- Default setting for initial water level rasters is set to max
+
+Here you can find known issues with the live site: :ref:`notables`
+
+
 Release 3Di - Live site
 ########################
 
