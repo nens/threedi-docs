@@ -201,7 +201,7 @@ Afterwhich the simulation duration can be defined:
 .. figure:: image/d_qgisplugin_apiclient_choose_duration.png
     :alt: Choose duration
 	
-Depending on the scenario option you have defined, the wizard will allow you provide the details of your scenario options.
+Depending on the scenario options you have defined, the wizard will allow you provide the details of your scenario options.
 
 **Initial conditions**
 
