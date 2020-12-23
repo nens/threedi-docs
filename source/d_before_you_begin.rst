@@ -1,13 +1,10 @@
 .. _before_you_begin:
 
-Before You Begin
-================
+3Di is state-of-the-art hydrodynamic simulation software for pluvial, fluvial and coastal floods and flows. 3Di is applied in both urban and rural areas around the world. Unique about 3Di is the combination of fast simulations, interactive modelling, detail of the schematisation and the advanced capabilities to model hydrodynamic processes.
 
-The tutorials below are aimed at giving you some examples on how to use, modify or create your 3Di models. They show you how to create different types of models for different purposes or add elements to existing models. The first tutorials aim to give you an introduction to 3Di as well explaining some basic steps. They therefore explain the steps and reasons behind them quite extensively. The later tutorials assume you have sufficient knowledge about 3Di and modelling in general. They are less extensive and can be used as cheat sheets for performing different tasks.
+This documentation covers a wide range of topics and is updated regularly. It starts with a description of the full extent of the 3Di simulation software. It continues with some modelling guidelines for a range of applications. The tutorials will give you some examples on how to use, modify and/or create your 3Di models. The methods used to compute the 3Di results are described in the sections named Physics and Model Concepts.
+The tutorials show you how to create and modify different types of models. The first tutorial gives you an introduction to 3Di and will assist you in taking you first steps with you 3Di Model. We have tried to explain the steps and reasons behind them quite extensively. The later tutorials assume you have sufficient knowledge about 3Di and modelling in general. They are less extensive and can be used as cheat sheets for performing different tasks. However, all tutorials assume you have some knowledge of 3Di.  Moreover, there are some programmes you will need, such as QGIS, the 3Di QGIS plugin, Google Chrome and TortoiseHG. They also assume that your organization has uploaded one or more 3Di models for use in the 3Di portal. For a complete overview of the software required, check the software section below.
 
-All tutorials assume you have some knowledge of 3Di and have access to QGIS, the 3Di QGIS plugin, Google Chrome and TortoiseHG. They also assume that your organization has uploaded one or more 3Di models for use in the 3Di portal. For a complete overview of the software required, check the software section.
-
-Before you begin consider the following.
 
 .. _software:
 
