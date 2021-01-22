@@ -180,6 +180,9 @@ To select a breach to open in the model.
 **Precipitation**
 To define precipitation in the model.
 
+**Wind**
+To define wind in the model.
+
 **Multiple simulations** (becomes available when using either breaches or precipitation)
 To define multiple simulations with rainfall or breaches. Useful when simulating multiple events on the same model. 
 
@@ -190,7 +193,8 @@ To save the end result of the simulation as a saved state.
 Works only for users with this module. Enables storing results in the cloud, automated postprocessing of waterdepth and water levels maps, time of arrival, flood hazard rating and damage estimations (only available in the Netherlands at the moment). Contact us at servicedesk@nelen-schuurmans.nl if you like to use this option and don't have access yet.
 	
 
-When starting a new simulation, you need to define a name for the simulation. Other users within your organisation will see this. It can also be used to look up simulations later. 
+When starting a new simulation, you need to define a name for the simulation. Other users within your organisation will see this. It can also be used to look up simulations later.
+Adding tags can clarify for other users what your simulation calculated.
 
 .. figure:: image/d_qgisplugin_apiclient_new_simulation.png
     :alt: Choose new simulation 
@@ -251,7 +255,7 @@ When choosing the model to calculate in a breaches file was downloaded from the 
 
 
 **Precipitation**
-To define precipitation in the model 
+To define precipitation in the model. 
 
 **Multiple simulations** (becomes available when using either breaches or precipitation)
 To define multiple simulations with rainfall or breaches. Useful when simulating multiple events on the same model. 
@@ -265,11 +269,30 @@ When choosing a custom rain, the csv format is minutes, rainfall in mm for that 
 
 .. figure:: image/d_qgisplugin_apiclient_csv_format.png
     :alt: Example CSV
+	
+**Wind**
+To define wind in the model.
+
+You can choose between a constant or a custom type of wind. For both events an offset and a drag coefficient can be defined. The offset (start after) is the duration between the start of the simulation and the start of the wind event. The drag coefficient has a default value of 0,005. By increasing the drag coefficient, you increase the influence of the wind. 
+
+When choosing a constant wind event, the stop after, wind speed and direction must also be defined. The stop after is the duration between the start of the simulation and the end of the wind event. 
+The (meteorological) wind direction is defined as the direction from which the wind originates, measured in degrees clockwise from due north. Therefore, wind blowing toward the south has a direction of 0 degrees. You can either use the wind rose to depict which way the wind is blowing, or enter the direction manually. 
+
+.. figure:: image/d_qgisplugin_apiclient_wind_constant.png
+    :alt: Choose constant wind
+
+When choosing a custom wind, the CSV format is minutes, wind speed in m/s and wind direction, both for that time step. The interpolate options will gradually change the wind speed or wind direction throughout a time series. Without the interpolate functions the wind speed and wind direction will stay constant within the time steps and will make an abrupt transition to the next time step.
+
+.. figure:: image/d_qgisplugin_apiclient_wind_custom.png
+    :alt: Choose custom wind
+
+.. figure:: image/d_qgisplugin_apiclient_wind_csv.png
+    :alt: Example CSV wind
 
 After choosing all the settings check the overview, press Next and Add to Queue. The simulation will start up when there is a session available on the servers within your organisation.
 
 .. figure:: image/d_qgisplugin_apiclient_preview_simulation.png
-    :alt: Example CSV
+    :alt: Overview new simulation
 	
 **Post processing in Lizard**
 
