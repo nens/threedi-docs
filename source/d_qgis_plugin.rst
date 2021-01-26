@@ -5,9 +5,7 @@ Modeller Interface
 
 Introduction
 --------------
-The Modeller Interface is the interface to use on your laptop to build and analyse 3Di models and results locally. To do this, no internet connection is required. It is also the interface to interact with the API and download results from the 3Di calculation servers. It consists of QGIS with a preinstalled plugins: 3Di Toolbox to analyse results, 3Di API Client to start calculations and some third party plugins. The interface has been cleaned compared to a standard QGIS installation to show only relevant buttons for model building analysing. 
-Since March 4th 2019, the Modeller Interface is available for QGIS stable releases (3.4 and 3.10). For 3Di results before this date an older version of the plugin will remain available for QGIS 2.18. 
-As a user you can choose to either:
+The Modeller Interface (MI) will help you with building 3Di models and analysing results locally. The MI will also assist you in interacting with the 3Di-API and downloading the results from the 3Di calculation servers. The MI is part of QGIS with various pre-installed plugins: the 3Di Toolbox to analyse results, the 3Di API Client to start calculations, download results and some third party plugins. The interface has been cleaned compared to a standard QGIS installation, it shows only relevant buttons for model building and analysing. 
 
 - Install the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.10.9-1-Setup-x86_64.exe>`_  or
 - Install QGIS, and install the 3Di toolbox as a QGIS plugin
@@ -150,7 +148,7 @@ This means that for *boundary conditions* nothing changes between API v1 and v3.
 
 *Laterals* are not taken into account when added to the spatialite. The user has to add them to the API call for them to be taken into account. See the section on laterals below for a 'how to'. 
 
-To start simulating click the simulate button. Next, the following window will be shown:
+To start a simulation, click on the **SIMULATE** button. Next, the following window will be shown:
 
 .. figure:: image/d_qgisplugin_apiclient_runningsimulations.png
     :alt: Choose simulate 
@@ -190,11 +188,14 @@ To define multiple simulations with rainfall or breaches. Useful when simulating
 To save the end result of the simulation as a saved state.
 
 **Post-processing in Lizard**
+
+This is a feature that is only available for users of organisations that have a Lizard account. It enables you to store the results in the cloud and it triggers automated post-processing. It will generate maps of water depth for each output timestep, a maximum water depth for the whole simulation water levels for each output time step, a maximum water level for the whole simulation, time of arrival, flood hazard rating and damage estimations. The damage estimations are only available in the Netherlands. Contact us at servicedesk@nelen-schuurmans.nl if you like to use this option and don't have access yet.
+
 Works only for users with this module. Enables storing results in the cloud, automated postprocessing of waterdepth and water levels maps, time of arrival, flood hazard rating and damage estimations (only available in the Netherlands at the moment). Contact us at servicedesk@nelen-schuurmans.nl if you like to use this option and don't have access yet.
 	
+The next step is to name the simulation. You and other users within your organisation will be able to find this simulation and its results based on the name. It can also be used to look up simulations later. 
 
-When starting a new simulation, you need to define a name for the simulation. Other users within your organisation will see this. It can also be used to look up simulations later.
-Adding tags can clarify for other users what your simulation calculated.
+Adding tags can clarify for other users what your simulation calculated or can be used to assign a simulation a certain projectname or number.
 
 .. figure:: image/d_qgisplugin_apiclient_new_simulation.png
     :alt: Choose new simulation 
@@ -220,19 +221,21 @@ Initial conditions either refer to the use of saved state file, or the use of in
 - Predefined: this refers to the initial water level as defined in the column initial_waterlevel in the connection nodes in the spatialite. 
 - Global value: this would be a generic initial waterlevel value in m MSL which is applied in all 1D nodes of the model.
 
-2D options:
+2D Surface Water options:
 
 - Raster: this refers to the initial water level raster as uploaded with the model to the model databank.
+- Aggregation settings: This can min, max or average 
 - Global value: this would be a generic initial waterlevel value in m MSL which is applied in all 2D nodes of the model.
 
-Groundwater options:
+
+2D Groundwater options:
 
 - Raster: This refers to the initial water level raster as uploaded with the model to the model databank.
 - Global value: This would be a generic initial waterlevel value in m MSL which is applied in all 2D ground water nodes of the model.
 
 **Laterals**
 
-Laterals can be uploaded using csv format for either 1D or 2D. 
+Laterals can be uploaded using .csv format for either 1D or 2D. 
 
 .. figure:: image/d_qgisplugin_apiclient_laterals_start.png
     :alt: Choose laterals 
@@ -257,21 +260,23 @@ When choosing the model to calculate in a breaches file was downloaded from the 
 **Precipitation**
 To define precipitation in the model. 
 
-**Multiple simulations** (becomes available when using either breaches or precipitation)
-To define multiple simulations with rainfall or breaches. Useful when simulating multiple events on the same model. 
-
-Then you can choose between design rain, constant rain or a custom rainfall event. For all events an off set can be defined. The offset is the duration between start simulation and the start of the rainfall event. 
+There are several options to define a precipitation event for your simulation. In the drop down menu, one can choose Constant, Custom, Design and Radar events.. For all events an off set can be defined. The offset is the duration between start simulation and the start of the rainfall event. 
 
 .. figure:: image/d_qgisplugin_apiclient_rain_custom.png
     :alt: Choose custom rain
 
-When choosing a custom rain, the csv format is minutes, rainfall in mm for that timestep.
+When choosing the option Custom, the event is defined in a csv-file. The format is in minutes, and the rainfall in mm for that timestep.
 
 .. figure:: image/d_qgisplugin_apiclient_csv_format.png
     :alt: Example CSV
+
+
+**Multiple simulations** (becomes available when using either breaches or precipitation)
+To define multiple simulations with rainfall or breaches. Useful when simulating multiple events on the same model.
 	
 **Wind**
-To define wind in the model.
+
+To define wind in the model. Wind in 3Di applies to 2D surface water. Read more about :ref:`wind_effects` here.
 
 You can choose between a constant or a custom type of wind. For both events an offset and a drag coefficient can be defined. The offset (start after) is the duration between the start of the simulation and the start of the wind event. The drag coefficient has a default value of 0,005. By increasing the drag coefficient, you increase the influence of the wind. 
 
