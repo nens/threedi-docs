@@ -274,7 +274,7 @@ When choosing a Constant type of precipitation, the stop after and rain intensit
 .. figure:: image/d_qgisplugin_apiclient_rain_constant.png
     :alt: Choose constant rain
 
-When choosing the option Custom, the event is defined in a CSV-file. The format is in minutes, and the rainfall in mm for that time step. The interpolate option will gradually change the rain intensity throughout a time series. Without the interpolate function the rain intensity will stay constant within a time step and will make an abrupt transition to the next time step.
+When choosing the option Custom, the event is defined in a CSV-file. The format is in minutes, and the rainfall in mm for that time step. Please keep in mind that the duration of the rain in the custom format cannot exceed the duration of the simulation. The interpolate option will gradually change the rain intensity throughout a time series. Without the interpolate function the rain intensity will stay constant within a time step and will make an abrupt transition to the next time step.
 
 .. figure:: image/d_qgisplugin_apiclient_rain_custom.png
     :alt: Choose custom rain
@@ -282,7 +282,22 @@ When choosing the option Custom, the event is defined in a CSV-file. The format 
 .. figure:: image/d_qgisplugin_apiclient_csv_format.png
     :alt: Example CSV
 
-When choosing the option Design, a design number between 1 and 16 must be filled in. These numbers correlate to predetermined rain events, with differing return periods, that fall homogeneous over the entire model. Numbers 1 to 10 originate from `RIONED <https://www.riool.net/bui01-bui10>`_ and are heterogeneous in time. Numbers 11 to 16 have a constant rain intensity. These so-called design rain events are time series, which are traditionally used to test the functioning of a sewer system in the Netherlands.
+When choosing the option Design, a design number between 1 and 16 must be filled in. These numbers correlate to predetermined rain events, with differing return periods, that fall homogeneous over the entire model. Numbers 1 to 10 originate from `RIONED <https://www.riool.net/bui01-bui10>`_ and are heterogeneous in time. Numbers 11 to 16 have a constant rain intensity: 
+
+Rain 11 statistically occurs once every 100 years. The duration of this event is 1 hour with a constant rain intensity of 70 mm/h. (T= 100.0 year, V=70 mm, Standard rain event (local) from Delta Programma 2019).
+
+Rain 12 statistically occurs once every 250 years. The duration of this event is 1 hour with a constant rain intensity of 90 mm/h. (T=250.0 year, V=90 mm, Standard rain event (local) from Delta Programme 2019).
+
+Rain 13 statistically occurs once every 1000 years. The duration of this event is 2 hours, with a constant rain intensity of 80 mm/h. (T=1000.0 year, V=160 mm, Standard rain event (local) from Delta Programme 2019).
+
+Rain 14 statistically occurs once every 100 years. The duration of this event is 48 hours, with a constant rain intensity of 2.5 mm/h. (T=100.0 year, V=120 mm, Standard rain event (regional) from Delta Programme 2019).
+
+Rain 15 statistically occurs once every 250 years. The duration of this event is 48 hours, with a constant rain intensity of 2.7 mm/h. (T=250.0 year, V=130 mm, Standard rain event (regional) from Delta Programme 2019).
+
+Rain 16 statistically occurs once every 1000 years. The duration of this event is 48 hours, with a constant rain intensity of 3.4 mm/h. (T=1000.0 year, V=160 mm, Standard rain event (regional) from Delta Programme 2019).
+
+
+These so-called design rain events are time series, which are traditionally used to test the functioning of a sewer system in the Netherlands.
 
 .. figure:: image/d_qgisplugin_apiclient_rain_design.png
     :alt: Choose design rain
