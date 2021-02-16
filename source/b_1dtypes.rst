@@ -47,10 +47,10 @@ The top width of cross-sections can be defined open or closed. When the cross-se
    Examples of cross-sections in 1D networks; circular, egg-shaped, rectangular, open and closed tablelized cross-sections.
 
 
-Types of 1D elements
+Types of 1D elements (calculation types)
 --------------------
 
-A water system consists often of small channels, ditches and pipes. These are difficult to model in 2D, and therefore they are schematised using the 1D network options in 3Di. These elements can interact with the 2D computational domain. There are three different options that determine the interaction with the 2D domain. The elements can be defined as:
+A water system consists often of small channels, ditches and pipes. These are difficult to model in 2D, and therefore they are schematised using the 1D network options in 3Di. These elements can interact with the 2D computational domain. There are three different calculation types that determine the interaction with the 2D domain. These calculation types are:
 
 - Isolated; no connection to the 2D domain
 
