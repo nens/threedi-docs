@@ -12,7 +12,7 @@ As a user you can choose to either:
 - Install the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.3-1-Setup-x86_64.exe>`_  or
 - Install QGIS, and install the 3Di toolbox as a QGIS plugin
 
-Older versions of the Modeller Interface are found in the 'archive <https://docs.3di.live/modeller-interface-downloads/>`_. 
+Older versions of the Modeller Interface are found in the `archive <https://docs.3di.live/modeller-interface-downloads>`_. 
 
 For more information on installing the plugin see `3Di Toolbox plug-in <https://github.com/nens/threedi-qgis-plugin/wiki>`_. For more information on viewing and editing 3Di models in QGIS see :ref:`adjust_model`. 
 The section below explains the use of various options of the modeller interface. More subjects will be added regularly.
