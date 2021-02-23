@@ -66,8 +66,8 @@ To install the 3Di-Toolbox plugin follow the steps below:
 8) To active the panel of the API client, choose plugins --> 3Di API client --> 3Di API client. Now the panel will be available.
 
 
-Overview of the 3Di API client **beta** 
------------------------------------------
+Overview of the 3Di API client 
+-------------------------------
 
 After installation of the plugin, a panel is available. If you don't see this panel, check the installation instructions.
 
@@ -138,8 +138,8 @@ The most used API options are included in the newest version of the plugin. Impo
 ============================= ================= ================= ===============
 Forcings                        Spatialite          API             Live site
 ============================= ================= ================= ===============
-Boundary conditions             v1, v3              -               v1, v3
-Initial water level             v1, v3              v1, v3          -
+Boundary conditions             v1, v3              v3              v1, v3
+Initial water level             v1, v3              v1, v3          v3
 Laterals  1D and 2D             v1                  v3              -
 ============================= ================= ================= ===============
 
