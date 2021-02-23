@@ -7,10 +7,8 @@ Release notes
 Monday March 8th, at 8.00 AM CET we will release an update of our API. The expected downtime is approximately 1 hour. Please note that this means running simulations will be stopped.  
 
 
-Release 3Di Feb 20201
-----------------------
-
-Monday Feb 22 2021 we have release the following:
+Release 3Di 22 Feb 2021
+-----------------------
 
 We're happy to announce an update of some of our 3Di applications:
 
