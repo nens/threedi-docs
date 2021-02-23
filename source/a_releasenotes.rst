@@ -2,8 +2,76 @@
 Release notes
 *************
 
+*Release announcement API*
+----------------------------
+Monday March 8th, at 8.00 AM CET we will release an update of our API. The expected downtime is approximately 1 hour. Please note that this means running simulations will be stopped.  
+
+
+Release 3Di Feb 20201
+----------------------
+
+Monday Feb 22 2021 we have release the following:
+
+We're happy to announce an update of some of our 3Di applications:
+
+- We now support QGIS 3.16 for our toolbox
+- New styling options to help you create better models
+- Schematization checker improvements 
+- Bugfixes in 3Di live site & Modeller Interface
+
+- We now support QGIS 3.16 for our toolbox
+
+Download the latest version of the :ref:`qgisplugin`
+
+Please not that the Modeller Interface is not yet upgraded to QGIS 3.16, we will do so when the QGIS repo's are updated.
+
+For QGIS users: upgrade the plugin using the plugin panel.
+
+
+3Di Modeller Interface styling improvements
+=============================================
+
+Based on your feedback we have improved the styling of the schematizations in the Modeller Interface. Not only that, we now have support for multiple stylings! Check out the video to see how it works. 
+
+The improvements are:
+
+- For weirs, orifices and culverts, the styling now indicates when flow in one or both directions is impossible (discharge coefficient = 0)
+- Grid refinement styling now indicates the refinement level
+- Multiple stylings are added next to the default. Switching to these stylings allows you to visualize flow direction, code, id, storage area, bank level, reference level, invert level, crest level, diameters and dimensions, min/max of timeseries, and pump capacity. How it works is explained in the docs: :ref:`multiplestyles`
+
+Schematization checker improvements 
+=============================================
+
+We are constantly working on improving the 3Di experience. Based on user experience analysis we have added the following checks to the schematization checker:
+
+- Add check ConnectionNodesDistance which ensure all connection_nodes have a minimum distance between each other.
+- Set the geometry of the following tables as required: impervious_surface, obstacle, cross_section_location, connection_nodes, grid_refinement, surface, 2d_boundary_conditions and 2d_lateral.
+- Add check for open cross-section when NumericalSettings. use_of_nested_newton is turned off.
+- Add checks to ensure some of the fields in numerical settings are larger than 0.
+- Add check to ensure an isolated pipe always has a storage area.
+- Add check to see if a connection_node is connected to an artifact (pipe/channel/culvert/weir/pumpstation/orifice).
+
+Bugfixes in 3Di live site & Modeller Interface
+===============================================
+
+Modeller Interface:
+
+- Fixed h5py error, it is now possible to use the 3Di toolbox on QGIS 3.10.12
+- Fixed x-axis bug in the water balance tool
+
+3Di Live site:
+
+- Rescale DEM coloring based on model
+- Correct water depth calculation for manholes
+- Close culvert in both directions
+- Rate limiter interferes with simulation in spectator mode
+- Moving dots for 0D1D models fixed
+- Correct handling of wind direction
+- Breach editing used wrong id
+
+
 Release 3Di Live site - Hotfix
-################################
+###############################
 
 Friday November 13th we have released some bugfixes to the new live site:
 
@@ -14,7 +82,7 @@ Here you can find known issues with the live site: :ref:`notables`
 
 
 Release 3Di - Live site
-########################
+-----------------------
 
 Tuesday October 27th we have released a brand new version of our live site.
 
@@ -32,7 +100,7 @@ Tuesday October 27th we have released a brand new version of our live site.
 
 
 Release 3Di Modeller Interface - API Client
-##############################################
+----------------------------------------------
 
 Tuesday September 1st we have released a new version of the Modeller Interface with the following options:
 
@@ -50,7 +118,7 @@ More explanation on how it works: :ref:`qgisplugin`
 
 
 Release 3Di Modeller Interface - Hotfix
-#########################################
+###########################################
 
 Monday July 6th we have released version 1.14.1 of the 3Di Toolbox containing two bugfixes. The following issues have been fixed:
 
@@ -74,7 +142,7 @@ Open the Modeller Interface and via the menu bar go to ‘Plugins > Manage And I
 
 
 Release 3Di - 2020-05 Zambezi Release
-#####################################
+---------------------------------------
 
 The Zambezi release is a major release, including the introduction of a new API and a new live site and some big improvements of the modeller interface. The new set up is based on the idea that simulation includes model information and scenario information. Putting these two aspects together makes a simulation. This release and the following releases will bring this reality to you.
 Model information includes all information you need to set up a model and make you computational grid. Scenario information covers initial conditions, forcings, like rain, wind, timeseries and controls. Thanks to this distinction, you can now construct a simulation for a given model and by storing all scenario information in events, make all simulation information retraceable and comparable. Furthermore, it makes it easier to create a uniform method to interact with simulations. In the sections below, we will introduce some more details.
@@ -249,7 +317,7 @@ Fixed the following issues in computational core v1 (May 27 2020):
 - More efficient memory allocation for advection administration. Issue for large models and high indices
 
 Release 3Di - 2019-11 Meuse Release
-###################################
+------------------------------------
 
 In the Meuse release we updated, improved and created a lot of features. These features, with more detailed description below, include:
 
@@ -385,7 +453,7 @@ Modeller Interface:
 
 
 Release 3Di - 2019-07 Rhine Release
-###################################
+-------------------------------------
 
 The newest version of 3Di is released on July the 8th 2019. This 2019-07 Rhine release is a big step towards a fully new way of interacting with 3Di. The following features are released:
 
@@ -436,7 +504,7 @@ Once you have installed the newest version of the plugin, you should be able to 
 
 
 Release 3Di - Hotfix
-####################
+#####################
 
 On Monday April 30th, we have released a minor hotfix on our 3Di servers.
 
@@ -450,7 +518,7 @@ Interface will be unavailable between 8.00 AM and 12.00 AM (CEST).
 
 
 Release 3Di - Carnival Release 2019
-###################################
+------------------------------------
 
 The newest version of 3Di is released on March the 4th. This Carnival release contains various new features. Moreover, we are preparing for a huge product upgrade of the back-end of 3Di. We will explain this in more detail in the next releases. Furthermore, a brand new 3Di start page has been made available to all users: 3Di `startpage <https://3diwatermanagement.com/3di-start>`_.
 
@@ -521,7 +589,7 @@ The following bugs have been fixed in this 3Di release:
 
 
 Release 3Di - Hotfix
-####################
+#####################
 
 On Monday January 14th, we will release a hotfix on our 3Di servers. We expect a very limited downtime around 8.00 AM (CEST).
 
@@ -536,7 +604,7 @@ Furthermore, in the LiveSite a wider range of design rainfall events is availabl
 The next full release of 3Di is scheduled for the 4th of March. Therefore, the Web Interface will be unavailable between 8.00 AM and 12.00 AM (CEST).
 
 Release 3Di – Hotfix
-####################
+#####################
 
 On the 5th of December 2018 3Di, will be updated with some minor fixes. These include:
 
@@ -547,7 +615,7 @@ On the 5th of December 2018 3Di, will be updated with some minor fixes. These in
 
 
 Release 3Di – Fall Release 2018
-###############################
+--------------------------------
 
 The newest version of 3Di is released on 26th of November 2018. With this update, the following features are available for all users of 3Di:
 
@@ -608,7 +676,7 @@ Moreover, several bug fixes have been performed.  These include;
 
 
 Release 3Di – Autumn Release 2018
-#################################
+---------------------------------
 
 The newest version of 3Di is now available. With this update, it is possible to edit the bathymetry layer in the 3Di live site.
 The following has been adjusted in 3Di:
@@ -721,7 +789,7 @@ The formulation to compute the flow through a breach is improved, in response to
 
 
 Release 3Di – Spring Release 2018
-#################################
+------------------------------------
 
 On Monday the 28th of May 2018 the latest version of 3Di will be released. This is a so-called major release. The past months, the team included groundwater in 3Di. In close collaboration with Prof. Stelling and in association with Deltares, we extended 3Di to a two-layer system to be able to compute the interaction between surface water and groundwater. A more elaborate explanation about the new features can be found in the 3Di documentation (https://docs.3di.lizard.net).
 
@@ -750,7 +818,7 @@ There will also be a new version of the 3Di Plugin required (Version 1.0). With 
 
 
 Release 3Di – April 2018
-########################
+------------------------
 
 
 On Monday the 23th of April 2018 the latest version of 3Di will be released. The 3Di team worked mainly on improving the performance of computational times when using the API, and on implementing groundwater flow. Groundwater flow will be available to everyone from next month. In this release we have worked on:
