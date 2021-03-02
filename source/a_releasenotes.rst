@@ -8,59 +8,57 @@ Release 3Di 8 March 2021
 The following has been released:
 
 - Local calculation of water depth maps
-- Extended support for calculations in the Modeller Interface
-- Extended API v3 with boundary conditions & bugfixing
-- Bugfixes in calculation core
-- Update land use map for damage estimations
+- Extended support for starting simulations using the Modeller Interface
+- Extended API v3 with boundary conditions & bug fixing
+- Bug fixes in the calculation core
+- Update land use map for the calculation of damage estimations
 
-Download the latest version of the Modeller Interface here. For QGIS users: upgrade the plugin using the plugin panel. The latest version is 1.16. 
+Download the latest version of the Modeller Interface here. For QGIS users: upgrade the plugin using the plugin panel. The latest version is 1.16. 
 
 Local calculation of water depth maps
 =====================================
 
-With the newest version of the Modeller Interface it is now possible to locally generate waterdepth maps for every time step of the calculation. 
-To generate these waterdepth maps from a quadtree calculation grid, 3Di applies a special algorithm to create visually appealing maps.
-With the plugin it is possible to calculate for both water level and water depth the interpolated and non-interpolated outputs of 3Di. 
+It is possible to generate water depth maps for every time step with the newest version of the Modeller Interface. To generate these water depth maps, 3Di applies a special algorithm that combines the water level results with the information of the DEM. This algorithm creates visually appealing maps. The maps show the water level and water depth results on high resolution, these can be based on the interpolated and on the non-interpolated water level results.
 
 A quick guide to generate water depth maps:
 
 Processing --> Toolbox --> 3Di --> post-processed results --> water depth
 
 
-Extended support for calculations in the Modeller Interface
-============================================================
+Extended support for starting simulations using the Modeller Interface
+======================================================================
 
-We have now added the following support for calculations in the Modeller Interface:
+We have added the following support for starting simulations from the Modeller Interface:
 
-- added support for wind. See our user manual: :ref:`simulate_api_qgis` OR our technical documentation : :ref:`wind_effects`  for more information. 
-- added option of tags. This can be used to tag simulation with a project related tag. This way it's easier to find back simulations
-- added interpolate options to laterals
-- added support for Netcdf upload rain
+- added support for wind. See our user manual: :ref:`simulate_api_qgis` or our technical documentation : :ref:`wind_effects`  for more information. 
+- added option of tags. This can be used to tag a simulation with a project related tag. This way it is easier to organise simulations.
+- added time-interpolation options for laterals 
+- added the option for Netcdf upload for rain
 - option to set base URL for the API (for use of 3Di in other countries)
 
 The following bugs have been fixed:
 
-- start time is now correctly used 
+- start time is now correctly used 
 - search window for models is now case insensitive
-- bugfix lateral file upload
+- bug fix lateral file upload
 
 
-Extended API v3 with boundary conditions & bugfixing
+Extended API v3 with boundary conditions & bug fixing
 =====================================================
 
 *General*
 
 - Remove folders in the logging zip-file
-- Changed precision of float to 6 decimals for initial water levels
+- Changed precision of float to 6 decimals for initial water levels in 1D model domain
 - Now support for boundary conditions in the API
-- Enabled interpolation for all events (forcings) in the API
+- Enabled time-interpolation for all events (forcings) in the API
 
 *More technical details*
 
 - Upgraded threedicore to 2.0.16
 - Added additional threedimodel file validation. That is, if the threedimodel files are missing or the table_admin_file size exceeds the SIMULATION_DOCKER_MEMORY setting, a validation error will be raised and the resource will be set to disabled.
 - Add details for the user for why a scheduler event-worker failed.
-- Fix bug where shutdown_simulation is not awaited when the event-worker has failed. This caused the failed simulation to hang until the Timeouts.WORKERS.value (2 minutes) has passed.
+- Fix for the bug where shutdown_simulation is not awaited when the event-worker has failed. This caused the failed simulation to hang until the Timeouts. WORKERS.value (2 minutes) has passed.
 - Various smaller fixes to avoid validating a grid event twice (closes #853).
 - The event worker now converts exceptions properly to strings.
 - The events.models.Simulation object expects the sim_uid as str not int.
@@ -68,35 +66,29 @@ Extended API v3 with boundary conditions & bugfixing
 - Using django's get_valid_filename() method in combination with Path().name to avoid users posting special characters in file names.
 
 
-Bugfixes in calculation core
-=============================
-
-Long crested weirs: The formulation of the long crested weir has been replaced by a new one. This new version is based on the law of Bernouilli instead of an alternative implementation of the advective terms as a 1D element. The flow over the weir is an  accurate computation of the flow under ideal circumstances, but the new formulation does not require an extra computational node and has proven to be more stable under varying flow conditions.
-
-Short crested weirs:
-Flow over a weir knows three different stages: sub, supercritical & a transtion of critical flow.  
-The type of flow is determined by the downstream waterlevel.
-In case of a water level downstream that has no influence on the flow over the weir it is called supercritical. This part remains the same. What has changed is the formula for subcritical condition and then only in case of a negative flow. 
-
-Next to that the time dependency of the flow has been adjusted. This will have no effect on stationairy flow, but can cause a little more or less traagheid in your system. 
+Bug fixes in calculation core
+========================
 
 In short the following fixes are included in the calculation core:
-
-- Fixes for long crested weir; New routine that does not request an extra computational node → does this mean that users can do stuff differently? 
+- Fix for long crested weir; new routine that does not request an extra computational node. 
 - Fix for short crested weir; Fix to determine super- from sub-critical regime. 
-- Fix for weirs for negative subcritical flows → isn;t this the same as the previous one? 
+- Fix for weirs for negative subcritical flows 
 - Fix for assigning boundary locations at North and East sides, in case computational cells stretch over original DEM raster, due to refinements. 
 - Fix for 1D coordinates in netcdf file: The z-coordinates of the boundary points, are now set correctly in the netcdf
-- Fix for initial conditions in netcdf file: In case of 1D-2D models, some variables, like the wet-surface areas of a computational node, the wrong value was written in the results netcdf. 
-- Fix for interception, need for interception is verified before going over all 2D nodes. (Answers should be the same, but computational time much faster.) 
+- Fix for initial conditions in netcdf file: In case of 1D-2D models, some variables, like the wet-surface areas of a computational node, the wrong value was written in the results netcdf at the start of the simulation. 
+
+Long crested weirs: The formulation of the long crested weir has been replaced by a new one. This new version is based on the law of Bernouilli instead of an alternative implementation of the advective terms for a regular 1D element. The flow over the weir is an accurate computation of the flow under ideal circumstances, but the new formulation does not require an extra computational node and has proven to be more stable under varying flow conditions.
+
+Short crested weirs: Flow over a weir knows three different stages: sub-, supercritical and critical flow.  Under super-critical flow conditions, the formulation remains the same. We fixed the formulation under sub-critical flow conditions and in strong varying flow conditions.  The biggest change in discharge behaviour is expected for weirs that flow in negative direction. Moreover, the time dependency of the flow over the weir has been adjusted. This has no effect on stationary flow, but has a slightly improved stabilizing effect on the flow under changing flow conditions. 
 
 
-Update land use map for damage estimations
-==========================================
 
-For usage in the Netherlands only:
+Update land use map for the calculation of damage estimations
+=============================================================
 
-We have updated the land use map that is being used for damage estimations. The only difference now is that tunnels have been placed under a road. 
+For usage in The Netherlands only:
+
+We have updated the land use map that is being used for the calculation of damage estimations. This to ensure tunnels are placed under a road. 
 
 Source date & time
 
@@ -106,7 +98,8 @@ Source date & time
 - NWB: 2019-05-01
 - Top10NL: 2018-07-16
 
-The map can be viewed here: stowa.lizard.net 
+The map can be viewed here: stowa.lizard.net
+
 
 
 Release 3Di 22 Feb 2021
