@@ -2,9 +2,6 @@
 Release notes
 *************
 
-*Release announcement API*
-----------------------------
-
 Release 3Di 8 March 2021
 ------------------------
 
@@ -25,7 +22,7 @@ With the newest version of the Modeller Interface it is now possible to locally 
 To generate these waterdepth maps from a quadtree calculation grid, 3Di applies a special algorithm to create visually appealing maps.
 With the plugin it is possible to calculate for both water level and water depth the interpolated and non-interpolated outputs of 3Di. 
 
-A quick to generate water depth maps:
+A quick guide to generate water depth maps:
 
 Processing --> Toolbox --> 3Di --> post-processed results --> water depth
 
@@ -84,6 +81,7 @@ In case of a water level downstream that has no influence on the flow over the w
 Next to that the time dependency of the flow has been adjusted. This will have no effect on stationairy flow, but can cause a little more or less traagheid in your system. 
 
 In short the following fixes are included in the calculation core:
+
 - Fixes for long crested weir; New routine that does not request an extra computational node → does this mean that users can do stuff differently? 
 - Fix for short crested weir; Fix to determine super- from sub-critical regime. 
 - Fix for weirs for negative subcritical flows → isn;t this the same as the previous one? 
@@ -102,11 +100,11 @@ We have updated the land use map that is being used for damage estimations. The 
 
 Source date & time
 
-BAG: 2019-05-09
-BGT: 2019-05-09
-BRP: 2019-05-15
-NWB: 2019-05-01
-Top10NL: 2018-07-16
+- BAG: 2019-05-09
+- BGT: 2019-05-09
+- BRP: 2019-05-15
+- NWB: 2019-05-01
+- Top10NL: 2018-07-16
 
 The map can be viewed here: stowa.lizard.net 
 
