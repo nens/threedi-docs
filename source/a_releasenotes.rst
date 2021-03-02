@@ -4,7 +4,111 @@ Release notes
 
 *Release announcement API*
 ----------------------------
-Monday March 8th, at 8.00 AM CET we will release an update of our API. The expected downtime is approximately 1 hour. Please note that this means running simulations will be stopped.  
+
+Release 3Di 8 March 2021
+------------------------
+
+The following has been released:
+
+- Local calculation of water depth maps
+- Extended support for calculations in the Modeller Interface
+- Extended API v3 with boundary conditions & bugfixing
+- Bugfixes in calculation core
+- Update land use map for damage estimations
+
+Download the latest version of the Modeller Interface here. For QGIS users: upgrade the plugin using the plugin panel. The latest version is 1.16. 
+
+Local calculation of water depth maps
+=====================================
+
+With the newest version of the Modeller Interface it is now possible to locally generate waterdepth maps for every time step of the calculation. 
+To generate these waterdepth maps from a quadtree calculation grid, 3Di applies a special algorithm to create visually appealing maps.
+With the plugin it is possible to calculate for both water level and water depth the interpolated and non-interpolated outputs of 3Di. 
+
+A quick to generate water depth maps:
+
+Processing --> Toolbox --> 3Di --> post-processed results --> water depth
+
+
+Extended support for calculations in the Modeller Interface
+============================================================
+
+We have now added the following support for calculations in the Modeller Interface:
+
+- added support for wind. See our user manual: :ref:`simulate_api_qgis` OR our technical documentation : :ref:`wind_effects`  for more information. 
+- added option of tags. This can be used to tag simulation with a project related tag. This way it's easier to find back simulations
+- added interpolate options to laterals
+- added support for Netcdf upload rain
+- option to set base URL for the API (for use of 3Di in other countries)
+
+The following bugs have been fixed:
+
+- start time is now correctly used 
+- search window for models is now case insensitive
+- bugfix lateral file upload
+
+
+Extended API v3 with boundary conditions & bugfixing
+=====================================================
+
+*General*
+
+- Remove folders in the logging zip-file
+- Changed precision of float to 6 decimals for initial water levels
+- Now support for boundary conditions in the API
+- Enabled interpolation for all events (forcings) in the API
+
+*More technical details*
+
+- Upgraded threedicore to 2.0.15
+- Added additional threedimodel file validation. That is, if the threedimodel files are missing or the table_admin_file size exceeds the SIMULATION_DOCKER_MEMORY setting, a validation error will be raised and the resource will be set to disabled.
+- Add details for the user for why a scheduler event-worker failed.
+- Fix bug where shutdown_simulation is not awaited when the event-worker has failed. This caused the failed simulation to hang until the Timeouts.WORKERS.value (2 minutes) has passed.
+- Various smaller fixes to avoid validating a grid event twice (closes #853).
+- The event worker now converts exceptions properly to strings.
+- The events.models.Simulation object expects the sim_uid as str not int.
+- Added usage statistics endpoint and usage filters (including a simulation type filter ("live"/"api").
+- Using django's get_valid_filename() method in combination with Path().name to avoid users posting special characters in file names.
+
+
+Bugfixes in calculation core
+=============================
+
+Long crested weirs: The formulation of the long crested weir has been replaced by a new one. This new version is based on the law of Bernouilli instead of an alternative implementation of the advective terms as a 1D element. The flow over the weir is an  accurate computation of the flow under ideal circumstances, but the new formulation does not require an extra computational node and has proven to be more stable under varying flow conditions.
+
+Short crested weirs:
+Flow over a weir knows three different stages: sub, supercritical & a transtion of critical flow.  
+The type of flow is determined by the downstream waterlevel.
+In case of a water level downstream that has no influence on the flow over the weir it is called supercritical. This part remains the same. What has changed is the formula for subcritical condition and then only in case of a negative flow. 
+
+Next to that the time dependency of the flow has been adjusted. This will have no effect on stationairy flow, but can cause a little more or less traagheid in your system. 
+
+In short the following fixes are included in the calculation core:
+- Fixes for long crested weir; New routine that does not request an extra computational node → does this mean that users can do stuff differently? 
+- Fix for short crested weir; Fix to determine super- from sub-critical regime. 
+- Fix for weirs for negative subcritical flows → isn;t this the same as the previous one? 
+- Fix for assigning boundary locations at North and East sides, in case computational cells stretch over original DEM raster, due to refinements. 
+- Fix for 1D coordinates in netcdf file: The z-coordinates of the boundary points, are now set correctly in the netcdf
+- Fix for initial conditions in netcdf file: In case of 1D-2D models, some variables, like the wet-surface areas of a computational node, the wrong value was written in the results netcdf. 
+- Fix for interception, need for interception is verified before going over all 2D nodes. (Answers should be the same, but computational time much faster.) 
+
+
+Update land use map for damage estimations
+==========================================
+
+For usage in the Netherlands only:
+
+We have updated the land use map that is being used for damage estimations. The only difference now is that tunnels have been placed under a road. 
+
+Source date & time
+
+BAG: 2019-05-09
+BGT: 2019-05-09
+BRP: 2019-05-15
+NWB: 2019-05-01
+Top10NL: 2018-07-16
+
+The map can be viewed here: stowa.lizard.net 
 
 
 Release 3Di 22 Feb 2021
