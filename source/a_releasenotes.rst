@@ -57,7 +57,7 @@ Extended API v3 with boundary conditions & bugfixing
 
 *More technical details*
 
-- Upgraded threedicore to 2.0.15
+- Upgraded threedicore to 2.0.16
 - Added additional threedimodel file validation. That is, if the threedimodel files are missing or the table_admin_file size exceeds the SIMULATION_DOCKER_MEMORY setting, a validation error will be raised and the resource will be set to disabled.
 - Add details for the user for why a scheduler event-worker failed.
 - Fix bug where shutdown_simulation is not awaited when the event-worker has failed. This caused the failed simulation to hang until the Timeouts.WORKERS.value (2 minutes) has passed.
