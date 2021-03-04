@@ -13,7 +13,8 @@ The following has been released:
 - Bug fixes in the calculation core
 - Update land use map for the calculation of damage estimations
 
-Download the latest version of the Modeller Interface here. For QGIS users: upgrade the plugin using the plugin panel. The latest version is 1.16. 
+Download the latest version of the Modeller Interface here. For QGIS users: upgrade the plugin using the plugin panel. The latest version is of the ThreediToolbox 1.16, the latest version the Threedi-API-QGIS client is 2.4.0
+
 
 Local calculation of water depth & water level maps
 ====================================================
@@ -23,6 +24,8 @@ It is possible to generate water depth maps for every time step with the newest 
 A quick guide to generate water depth maps:
 
 Processing --> Toolbox --> 3Di --> post-processed results --> water depth
+
+Or check out our documentation: :ref:`waterdepthtool`
 
 
 Extended support for starting simulations using the Modeller Interface

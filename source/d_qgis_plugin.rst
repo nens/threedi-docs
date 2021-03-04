@@ -1708,3 +1708,41 @@ The statistical tool can ben used to calculate sewerage statistics from 3Di resu
 - *Head difference (max):* The maximum difference in head between the two sides of the weir. 
 - *Overflow volume (cum):* The total cumulative volume that has flown over the weir. 
 
+.. _waterdepthtool:
+
+Calculate waterdepth and waterlevel maps 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The tool is location in the Processing Toolbox. It can be found via the menu, click 'Processing', then 'Toolbox'. The following window will appear. If there are a lot of tools you can use the text '3Di' in the search bar.
+
+.. figure:: image/d_qgisplugin_location_waterdepthtool.png
+	:alt: Location water depth tool
+	
+The tool requires gridadmin.h5 file, the result_3Di.nc file and the DEM file that was used in the model. 
+
+There is a choice between:
+
+- interpolated water depth
+- interpolate water level
+- non-interpolated water depth
+- non-interpolate water level
+
+Because 3Di calculates using the volumes in a quadtree grid, calculating water depth is done by interpolation water levels and substracting the DEM from this result. In some cases the non-interpolated water level or depth is required, the tool supports those options too. 
+
+.. figure:: image/d_qgisplugin_waterdepthtool.png
+	:alt: Screen water depth tool
+	
+The resulting file can be stored in the temp folder of the Modeller Interface, or stored in a project folder by the user. The resolution of the resulting map is equatl to the resolution of the DEM.
+
+Please make sure to use the correct gridadmin file (downloaded with each simulation) and the correct DEM. 
+
+A sample result looks like this:
+
+.. figure:: image/d_qgisplugin_waterdepth_resultsample.png
+	:alt: Sample result water depth tool
+	
+The processing toolbox enables users to generate water depth maps in batch in case this is required. For more information on how this works we refer to the QGIS documentation here: docs.qgis.org/3.16/en/docs/user_manual/processing/modeler.html
+
+
+
+
