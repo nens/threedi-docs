@@ -89,7 +89,7 @@ Short crested weirs: Flow over a weir knows three different stages: sub-, superc
 Bugfix in the ThreeDiToolbox
 =============================
 
-- Since QGIS 3.10 import sufhyd could cause coordinates to be switched. This has been fixed.
+- Fix import sufhyd coordinates swapped on newer gdal versions.
 
 
 Update land use map for the calculation of damage estimations
