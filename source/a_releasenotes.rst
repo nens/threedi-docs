@@ -14,8 +14,7 @@ The following has been released:
 - Bugfix in the ThreediToolbox
 - Update land use map for the calculation of damage estimations
 
-Download the latest version of the Modeller Interface here. For QGIS users: upgrade the plugin using the plugin panel. The latest version is of the ThreediToolbox 1.16, the latest version the `Threedi-API-QGIS client is 2.4.0
-<https://plugins.lizard.net/threedi_api_qgis_client.2.4.0.zip>`_.
+Download the latest version of the Modeller Interface here. For QGIS users: upgrade the plugin using the plugin panel. The latest version is of the `ThreediToolbox 1.16 <https://plugins.lizard.net/ThreeDiToolbox.1.16.1.zip>`_  the latest version the `Threedi-API-QGIS client is 2.4.0 <https://plugins.lizard.net/threedi_api_qgis_client.2.4.0.zip>`_.
 
 
 Local calculation of water depth & water level maps
