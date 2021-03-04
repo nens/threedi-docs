@@ -11,6 +11,7 @@ The following has been released:
 - Extended support for starting simulations using the Modeller Interface
 - Extended API v3 with boundary conditions & bug fixing
 - Bug fixes in the calculation core
+- Bugfix in the ThreediToolbox
 - Update land use map for the calculation of damage estimations
 
 Download the latest version of the Modeller Interface here. For QGIS users: upgrade the plugin using the plugin panel. The latest version is of the ThreediToolbox 1.16, the latest version the `Threedi-API-QGIS client is 2.4.0
@@ -85,6 +86,10 @@ Long crested weirs: The formulation of the long crested weir has been replaced b
 
 Short crested weirs: Flow over a weir knows three different stages: sub-, supercritical and critical flow.  Under super-critical flow conditions, the formulation remains the same. We fixed the formulation under sub-critical flow conditions and in strong varying flow conditions.  The biggest change in discharge behaviour is expected for weirs that flow in negative direction. Moreover, the time dependency of the flow over the weir has been adjusted. This has no effect on stationary flow, but has a slightly improved stabilizing effect on the flow under changing flow conditions. 
 
+Bugfix in the ThreeDiToolbox
+=============================
+
+- Since QGIS 3.10 import sufhyd could cause coordinates to be switched. This has been fixed.
 
 
 Update land use map for the calculation of damage estimations
