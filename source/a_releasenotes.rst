@@ -15,8 +15,8 @@ The following has been released:
 
 Download the latest version of the Modeller Interface here. For QGIS users: upgrade the plugin using the plugin panel. The latest version is 1.16. 
 
-Local calculation of water depth maps
-=====================================
+Local calculation of water depth & water level maps
+====================================================
 
 It is possible to generate water depth maps for every time step with the newest version of the Modeller Interface. To generate these water depth maps, 3Di applies a special algorithm that combines the water level results with the information of the DEM. This algorithm creates visually appealing maps. The maps show the water level and water depth results on high resolution, these can be based on the interpolated and on the non-interpolated water level results.
 
