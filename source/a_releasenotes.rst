@@ -2,6 +2,12 @@
 Release notes
 *************
 
+Release announcement
+=====================
+
+Tuesday March 23, 8 AM CET we are going to update our 3Di stack. We expect one hour of downtime. Running simulations will be stopped. 
+
+
 Release 3Di 8 March 2021
 ------------------------
 
@@ -78,7 +84,6 @@ In short the following fixes are included in the calculation core:
 - Fix for long crested weir; new routine that does not request an extra computational node. 
 - Fix for short crested weir; Fix to determine super- from sub-critical regime. 
 - Fix for weirs for negative subcritical flows 
-- Fix for assigning boundary locations at North and East sides, in case computational cells stretch over original DEM raster, due to refinements. 
 - Fix for 1D coordinates in netcdf file: The z-coordinates of the boundary points, are now set correctly in the netcdf
 - Fix for initial conditions in netcdf file: In case of 1D-2D models, some variables, like the wet-surface areas of a computational node, the wrong value was written in the results netcdf at the start of the simulation. 
 
