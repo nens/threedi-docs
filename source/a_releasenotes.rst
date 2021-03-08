@@ -2,9 +2,118 @@
 Release notes
 *************
 
-*Release announcement API*
-----------------------------
-Monday March 8th, at 8.00 AM CET we will release an update of our API. The expected downtime is approximately 1 hour. Please note that this means running simulations will be stopped.  
+Release announcement
+=====================
+
+Tuesday March 23, 8 AM CET we are going to update our 3Di stack. We expect one hour of downtime. Running simulations will be stopped. 
+
+
+Release 3Di 8 March 2021
+------------------------
+
+The following has been released:
+
+- Local calculation of water depth maps
+- Extended support for starting simulations using the Modeller Interface
+- Extended API v3 with boundary conditions & bug fixing
+- Bug fixes in the calculation core
+- Bugfix in the ThreediToolbox
+- Update land use map for the calculation of damage estimations
+
+Download the latest version of the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.4-1-Setup-x86_64.exe>`_ 
+. For QGIS users: upgrade the plugin using the plugin panel. In case this doesn't work, it is possible to install the plugins as zip file. The latest version is of the `ThreediToolbox 1.16 <https://plugins.lizard.net/ThreeDiToolbox.1.16.1.zip>`_  the latest version the `Threedi-API-QGIS client is 2.4.0 <https://plugins.lizard.net/threedi_api_qgis_client.2.4.0.zip>`_. 
+
+
+Local calculation of water depth & water level maps
+====================================================
+
+It is possible to generate water depth maps for every time step with the newest version of the Modeller Interface. To generate these water depth maps, 3Di applies a special algorithm that combines the water level results with the information of the DEM. This algorithm creates visually appealing maps. The maps show the water level and water depth results on high resolution, these can be based on the interpolated and on the non-interpolated water level results.
+
+A quick guide to generate water depth maps:
+
+Processing --> Toolbox --> 3Di --> post-processed results --> water depth
+
+Or check out our documentation: :ref:`waterdepthtool`
+
+
+Extended support for starting simulations using the Modeller Interface
+======================================================================
+
+We have added the following support for starting simulations from the Modeller Interface:
+
+- added support for wind. See our user manual: :ref:`simulate_api_qgis` or our technical documentation : :ref:`wind_effects`  for more information. 
+- added option of tags. This can be used to tag a simulation with a project related tag. This way it is easier to organise simulations.
+- added time-interpolation options for laterals 
+- added the option for Netcdf upload for rain
+- option to set base URL for the API (for use of 3Di in other countries)
+
+The following bugs have been fixed:
+
+- start time is now correctly used 
+- search window for models is now case insensitive
+- bug fix lateral file upload
+
+
+Extended API v3 with boundary conditions & bug fixing
+=====================================================
+
+*General*
+
+- Remove folders in the logging zip-file
+- Changed precision of float to 6 decimals for initial water levels in 1D model domain
+- Now support for boundary conditions in the API
+- Enabled time-interpolation for all events (forcings) in the API
+
+*More technical details*
+
+- Upgraded threedicore to 2.0.16
+- Added additional threedimodel file validation. That is, if the threedimodel files are missing or the table_admin_file size exceeds the SIMULATION_DOCKER_MEMORY setting, a validation error will be raised and the resource will be set to disabled.
+- Add details for the user for why a scheduler event-worker failed.
+- Fix for the bug where shutdown_simulation is not awaited when the event-worker has failed. This caused the failed simulation to hang until the Timeouts. WORKERS.value (2 minutes) has passed.
+- Various smaller fixes to avoid validating a grid event twice (closes #853).
+- The event worker now converts exceptions properly to strings.
+- The events.models.Simulation object expects the sim_uid as str not int.
+- Added usage statistics endpoint and usage filters (including a simulation type filter ("live"/"api").
+- Using django's get_valid_filename() method in combination with Path().name to avoid users posting special characters in file names.
+
+
+Bug fixes in calculation core
+=============================
+
+In short the following fixes are included in the calculation core:
+- Fix for long crested weir; new routine that does not request an extra computational node. 
+- Fix for short crested weir; Fix to determine super- from sub-critical regime. 
+- Fix for weirs for negative subcritical flows 
+- Fix for 1D coordinates in netcdf file: The z-coordinates of the boundary points, are now set correctly in the netcdf
+- Fix for initial conditions in netcdf file: In case of 1D-2D models, some variables, like the wet-surface areas of a computational node, the wrong value was written in the results netcdf at the start of the simulation. 
+
+Long crested weirs: The formulation of the long crested weir has been replaced by a new one. This new version is based on the law of Bernouilli instead of an alternative implementation of the advective terms for a regular 1D element. The flow over the weir is an accurate computation of the flow under ideal circumstances, but the new formulation does not require an extra computational node and has proven to be more stable under varying flow conditions.
+
+Short crested weirs: Flow over a weir knows three different stages: sub-, supercritical and critical flow.  Under super-critical flow conditions, the formulation remains the same. We fixed the formulation under sub-critical flow conditions and in strong varying flow conditions.  The biggest change in discharge behaviour is expected for weirs that flow in negative direction. Moreover, the time dependency of the flow over the weir has been adjusted. This has no effect on stationary flow, but has a slightly improved stabilizing effect on the flow under changing flow conditions. 
+
+Bugfix in the ThreeDiToolbox
+=============================
+
+- Fix import sufhyd coordinates swapped on newer gdal versions.
+
+
+Update land use map for the calculation of damage estimations
+=============================================================
+
+For usage in The Netherlands only:
+
+We have updated the land use map that is being used for the calculation of damage estimations. This to ensure tunnels are placed under a road. 
+
+Source date & time
+
+- BAG: 2019-05-09
+- BGT: 2019-05-09
+- BRP: 2019-05-15
+- NWB: 2019-05-01
+- Top10NL: 2018-07-16
+
+The map can be viewed here: stowa.lizard.net
+
 
 
 Release 3Di 22 Feb 2021
