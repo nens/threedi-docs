@@ -5,7 +5,7 @@ Before You Begin
 
 The tutorials below are aimed at giving you some examples on how to use, modify or create your 3Di models. They show you how to create different types of models for different purposes or add elements to existing models. The first tutorials aim to give you an introduction to 3Di as well explaining some basic steps. They therefore explain the steps and reasons behind them quite extensively. The later tutorials assume you have sufficient knowledge about 3Di and modelling in general. They are less extensive and can be used as cheat sheets for performing different tasks.
 
-All tutorials assume you have some knowledge of 3Di and have access to QGIS, the 3Di QGIS plugin, Google Chrome and TortoiseHG. They also assume that your organization has uploaded one or more 3Di models for use in the 3Di portal. For a complete overview of the software required, check the software section.
+All tutorials assume you have some knowledge of 3Di and have access to QGIS, the 3Di QGIS plugin, Google Chrome and TortoiseHG. They also assume that your organisation has uploaded one or more 3Di models for use in the 3Di portal. For a complete overview of the software required, check the software section.
 
 Before you begin consider the following.
 
@@ -18,7 +18,7 @@ To use 3Di you need these software packages:
 
 * Recent version of Google Chrome (`Get Chrome <https://www.google.nl/chrome/browser/desktop/index.html>`_)
 
-* The `Modeller Interface <https://docs.3di.lizard.net/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.4.13-1-Setup-x86_64.exe>`_ or install QGIS with the appropriate plugins. For more details on how to do this see :ref:`plugin_installation`
+* The 'Modeller Interface' or install a recent version of QGIS with the appropriate plugins. For more details on how to do this see :ref:`qgisplugin`
 
 * Recent version of TortoiseHG (`Get TortoiseHG <https://tortoisehg.bitbucket.io/download/index.html>`_)
 

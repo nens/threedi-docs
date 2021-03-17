@@ -8,19 +8,19 @@ Introduction
 The Modeller Interface (MI) will help you with building 3Di models and analysing results locally. The MI will also assist you in interacting with the 3Di-API and downloading the results from the 3Di calculation servers. The MI is part of QGIS with various pre-installed plugins: the 3Di Toolbox to analyse results, the 3Di API Client to start calculations, download results and some third party plugins. The interface has been cleaned compared to a standard QGIS installation, it shows only relevant buttons for model building and analysing. 
 
 - Install the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.4-1-Setup-x86_64.exe>`_  or
-- Install QGIS, and install the 3Di toolbox as a QGIS plugin
+- Install the LTR of QGIS, and install the 3Di toolbox as a QGIS plugin
 
-Older versions of the Modeller Interface are found in the `archive <https://docs.3di.live/modeller-interface-downloads>`_. 
 
-For more information on installing the plugin see `3Di Toolbox plug-in <https://github.com/nens/threedi-qgis-plugin/wiki>`_. For more information on viewing and editing 3Di models in QGIS see :ref:`adjust_model`. 
-The section below explains the use of various options of the modeller interface. More subjects will be added regularly.
+.. note::
+    Are you running into problems when downloading or updating the software? 
+    Please contact our support office (servicedesk@nelen-schuurmans.nl)
 
 .. _plugin_installation:
 
 Plugin Installation 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* QGIS 3.10 64bit Long term release(`Get QGIS <http://www.qgis.org/en/site/forusers/download.html#>`_ use the standalone installers)
+* QGIS 3.16 64bit Long term release (`Get QGIS <http://www.qgis.org/en/site/forusers/download.html#>`_ and use the standalone installer)
 
     After the installation of QGIS, set the interface language and locale to American English. This makes it easier to understand the instructions in this documentation. Some locales do not support scientific notations of numbers, these are required for very small numbers (e.g. 1e-09).
 
@@ -30,15 +30,18 @@ Plugin Installation
     * For Locale, choose 'English UnitedStates (en_US)'
     * Restart QGIS
 
-* QGiS 3Di plug-in specially designed for 3Di (`Get 3Di plug-in <https://github.com/nens/threedi-qgis-plugin/wiki>`_)
+* QGiS 3Di plug-in specially designed for 3Di
+	
+	* 3Di Toolbox
+	* 3Di API client
 
-The 3Di Toolbox works for:
 
-- QGIS 3.10.x (LTR after february 2020)
+The plugins work for:
+
+- QGIS 3.16.x (LTR after March 2021)
 - 64-bit version of QGIS (see below for more details)
 - 3Di v2 results
 
-For a more extended description of installing QGIS, the 3Di-Toolbox and troubleshooting go to: https://github.com/nens/ThreeDiToolbox/wiki/Installation
 
 To install the 3Di-Toolbox plugin follow the steps below: 
 
@@ -59,6 +62,8 @@ To install the 3Di-Toolbox plugin follow the steps below:
     :alt: Install 3Di Toolbox
 
 .. _plugin_overview:
+
+To install the 3Di API client plugin follow the steps below: 
 
 7) To install the 3Di API client follow steps 1-4 above. Now you choose 3Di API client. 
 8) To active the panel of the API client, choose plugins --> 3Di API client --> 3Di API client. Now the panel will be available.
