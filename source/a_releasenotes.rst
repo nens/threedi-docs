@@ -2,13 +2,54 @@
 Release notes
 *************
 
-Release announcement
-=====================
+Release 3Di March 23rd 2021
+---------------------------
 
-Tuesday March 23, 8 AM CET we are going to update our 3Di stack. We expect one hour of downtime. Running simulations will be stopped. 
+We have the following release announcements:
+
+- 3Di is expanding
+- Free 3Di licenses available for scientific researchers
+- Updates 3Di live site
+
+Import message for QGIS users: Please note that there is an update available for our Toolbox & API client. In some cases QGIS fails to recognize the latest versions from within the plugin manager. In that case it is best to download the zips from this location and install them manually. 
 
 
-Release 3Di 8 March 2021
+We are proud to announce that due to international recognition we are expanding the capacity of 3Di:
+
+The first stage of setting up our second calculation center in Taiwan is finished. Organizations that prefer this center can connect to 3Di via [https://www.3di.tw/]
+To cope with increasing demand for calculations the capacity of our main calculation center has been upgraded. 
+
+
+3Di available for scientific researchers
+=========================================
+
+Interested to use 3Di in your research? We are proud to announce that we now supply free licenses for scientific researchers.
+Contact us via info@watermanagement.com when you're interested. 
+
+Updates 3Di live site
+======================
+
+We have update the 3Di live site with following features:
+
+- Water depth graph now also shows a graph with water depth = 0
+
+- Add a clock time hover
+
+- Add hh:mm at the start of the simulation, to make clear what are the units of the clock
+
+- Add decimal support for discharge (when editing pumps)
+- Add minute support for durations
+
+- Ability to select different units when editing a pump discharge
+
+
+Bugfix:
+
+
+
+
+
+Release 3Di March 8th 2021
 ------------------------
 
 The following has been released:
