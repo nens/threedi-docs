@@ -34,21 +34,11 @@ Updates 3Di live site
 We have update the 3Di live site with following features:
 
 - Water depth graph now also shows a graph with water depth = 0
-
 - Add a clock time hover
-
 - Add hh:mm at the start of the simulation, to make clear what are the units of the clock
-
 - Add decimal support for discharge (when editing pumps)
 - Add minute support for durations
-
 - Ability to select different units when editing a pump discharge
-
-
-Bugfix:
-
-
-
 
 
 Release 3Di March 8th 2021
