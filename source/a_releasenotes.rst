@@ -11,13 +11,15 @@ We have the following release announcements:
 - Free 3Di licenses available for scientific researchers
 - Updates 3Di live site
 
-Import message for QGIS users: Please note that there is an update available for our Toolbox & API client. In some cases QGIS fails to recognize the latest versions from within the plugin manager. In that case it is best to download the zips from this location and install them manually. 
+Import message for QGIS users: Please note that there is an update available for our Toolbox & API client. In some cases QGIS fails to recognize the latest versions from within the plugin manager. In that case it is best to download the zips from the release anouncement of March 8th (below) and install them manually. If you need help doing that please contact our servicedesk.
 
+3Di is expanding
+==================
 
 We are proud to announce that due to international recognition we are expanding the capacity of 3Di:
 
-The first stage of setting up our second calculation center in Taiwan is finished. Organizations that prefer this center can connect to 3Di via [https://www.3di.tw/]
-To cope with increasing demand for calculations the capacity of our main calculation center has been upgraded. 
+- The first stage of setting up our second calculation center in Taiwan is finished. Organizations that prefer this center can connect to 3Di via `3di.tw <https://www.3di.tw>`_.  
+- To cope with increasing demand for calculations the capacity of our main calculation center has been upgraded
 
 
 3Di available for scientific researchers
