@@ -8,7 +8,7 @@ Introduction
 The Modeller Interface (MI) will help you with building 3Di models and analysing results locally. The MI will also assist you in interacting with the 3Di-API and downloading the results from the 3Di calculation servers. The MI is part of QGIS with various pre-installed plugins: the 3Di Toolbox to analyse results, the 3Di API Client to start calculations, download results and some third party plugins. The interface has been cleaned compared to a standard QGIS installation, it shows only relevant buttons for model building and analysing. 
 
 - Install the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.4-1-Setup-x86_64.exe>`_  or
-- Install the LTR of QGIS, and install the 3Di toolbox as a QGIS plugin
+- Install the LTR of QGIS, and install the 3Di toolbox and API client as QGIS plugins
 
 
 .. note::
@@ -98,7 +98,10 @@ Start by clicking **start**. In the pop-up window choose **Load from Web**
 .. figure:: image/d_qgisplugin_apiclient_start.png
     :alt: Load from web
 	
-Afer providing your username and password a connection is being made with the API.
+Afer providing the Base API URL and your username and password a connection is being made with the API.
+
+The Base API URL is in most cases https://api.3di.live/v3.0/
+If you want to connect to our second calculation center in Taiwan, the base API URL is https://api.3di.tw/v3.0/ 
 
 .. figure:: image/d_qgisplugin_apiclient_login.png
     :alt: Load from web

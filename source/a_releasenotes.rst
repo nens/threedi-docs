@@ -26,7 +26,7 @@ We are proud to announce that due to international recognition we are expanding 
 =========================================
 
 Interested to use 3Di in your research? We are proud to announce that we now supply free licenses for scientific researchers.
-Contact us via info@watermanagement.com when you're interested. 
+Contact us via info@3diwatermanagement.com when you're interested. 
 
 Updates 3Di live site
 ======================
