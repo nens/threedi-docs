@@ -69,7 +69,7 @@ A DEM edit is a tool in the live site, it allows to adjust the height of the bat
 .. figure:: image/d_dem_edits.png
    :alt: Dem edits
 
-To edit the bathymetry of the model, make sure the DEM-layer is activated. This can be done via the maplayers menu and clicking on the 'Digital Elevation Model' layer. The elevation edit is in absolute numbers in m MSL. If you are not sure about the elevation to use, use the side view tool to check the height in the model. In some cases it might be usefull to also turn on the model grid layer.
+To edit the bathymetry of the model, make sure the DEM-layer is activated. This can be done via the maplayers menu and clicking on the 'Digital Elevation Model' layer. The elevation edit is in absolute numbers in m MSL. If you are not sure about the elevation to use, use the side view tool to check the height in the model. In some cases it might be useful to also turn on the model grid layer.
 
 After entering a value, click 'Draw on map' and start clicking. 
 

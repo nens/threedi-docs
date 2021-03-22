@@ -12,7 +12,7 @@ Conservation of mass states that mass cannot disappear or appear in a certain do
 .. math::
    :label: mass_conservation    
 
-   \frac{\Delta \rho V}{\Delta t}=\sum_i^{in} \rho Q_i -\sum_k^{out} Q_k + \sum_j S_j 
+   \frac{\Delta \rho V}{\Delta t}=\sum_i^{in} \rho Q_i -\sum_k^{out} \rho Q_k + \sum_j \rho S_j 
 
 | In which: 
 | :math:`\rho` is the density, 
@@ -29,7 +29,7 @@ Conservation of mass states that mass cannot disappear or appear in a certain do
    
    A virtual box for conservation of mass.
 
-The counters i, j, k count over all existing discharges, sink and source terms. In 3Di we do not account for density variations, so the density :math:`\rho` is assumed uniform and constant. This simplifies the equation for conservation of mass, to the following equation for conservation of volume:
+The counters i, j, k count over all existing discharges, sink and source terms. In 3Di we do not account for density variations, so the density :math:`\rho` is assumed uniform and constant. This simplifies the equation for conservation of mass to the following equation for conservation of volume:
 
 .. math::
    :label: volume_conservation    
