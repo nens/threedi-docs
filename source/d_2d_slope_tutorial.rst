@@ -1,6 +1,6 @@
-.. _tutorial2_2dflowmodel:
+.. _tutorial3_2dflowmodel:
 
-Tutorial 2: 2D flow model over sloped terrain
+Tutorial 3: 2D flow model over sloped terrain
 ===============================================
 
 Welcome to the tutorial for 2D flow over a sloped terrain.
