@@ -2,7 +2,7 @@
 Release notes
 *************
 
-HotFix April 2021 - Modeller Interface and 3Di Toolbox
+HotFix April 1st 2021 - Modeller Interface and 3Di Toolbox
 ------------------------------------------------------
 
 Due to some changes under the hood in QGIS 3.16 we have released a new version of the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.4-1-Setup-x86_64.exe>`_ and the `ThreediToolbox 1.17 <https://plugins.lizard.net/ThreeDiToolbox.1.17.zip>`_ 
