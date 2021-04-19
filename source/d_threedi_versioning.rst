@@ -1,9 +1,12 @@
 .. _model_installation_guide:
 
-Versions and scenarios
+Model databank
 ========================
 
 This section of the tutorial is intended to help modellers and specialists to get their 3Di models ready to run. It explains how to download, adjust and upload the models. If you don't know how to run a model in the portal yet, please refer to :ref:`guide_to_portal` and :ref:`running_model`. The first parts of this section give an overview on how to get a model ready to use on the 3Di portal. The last part contains more in depth explanation for advanced users.
+
+The model databank consists of the model database (`https://models.lizard.net <https://models.lizard.net>`_) and Inpy (`https://3di.lizard.net/models/ <https://3di.lizard.net/models/>`_.
+
 
 3Di model database and schematisations
 --------------------------------------
@@ -136,7 +139,7 @@ After the push, all 3Di model adjustments are sent to the central model database
 
 .. _showing_model_in_portal:
 
-Showing 3Di model on 3Di portal
+Showing 3Di model on Inpy
 --------------------------------
 
 Now that the adjusted 3Di model is pushed to the model database the model must be made visible to be able to perform calculations on the 3Di portal. The generation of input files for the computation heart starts automatically after the push. The calculation heart uses the input files to perform calculations and sends the results to the 3Di portal for visualisation. 
@@ -214,3 +217,26 @@ A specific revision can be put on a local computer using the following steps:
 * Tick **Discard local changes, no backup (-C/--clean)**
 * Click **Update**
 * Enter username and password
+
+
+Advanced: re-run inpy
+------------------------
+
+.. _rerun_inpy:
+
+Go 3di.lizard.net/models and search for your model. Then click on the gear icon:
+
+.. figure:: image/a_releasenotes_how_to_re_run_inpy.png
+    :alt: How to re-run inpy step 1
+	
+In the next page click on the reload icon:
+
+.. figure:: image/a_releasenotes_how_to_re_run_inpy_step2.png
+    :alt: How to re-run inpy step 1
+		
+	
+It will depend on your model size and settings how long this will take.
+
+**Please note** that
+We have made a change on inpy July 5h 2019. After that change it is not allowed anymore to have levees outside the DEM. 
+So if you re-run a model that was last run before that date first check your levees!

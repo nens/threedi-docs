@@ -3,6 +3,39 @@
 API 
 ====
 
+We support two versions of our API:
+
+* API v3: stable
+* API v1: deprecated
+
+There is also a seperate API, which we call the Result API.
+
+
+
+The API V1 is deprecated and will disappear in the near future.
+
+
+
+.. _api_v3:
+
+API v3
+-------------
+
+API v3 is available here: https://api.3di.live/v3.0/swagger/
+
+Here you can find `the API documentation <https://api.3di.live/v3.0/docs/>`_.
+We also created a webinar that takes you through the API functionalities. Here you can find `the webinar <https://attendee.gotowebinar.com/recording/1129052614373219341/>`_.
+
+Here you can find a more `detailed technical overview <https://nens.github.io/threedi-openapi-client/usage/>`_  of our API.
+
+
+
+
+.. note::
+    To use the API v3 with a model created earlier with API v1, you need to re-run inpy for your model. After that it will appear in both API v1 and v3. Find out how to re-run inpy `here <https://docs.3di.live/d_threedi_versioning.html#rerun_inpy>`_.
+
+
+
 API v1
 -------------
 
@@ -70,28 +103,8 @@ All dates and times used in the API are based on the so-called ISO8601 standards
 
 This rainfall event will start at 18:00 hour local time.
 
-.. _api_v3:
+Result API
+------------
 
-API v3
--------------
+The Result API can be found `here <https://threedigrid.readthedocs.io/en/latest/>`_.
 
-API v3 is available here: https://api.3di.live/v3.0/swagger/
-
-Here you can find a more `detailed technical overview <https://nens.github.io/threedi-openapi-client/usage/>`_  of our API.
-
-To use the API v3 with your own model you need to re-run inpy for your model. After that it will appear in both API v1 and v3. Here a small reminder how to re-run inpy on your models. Go 3di.lizard.net/models and search for your model. Then click on the gear icon:
-
-.. figure:: image/a_releasenotes_how_to_re_run_inpy.png
-    :alt: How to re-run inpy step 1
-	
-In the next page click on the reload icon:
-
-.. figure:: image/a_releasenotes_how_to_re_run_inpy_step2.png
-    :alt: How to re-run inpy step 1
-		
-	
-It will depend on your model size and settings how long this will take.
-
-**Please note** that
-We have made a change on inpy July 5h 2019. After that change it is not allowed anymore to have levees outside the DEM. 
-So if you re-run a model that was last run before that date first check your levees!
