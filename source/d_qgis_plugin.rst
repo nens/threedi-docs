@@ -369,7 +369,7 @@ In the Modeller Interface the 3Di toolbar is directly available.
 .. _load_model_results:
     
 Load 3Di model and results
---------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A model schematisation can be loaded by clicking the database icon with the blue plus-sign (number 2 in the Figure above). A new window will be opened. 
 
