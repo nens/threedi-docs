@@ -1,6 +1,6 @@
-.. _tutorial1_2dflatmodel:
+.. _tutorial2_2dflatmodel:
 
-Tutorial 1: 2D flat model
+Tutorial 2: 2D flat model
 =========================
 
 Welcome to 3Di and your first tutorial.

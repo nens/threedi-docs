@@ -33,7 +33,8 @@ Welcome to 3Di's documentation!
    :caption: Tutorials
    :name: tutorials
    :numbered:
-
+   
+   d_workflow_tutorial
    d_2d_tutorial
    d_2d_slope_tutorial
 
