@@ -1,77 +1,16 @@
 .. _qgisplugin:
 
 Modeller Interface 
-=================================
+======================
 
 Introduction
 --------------
 The Modeller Interface (MI) will help you with building 3Di models and analysing results locally. The MI will also assist you in interacting with the 3Di-API and downloading the results from the 3Di calculation servers. The MI is part of QGIS with various pre-installed plugins: the 3Di Toolbox to analyse results, the 3Di API Client to start calculations, download results and some third party plugins. The interface has been cleaned compared to a standard QGIS installation, it shows only relevant buttons for model building and analysing. 
 
-- Install the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.4-1-Setup-x86_64.exe>`_  or
-- Install the LTR of QGIS, and install the 3Di toolbox and API client as QGIS plugins
-
-
-.. note::
-    Are you running into problems when downloading or updating the software? 
-    Please contact our support office (servicedesk@nelen-schuurmans.nl)
-
-.. _plugin_installation:
-
-Plugin Installation 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-* QGIS 3.16 64bit Long term release (`Get QGIS <http://www.qgis.org/en/site/forusers/download.html#>`_ and use the standalone installer)
-
-    After the installation of QGIS, set the interface language and locale to American English. This makes it easier to understand the instructions in this documentation. Some locales do not support scientific notations of numbers, these are required for very small numbers (e.g. 1e-09).
-
-    * Go to Settings > Options > General
-    * Tick the box 'Override System Locale'
-    * For User Interface Translation, choose 'American English'
-    * For Locale, choose 'English UnitedStates (en_US)'
-    * Restart QGIS
-
-* QGiS 3Di plug-in specially designed for 3Di
-	
-	* 3Di Toolbox
-	* 3Di API client
-
-
-The plugins work for:
-
-- QGIS 3.16.x (LTR after March 2021)
-- 64-bit version of QGIS (see below for more details)
-- 3Di v2 results
-
-
-To install the 3Di-Toolbox plugin follow the steps below: 
-
-1) Open QGIS and via the menu bar go to 'Plugins > Manage And Install Plugins'. 
-2) Go to 'Settings'. 
-3) Add a plugin repository
-4) Fill in a name and copy the URL: https://plugins.lizard.net/plugins.xml into the URL box. 
-5) Go to 'All' and choose '3Di toolbox' from the list
-6) Install the plugin.
-
-.. figure:: image/d_qgispluging_pluginmanager.png
-    :alt: QGIS Plugin Manager
-    
-.. figure:: image/d_qgispluging_pluginmanager_addlizard_repo.png
-    :alt: Add Lizard repo Plugin
-
-.. figure:: image/d_qgispluging_pluginmanager_install_toolbox.png
-    :alt: Install 3Di Toolbox
-
-.. _plugin_overview:
-
-To install the 3Di API client plugin follow the steps below: 
-
-7) To install the 3Di API client follow steps 1-4 above. Now you choose 3Di API client. 
-8) To active the panel of the API client, choose plugins --> 3Di API client --> 3Di API client. Now the panel will be available.
-
+For instructions how to download the Modeller Interface or the plugins see :ref:`plugin_installation`
 
 Overview of the 3Di API client
 -----------------------------------------
-
 
 After installation of the plugin, a panel is available. If you don't see this panel, check the installation instructions.
 
@@ -422,7 +361,7 @@ In the Modeller Interface the 3Di toolbar is directly available.
 3) :ref:`3ditoolbox`
 4) :ref:`graph_tool` 
 5) :ref:`sideviewtool`
-6) Statistical tool
+6) :ref:`statisticaltool`
 7) :ref:`waterbalance`
 8) :ref:`animationtool`
 
@@ -430,7 +369,7 @@ In the Modeller Interface the 3Di toolbar is directly available.
 .. _load_model_results:
     
 Load 3Di model and results
---------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A model schematisation can be loaded by clicking the database icon with the blue plus-sign (number 2 in the Figure above). A new window will be opened. 
 
@@ -448,7 +387,7 @@ In case you are loading you model schemetisation for checking and editing your S
 .. _view_model_results:
     
 View and edit 3Di model a schematisation
-----------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 After loading your 3Di model schematization, there are several ways to inspect your model. We have added the following features to assist you in viewing and editing the model schematization:
 
@@ -461,8 +400,8 @@ After loading your 3Di model schematization, there are several ways to inspect y
 .. _multiplestyles:
 
 
-Multiple styles per layer
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Multiple styles per layer**
+
 
 The multiple styles per layer can help you when analyzing your model. The different styles depict aspects of the layer you might be interested in, without cluttering your schematization with too much information at once. 
 
@@ -1127,7 +1066,7 @@ The 3Di database has some fields that are not in use. To clean the view, we have
 .. _3ditoolbox:
 
 Toolbox for working with 3Di models
---------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The 3Di toolbox is actived by clicking the toolbox icon in the 3Di-Toolbox bar. 
 
@@ -1201,7 +1140,7 @@ Further down in the log-file, the outcome of the *raster checker* for each raste
 .. _schematisationchecker:
 
 Schematisation checker
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The *schematization checker* analyses your 3Di model database (.sqlite file) for completeness and consistency between tables. With the checker you can make sure most database errors are found before sending the model to the 3Di INP-server for model generation. 
 
@@ -1391,7 +1330,7 @@ To add levee breaches to your model using the 3Di toolbox, please follow the ste
 .. image:: image/d_qgisplugin_moved_cnn_points.png
 
 Viewing and Analysing 3Di results
----------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We have various tools developped to assist users in analysing a viewing their results. In this section, some of these are described.
 

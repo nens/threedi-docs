@@ -22,9 +22,12 @@ Welcome to 3Di's documentation!
    :numbered:
 
    d_before_you_begin
-   d_web_portals
    d_qgis_plugin
-   d_fews_3di_connector
+   d_livesite
+   d_threedi_versioning
+   d_api
+   d_scenario_archive
+   d_integrations
    d_modeling
    d_problem_solving
 
