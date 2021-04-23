@@ -2,6 +2,14 @@
 Release notes
 *************
 
+HotFix April 22nd 2021 - 3Di Toolbox
+-----------------------------------------------------------
+
+We have released a new version of the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.4-1-Setup-x86_64.exe>`_ and the `ThreediToolbox 1.18 <https://plugins.lizard.net/ThreeDiToolbox.1.18.zip>`_ .
+This is a fix for the error *"Couldn't load plugin 'ThreeDiToolbox' due to an error when calling its classFactory() method
+ModuleNotFoundError: No module named 'alembic' "*
+
+
 Release 3Di April 11th 2021
 ---------------------------
 
