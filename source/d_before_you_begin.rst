@@ -59,6 +59,7 @@ The plugins work for:
 
 - QGIS 3.16.x (LTR after March 2021)
 - 64-bit version of QGIS (see below for more details)
+- On Linux/OSX: install the following system dependencies: `python3-h5py python3-scipy python3-pyqt5.qtwebsockets`
 - 3Di v2 results
 
 
