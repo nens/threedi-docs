@@ -2,7 +2,7 @@
 Release notes
 *************
 
-HotFix May 21st 2021 - 3Di API QGIS Client
+Update May 21st 2021 - 3Di API QGIS Client
 -----------------------------------------------------------
 
 We have released a new version of the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.7-1-Setup-x86_64.exe>`_ and an update of our 3Di API QGIS Client to version 2.4.1. The following has been fixed:
