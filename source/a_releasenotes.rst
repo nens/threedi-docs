@@ -2,6 +2,17 @@
 Release notes
 *************
 
+HotFix May 21st 2021 - 3Di API QGIS Client
+-----------------------------------------------------------
+
+We have released a new version of the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.7-1-Setup-x86_64.exe>`_ and an update of our 3Di API QGIS Client. The following has been fixed:
+
+- Users no longer get a throttling warning when trying to start a simulation. 
+- Results download only shows results for the model that is selected in the panel.
+
+The location of plugins has changed from https://plugins.lizard.net/plugins.xml, they are now available at https://plugins.3di.live/plugins.xml
+
+
 HotFix April 22nd 2021 - 3Di Toolbox
 -----------------------------------------------------------
 

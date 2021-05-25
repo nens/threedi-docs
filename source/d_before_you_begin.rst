@@ -30,7 +30,7 @@ To use 3Di you need these software packages:
 Modeller Interface or QGIS
 ----------------------------
 
-- Install the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.4-1-Setup-x86_64.exe>`_  or
+- Install the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.7-1-Setup-x86_64.exe>`_  or
 - Install the Long Term Release (LTR) of QGIS, and install the 3Di toolbox and API client as QGIS plugins
 
 
@@ -68,7 +68,7 @@ To install the 3Di-Toolbox plugin follow the steps below:
 1) Open QGIS and via the menu bar go to 'Plugins > Manage And Install Plugins'. 
 2) Go to 'Settings'. 
 3) Add a plugin repository
-4) Fill in a name and copy the URL: https://plugins.lizard.net/plugins.xml into the URL box. 
+4) Fill in a name and copy the URL: https://plugins.3di.live/plugins.xml into the URL box. 
 5) Go to 'All' and choose '3Di toolbox' from the list
 6) Install the plugin.
 
