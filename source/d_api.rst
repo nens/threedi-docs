@@ -3,6 +3,20 @@
 API 
 ====
 
+3Di has a completely API based setup. An API is an Application Programming Interface, and it enables software applications to talk with one another. The API is the connection between our user interfaces and the calculation core. Next to that, it is also possible as a user to interact with the API directly. This is for more advanced users, familiair with programming languages. The benefit of directly using the 3Di API is:
+
+- Batch calculating
+- Automated testruns & results checking 
+- Run 3Di in an operational setting 
+- Use Jupyter Notebooks to run, download en analyze 3Di simulations
+- Use other applications 
+
+
+.. figure:: image/d_api_3di_ecosystem.png
+    :alt: 3Di Eco system
+
+The current production API of 3Di is v3. For previous versions of the API check this section :ref:`api_v1`
+
 We support two versions of our API:
 
 * API v3: stable
@@ -10,11 +24,7 @@ We support two versions of our API:
 
 There is also a seperate API, which we call the Result API.
 
-
-
 The API V1 is deprecated and will disappear in the near future.
-
-
 
 .. _api_v3:
 
@@ -29,11 +39,14 @@ We also created a webinar that takes you through the API functionalities. Here y
 Here you can find a more `detailed technical overview <https://nens.github.io/threedi-openapi-client/usage/>`_  of our API.
 
 
-
-
 .. note::
-    To use the API v3 with a model created earlier with API v1, you need to re-run inpy for your model. After that it will appear in both API v1 and v3. Find out how to re-run inpy `here <https://docs.3di.live/d_threedi_versioning.html#rerun_inpy>`_.
+    To use the API v3 with a model created earlier with API v1, you need to re-run inpy for your model. After that it will appear in both API v1 and v3. Find out how to re-run `inpy <https://docs.3di.live/d_threedi_versioning.html#rerun_inpy>`_.
 
+[add] examples, link to notebooks of Valerie
+
+[add] a little history of our API (refer to v1) explain there is no v2
+
+.. _api_v1:
 
 
 API v1
