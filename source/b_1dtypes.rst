@@ -44,7 +44,7 @@ The top width of cross-sections can be defined open or closed. When the cross-se
 .. figure:: image/b_1dcrosssections.png
    :alt: crosssec_1D_networks
    
-   Examples of cross-sections in 1D networks; circular, egg-shaped, rectangular, open and closed tablelized cross-sections.
+   Examples of cross-sections in 1D networks; circular, egg-shaped, rectangular, open and closed tabulated cross-sections.
 
 
 Types of 1D elements (calculation types)
