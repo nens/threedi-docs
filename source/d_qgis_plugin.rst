@@ -199,6 +199,9 @@ Select csv as outputformat. Choose a filename and location to store and click OK
 
 .. figure:: image/d_qgisplugin_apiclient_laterals_export_csv_example.png
     :alt: Export laterals as csv
+    
+*Important note: Units in the CSV are seconds (for timesteps) and m3/s (for the flows).*
+
 	
 **Breaches**
 
