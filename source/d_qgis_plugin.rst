@@ -90,6 +90,7 @@ Forcings                        Spatialite          API             Live site
 Boundary conditions             v1, v3              v3              v1, v3
 Initial water level             v1, v3              v1, v3          v3
 Laterals  1D and 2D             v1                  v3              -
+DWF (inflow)                    v1                  v3              -
 ============================= ================= ================= ===============
 
 This means that for *boundary conditions* nothing changes between API v1 and v3. Values are taken from the spatialite. The following requirements still hold for the boundary conditions: 
@@ -100,6 +101,8 @@ This means that for *boundary conditions* nothing changes between API v1 and v3.
 *Initial water levels* are taken from the spatialite if the users selects this in the wizard, see the section on initial conditions below for a 'how to'. 
 
 *Laterals* are not taken into account when added to the spatialite. The user has to add them to the API call for them to be taken into account. See the section on laterals below for a 'how to'. 
+
+*DWF (inflow)* In API v1 inflow on connection nodes is being calculated based on nr of inhabitants per impervious surface and the mapping to the connection nodes. In API v3 users can calculate the inflow seperately using the dwa calculator tool. In this approach it is more clear what is being used as input for dry waterflow. 
 
 To start a simulation, click on the **SIMULATE** button. Next, the following window will be shown:
 
