@@ -80,8 +80,6 @@ Note: if the files have been downloaded before the Modeller Interface will use t
 Simulate
 ^^^^^^^^^^^^^^^
 
-Please note that the current implementation is in **beta**. 
-
 The most used API options are included in the newest version of the plugin. Important consideration is a difference between API v1 and v3 how initial waterlevels, laterals and boundaries are handled. The current status is as follows:
 
 ============================= ================= ================= ===============
@@ -102,7 +100,7 @@ This means that for *boundary conditions* nothing changes between API v1 and v3.
 
 *Laterals* are not taken into account when added to the spatialite. The user has to add them to the API call for them to be taken into account. See the section on laterals below for a 'how to'. 
 
-*DWF (inflow)* In API v1 inflow on connection nodes is being calculated based on nr of inhabitants per impervious surface and the mapping to the connection nodes. In API v3 users can calculate the inflow seperately using the dwa calculator tool. In this approach it is more clear what is being used as input for dry waterflow. 
+*DWF (inflow)* In API v1 inflow on connection nodes is being calculated based on nr of inhabitants per impervious surface and the mapping to the connection nodes. In API v3 users can calculate the inflow seperately using the dwa calculator tool. The output of this tool is a csv with lateral inflow. This csv can be used in the 3Di API client. In this approach is more transparant and generic usable for different countries.
 
 To start a simulation, click on the **SIMULATE** button. Next, the following window will be shown:
 
