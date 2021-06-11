@@ -91,6 +91,7 @@ Laterals  1D and 2D             v1                  v3              -
 DWF (inflow)                    v1                  v3              -
 ============================= ================= ================= ===============
 
+
 This means that for *boundary conditions* nothing changes between API v1 and v3. Values are taken from the spatialite. The following requirements still hold for the boundary conditions: 
 
 - number of entries have to be exactly the same
