@@ -27,8 +27,8 @@ The API client panel consists of the following parts:
 
 .. _simulate_api_qgis:
 
-Start
-^^^^^^^^^^^^^^^
+Start a simulation
+^^^^^^^^^^^^^^^^^^^
 
 To start simulating you first need to login and choose several options. 
 Start by clicking **start**. In the pop-up window choose **Load from Web**
@@ -74,8 +74,7 @@ Cells represent the computational grid comprised of computational cells. This fi
 Breaches can be used for breach calculations. The number of the breach as shown in the map canvas is the number required in the wizard. Alternatively, you can also select a breach before starting the wizard. This breach will then be used in the calculation. 
 
 Note: if the files have been downloaded before the Modeller Interface will use the cached version. 
-	
-	
+		
 	
 Simulate
 ^^^^^^^^^^^^^^^
@@ -187,6 +186,8 @@ Initial conditions either refer to the use of saved state file, or the use of in
 
 - Raster: This refers to the initial water level raster as uploaded with the model to the model databank.
 - Global value: This would be a generic initial waterlevel value in m MSL which is applied in all 2D ground water nodes of the model.
+
+.. _simulate_api_qgis_laterals:
 
 **Laterals**
 

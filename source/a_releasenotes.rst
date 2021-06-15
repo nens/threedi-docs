@@ -2,6 +2,24 @@
 Release notes
 *************
 
+Release 3Di June 14th  2021 
+-----------------------------------------------------------
+
+We have released the following:
+
+- Simulation settings endpoint 
+
+This settings endpoint contains 4 different type of settings:
+
+- numerical
+- physical
+- timestep
+- aggregation
+
+Using this settings endpoint overrules the settings that are uploaded with the spatialite. Currently this option is only available via our API. For more information on usage please check the `swagger pages <https://api.staging.3di.live/v3.0/swagger>`_ 
+
+For users using dry weather flow in urban sewerage systems please note that there is a difference between API v1 and v3 how inflow from dry weather flow is being handled. Please check our :ref:`simulate_api_qgis` section for more information.
+
 Update May 21st 2021 - 3Di API QGIS Client
 -----------------------------------------------------------
 
