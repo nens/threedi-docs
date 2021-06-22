@@ -1,7 +1,9 @@
 Problem Solving
 ===============
 
-This section will help you solve some problems or errors that may occur when using 3Di. Some issues are due to the software, these will be summarized in the section Known Issues, including a temporary solution. Errors, due to input data or other user settings can occur in various components or steps of the modeling process: 
+This section will help you solve some problems or errors that may occur when using 3Di.
+Some issues are due to the software, these will be summarized in the section Known Issues, including a temporary solution.
+Errors, due to input data or other user settings can occur in various components or steps of the modeling process: 
 
 #. Generating a 3Di model from the spatialite data or 'INP generation' which occurs in http://3Di.lizard.net/models, or
 
@@ -37,6 +39,8 @@ This might also be the case for other projections.
 - After downloading a recent result netcdf within the QGIS-plugin the following error occurs: "The selected result data is too old and no longer supported in this version of ThreediToolbox. Please recalculate the results with a newer version of threedicore or use the ThreediToolbox plugin for QGIS 2." This error might also occur when trying to download a NetCDF larger than 2GB. If this happens, try downloading it via the result email or adjust the model settings.  
 
 - Wind shield factor is not taken into account during a simulation
+
+- Boundary conditions can only be applied via the model sqlite. Uploading a boundary condition as a json file using the API will result in a failure of the simulation.
 
 
 Frequently endured issues
