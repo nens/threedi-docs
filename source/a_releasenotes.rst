@@ -2,6 +2,16 @@
 Release notes
 *************
 
+Release 3Di hotfix June 25th 2021 
+-----------------------------------------------------------
+
+We have released the following hotfixes:
+
+1. fix for errors with initial waterlevels (2D only model / Embedded problems)
+2. fix for edge cases regenradar concerning the 2D extent and the 0D extend
+
+
+
 Release 3Di June 14th  2021 
 -----------------------------------------------------------
 
