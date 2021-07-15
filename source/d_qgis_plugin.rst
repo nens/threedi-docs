@@ -93,7 +93,10 @@ Precipitation                  Add using live-site        Add using wizard      
 Wind                           Add using live-site    	  Add using wizard			            Add to simulation
 Control Structures	           Not used from SQLite       Not used from SQLite                  Add to simulation  
 DWF (inflow)                   Not used from SQLite       Add as laterals, use dwf calculator   Add to simulation as lateral CSV
+Settings                       Sqlite                     Sqlite                                SQLite, can be overwritten
 ============================= =========================== ===================================== ==================================
+
+*This is a temporary situation, simulation templates will be implemented on our servers. In these templates users will be able to predefine the forcings and settings that users want to use in a model. A model can contain multiple simulation templates
 
 *When using the laterals as a CSV note that units of the laterals in the wizard are expected in m3/s
 
