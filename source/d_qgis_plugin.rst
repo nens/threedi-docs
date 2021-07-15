@@ -81,15 +81,21 @@ Simulate
 
 The most used API options are included in the newest version of the plugin. Important consideration is a difference between API v1 and v3 how initial waterlevels, laterals and boundaries are handled. The current status is as follows:
 
-============================= ================= ================= ===============
-Forcings                        Spatialite          API             Live site
-============================= ================= ================= ===============
-Boundary conditions             v1, v3              v3              v1, v3
-Initial water level             v1, v3              v1, v3          v3
-Laterals  1D and 2D             v1                  v3              -
-DWF (inflow)                    v1                  v3              -
-============================= ================= ================= ===============
+============================= =========================== ===================================== ==================================
+Forcings                        Live site                  3Di API Client                       OpenAPI client
+============================= =========================== ===================================== ==================================
+Boundary conditions            SQLite                     SQLite                                SQLite, can be overwritten
+Initial water level 2D         SQLite, always 'max'       Add raster/global in wizard           Add raster/global to simulation
+Initial water level 1D         SQLite                     Add predefined in wizard              Add predefined to simulation
+Laterals  1D and 2D            Not used                   Add in wizard with CSV*               Add CSV
+Breaches			           Open breach on live site   Open breach using wizard              Open breach 
+Precipitation                  Add using live-site        Add using wizard                      Add to simulation     		
+Wind                           Add using live-site    	  Add using wizard			            Add to simulation
+Control Structures	           Not used from SQLite       Not used from SQLite                  Add to simulation  
+DWF (inflow)                   Not used from SQLite       Add as laterals, use dwf calculator   Add to simulation as lateral CSV
+============================= =========================== ===================================== ==================================
 
+*When using the laterals as a CSV note that units of the laterals in the wizard are expected in m3/s
 
 This means that for *boundary conditions* nothing changes between API v1 and v3. Values are taken from the spatialite. The following requirements still hold for the boundary conditions: 
 
