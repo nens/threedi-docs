@@ -3,7 +3,7 @@
 API 
 ====
 
-3Di has a completely API based setup. An API is an Application Programming Interface, and it enables software applications to talk with one another. The API is the connection between our user interfaces and the calculation core. Next to that, it is also possible as a user to interact with the API directly. This is for more advanced users, familiair with programming languages. The benefit of directly using the 3Di API is:
+3Di has a completely API based setup. An API is an Application Programming Interface, and it enables software applications to talk with one another. The API is the connection between our user interfaces and the calculation core. Next to that, it is also possible as a user to interact with the API directly. This is for more advanced users, familiar  with programming languages. The benefit of directly using the 3Di API is:
 
 - Batch calculating
 - Automated testruns & results checking 
