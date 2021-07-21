@@ -14,6 +14,14 @@ The section 'Frequently endured issues' below mention different types of errors 
 Known Issues
 ^^^^^^^^^^^^^^
 
+- The live site uses always the max for initial water level, even when a different aggregation method is selected in the spatialite.
+
+- The live site doesn't show lateral inflow defined in the spatialite.
+
+- If a raster has both NaN and Nodata values the live site DEM will color yellow (showing color scale for -9999)
+
+- Dry Weather Flow in API v3 or the Modeller Interface is not taken from the spatialite. Users can define the DWF by using the dwf calculator and applying it as a lateral
+
 - When applying 2D boundary conditions, it is not allowed to have more than one grid resolution on the edge. However, there is no clear error message for this. 
 
 - In the live site it is not possible to visualize structures together with the schematisation.
