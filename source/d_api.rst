@@ -38,6 +38,8 @@ We also created a webinar that takes you through the API functionalities. Here y
 
 Here you can find a more `detailed technical overview <https://nens.github.io/threedi-openapi-client/usage/>`_  of our API.
 
+Example notebooks are available on `threedi github pages <https://github.com/threedi/scripts-nens/tree/master/Notebooks%203Di%20-%20API%20v3%20-%20VD>`_ 
+
 
 .. note::
     To use the API v3 with a model created earlier with API v1, you need to re-run inpy for your model. After that it will appear in both API v1 and v3. Find out how to re-run `inpy <https://docs.3di.live/d_threedi_versioning.html#rerun_inpy>`_.
