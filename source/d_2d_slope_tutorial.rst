@@ -120,7 +120,7 @@ g.	Unselect “Toggle editing mode” in the top left corner (see [2] in the ima
 .. image:: image/06_terrain_rasters.png
     :alt: Modify terrain information
 
-The infiltration and infiltration capacity rasters control the spatially varying infiltration rate in mm/h and the maximum infiltration capacity in mm respectively for each grid cell.
+The infiltration and infiltration capacity rasters control the spatially varying infiltration rate in mm/day and the maximum infiltration capacity in mm respectively for each grid cell.
 They are added to the model via the infiltration settings, which are contained in the v2_simple_infiltration table.
 
 a.	[1] Right-click the v2_simple_infiltration table.
