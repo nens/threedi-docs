@@ -2,7 +2,6 @@ FROM python:3
 
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    libpaper1 \
     texlive \
     texlive-latex-extra \
     dvipng \
