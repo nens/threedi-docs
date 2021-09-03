@@ -12,7 +12,12 @@ We have released a new version of the Modeller Interface with the following:
 - Water depth maps for multiple timesteps 
 - Bugfix Sideview Tool
 
-Also we have included a comprehensive table on our docs showing the current status of implementation of features of API v3: docs.3di.live/d_qgis_plugin.html#simulate 
+Also we have included a comprehensive table on our docs showing the current status of implementation of features of API v3: :ref:`simulate_api_qgis_overview`
+
+*Import note for QGIS Users:*
+
+Please note that installing QGIS has been undergoing some changes, at the moment the OSGeo4W Network Installer is the recommended way to install QGIS. See https://www.qgis.org/en/site/forusers/download.html for more information. This change does not apply for users that use the Modeller Interface installer.
+
 
 *Animation Toolbar update*
 
@@ -20,6 +25,7 @@ The styling of all animation layers has been improved. The value categories are 
  
 Below are examples of a dike breach. Animation 1 is showing relative change in water level and discharge. The plot is done for every calculation cell and flow line. Animation 2 is the same situation as an absolute plot showing the water level per calculation cell and the discharge over the flow lines.
 Some other improvements to the toolbar include:
+
 •	More user feedback.
 •	The animation layers are removed when the Animation Toolbar is deactivated.
 •	The groundwater layers are only displayed when the simulation includes groundwater.
@@ -35,6 +41,7 @@ In the current API (v3), dry weather flow is added as lateral discharges to allo
 We have added the option to generate water depth/level maps for a range of timesteps. The output is a multiband geotiff, where each band contains the water depth map of one timestep.
  
 The water depth processing algorithm also has various minor bugfixes and improvements:
+
 •	Selecting DEM layer from project no longer gives an error.
 •	Generating outputs for timestep 0 without moving the timestep slider no longer gives an error.
 •	Improved readability of LCD display by adding days to the display.
@@ -45,7 +52,6 @@ The water depth processing algorithm also has various minor bugfixes and improve
 *Bugfix SideView tool*
  
 The SideView tool no longer worked since QGIS 3.16.6. This has now been fixed
-
 
 
 

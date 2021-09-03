@@ -14,6 +14,8 @@ The section 'Frequently endured issues' below mention different types of errors 
 Known Issues
 ^^^^^^^^^^^^^^
 
+- The 3Di Toolbox plugin does not work with QGIS 3.16.8 and above. To avoid problems, install the Modeller Interface or download the OsGeo Network Installer from qgis.org
+
 - The live site uses always the max for initial water level, even when a different aggregation method is selected in the spatialite.
 
 - The live site doesn't show lateral inflow defined in the spatialite.
