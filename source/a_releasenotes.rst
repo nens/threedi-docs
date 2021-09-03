@@ -2,6 +2,54 @@
 Release notes
 *************
 
+Update 3Di Modeller Interface August 2021
+-----------------------------------------------------------
+
+We have released a new version of the Modeller Interface with the following:
+
+- Update on the animation toolbar
+- Added tooling for dry weather flow calculations
+- Water depth maps for multiple timesteps 
+- Bugfix Sideview Tool
+
+Also we have included a comprehensive table on our docs showing the current status of implementation of features of API v3: docs.3di.live/d_qgis_plugin.html#simulate 
+
+*Animation Toolbar update*
+
+The styling of all animation layers has been improved. The value categories are no longer fixed but based on the value distribution in the entire simulation. In the 2D domain, the animation toolbar now visualizes cells instead of nodes. Furthermore, the option 'relative to timestep 0' was introduced. This allows you to switch between e.g. absolute water levels and water level relative to the start of your simulation.
+ 
+Below are examples of a dike breach. Animation 1 is showing relative change in water level and discharge. The plot is done for every calculation cell and flow line. Animation 2 is the same situation as an absolute plot showing the water level per calculation cell and the discharge over the flow lines.
+Some other improvements to the toolbar include:
+•	More user feedback.
+•	The animation layers are removed when the Animation Toolbar is deactivated.
+•	The groundwater layers are only displayed when the simulation includes groundwater.
+
+*Dry weather flow calculator*
+
+In some cases it is required to add dry weather flow to a simulation. To enable this a processing tool has been added to convert dry weather flow as defined in the model spatialite (dry weather flow attribute of the impervious surface layer) to lateral discharge timeseries that can be used as in your simulations.
+In our earlier API (v1), dry weather flow was read automatically from the spatialite and calculated according a standard distribution.
+In the current API (v3), dry weather flow is added as lateral discharges to allow for more flexibility. E.g. in the distribution of dry weather flow over the day.
+
+*Water depth maps for multiple timestep*
+
+We have added the option to generate water depth/level maps for a range of timesteps. The output is a multiband geotiff, where each band contains the water depth map of one timestep.
+ 
+The water depth processing algorithm also has various minor bugfixes and improvements:
+•	Selecting DEM layer from project no longer gives an error.
+•	Generating outputs for timestep 0 without moving the timestep slider no longer gives an error.
+•	Improved readability of LCD display by adding days to the display.
+•	Set LCD value to 00:00 when file is loaded.
+•	More accurate description of what the tool does.
+
+
+*Bugfix SideView tool*
+ 
+The SideView tool no longer worked since QGIS 3.16.6. This has now been fixed
+
+
+
+
+
 Release 3Di hotfix June 25th 2021 
 -----------------------------------------------------------
 
