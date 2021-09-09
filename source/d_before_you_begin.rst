@@ -36,7 +36,9 @@ The use of the Modeller Interface is recommended for most users. Download the `M
 
 .. figure:: image/d_before_you_begin_screenshot_mi.png
     :alt: Screenshot of the Modeller Interface
-	Screenshot of the Modeller Interface
+    
+    Screenshot of the Modeller Interface
+
 
 .. _plugin_installation:
 
