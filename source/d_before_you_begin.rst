@@ -25,15 +25,27 @@ To use 3Di you need these software packages:
 Modeller Interface or QGIS
 ----------------------------
 
-- Install the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.7-1-Setup-x86_64.exe>`_  or
-- Install the Long Term Release (LTR) of QGIS, and install the 3Di toolbox and API client as QGIS plugins
+Editing, building and analyzing 3Di models is done within the Modeller Interface. The Modeller Interface is a customized QGIS installation. For those that prefer to use QGIS instead we have also inclused installation instructions for the 3Di plugins. Both are described on this page.
+
+Modeller Interface 
+^^^^^^^^^^^^^^^^^^^^
+
+Recommend installation:
+
+The use of the Modeller Interface is recommended for most users. Download the `Modeller Interface Installer <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.7-1-Setup-x86_64.exe>`_ and follow the instructions. 
+
+.. figure:: image/d_before_you_begin_screenshot_mi.png
+    :alt: Screenshot of the Modeller Interface
+	Screenshot of the Modeller Interface
 
 .. _plugin_installation:
 
 Plugin Installation
 ^^^^^^^^^^^^^^^^^^^^
 
-* QGIS 3.16 64bit Long term release (`Get QGIS <http://www.qgis.org/en/site/forusers/download.html#>`_ and use the standalone installer)
+For advanced users:
+
+* Install the QGIS 3.16 64bit Long term release (`Get QGIS <http://www.qgis.org/en/site/forusers/download.html#>`_ and use the OSGeo4W network installer)
 
     After the installation of QGIS, set the interface language and locale to American English. This makes it easier to understand the instructions in this documentation. Some locales do not support scientific notations of numbers, these are required for very small numbers (e.g. 1e-09).
 
