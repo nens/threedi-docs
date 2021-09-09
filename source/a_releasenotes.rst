@@ -12,6 +12,8 @@ We have released a new version of the Modeller Interface with the following:
 - Water depth maps for multiple timesteps 
 - Bugfix Sideview Tool
 
+Download here the latest version: `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.7-1-Setup-x86_64.exe>`_ 
+
 Also we have included a comprehensive table on our docs showing the current status of implementation of features of API v3: :ref:`simulate_api_qgis_overview`
 
 *Import note for QGIS Users:*
