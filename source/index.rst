@@ -12,8 +12,20 @@ Welcome to 3Di's documentation!
    :name: introduction
 
    a_introduction
+   a_where_to_start
    a_releasenotes
    a_contributors
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: Product information
+   :name: product information
+   
+   e_background
+   e_model_schematisation
+   e_scenario_info
+   e_api
+   e_integrations
    
 .. toctree::
    :maxdepth: 2
@@ -21,17 +33,13 @@ Welcome to 3Di's documentation!
    :name: user_manual
    :numbered:
 
-   d_before_you_begin
-   d_qgis_plugin
-   d_livesite
-   d_threedi_versioning
-   d_api
-   d_scenario_archive
-   d_integrations
-   d_modeling
+   d_building_a_model
+   d_checking_model_schematisation
+   d_adding_running_scenario
+   d_viewing_analyzing_results
    d_problem_solving
 
-.. toctree::
+   .. toctree::
    :maxdepth: 2
    :caption: Tutorials
    :name: tutorials
@@ -40,6 +48,14 @@ Welcome to 3Di's documentation!
    d_workflow_tutorial
    d_2d_tutorial
    d_2d_slope_tutorial
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Installation manual
+   :name: instalation_manual
+   
+   f_intro_modeller_interface
+   f_3di_instruments_and_downloads
 
 .. toctree::
    :maxdepth: 2
