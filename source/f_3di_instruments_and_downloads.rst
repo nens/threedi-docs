@@ -1,4 +1,4 @@
-.. _before_you_begin:
+.. _3di_instruments_and_downloads:
 
 3Di instruments and downloads
 ===============================
@@ -24,6 +24,8 @@ To use 3Di you need these software packages:
 
 Modeller Interface or QGIS
 ----------------------------
+
+For an overview on the modeller interface go to: :ref:`intro_modeller_interface`
 
 - Install the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.7-1-Setup-x86_64.exe>`_  or
 - Install the Long Term Release (LTR) of QGIS, and install the 3Di toolbox and API client as QGIS plugins
@@ -138,6 +140,8 @@ If certificate errors show, please check any security software.
 One way of testing this is by visiting https://api.3di.live/v3.0 in a browser and check the certificate.
 If it is issued by R3, this is the certificate configured by us.
 Any other name will point towards the security software in use.
+
+.. _setup_modeller_interface:
 
 3Di Modeller Interface
 ^^^^^^^^^^^^^^^^^^^^^^^^

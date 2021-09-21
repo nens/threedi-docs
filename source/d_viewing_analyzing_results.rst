@@ -9,4 +9,4 @@ Viewing and analyzing results
    :name: vieuwing_and_analysing_results
    
    d_viewing_results_mi
-   d_livesite
+   d_livesite_results

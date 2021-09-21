@@ -15,7 +15,7 @@ Start by clicking **start**. In the pop-up window choose **Load from Web**
 .. figure:: image/d_qgisplugin_apiclient_start.png
     :alt: Load from web
 	
-Afer providing the Base API URL and your username and password a connection is being made with the API.
+After providing the Base API URL and your username and password a connection is being made with the API.
 
 The Base API URL is in most cases https://api.3di.live/v3.0/
 If you want to connect to our second calculation center in Taiwan, the base API URL is https://api.3di.tw/v3.0/ 
@@ -57,7 +57,7 @@ Note: if the files have been downloaded before the Modeller Interface will use t
 Simulate
 ^^^^^^^^^^^^^^^
 
-The most used API options are included in the newest version of the plugin. Important consideration is a difference between API v1 and v3 how initial waterlevels, laterals and boundaries are handled. The current status is as follows:
+The most used API options are included in the newest version of the plugin. Important consideration is a difference between API v1 and v3 how initial waterzylevels, laterals and boundaries are handled. The current status is as follows:
 
 ============================= =========================== =========================================== ==================================
 Forcings                        Live site                  3Di API Client Wizard                       OpenAPI client

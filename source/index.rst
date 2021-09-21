@@ -19,11 +19,10 @@ Welcome to 3Di's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Product information
-   :name: product information
+   :name: product_information
    
    e_background
-   e_model_schematisation
-   e_scenario_info
+   e_3di_instruments
    e_api
    e_integrations
    
@@ -39,7 +38,8 @@ Welcome to 3Di's documentation!
    d_viewing_analyzing_results
    d_problem_solving
 
-   .. toctree::
+
+.. toctree::
    :maxdepth: 2
    :caption: Tutorials
    :name: tutorials
@@ -54,7 +54,6 @@ Welcome to 3Di's documentation!
    :caption: Installation manual
    :name: instalation_manual
    
-   f_intro_modeller_interface
    f_3di_instruments_and_downloads
 
 .. toctree::
