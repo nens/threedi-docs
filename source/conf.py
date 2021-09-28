@@ -2,7 +2,7 @@
 import datetime
 import sphinx_rtd_theme
 
-# The 3di release name that's shown at the top of the sidebar.
+# The 3Di release name that's shown at the top of the sidebar.
 # Note: non-production documentation builds are marked as such, you don't need
 # to change the release name for that.
 THREEDI_RELEASE = "2020-05 Zambesi Release"
@@ -12,7 +12,7 @@ THREEDI_RELEASE = "2020-05 Zambesi Release"
 
 # If your documentation needs a minimal Sphinx version, state it here.
 #
-# needs_sphinx = '1.0'
+#needs_sphinx = '1.3'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
@@ -74,6 +74,7 @@ todo_include_todos = is_development_build
 # a list of builtin themes.
 #
 html_theme = "sphinx_rtd_theme"
+numfig = True
 if not is_development_build:
     # Only use google analytics on the production doc site.
     html_theme_options = {"analytics_id": "UA-111119907-2"}
