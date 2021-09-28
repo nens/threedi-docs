@@ -1,12 +1,12 @@
 .. _guide_to_portal:
 
-Guide to the 3Di portal
+Guide to the 3Di live site
 =====================================
 
 Login
 ------
 
-Follow the steps below to access the 3Di portal:
+Follow the steps below to access the 3Di live site:
 
 #) Start the internet browser (Chrome or Firefox) and go to: https://3di.live
 #) Log in with your username and password.

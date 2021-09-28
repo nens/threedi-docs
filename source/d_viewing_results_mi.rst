@@ -1,19 +1,25 @@
 
-Modeller interface
+Modeller Interface
 ====================
 
 .. _view_model_results_with_modeller_interface:
 
-Viewing results with the modeller interface
+Viewing results with the Modeller Interface
 ---------------------------------------------
 
 Results
 ^^^^^^^^^^^^^^^
 	
-After a simulation is finished the results will be stored on our servers for 7 days. The files can be download via the Results button.
+After a simulation is finished the results will be stored on our servers for 7 days. The files can be download via the **RESULTS** button in the 3Di api client. 
+These files are a gridadmin.h5, results_3di.nc (the NetCDF) and log files. For information on the results, see :ref:`3dinetcdf`.
+
 
 .. figure:: image/d_qgisplugin_apiclient_download_panel.png
     :alt: Example CSV
+
+
+*These same files can be extracted from lizard, including post-processing maps that are created when 'Post-processing in Lizard' is activated in the wizard.*
+*See :ref:`simulate_api_qgis_post_processing`.*
 
 After download the NetCDF can be loaded together with the spatialite using the 3Di Toolbox as described below.
 
@@ -65,7 +71,7 @@ Analyzing results with the modeller interface
 Viewing and Analysing 3Di results
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We have various tools developped to assist users in analysing a viewing their results. In this section, some of these are described.
+We have various tools developed to assist users in analysing a viewing their results. In this section, some of these are described.
 
 .. _waterbalance:
 
@@ -74,7 +80,7 @@ The water balance tool
 
 The water balance tool computes the water balance in a sub-domain of your model. It uses the incoming and outgoing flows in that domain and visualizes the various contributions of the flow in graphs. The development was an initiative of Deltares and jointly developed with Nelen & Schuurmans. The water balance tool is co-funded by the Top Sector Water (Ministry of Economic Affairs)
 
-This is the only results tool that requeres the generation of specific results. Therefore, we also discuss the input requirements of this tool.
+This is the only results tool that requirers the generation of specific results. Therefore, we also discuss the input requirements of this tool.
 
 .. _waterbalanceactivate:
 

@@ -8,14 +8,16 @@ Using the live site
 Running a 3Di model
 --------------------
 
-This section helps you get started with interactive simulation with the integral 3Di modeling tools. Through the 3Di portal (version 2.0) the models of your organization can be loaded and simulations can be started. During the session others can follow the simulations 'live'. Also interventions can be done in the model during the simulation. Results are presented in real-time. All the steps from adjusting the input of water to viewing the calculation results are described in this section.
+This section helps you get started with interactive simulation with the integral 3Di modeling tools. Through the 3Di live site (version 2.0) the models of your organization can be loaded and simulations can be started. During the session others can follow the simulations 'live'. Also interventions can be done in the model during the simulation. Results are presented in real-time. All the steps from adjusting the input of water to viewing the calculation results are described in this section.
+
+For instructions how to login to and use the 3Di live site see :ref:`guide_to_portal`.
 
 Start the simulation
 --------------------
 
-The simulation starts by pressing the *Play* button at the top of the screen. The calculation time is displayed next to the *Play* button. 
+The simulation starts by pressing the **Play** button at the top of the screen. The calculation time is displayed next to the 'Play' button. 
 
-By default, the point information tool is switched on. With it you can click anywhere on the map to visualize the time series at that location. Default waterdepth and waterlevel will be shown. If the model contains groundwater that graph is also shown. 
+By default, the point information tool is switched on. With it you can click anywhere on the map to visualize the time series at that location. Default water depth and water level will be shown. If the model contains groundwater that graph is also shown. 
 
 The time series can all be downloaded in CSV format. The points over time that are shown are the points calculated by the 3Di calculation core and are independent from the output time step that the modeller has set.
 

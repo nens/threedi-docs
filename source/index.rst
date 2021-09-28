@@ -30,7 +30,7 @@ Welcome to 3Di's documentation!
    :maxdepth: 2
    :caption: User manual
    :name: user_manual
-   :numbered:
+   :numbered: 3
 
    d_building_a_model
    d_checking_model_schematisation
@@ -55,6 +55,7 @@ Welcome to 3Di's documentation!
    :name: instalation_manual
    
    f_3di_instruments_and_downloads
+   d_threedi_portal
 
 .. toctree::
    :maxdepth: 2
