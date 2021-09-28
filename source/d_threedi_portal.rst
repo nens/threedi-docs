@@ -1,12 +1,12 @@
 .. _guide_to_portal:
 
-Guide to the 3Di portal
-=======================
+Guide to the 3Di live site
+=====================================
 
 Login
 ------
 
-Follow the steps below to access the 3Di portal:
+Follow the steps below to access the 3Di live site:
 
 #) Start the internet browser (Chrome or Firefox) and go to: https://3di.live
 #) Log in with your username and password.
@@ -32,6 +32,8 @@ In this screen, there are two possibilities:
 * Start a new session using the *New session* tab.
 * Follow an ongoing session via the *Follow session* tab.
 
+.. _start_a_new_session:
+
 Start a new session
 --------------------
 
@@ -45,6 +47,8 @@ Select the *New session* tab and select the model you want to start.
 	:alt: Start new session
 
 *For each organization, the number of simultaneous sessions is limited according to the agreement (contract). If the limit is reached, the message "Your organization is already running X sessions" will show. The amount of server time used is subtracted from the time available within the agreement.*
+
+.. _follow_a_session:
 
 Following a session
 --------------------

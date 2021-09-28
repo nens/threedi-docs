@@ -1,16 +1,23 @@
+.. _simulate_w_live_site:
+
+Using the live site
+====================
+
 .. _running_model:
 
 Running a 3Di model
-=====================
+--------------------
 
-This section helps you get started with interactive simulation with the integral 3Di modeling tools. Through the 3Di portal (version 2.0) the models of your organization can be loaded and simulations can be started. During the session others can follow the simulations 'live'. Also interventions can be done in the model during the simulation. Results are presented in real-time. All the steps from adjusting the input of water to viewing the calculation results are described in this section.
+This section helps you get started with interactive simulation with the integral 3Di modeling tools. Through the 3Di live site (version 2.0) the models of your organization can be loaded and simulations can be started. During the session others can follow the simulations 'live'. Also interventions can be done in the model during the simulation. Results are presented in real-time. All the steps from adjusting the input of water to viewing the calculation results are described in this section.
+
+For instructions how to login to and use the 3Di live site see :ref:`guide_to_portal`.
 
 Start the simulation
 --------------------
 
-The simulation starts by pressing the *Play* button at the top of the screen. The calculation time is displayed next to the *Play* button. 
+The simulation starts by pressing the **Play** button at the top of the screen. The calculation time is displayed next to the 'Play' button. 
 
-By default, the point information tool is switched on. With it you can click anywhere on the map to visualize the time series at that location. Default waterdepth and waterlevel will be shown. If the model contains groundwater that graph is also shown. 
+By default, the point information tool is switched on. With it you can click anywhere on the map to visualize the time series at that location. Default water depth and water level will be shown. If the model contains groundwater that graph is also shown. 
 
 The time series can all be downloaded in CSV format. The points over time that are shown are the points calculated by the 3Di calculation core and are independent from the output time step that the modeller has set.
 
@@ -61,30 +68,6 @@ The numbers of the design rainfall point the following rainfall events:
 Rain 3 till 10 are the Dutch C2100 rainfall events
 Rain 11 till 16 are the DPRA rainfall events
 	
-DEM edit/ Raster edit
-------------------------------------------------
-
-A DEM edit is a tool in the live site, it allows to adjust the height of the bathymetry. This can be done at any time during the simulation. 
-
-.. figure:: image/d_dem_edits.png
-   :alt: Dem edits
-
-To edit the bathymetry of the model, make sure the DEM-layer is activated. This can be done via the maplayers menu and clicking on the 'Digital Elevation Model' layer. The elevation edit is in absolute numbers in m MSL. If you are not sure about the elevation to use, use the side view tool to check the height in the model. In some cases it might be useful to also turn on the model grid layer.
-
-After entering a value, click 'Draw on map' and start clicking. 
-
-.. figure:: image/d_draw_dem_polygon.png
-   :alt: Performing a dem edit
-   
-After finalizing the polygon by clicking again on the first point, click on confirm. The Edit then shows in the applied items section
-
-.. figure:: image/d_confirm_dem_polygon.png
-   :alt: Confirming a dem edit
-
-The result can be checked using the 'Side view' tool.
-
-Please note that if there is water on the 2D while editing, and the edit lowers the surface the calculation core needs a few time steps to get to a new water level in the DEM edit location. 
-
 
 Wind 
 ---------
@@ -93,25 +76,6 @@ A compass card appears after clicking on the leaf icon followed by clicking on t
 
 .. figure:: image/d3.6_wind.png
 	:alt: Wind speed, direction and duration
-
-1D network
-----------
-
-Channels and structures can be included as 1D elements in the model. The channels show the direction of flow with the help of moving points. The direction and speed are based on the flow velocity in the channel. The different sizes of the points are based on thhe discharge. The results (discharge, water level, waterdepth and flow velocity) are available at the structures by selecting them.
-
-Discharge and velocity are in the lines:
-
-.. figure:: image/d3.7_1d_network.png
-	:alt: 1D network
-	
-
-And water level and water depth are in the nodes:
-
-	.. figure:: image/d3.8_1d_network.png
-	:alt: 1D network
-	
-	
-It is also possible to adapt some properties of structures during the calculation. This includes among others the closing of a culvert or increasing the pumping capacity.
 
 Breaches 
 --------------------
@@ -127,9 +91,6 @@ If breach locations are predefined in the model, these can be activated as follo
 	:alt: Breach location
 
 To show the flow rate over time, select a breach location using the point information tool. 
-
-
-.. _store_results_live_site:
 
 Store results
 --------------

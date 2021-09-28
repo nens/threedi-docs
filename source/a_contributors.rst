@@ -1,5 +1,5 @@
-Contributors
-============
+Contributors and Contact
+=========================
 
 This manual has been created with the help of staff members of Deltares, RHDHV, het Hoogheemraadschap van Delftland, MicroX and Nelen & Schuurmans.
 

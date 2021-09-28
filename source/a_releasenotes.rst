@@ -451,6 +451,7 @@ Boundary conditions             v1, v3              -               v1, v3
 Initial water level             v1, v3              v1, v3          -
 Laterals  1D and 2D             v1                  v3              -
 ============================= ================= ================= ===============
+
 A user can trace back the events of a simulation via this page: https://api.staging.3di.live/v3.0/simulations. 
 
 Model meta info

@@ -1,7 +1,7 @@
 .. _tutorial1_workflow:
 
 Tutorial 1: Workflow of building a 3Di model
-=========================
+=============================================
 
 Welcome to 3Di and your first tutorial. In this tutorial, we will go through the basic steps of building a 3Di model. 
 These are the pre-processing steps before you can start building your model and the post-processing steps after you 
@@ -32,14 +32,15 @@ Before you start, please make sure to:
 * Download the Laugharne and Pendine Burrows `model <https://nens.lizard.net/media/3di-tutorials/3di-tutorial-01.zip>`_ for this tutorial.
     
 Pre-processing: loading a model into the 3Di modeller interface
----------------------
+-----------------------------------------------------------------
 
 3Di models are built from a spatialite database plus a set of supporting data rasters. The spatialite database is the file with the .sqlite extension. The spatialite database contains the model settings and features like channels, weirs, and levees. The supporting data rasters contain geospatial information like elevation, friction and infiltration. They must be prepared in a GeoTIFF format with extension .tif. The minimum requirement for any 3Di model is a spatialite database with model settings and an elevation raster. The latter is commonly referred to as a digital elevation model (DEM).
 
 The Laugharne and Pendine Burrows model folder contains two models. Open model 1. It contains a spatialite database and one elevation raster in the folder “rasters”. This folder contains a DEM of the study area.
 
 .. figure:: image/00_model_folder.png
-   :scale: 30%
+    :scale: 30%
+    
 To start working on a model, the spatialite database must be loaded into the 3Di modeller interface. Load the LP_Burrows.sqlite model via the following steps:
 
 a.  Open the 3Di modeller interface on your computer.

@@ -33,24 +33,23 @@ TODO: Noem de modellendatabank en voeg die ook toe in je plaatje
    :name: 3Di Ecosystem
 
    a_introduction
+   a_where_to_start
    a_releasenotes
    a_contributors
    
+  
 .. toctree::
    :maxdepth: 1
    :caption: User manual
    :name: user_manual
-   :numbered:
+   :numbered: 3
 
-   d_before_you_begin
-   d_qgis_plugin
-   d_livesite
-   d_threedi_versioning
-   d_api
-   d_scenario_archive
-   d_integrations
-   d_modeling
+   d_building_a_model
+   d_checking_model_schematisation
+   d_adding_running_scenario
+   d_viewing_analyzing_results
    d_problem_solving
+
 
 .. toctree::
    :maxdepth: 1
@@ -61,6 +60,14 @@ TODO: Noem de modellendatabank en voeg die ook toe in je plaatje
    d_workflow_tutorial
    d_2d_tutorial
    d_2d_slope_tutorial
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Installation manual
+   :name: instalation_manual
+   
+   f_3di_instruments_and_downloads
+   d_threedi_portal
 
 .. toctree::
    :maxdepth: 2
