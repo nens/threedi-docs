@@ -13,7 +13,7 @@ The standard wind data gives the speed and direction of the wind at a height of 
 .. math::
    :label: vertical wind profile
 
-   u_{wind}(z,t) = \frac{u^*}{\kappa} * log( \frac{z}{z_0} )
+   u_{wind}(z,t) = \frac{u^*}{\kappa} log( \frac{z}{z_0} )
 
 | In which: 
 | u\ :sub:`wind`\ = wind speed at level z, 
