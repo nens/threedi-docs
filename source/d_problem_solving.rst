@@ -70,7 +70,7 @@ The complete error looks like this::
               2021-10-07 14:16:57,132 - threedi_spatialite_tools.threedi_files.api_resources - ERROR - could not create threedimodels resource: (400)
               Reason: Bad Request
               HTTP response headers: HTTPHeaderDict({'content-length': '91', 'x-xss-protection': '1', 'x-content-type-options': 'nosniff', 'strict-transport-security': 'max-age=63072000', 'vary': 'Accept, Origin, Cookie', 'server': 'openresty/1.15.8.3', 'allow': 'GET, POST, HEAD, OPTIONS', 'date': 'Thu, 07 Oct 2021 12:16:57 GMT', 'x-frame-options': 'DENY', 'referrer-policy': 'strict-origin-when-cross-origin', 'content-type': 'application/json'})
-             HTTP response body: {"slug":["Enter a valid \"slug\" consisting of letters, numbers, underscores or hyphens."]}
+              HTTP response body: {"slug":["Enter a valid \"slug\" consisting of letters, numbers, underscores or hyphens."]}
 
 Please check the column 'name' in the v2_global_settings table of the sqlite. This name should not contain spaces. If that is the case, remove the space or replace it with a _ 
 
