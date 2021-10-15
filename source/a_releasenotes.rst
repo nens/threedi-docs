@@ -2,8 +2,8 @@
 Release notes
 *************
 
-Release 3Di October 18th  2021 
------------------------------------------------------------
+Release 3Di October 18th 2021 
+-----------------------------
 
 We have released new versions of:
 
@@ -14,26 +14,27 @@ We have released new versions of:
 Live site 
 ==========
 
-- Remembers the organisation you have selected and the search term last used
+- Saves the organisation you have selected and your previous search term last
 - Forms reflect the last action from the user. E.g. for rainfall it doesn't reset to the default value anymore
 - Events can be deleted or stopped. For now pumps, discharges, rain and wind are supported
 
 
-Calculation Core
-=================
+Computational Core
+==================
 
-- There is an improved version to compute flow through a breach. The new formula is 2D-grid size-independent and allows sensitivity studies to be conducted based on the discharge. In most cases, your results will remain roughly the same. Also, the discharge becomes tunable so you can set it back to your previous result if necessary.
+- There is an improved version to compute flow through a breach. The new formula is 2D-grid-size independent and allows sensitivity studies to be conducted based on the discharge. In most cases, your discharge results will remain roughly the same. Also, the discharge becomes tunable, to offer an easy sensitivity option. It also allows you to get back your previous results.
  
 Bugfixes:
 
+- Fixed the computation of the breach width. Especially, the initial growth was underestimated in case the time to reach the maximum breach depth was large.
 - Fixed a small bug in the raster edits. This fixed also the option to perform rsater edits in computational cells having only 4 subgrid cells.
 - Fix for broad weir formulation for the critical conditions
 
 
-API
-=====
+API v3
+======
 
-As of this release support for API v1 will be stopped. Do you still need access to API v1? Please contact our servicedesk.
+After this release, we stop to support API v1. Do you still need access to API v1? Please contact our servicedesk.
 
 New Features:
 
@@ -69,7 +70,7 @@ Bugfixes:
 
 
 Update 3Di Modeller Interface August 2021
------------------------------------------------------------
+-----------------------------------------
 
 We have released a new version of the Modeller Interface with the following:
 
