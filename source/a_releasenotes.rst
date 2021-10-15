@@ -2,6 +2,70 @@
 Release notes
 *************
 
+Release 3Di October 18th  2021 
+-----------------------------------------------------------
+
+We have released new versions of:
+
+- Live site
+- Calculation Core
+- API
+
+Live site 
+==========
+
+- Remembers the organisation you have selected and the search term last used
+- Forms reflect the last action from the user. E.g. for rainfall it doesn't reset to the default value anymore
+- Events can be deleted or stopped. For now pumps, discharges, raind and wind are supported
+
+
+Calculation Core
+=================
+
+- There is an improved version to compute flow through a breach. The new formula is 2D-grid size-independent and allows sensitivity studies to be conducted based on the discharge. In most cases, your results will remain roughly the same. Also, the discharge becomes tunable so you can set it back to your previous result if necessary. More information can be found here [link to pdf]
+ 
+Bugfixes:
+
+- Fixed a small bug in the raster edits. This fixed also the option to perform rsater edits in computational cells having only 4 subgrid cells.
+- Fix for broad weir formulation for the critical conditions
+
+
+API
+=====
+
+New Features:
+
+- Added structure controls file (bulk) upload.
+- Added extra fields, filtering and sorting options on statuses endpoint
+
+Improvements:
+
+- Decreased SQL query count of files and threedimodels endpoints.
+- Simulation can only be created by an organisation with a valid contract.
+- API version v3.0 renamed from to v3. Version v3.0 still works for backwards compatibilty.
+
+Bugfixes:
+
+- Removed 5 min timed-out when uploading result files.
+- Set simulation state to finished after pause timeout. 
+- File endpoint max pagination size is now 250, like rest of the API endpoints.
+- Boundary conditions interpolation 
+- Added convergence_eps to Simulation settings
+- Properly set file status after upload_processor crash.
+- Gracefully handle invalid "spatial_ref" in default NetCDF.
+- TMS min/max values where incorrect if the raster contained np.nan values.
+- Fix versions in browsable API hyperlinks.
+- Fix versions in browsable API hyperlinks.
+- Disable throttling on /health/ endpoint.
+- Fix authorization for objects that derive their ownership through schematisation objects (threedimodels resource and childs, threedimodel fields, initial_waterlevel field).
+- Solve N+1 query issue for threedimodels with schematisation revisions.
+- Results.basic field in Lizard postprocessing API is now correct.
+- Levees geojson generation problem fixed due to incorrect dtype
+- Simulation filtering on status endpoint is no longer possible
+- Ordering of Lizard postprocessing statuses
+
+
+
 Update 3Di Modeller Interface August 2021
 -----------------------------------------------------------
 
