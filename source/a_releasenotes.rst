@@ -16,13 +16,13 @@ Live site
 
 - Remembers the organisation you have selected and the search term last used
 - Forms reflect the last action from the user. E.g. for rainfall it doesn't reset to the default value anymore
-- Events can be deleted or stopped. For now pumps, discharges, raind and wind are supported
+- Events can be deleted or stopped. For now pumps, discharges, rain and wind are supported
 
 
 Calculation Core
 =================
 
-- There is an improved version to compute flow through a breach. The new formula is 2D-grid size-independent and allows sensitivity studies to be conducted based on the discharge. In most cases, your results will remain roughly the same. Also, the discharge becomes tunable so you can set it back to your previous result if necessary. More information can be found here [link to pdf]
+- There is an improved version to compute flow through a breach. The new formula is 2D-grid size-independent and allows sensitivity studies to be conducted based on the discharge. In most cases, your results will remain roughly the same. Also, the discharge becomes tunable so you can set it back to your previous result if necessary.
  
 Bugfixes:
 
@@ -32,6 +32,8 @@ Bugfixes:
 
 API
 =====
+
+As of this release support for API v1 will be stopped. Do you still need access to API v1? Please contact our servicedesk.
 
 New Features:
 
