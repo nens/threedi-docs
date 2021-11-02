@@ -1,19 +1,18 @@
 .. _guide_to_portal:
 
-Guide to the 3Di live site
+Guide to the 3Di Live Site
 =====================================
 
 Login
 ------
 
-Follow the steps below to access the 3Di live site:
+Follow the steps below to access the 3Di Live Site:
 
 #) Start the internet browser (Chrome or Firefox) and go to: https://3di.live
 #) Log in with your username and password.
 
 	* Username and password can be requested via servicedesk@nelen-schuurmans.nl.
-	* You can clear the fields by clicking the **Reset values** button.
-	* Forgot your password? Request a new password via **Reset my password**.
+
 
 .. figure:: image/d2.1_login.png
 	:scale: 50%
@@ -22,50 +21,62 @@ Follow the steps below to access the 3Di live site:
 Welcome to 3Di
 --------------
 
-After logging in to the 3Di portal, the screen *Welcome to 3Di* will show:
+After logging in to the 3Di Live Site, the screen *Welcome screen* will show:
 
 .. figure:: image/d2.2_login.png 
 	:alt: Welcome to 3Di screen
 
 In this screen, there are two possibilities:
 
-* Start a new session using the *New session* tab.
-* Follow an ongoing session via the *Follow session* tab.
-
-.. _start_a_new_session:
-
-Start a new session
---------------------
-
-Select the *New session* tab and select the model you want to start.
-
-* A new session will be started.
-* During the start up of the model tips for use of the site will be shown.
-* It may take several minutes to load the model. Actual loading time is dependent on model size, calculation grid and table step size.
-
-.. figure:: image/d2.4_start_session.png 
-	:alt: Start new session
-
-*For each organization, the number of simultaneous sessions is limited according to the agreement (contract). If the limit is reached, the message "Your organization is already running X sessions" will show. The amount of server time used is subtracted from the time available within the agreement.*
+* Start a new session using the :ref:`start_a_new_session` tab.
+* Follow an ongoing session via the :ref:`follow_a_session` tab.
 
 .. _follow_a_session:
 
 Following a session
 --------------------
 
-Through the tab *Follow session* an active session of your organization can be followed. The number of followers of a session is not limited.
+Through the tab **Follow session** an active session of your organization can be followed. Select an active simulation and press **follow**. The number of followers of a session is not limited. To leave the session, got to the **user menu** under the user icon (top right) and press **Leave session**. 
+
+
+.. _start_a_new_session:
+
+Start a new session
+--------------------
+
+* Select the **New session** tab. 
+* Select your company in the **Billing goes to:** drop down menu. 
+* Select the model you want to start.
+
+A new session will be started. During the start up of the model tips for use of the site will be shown. It may take several minutes to load the model. Actual loading time is dependent on model size, calculation grid and table step size.
+
+.. figure:: image/d2.4_start_session.png 
+	:alt: Start new session
+
+*For each organization, the number of simultaneous sessions is limited according to the agreement (contract). If the limit is reached, the message "Your organization is already running X sessions" will show. The amount of server time used is subtracted from the time available within the agreement.*
+
+
 
 Main session
 ------------
 
-When starting or following a session, the model will show in the complete extent. On the top left you can see the name of the loaded model. At the top right you can see the user menu icon and a % indicating the load of the model on the server.
+When starting or following a session, the screen in :numref:`fig_main_ses` will be loaded. The loaded model will be shown in the complete extent. At the top left you can see the name of the loaded model.
 
+
+.. _fig_main_ses:
 
 .. figure:: image/d2.6_main.png 
 	:alt: Main session
 
- 
-The left bar from top to bottom contains: 
+	Interface main session.
+
+
+1. With the **Start simulation** button, the simulation can be started and once started paused. 
+2. Here the simulation run time will be indicated in hours:minutes.
+3. Indicates the load of the model on the server in %.
+4. The :ref:`user_menu`.
+5. The Search Bar.
+6. The bar from top to bottom contains: 
 
 - point tool
 - side view tool
@@ -74,7 +85,8 @@ The left bar from top to bottom contains:
 - add rainfall
 - add wind
 - edit the DEM of the model
-- show maplayers
+
+7. layer tool
 
 For the visualization of the model elements, see the :ref:`layers_menu`.
 
@@ -83,17 +95,41 @@ For the visualization of the model elements, see the :ref:`layers_menu`.
 User menu
 ----------
 
-Click the user icon  at the top right of the screen to show the user menu. The user menu has the following options:
+Click the user icon at the top right of the screen to show the **User menu**. The user menu has the following options:
 
-* **Calculation speed** 
+Preferences
+"""""""""""
 
 .. figure:: image/d2.8_user_menu.png 
 	:alt: User menu
 
 **Calculation speed** 
-Calculation speed on the live site is slowed down in case of fast models. This is done because the live site is meant to have live insights in what is happening. If the model is too fast, it is hard to understand the flows. If you don't want this option to be turned on, toggle the 'off' radio button. The model most likely will speed up in case the % on the top right of the screen was not indicating 100%. In case the server load is already at 100%, no gain will be seen in calculation speed on the live site.
+Calculation speed on the live site is slowed down (**capped speed**) by default in case of fast models. This is done because the live site is meant to have live insights in what is happening. If the model is too fast, it is hard to understand the flows. 
+If you want to calculate on full speed, choose the **Real-time speed** option. The model most likely will speed up in case the % on the top right of the screen was not indicating 100% already. In case the server load is at 100%, no gain will be seen in calculation speed on the live site.
 
-	
+
+Help
+""""
+Currently sends you to https://3diwatermanagement.com/3di-start/.
+For support from the help desk, visit :ref:`https://3diwatermanagement.com/3di-start/`.
+
+
+Quit simulations
+""""""""""""""""
+:ref:`timeoutlivesite` ends the use of calculation time. And let's you save your results.
+
+You can:
+
+- **Quit, don't store results**
+- **Quit, store results**, for more information, see: :ref:`store_results_live_site`.
+
+*link naar results toevoegen* 
+
+Restart simulations
+"""""""""""""""""""
+Restarting the simulation resets all the calculations that have been made and reloads the simulation. If you want to save your results you will get sent back to the start screen afterwards.
+
+
 .. _layers_menu:
 
 Layers menu
@@ -148,6 +184,13 @@ In the menu under the user icon, quitting the simulation ends the use of calcula
 - time out after being inactive is set to 30 minute for a running simulation
 - time out after being inactive is set to 5 minute for a paused simulation
 - leaving the session via a tab will close the simulation after 30 minutes
+
+
+.. _store_results_live_site:
+
+Saving results
+--------------
+*verhaal van scenario toevoegen hier*
 
 .. _notables:
 
