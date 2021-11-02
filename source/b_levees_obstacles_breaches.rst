@@ -56,7 +56,7 @@ In a 3Di model, flow may occur between 1D and 2D elements. In certain cases this
 Breach growth formulation
 ++++++++++++++++++++++++++++++++++++++
 
-In 3Di, the formula of Verheij and van de Knaap (2003) is used to describe the growth of a breach. For this formulation it is expected that the material of the levee (sand or clay), an initial breach width, the maximum breach depth and the period that is needed to reach this depth are known.
+In 3Di, the formula of Verheij and van de Knaap (2002) is used to describe the growth of a breach. For this formulation it is expected that the material of the levee (sand or clay), an initial breach width, the maximum breach depth and the period that is needed to reach this depth are known.
 
 .. figure:: image/b_breach_growth.png
    :alt: breach growth
@@ -90,8 +90,8 @@ Once the minimum breach level is reached, the width of the breach increases acco
 .. math::
    :label: breach_growth2
 
-   B(t + \Delta t) = B(t) + \Delta t  \frac{\delta B}{\Delta t}  |_t  \qquad     t > T_0 \\
-   \frac{\Delta B}{\Delta t}  |_t = \frac{f_1  f_2}{u_c^2 ln[10]}  \frac{g(h_{up}(t) - h_{down}(t))^{3/2}}{1 + \frac{f_2g}{u_c}(t - T_0) }   \qquad     t > T_0
+   B(t + \Delta t) = B(t) + \frac{\partial B}{\partial t}  |_t \Delta t  \qquad     t > T_0 \\
+   \frac{\partial B}{\partial t}  |_t = \frac{f_1  f_2}{u_c^2 ln[10]}  \frac{[g(h_{up}(t) - h_{down}(t))]^{3/2}}{1 + \frac{f_2g}{u_c}(t - T_0) }   \qquad     t > T_0
 
 | In which: 
 | :math:`f_1, f_2` empirically derived parameters, different per sediment type, 

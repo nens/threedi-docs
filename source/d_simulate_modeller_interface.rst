@@ -3,7 +3,7 @@
 Using the Modeller Interface
 =============================
 
-To start simulating with the Modeller Interface, you first need to start up the **3Di API Client** plugin, load your model and add a scenario.
+To start simulating with the Modeller Interface, you first need to open the Modeller Interface, :ref:`start_up_api_qgis` plugin, :ref:`load your model <load_model_api_qgis>`. and :ref:`add_scenario_info`. This section also provides information on the different options for your scenario.
 
 
 .. _start_up_api_qgis:
@@ -11,7 +11,7 @@ To start simulating with the Modeller Interface, you first need to start up the 
 Start up the 3Di API Client
 ----------------------------
 
-Start up the Modeller Interface. Click on **Plug-ins** from the menu bar and open the dropdown menu. Click on **3Di API Client** to start up the plugin.
+Open the Modeller Interface. Click on **Plug-ins** from the menu bar and open the dropdown menu. Click on **3Di API Client** to start up the plugin.
 For a guide on how to install the Modeller Interface or the API Client see :ref:`3di_instruments_and_downloads`.
 
 *screenshot toevoegen*
@@ -22,21 +22,18 @@ For a guide on how to install the Modeller Interface or the API Client see :ref:
 Load model
 ------------
 
-Load your model by clicking **start** in the 3Di API Client. In the pop-up window choose **Load from Web**.
+Load your model by clicking **start** in the 3Di API Client. In the pop-up window (wizard) choose **Load from Web**.
+
+**Note:** If you are using 3Di outside of the Netherlands you need to change the Base API. See: :ref:`plugin_settings` on how to do this. 
 
 *screenshot toevoegen*
 
 .. figure:: image/d_qgisplugin_apiclient_start.png
     :alt: Load from web
-	
-*After providing the Base API URL and your username and password a connection is being made with the API.*
-
-*The Base API URL is in most cases https://api.3di.live/v3.0/. If you want to connect to our second calculation center in Taiwan, the base API URL is https://api.3di.tw/v3.0/ . <-dit klopt niet meer toch?*
-
 
 .. figure:: image/d_qgisplugin_apiclient_login.png
     :alt: Load from web
-	
+
 Users that have access to run simulations for more than one organisation will get a menu in which they choose the organisation: 
 
 .. figure:: image/d_qgisplugin_apiclient_login_choose_organisation.png
@@ -70,7 +67,7 @@ Note: if the files have been downloaded before the Modeller Interface will use t
 		
 	
 Simulate
----------
+----------
 
 To start a simulation, click on the **SIMULATE** button. Next, the following window will be shown:
 
@@ -81,8 +78,12 @@ This window shows an overview of current simulations for the specific organisati
 
 To stop a simulation, select the simulation you want to stop and click on **Stop Simulation**. 
 
-To start a simulation you can either use 'Load template' or 'New simulation'. Both options will enable you to fill in scenario information and start a simulation.
+To start a simulation you can either use **Load template** or **New simulation**. Both options will enable you to fill in scenario information and start a simulation.
 
+.. _add_scenario_info:
+
+Add scenario information
+----------------------------
 
 Using **Load template** enables you to re-use a previously stored scenario template. All the previous defined settings are automatically filled into the scenario information. This information can still be edited, before you run the simulation.
 
@@ -94,31 +95,31 @@ Selecting **New Simulation** will start a simulation with a new scenario that st
 In this window the various options, to be used in the simulation calculation, can be defined.
 
 
-**Boundary conditions**
+Boundary conditions:
 Not configurable yet. Boundary conditions are taken from the spatialite directly.
 
-**Initial conditions**
+:ref:`simulate_api_qgis_initial_conditions`:
 To define the use of a (previously) saved state or initial water levels in 1D, 2D or Ground water.
 
-**Laterals**
+:ref:`simulate_api_qgis_laterals`:
 To select laterals to use in the model.
 
-**Breaches**
+:ref:`simulate_api_qgis_breaches`:
 To select a breach to open in the model.
 
-**Precipitation**
+:ref:`simulate_api_qgis_precipitation`:
 To define precipitation in the model.
 
-**Wind**
+:ref:`wind_apiclient`:
 To define wind in the model.
 
-**Multiple simulations** (becomes available when using either breaches or precipitation)
+:ref:`simulate_api_qgis_multi_sim` (becomes available when using either breaches or precipitation):
 To define multiple simulations with rainfall or breaches. Useful when simulating multiple events on the same model. 
 
-**Generate saved state after simulation**
+:ref:`generate_api_qgis_saved_state`:
 To save the end result of the simulation as a saved state.
 
-**Post-processing in Lizard**
+:ref:`simulate_api_qgis_post_processing`:
 This is a feature that is only available for users of organisations that have a Lizard account. It enables you to store the results in the cloud and it triggers automated post-processing of water depth, water levels, time of arrival, flood hazard rating and damage estimations maps. 
 See :ref:`simulate_api_qgis_post_processing` on how to use post-processing.
 
@@ -132,7 +133,7 @@ Adding tags can clarify for other users what your simulation calculated or can b
 .. figure:: image/d_qgisplugin_apiclient_new_simulation.png
     :alt: Choose new simulation 
 
-The first step in any simulation is choosing the simulation duration:
+The first step in any simulation is choosing the duration of the simulation:
 
 
 .. figure:: image/d_qgisplugin_apiclient_choose_duration.png
@@ -158,36 +159,33 @@ Initial conditions either refer to the use of saved state file, or the use of in
 
 2D Surface Water options:
 
-- Raster: this refers to the initial water level raster as uploaded with the model to the model databank.
+- Raster: this refers to the initial water level raster as uploaded with the model to the model database.
 - Aggregation settings: This can min, max or average 
 - Global value: this would be a generic initial water level value in m MSL which is applied in all 2D nodes of the model.
 
 
 2D Groundwater options:
 
-- Raster: This refers to the initial water level raster as uploaded with the model to the model databank.
+- Raster: This refers to the initial water level raster as uploaded with the model to the model database.
 - Global value: This would be a generic initial water level value in m MSL which is applied in all 2D ground water nodes of the model.
+
 
 .. _simulate_api_qgis_laterals:
 
 Laterals
 """"""""""
 
-Laterals can be uploaded using .csv format for either 1D or 2D. 
+Laterals can be uploaded using .csv format for either 1D or 2D. For a more detailed description on laterals, see: :ref:`laterals`.
 
 .. figure:: image/d_qgisplugin_apiclient_laterals_start.png
     :alt: Choose laterals 
 
-The CSV file format is generated by a right-mouse click on table: v2_1d_lateral. Then choose export --> save features as --> 
-
-Select csv as output format. Choose a filename and location to store and click OK. the file should like like this:
+The CSV file format is generated by a right-mouse click on table: v2_1d_lateral. Then choose export --> save features as --> Select csv as output format. Choose a filename and location to store and click OK. the file should like like this:
 
 .. figure:: image/d_qgisplugin_apiclient_laterals_export_csv_example.png
     :alt: Export laterals as csv
 
-
 *Important note: Units in the CSV are seconds (for time steps) and m3/s (for the flows).*
-
 
 .. _simulate_api_qgis_breaches:
 
@@ -201,11 +199,13 @@ A breach can be selected using the menu below:
 
 When choosing the model to calculate in a breaches file was downloaded from the server. The number of the breach as shown in the map canvas is the number required in the wizard. Alternatively, you can also select a breach before starting the wizard. This breach will then be used in the calculation. 
 
+For a description on breaches, see: :ref:`breaches`.
+
 
 .. _simulate_api_qgis_precipitation:
 
 Precipitation
-""""""""""""""""""
+"""""""""""""""
 
 There are several options to define a precipitation event for your simulation. In the drop-down menu, one can choose Constant, Custom, Design and Radar events. For all events an offset can be defined. The offset is the duration between start simulation and the start of the rainfall event. 
 
@@ -260,21 +260,20 @@ This option becomes available when using either breaches or precipitation. You c
 
 .. _wind_apiclient:
 
-
 Wind
-"""""""""
+"""""""
 
-To define wind in the model. Wind in 3Di applies to 2D surface water. Read more about :ref:`wind_effects` here.
+Wind in 3Di applies to 2D surface water. Read more about wind and the physics used by 3Di here: :ref:`wind_effects`.
 
 You can choose between a Constant or a Custom type of wind. For both events an offset and a drag coefficient can be defined. The offset (start after) is the duration between the start of the simulation and the start of the wind event. The drag coefficient has a default value of 0,005. By increasing the drag coefficient, you increase the influence of the wind. 
 
-When choosing a Constant wind event, the stop after, wind speed and direction must also be defined. The stop after is the duration between the start of the simulation and the end of the wind event. 
+When choosing a **Constant** wind event, the stop after, wind speed and direction must also be defined. The stop after is the duration between the start of the simulation and the end of the wind event. 
 The (meteorological) wind direction is defined as the direction from which the wind originates, measured in degrees clockwise from due north. Therefore, wind blowing toward the south has a direction of 0 degrees. You can either use the wind rose to depict which way the wind is blowing, or enter the direction manually. 
 
 .. figure:: image/d_qgisplugin_apiclient_wind_constant.png
     :alt: Choose Constant wind
 
-When choosing a Custom wind, the CSV format is minutes, wind speed in m/s and wind direction, both for that time step. The interpolate options will gradually change the wind speed or wind direction throughout a time series. Without the interpolate functions the wind speed and wind direction will stay constant within the time steps and will make an abrupt transition to the next time step.
+When choosing a **Custom** wind, the CSV format is minutes, wind speed in m/s and wind direction, both for that time step. The interpolate options will gradually change the wind speed or wind direction throughout a time series. Without the interpolate functions the wind speed and wind direction will stay constant within the time steps and will make an abrupt transition to the next time step.
 
 .. figure:: image/d_qgisplugin_apiclient_wind_custom.png
     :alt: Choose Custom wind
@@ -282,12 +281,17 @@ When choosing a Custom wind, the CSV format is minutes, wind speed in m/s and wi
 .. figure:: image/d_qgisplugin_apiclient_wind_csv.png
     :alt: Example CSV wind
 
-After choosing all the settings check the overview, press Next and Add to Queue. The simulation will start up when there is a session available on the servers within your organisation.
+After choosing all the settings check the overview, press **Next** and **Add to Queue**. The simulation will start up when there is a session available on the servers within your organisation.
 
 .. figure:: image/d_qgisplugin_apiclient_preview_simulation.png
     :alt: Overview new simulation
 
 
+.. _generate_api_qgis_saved_state:
+
+Generate saved state after simulation
+""""""""""""""""""""""""""""""""""""""
+To save the end result of the simulation as a saved state. A saved state file can be used as an initial condition. For more information, see: :ref:`state_files`.
 
 .. _simulate_api_qgis_post_processing:
 
@@ -303,9 +307,7 @@ The damage estimations are only available in the Netherlands. Contact us at serv
 .. figure:: image/d_qgisplugin_apiclient_postprocessing_lizard.png
     :alt: Example CSV
 	
-*Basic processed results*
-
-Stores the 3Di output files in the Lizard platform:
+**Basic processed results** stores the 3Di output files in the Lizard platform:
 
 - Result NetCDF (containing actual values)
 - Aggregate NetCDF (availability and content dependent on user settings. required for water balance tool in Modeller Interface)
@@ -325,13 +327,9 @@ As a service, the following maps are available in Lizard:
 
 All maps can be downloaded as GTiff, either via the interface demo.lizard.net or via the lizard API.
 
-*Arrival time map*
+When **Arrival time map** is checked a map with arrival time is being calculated showing the time of arrival of water per pixel in hours. 
 
-When this is checked a map with arrival time is being calculated showing the time of arrival of water per pixel in hours. 
-
-*Damage estimation*
-
-Only available in the Netherlands: automated estimate of damage as a result of flooding. Takes into account water depth and duration of flood. Result is the following damage maps:
+**Damage estimation** is only available in the Netherlands: automated estimate of damage as a result of flooding. Takes into account water depth and duration of flood. Result is the following damage maps:
 
 - Water depth (WSS)
 - Damage (direct)
@@ -352,7 +350,7 @@ For information on how to get, view and analyse results, see :ref:`view_model_re
 
 
 
-old table
+Old table
 -----------
 
 The most used API options are included in the newest version of the plugin. Important consideration is a difference between API v1 and v3 how initial waterzylevels, laterals and boundaries are handled. The current status is as follows:
