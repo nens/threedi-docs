@@ -10,9 +10,7 @@ Welcome to 3Di's documentation
 
 
 .. toctree::
-   :titlesonly:
-   :hidden:
-   :maxdepth: 2
+   :maxdepth: 1
    
    a_releasenotes
    a_contributors

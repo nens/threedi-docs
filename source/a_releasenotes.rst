@@ -1,14 +1,52 @@
 Release notes
-===============
+=============
 
-.. toctree::
-    :maxdepth: 3
-    
-    a_releasenotes
+.. _release_notes_LS:
+
+3Di Live Site
+--------------
+
+October 18th 2021
+^^^^^^^^^^^^^^^^^
+
+We have released new versions of the live site
+
+- Saves the organisation you have selected and your previous search term last
+- Forms reflect the last action from the user. E.g. for rainfall it doesn't reset to the default value anymore
+- Events can be deleted or stopped. For now pumps, discharges, rain and wind are supported
+
+March 23rd 2021
+^^^^^^^^^^^^^^^^
+
+We have update the 3Di live site with following features:
+
+- Water depth graph now also shows a graph with water depth - 0
+- Add a clock time hover
+- Add hh:mm at the start of the simulation, to make clear what are the units of the clock
+- Add decimal support for discharge (when editing pumps)
+- Add minute support for durations
+- Ability to select different units when editing a pump discharge
+
+February 22nd 2021
+^^^^^^^^^^^^^^^^^^^^
+
+Bugfixes in 3Di live site 
+""""""""""""""""""""""""""""
+3Di Live site:
+
+- Rescale DEM coloring based on model
+- Correct water depth calculation for manholes
+- Close culvert in both directions
+- Rate limiter interferes with simulation in spectator mode
+- Moving dots for 0D1D models fixed
+- Correct handling of wind direction
+- Breach editing used wrong id
 
 
-Update 3Di Modeller Interface 
--------------------------------
+.. _release_notes_MI:
+
+3Di Modeller Interface 
+----------------------
 
 August 2021
 ^^^^^^^^^^^^^
@@ -63,8 +101,9 @@ The water depth processing algorithm also has various minor bugfixes and improve
  
 The SideView tool no longer worked since QGIS 3.16.6. This has now been fixed
 
- May 21st 2021 - 3Di API QGIS Client
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+May 21st 2021 - 3Di API QGIS Client
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We have released a new version of the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.7-1-Setup-x86_64.exe>`_ and an update of our 3Di API QGIS Client to version 2.4.1. The following has been fixed:
 
@@ -81,7 +120,7 @@ This is a fix for the error *"Couldn't load plugin 'ThreeDiToolbox' due to an er
 ModuleNotFoundError: No module named 'alembic' "*
 
 April 1st 2021 - 3Di Toolbox
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Due to some changes under the hood in QGIS 3.16 we have released a new version of the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.4-1-Setup-x86_64.exe>`_ and the `ThreediToolbox 1.17 <https://plugins.lizard.net/ThreeDiToolbox.1.17.zip>`_ 
 
 March 8th 2021
@@ -171,39 +210,50 @@ Modeller Interface:
 
 
 
-3Di Live Site
---------------
-March 23rd 2021
-^^^^^^^^^^^^^^^^
 
-We have update the 3Di live site with following features:
+.. _release_notes_api:
 
-- Water depth graph now also shows a graph with water depth - 0
-- Add a clock time hover
-- Add hh:mm at the start of the simulation, to make clear what are the units of the clock
-- Add decimal support for discharge (when editing pumps)
-- Add minute support for durations
-- Ability to select different units when editing a pump discharge
-
-February 22nd 2021
-^^^^^^^^^^^^^^^^^^^^
-
-Bugfixes in 3Di live site 
-""""""""""""""""""""""""""""
-3Di Live site:
-
-- Rescale DEM coloring based on model
-- Correct water depth calculation for manholes
-- Close culvert in both directions
-- Rate limiter interferes with simulation in spectator mode
-- Moving dots for 0D1D models fixed
-- Correct handling of wind direction
-- Breach editing used wrong id
-
-
-
-3Di Api
+3Di API
 ----------
+
+
+October 18th 2021
+^^^^^^^^^^^^^^^^^
+
+We have released the API V3
+
+After this release, we stop to support API v1. Do you still need access to API v1? Please contact our servicedesk.
+
+New Features:
+
+- Added structure controls file (bulk) upload.
+- Added extra fields, filtering and sorting options on statuses endpoint
+
+Improvements:
+
+- Decreased SQL query count of files and threedimodels endpoints.
+- Simulation can only be created by an organisation with a valid contract.
+- API version v3.0 renamed from to v3. Version v3.0 still works for backwards compatibilty.
+
+Bugfixes:
+
+- Removed 5 min timed-out when uploading result files.
+- Set simulation state to finished after pause timeout. 
+- File endpoint max pagination size is now 250, like rest of the API endpoints.
+- Boundary conditions interpolation 
+- Added convergence_eps to Simulation settings
+- Properly set file status after upload_processor crash.
+- Gracefully handle invalid "spatial_ref" in default NetCDF.
+- TMS min/max values where incorrect if the raster contained np.nan values.
+- Fix versions in browsable API hyperlinks.
+- Fix versions in browsable API hyperlinks.
+- Disable throttling on /health/ endpoint.
+- Fix authorization for objects that derive their ownership through schematisation objects (threedimodels resource and childs, threedimodel fields, initial_waterlevel field).
+- Solve N+1 query issue for threedimodels with schematisation revisions.
+- Results.basic field in Lizard postprocessing API is now correct.
+- Levees geojson generation problem fixed due to incorrect dtype
+- Simulation filtering on status endpoint is no longer possible
+- Ordering of Lizard postprocessing statuses
 
 June 25th 2021 
 ^^^^^^^^^^^^^^^^
@@ -279,9 +329,26 @@ Short crested weirs: Flow over a weir knows three different stages: sub-, superc
 
 
 
-General 3Di releases
---------------------
 
+.. _general_3di_releases:
+
+General 3Di releases
+---------------------
+
+October 18th 2021
+^^^^^^^^^^^^^^^^^
+
+New version computational core
+"""""""""""""""""""""""""""""""
+We have released new versions of the computational core.
+
+- There is an improved version to compute flow through a breach. The new formula is 2D-grid-size independent and allows sensitivity studies to be conducted based on the discharge. In most cases, your discharge results will remain roughly the same. Also, the discharge becomes tunable, to offer an easy sensitivity option. It also allows you to get back your previous results.
+ 
+Bugfixes:
+
+- Fixed the computation of the breach width. Especially, the initial growth was underestimated in case the time to reach the maximum breach depth was large.
+- Fixed a small bug in the raster edits. This fixed also the option to perform rsater edits in computational cells having only 4 subgrid cells.
+- Fix for broad weir formulation for the critical conditions
 
 March 23rd 2021
 ^^^^^^^^^^^^^^^^
