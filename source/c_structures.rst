@@ -3,51 +3,45 @@
 1D flow over structures
 =======================
 
-Structures can be an integral part of water systems. In 3Di they are placed between or on connection nodes as links between channels and pipes. They have different properties depending on there type and can have different functions depending on the settings the user defines. The sections below give an overview of the structures available in 3Di.
+Structures are an integral part of water systems. Structures control the behaviour of a water system, therefore it is crucial to take the into account. 3Di recognises various types of structures, like pumps, weirs, orifices and culverts. To guarantee the structures are implemented in your 3Di model, structures are defined as connections between two computational nodes, similar to channels and pipes. The sections below give an overview of the structures available in 3Di. Moreover, structures can be controled. This means that they can be adjusted based on the simulation results. This can be done using the in 3Di implemented control functions (ref) or by controls designed by the user via the 3Di API (ref).
 
 .. _pump:
 
 Pump station
 ------------
 
-In 3Di, the modeler can add pumps to a 1D channel and/or 1D sewer networks. There is no distinction made for pumps in sewer systems and channel networks, since their function is the same. Characteristics for the pump, as needed for a specific water system, can be set by configuring attributes of the pumps. The attributes specify at which water levels the pump starts moving water from one node to the other and what the discharge is. 
+Pumps drain water from a certain location to another location within or outside the model domain. In 3Di, users can add pumps to a schematisation via a 1D connection node. Characteristics for pumps can be set by configuring the attributes. The attributes specify the start and stop levels of the pump and the pump capacity.
+
+The computational core can only drain water that is actually there. To avoid timestep reductions and/or continuously switching on and off of the pump, the user can request the computational core to adjust the capacity slightly for smooth computations. Than it depends on the downstream supply. The implicit ratio for pumps can be set in the numerical settings. 
 
 .. figure:: image/b_structures_pump.png
    :alt: structures_pump
      
    Schematic display of a pump function
 
-Pumps are in place to move water from one location to another, usually to conquer elevation differences. Some examples of this displacement function of pumps are:
-
-* Polder pump: Water needs to be transported out of the polder to drain the area of excess water and keep the polder dry. A pump transports the water from low lying canals in a polder system to the higher lying drainage canal through which it can be transported further.
-
-* Sewer pump: In a sewer system  sewer water needs to be transported to a treatment plant. A pump in a sewer system moves the sewer water from the sewer system to the treatment plant.
-
-The main pump characteristics that can be specified in a 3Di are:
+The pump characteristics:
 
 * Capacity: Maximum discharge for which the pump is able to displace water from the suction node to the delivery node.
 
-* Start level: Water level for which the pump will be turned on.
+* Start level: Water level for which the pump is switched on.
 
-* Lower stop level: Water level beneath start level for which the pump will be turned off.
+* Lower stop level: Water level for which the pump will be switched off. This level should be below the start level.
 
-* Upper stop level: Water level above start level for which the pump will be turned off.
+* Upper stop level: Water level for which the pump is switched off. This is an optional value, and is always higher that the start level.
 
-* Type: Parameter to set whether start and stop levels are measured at suction side or delivery side of the pump.
+* Type: Parameter to set whether start and stop levels are defined at suction side or delivery side of the pump.
 
 Furthermore, there are two methods to add a pump in a 3Di:
 
-1. Pump between two nodes: A pump between two nodes moves water from the  node at suction side to the node at delivery side with the specified pump capacity. Depending on the type of pump the suction side or delivery side water levels determine the activity of the pump.
+1. *Pump between two nodes*: A pump between two nodes drains water from the  node at suction side to the node at delivery side with the specified pump capacity. Depending on the type of pump the suction side or delivery side water levels determine the activity of the pump.
 
-2. End pump:  For an end pump only the suction side node needs to be specified. With no delivery side all water being moved by this pumped is taken out of the model. All water pumped from the model is specified in the flow_summary.log as contribution to the global water balance. The pump characteristics to be specified are the same as for a pump type with start/stop levels at suction side. Since no delivery side node is present, it is not possible to specify a pump type with start stop level at delivery side.
-
-Finally, pumps can either be set to work implicitly, explicitly or as a combination of both. When set implicit, pumps will only pump a fraction of their capacity depending on the downstream supply. This prevents pumps from switching on and off in a short period of time and makes the calculation more stable. The implicit ratio for pumps can be set in the numerical settings. 
+2. *End pump*:  For an end pump only the suction side node needs to be specified. With no node defined for the delivery side, all water being drained by this pump. All water pumped from the model is specified in the flow_summary.log as contribution to the global water balance. The pump characteristics to be specified are the same as for a pump type with start/stop levels at suction side. Since no delivery side node is present, it is not possible to specify a pump type with start stop level at delivery side.
 
 
 .. _weir:
 
-Weir
-------------
+Weirs and Orifices
+------------------
 
 Weirs are used to maintain the water level in drainage level areas of act as threshold for sewerage water overflowing into storage basins or surface water. Again, there is no distinction between these types of usages in 3Di. The location of the weir determines the its function. The main weir characteristics that can be specified in 3Di are:
 
@@ -77,8 +71,8 @@ The long crested weir uses the conservation of mass and energy equations to comp
 
 .. _culvert:
 
-Orifice and Culvert
---------------------
+Culvert
+-------
 
 Orifices are used in sewerage to limit flow or can be used to model a bridge or culvert. The separate culvert table differs from orifices in the way the flow is calculated. Culverts are closely related to pipes in this sense. The Culvert table can be used for longer sections of pipe-like structures and may be curved. Shorter, straight culverts are best modeled as an orrifice. An orrifice is treated as a weir to allow for larger time steps. 
 
