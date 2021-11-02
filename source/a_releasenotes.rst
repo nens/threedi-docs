@@ -30,9 +30,7 @@ We have update the 3Di live site with following features:
 February 22nd 2021
 ^^^^^^^^^^^^^^^^^^^^
 
-Bugfixes in 3Di live site 
-""""""""""""""""""""""""""""
-3Di Live site:
+Some bugfixes in 3Di live:
 
 - Rescale DEM coloring based on model
 - Correct water depth calculation for manholes
@@ -62,7 +60,7 @@ Download here the latest version: `Modeller Interface <https://docs.3di.live/mod
 
 Also we have included a comprehensive table on our docs showing the current status of implementation of features of API v3: :ref:`simulate_api_qgis_overview`
 
-*Import note for QGIS Users:*
+*Important note for QGIS Users*
 
 Please note that installing QGIS has been undergoing some changes, at the moment the OSGeo4W Network Installer is the recommended way to install QGIS. See https://www.qgis.org/en/site/forusers/download.html for more information. This change does not apply for users that use the Modeller Interface installer.
 
@@ -130,8 +128,7 @@ Download the latest version of the `Modeller Interface <https://docs.3di.live/mo
 For QGIS users: upgrade the plugin using the plugin panel. In case this doesn't work, it is possible to install the plugins as zip file. The latest versions are `ThreediToolbox 1.16 <https://plugins.lizard.net/ThreeDiToolbox.1.16.1.zip>`_  and `Threedi-API-QGIS client is 2.4.0 <https://plugins.lizard.net/threedi_api_qgis_client.2.4.0.zip>`_. 
 
 
-Local calculation of water depth & water level maps
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+*Local calculation of water depth & water level maps*
 
 It is possible to generate water depth maps for every time step with the newest version of the Modeller Interface. To generate these water depth maps, 3Di applies a special algorithm that combines the water level results with the information of the DEM. This algorithm creates visually appealing maps. The maps show the water level and water depth results on high resolution, these can be based on the interpolated and on the non-interpolated water level results.
 
@@ -142,8 +139,7 @@ Processing ^^> Toolbox ^^> 3Di ^^> post-processed results ^^> water depth
 Or check out our documentation: :ref:`waterdepthtool`
 
 
-Extended support for starting simulations using the Modeller Interface
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+*Extended support for starting simulations using the Modeller Interface*
 
 We have added the following support for starting simulations from the Modeller Interface:
 
@@ -159,8 +155,7 @@ The following bugs have been fixed:
 - search window for models is now case insensitive
 - bug fix lateral file upload
 
-Bugfix in the ThreeDiToolbox
-""""""""""""""""""""""""""""""
+*Bugfix in the ThreeDiToolbox*
 
 - Fix import sufhyd coordinates swapped on newer gdal versions.
 
@@ -177,8 +172,7 @@ Please not that the Modeller Interface is not yet upgraded to QGIS 3.16, we will
 For QGIS users: upgrade the plugin using the plugin panel.
 
 
-3Di Modeller Interface styling improvements
-""""""""""""""""""""""""""""""""""""""""""""
+*3Di Modeller Interface styling improvements*
 
 Based on your feedback we have improved the styling of the schematizations in the Modeller Interface. Not only that, we now have support for multiple stylings! Check out the video to see how it works. 
 
@@ -188,8 +182,7 @@ The improvements are:
 - Grid refinement styling now indicates the refinement level
 - Multiple stylings are added next to the default. Switching to these stylings allows you to visualize flow direction, code, id, storage area, bank level, reference level, invert level, crest level, diameters and dimensions, min/max of timeseries, and pump capacity. How it works is explained in the docs: :ref:`multiplestyles`
 
-Schematization checker improvements 
-""""""""""""""""""""""""""""""""""""
+*Schematization checker improvements*
 
 We are constantly working on improving the 3Di experience. Based on user experience analysis we have added the following checks to the schematization checker:
 
@@ -200,15 +193,10 @@ We are constantly working on improving the 3Di experience. Based on user experie
 - Add check to ensure an isolated pipe always has a storage area.
 - Add check to see if a connection_node is connected to an artifact (pipe/channel/culvert/weir/pumpstation/orifice).
 
-Bugfixes in 3Di Modeller Interface
-"""""""""""""""""""""""""""""""""""""
-
-Modeller Interface:
+*Bugfixes in 3Di Modeller Interface*
 
 - Fixed h5py error, it is now possible to use the 3Di toolbox on QGIS 3.10.12
 - Fixed x-axis bug in the water balance tool
-
-
 
 
 .. _release_notes_api:
@@ -224,18 +212,18 @@ We have released the API V3
 
 After this release, we stop to support API v1. Do you still need access to API v1? Please contact our servicedesk.
 
-New Features:
+*New Features*
 
 - Added structure controls file (bulk) upload.
 - Added extra fields, filtering and sorting options on statuses endpoint
 
-Improvements:
+*Improvements*
 
 - Decreased SQL query count of files and threedimodels endpoints.
 - Simulation can only be created by an organisation with a valid contract.
 - API version v3.0 renamed from to v3. Version v3.0 still works for backwards compatibilty.
 
-Bugfixes:
+*Bugfixes*
 
 - Removed 5 min timed-out when uploading result files.
 - Set simulation state to finished after pause timeout. 
@@ -255,8 +243,8 @@ Bugfixes:
 - Simulation filtering on status endpoint is no longer possible
 - Ordering of Lizard postprocessing statuses
 
-June 25th 2021 
-^^^^^^^^^^^^^^^^
+June 25th 2021 Hotfix
+^^^^^^^^^^^^^^^^^^^^^
 
 We have released the following hotfixes:
 
@@ -264,7 +252,7 @@ We have released the following hotfixes:
 2. fix for edge cases regenradar concerning the 2D extent and the 0D extent
 
 June 14th 2021 
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 We have released the following:
 
@@ -291,7 +279,6 @@ March 8th 2021
 ^^^^^^^^^^^^^^^^
 
 Extended API v3 with boundary conditions & bug fixing
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 *General*
 
@@ -313,8 +300,27 @@ Extended API v3 with boundary conditions & bug fixing
 - Using django's get_valid_filename() method in combination with Path().name to avoid users posting special characters in file names.
 
 
-Bug fixes in calculation core
-""""""""""""""""""""""""""""""
+
+.. _computational_core_3di_releases:
+
+3Di computational core releases
+-------------------------------
+
+October 18th 2021
+^^^^^^^^^^^^^^^^^
+
+We have released a new version of the computational core.
+
+- There is an improved version to compute flow through a breach. The new formula is 2D-grid-size independent and allows sensitivity studies to be conducted based on the discharge. In most cases, your discharge results will remain roughly the same. Also, the discharge becomes tunable, to offer an easy sensitivity option. It also allows you to get back your previous results.
+ 
+Bugfixes:
+
+- Fixed the computation of the breach width. Especially, the initial growth was underestimated in case the time to reach the maximum breach depth was large.
+- Fixed a small bug in the raster edits. This fixed also the option to perform rsater edits in computational cells having only 4 subgrid cells.
+- Fix for broad weir formulation for the critical conditions
+
+March 8th 2021
+^^^^^^^^^^^^^^
 
 In short the following fixes are included in the calculation core:
 - Fix for long crested weir; new routine that does not request an extra computational node. 
@@ -328,53 +334,30 @@ Long crested weirs: The formulation of the long crested weir has been replaced b
 Short crested weirs: Flow over a weir knows three different stages: sub-, supercritical and critical flow.  Under super-critical flow conditions, the formulation remains the same. We fixed the formulation under sub-critical flow conditions and in strong varying flow conditions.  The biggest change in discharge behaviour is expected for weirs that flow in negative direction. Moreover, the time dependency of the flow over the weir has been adjusted. This has no effect on stationary flow, but has a slightly improved stabilizing effect on the flow under changing flow conditions. 
 
 
-
-
 .. _general_3di_releases:
 
-General 3Di releases
----------------------
+3Di general releases
+--------------------
 
-October 18th 2021
-^^^^^^^^^^^^^^^^^
-
-New version computational core
-"""""""""""""""""""""""""""""""
-We have released new versions of the computational core.
-
-- There is an improved version to compute flow through a breach. The new formula is 2D-grid-size independent and allows sensitivity studies to be conducted based on the discharge. In most cases, your discharge results will remain roughly the same. Also, the discharge becomes tunable, to offer an easy sensitivity option. It also allows you to get back your previous results.
- 
-Bugfixes:
-
-- Fixed the computation of the breach width. Especially, the initial growth was underestimated in case the time to reach the maximum breach depth was large.
-- Fixed a small bug in the raster edits. This fixed also the option to perform rsater edits in computational cells having only 4 subgrid cells.
-- Fix for broad weir formulation for the critical conditions
 
 March 23rd 2021
 ^^^^^^^^^^^^^^^^
 
-3Di is expanding
-"""""""""""""""""
-
-
-We are proud to announce that due to international recognition we are expanding the capacity of 3Di:
+3Di is expanding! We are proud to announce that due to international recognition we are expanding the capacity of 3Di:
 
 - The first stage of setting up our second calculation center in Taiwan is finished. Organizations that prefer this center can connect to 3Di via `3di.tw <https://www.3di.tw>`_.  
 - To cope with increasing demand for calculations the capacity of our main calculation center has been upgraded
 
 
-3Di available for scientific researchers
-"""""""""""""""""""""""""""""""""""""""""""
+*3Di available for scientific researchers*
 
 Interested to use 3Di in your research? We are proud to announce that we now supply free licenses for scientific researchers.
 Contact us via info@3diwatermanagement.com when you're interested. 
 
-
 March 8th 2021
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
-Update land use map for the calculation of damage estimations
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+*Update land use map for the calculation of damage estimations*
 
 For usage in The Netherlands only:
 
