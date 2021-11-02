@@ -6,12 +6,11 @@
 Welcome to 3Di's documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-*tekst van aa_welcome kopieren naar hier.*
+*tekst van a_welcome kopieren naar hier.*
 
 
 .. toctree::
-   :titlesonly:
-   :hidden:
+   :maxdepth: 1
    
    a_releasenotes
    a_contributors
@@ -23,7 +22,6 @@ Welcome to 3Di's documentation
    :name: Welcome to 3Di's documentation
 
    a_welcome
-
 
 .. toctree::
    :hidden:
@@ -41,7 +39,6 @@ Welcome to 3Di's documentation
 
    d_threedi_portal
 
-  
 .. toctree::
    :hidden:
    :maxdepth: 1
@@ -54,7 +51,6 @@ Welcome to 3Di's documentation
    d_adding_running_scenario
    d_viewing_analyzing_results
    d_problem_solving
-
 
 .. toctree::
    :hidden:
@@ -103,5 +99,3 @@ Welcome to 3Di's documentation
    c_results
    c_aggregate_results
    c_state_files
-
-

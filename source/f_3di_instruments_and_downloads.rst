@@ -87,6 +87,15 @@ To install the 3Di API client plugin follow the steps below:
 6) Install the plugin.
 7) To active the panel of the API client, choose plugins --> 3Di API client --> 3Di API client. Now the panel will be available.
 
+.. _plugin_settings:
+
+Plugin settings
+^^^^^^^^^^^^^^^^
+To set the Base API URL:
+
+1) Open QGIS and via the menu bar go to 'Plugins > 3Di API Client > Settings'
+2) Fill in a Base API URL. The Base API URL is in most cases https://api.3di.live/v3.0/. If you want to connect to our second calculation center in Taiwan, the base API URL is https://api.3di.tw/v3.0/.
+
 .. _tortoise:
 
 TortoiseHG

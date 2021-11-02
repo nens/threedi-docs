@@ -3,6 +3,15 @@ Contact, Support and Contributors
 
 This manual has been created with the help of staff members of Deltares, RHDHV, het Hoogheemraadschap van Delftland, MicroX and Nelen & Schuurmans.
 
+For general questions about Nelen & Schuurmans and our IT services, go to https://nelen-schuurmans.nl/en/home/ or contact us at info@nelen-schuurmans.nl.
+
+For a free license for scientific researchers, contact us at info@3diwatermanagement.com.
+
+For a general overview of all 3Di instruments, go to https://3diwatermanagement.com/3di-start/.
+
+For specific questions about 3Di, contact our service desk at servicedesk@nelen-schuurmans.nl.
+
+
 .. figure:: image/a_foto_docuthon_2017.jpg
    :alt: docuthon_2017
      
