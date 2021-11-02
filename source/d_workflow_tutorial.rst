@@ -26,10 +26,10 @@ You will learn the following skills in this tutorial:
 
 Before you start, please make sure to:
 
-* Install the 3Di modeller interface. Please see :ref:`qgisplugin` for instructions.
+* Install the 3Di modeller interface. Please see :ref:`3di_instruments_and_downloads` for instructions.
 * Install TortoiseHG. Please see `TortoiseHG <https://tortoisehg.bitbucket.io/download/index.html>`_ for instructions.
 * Gain access to the 3Di web portal. Please see :ref:`guide_to_portal` for instructions.
-* Download the Laugharne and Pendine Burrows `model <https://nens.lizard.net/media/3di-tutorials/3di-tutorial-01.zip>`_ for this tutorial.
+* Click `here <https://nens.lizard.net/media/3di-tutorials/3di-tutorial-01.zip>`_ to download the Laugharne and Pendine Burrows model for this tutorial.
     
 Pre-processing: loading a model into the 3Di modeller interface
 -----------------------------------------------------------------
@@ -67,7 +67,10 @@ Your screen should now look like the image below. The model is successfully load
 
 .. figure:: image/03_loaded_model.png
 
-Post-processing: 
+
+.. _post_processing:
+
+Post-processing
 ---------------------
 
 Five steps are required for running your completed 3Di model successfully on the 3Di live site or via the API. These steps included checking your model for errors and activating your model in the 3Di repository. This procedure is referred to as post-processing.

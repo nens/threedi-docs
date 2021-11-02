@@ -1,3 +1,14 @@
+3Di Live Site
+^^^^^^^^^^^^^^^
+
+The 3Di live site is the interface where users have live insight in the results of their simulation. Not only that, they can also interact with it. This interface is perfect to create a shared understanding of the watersystem. [todo: waarom we dit belangrijk vinden, referentie naar Anne L proefschrift]
+
+.. raw:: html
+
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/k9heL89ZF1E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+*A short introduction of 3Di.live*
+
+
 Modeller Interface
 ^^^^^^^^^^^^^^^^^^
 
@@ -17,17 +28,6 @@ We have chosen QGIS as our supporting platform to build, edit and analyse the 3D
 - It is a highly customizable interface
 - Option for building own plugins to interact with model (results)
 - Moreover it is an open source platform. mooi verhaaltje over onze visie en samenwerking met lutra en de donaties.
-
-
-3Di Live
-^^^^^^^^
-
-The 3Di live site is the interface where users have live insight in the results of their simulation. Not only that, they can also interact with it. This interface is perfect to create a shared understanding of the watersystem. [todo: waarom we dit belangrijk vinden, referentie naar Anne L proefschrift]
-
-.. raw:: html
-
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/k9heL89ZF1E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-*A short introduction of 3Di.live*
 
 
 3Di API 
