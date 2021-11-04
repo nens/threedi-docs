@@ -178,6 +178,6 @@ The roughness coefficient will be averaged within one cell.
 Minimum Friction  velocity
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-minimum_friction_velocity [float], (default = 0.05 m/s)
+minimum_friction_velocity [float], (default = 0.01 m/s)
 
 In case a cell is flooded, there is a moment that initially there is no water, therefore no friction as the velocity is zero. Followed by a moment that there is a velocity. To assure a smooth transition and to avoid extreme accelerations of the flow, we define a sort of minimum amount of friction based on this velocity. Generally this is important only when a cell is flooded. 
