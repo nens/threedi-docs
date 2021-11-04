@@ -170,13 +170,13 @@ This error may be caused by an incorrect time series in one of the boundary cond
 
 For example::
 
-        0, 0.33
-        5, 0.46
+        0,0.33
+        5,0.46
 
 is a valid time series. And:: 
 
-        0.5, 0.33
-        5.1, 0.46
+        0.5,0.33
+        5.1,0.46
 
 is an invalid time series. 
 
