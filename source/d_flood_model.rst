@@ -40,8 +40,7 @@ Computational grid
 -------------------
 
 The computational grid consists of all the calculation cells combined. It consists of square calculation cells, that may vary in size. In each calculation cell a volume and water level is computed. Velocity and discharge are computed on the edges between these calculation cells. The sizes of the calculation cells depend on two global settings: ``kmax`` and ``grid_space``.
-The ``grid_space`` defines the size of the smallest calculation cell in your computational grid. The ``kmax`` is your maximum refinement level that determines the biggest possible calculation cell. If you do not define any local grid refinement, all calculation cells will have the maximum size (i.e. ``grid_space`` * ``kmax``). 
-Below, a picture is shown to remind you of the way the computational grid is created. Every large cell can be split into four smaller cells by adding local grid refinement. 
+The ``grid_space`` defines the size of the smallest calculation cell in your computational grid. The ``kmax`` is your maximum refinement level that determines the biggest possible calculation cell. If you do not define any local grid refinement, all calculation cells will have the maximum size (i.e. ``grid_space`` * 2^(``kmax``-1)). Below, a picture is shown to remind you of the way the computational grid is created. Every large cell can be split into four smaller cells by adding local grid refinement. 
 
 .. figure:: image/grid-refinement-in-3-layers.png
    :alt: Grid refinement
