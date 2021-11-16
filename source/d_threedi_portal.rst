@@ -39,7 +39,7 @@ Start or follow a session
 Following a session
 --------------------
 
-Through the tab **Follow session** an active session of your organization can be followed. Select an active simulation and press **follow**. The number of followers of a session is unlimited. To leave the session, got to the **user menu** under the user icon (top right) and press **Leave session**. 
+Through the tab **Follow session** an active session of your organization can be followed. Select an active simulation and press **follow**. The number of followers of a session is unlimited. To leave the session, go to the **user menu** under the user icon (top right) and press **Leave session**. 
 
 
 .. _start_a_new_session:
@@ -147,7 +147,7 @@ Selection tool
 --------------
 By default, the **selection tool** is switched on. With it you can click anywhere on the map to visualize the time series at that location. by Default water depth and water level will be shown. If the model contains groundwater that graph is also shown. 
 
-The time series can be downloaded in CSV format. The points in the graphs in :numref:`fig_point_select_tool` are the points calculated by the 3Di calculation core and are independent from the output time step that the modeller has set.
+The time series can be downloaded in CSV format. The points in the graphs in :numref:`fig_point_select_tool` are the points calculated by the 3Di calculation core and are independent from the output time step that the modeller has set while following a location. If a location is clicked later during the simulation, the historic values on the graph are the values shown according to the output time step. 
 
 .. _fig_point_select_tool:
 
@@ -168,14 +168,14 @@ The **Line-selection tool** shows the height of a cross section, together with t
 
 	Line-selection tool.
 	
-The side view shows the elevation in green and the water in blue. By hovering over the graph with the mouse, exact values can be seen. Keeping this graph open during a flood event will show you how the water level is slowly rising. Note that in the example also groundwater is available in the model indicating an extra blue line. 
+The side view shows the elevation in green and the water in blue. By hovering over the graph with the mouse, exact values can be seen. Keeping this graph open during a flood event will show you how the water level is slowly rising. Note that in the example also groundwater is available in the model indicating an extra blue line (only in those cases where ground water is set up in the schematisation). 
 
 .. _discharge_tool_guide:
 
 Discharge tool
 --------------
 
-With the **Discharge tool** a constant source of water can be added to the model. Select the icon and change the amount of water you want to apply. In the dropdown menu you can change the unit. You can also change the duration of the discharge. Click **PLACE ON MAP** and click a location on the map that should be the source. The water will start flowing from this location over the 2D domain.
+With the **Discharge tool** a constant source of water can be added to the model. Select the icon and change the amount of water you want to apply. In the dropdown menu you can change the unit. You can also change the duration of the discharge. Click **PLACE ON MAP** and click a location on the map that should be the source. The water will start flowing from this location over the 2D domain. It is the modelling equivalent of a 2D lateral. 
 When you press the **Play** button the intervention will become active.
 
 .. figure:: image/d3.6_discharge.png
@@ -190,7 +190,7 @@ If you made a mistake when creating discharge you can **delete** before you acti
 Pumping tool
 ------------
 
-With the **Pump tool** a constant sink of water can be added to the model. Select the icon and change the amount of water you want to pump out of the model. In the dropdown menu you can change the unit. You can also change the duration of the pumping. Click **PLACE ON MAP** and click a location on the map that should be the pump. The water will be pumped out from the 2D domain from this location (1D pumps should be added in the model schematisation). The water that is taken out of the model will not flow back into the model and is considered a loss.
+With the **Pump tool** a constant sink of water can be added to the model. Select the icon and change the amount of water you want to pump out of the model. In the dropdown menu you can change the unit. You can also change the duration of the pumping. Click **PLACE ON MAP** and click a location on the map that should be the pump. The water will be pumped out from the 2D domain from this location (1D pumps should be added in the model schematisation). The water that is taken out of the model will not flow back into the model and is considered a loss. It is the modelling equivalent of a negative 2D lateral. 
 When you press the **Play** button the intervention will become active.
 
 If you made a mistake when creating a pump you can **delete** before you activate it. After you have started your simulation, you can **stop** the pump while its status is 'active', when your simulation is paused. The pump will then only have had an effect during it's runtime and not for the previously set duration time. 
@@ -211,7 +211,7 @@ These three options for adding rainfall all cover the entire model area.
 
 When choosing a **Constant** type of precipitation, the rain intensity (in mm/h) and duration of the rain must be defined. The rain intensity is uniform and constant in the given time frame.
 
-The option **Radar** is only available in the Netherlands and uses historical rainfall data that is based on radar rain images. Providing temporally and spatially varying rain information. The Dutch Nationale Regenradar is available for all Dutch applications. On request, the information from other radars can be made available to 3Di as well. In order to apply this type of rain a historical time frame needs to be set. 
+The option **Radar** is currently only available in the Netherlands and uses historical rainfall data that is based on radar rain images. Providing temporally and spatially varying rain information. The Dutch Nationale Regenradar is available for all Dutch applications. On request, the information from other radars (worldwide) can be made available to 3Di as well. In order to apply this type of rain a historical time frame needs to be set. 
 
 When choosing the option **Design**, a number between 3 and 16 must be selected. These numbers correlate to predetermined rain events, with differing return periods, that fall homogeneous over the entire model. Numbers 3 to 10 originate from `RIONED <https://www.riool.net/bui01-bui10>`_ and are heterogeneous in time. Numbers 11 to 16 have a constant rain intensity. When selecting a design rain the total rainfall and duration information will change in the tab.
 
@@ -230,7 +230,7 @@ When the rainfall is active a cloud icon appears on the top right of the screen.
 Wind tool
 ---------
 
-A compass card appears after clicking on the **Wind tool** icon. By clicking in the compass card a homogeneous wind field with a specific direction and speed can be set up for the whole model (v2). This direction can also be filled in numerically. The strength and duration of the wind can be changed. Because the wind is constant for the whole model you only need to press **CREATE**. When the wind is active a wind icon appears on the top right of the screen.
+A compass card appears after clicking on the **Wind tool** icon. By clicking in the compass card a homogeneous wind field with a specific direction and speed can be set up for the whole model in the 2D domain. This direction can also be filled in numerically. The strength and duration of the wind can be changed. Because the wind is constant for the whole model you only need to press **CREATE**. When the wind is active a wind icon appears on the top right of the screen.
 
 .. figure:: image/d3.6_wind.png
 	:alt: Wind speed, direction and duration
@@ -353,11 +353,12 @@ which provides two products derived from the maximum water depth.
 Notables
 ========
 
-- When inactive for too long, the session will close and say: 'This simulations is no longer active. You may start a new simulation.'
+- When paused and inactive for too long, the session will close and say: 'This simulations is no longer active. You may start a new simulation.'
 - Editing of structures or DEM can only be done after *pausing* a simulation.
 - In the current setup special attention to models with initial water levels in 2D and laterals. 
 - Initial water level in 2D is taken into account, but only with the 'max' parameter.
 - Laterals in a model are at the moment not used in the Live Site.
+- Structure controls are at the moment not used in the Live Site.
 - The color scheme of the water depth can not be changed in the Live Site.
 - The language of the site will change depending on the language settings of your browser. Currently mandarin, english and dutch are supported. Please keep in mind that model elements are never translated. 
 - Manholes are turned off by default. Turning them on and zooming out might cause the Live Site  to slow down.
