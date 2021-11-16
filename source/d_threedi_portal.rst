@@ -1,12 +1,12 @@
 .. _guide_to_portal:
 
-Guide to the 3Di Live Site
-=====================================
+Login to the Live Site
+======================
 
 Login
 ------
 
-Follow the steps below to access the 3Di Live Site:
+Follow the steps below to access the 3Di Live Site :
 
 #) Start the internet browser (Chrome or Firefox) and go to: https://3di.live
 #) Log in with your username and password.
@@ -18,25 +18,28 @@ Follow the steps below to access the 3Di Live Site:
 	:scale: 50%
 	:alt: Login screen
 	
-Welcome to 3Di
---------------
 
-After logging in to the 3Di Live Site, the screen *Welcome screen* will show:
+After logging in to the 3Di Live Site , the *Welcome screen* will show:
 
 .. figure:: image/d2.2_login.png 
 	:alt: Welcome to 3Di screen
+
+	Welcome screen.
 
 In this screen, there are two possibilities:
 
 * Start a new session using the :ref:`start_a_new_session` tab.
 * Follow an ongoing session via the :ref:`follow_a_session` tab.
 
+Start or follow a session
+==========================
+
 .. _follow_a_session:
 
 Following a session
 --------------------
 
-Through the tab **Follow session** an active session of your organization can be followed. Select an active simulation and press **follow**. The number of followers of a session is not limited. To leave the session, got to the **user menu** under the user icon (top right) and press **Leave session**. 
+Through the tab **Follow session** an active session of your organization can be followed. Select an active simulation and press **follow**. The number of followers of a session is unlimited. To leave the session, got to the **user menu** under the user icon (top right) and press **Leave session**. 
 
 
 .. _start_a_new_session:
@@ -53,12 +56,15 @@ A new session will be started. During the start up of the model tips for use of 
 .. figure:: image/d2.4_start_session.png 
 	:alt: Start new session
 
+	Loading screen.
+
 *For each organization, the number of simultaneous sessions is limited according to the agreement (contract). If the limit is reached, the message "Your organization is already running X sessions" will show. The amount of server time used is subtracted from the time available within the agreement.*
 
 
+.. _overview_screen_ls:
 
-Main session
-------------
+Overview session screen and tooling
+===================================
 
 When starting or following a session, the screen in :numref:`fig_main_ses` will be loaded. The loaded model will be shown in the complete extent. At the top left you can see the name of the loaded model.
 
@@ -71,24 +77,21 @@ When starting or following a session, the screen in :numref:`fig_main_ses` will 
 	Interface main session.
 
 
-1. With the **Start simulation** button, the simulation can be started and once started paused. 
-2. Here the simulation run time will be indicated in hours:minutes.
+1. With the **Start simulation** button, the simulation can be started and paused once started. 
+2. The simulation run time will be indicated in [hours:minutes].
 3. Indicates the load of the model on the server in %.
 4. The :ref:`user_menu`.
-5. The Search Bar.
-6. The bar from top to bottom contains: 
+5. The :ref:`search_bar_ls`.
+6. This bar contains the following tools from top to bottom: 
 
-- point tool
-- side view tool
-- add a discharge point (2D)
-- add a pumping point (2D)
-- add rainfall
-- add wind
-- edit the DEM of the model
-
-7. layer tool
-
-For the visualization of the model elements, see the :ref:`layers_menu`.
+- :ref:`selection_tool_guide`
+- :ref:`line_selection_tool`
+- :ref:`discharge_tool_guide` (2D)
+- :ref:`pump_tool_guide` (2D)
+- :ref:`rain_tool_guide`
+- :ref:`wind_tool_guide`
+- :ref:`raster_edit_tool`
+- :ref:`Layer tool <layers_menu_guide>`
 
 .. _user_menu:
 
@@ -104,14 +107,15 @@ Preferences
 	:alt: User menu
 
 **Calculation speed** 
-Calculation speed on the live site is slowed down (**capped speed**) by default in case of fast models. This is done because the live site is meant to have live insights in what is happening. If the model is too fast, it is hard to understand the flows. 
-If you want to calculate on full speed, choose the **Real-time speed** option. The model most likely will speed up in case the % on the top right of the screen was not indicating 100% already. In case the server load is at 100%, no gain will be seen in calculation speed on the live site.
+The Calculation speed is the rate at which the calculations are shown on screen. The Calculation speed is slowed down (**capped speed**) by default. This is done because the Live Site is meant to give a live insights in what is happening. If the model is too fast, it can be hard to understand the flows. 
+
+If you want to calculate on full speed, choose the **Real-time speed** option. The model most likely will speed up in case the % on the top right of the screen was not indicating 100% already. In case the server load is at 100%, no gain will be seen in calculation speed on the Live Site.
 
 
 Help
 """"
 Currently sends you to https://3diwatermanagement.com/3di-start/.
-For support from the help desk, visit :ref:`https://3diwatermanagement.com/3di-start/`.
+For support from the help desk, visit https://3diwatermanagement.com/3di-start/.
 
 
 Quit simulations
@@ -123,86 +127,238 @@ You can:
 - **Quit, don't store results**
 - **Quit, store results**, for more information, see: :ref:`store_results_live_site`.
 
-*link naar results toevoegen* 
 
 Restart simulations
 """""""""""""""""""
 Restarting the simulation resets all the calculations that have been made and reloads the simulation. If you want to save your results you will get sent back to the start screen afterwards.
 
 
-.. _layers_menu:
+.. _search_bar_ls:
 
-Layers menu
+Search Bar
+----------
+The Search Bar enables you to locate assets of your schematisation. You can search for asset type (e.g. pipe), name, code or id.
+
+
+
+.. _selection_tool_guide:
+
+Selection tool
+--------------
+By default, the **selection tool** is switched on. With it you can click anywhere on the map to visualize the time series at that location. by Default water depth and water level will be shown. If the model contains groundwater that graph is also shown. 
+
+The time series can be downloaded in CSV format. The points in the graphs in :numref:`fig_point_select_tool` are the points calculated by the 3Di calculation core and are independent from the output time step that the modeller has set.
+
+.. _fig_point_select_tool:
+
+.. figure:: image/d3.1_point_location.png
+	:alt: Point selection
+
+	Point selection tool.
+
+.. _line_selection_tool:
+
+Line-selection tool
+-------------------
+
+The **Line-selection tool** shows the height of a cross section, together with the water level in that transect. Click the start and end point in any place on the map for the cross section (within the 2D model domain).
+
+.. figure:: image/d3.1_side_view.png
+	:alt: Cross section selection
+
+	Line-selection tool.
+	
+The side view shows the elevation in green and the water in blue. By hovering over the graph with the mouse, exact values can be seen. Keeping this graph open during a flood event will show you how the water level is slowly rising. Note that in the example also groundwater is available in the model indicating an extra blue line. 
+
+.. _discharge_tool_guide:
+
+Discharge tool
+--------------
+
+With the **Discharge tool** a constant source of water can be added to the model. Select the icon and change the amount of water you want to apply. In the dropdown menu you can change the unit. You can also change the duration of the discharge. Click **PLACE ON MAP** and click a location on the map that should be the source. The water will start flowing from this location over the 2D domain.
+When you press the **Play** button the intervention will become active.
+
+.. figure:: image/d3.6_discharge.png
+	:alt: Discharge tool
+
+	Discharge tool.
+
+If you made a mistake when creating discharge you can **delete** before you activate it. After you have started your simulation, you can **stop** the discharge while its status is 'active', when your simulation is paused. The discharge will then only have had an effect during it's runtime and not for the previously set duration time.
+
+.. _pump_tool_guide:
+
+Pumping tool
+------------
+
+With the **Pump tool** a constant sink of water can be added to the model. Select the icon and change the amount of water you want to pump out of the model. In the dropdown menu you can change the unit. You can also change the duration of the pumping. Click **PLACE ON MAP** and click a location on the map that should be the pump. The water will be pumped out from the 2D domain from this location (1D pumps should be added in the model schematisation). The water that is taken out of the model will not flow back into the model and is considered a loss.
+When you press the **Play** button the intervention will become active.
+
+If you made a mistake when creating a pump you can **delete** before you activate it. After you have started your simulation, you can **stop** the pump while its status is 'active', when your simulation is paused. The pump will then only have had an effect during it's runtime and not for the previously set duration time. 
+
+
+.. _rain_tool_guide:
+
+Rain tool
+---------
+
+Through the **Rain tool** icon, rainfall can be added to the model. The following rain event types are available:
+
+* **Constant**: a homogeneous event in both space and time across the entire model range.
+* **Radar**: use historical rainfall data (only available in the Netherlands).
+* **Design**: use a design event. This event is homogeneous over the entire model area and heterogeneous in time.
+
+These three options for adding rainfall all cover the entire model area.
+
+When choosing a **Constant** type of precipitation, the rain intensity (in mm/h) and duration of the rain must be defined. The rain intensity is uniform and constant in the given time frame.
+
+The option **Radar** is only available in the Netherlands and uses historical rainfall data that is based on radar rain images. Providing temporally and spatially varying rain information. The Dutch Nationale Regenradar is available for all Dutch applications. On request, the information from other radars can be made available to 3Di as well. In order to apply this type of rain a historical time frame needs to be set. 
+
+When choosing the option **Design**, a number between 3 and 16 must be selected. These numbers correlate to predetermined rain events, with differing return periods, that fall homogeneous over the entire model. Numbers 3 to 10 originate from `RIONED <https://www.riool.net/bui01-bui10>`_ and are heterogeneous in time. Numbers 11 to 16 have a constant rain intensity. When selecting a design rain the total rainfall and duration information will change in the tab.
+
+For a more detailed description on rainfall, see: :ref:`rain`.
+
+When the rainfall is active a cloud icon appears on the top right of the screen. Information about the rainfall event can be accessed by keeping the rainfall tab open. Active and past (inactive) events are shown in this tab 
+
+.. figure:: image/d3.2_rainfall.png
+	:alt: Rainfall event
+
+	Rainfall tool.
+
+
+.. _wind_tool_guide:
+
+Wind tool
+---------
+
+A compass card appears after clicking on the **Wind tool** icon. By clicking in the compass card a homogeneous wind field with a specific direction and speed can be set up for the whole model (v2). This direction can also be filled in numerically. The strength and duration of the wind can be changed. Because the wind is constant for the whole model you only need to press **CREATE**. When the wind is active a wind icon appears on the top right of the screen.
+
+.. figure:: image/d3.6_wind.png
+	:alt: Wind speed, direction and duration
+
+	Wind tool.
+
+Once you have created a wind event, you can press **EDIT**. This lets you either **STOP WIND** or after altering the fields **UPDATE EXISTING WIND**.
+
+.. _raster_edit_tool:
+
+Raster-edit tool
 ----------------
 
-Click on the globe at the top right of the screen. The layers menu appears. 
+The **Raster-edit tool** lets you edit the elevation raster (DEM) by pressing **DRAW ON MAP** and drawing a polygon and setting a constant elevation level (in mMSL) for that polygon. After you have drawn your polygon, you can **CONFIRM** the polygon and your raster edit will be active for the rest of the simulation. You can also **EDIT DRAWING** and change the shape of your polygon.  
 
-If the model contains 1D-elements, they are immediately visible. Depending on which 1D elements are present in the model (and turned on in the maplayers menu, you will see:
+.. figure:: image/d3.6_raster_edits.png
+	:alt: Raster edits
 
-- Breaches (shown after zooming in)
-- Channels
-- Culverts
-- Levees
-- Manholes (shown after zooming in)
-- Nodes
-- Sewers 
-- Pump stations 
-- Weirs
+	Raster edit tool.
 
-Colors for all these layers can be changed to reflect user preferences
 
-In the maplayers menu the background map can be chosen:
 
-- Topographic
-- Satellite
-- Dark
+.. _layers_menu_guide:
 
-In the calculation section all layers are shown that indicate a results of the simulation on the map:
+Layers tool
+-----------
 
-- Waterdepth
-- Flow velocity
-- Model grid 
+Click on the **Layer tool** at the bottom left of the screen. The **Map layers** appear: 
 
-Model rasters:
+.. figure:: image/d3.6_layer_tool.png
+	:alt: Layer tool.
 
- - Digital Elevation Model. This shows the DEM that is used in the model. 
+	Layer tool.
 
-Advanced:
+In the **Map layers** menu the background map can be chosen under **Basemaps**:
 
-- Here other raster layers will be shown if present in the model:
+- **Topographic**
+- **Satellite** (Default)
+- **Dark**
 
-All layers can toggled on or off by simply clicking on them in the layer menu. 
+In the **Calculation** section all layers are shown that indicate (a visualisation of) results of the simulation on the map:
+
+- **Waterdepth** shows you the proportional depth of the water on the 2D domain.
+- **Flow velocity** shows the velocity of the flow in the 1D elements, with the movement of white dots.
+- **Model grid** depicts the (sub)grids of your model.
+
+In the **2D Model Rasters** you can activate a slightly transparent **Digital Elevation Map**.
+
+If the model contains 1D-elements, they are set to visible by default. Depending on which 1D elements are present in the model (and turned on in the **Map layers** menu), you will see:
+
+- **Breaches** (shown after zooming in)
+- **Channels**
+- **Culverts**
+- **Levees**
+- **Manholes** (shown after zooming in)
+- **Nodes**
+- **Sewers**
+- **Pump stations** 
+- **Weirs**
+
+Colors for all these layers can be changed to reflect user preferences by clicking on the small paint pallet next to the element.
+
 
 
 .. _timeoutlivesite:
 
 Quitting the simulation
-------------------------
+=======================
 
-In the menu under the user icon, quitting the simulation ends the use of calculation time. If this option is not used the session remains active. One of the following scenario's might apply:
+In the **menu menu** you can select **quitting the simulation**, this ends the use of calculation time. If this option is not used the session remains active. One of the following scenario's might apply:
 
 - time out after being inactive is set to 30 minute for a running simulation
 - time out after being inactive is set to 5 minute for a paused simulation
 - leaving the session via a tab will close the simulation after 30 minutes
 
+You can:
+
+- **Quit, don't store results**
+- **Quit, store results**
 
 .. _store_results_live_site:
 
-Saving results
---------------
-*verhaal van scenario toevoegen hier*
+Store results
+=============
+
+Results can be stored by clicking **User menu**, then clicking **Quit Simulation** and then **Quit, Store Results**. There are two options:
+
+- Download results directly via the browser
+- Store them to the lizard platform
+
+Stored (raw) results can also be downloaded using the API Client in the 3Di Modeller Interface, see: :ref:`view_model_results_with_modeller_interface`. Note that these raw results are only available for 7 days.
+
+The options in Lizard storage are as follows:
+
+- raw data and logging
+- basic processed results
+- arrival time map
+- damage estimation (NL only)
+
+The **Basic processed results** option includes the following derivations from simulation results for Lizard users:
+
+.. figure:: image/d3.9_store_results.png
+	:alt: Storing results
+
+- Water level - temporal
+- Water depth - temporal
+- Maximum flow velocity
+- Maximum rate of rise
+- Maximum water depth
+- Flood hazard rating
+
+The **Damage estimation** option uses a module called *WaterSchadeSchatter* (currently only available in The Netherlands)
+which provides two products derived from the maximum water depth.
+
+- Damage estimation map
+- Damage estimation table
 
 .. _notables:
 
 Notables
-----------
+========
 
-- When inactive for too long, the session will close 'This simulations is no longer active. You may start a new simulation.'
+- When inactive for too long, the session will close and say: 'This simulations is no longer active. You may start a new simulation.'
 - Editing of structures or DEM can only be done after *pausing* a simulation.
 - In the current setup special attention to models with initial water levels in 2D and laterals. 
 - Initial water level in 2D is taken into account, but only with the 'max' parameter.
-- Laterals in a model are at the moment not used in the live site.
-- The color scheme of the water depth can not be changed in the live site
+- Laterals in a model are at the moment not used in the Live Site.
+- The color scheme of the water depth can not be changed in the Live Site.
 - The language of the site will change depending on the language settings of your browser. Currently mandarin, english and dutch are supported. Please keep in mind that model elements are never translated. 
-- Manholes are turned off by default. Turning them on and zooming out might cause the live site to slow down.
+- Manholes are turned off by default. Turning them on and zooming out might cause the Live Site  to slow down.
 - Water depth is not shown in the channel nodes.

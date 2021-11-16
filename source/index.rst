@@ -18,8 +18,8 @@ Welcome to 3Di's documentation
 .. toctree::
    :hidden:
    :maxdepth: 1
-   :caption: Welcome to 3Di's documentation
-   :name: Welcome to 3Di's documentation
+   :caption: Welcome to the 3Di documentation
+   :name: Welcome to the 3Di documentation
 
    a_welcome
 
