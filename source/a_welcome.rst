@@ -24,6 +24,12 @@ Introduction to 3Di
 
 3Di is a process-based, hydrodynamic model for flooding, drainage and other water management studies. It can be used for the computation of water flow in 1D and 2D. The software is developed by a consortium of Stelling Hydraulics, Deltares, TU Delft and Nelen & Schuurmans. With 3Di it is possible to make fast simulations while using a high level of detail. 3Di allows the user to interact with the model during a simulation. One can interactively influence the simulation by changing the rainfall, wind force and model components like cross-sections, breaches and pump capacities.
 
+.. raw:: html
+
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/BvS8ijgUvuc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	
+*A short introduction to 3Di is given in this video*
+
 
 The 3Di Ecosystem
 """"""""""""""""""
@@ -43,9 +49,7 @@ The Modeller Interface is the place where a Modeller builts or edits a schematis
 Model Databank 
 
 The Model Databank stores the uploaded schematizations, a user can keep track of the work in progress, download a previous version, or make a copy of a base model to test out scenario's without making changes to the base model. 
-[stuk opzoeken dat ik geschreven heb op de blog]
-
-[links toevoegen]
+https://3diwatermanagement.com/blog/local-or-cloud-modelling-why-not-combine-the-best-of-both-worlds/
 
 Live site
 
@@ -64,12 +68,6 @@ API
 The API enables other applications and user interfaces to interact with the computational core. The computational core and the API run on specialized servers to ensure computational power. We develop and maintain two user interfaces the Modeller Interface and the 3Di livesite. Operational models can also interact directly via the API with the computational core. Naturally,  users who are familiar with programming languages can make their own interface or script to automatically calibrate or add their own controls to their simulation. Because all interaction with the model databank and the calculation core is API based it means that the whole workflow from 
 
 .. Jonas: vanaf hier wel weer uniek
-
-.. raw:: html
-
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/BvS8ijgUvuc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	
-*A short introduction to 3Di is given in this video*
 
 
 Computational core
