@@ -18,8 +18,8 @@ Welcome to 3Di's documentation
 .. toctree::
    :hidden:
    :maxdepth: 1
-   :caption: Welcome to 3Di's documentation
-   :name: Welcome to 3Di's documentation
+   :caption: Welcome to the 3Di documentation
+   :name: Welcome to the 3Di documentation
 
    a_welcome
 
@@ -30,6 +30,14 @@ Welcome to 3Di's documentation
    :name: 3Di Ecosystem
 
    a_introduction
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: Guide to the 3Di Live Site
+   :name: Guide to the 3Di Live Site
+
+   d_threedi_portal
 
 .. toctree::
    :hidden:
@@ -62,7 +70,6 @@ Welcome to 3Di's documentation
    :name: instalation_manual
    
    f_3di_instruments_and_downloads
-   d_threedi_portal
 
 .. toctree::
    :hidden:

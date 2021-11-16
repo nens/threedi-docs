@@ -1,3 +1,5 @@
+.. _viewing_and_analyzing_results:
+
 Viewing and analyzing results
 ================================
 

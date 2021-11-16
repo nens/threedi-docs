@@ -22,7 +22,7 @@ We have chosen QGIS as our supporting platform to build, edit and analyse the 3D
 3Di Live
 ^^^^^^^^
 
-The 3Di live site is the interface where users have live insight in the results of their simulation. Not only that, they can also interact with it. This interface is perfect to create a shared understanding of the watersystem. [todo: waarom we dit belangrijk vinden, referentie naar Anne L proefschrift]
+The 3Di live site is the interface where users have live insight in the results of their simulation. Not only that, they can also interact with it. This interface is perfect to create a shared understanding of the watersystem. Scientific papers on this can be found `here <https://www.researchgate.net/publication/285586163_Interactive_use_of_simulation_models_for_collaborative_knowledge_construction_-_The_case_of_flood_policy_decision-making>`_
 
 .. raw:: html
 
@@ -45,7 +45,7 @@ The current production API of 3Di is v3. For previous versions of the API check 
 
 Model database
 ^^^^^^^^^^^^^^^
-todo: let op termelogie van models
+
 The Modeller Interface or QGIS is used to build and edit you model schematization. However, we store the 3Di models in the cloud, to enable version control. When uploading a model it is stored in the so-called *model database*. Users upload their model with a description of the adjustment being made. Colleagues can synchronize their models on their own laptop and continue working with the improved version. Every version of the model is being stored in the cloud. It is super easy to browse back and download a previous version.
 
 Within 3Di the data governance structure is set-up per organisation. People from within the same organisation can see all models that belong to their entity. Sharing the model with other outside your organisation is also possible. There are two ways to organize this:
