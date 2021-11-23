@@ -1,11 +1,11 @@
 .. _tutorial3_2dflowmodel:
 
-Tutorial 3: 2D flow model over sloped terrain
-===============================================
+Tutorial 3: 2D flow model over sloped terrain with multiple rasters
+===================================================================
 
-Welcome to the tutorial for 2D flow over a sloped terrain.
-In this tutorial, we will build a basic 2D flow model in mountainous terrain using 3Di.
-We will start from an .sqlite similar to that of Tutorial 2 and build our model step by step.
+In this tutorial, we will build a basic 2D flow model in mountainous terrain using 3Di. We will edit an existing sqlite, and this tutorial will introduce friction and infiltration rasters.
+These rasters have been highly simplified for the purpose of this tutorial.
+As with any other component of the tutorials, the data and outcomes cannot be used to draw conclusions of the real-world location that was the inspiration for this tutorial. 
 At the end of this tutorial, you will have a basic working model that you can run on the 3Di live site. 
 
 The selected area is that of Lake Mead in the USA.
@@ -14,13 +14,10 @@ The area contains strong elevation differences and steep slopes, which changes t
 Specifically, the standard assumption that the variation in water level is much smaller than the variation in bed level does not hold in this terrain.
 Therefore, different settings are required, which will be explored in this tutorial. 
 
-Furthermore, this tutorial will introduce friction and infiltration rasters.
-These rasters have been highly simplified for the purpose of this tutorial.
-As with any other component of the tutorials, the data and outcomes cannot be used to draw conclusions of the real-world location that was the inspiration for this tutorial. 
 
 You will learn the following skills in this tutorial:
 
-* Edit an existing .sqlite model database.
+* Edit an existing .sqlite from the model database.
 * Insight in the relevant settings for sloping terrain.
 * Couple a friction raster to your 3Di-model. 
 * Couple an infiltration raster to your 3Di-model.
@@ -41,7 +38,7 @@ Model preparation
 Unpack the starter package and save the contents into a folder.
 You should have a partially configured .sqlite, and a folder named “raster”.
 The raster folder contains a DEM, a friction map, an infiltration map, and an infiltration capacity map.
-The partially configured .sqlite matches the settings of :ref:`tutorial2_2dflatmodel`, with an updated aggregation time step.
+The partially configured .sqlite already has all the mandatory settings.
 
 .. figure:: image/01_basefiles.png
     :alt: The base files
@@ -55,7 +52,7 @@ The model can be loaded via the 3Di toolbar (part of the 3Di toolbox plug in) by
 A.	Open the 3Di Modeller Interface.
 B.	Create a new project.
 C.	In the figure below; Select the **select 3Di results** button on the 3Di Toolbar (white database icon). [1]
-D.	Select **load** in the model section, and select the Lake_Mead.sqlite database provided with this tutorial. The **load** button may not be visible on all screens and zoom settings. It can help to enlarge the pop-up window. [2]
+D.	Select **load** in the model section, and select the Lake_Mead.sqlite database provided with this tutorial. The load button may not be visible on all screens and zoom settings. It can help to enlarge the pop-up window. [2]
 E.	You should now see the 3Di model as part of your Modeller Interface layers. [3]
 
 .. figure:: image/02_load_model.png
@@ -80,7 +77,7 @@ Model building
 Set the model name
 ++++++++++++++++++
 
-As a first step, let us set the name for the model.
+As a first step, let us set the name for the model. 
 This is contained in the global settings table.
 Rename the model via the following steps
 
@@ -97,6 +94,7 @@ E.	Set the name to “Tutorial_2D_slope”. [3]
 .. figure:: image/05_global_settings.png
     :alt: Global settings set name
 
+This name will be displayed in the 3Di Live Site, once you start a simulation. 
 Keep the global settings open on editing mode for the next step. 
 
 Add rasters to the model

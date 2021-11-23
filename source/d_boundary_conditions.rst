@@ -1,3 +1,5 @@
+.. _boundary_conditons:
+
 Boundary Conditions
 ======================
 

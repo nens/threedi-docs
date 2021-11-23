@@ -62,6 +62,8 @@ Welcome to 3Di's documentation
    d_workflow_tutorial
    d_2d_tutorial
    d_2d_slope_tutorial
+   d_2d_levees
+   d_1d_tutorial
 
 .. toctree::
    :hidden:

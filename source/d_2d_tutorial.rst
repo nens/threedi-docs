@@ -1,10 +1,10 @@
 .. _tutorial2_2dflatmodel:
 
-Tutorial 2: Building a basic 2D (flat) flow model
-==================================================
+Tutorial 2: Building a basic 2D flow model
+==========================================
 
 Welcome to 3Di and your second tutorial.
-In this tutorial, we will build a basic 2D flooding model in 3Di.
+In this tutorial, we will build a basic 2D flow model in 3Di.
 We will start from scratch and build our model step by step.
 We will finish with a working model that you can play around with on the 3Di live site.
 This model is based on the Laugharne and Pendine Burrows in the United Kingdom.
@@ -25,7 +25,7 @@ Before you start, please make sure to:
 * Install the 3Di Modeller Interface. Please see :ref:`3di_instruments_and_downloads` for instructions. 
 * Install the 3Di toolbox in the Modeller Interface. Please see :ref:`plugin_installation` for instructions.
 * Gain access to the 3Di Live Site. Please see :ref:`guide_to_portal` for instructions.
-* Download the Taf `dataset <https://nens.lizard.net/media/3di-tutorials/3di-tutorial-01.zip>`_ for this tutorial . 
+* Download the Taf `dataset <https://nens.lizard.net/media/3di-tutorials/3di-2d_flow_tutorial.zip>`_ for this tutorial, which contains an empty .sqlite and a digital elevation model (DEM). 
     
     :sub:`The digital elevation model contains United Kingdom public sector information licensed under the Open Government Licence v2.0.`
 
@@ -392,4 +392,4 @@ It will be available under the name you gave it.
 .. image:: image/17_livesite.png
     :alt: Live calculation in the live site
 
-Congratulations on building a 2D flooding model from scratch!
+Congratulations on building a 2D flow model from scratch!
