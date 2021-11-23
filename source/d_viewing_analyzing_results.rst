@@ -10,3 +10,4 @@ Viewing and analyzing results
    
    d_viewing_results_mi
    d_livesite_results
+   d_results_from_lizard

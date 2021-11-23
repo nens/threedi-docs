@@ -1,6 +1,6 @@
 
-intro
-===========
+Live Site
+=========
 
 *after running scenario and saving results, see :ref:`store_results_live_site`.
 you can also analyze model while the scenario is still running*

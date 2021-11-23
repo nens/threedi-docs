@@ -41,7 +41,7 @@ The 3Di API is the center of the 3Di Ecosystem as it allows all interactions of 
 - Use Jupyter Notebooks to run, download en analyze 3Di simulations. Examples can be found on the : `threedi github repository <https://github.com/threedi/scripts-nens/tree/master/Notebooks%203Di%20-%20API%20v3%20-%20VD>`_
 - design your own control for weirs or other structures
 
-The current production API of 3Di is v3. For previous versions of the API check this section :ref:`api_v1`. 
+The current production API of 3Di is v3. For previous versions of the API check this section :ref:`api_v1` [@jonas er bestaat geen section over de api v1 in de documentatie nu]. 
 
 Model database
 ^^^^^^^^^^^^^^^
