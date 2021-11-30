@@ -12,9 +12,12 @@ In this tutorial, you will learn the following skills:
 *	Run the model with the breach event in the 3di Live Site.
 
 
-Before you start this tutorial, please make sure to:
+Before you start, please make sure to:
 
-*	Download the dataset for this tutorial here: (LINK)
+* Install the 3Di Modeller Interface. Please see :ref:`3di_instruments_and_downloads` for instructions. 
+* Install the 3Di toolbox in the Modeller Interface. Please see :ref:`plugin_installation` for instructions.
+* Gain access to the 3Di web portal. Please see the :ref:`guide_to_portal` for instructions.
+* Download the dataset for this tutorial `here <https://nens.lizard.net/media/3di-tutorials/3di-tutorial-04.zip>`_.
 
 
 Model initialisation
@@ -38,7 +41,7 @@ The model can be loaded via the 3Di toolbar (part of the 3Di toolbox plug in) by
 
 A.	Open the Modeller Interface.
 B.	Create a new project.
-C.	In the figure below; Select the **select 3Di results** button on the 3Di Toolbar (white database icon). [1]
+C.	Select the **select 3Di results** button on the 3Di Toolbar (white database icon). [1]
 D.	Select the **load** button in the window that pops up, and select the Nissewaard.sqlite database in your model folder. [2]
 E.	You should now see the 3Di model as part of your Modeller Interface layers. [3]
 
@@ -327,7 +330,7 @@ Run your model
 ++++++++++++++
 
 You have now build a 2D flow model for mountainous terrain from scratch!
-You can now run your model via the 3Di Live Site (:ref:`running_model`) or via the 3Di Modeller Interface (:ref:`simulate_api_qgis`).
+You can now run your model via the 3Di Live Site (:ref:`guide_to_portal`) or via the 3Di Modeller Interface (:ref:`simulate_api_qgis`).
 It will be available under the name you gave it.
 
 It is important to note that you have to open your breach in the 3Di Live Site. In the 3Di Live Site, breaches are depicted as a brown dot [1].  You can open a breach by clicking on the breach and clicking on the settings button [2]. Here you can open the breach. Also, you can set the time it takes for the breach location to be fully breached (Time [H]) and the initial breach width.

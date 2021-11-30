@@ -241,7 +241,7 @@ Model validation
 -----------------
 
 A short description of the model validation is given here.
-A comprehensive guidance with visual support is provided in Tutorial 1 (:ref:`post_processing`) and for a general guide see :ref:`checking_model`.
+A comprehensive guide with visual support is provided in Tutorial 1 (:ref:`post_processing`) and for a general guide see :ref:`checking_model`.
 
 Verify the model rasters using the raster checker
 ++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -315,7 +315,7 @@ Run your model
 ++++++++++++++
 
 You have now build a 2D flow model for mountainous terrain from scratch!
-You can now run your model via the 3Di Live Site (:ref:`running_model`) or via the 3Di Modeller Interface (:ref:`simulate_api_qgis`).
+You can now run your model via the 3Di Live Site (:ref:`guide_to_portal`) or via the 3Di Modeller Interface (:ref:`simulate_api_qgis`).
 It will be available under the name you gave it.
 
 .. figure:: image/13_compiled_model.png

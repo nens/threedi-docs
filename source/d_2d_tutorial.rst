@@ -82,7 +82,7 @@ We will go through all settings that are required for a basic 2D flow model. A l
 We will introduce extra elements like 1D channels, levees or hydraulic structures in later tutorials. 
 
 Complete the global settings
-++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
 
 The global settings are contained in the v2_global_settings table. Open the settings by
 
@@ -187,7 +187,7 @@ Let us now fill in the settings of each tab in the global settings table.
 Don’t forget to save your changes after completing all settings, by clicking on **save edits** in the top left corner.
 
 Complete the infiltration settings
-++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++
 
 The settings for the infiltration mechanism are contained in the v2_simple_infiltration table. 
 
@@ -207,7 +207,7 @@ Editing the table work in a similar manner as with the v2_global_settings table.
     "infiltration_surface_option", "0", "See :ref:`infiltration`"
 
 Complete the aggregation settings
-+++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++
 
 The aggregation settings control the aggregation of model results.
 They are contained in the v2_aggregation_settings table.
@@ -229,7 +229,7 @@ Retain the default values for all other settings.
 
 
 Complete the numerical settings
-+++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++
 
 The numerical settings are contained in the v2_numerical_settings table which can be found under advanced numerics.
 
@@ -292,7 +292,7 @@ Model validation
 ----------------
 
 Verify the model rasters using the raster checker
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Before sending our new model to the web portal, it is important to validate that our model contains no errors.
 The Raster checker is part of the 3Di toolbox and performs 18 checks to verify the quality of the DEM. For more information, see: :ref:`rasterchecker`
@@ -306,7 +306,7 @@ This location is typically the location of your DEM-file.
 The log file can be opened to view additional details of the checks performed.
 
 Verify the model schematisation using the schematisation checker
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 The second validation is that of the model schematisation.
 This is checked with the :ref:`schematisationchecker` in the 3Di toolbox.
@@ -386,7 +386,7 @@ The model is now also available on the 3Di Live Site.
 Run your model
 ++++++++++++++++++
 
-You can now run your model via the 3Di Live Site (:ref:`running_model`) or via the 3Di Modeller Interface (:ref:`simulate_api_qgis`).
+You can now run your model via the 3Di Live Site (:ref:`guide_to_portal`) or via the 3Di Modeller Interface (:ref:`simulate_api_qgis`).
 It will be available under the name you gave it.
 
 .. image:: image/17_livesite.png
