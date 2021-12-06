@@ -2,6 +2,15 @@
 Release notes
 *************
 
+Release 3Di hotfix November 24th 2021 
+-----------------------------------------------------------
+
+We have released the following hotfixes:
+
+1. Writing correct value to Mesh2DFace_zcc variable in the NetCDF
+2. Convert infiltration values to m/s for dem_edit input
+
+
 Release 3Di October 18th 2021 
 -----------------------------
 
