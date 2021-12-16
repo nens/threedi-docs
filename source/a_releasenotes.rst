@@ -2,6 +2,15 @@
 Release notes
 *************
 
+Release 3Di hotfix December 13th 2021 
+-----------------------------------------------------------
+
+We have released the following hotfixes:
+
+1. Fix for cross-sectional area in case of breaches
+2. Fix in breach computations in case of time step plus
+
+
 Release 3Di hotfix November 24th 2021 
 -----------------------------------------------------------
 
