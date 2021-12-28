@@ -24,6 +24,6 @@ This manual has been created with the help of staff members of Deltares, RHDHV, 
      
    Docuthon organized by Nelen & Schuurmans in the winter of 2017.
    
-This documentation is never finished, this is an alive document and is regularly updated. This yields for the text as the downloadble splt, database overview etc. 
-
-We do our best to make this documentation as comprehensible  and complete as possible. We welcome all suggestions for improvements. Unfortunately, errors can occur in the description, please let us know if you encounter them, we will correct them as soon as possible. 
+This documentation is never finished, this is an alive document and is regularly updated. 
+We do our best to make this documentation as comprehensible  and complete as possible. We welcome all suggestions for improvements. 
+Unfortunately, errors can occur in the description, please let us know if you encounter them, we will correct them as soon as possible. 
