@@ -17,7 +17,7 @@ For specific questions about 3Di, contact our service desk at servicedesk@nelen-
 
 **Contributors**
 
-This manual has been created with the help of staff members of Deltares, RHDHV, het Hoogheemraadschap van Delftland, MicroX and Nelen & Schuurmans.
+This manual has been created with the help of staff members of Deltares, RHDHV, Hoogheemraadschap van Delfland, MicroX and Nelen & Schuurmans.
 
 .. figure:: image/a_foto_docuthon_2017.jpg
    :alt: docuthon_2017
