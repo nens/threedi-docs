@@ -1,10 +1,10 @@
 .. _tutorial2_2dflatmodel:
 
-Tutorial 2: 2D flat model
-=========================
+Tutorial 2: Building a basic 2D flow model
+==========================================
 
-Welcome to 3Di and your first tutorial.
-In this tutorial, we will build a basic 2D flooding model in 3Di.
+Welcome to 3Di and your second tutorial.
+In this tutorial, we will build a basic 2D flow model in 3Di.
 We will start from scratch and build our model step by step.
 We will finish with a working model that you can play around with on the 3Di live site.
 This model is based on the Laugharne and Pendine Burrows in the United Kingdom.
@@ -22,10 +22,10 @@ You will learn the following skills in this tutorial:
 
 Before you start, please make sure to:
 
-* Install QGIS (`<https://www.qgis.org/>`_). 
-* Install the 3Di toolbox in QGIS. Please see :ref:`plugin_installation` for instructions.
-* Gain access to the 3Di web portal. Please see :ref:`guide_to_portal` for instructions.
-* Download the Taf `dataset <https://nens.lizard.net/media/3di-tutorials/3di-tutorial-01.zip>`_ for this tutorial . 
+* Install the 3Di Modeller Interface. Please see :ref:`3di_instruments_and_downloads` for instructions. 
+* Install the 3Di toolbox in the Modeller Interface. Please see :ref:`plugin_installation` for instructions.
+* Gain access to the 3Di Live Site. Please see :ref:`guide_to_portal` for instructions.
+* Download the Taf `dataset <https://nens.lizard.net/media/3di-tutorials/3di-2d_flow_tutorial.zip>`_ for this tutorial, which contains an empty .sqlite and a digital elevation model (DEM). 
     
     :sub:`The digital elevation model contains United Kingdom public sector information licensed under the Open Government Licence v2.0.`
 
@@ -36,58 +36,65 @@ Model preparation
 +++++++++++++++++++++
 
 Before we can start building our model, we need prepare our model and organize our data.
-The Taf dataset that you have downloaded (see before you start) contains an empty .sqlite database and a digital elevation model (DEM) of the Laugharne and Pendine Burrows called dem_2m_LPB.tif.
+The Taf dataset that you have downloaded contains an empty .sqlite database and a digital elevation model (DEM) of the Laugharne and Pendine Burrows called dem_2m_LPB.tif.
 The structured .sqlite database contains all elements that can be included in a 3Di model.
-It will slowly be filled in when you build a model. Rename empty.sqlite to LP_Burrows.sqlite.
+It will slowly be filled in when you build a model. **Rename empty.sqlite to LP_Burrows.sqlite.**
 
 .. figure:: image/00_filemanagement.png
     :alt: File Management
 
-Loading the model in QGIS
-+++++++++++++++++++++++++++++++++++
+Loading the model in the Modeller Interface
+++++++++++++++++++++++++++++++++++++++++++++
 
-Our model must be imported in QGIS to view and modify its contents.
+Our model must be imported in the Modeller Interface to view and modify its contents.
 The model can be loaded via the 3Di toolbar (part of the 3Di toolbox plug in) by following these steps: 
 
-A.	Open QGIS.
+A.	Open the Modeller Interface.
 B.	Create a new project.
-C.	Click the “select 3Di results” button on the 3Di Toolbar (white database icon).
-D.	Select “load” in the model section, and select the LP_Burrows.sqlite database provided with this tutorial.
-E.	You should now see the 3Di model as part of your QGIS layers.
+C.	Click the **Select 3Di results** button on the 3Di Toolbar (white database icon). [1]
+D.	Select **load** in the model section, and select the LP_Burrows.sqlite database provided with this tutorial. [2]
+E.	You should now see the 3Di model as part of your the Modeller Interface layers. [3]
 
 .. figure:: image/01_loadsql.png
     :alt: Load SQL
 
-You can also import the DEM as a raster layer.
+You can also import the DEM as a raster layer:
+
+A. go to the folder where you downloaded the Taf dataset.
+B. Select the .tif file.
+C. Drag the .tif file from your folder into the Modeller Interface screen.
+
 This can improve your feel with the data, but it is not strictly required.
-It is advised that you set your project reference EPSG:27700 (British National Grid) for this tutorial.
+
+It is advised that you set your project reference EPSG:27700 (British National Grid) for this tutorial. To do this, click on the current project reference at the bottom right and select the coordinate reference system you want. 
+
 
 .. figure:: image/02_modelview.png
-    :alt: Empty LP_burrows.sqlite and DEM loaded into QGIS and projected on a google satellite background map.
+    :alt: Empty LP_burrows.sqlite and DEM loaded into the Modeller Interface and projected on a google satellite background map.
 
-    Empty LP_burrows.sqlite and DEM loaded into QGIS and projected on a google satellite background map.
+    Empty LP_burrows.sqlite and DEM loaded into the Modeller Interface and projected on a google satellite background map.
 
 Model building
 --------------
 
 The most fundamental element to building a 3Di is choosing your correct settings.
-We will go through all settings that are required for a basic 2D flow model.
+We will go through all settings that are required for a basic 2D flow model. A list of mandatory settings and detailed descriptions can be found :download:`in the database overview <pdf/database-overview.pdf>`.
 We will introduce extra elements like 1D channels, levees or hydraulic structures in later tutorials. 
 
 Complete the global settings
-++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
 
 The global settings are contained in the v2_global_settings table. Open the settings by
 
-A.	Right-click the v2_global_settings table.
-B.	Select “Open attribute table”.
+A.	Right-click the v2_global_settings table. [1]
+B.	Select **Open attribute table**. [2]
 
 .. figure:: image/03_global_settings.png
     :alt: Global settings
 
-C. Select “Switch to form view” in the bottom right corner.
-D. Select “Toggle editing mode” and in the top right corner.
-E. Select “Add feature”.
+C. Select **Switch to form view** in the bottom right corner. [1]
+D. Select **Toggle editing mode** and in the top right corner. [2]
+E. Select **Add feature**. [3]
 
 .. figure:: image/04_toggle_editing.png
     :alt: Toggle editing
@@ -95,10 +102,10 @@ E. Select “Add feature”.
 Now we can start to configure all settings.
 3Di requires you to complete all mandatory settings before changes can be saved.
 Attempts to save the settings before all mandatory field have been completed will result in an error message.
-A list of mandatory settings and detailed descriptions can be found :download:`in the database overview <pdf/database-overview.pdf>`
-Finally, please not that these settings have been selected specifically for this tutorial.
+A list of mandatory settings and detailed descriptions can be found :download:`in the database overview <pdf/database-overview.pdf>`.
+Finally, please note that the following settings have been selected specifically for this tutorial.
 
-Let us now fill in the settings of each tab. 
+Let us now fill in the settings of each tab in the global settings table. 
 
 .. csv-table:: General
     :header: "Setting", "Value for this tutorial", "Comments"
@@ -177,10 +184,10 @@ Let us now fill in the settings of each tab.
     "flooding_threshold", "1e-06"
     "table_step_size_volume_2d", "NULL"
 
-Don’t forget to save your changes after completing all settings.
+Don’t forget to save your changes after completing all settings, by clicking on **save edits** in the top left corner.
 
 Complete the infiltration settings
-++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++
 
 The settings for the infiltration mechanism are contained in the v2_simple_infiltration table. 
 
@@ -199,15 +206,37 @@ Editing the table work in a similar manner as with the v2_global_settings table.
     "max_infiltration_capacity_file", "NULL", "infinite infiltration capacity is assumed in this tutorial"
     "infiltration_surface_option", "0", "See :ref:`infiltration`"
 
-Complete the numerical settings
-+++++++++++++++++++++++++++++++++++++++++
+Complete the aggregation settings
++++++++++++++++++++++++++++++++++
 
-The numerical settings are contained in the v2_numerical_settings table.
+The aggregation settings control the aggregation of model results.
+They are contained in the v2_aggregation_settings table.
+
+As with the previous settings, open the attribute table, toggle the editing mode and add a feature. However, select **switch to table view** this time.
+
+.. image:: image/07_v2_aggregation2.png
+    :alt: Aggregation Settings update
+
+The different rows of the table refer to different model output categories.
+For each category, set the global_settings_id at 1. You can either do this manually by filling in 1's in the column [1], or by:
+
+A. Selecting the column global_settings_id in the drop down menu [2]
+B. Typing a 1 in the bar [3]
+C. Clicking **update All** [4]
+D. And pressing **save edits** [5]
+
+Retain the default values for all other settings.
+
+
+Complete the numerical settings
++++++++++++++++++++++++++++++++
+
+The numerical settings are contained in the v2_numerical_settings table which can be found under advanced numerics.
 
 .. image:: image/06_numerical.png
     :alt: Numerical settings
 
-As with the previous settings, open the attribute table, toggle the editing mode and add a feature.
+As with the previous settings, open the attribute table, toggle the editing mode, switch to form view and add a feature.
 Complete the following settings:
 
 .. csv-table:: General
@@ -253,21 +282,9 @@ Complete the following settings:
     "pump_implicit_ratio", "1"
     "preissmann_slot", "0"
 
-Complete the aggregation settings
-+++++++++++++++++++++++++++++++++++++
 
-The aggregation settings control the aggregation of model results.
-They are contained in the v2_aggregation_settings table.
-Open the attribute table and toggle editing mode.
-However, select “switch to table view” this time.
-The different rows of the table refer to different model output categories.
-For each category, set the global_settings_id at 1.
-Retain the default values for all other settings.
 
-.. image:: image/07_v2_aggregation.png
-    :alt: Aggregation Settings
-
-With the completion of the aggregation settings, we have built a basic working 2D flow model. 
+With the completion of the numerical settings, we have built a basic working 2D flow model. 
 
 The overview of all settings for this tutorial can be referenced `here <https://docs.google.com/spreadsheets/d/1qHTS0TdwnYaCYRaohDAVvkaGW2sJ1pt8IX31HZ7OcBY/edit?usp=sharing>`_.
 
@@ -275,10 +292,10 @@ Model validation
 ----------------
 
 Verify the model rasters using the raster checker
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Before sending our new model to the web portal, it is important to validate that our model contains no errors.
-The :ref:`rasterchecker` is part of the 3Di toolbox and performs 18 checks to verify the quality of the DEM.
+The Raster checker is part of the 3Di toolbox and performs 18 checks to verify the quality of the DEM. For more information, see: :ref:`rasterchecker`
 The raster checker can also be applied to other 3Di-related rasters when relevant.
 
 .. image:: image/08_rasterchecker.png
@@ -289,7 +306,7 @@ This location is typically the location of your DEM-file.
 The log file can be opened to view additional details of the checks performed.
 
 Verify the model schematisation using the schematisation checker
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 The second validation is that of the model schematisation.
 This is checked with the :ref:`schematisationchecker` in the 3Di toolbox.
@@ -303,12 +320,15 @@ You may find the error “Value in v2_aggregation_settings.aggregation_in_space 
 This is a known bug in the schematisation checker, which will be removed in a future update.
 You should not find any other warnings.
 
-.. image:: image/11_modelerrors.png
+.. figure:: image/11_modelerrors.png
     :alt: Model Errors
 
-Log of the schematisation checker
+    Log of the schematisation checker
+
 
 If you do not get any further warnings or errors, your model is successfully validated and is ready for activation.
+
+.. _model_activation:
 
 Model activation
 ----------------
@@ -319,54 +339,57 @@ Upload your model to the repository
 The first stage towards running your model in the web portal is to upload you model to the 3Di model databank.
 Take the following actions:
 
-Create a new .zip file with your new LP_Burrows.sqlite database and your DEM dem_2m_LPB.tif. Here we name it Tutorial_01_2D_flow.zip Be mindful that the folder structure in the .zip file matches that of your schematisation. Based on the settings in this tutorial, your .sqlite database and your DEM should be in the same folder. Exclude the log files from your .zip folder.
+**Create a new .zip file** with your new LP_Burrows.sqlite database and your DEM dem_2m_LPB.tif. Here we name it Tutorial_01_2D_flow.zip.
+
+Be mindful that the folder structure in the .zip file matches that of your schematisation. Based on the settings in this tutorial, your .sqlite database and your DEM should be in the same folder. Exclude the log files from your .zip folder.
 
 .. image:: image/12_zipfolder.png
     :alt: ZIP folder
 
 	
-Go to `<https://models.lizard.net/model_databank/>`_.
-Select “Upload new model”. Make sure that you are logged in for this step.
+Go to `<https://models.lizard.net/model_databank/>`_. Log in and select **Upload new model**.
 
 .. image:: image/13_databanklogin.png
     :alt: Model databank login
 
 	
-Fill in the details of your models. Be sure to select 3Di-v2 as your model type. Select “Submit” when you have completed the form.
+Fill in the details of your models. Be sure to select **3Di-v2** as your model type. Select **Submit** when you have completed the form.
 
 .. image:: image/14_databank.png
     :alt: Login form
 
+
+
 Compile your model
 ++++++++++++++++++++++
 
-Now your model is stored in the model databank, it is ready for compilation. 
+Now your model is stored in the model database, it is ready for compilation. It can take a couple minutes before your model appears in the list of available models.
 
 A. Go to https://3di.lizard.net/models/.
-B. Use to search function to retrieve your model. Search for the name that you gave your model in step 9d. You may have to select “also show repositories that do not have inp files yet”.
-C. Select “initialize inp generation” for your model.
+B. Use to search function to retrieve your model. Search for the name that you gave your model in the previous step. You have to select **also show repositories that do not have inp files yet**.
+C. Select **initialize inp generation** for your model.
 
 .. image:: image/15_repositories.png
     :alt: Repository overview
 
 Your model will now be compiled.
-The blue bar “no models” will turn to a green bar with the text “success” when the model is successfully compiled.
-You may have to wait a few minutes and refresh the page.
+After a few minutes the blue bar “no models” will turn to a green bar with the text “success” when the model is successfully compiled. You may have refresh the page.
 Once completed, you can select the model to view its details.
-The model is now also available on the 3Di live site.
+The model is now also available on the 3Di Live Site.
 
 .. figure:: image/16_compilation.png
     :alt: Compilation of a model
 
     Your screen after a successful compilation
 
+
 Run your model
 ++++++++++++++++++
 
-You can now run your model via the 3Di live site (:ref:`running_model`) or via the API (:ref:`apicalculations`).
-It will be available under the name “LP_Burrows_Tutorial_2D_flow”.
+You can now run your model via the 3Di Live Site (:ref:`guide_to_portal`) or via the 3Di Modeller Interface (:ref:`simulate_api_qgis`).
+It will be available under the name you gave it.
 
 .. image:: image/17_livesite.png
     :alt: Live calculation in the live site
 
-Congratulations on building a 2D flooding model from scratch.
+Congratulations on building a 2D flow model from scratch!

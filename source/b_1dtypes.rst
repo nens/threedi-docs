@@ -34,6 +34,8 @@ In the most abstract form, a 1D network can be viewed as a combination of nodes 
    
    Example of a 1D network
 
+.. _cross_section_of_1d_element:
+
 Cross-sections of 1D elements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -46,6 +48,7 @@ The top width of cross-sections can be defined open or closed. When the cross-se
    
    Examples of cross-sections in 1D networks; circular, egg-shaped, rectangular, open and closed tabulated cross-sections.
 
+.. _calculation_types:
 
 Types of 1D elements (calculation types)
 ----------------------------------------

@@ -1,7 +1,7 @@
 Modeller Interface
 ^^^^^^^^^^^^^^^^^^
 
-The Modeller Interface is the interface for the hydrology experts. This interface is used to build models, edit models, start simulations and analyze results. The Modeller Interface is a customized QGIS installation with dedicated plugins for the use of 3Di. This setup allows users to benefit of all processing power of QGIS combined with custom made tools supporting 3Di. Since a 3Di schematization consists of a compact database (currently spatialite format) and rasters users have a great deal of freedom in building their model. And when finished there is no import/export necessary, the spatial dataset is the schematization. 
+The Modeller Interface is the interface for the hydrology experts. This interface is used to build models, edit models, start simulations and analyse results. The Modeller Interface is a customised QGIS installation with dedicated plugins for the use of 3Di. This setup allows users to benefit of all processing power of QGIS combined with custom made tools supporting 3Di. Since a 3Di schematization consists of a compact database (currently spatialite format) and rasters users have a great deal of freedom in building their model. And when finished there is no import/export necessary, the spatial dataset is the schematization. 
 
 .. figure:: image/a_intro_modeller_interface.png
    :alt: 3Di Modeller Interface
@@ -16,7 +16,9 @@ We have chosen QGIS as our supporting platform to build, edit and analyse the 3D
 - It offers powerful styling options (almost unlimited styling options)
 - It is a highly customizable interface
 - Option for building own plugins to interact with model (results)
-- Moreover it is an open source platform. mooi verhaaltje over onze visie en samenwerking met lutra en de donaties.
+- Moreover it is an open source platform. 
+  .. todo::
+	mooi verhaaltje over onze visie en samenwerking met lutra en de donaties.
 
 
 3Di Live
@@ -35,13 +37,13 @@ The 3Di live site is the interface where users have live insight in the results 
 
 The 3Di API is the center of the 3Di Ecosystem as it allows all interactions of users and forcings. The 3Di API is accessible for users. It is a more advanced way of modelling, but it gives you lots of flexibility and can speed up projects. We give here some examples of applications, where it can be usefull to interact directly using the API.
 
-- Batch simulations: run hundred different rain events .....[waarom doen ze dat]
+- Batch simulations: run hundred different rain events
 - Automated testruns & results checking & adjusting a model and run it again
 - Run 3Di in an operational setting 
-- Use Jupyter Notebooks to run, download en analyze 3Di simulations. Examples can be found on the : `threedi github repository <https://github.com/threedi/scripts-nens/tree/master/Notebooks%203Di%20-%20API%20v3%20-%20VD>`_
-- design your own control for weirs or other structures
+- Use Jupyter Notebooks to run, download and analyse 3Di simulations. Examples can be found on the : `threedi github repository <https://github.com/threedi/scripts-nens/tree/master/Notebooks%203Di%20-%20API%20v3%20-%20VD>`_
+- Design your own control for weirs or other structures
 
-The current production API of 3Di is v3. For previous versions of the API check this section :ref:`api_v1`. 
+The current production API of 3Di is v3. 
 
 Model database
 ^^^^^^^^^^^^^^^
