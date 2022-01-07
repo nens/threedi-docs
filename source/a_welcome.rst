@@ -1,6 +1,12 @@
 .. _overview_documentation:
 
-*hier een globaler verhaal typen met uitleg hoe de documentatie is opgebouwd met referenties naar de kopjes*
+
+  .. todo::
+
+     *hier een globaler verhaal typen met uitleg hoe de documentatie is opgebouwd met referenties naar de kopjes*
+
+
+
 
 Overview documentation
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -23,7 +29,8 @@ Information about courses, examples, demonstrations and how to contact us can be
 Introduction to 3Di
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-3Di is a process-based, hydrodynamic model for flooding, drainage and other water management studies. It can be used for the computation of water flow in 1D and 2D. The software is developed by a consortium of Stelling Hydraulics, Deltares, TU Delft and Nelen & Schuurmans. With 3Di it is possible to make fast simulations while using a high level of detail. 3Di allows the user to interact with the model during a simulation. One can interactively influence the simulation by changing the rainfall, wind force and model components like cross-sections, breaches and pump capacities.
+3Di is a process-based, hydrodynamic model for flooding, drainage and other water management studies. It can be used for the computation of water flow in 1D and 2D. The software is developed by a consortium of Stelling Hydraulics, Deltares, TU Delft and Nelen & Schuurmans. With 3Di it is possible to make fast simulations while using a high level of detail. 
+3Di allows the user to interact with the model during a simulation. One can interactively influence the simulation by changing the rainfall, wind force and model components like cross-sections, breaches and pump capacities.
 
 .. raw:: html
 
@@ -33,9 +40,12 @@ Introduction to 3Di
 
 Introductie van schematisatie en scenario is samen een simulatie.
 
-The 3Di Ecosystem is composed of four main components; a computational core, an *application programming interface* (API), a modeller interface and a 3Di Live site. The computational core actually computes the water flow. The API enables other applications and user interfaces to interact with the computational core. The computational core and the API run on specialized servers to ensure computational power. We develop and maintain two user interfaces the Modeller Interface and the 3Di livesite. Operational models can also interact directly via the API with the computational core. Naturally,  users who are familiar with programming languages can make their own interface or script to automatically calibrate or add their own controls to their simulation.
+The 3Di Ecosystem is composed of four main components; a computational core, an *application programming interface* (API), a modeller interface and a 3Di Live site. The computational core actually computes the water flow. The API enables other applications and user interfaces to interact with the computational core. 
+The computational core and the API run on specialized servers to ensure computational power. We develop and maintain two user interfaces the Modeller Interface and the 3Di livesite. Operational models can also interact directly via the API with the computational core. 
+Naturally,  users who are familiar with programming languages can make their own interface or script to automatically calibrate or add their own controls to their simulation.
 
-TODO: Noem de modellendatabank en voeg die ook toe in je plaatje
+  .. todo::
+		Noem de modellendatabank en voeg die ook toe in je plaatje
 
 
 .. figure:: image/d_api_3di_ecosystem.png
