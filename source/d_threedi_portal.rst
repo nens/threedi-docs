@@ -115,7 +115,7 @@ If you want to calculate on full speed, choose the **Real-time speed** option. T
 Help
 """"
 Currently sends you to https://3diwatermanagement.com/3di-start/.
-For support from the help desk, visit https://3diwatermanagement.com/3di-start/.
+For support from the help desk, visit https://nelen-schuurmans.topdesk.net/.
 
 
 Quit simulations
@@ -145,7 +145,7 @@ The Search Bar enables you to locate assets of your schematisation. You can sear
 
 Selection tool
 --------------
-By default, the **selection tool** is switched on. With it you can click anywhere on the map to visualize the time series at that location. by Default water depth and water level will be shown. If the model contains groundwater that graph is also shown. 
+By default, the **selection tool** is switched on. With it you can click anywhere on the map to visualise the time series at that location. By default water depth and water level will be shown. If the model contains ground water, that graph is also shown. 
 
 The time series can be downloaded in CSV format. The points in the graphs in :numref:`fig_point_select_tool` are the points calculated by the 3Di calculation core and are independent from the output time step that the modeller has set while following a location. If a location is clicked later during the simulation, the historic values on the graph are the values shown according to the output time step. 
 
@@ -176,24 +176,25 @@ Discharge tool
 --------------
 
 With the **Discharge tool** a constant source of water can be added to the model. Select the icon and change the amount of water you want to apply. In the dropdown menu you can change the unit. You can also change the duration of the discharge. Click **PLACE ON MAP** and click a location on the map that should be the source. The water will start flowing from this location over the 2D domain. It is the modelling equivalent of a 2D lateral. 
-When you press the **Play** button the intervention will become active.
+When you press the **Play** button, the intervention will become active.
 
 .. figure:: image/d3.6_discharge.png
 	:alt: Discharge tool
 
 	Discharge tool.
 
-If you made a mistake when creating discharge you can **delete** before you activate it. After you have started your simulation, you can **stop** the discharge while its status is 'active', when your simulation is paused. The discharge will then only have had an effect during it's runtime and not for the previously set duration time.
+If you made a mistake when creating discharge, you can **delete** before you activate it. After you have started your simulation, you can **stop** the discharge while its status is 'active', when your simulation is paused. The discharge will then only have had an effect during it's runtime and not for the previously set duration time.
 
 .. _pump_tool_guide:
 
 Pumping tool
 ------------
 
-With the **Pump tool** a constant sink of water can be added to the model. Select the icon and change the amount of water you want to pump out of the model. In the dropdown menu you can change the unit. You can also change the duration of the pumping. Click **PLACE ON MAP** and click a location on the map that should be the pump. The water will be pumped out from the 2D domain from this location (1D pumps should be added in the model schematisation). The water that is taken out of the model will not flow back into the model and is considered a loss. It is the modelling equivalent of a negative 2D lateral. 
+With the **Pump tool**, a constant sink of water can be added to the model. Select the icon and change the amount of water you want to pump out of the model. In the dropdown menu you can change the unit. You can also change the duration of the pumping. Click **PLACE ON MAP** and click a location on the map that should be the pump. The water will be pumped out from the 2D domain from this location (1D pumps should be added in the model schematisation).
+The water that is taken out of the model will not flow back into the model and is considered a loss. It is the modelling equivalent of a negative 2D lateral. 
 When you press the **Play** button the intervention will become active.
 
-If you made a mistake when creating a pump you can **delete** before you activate it. After you have started your simulation, you can **stop** the pump while its status is 'active', when your simulation is paused. The pump will then only have had an effect during it's runtime and not for the previously set duration time. 
+If you made a mistake when creating a pump you can **delete** before you activate it. After you have started your simulation, you can **stop** the pump while its status is 'active', when your simulation is paused. The pump will then only have had an effect during its runtime and not for the previously set duration time. 
 
 
 .. _rain_tool_guide:
@@ -211,7 +212,7 @@ These three options for adding rainfall all cover the entire model area.
 
 When choosing a **Constant** type of precipitation, the rain intensity (in mm/h) and duration of the rain must be defined. The rain intensity is uniform and constant in the given time frame.
 
-The option **Radar** is currently only available in the Netherlands and uses historical rainfall data that is based on radar rain images. Providing temporally and spatially varying rain information. The Dutch Nationale Regenradar is available for all Dutch applications. On request, the information from other radars (worldwide) can be made available to 3Di as well. In order to apply this type of rain a historical time frame needs to be set. 
+The option **Radar** is currently only available in the Netherlands and uses historical rainfall data that is based on radar rain images. Providing temporally and spatially varying rain information. The Dutch Nationale Regenradar is available for all Dutch applications for organisations that have this module in their contract. On request, the information from other radars (worldwide) can be made available to 3Di as well. In order to apply this type of rain a historical time frame needs to be set. 
 
 When choosing the option **Design**, a number between 3 and 16 must be selected. These numbers correlate to predetermined rain events, with differing return periods, that fall homogeneous over the entire model. Numbers 3 to 10 originate from `RIONED <https://www.riool.net/bui01-bui10>`_ and are heterogeneous in time. Numbers 11 to 16 have a constant rain intensity. When selecting a design rain the total rainfall and duration information will change in the tab.
 
