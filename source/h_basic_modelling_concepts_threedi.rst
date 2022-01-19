@@ -12,19 +12,22 @@ In the workflow of 3Di we distinguish a schematisation and a simulation template
    
    The modelling concepts of 3Di
 
-
-In general the schematisation contains all information that 3Di needs for preprocessing, e.g. to create a calculation grid, and subgrid tables. 
+In general, the schematisation contains all information that 3Di needs for preprocessing, e.g. to create a calculation grid, and subgrid tables. 
 The converted schematisation we call a 3Di model. 
-This 3Di model needs information to run, e.g. initial conditions or events (e.g. rain). 
-To run a simulation a user can use a simulation template or select a 3Di model and add all information required to run a simulation. 
+This 3Di model needs information to run, which are initial conditions or events (e.g. rain). 
+To run a simulation, a user can use a simulation template or select a 3Di model and add all information required to run a simulation. 
 
 We provide all models of a simulation template based on the sqlite. 
-[create infographic]
 
-The simulation template can be selected in QGIS
-[insert screenshot] 
+ .. TODO::     [create infographic]
 
-and either used as is, or run with changes and stored as a new simulation template. 
+
+The simulation template can be selected in QGIS.
+
+ .. TODO:: [insert screenshot]
+ 
+
+The simulation template can either be used as is, or can be run with changes and stored as a new simulation template. 
 
 Schematisation
 ^^^^^^^^^^^^^^

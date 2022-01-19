@@ -23,8 +23,7 @@ We have chosen QGIS as our supporting platform to build, edit and analyse the 3D
 
 
 
-  .. todo::
-		mooi verhaaltje over onze visie en samenwerking met lutra en de donaties.
+.. TODO: mooi verhaaltje over onze visie en samenwerking met lutra en de donaties.
 		
 
 

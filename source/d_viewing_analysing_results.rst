@@ -1,9 +1,9 @@
 .. _viewing_and_analyzing_results:
 
-Viewing and analyzing results
+Viewing and analysing results
 ================================
 
-*Results can be viewed and analyzed with the modeler interface or the live site.*
+*Results can be viewed and analysed with the Modeller Interface or the live site.*
 
 .. toctree::
    :maxdepth: 2

@@ -1,9 +1,7 @@
 .. _overview_documentation:
 
-
-  .. todo::
-
-     *hier een globaler verhaal typen met uitleg hoe de documentatie is opgebouwd met referenties naar de kopjes*
+.. TODO: *hier een globaler verhaal typen met uitleg hoe de documentatie is opgebouwd met referenties naar de kopjes*
+    
 
 
 
@@ -38,14 +36,13 @@ Introduction to 3Di
 	
 *A short introduction to 3Di is given in this video*
 
-Introductie van schematisatie en scenario is samen een simulatie.
+.. TODO: Introductie van schematisatie en scenario is samen een simulatie.
 
 The 3Di Ecosystem is composed of four main components; a computational core, an *application programming interface* (API), a modeller interface and a 3Di Live site. The computational core actually computes the water flow. The API enables other applications and user interfaces to interact with the computational core. 
 The computational core and the API run on specialized servers to ensure computational power. We develop and maintain two user interfaces the Modeller Interface and the 3Di livesite. Operational models can also interact directly via the API with the computational core. 
 Naturally,  users who are familiar with programming languages can make their own interface or script to automatically calibrate or add their own controls to their simulation.
 
-  .. todo::
-		Noem de modellendatabank en voeg die ook toe in je plaatje
+.. TODO: Noem de modellendatabank en voeg die ook toe in je plaatje
 
 
 .. figure:: image/d_api_3di_ecosystem.png

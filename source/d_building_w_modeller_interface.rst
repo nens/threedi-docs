@@ -1,7 +1,7 @@
 .. _qgisplugin:
 
 
-Building and adjusting a model with the modeler interface
+Building and adjusting a model with the Modeller Interface
 ===========================================================
 
 Introduction
@@ -16,7 +16,7 @@ For instructions how to download the Modeller Interface or the plugins see :ref:
 Import from SUF-HYD
 ^^^^^^^^^^^^^^^^^^^
 
-SUF-HYD is a Dutch standardized format for transferring data of sewerage systems for hydraulic analyses. This tool allows an automated import of the sewerage data in the 3Di model database. 
+SUF-HYD is a Dutch standardised format for transferring data of sewerage systems for hydraulic analyses. This tool allows an automated import of the sewerage data in the 3Di model database. 
 
 Before you can use the tool, make sure you have :ref:`downloaded an empty spatialite <empty_database>`. The SUF-HYD data will be imported to this spatialite. Save the Sqlite to a location fo choice on your computer.
 
