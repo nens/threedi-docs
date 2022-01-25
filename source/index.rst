@@ -44,21 +44,21 @@ Welcome to 3Di's documentation
    :maxdepth: 1
    :caption: How to work with 3Di
    :name: How to work with 3Di
-   :numbered: 3
+   
 
 
    d_building_a_model
    d_checking_model_schematisation
    d_adding_running_scenario
    d_viewing_analysing_results
-   d_problem_solving
+   
 
 .. toctree::
    :hidden:
    :maxdepth: 1
    :caption: Tutorials
    :name: tutorials
-   :numbered:
+  
 
    e_workflow_tutorial
    e_2d_tutorial
@@ -69,17 +69,18 @@ Welcome to 3Di's documentation
 .. toctree::
    :hidden:
    :maxdepth: 2
-   :caption: Installation manual
+   :caption: Problem solving and support
    :name: instalation_manual
    
    f_3di_instruments_and_downloads
+   f_problem_solving
 
 .. toctree::
    :hidden:
    :maxdepth: 2
    :caption: Physics
    :name: basic_principles
-   :numbered:
+
 
    g_massconservation
    g_flow
@@ -93,7 +94,7 @@ Welcome to 3Di's documentation
    :maxdepth: 2
    :caption: Model concepts
    :name: Model_concepts
-   :numbered:
+  
 
    h_basic_modelling_concepts_threedi
    h_grid

@@ -6,9 +6,9 @@ Building and adjusting a model with the Modeller Interface
 
 Introduction
 ^^^^^^^^^^^^^
-The Modeller Interface (MI) will help you with building 3Di models and analysing results locally. The MI will also assist you in interacting with the 3Di-API and downloading the results from the 3Di calculation servers. The MI is part of QGIS with various pre-installed plugins: the 3Di Toolbox to analyse results, the 3Di API Client to start calculations, download results and some third party plugins. The interface has been cleaned compared to a standard QGIS installation, it shows only relevant buttons for model building and analysing. 
+The Modeller Interface (MI) will help you with building 3Di models locally. 
 
-For instructions how to download the Modeller Interface or the plugins see :ref:`plugin_installation`
+
 
 
 .. _importsufhyd:
@@ -69,10 +69,10 @@ Note: the shape of the manhole is refered as 'rnd' = round, 'sqr' = square and '
 
 .. _view_model_results:
     
-View and edit 3Di model a schematisation
+View and edit 3Di model schematisation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-After loading your 3Di model schematization, there are several ways to inspect your model. We have added the following features to assist you in viewing and editing the model schematization:
+After loading your 3Di model schematisation, there are several ways to inspect your model. We have added the following features to assist you in viewing and editing the model schematization:
 
 - Multiple styles per layer
 - Drop down menus
@@ -86,7 +86,7 @@ After loading your 3Di model schematization, there are several ways to inspect y
 **Multiple styles per layer**
 
 
-The multiple styles per layer can help you when analyzing your model. The different styles depict aspects of the layer you might be interested in, without cluttering your schematization with too much information at once. 
+The multiple styles per layer can help you when analysing your model. The different styles depict aspects of the layer you might be interested in, without cluttering your schematization with too much information at once. 
 
 To switch between stylings: 1) Right click the layer you are interested in. 2) Hold your mouse over styles and the multiple styles will be shown. 3) Click on the style you want to use. The style with the dot next to it is the active style. The figure below shows an example for selecting a style. 
 

@@ -21,14 +21,17 @@ We have chosen QGIS as our supporting platform to build, edit and analyse the 3D
 - It is an open source platform. 
 
 
+You can install the Modeller Interface `here <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.7-1-Setup-x86_64.exe>`_.
 
+For advanced installs, please consult :ref:`plugin_installation`. 
 
-.. TODO: mooi verhaaltje over onze visie en samenwerking met lutra en de donaties.
 		
 
 
 3Di Live
 ^^^^^^^^
+
+https://www.3di.live/
 
 The 3Di Live Site is the interface where users have live insight in the results of their simulation. Not only that, they can also interact with it. This interface is perfect to create a shared understanding of the watersystem. 
 Scientific papers on this can be found `here <https://www.researchgate.net/publication/285586163_Interactive_use_of_simulation_models_for_collaborative_knowledge_construction_-_The_case_of_flood_policy_decision-making>`_
@@ -42,6 +45,15 @@ Scientific papers on this can be found `here <https://www.researchgate.net/publi
 3Di API 
 ^^^^^^^^
 
+https://api.3di.live/v3/
+
+.. figure:: image/e_api.png
+   :alt: 3Di API 
+
+
+
+
+
 The 3Di API is the center of the 3Di Ecosystem as it allows all interactions of users and forcings. The 3Di API is accessible for users. It is a more advanced way of modelling, but it gives you lots of flexibility and can speed up projects. 
 We give here some examples of applications, where it can be usefull to interact directly using the API.
 
@@ -53,13 +65,18 @@ We give here some examples of applications, where it can be usefull to interact 
 
 The current production API of 3Di is v3. 
 
-Model database
-^^^^^^^^^^^^^^^
+Management Portal
+^^^^^^^^^^^^^^^^^^^
 
-The Modeller Interface or QGIS is used to build and edit you model schematisation on your own computer. However, the 3Di models are stored in the cloud, to enable version control. When uploading a model it is stored in the so-called *3Di Model Database*. Users upload their model with a description of the adjustment being made. 
-Colleagues can synchronise their models on their own laptop and continue working with the improved version. Every version of the model is being stored in the cloud. It is super easy to browse back and download a previous version.
+https://management.3di.live/
 
-Within 3Di the data governance structure is set-up per organisation. People from within the same organisation can see all models that belong to their entity. Sharing the model with people outside your organisation is also possible. There are two ways to organize this:
+The Modeller Interface is used to build and edit you model schematisation on your own computer. However, the 3Di models are stored in the cloud, to enable version control. When uploading a model it is stored in the so-called *3Di Model Database*. Users upload their model with a description of the adjustment being made. 
+Colleagues can synchronise their models on their own laptop and continue working with the improved version.
+
+The Management Portal can be used to monitor running simulations, download results, manage 3Di models, schematisations and simulation templates. With our portal we aim to provide our users with the necessary information to run day-to-day tasks within a web browser. 
+
+
+Within 3Di the data governance structure is set-up per organisation. People from within the same organisation can see all models that belong to their entity. Sharing the model with people outside your organisation is also possible. There are two ways to organise this:
 
 - external people get access to the 3Di subscription, have read and write access to the models and can run them
 - external people download the 3Di models and use their own subscription for running simulation

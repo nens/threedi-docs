@@ -1,12 +1,10 @@
 .. _3di_instruments_and_downloads:
 
-3Di instruments and downloads
-===============================
+Installation manual
+======================
 
-Please visit `3Di start <https://3diwatermanagement.com/3di-start/>`_ for an overview of all 3Di instruments and portals.
 
-Below we explain how to install the Modeller Interface or QGIS with plugins and how to install and configure TortoiseHG. 
-We also show you how to download the database overview or an empty database. 
+Below we explain how to install the Modeller Interface or QGIS with plugins. 
 
 .. _software:
 
@@ -16,7 +14,6 @@ To use 3Di you need these software packages:
 
 * The 'Modeller Interface' or install a recent version of QGIS with the appropriate plugins. 
 
-* Recent version of TortoiseHG
 
 .. note::
     Are you running into problems when downloading or updating the software? 
@@ -96,47 +93,9 @@ To set the Base API URL:
 1) Open QGIS and via the menu bar go to 'Plugins > 3Di API Client > Settings'
 2) Fill in a Base API URL. The Base API URL is in most cases https://api.3di.live/v3.0/. If you want to connect to our second calculation center in Taiwan, the base API URL is https://api.3di.tw/v3.0/.
 
-.. _tortoise:
 
-TortoiseHG
------------
 
-`Get TortoiseHG <https://tortoisehg.bitbucket.io/download/index.html>`_
 
- After installation of TortoiseHG the program can be started by selecting the TortoiseHg Workbench program from the Windows Start menu. In a first use, activate the 'large files extension' by selecting from the File menu 'Settings' and then' Extensions' and select 'large files’. Also fill in your name. Press OK and restart TortoiseHG.
-
-.. figure:: image/d_tortoise_extensions.png
-	:scale: 75%
-	:alt: Extensions
-..
-
-Tortoise also has a built-in encrypted password manager, allowing you to push and pull revisions without being prompted for your username and    password each time. To enable the password manager:
-
-    * Open TortoiseHg Workbench
-    * Go to File > Settings > Extensions
-    * Check the box 'mercurial_keyring'.
-    * Restart TortoiseHg Workbench
-    * Now you still have to enable the password manager for each repository you clone, see :ref:`download-repository`
-
-	
-Database
-----------	
-
-.. _database-overview:
-
-Database overview
-^^^^^^^^^^^^^^^^^^
-
-The database overview shows the complete overview of tables that 3Di uses in the spatialite database. You can download the complete overview of tables that 3Di uses in the spatialite database :download:`here <pdf/database-overview.pdf>`. Also, this :download:`flowchart <image/flowchart_edit_model.png>` may help you while editing your model. The following links show you the database schema's for :download:`sewerage <pdf/database-schema-sewerage.pdf>` and :download:`surface water <pdf/database-schema-surface-water.pdf>`.
-
-.. _empty_database:
-
-Empty database
-^^^^^^^^^^^^^^
-
-If you like to set up a new model it may be helpful to start from an empty database. Download an empty spatialite database :download:`here <other/empty.sqlite>`.
-
-Please be aware not to add any columns to existing tables in the spatialite as they may interfere with future migrations.
 
 Information for system administators
 --------------------------------------
@@ -173,19 +132,3 @@ Make sure the 3Di Modeller Interface is allowed to communicate with following UR
 * PyPI: https://pypi.org/ (only during first run after installation / update)
 * 3Di API: https://api.3di.live (each time a simulation is started from the Modeller Interface)
 
-TortoiseHG
-^^^^^^^^^^^^^
-
-Graphical user interface (thg.exe) for hg.exe, a utility to communicate with Mercurial repositories (similar to Git).
-3Di Models are stored in these Mercurial repos.
-
-Install instructions: https://docs.3di.live/d_before_you_begin.html#tortoisehg
-
-After installation make sure all the .exe files in the TortoiseHg install directory are allowed to run.
-This includes but is not limited to hg.exe.
-
-**URLs accessed by TortoiseHG**
-
-https://hg.lizard.net
-
-Information about the TortoiseHG/Mercurial use of certificates: https://www.mercurial-scm.org/wiki/CACertificates

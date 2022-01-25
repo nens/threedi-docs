@@ -320,7 +320,7 @@ Store results
 Results can be stored by clicking **User menu**, then clicking **Quit Simulation** and then **Quit, Store Results**. There are two options:
 
 - Download results directly via the browser
-- Store them to the lizard platform
+- Store them to the Lizard platform (see https://docs.lizard.net/a_lizard.html) 
 
 Stored (raw) results can also be downloaded using the API Client in the 3Di Modeller Interface, see: :ref:`view_model_results_with_modeller_interface`. Note that these raw results are only available for 7 days.
 

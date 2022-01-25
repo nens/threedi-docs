@@ -3,7 +3,7 @@
 Tutorial 2: Building a basic 2D flow model
 ==========================================
 
-Welcome to 3Di and your second tutorial.
+
 In this tutorial, we will build a basic 2D flow model in 3Di.
 We will start from scratch and build our model step by step.
 We will finish with a working model that you can play around with on the 3Di live site.
