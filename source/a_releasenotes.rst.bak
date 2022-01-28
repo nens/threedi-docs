@@ -217,7 +217,6 @@ The following endpoints have been added to the API:
 
 Technical details: 
 
-
 *Filters:*
 
 - Added threedimodel__revision__id filter on simulations.
