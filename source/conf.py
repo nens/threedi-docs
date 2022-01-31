@@ -5,7 +5,7 @@ import sphinx_rtd_theme
 # The 3di release name that's shown at the top of the sidebar.
 # Note: non-production documentation builds are marked as such, you don't need
 # to change the release name for that.
-THREEDI_RELEASE = "2020-05 Zambesi Release"
+THREEDI_RELEASE = "2022-01 Klondike Release"
 
 
 # -- General configuration ------------------------------------------------
@@ -33,7 +33,7 @@ master_doc = "index"
 
 # General information about the project.
 project = "3Di"
-copyright = "2020, Nelen & Schuurmans"
+copyright = "2022, Nelen & Schuurmans"
 author = "Nelen & Schuurmans"
 
 documentation_version = open("../version.txt").readlines()[0].strip()
