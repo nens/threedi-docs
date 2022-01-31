@@ -6,6 +6,185 @@ Release notes
 Release 3Di Klondike Januari 31st 
 -----------------------------------
 
+On Januari 31st we have released the backend for the Klondike release. In this release we introduce a brand new route to process schematisations into 3Di models. A process formerly known as inpy. For users that have not been migrated yet this will not have effect on their work process. 3Di Models will simulate as before. 
+
+The migration will be rolled out gradually, users will be contacted for this. The management screens are available right away, keep in mind that the new features mostly work on migrated schematisations and 3Di Models. Contact our servicedesk if you have any questions regarding migration. 
+
+We use the following definitions:
+
+- Simulation templates
+- Schematisations
+- 3Di Models
+
+Simulation templates
+=====================
+
+Simulations can be started up using a simulation template. A simulation template can be seen as a pre-defined setup of a simulation. It can contain:
+
+- initial water level rasters
+- control structures
+- dry weather flow patterns
+- lateral inflow
+- time series of boundary conditions
+- simulation settings (Aggregation settings, Numerical settings*, Physical Settings*, Time step settings*)
+
+\*\ These settings are required
+
+
+**Numerical Settings**
+
+- pump_implicit_ratio: 0,
+- cfl_strictness_factor_1d: 0,
+- cfl_strictness_factor_2d: 0,
+- convergence_cg: 0,
+- flow_direction_threshold: 0,
+- friction_shallow_water_depth_correction: 0,
+- general_numerical_threshold: 0,
+- time_integration_method: 0,
+- limiter_waterlevel_gradient_1d: 0,
+- limiter_waterlevel_gradient_2d: 0,
+- limiter_slope_crossectional_area_2d: 0,
+- limiter_slope_friction_2d: 0,
+- max_non_linear_newton_iterations: 0,
+- max_degree_gauss_seidel: 0,
+- min_friction_velocity: 0,
+- min_surface_area: 0,
+- use_preconditioner_cg: 0,
+- preissmann_slot: 0,
+- limiter_slope_thin_water_layer: 0,
+- use_of_cg: 0,
+- use_nested_newton: true,
+- flooding_threshold: 0
+
+**Physical Settings**
+
+- use_advection_1d: 0,
+- use_advection_2d: 0
+
+**Time step settings**
+
+- time_step: 0,
+- min_time_step: 0,
+- max_time_step: 0,
+- use_time_step_stretch: true,
+- output_time_step: 0
+
+**Initial Water**
+
+- initial_groundwater (file / global setting)
+- initial_waterlevels (file / global setting)
+- saved state
+
+
+Schematisation
+=====================
+
+A schematisation contains:
+
+General rasters: 
+
+-	dem_file
+-	frict_coef_file
+-	interception_file
+
+Simple infiltration rasters:
+
+-	infiltration_rate_file
+-	max_infiltration_capacity_file
+
+Interflow rasters:
+
+-	hydraulic_conductivity_file
+-	porosity_file
+
+Ground water rasters
+
+-	equilibrium_infiltration_rate_file
+-	groundwater_hydro_connectivity_file
+-	groundwater_impervious_layer_level_file
+-	infiltration_decay_period_file
+-	initial_infiltration_rate_file
+-	leakage_file
+-	phreatic_storage_capacity_file
+
+1D elements:
+
+-	channels
+-	pipes
+-	manholes
+-	connection nodes
+-	structures:
+o	weirs
+o	culverts
+o	orifices
+o	pumps
+-	location (node id) & type (e.g. water level / discharge / etc) of boundary conditions 
+-	dem averaging
+-	impervious surfaces & mapping
+-	surfaces
+-	dem refinement 
+-	cross section locations 
+-	levees & obstacles
+
+GridSettings
+
+-	use_2d: bool
+-	use_1d_flow: bool
+-	use_2d_flow: bool
+-	grid_space: float
+-	dist_calc_points: float
+-	kmax: int
+-	embedded_cutoff_threshold: float = 0.05
+-	max_angle_1d_advection: float = 90.0
+
+TableSettings 
+
+-	table_step_size: float
+-	frict_coef: float
+-	frict_coef_type: InitializationType
+-	frict_type: int = 4
+-	interception_global: Optional[float] = None
+-	interception_type: Optional[InitializationType] = None
+-	table_step_size_1d: float = None 
+-	table_step_size_volume_2d: float = None 
+
+
+
+3Di Model
+=====================
+
+A 3Di Model is generated from a schematisation. The generation takes the grid & table settings from the spatialite and processess the schematisation into a 3Di Model. 
+
+
+3Di Management Screens 
+=================================
+
+The management screens have been extended with a Models section. In this Models section users can:
+
+For 3Di Models
+
+- See an overview of Models in a list 
+- See an overview of Models in the map 
+- Per Model a detailed page is available including the location on the map, size of the Model. 
+- Per Model is an option to run the simulation on the live site
+- On the detailed Model page there is an option to run the simulation on the live site
+- On the detailed Model page there is an option to delete the model
+- On the detailed Model page there is an option to re-generate the model from the schematisation
+- A history of simulations performed with the 3Di Model
+- An overview of available simulation templates. By default 1 simulation template is available for every Model. This is generated based on the spatialite. The name of the simulation template is the name in the v2_global_settings table. 
+
+
+For 3Di Schematisations:
+
+
+For schematisations users can:
+
+- See all available schematisations in a list. 
+- See past revisions of a schematisation
+- Generate a 3Di Model from a schematisation or re-generate an existing model from the schematisation. Keep in mind that doing so will remove additionally generated templates
+
+
+
 3Di computational core 
 =================================
 
