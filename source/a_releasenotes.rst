@@ -173,16 +173,11 @@ For 3Di Models
 - A history of simulations performed with the 3Di Model
 - An overview of available simulation templates. By default 1 simulation template is available for every Model. This is generated based on the spatialite. The name of the simulation template is the name in the v2_global_settings table. 
 
-
-For 3Di Schematisations:
-
-
 For schematisations users can:
 
 - See all available schematisations in a list. 
 - See past revisions of a schematisation
 - Generate a 3Di Model from a schematisation or re-generate an existing model from the schematisation. Keep in mind that doing so will remove additionally generated templates
-
 
 
 3Di computational core 

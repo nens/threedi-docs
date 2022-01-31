@@ -28,7 +28,7 @@ Simulations can be started up using a simulation template. A simulation template
 - time series of boundary conditions
 - simulation settings (Aggregation settings, Numerical settings*, Physical Settings*, Time step settings*)
 
-\* These settings are required
+\*\ These settings are required
 
 
 **Numerical Settings**
