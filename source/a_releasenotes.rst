@@ -6,9 +6,11 @@ Release notes
 Release 3Di Klondike Januari 31st 
 -----------------------------------
 
-On Januari 31st we have released the backend for the Klondike release. In this release we introduce a brand new route to process schematisations into 3Di models. A process formerly known as inpy. For users that have not been migrated yet this will not have effect on their work process. 3Di Models will simulate as before. 
+On Januari 31st we have released the backend for the Klondike release. In this release we introduce a brand new route to process schematisations into 3Di models. This will replace the process known as 'inpy'. 
+For users that have not been migrated yet, this will not have effect on their work process. 3Di Models will simulate as before. 
 
-The migration will be rolled out gradually, users will be contacted for this. The management screens are available right away, keep in mind that the new features mostly work on migrated schematisations and 3Di Models. Contact our servicedesk if you have any questions regarding migration. 
+The migration will be rolled out gradually, users will be contacted for this. The management screens are available for all users right away, but keep in mind that the new features mostly work on migrated schematisations and 3Di Models. 
+Contact our servicedesk if you have any questions regarding migration. 
 
 We use the following definitions:
 
@@ -114,10 +116,10 @@ Ground water rasters
 -	manholes
 -	connection nodes
 -	structures:
-o	weirs
-o	culverts
-o	orifices
-o	pumps
+	-	weirs
+	-	culverts
+	-	orifices
+	-	pumps
 -	location (node id) & type (e.g. water level / discharge / etc) of boundary conditions 
 -	dem averaging
 -	impervious surfaces & mapping
@@ -196,7 +198,7 @@ Because of a new Grid generation. Node ids can differ from old versions of a thr
 - Quadtree creation (2D Cells) 
 - The behavior around refinements is altered slightly. Grid cell sizes at edges can differ slightly. 
 
-**Channels, pipes and culverts **
+**Channels, pipes and culverts**
 
 - The order of the coordinates in a channel or culvert linestring does not matter anymore. Previously, in case that the geometry was reversed (the first coordinate in the linestring coincides with the “connection_node_end” and vice versa), makegrid connected the “connection_node_end” to the wrong side of the channel. 
 - 1D initial waterlevels on channels/pipes/culvert nodes are now (linearly) interpolated between connection nodes. 
