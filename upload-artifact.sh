@@ -2,9 +2,8 @@
 set -e
 set -u
 
-# ARTIFACTS_KEY_STAGING and ARTIFACTS_KEY_PRODUCTION are set as env variables
-# in the travis UI.
-# TRAVIS_BRANCH is set automatically by travis
+# ARTIFACTS_KEY_STAGING and ARTIFACTS_KEY_PRODUCTION have been set as env
+# variables in the github UI.
 ARTIFACT=threedi-docs.zip
 
 if [ $1 = "production" ]
@@ -24,5 +23,5 @@ curl -X POST \
      -H "Content-Type: multipart/form-data" \
      -F key=${ARTIFACTS_KEY} \
      -F artifact=@${ARTIFACT} \
-     -F branch=${TRAVIS_BRANCH} \
+     -F branch=${GITHUB_REF} \
      https://artifacts.lizard.net/upload/${PROJECT}/
