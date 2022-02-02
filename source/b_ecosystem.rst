@@ -70,6 +70,9 @@ Management Portal
 
 https://management.3di.live/
 
+.. figure:: image/b_managementportal.png
+   :alt: Management portal 
+
 The Modeller Interface is used to build and edit you model schematisation on your own computer. However, the 3Di models are stored in the cloud, to enable version control. When uploading a model it is stored in the so-called *3Di Model Database*. Users upload their model with a description of the adjustment being made. 
 Colleagues can synchronise their models on their own laptop and continue working with the improved version.
 
