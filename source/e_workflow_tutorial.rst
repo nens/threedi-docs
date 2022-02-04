@@ -1,7 +1,11 @@
 .. _tutorial1_workflow:
 
-Tutorial 1: Workflow of building a 3Di model
-=============================================
+Tutorial 1: Workflow of building a 3Di model - Old route (pre-klondike)
+==========================================================================
+
+.. note:: This tutorial described the old route of building a 3Di model. 
+    After the Klondike release, you do not need Tortoise and Inpy anymore. This tutorial will be updated. 
+
 
 Welcome to 3Di and your first tutorial. In this tutorial, we will go through the basic steps of building a 3Di model. 
 These are the pre-processing steps before you can start building your model and the post-processing steps after you 

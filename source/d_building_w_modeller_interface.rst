@@ -9,70 +9,69 @@ Introduction
 The Modeller Interface (MI) will help you with building 3Di models locally. 
 
 
+.. figure:: image/d_newprocess.png
+   :alt: Simplified modelling process
+
+With the Klondike Release (January 2022), all modelling steps can be done in the Modeller Interface.
 
 
-.. _importsufhyd:
+.. raw:: html
 
-Import from SUF-HYD
-^^^^^^^^^^^^^^^^^^^
-
-SUF-HYD is a Dutch standardised format for transferring data of sewerage systems for hydraulic analyses. This tool allows an automated import of the sewerage data in the 3Di model database. 
-
-Before you can use the tool, make sure you have :ref:`downloaded an empty spatialite <empty_database>`. The SUF-HYD data will be imported to this spatialite. Save the Sqlite to a location fo choice on your computer.
-
-The tool can be accessed by :ref:`activating the toolbox <3ditoolbox>` and double clicking 'import_sufhyd.py' under 'Step 2 - Convert and import data' 
-
-1) First, make sure you have a connection with the sqlite you want to import your data to (see the first 3 steps under :ref:`rasterchecker`). 
-2) After opening the tool, select a SUF-HYD file and the database (sqlite) to import the data into and click 'OK'
-
-The data from the SUF-HYD will be loaded into the sqlite. A log file of this process can be found at the same location as the SUF-HYD file. This file has the name of your SUF-HYD with a *.hyd.log* extension. You can open this log file with a text editor such as Notepad. This log-file gives a summary of data errors and warnings. 
-
-The following objects are imported:
-
-* Manhole (``*KNP``)
-    * The number of inhabitants will be added as an *Impervious surface*.
-
-Note: the shape of the manhole is refered as 'rnd' = round, 'sqr' = square and 'rect' = rectangle
-
-*    Pipe (``*LEI``)
-
-    *    The number of inhabitants will be added as *Impervious surface*
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/Uvjf4s77vr0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	
-*    Pump station (``*GEM``)
+*In this video we present the workflow from start to finish of the new simplified modelling process.*
 
-    *    If multiple stages are defined, this will be transformed into seperate pumpstations. Up to 10 stages are supported
-	
-*    Weir (``*OVS``)
 
-    *    Flow direction (str_rch) is translated into discharge coefficients with a value of 0
-    *    An end node with boundary condition is not automatically added.
-	
-*    Orifice (``*DRL``)
 
-    *    Flow direction (str_rch) is translated into discharge coefficients with a value of 0
-	
-*    Boundary (``*UIT``)
+Create a new 3Di model schematisation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    *    The water level will be the average definition (bws_gem). If not present the summer water level is used and otherwise the winter water level.
-	
-*    Extra manhole storage (``*BOP``)
+.. figure:: image/d_openplugin.png
+   :alt: Open the 3Di Models and Simulations plugin
+   
+.. figure:: image/d_buildoptions.png
+   :alt: Choose BUILD
+   
+.. figure:: image/d_3dimodelsandsimulations.png
+   :alt: Choose New schematisation
 
-    *    The defined storage area is added to a manhole on the bottomlevel of the manhole. The defined bottom_level of the storage (niv_001) is ignored.
-    *    Only one storage area is supported
-	
-*    *Drainage area/ Impervious surface (``*AFV``)*
+.. figure:: image/d_newschematisation1.png
+   :alt: Choose Schematisation setttings - tab 1
+   
+.. figure:: image/d_newschematisation2.png
+   :alt: Choose Schematisation setttings - tab 2   
+   
+   
+   
 
-*    Linkage nodes (``*KPG``)
+#. Open the Modeller Interface
+#. Activate the plugin
+#. Choose your default folder
+#. Click on the 'BUILD' button
+#. Click on the 'New schematisation' button
+#. Fill in your credentials to login
+#. Choose a name (obligatory) and tags (optional)
+#. If you have rights to more than one organisation, choose the desired organisation
+#. Click 'Next'
+#. Fill in other settings, such as the projection and friction type and simulation timestep
+#. Click 'Create Schematisation'
+#. If you get errors, please solve them, otherwise you will get a "SUCCESS" message
 
-    *    The 'fictive' linkages (with typ_gkn == 01) are ignored, only real nodes are combined.
-    *    The second node (ide_kn2) is removed. Impervious surfaces and pipes linked to the removed node are redirected to the first node. Extra manhole storage will be lost.
+Congratulations, you have your first commit!
+
+
+An alternative way to load a schematisation is via :ref:`importsufhyd`. 
+
+
+
+
 
 .. _view_model_results:
     
 View and edit 3Di model schematisation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-After loading your 3Di model schematisation, there are several ways to inspect your model. We have added the following features to assist you in viewing and editing the model schematization:
+After loading your 3Di model schematisation, there are several ways to inspect your model. We have added the following features to assist you in viewing and editing the model schematisation:
 
 - Multiple styles per layer
 - Drop down menus
@@ -86,7 +85,7 @@ After loading your 3Di model schematisation, there are several ways to inspect y
 **Multiple styles per layer**
 
 
-The multiple styles per layer can help you when analysing your model. The different styles depict aspects of the layer you might be interested in, without cluttering your schematization with too much information at once. 
+The multiple styles per layer can help you when analysing your model. The different styles depict aspects of the layer you might be interested in, without cluttering your schematisation with too much information at once. 
 
 To switch between stylings: 1) Right click the layer you are interested in. 2) Hold your mouse over styles and the multiple styles will be shown. 3) Click on the style you want to use. The style with the dot next to it is the active style. The figure below shows an example for selecting a style. 
 
@@ -132,7 +131,7 @@ Id                   The ‘id’ style adds a label to the default style, depic
                      node. This can be useful when connecting other elements to existing connection 
 
                      nodes.
-Initial water level  The ‘initial water level’ style is a categorized styling that represents the connection
+Initial water level  The ‘initial water level’ style is a categorised styling that represents the connection
 
                      nodes without an initial water level in the default style and the connection nodes
 
@@ -141,7 +140,7 @@ Initial water level  The ‘initial water level’ style is a categorized stylin
                      water levels (in m MSL).
 Storage area         The ‘storage area’ style depict the storage area of the connection nodes as a ratio 
 
-                     style with a label. The extent of the schematization corresponds to the size of the 
+                     style with a label. The extent of the schematisation corresponds to the size of the 
 
                      storage area of the connection node. The label depicts the storage area. 
 ===================  ===================================================================================
@@ -152,7 +151,7 @@ Storage area         The ‘storage area’ style depict the storage area of the
 ===================  ===================================================================================
 Style                Description  
 ===================  ===================================================================================
-Default              The ‘default’ style is a categorized styling depicting the locations and indicators of
+Default              The ‘default’ style is a categorised styling depicting the locations and indicators of
 
                      the manholes. The different manhole indicators have different zoom levels in order
 
@@ -160,7 +159,7 @@ Default              The ‘default’ style is a categorized styling depicting 
 Levels               The ‘levels’ style adds a label to the default style, depicting the surface level (s:),
 
                      the drain level (d:) and the bottom level (b:).
-Calculation type     The `’calculation type’ <https://docs.3di.lizard.net/b_1dtypes.html#types-of-1d-elements-calculation-types>`_ style is a categorized styling that depicts the way 3Di  
+Calculation type     The `’calculation type’ <https://docs.3di.lizard.net/b_1dtypes.html#types-of-1d-elements-calculation-types>`_ style is a categorised styling that depicts the way 3Di  
 
                      calculated the interaction between a manhole and the 2D computation domain.
 Code                 The ‘code’ style adds a label to the default style, depicting the code of the manhole.
@@ -205,7 +204,7 @@ Levels               The ‘levels’ style adds a label to the default style, d
 ===================  ===================================================================================
 Style                Description  
 ===================  ===================================================================================
-Capacity             The extent of the schematization corresponds to the capacity of the pump. The label
+Capacity             The extent of the schematisation corresponds to the capacity of the pump. The label
 
                      depicts the capacity of the pumpstation (in L/s).
 Levels               The ‘levels’ style adds a label to the default style, depicting the upper stop level (up:),  
@@ -218,7 +217,7 @@ Levels               The ‘levels’ style adds a label to the default style, d
 ===========================  ============================================================================
 Style                        Description  
 ===========================  ============================================================================
-Calculation type             The `’calculation type’ <https://docs.3di.lizard.net/b_1dtypes.html#types-of-1d-elements-calculation-types>`_ style is a categorized styling that depicts the way    
+Calculation type             The `’calculation type’ <https://docs.3di.lizard.net/b_1dtypes.html#types-of-1d-elements-calculation-types>`_ style is a categorised styling that depicts the way    
 
                              3Di calculated  the interaction between a channel and the 2D  
 
@@ -273,7 +272,7 @@ Levels and flow direction    The ‘levels and flow direction’ style adds arro
                              invert level) and the label shows the invert level for the start point (s:)  
  
                              and end point (e:) of the culvert.
-Calculation type             The `’calculation type’ <https://docs.3di.lizard.net/b_1dtypes.html#types-of-1d-elements-calculation-types>`_ style is a categorized styling that depicts the way  
+Calculation type             The `’calculation type’ <https://docs.3di.lizard.net/b_1dtypes.html#types-of-1d-elements-calculation-types>`_ style is a categorised styling that depicts the way  
 
                              3Di calculated the interaction between a culvert and the 2D computation 
 
@@ -321,7 +320,7 @@ Diameter             The line width is based on the average of the (max.) width 
 ===========================  ============================================================================
 Style                        Description  
 ===========================  ============================================================================
-Default                      The ‘default’ style is a categorized styling depicting the locations and  
+Default                      The ‘default’ style is a categorised styling depicting the locations and  
 
                              sewerage types of the pipes.
 Levels and flow direction    The ‘levels and flow direction’ style adds arrows and a label to the default 
@@ -331,7 +330,7 @@ Levels and flow direction    The ‘levels and flow direction’ style adds arro
                              invert level) and the label shows the invert level for the start point (s:) 
 
                              and end point (e:)  of the pipe.
-Calculation type             The `’calculation type’ <https://docs.3di.lizard.net/b_1dtypes.html#types-of-1d-elements-calculation-types>`_ style is a categorized styling that depicts the way 3Di   
+Calculation type             The `’calculation type’ <https://docs.3di.lizard.net/b_1dtypes.html#types-of-1d-elements-calculation-types>`_ style is a categorised styling that depicts the way 3Di   
 
                              calculated the interaction between a pipe and the 2D computation domain.
 Drawing direction            The ‘drawing direction’ styling depicts the drawing direction of the pipe,
@@ -413,7 +412,7 @@ Refinement levels    The ‘refinement level’ style adds a label to the defaul
 ===========================  ============================================================================
 Style                        Description  
 ===========================  ============================================================================
-Surface inclination          The ‘surface inclination’ style is a categorized styling depicting the  
+Surface inclination          The ‘surface inclination’ style is a categorised styling depicting the  
 
                              locations and the surface inclinations of the impervious surfaces.  
 Area and dry weather flow    The ‘area dry weather flow’ style depicts the amount of dry weather flow 
@@ -775,7 +774,7 @@ calculation points.
 To add levee breaches to your model using the 3Di toolbox, please follow the steps below:
 
 1. Set up a connection with the SQLite or PostgreSQL database of your model (see: :ref:`rasterchecker`).
-2. Click on the 3Di toolbox and select *Step 3 - Modify schematization*.
+2. Click on the 3Di toolbox and select *Step 3 - Modify schematisation*.
 3. Choose *Predict calc points* and select your SQLite or PostgreSQL model from the list. Two virtual layers will then be added called *v2_connected_pnt* and *v2_calculation_point*.
 
 .. image:: image/d_qgisplugin_leveebreaches_predict_calc_points.png
