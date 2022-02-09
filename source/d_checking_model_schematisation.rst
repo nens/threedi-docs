@@ -3,7 +3,10 @@
 Checking the model schematisation
 ===================================
 
-*Checking the model schematisatiion can only be done with toolboxes in Qgis desinged for 3Di models.*
+It is very useful to check your model schematisation before uploading. It can raise errors and let you solve them early on, or it can raise warnings, which you might want to solve.
+
+*Checking the model schematisation can only be done with toolboxes in QGIS designed for 3Di models, which come pre-installed with the Modeller Interface.
+For information how to download the Modeller Interface or the seperate plugins, please visit* :ref:`3di_instruments_and_downloads`.
 
 .. _3ditoolbox:
 
@@ -26,7 +29,7 @@ After clicking the toolbox icon, a new window is opened. Click the arrow next to
 
 Raster checker
 ^^^^^^^^^^^^^^
-The *Raster checker* is launched with the QGIS 3.4.5 version of the Plugin. This tool checks the rasters for your 3Di model schematisation. The tool verifies for example:
+The *Raster checker* is launched since the QGIS 3.4.5 version of the Plugin and now available for the LTR version. This tool checks the rasters for your 3Di model schematisation. The tool verifies for example:
 
 - The correct nodata value
 
@@ -34,7 +37,62 @@ The *Raster checker* is launched with the QGIS 3.4.5 version of the Plugin. This
 
 - Alignment of all rasters
 
-There are up to 18 checks performed. It is strongly recommended to run this tool before updating the model repository. The model generation will be unsuccessfull, when it encounters any inconsistencies in your rasters. 
+
+The principe of the raster checker is to check if your model will calculate. It does not validate on logical values and if elements are connected. 
+
+
+The RasterChecker checks your rasters based on the raster references in your sqlite. 
+This is done for all v2_global_setting rows. 
+
+**The following checks are executed:**
+
+-- Per individual raster: -- 
+
+- 1: Are all filenames of rasters within one setting_id unique? (3Di can handle this, but the RasterChecker not).
+
+- 2: Do the referenced rasters (in all v2_tables) exist on your machine?
+
+- 3: Is the raster file extension .tif / .tiff?
+
+- 4: Is the raster filename valid? (no special characters, no space, max one '.' and '/')
+
+- 5: Is the raster single- (not multi-) band?
+
+- 6: Is the raster nodata value -9999?
+
+- 7: Does the raster have a projected coordinate system (unit: meters)?
+
+- 8: Is the raster data type float 32?
+
+- 9: Is the raster compressed? (compression=deflate)
+
+- 10: Does the pixelsize have max three decimal places?
+
+- 11: Are the pixels square?
+
+- 12: Are there no extreme pixel values? (dem: -10kmMSL<x<10kmMSL, other rasters have their own limits
+
+-- All rasters per setting_id at once: -- 
+
+- 13: Is the cumulative number of pixels of all rasters per setting_id lower than 1.000.000.000?
+
+-- Raster comparison: -- 
+
+- 14: Is the projection equal to the dem projection?
+
+- 15: Is the pixel size equal to the dem pixel size?
+
+- 16: Is the number of data/nodata pixels equal to the dem.
+
+- 17: Is the number of rows-colums equal to the dem?
+
+-- Pixel allignment: -- 
+
+- 18: Are pixels correctly aligned (data and nodata locations) with the dem?
+
+
+
+**How to use the raster checker?**
 
 To use the *Raster checker*, set up a connection with the SQlite of your model. 
 
@@ -84,11 +142,12 @@ Further down in the log-file, the outcome of the *raster checker* for each raste
 Schematisation checker
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The *schematization checker* analyses your 3Di model database (.sqlite file) for completeness and consistency between tables. With the checker you can make sure most database errors are found before sending the model to the 3Di INP-server for model generation. 
+The *schematisation checker* analyses your 3Di model database (.sqlite file) for completeness and consistency between tables. 
+With the checker you can make sure most database errors are found before sending the model to the 3Di servers for model generation. 
 
-In order to use the *schematization checker* follow these steps:
+In order to use the *schematisation checker* follow these steps:
 
-1. Start *QGIS*
+1. Start the Modeller Interface
 2. Add a connection to the model database (*Layer* -> *Data Source Manager*, Select *SpatiaLite* on the left and create a *'New’* connection or connect to an existing connection)
 3. Open the *schematization checker* by opening the *Toolbox* in the 3Di Plugin, select *Step 1: check data*, select *schematisation_checker.py*
 4. Select the SpatiaLite connection of the model database and the location where to store the output of the schematisation checker. Click *run* to run the schematisation checker. Click *open* to open the output.
