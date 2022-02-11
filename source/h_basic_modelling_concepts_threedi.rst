@@ -19,12 +19,12 @@ To run a simulation, a user can use a simulation template or select a 3Di model 
 
 We provide all models of a simulation template based on the sqlite. 
 
- .. TODO::     [create infographic]
+.. TODO:      [create infographic]
 
 
 The simulation template can be selected in QGIS.
 
- .. TODO:: [insert screenshot]
+.. TODO:  [insert screenshot]
  
 
 The simulation template can either be used as is, or can be run with changes and stored as a new simulation template. 
