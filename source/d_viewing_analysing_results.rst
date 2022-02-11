@@ -1,15 +1,15 @@
 .. _viewing_and_analyzing_results:
 
-Viewing and analysing results
-================================
+Storing, viewing and analysing results
+=========================================
 
-*Results can be viewed and analysed with the Modeller Interface or the live site.*
+Results can be viewed and analysed with the Modeller Interface, the live site or the Scenario Archive in Lizard.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Viewing and analyzing results
-   :name: vieuwing_and_analysing_results
+   :caption: Storing, Viewing and analysing results
+   :name: viewing_and_analysing_results
    
    d_viewing_results_mi
    d_livesite_results
-   d_results_from_lizard
+   d_scenario_archive.rst   

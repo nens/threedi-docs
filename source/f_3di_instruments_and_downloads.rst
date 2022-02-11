@@ -25,7 +25,7 @@ Modeller Interface or QGIS
 For an overview on the modeller interface go to: :ref:`intro_modeller_interface`
 
 - Install the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.7-1-Setup-x86_64.exe>`_  or
-- Install the Long Term Release (LTR) of QGIS, and install the 3Di toolbox and API client as QGIS plugins
+- Install the Long Term Release (LTR) of QGIS, and install the 3Di toolbox and"3Di Models and Simulations" as QGIS plugins
 
 .. _plugin_installation:
 
@@ -45,7 +45,7 @@ Plugin Installation
 * QGiS 3Di plug-in specially designed for 3Di
 	
 	* 3Di Toolbox
-	* 3Di API client
+	* "3Di Models and Simulations"
 
 The plugins work for:
 
@@ -74,15 +74,15 @@ To install the 3Di-Toolbox plugin follow the steps below:
 
 .. _plugin_overview:
 
-To install the 3Di API client plugin follow the steps below: 
+To install the "3Di Models and Simulations" plugin follow the steps below: 
 
 1) Open QGIS and via the menu bar go to 'Plugins > Manage And Install Plugins'. 
 2) Go to 'Settings'. 
 3) Add a plugin repository
 4) Fill in a name and copy the URL: https://plugins.lizard.net/plugins.xml into the URL box. 
-5) Go to 'All' and choose '3Di API client' from the list
+5) Go to 'All' and choose '"3Di Models and Simulations"' from the list
 6) Install the plugin.
-7) To active the panel of the API client, choose plugins --> 3Di API client --> 3Di API client. Now the panel will be available.
+7) To active the panel of the"3Di Models and Simulations", choose plugins --> "3Di Models and Simulations" --> "3Di Models and Simulations". Now the panel will be available.
 
 .. _plugin_settings:
 
@@ -90,8 +90,8 @@ Plugin settings
 ^^^^^^^^^^^^^^^^
 To set the Base API URL:
 
-1) Open QGIS and via the menu bar go to 'Plugins > 3Di API Client > Settings'
-2) Fill in a Base API URL. The Base API URL is in most cases https://api.3di.live/v3.0/. If you want to connect to our second calculation center in Taiwan, the base API URL is https://api.3di.tw/v3.0/.
+1) Open QGIS and via the menu bar go to 'Plugins > "3Di Models and Simulations" > Settings'
+2) Fill in a Base API URL. The Base API URL is in most cases https://api.3di.live/v3/. If you want to connect to our second calculation center in Taiwan, the base API URL is https://api.3di.tw/v3/.
 
 
 
@@ -105,7 +105,7 @@ General information
 
 All applications make use of https traffic over port 443 with public signed SSL/TLS certificates.
 If certificate errors show, please check any security software.
-One way of testing this is by visiting https://api.3di.live/v3.0 in a browser and check the certificate.
+One way of testing this is by visiting https://api.3di.live/v3 in a browser and check the certificate.
 If it is issued by R3, this is the certificate configured by us.
 Any other name will point towards the security software in use.
 
@@ -115,14 +115,14 @@ Any other name will point towards the security software in use.
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 This is a preconfigured version of QGIS (www.qgis.org), with some options switched off, different stylesheets, and some pre-installed plugins.
-Two of these plugins (3Di Toolbox and 3Di API Client) are maintained by Nelen & Schuurmans.
+Two of these plugins (3Di Toolbox and "3Di Models and Simulations") are maintained by Nelen & Schuurmans.
 QGIS itself and the other pre-installed plugins are not made / maintained by Nelen & Schuurmans.
 
 Install instructions for the 3Di Modeller Interface can be found here:
 https://docs.3di.live/d_before_you_begin.html#modeller-interface-or-qgis
 
 Because the 3Di Modeller Interface is a customized QGIS,
-we refer to the QGIS documentation when you run into any issues that are not specifically related to the plugins '3Di Toolbox' or '3Di API Client': 
+we refer to the QGIS documentation when you run into any issues that are not specifically related to the plugins '3Di Toolbox' or '"3Di Models and Simulations"': 
 * QGIS User Manual: https://docs.qgis.org/latest/en/docs/user_manual/
 * Installation section in QGIS User Manual: https://docs.qgis.org/latest/en/docs/user_manual/introduction/getting_started.html#installing-qgis
 

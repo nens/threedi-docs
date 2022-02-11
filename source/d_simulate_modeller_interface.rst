@@ -8,13 +8,14 @@ To start simulating with the Modeller Interface, you first need to open the Mode
 
 .. _start_up_api_qgis:
 
-Start up the 3Di API Client
+Start up the "3Di Models and Simulations"
 ----------------------------
 
-Open the Modeller Interface. Click on **Plug-ins** from the menu bar and open the dropdown menu. Click on **3Di API Client** to start up the plugin.
-For a guide on how to install the Modeller Interface or the API Client see :ref:`3di_instruments_and_downloads`.
+Open the Modeller Interface. Click on **Plug-ins** from the menu bar and open the dropdown menu. Click on **"3Di Models and Simulations"** to start up the plugin.
+For a guide on how to install the Modeller Interface or the"3Di Models and Simulations" see :ref:`3di_instruments_and_downloads`.
 
-*screenshot toevoegen*
+.. figure:: image/d_openplugin.png
+   :alt: Open the 3Di Models and Simulations plugin
 
 
 .. _load_model_api_qgis:
@@ -22,7 +23,7 @@ For a guide on how to install the Modeller Interface or the API Client see :ref:
 Load model
 ------------
 
-Load your model by clicking **start** in the 3Di API Client. In the pop-up window (wizard) choose **Load from Web**.
+Load your model by clicking **start** in the "3Di Models and Simulations". In the pop-up window (wizard) choose **Load from Web**.
 
 **Note:** If you are using 3Di outside of the Netherlands you need to change the Base API. See: :ref:`plugin_settings` on how to do this. 
 
@@ -356,7 +357,7 @@ Old table
 The most used API options are included in the newest version of the plugin. Important consideration is a difference between API v1 and v3 how initial waterzylevels, laterals and boundaries are handled. The current status is as follows:
 
 ============================= =========================== =========================================== ==================================
-Forcings                        Live site                  3Di API Client Wizard                       OpenAPI Client
+Forcings                        Live site                  "3Di Models and Simulations" Wizard                       OpenAPI Client
 ============================= =========================== =========================================== ==================================
 Boundary conditions            SQLite                      SQLite                                      SQLite, can be overwritten*
 Initial water level 2D         SQLite, always 'max'        Add raster/global in wizard                 Add raster/global to simulation
@@ -389,6 +390,6 @@ This means that for *boundary conditions* nothing changes between API v1 and v3.
 
 *Laterals* are not taken into account when added to the spatialite. The user has to add them to the API call for them to be taken into account. See the section on laterals below for a 'how to'. 
 
-*DWF (inflow)* In API v1 inflow on connection nodes is being calculated based on nr of inhabitants per impervious surface and the mapping to the connection nodes. In API v3 users can calculate the inflow separately using the dwa calculator tool. The output of this tool is a csv with lateral inflow. This csv can be used in the 3Di API Client. In this approach is more transparant and generic usable for different countries.
+*DWF (inflow)* In API v1 inflow on connection nodes is being calculated based on nr of inhabitants per impervious surface and the mapping to the connection nodes. In API v3 users can calculate the inflow separately using the dwa calculator tool. The output of this tool is a csv with lateral inflow. This csv can be used in the "3Di Models and Simulations". In this approach is more transparant and generic usable for different countries.
 
 
