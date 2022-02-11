@@ -1,15 +1,54 @@
-Problem Solving
-===============
+FAQ and Problem Solving 
+============================
 
 This section will help you solve some problems or errors that may occur when using 3Di.
-Some issues are due to the software, these will be summarized in the section Known Issues, including a temporary solution.
+Some issues are due to the software, these will be summarised in the section Known Issues, including a temporary solution.
 Errors, due to input data or other user settings can occur in various components or steps of the modeling process: 
 
-#. Generating a 3Di model from the spatialite data or 'INP generation' which occurs in http://3Di.lizard.net/models, or
+#. Generating a 3Di model from the spatialite data or
 
 #. During simulation via the live site or via an API call.
 
-The section 'Frequently endured issues' below mention different types of errors and how to find them.
+The section 'Frequently endured issues' mentions different types of errors and how to find them.
+
+We start with answering the frequently asked questions. 
+
+As our software is constantly improving, we will update this page with solved issues.
+
+
+Frequently Asked Questions 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Klondike**
+
+-	Are all my models automatically migrated? 
+*We will supply schematisations for the new route*
+
+-	I don’t like change, can I still use the old inpy & Tortoise?
+*Yes, you can. For a limited time this workflow will remain available.*
+
+-	Do all models work on the new route after the Klondike release? 
+*Almost all of them do. There is a very limited number of models that contains errors we cannot fix or set as a warning. We will contact the owners of these models individually.*
+
+-	Are all grid generation functionalities of 3Di still supported?
+*All of them except for the rarely used dem obstacle detection.*
+
+-	Do I need to change all of my scripts?
+*In most cases not, there’s mostly extra functionality. If you like to know more don’t hesitate to contact us.*
+
+-	I uploaded extra files using Tortoise. Is this still supported?
+*No. Only data that is used in a schematisation is supported.*
+
+-	I added extra tables in my SQLite, will they be deleted?
+*No, those will be ignored.*
+
+-	How do I edit a simulation template? 
+*You can’t. But you can clone it into a new simulation and edit that.*
+
+-	Can I change infiltration in a simulation template?
+*No infiltration is part of the schematisation. You can copy a schematisation and change the infiltration file there.*
+
+
 
 Known Issues
 ^^^^^^^^^^^^^^
@@ -22,11 +61,10 @@ Known Issues
 
 - If a raster has both NaN and Nodata values the live site DEM will color yellow (showing color scale for -9999)
 
-- Dry Weather Flow in API v3 or the Modeller Interface is not taken from the spatialite. Users can define the DWF by using the dwf calculator and applying it as a lateral
 
 - When applying 2D boundary conditions, it is not allowed to have more than one grid resolution on the edge. However, there is no clear error message for this. 
 
-- In the live site it is not possible to visualize structures together with the schematisation.
+- In the live site it is not possible to visualise structures together with the schematisation.
 
 - Note, that in v2_control tables (v2_control_table, v2_control_memory, v2_control_pid, v2_control_timed) the unit for adjusting the pump discharge capacity is actually *m3/s*, even tough the unit used normally is *L/s*.
 
@@ -58,22 +96,79 @@ Frequently endured issues
 
 Per category, we include the frequently endured issues. In case you think a specific issue should be included, please let us know.
 
+
+Uploading a new revision
+--------------------------
+
+*Error: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'server': 'openresty/1.15.8.3', 'date': 'Fri, 11 Feb 2022 07:44:04 GMT', 'content-type': 'application/json', 'content-length': '68', 'vary': 'Accept, Origin, Cookie', 'allow': 'POST, OPTIONS', 'x-frame-options': 'DENY', 'x-content-type-options': 'nosniff', 'strict-transport-security': 'max-age=63072000', 'referrer-policy': 'strict-origin-when-cross-origin', 'x-xss-protection': '1'})
+HTTP response body: ["Maximum number of active threedimodels for a schematisation is 3"]*
+
+You have reached the max number of active 3Di models for this schematisation. Please go the management.3di.live and remove one or more 3Di models that are attached to this schematisation
+
+
+
+Running a simulation
+----------------------
+
+
+ERROR - F - Matrix diagonal element, near zero
+++++++++++++++++++++++++++++++++++++++++++++++
+
+At one calculation point there is no storage area or the wet cross section area is near zero or even negative. This may be caused by various reasons listed below:
+
+* Structure levels are below cross section reference levels, f.i. a culvert below the bed level. This is not possible as when water level drops below the bed level, flow through the culvert has no area to flow to. Update reference or structure levels so that they match. Reference levels can be below structure levels.
+
+* A lateral inflow from laterals or an inflow surface is connected to a node without storage area, f.i. an pump end node or boundary node. Removes laterals or inflow from these nodes.
+
+* Water level boundary is below structure level.
+
+* All definition values for width and height must be positive.
+
+* Pump start level is below pump stop level.
+
+The error is followed by a reference to the node without any storage or link without wet cross section area. This will look something like::
+
+    near zero, aii(nod)<1.0d-10,nod,aii(nod),su(nod)  14614   14439  0.0000E+00  0.0000E+00
+    
+The first number (14614 in this example) refers to the calculation node on which the error occurs. This number can be found using the QGIS plugin when a result of this model is available. The number can be located using the *node_results*. The id's in this table match the one given here. The second number is a link id and can be found using the *line_result* layer.
+
+ERROR : The combination of cross-section types is invalid for input channel number:
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Not all cross-section definition types can be combined for a single channel. Only type 1 (rectangle) and type 2 (circle) or type 5 and 6 (both tabulated) can be combined. If you have multiple cross-section types on one channel change these or split the channel.
+
+ERROR - F - Impossible line connection at calculation node:            729
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+This error may occur when using embedded in combination with structures. Make sure no structure is placed entirely inside a 2D computational cell. You can only check this when you have a copy of the 2D computational grid. You can obtain this by making a purely 2D model of your DEM and grid refinement of try making one using the 'create grid' function in the QGIS processing toolbox.
+
+Runtime Error: NetCDF: String match to name in use
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Check the aggregation NetCDF name settings, names must be unique.
+
+No Limit to infiltration
++++++++++++++++++++++++++++++
+
+The setting max_infiltration_capacity_file found in the global settings table is depricated. The setting was not removed from the global settings table, but is added to the infiltration_simple_table. Values from there are taken into account. This is solved in the autumn release 2018, however older versions of the spatialite still have this setting there.
+
+
+
+Solved issues
+^^^^^^^^^^^^^^
+
+The below errors and bugs should not be experienced anymore. Please let us know if you do still encounter them.
+
+
+- Dry Weather Flow in API v3 or the Modeller Interface is not taken from the spatialite. Users can define the DWF by using the dwf calculator and applying it as a lateral
+
+
 INP generation
 -----------------
 
 After uploading or pushing a new revision 3Di.lizard.net/models will generate a model automatically. If an error occurs during this process the status bar will turn red and show FAIL. By clicking FAIL the log messaging is shown. You may now look for errors either through the web page or by downloading the file in the upper right corner of the screen. Look for any line that starts with *ERROR* and see if you recognize the examples below.
-
-ERROR - could not create threedimodels resource: (400)
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-The complete error looks like this::
-
-              2021-10-07 14:16:57,132 - threedi_spatialite_tools.threedi_files.api_resources - ERROR - could not create threedimodels resource: (400)
-              Reason: Bad Request
-              HTTP response headers: HTTPHeaderDict({'content-length': '91', 'x-xss-protection': '1', 'x-content-type-options': 'nosniff', 'strict-transport-security': 'max-age=63072000', 'vary': 'Accept, Origin, Cookie', 'server': 'openresty/1.15.8.3', 'allow': 'GET, POST, HEAD, OPTIONS', 'date': 'Thu, 07 Oct 2021 12:16:57 GMT', 'x-frame-options': 'DENY', 'referrer-policy': 'strict-origin-when-cross-origin', 'content-type': 'application/json'})
-              HTTP response body: {"slug":["Enter a valid \"slug\" consisting of letters, numbers, underscores or hyphens."]}
-
-Please check the column 'name' in the v2_global_settings table of the sqlite. This name should not contain spaces. If that is the case, remove the space or replace it with a _ 
 
 ERROR can not detect use case from settings.
 +++++++++++++++++++++++++++++++++++++++++++++
@@ -170,63 +265,16 @@ This error may be caused by an incorrect time series in one of the boundary cond
 
 For example::
 
-        0,0.33
-        5,0.46
+        0, 0.33
+        5, 0.46
 
 is a valid time series. And:: 
 
-        0.5,0.33
-        5.1,0.46
+        0.5, 0.33
+        5.1, 0.46
 
 is an invalid time series. 
 
-Simulation
-----------
-
-If an error occurs during simulation a pop-up is displayed in the right bottom corner. The pop-up shows the error message and you will receive an email with some more details.
-
-The INP generation system tries to avoid any errors during simulation. When an error during simulation does occur, most often there is a problem with one of the underlying services or servers. The user can best contact the Servicedesk for more help. The list of errors below may also help you.
-
-ERROR - F - Matrix diagonal element, near zero
-++++++++++++++++++++++++++++++++++++++++++++++
-
-At one calculation point there is no storage area or the wet cross section area is near zero or even negative. This may be caused by various reasons listed below:
-
-* Structure levels are below cross section reference levels, f.i. a culvert below the bed level. This is not possible as when water level drops below the bed level, flow through the culvert has no area to flow to. Update reference or structure levels so that they match. Reference levels can be below structure levels.
-
-* A lateral inflow from laterals or an inflow surface is connected to a node without storage area, f.i. an pump end node or boundary node. Removes laterals or inflow from these nodes.
-
-* Water level boundary is below structure level.
-
-* All definition values for width and height must be positive.
-
-* Pump start level is below pump stop level.
-
-The error is followed by a reference to the node without any storage or link without wet cross section area. This will look something like::
-
-    near zero, aii(nod)<1.0d-10,nod,aii(nod),su(nod)  14614   14439  0.0000E+00  0.0000E+00
-    
-The first number (14614 in this example) refers to the calculation node on which the error occurs. This number can be found using the QGIS plugin when a result of this model is available. The number can be located using the *node_results*. The id's in this table match the one given here. The second number is a link id and can be found using the *line_result* layer.
-
-ERROR : The combination of cross-section types is invalid for input channel number:
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Not all cross-section definition types can be combined for a single channel. Only type 1 (rectangle) and type 2 (circle) or type 5 and 6 (both tabulated) can be combined. If you have multiple cross-section types on one channel change these or split the channel.
-
-ERROR - F - Impossible line connection at calculation node:            729
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-This error may occur when using embedded in combination with structures. Make sure no structure is placed entirely inside a 2D computational cell. You can only check this when you have a copy of the 2D computational grid. You can obtain this by making a purely 2D model of your DEM and grid refinement of try making one using the 'create grid' function in the QGIS processing toolbox.
-
-Runtime Error: NetCDF: String match to name in use
-++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Check the aggregation NetCDF name settings, names must be unique.
-
-No Limit to infiltration
-+++++++++++++++++++++++++++++
-
-The setting max_infiltration_capacity_file found in the global settings table is depricated. The setting was not removed from the global settings table, but is added to the infiltration_simple_table. Values from there are taken into account. This is solved in the autumn release 2018, however older versions of the spatialite still have this setting there.
 
 Results Analysis
 -------------------
@@ -242,7 +290,6 @@ ThreeDiGrid
 +++++++++++++++++++++++++++
 
 The python package that can assist in analysing and making your own tools based on the 3Di results can be found at this `location <https://github.com/nens/threedigrid>`_. The full threedigrid documentation can be found via the following link: `Threedigrid documentation <https://threedigrid.readthedocs.io/en/latest/readme.html>`_.
-
 
 
 
