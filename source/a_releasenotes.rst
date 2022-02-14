@@ -205,7 +205,7 @@ We are constantly working on improving the 3Di experience. Based on user experie
 ----------
 
 
-Januari 31st (Klondike)
+January 31st (Klondike)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The following endpoints have been added to the API:
@@ -396,7 +396,7 @@ Extended API v3 with boundary conditions & bug fixing
 -------------------------------
 
 
-Januari 31st (Klondike)
+January 31st (Klondike)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
@@ -479,7 +479,7 @@ Short crested weirs: Flow over a weir knows three different stages: sub-, superc
 3Di general releases
 --------------------
 
-Januari 31st (Klondike)
+January 31st (Klondike)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 On Januari 31st we have released the backend for the Klondike release. In this release we introduce a brand new route to process schematisations into 3Di models. This will replace the process known as 'inpy'. 
