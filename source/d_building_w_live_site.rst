@@ -1,5 +1,10 @@
-Editing a model schematization with the live site
+Editing a model schematisation with the live site
 ==================================================
+
+In the live site, you can temporarily adjust values. For example, you can change the pump capacity and weir height, and you can close 1D elements such as channels, pipes, weirs, culverts and orifices.
+You can also perform a DEM edit via the raster edil tool. 
+
+
 The buttons at the mid left of the screen are used to interactively adjust the forcing of the model. Two of these buttons can be used to alter the model:
 - Discharge tool
 - Pump tool
@@ -37,7 +42,7 @@ After entering a value, click 'Draw on map' and start clicking.
 .. figure:: image/d_draw_dem_polygon.png
    :alt: Performing a dem edit
    
-After finalizing the polygon by clicking again on the first point, click on confirm. The Edit then shows in the applied items section
+After finalising the polygon by clicking again on the first point, click on confirm. The Edit then shows in the applied items section
 
 .. figure:: image/d_confirm_dem_polygon.png
    :alt: Confirming a dem edit

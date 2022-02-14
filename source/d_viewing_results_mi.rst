@@ -10,7 +10,7 @@ Viewing results with the Modeller Interface
 Results
 ^^^^^^^^^^^^^^^
 	
-After a simulation is finished the results will be stored on our servers for 7 days. The files can be download via the **RESULTS** button in the 3Di api client. 
+After a simulation is finished the results will be stored on our servers for 7 days. The files can be download via the **RESULTS** button in the "3Di Models and Simulations". 
 These files are a gridadmin.h5, results_3di.nc (the NetCDF) and log files. For information on the results, see :ref:`3dinetcdf`.
 
 

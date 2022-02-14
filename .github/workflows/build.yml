@@ -1,0 +1,36 @@
+name: test
+
+# Run on pull requests and on the master branch itself.
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - "*"
+  pull_request:
+
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      # Checkout the code.
+      - uses: actions/checkout@v2
+
+      - name: build
+        run: |
+          docker-compose run builder python3 fix-uppercase-lowercase.py
+          docker-compose up
+          zip -r threedi-docs.zip build/html
+
+      - name: Publish tags on https://docs.3di.live
+        if: startsWith(github.event.ref, 'refs/tags')
+        run: bash upload-artifact.sh production
+        env:
+          ARTIFACTS_KEY_PRODUCTION: ${{ secrets.ARTIFACTS_KEY_PRODUCTION }}
+
+      - name: Publish master to https://docs.staging.3di.live
+        if: github.event.ref == 'refs/heads/master'
+        run: bash upload-artifact.sh staging
+        env:
+          ARTIFACTS_KEY_STAGING: ${{ secrets.ARTIFACTS_KEY_STAGING }}
