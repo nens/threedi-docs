@@ -66,18 +66,18 @@ When you are building a model of a certain area and you want to include the leve
 
 Levees can be implemented in the v2_levee table. Follow these steps:
 
-A.	Make sure the DEM of the model area is opened in QGIS and places below the 3Di Model in the Modeller Interface layers, this way you can see the levee that you draw.
-B.	Right click on the v2_levee table and select **Open attribute table**. [1]
-C.	Select **Toggle editing mode**. [2]
-D.	In the main screen, click on the **Add line feature** button. [3]
-E.	**Draw** your levee in the main screen. You can follow the white lines at the boundaries of the DEM (these indicate the levees). It is important that the levees are drawn within the DEM. You cannot have a levee outside of the DEM. When you are finished with drawing the levee, **right-click** with the mouse. Then the 'Object-attribute' screen will pop-up.
-F.	Fill in the following parameters:
+A. Make sure the DEM of the model area is opened in QGIS and places below the 3Di Model in the Modeller Interface layers, this way you can see the levee that you draw.
+B. Right click on the v2_levee table and select **Open attribute table**. [1]
+C. Select **Toggle editing mode**. [2]
+D. In the main screen, click on the **Add line feature** button. [3]
+E. **Draw** your levee in the main screen. You can follow the white lines at the boundaries of the DEM (these indicate the levees). It is important that the levees are drawn within the DEM. You cannot have a levee outside of the DEM. When you are finished with drawing the levee, **right-click** with the mouse. Then the 'Object-attribute' screen will pop-up.
+F. Fill in the following parameters:
 
-    * id: filled in automatically
-    * code: give your levee a code or name so you can later identify it
-    * crest_level: 3 (we assume a uniform crest level of 3 meters)
-    * material: 2: clay
-    * max_breach_depth: 3
+   * id: filled in automatically
+   * code: give your levee a code or name so you can later identify it
+   * crest_level: 3 (we assume a uniform crest level of 3 meters)
+   * material: 2: clay
+   * max_breach_depth: 3
 
 G. Click **OK** and untoggle the editing mode. [4]
 
@@ -103,11 +103,12 @@ After a channel is added to a model, a channel geometry needs to be assigned to 
 Lastly, we have to add boundary conditions to the channel. These boundary conditions have to be linked to the connection nodes. Boundary conditions are used to describe the behavior of the system outside the domain of interest. For more information, see: :ref:`boundary_conditons`.
 
 So to add a channel or network of channels we will alter the following tables:
-    * v2_connection_nodes (point geometry)
-    * v2_channel (line geometry)
-    * v2_cross_section_definition (no geometry)
-    * v2_cross_section_location (point geometry)
-    * v2_boundary_conditions (point geometry)
+
+* v2_connection_nodes (point geometry)
+* v2_channel (line geometry)
+* v2_cross_section_definition (no geometry)
+* v2_cross_section_location (point geometry)
+* v2_boundary_conditions (point geometry)
 
 
 First we will add the start and end connection node of the channel:
@@ -117,10 +118,11 @@ A. Select the v2_connection_nodes table. [1]
 #. Click on the **Add point feature** button. [3]
 #. Click on a desired location on your map to add a connection. Make sure the connection nodes are located within the DEM layer. After clicking in the screen the 'Object-attribute' screen will pop-up.[4]
 #. Fill in the following parameters:
-    * id: filled in automatically
-    * code: give your connection node a code or name so you can later identify it
-    * inital_waterlevel: 3
-    * storage_area: 0.1
+
+   * id: filled in automatically
+   * code: give your connection node a code or name so you can later identify it
+   * inital_waterlevel: 3
+   * storage_area: 0.1
 
 #. Then click **OK** and untoggle the editing mode. [5]
 #. Do the same for location [6]
@@ -136,13 +138,13 @@ A. Select the v2_channel table. [1]
 #. Click the **enable snapping** button. The enable snapping button helps you to make sure you connect to a certain point in the map. [4]
 #. Hover with your mouse over the upper connection point, until a purple square appears. If you click when the purple square appears, you have connected the channel to the connection point.
 #. **Draw** the channel by clicking on different locations, as done in the figure below. In order to make sure the channel is connected to the other connection point, again click when the purple square is visible. Similar to drawing the levee, it is important that the channel is drawn within the DEM. You cannot have a channel outside the DEM. When you are finished with drawing the channel, **right-click** with the mouse. Then the 'Object-attribute' screen will pop-up.
-#.	Fill in the following parameters:
+#. Fill in the following parameters:
 
-    * id: filled in automatically
-    * display_name: give your channel a code or name so you can later identify it
-    * code: give your channel a code or name so you can later identify it
-    * calculation_type: 102:connected
-    * dist_calc_points: 50
+   * id: filled in automatically
+   * display_name: give your channel a code or name so you can later identify it
+   * code: give your channel a code or name so you can later identify it
+   * calculation_type: 102:connected
+   * dist_calc_points: 50
 
 #. Then click **OK** and untoggle the editing mode and click **Save**. [5]
 
@@ -159,11 +161,12 @@ Adding channel geometry:
 A. Right click on the v2_cross_section_definition table and select **Open attribute table**. [1]
 #. Select **Toggle editing mode**. [2]
 #. Fill in the following parameters: [3]
-    * id: filled in automatically
-    * code: rectangle_channel
-    * shape: 1: rectangle
-    * width: 10
-    * height: 3
+
+   * id: filled in automatically
+   * code: rectangle_channel
+   * shape: 1: rectangle
+   * width: 10
+   * height: 3
 
 #. Untoggle the editing mode and click  **save**. [4]
 
@@ -179,14 +182,15 @@ A. Select the v2_cross_section_location table. [1]
 #. Click the **enable snapping** button. The enable snapping button helps you to make sure you connect to a certain point in the map. [3]
 #. Hover with your mouse over the channel that you have drawn. Click when a purple square becomes visible. Then the 'Object-attribute' screen will pop-up. [4]
 #. Fill in the following parameters:
-    * id: filled in automatically
-    * code: give your cross section location a code or name so you can later identify it
-    * reference_level: 0
-    * bank_level: 4
-    * friction_type: 2: Manning
-    * friction_value: 0.0022
-    * definition_id: 1 (this id number is related to the previously added cross section definition)
-    * channel_id: 1 (this id number is related to the previously added channel)
+
+   * id: filled in automatically
+   * code: give your cross section location a code or name so you can later identify it
+   * reference_level: 0
+   * bank_level: 4
+   * friction_type: 2: Manning
+   * friction_value: 0.0022
+   * definition_id: 1 (this id number is related to the previously added cross section definition)
+   * channel_id: 1 (this id number is related to the previously added channel)
 
 #. Untoggle the editing mode and click  **save**. [5]
 
@@ -200,10 +204,11 @@ Lastly, we add boundary conditions:
 A. Right click on the v2_1d_boundary_conditions table and select **Open attribute table**. [1]
 #. Select **Toggle editing mode**. [2]
 #. Fill in the following parameters:
-    * id: filled in automatically
-    * connection_node_id: 1 (this id number is related to the previously added connection nodes)
-    * boundary_type: 1: waterlevel
-    * timeseries:
+
+   * id: filled in automatically
+   * connection_node_id: 1 (this id number is related to the previously added connection nodes)
+   * boundary_type: 1: waterlevel
+   * timeseries:
         - 0,3.0
         - 15,3.5
         - 9999,3.5
@@ -245,10 +250,11 @@ E. Select the v2_connected_pnt table. [1]
 #. Click on the **vertex tool** button.  [3]
 #. Click on one of the connected points in the channel and drag the point to the other side of the levee. Then the 'Object-attribute' screen will pop-up.
 #. Fill in the following parameters:
-    * exchange_level: 3
-    * id: filled in automatically
-    * calculation_pnt_id: filled in automatically
-    * levee_id: 1
+
+   * exchange_level: 3
+   * id: filled in automatically
+   * calculation_pnt_id: filled in automatically
+   * levee_id: 1
 
 #. Untoggle the editing mode and click  **save**. [4]
 
@@ -278,9 +284,9 @@ Before sending our model to the web portal, it is important to validate that our
 
 In order to use the raster checker, follow these steps:
 
-A.	Select the **commands for working with 3Di models** button. On the right of your screen, a tab "3Di" will open. [1]
-B.	Expand the "Step 1 – Check data" line and click on the **raster checker**. [2]
-C.	In the pop-up screen, select ‘spatialite: Nissewaard' and click **OK**. [3]
+A. Select the **commands for working with 3Di models** button. On the right of your screen, a tab "3Di" will open. [1]
+B. Expand the "Step 1 – Check data" line and click on the **raster checker**. [2]
+C. In the pop-up screen, select ‘spatialite: Nissewaard' and click **OK**. [3]
 
 The following screen will appear:
 
@@ -314,11 +320,11 @@ Upload your model to the repository
 
 The first step towards running your model is to upload your model to the 3Di model database. Follow these steps:
 
-A.	Create a new .zip file with the Lake_Mead.sqlite database and the raster folder. Be mindful that the folder structure in the .zip file matches that of your schematisation. Based on the settings in this tutorial, you zip file should contain your .sqlite database and the folder “raster”. The DEM, friction and infiltration rasters should be in this folder “raster”.
-B.	Go to https://models.lizard.net/model_databank/
-C.	Select **Upload new model**. Make sure that you are logged in for this step.
-D.	Fill in the details of your models and include the .zip file. Be sure to select **3Di-v2** as your model type.
-E.	Press **Submit**.
+A. Create a new .zip file with the Lake_Mead.sqlite database and the raster folder. Be mindful that the folder structure in the .zip file matches that of your schematisation. Based on the settings in this tutorial, you zip file should contain your .sqlite database and the folder “raster”. The DEM, friction and infiltration rasters should be in this folder “raster”.
+B. Go to https://models.lizard.net/model_databank/
+C. Select **Upload new model**. Make sure that you are logged in for this step.
+D. Fill in the details of your models and include the .zip file. Be sure to select **3Di-v2** as your model type.
+E. Press **Submit**.
 
 
 Compile your model
@@ -326,9 +332,9 @@ Compile your model
 
 Now your model is stored in the model database and it is ready for compilation.
 
-A.	Go to https://3di.lizard.net/models/
-B.	Use the search function to retrieve your model. Search for the name that you gave your model in the previous section. You may to select **also show repositories that do not have inp files yet**. It may take some time for the model to show here, after you have uploaded it to the model database.
-C.	Select **initialize inp generation** for your model.
+A. Go to https://3di.lizard.net/models/
+B. Use the search function to retrieve your model. Search for the name that you gave your model in the previous section. You may to select **also show repositories that do not have inp files yet**. It may take some time for the model to show here, after you have uploaded it to the model database.
+C. Select **initialize inp generation** for your model.
 
 Your model will now be compiled.
 The blue bar “no models” will turn into a green bar with the text “success” when the model is successfully compiled.
