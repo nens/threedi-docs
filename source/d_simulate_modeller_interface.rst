@@ -359,13 +359,13 @@ The most used API options are included in the newest version of the plugin. Impo
 ============================= =========================== =========================================== ==================================
 Forcings                        Live site                  "3Di Models and Simulations" Wizard         OpenAPI Client
 ============================= =========================== =========================================== ==================================
-Boundary conditions            SQLite                      SQLite                                      SQLite, can be overwritten*
+Boundary conditions            SQLite                      SQLite                                      SQLite, can be overwritten (a)
 Initial water level 2D         SQLite, always 'max'        Add raster/global in wizard                 Add raster/global to simulation
 Initial water level 1D         SQLite                      Add predefined/global in wizard             Add predefined to simulation
 Initial water level GW         SQLite                      Add predefined/global in wizard             Add predefined to simulation
-Laterals  1D and 2D            Not used                    Add in wizard with CSV**                    Add CSV
+Laterals  1D and 2D            Not used                    Add in wizard with CSV (b)                  Add CSV
 Breaches                       Open in gui                 Open breach using wizard                    Open breach
-Precipitation                  Add using live site         Add using wizard***                         Add to simulation
+Precipitation                  Add using live site         Add using wizard (c)                        Add to simulation
 Wind                           Add using live site         Add using wizard                            Add to simulation
 Control Structures             Not used from SQLite        Not used from SQLite                        Add to simulation
 DWF (inflow)                   Not used from SQLite        Add as laterals, use dwf calculator         Add to simulation as lateral CSV
@@ -375,11 +375,11 @@ Settings                       SQLite                      SQLite               
 
 This is a temporary situation, simulation templates will be implemented on our servers. In these templates users will be able to predefine the forcings and settings that users want to use in a model. A model can contain multiple simulation templates
 
-* When overwriting the boundary conditions, both 1D and 2D need to be supplied
+**(a):** When overwriting the boundary conditions, both 1D and 2D need to be supplied
 
-* When using the laterals as a CSV note that units of the laterals in the wizard are expected in m3/s
+**(b):** When using the laterals as a CSV note that units of the laterals in the wizard are expected in m3/s
 
-* CSV files can contain up to 300 entries
+**(c):** CSV files can contain up to 300 entries
 
 This means that for *boundary conditions* nothing changes between API v1 and v3. Values are taken from the spatialite. The following requirements still hold for the boundary conditions:
 
