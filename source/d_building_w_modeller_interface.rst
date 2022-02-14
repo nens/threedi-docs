@@ -29,11 +29,9 @@ Create a new 3Di model schematisation
 .. figure:: image/d_openplugin.png
    :alt: Open the 3Di Models and Simulations plugin
    
-.. figure:: image/d_buildoptions.png
-   :alt: Choose BUILD
+.. figure:: image/d_modelsandsimulations.png
+   :alt: Choose New
    
-.. figure:: image/d_3dimodelsandsimulations.png
-   :alt: Choose New schematisation
 
 .. figure:: image/d_newschematisation1.png
    :alt: Choose Schematisation setttings - tab 1
@@ -47,8 +45,7 @@ Create a new 3Di model schematisation
 #. Open the Modeller Interface
 #. Activate the plugin
 #. Choose your default folder
-#. Click on the 'BUILD' button
-#. Click on the 'New schematisation' button
+#. Click on the 'New' button
 #. Fill in your credentials to login
 #. Choose a name (obligatory) and tags (optional)
 #. If you have rights to more than one organisation, choose the desired organisation
