@@ -72,6 +72,7 @@ C.	Select **Toggle editing mode**. [2]
 D.	In the main screen, click on the **Add line feature** button. [3]
 E.	**Draw** your levee in the main screen. You can follow the white lines at the boundaries of the DEM (these indicate the levees). It is important that the levees are drawn within the DEM. You cannot have a levee outside of the DEM. When you are finished with drawing the levee, **right-click** with the mouse. Then the 'Object-attribute' screen will pop-up.
 F.	Fill in the following parameters:
+
     * id: filled in automatically
     * code: give your levee a code or name so you can later identify it
     * crest_level: 3 (we assume a uniform crest level of 3 meters)
@@ -136,6 +137,7 @@ A. Select the v2_channel table. [1]
 #. Hover with your mouse over the upper connection point, until a purple square appears. If you click when the purple square appears, you have connected the channel to the connection point.
 #. **Draw** the channel by clicking on different locations, as done in the figure below. In order to make sure the channel is connected to the other connection point, again click when the purple square is visible. Similar to drawing the levee, it is important that the channel is drawn within the DEM. You cannot have a channel outside the DEM. When you are finished with drawing the channel, **right-click** with the mouse. Then the 'Object-attribute' screen will pop-up.
 #.	Fill in the following parameters:
+
     * id: filled in automatically
     * display_name: give your channel a code or name so you can later identify it
     * code: give your channel a code or name so you can later identify it

@@ -3,11 +3,11 @@
 Results 3Di
 =================
 
-The results of a simulation are written to file. The result file is created using NetCDF, which is a set of software libraries and self-describing, machine-independent data formats that support the creation, access, and sharing of array-oriented scientific data. The set of libraries can be used by multiple tools and programming languages, such as matlab, python and excel, to extract the data from the netcdf data formats. 
+The results of a simulation are written to file. The result file is created using NetCDF, which is a set of software libraries and self-describing, machine-independent data formats that support the creation, access, and sharing of array-oriented scientific data. The set of libraries can be used by multiple tools and programming languages, such as matlab, python and excel, to extract the data from the netcdf data formats.
 
 The 3Di Plugin visualizes the information stored in this file. An overview of the data format in the output file is given in this chapter, to help users in reading data from file. To facilitate users in the direct access to the results from the output file, users can make use of the python package *threedigrid*. Which can be downloaded from `https://pypi.org/project/threedigrid <https://pypi.org/project/threedigrid/>`_. This package helps to link the output data to the input data.
 
-During the spring release of 2018 the output file has been changed. The changes include a change in name from *subgrid_map.nc* to *results_3di.nc* and changes to the data format within the output file. An overview of both data formats is presented below. 
+During the spring release of 2018 the output file has been changed. The changes include a change in name from *subgrid_map.nc* to *results_3di.nc* and changes to the data format within the output file. An overview of both data formats is presented below.
 
 These files consist of all relevant variables that are necessary to analyze the results of a simulation. The user defines the output time step. The snapshots of the flow are saved at these intervals. Note, that the output time step in combination with the size of the model will define the size of the output file. In addition to these snap shots, 3Di can generate aggregated results. More about this can be found in  :ref:`aggregationnetcdf`.
 
@@ -21,7 +21,7 @@ For the results in the 1D and in the 2D domain, results are split between node a
 2D Mesh Cell/Node variables:
 ----------------------------
 
-First the meta information of the computational grid is defined. 
+First the meta information of the computational grid is defined.
 
 **Coordinates**
 
@@ -34,7 +34,7 @@ First the meta information of the computational grid is defined.
 
   - Name: Flow Face 2D center y coordinate
   - Unit: [m]
- 
+
   Mesh2DFace_zcc: The deepest point in either the surface water cell or the groundwater cell
 
   - Name: Flow Face 2D center z coordinate
@@ -44,7 +44,7 @@ First the meta information of the computational grid is defined.
 
   - Name: List of x-coordinates forming Face
   - Unit: m
-  
+
   Mesh2DContour_y: y-coordinates of the location of the edge of the cell
 
   - Name: List of y-coordinates forming Face
@@ -71,7 +71,7 @@ First the meta information of the computational grid is defined.
 **Dimensions** Lenght of the arrays
 
   nMesh2D_nodes:
-  
+
   - Name: Number of 2D mesh nodes/faces.
 
 
@@ -97,13 +97,13 @@ First the meta information of the computational grid is defined.
   - Name: Flow velocity in x direction in cell center
   - Unit: m/s
 
- 
+
   Mesh2D_ucy: Interpolated flow velocity in the cell center in y-direction
 
   - Name: Flow velocity in y direction in cell center
   - Unit: m/s
 
-  
+
   Mesh2D_rain: Current amount of rain in computational cell
 
   - Name: Rain
@@ -119,21 +119,21 @@ First the meta information of the computational grid is defined.
   - Name: Infiltration rate
   - Unit: m3/s
 
-  Mesh2D_leak: Current amount of leakage in computational cell. 
+  Mesh2D_leak: Current amount of leakage in computational cell.
 
   - Name: Leakage rate
   - Unit: m3/s
-  	
+
 Mesh2D_intercepted_volume: Amount of intercepted volume
-	
-	 - Name: intercepted_volume 
+
+	 - Name: intercepted_volume
 	 - Unit: m3
 
-Mesh2D_q_sss: Current amount of surface sources and sinks discharge in computational cell. 
+Mesh2D_q_sss: Current amount of surface sources and sinks discharge in computational cell.
 
   - Name: Surface sources and sinks discharge
-  - Unit: m3/s	 
-	 
+  - Unit: m3/s
+
 2D Mesh Line variables:
 -----------------------
 
@@ -173,7 +173,7 @@ The meta information, that defines the structure for the line variables is menti
 **Flow variables**
 
 
-  Mesh2D_u1: 
+  Mesh2D_u1:
   This variable, in case of Horton-based infiltration and groundwater flow, also consists of the vertical flow and the groundwater flow. This depends on the Line Type. This also yields for most of the other line variables.
 
   - Name: Flow velocity on 2D flow line
@@ -194,7 +194,7 @@ The meta information, that defines the structure for the line variables is menti
   - Name: Flow velocity in interflow layer
   - Unit: m/s
 
-  
+
   Mesh2D_qp:
 
   - Name: Discharge in interflow layer
@@ -211,7 +211,7 @@ The results for the 1D variables are structured in a similar way. Note that embe
 
   - Name: Node 1D x coordinate
   - Unit: m
-		
+
   Mesh1DNode_ycc:
 
   - Name: Node 1D y coordinate
@@ -253,7 +253,7 @@ The results for the 1D variables are structured in a similar way. Note that embe
 
   Mesh1D_vol: Water Volume in a cell
 
-  - Name: Water volume 
+  - Name: Water volume
   - Unit: m3
 
   Mesh1D_su: Current wet surface area
@@ -277,12 +277,12 @@ The results for the 1D variables are structured in a similar way. Note that embe
 **Coordinates**
 
   Mesh1DLine_xcc:
-  
+
   - Name: Flow line 1D x center coordinate
   - Unit: m
 
   Mesh1DLine_ycc:
-  
+
   - Name: Flow line 1D center y coordinate
   - Unit: m
 
@@ -314,7 +314,7 @@ nMesh1D_lines:
   - Name: Flow velocity on 1D flow line
   - Unit: m/s
 
-  Mesh1D_q: 
+  Mesh1D_q:
 
   - Name: Discharge on 1D flow line
   - Unit: m3/s
@@ -344,7 +344,7 @@ Pump variables:
   - Name: Start point Pump 1D x-coordinate
   - Unit: m
 
-  Mesh1DPump_ycc: 
+  Mesh1DPump_ycc:
 
   - Name: Start point Pump 1D y-coordinate
   - Unit: m
@@ -374,50 +374,51 @@ In the file called: subgrid_map.nc exists the following information:
 
 Information of the grid
 ________________________
+
 -	X-coordinates of the 2D computational cell corner points (FlowElemContour_x)
-		
+
 		- size[4,n2dtot]
-		
+
 		- dimension [m]
-		
+
 -	Y-coordinates of the 2D computational cell corner points (FlowElemContour_y)
-	
+
 		-	size [4,n2dtot]
-	
+
 		-	dimension [m]
 
 -	X-coordinates 1D en 2D computational cell center point (FlowElem_xcc)
 
 		-	size [number of computational nodes]
-	
+
 		-	dimension [m]
 
 -	y-coordinates 1D en 2D computational cell center point (FlowElem_ycc)
-	
+
 		-	size [number of computational nodes]
-	
+
 		-	dimension [m]
 
 -	Maximum surface area computational cell (sumax)
-	
+
 		-	size [number of computational nodes]
-		
+
 		-	dimension [m2]
 
--	Connections between computational points in 1D network (FlowLine_connections) 
+-	Connections between computational points in 1D network (FlowLine_connections)
 
 		-	size [2,number of flow lines]
-	
+
 		-	dimension [-]
-	
+
 -	Connections by a pump (PumpLine_connections)
-	
+
 		-	size [2,number of pumps]
-	
+
 		-	dimension [-]
-	
+
 -	(projected_coordinate_system (projected_coordinate_system)
-	
+
 		-	size [1]
 
 		-	dimension [-]
@@ -425,7 +426,7 @@ ________________________
 -	Deepest point of a computational cell (bath)
 
 		-	size [number of computational nodes]
-	
+
 		-	dimension [m MSL]
 
 -	Potential breaches
@@ -433,94 +434,97 @@ ________________________
 		-	size [number of potential breaches]
 
 		-	dimension [-]
-	
+
 
 Mapping administration:
 __________________________
+
 -	Mapping of input and out put of connection nodes (node_mapping)
-	
+
 		-	size [2,number of connection nodes]
-	
+
 		-	dimension [-]
 
 -	Mapping of input and out put of connection lines (channel_mapping)
-	
+
 		-	size [2,number of flow lines]
-	
+
 		-	dimension [-]
-	
+
 Variables computed per computational cell:
 _____________________________________________
+
 -	Time (time)
 
 		-	size [number of time steps]
-		
+
 		-	dimension [s]
-		
+
 -	Water level (s1)
-	
+
 		-	size [number of computational nodes]
-		
+
 		-	dimension [m MSL]
-	
+
 -	Volume in a computational cell (vol)
-	
+
 		-	size [number of computational nodes]
-	
+
 		-	dimension [m3]
-	
+
 -	Wet surface areas computational cell (su)
 
 		-	size [number of computational nodes]
-	
+
 		-	dimension [m2]
-	
+
 -	Velocity interpolated in cell centre in x-direction (ucx)
-	
+
 		-	size [number of computational nodes]
-		
+
 		-	dimension [m/s]
-	
+
 -	Velocity interpolated in cell centre in y-direction (ucy)
-	
+
 		-	size [number of computational nodes]
-		
+
 		-	dimension [m/s]
-		
+
 -	Rain per computational cell (rain)
-	
+
 		-	size [number of computational nodes]
-		
+
 		-	dimension [m3/s]
-		
+
 -	Lateralen per computational cell (qlat)
-	
+
 		-	size [number of computational nodes]
-		
+
 		-	dimension [m3/s]
-		
+
 -	Infiltration per computational cell (infiltration)
-	
+
 		-	size [n2dtot]
-		
+
 		-	dimension [m3/s]
-	
+
 Variable per line:
 _____________________
+
 -	Velocity (u1)
 
 	-	size [number of flow lines]
-	
+
 	-	dimension [m/s]
-	
+
 -	Discharge (q)
-	
+
 	-	size [number of flow lines]
-	
+
 	-	dimension [m3/s]
 
 -	Wet Cross-Sectional area (au)
-	
+
 	-	size [number of flow lines]
 
 	-	dimension [m2]
@@ -534,11 +538,12 @@ _____________________
 - Discharge in interflow layer (qp) (if defined)
 
 	-	size [number of flow lines]
-	
+
 	-	dimension [m3/s]
 
 Variables concerning pumps:
 ____________________________
+
 -	Discharge (q_pump)
 
 -	size [Number of pumps]
@@ -547,15 +552,16 @@ ____________________________
 
 Some numbers:
 ______________________
+
 -	computational cells in 2D (nFlowElem2D)
 
 	-	  [n2dtot]
 
--	computational cells in 1D (nFlowElem1D) 
+-	computational cells in 1D (nFlowElem1D)
 
 	-	  [n1dtot]
-	
--	computational cells concerning 2D boundary conditions (nFlowElemBound2d) 
+
+-	computational cells concerning 2D boundary conditions (nFlowElemBound2d)
 
 	-	  [n2dobc]
 
@@ -598,18 +604,3 @@ ______________________
 -	Number of potential breaches (nBreaches)
 
 	-	  [levnms]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

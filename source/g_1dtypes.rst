@@ -3,7 +3,7 @@
 1D Flow
 +++++++
 
-3Di offers the possibility to model areas as 1D networks. Generally, these simulations are very fast, but the schematisation is a strong simplification of the real world. The 1D elements should be used for applications in which only one horizontal dimension (flow direction) is dominant over the other directions. In other cases, 3Di offers the possibility to make connection to the 2D domain. 3Di has various options to integrate 1D elements in the 2D domain. This offers the possibility to preserve the complexity of the modelling domain, but to make use of the extra resolution and speed of 1D computations. In such case, the 1D elements are generally narrow compared to the dimensions of the 2D resolution. 
+3Di offers the possibility to model areas as 1D networks. Generally, these simulations are very fast, but the schematisation is a strong simplification of the real world. The 1D elements should be used for applications in which only one horizontal dimension (flow direction) is dominant over the other directions. In other cases, 3Di offers the possibility to make connection to the 2D domain. 3Di has various options to integrate 1D elements in the 2D domain. This offers the possibility to preserve the complexity of the modelling domain, but to make use of the extra resolution and speed of 1D computations. In such case, the 1D elements are generally narrow compared to the dimensions of the 2D resolution.
 
 The flow in 1D networks is computed, using the equations of conservation of mass and momentum, more specifically the 1D depth-averaged shallow water equations. The momentum equation for 1D flow is:
 
@@ -12,7 +12,7 @@ The flow in 1D networks is computed, using the equations of conservation of mass
 
    \frac{\partial u}{\partial t}+u \frac{\partial u}{\partial s}=-g\frac{\partial \zeta}{\partial x}-\frac{\tau_f}{\rho}-\frac{\tau_w}{\rho}
 
-| In which: 
+| In which:
 | :math:`u` is the cross-sectionally averaged velocity
 | :math:`s` is the 1D coordinate in along the network
 | :math:`g` is the gravitational acceleration
@@ -20,18 +20,18 @@ The flow in 1D networks is computed, using the equations of conservation of mass
 | :math:`\tau_f` is the shear stress due to bottom friction
 | :math:`\tau_w` is the shear stress due to wind
 
-In words; in 1D, 3Di takes inertia, advection, pressure gradients, bottom friction and wind shear stresses into account. This yields for all types of 1D network applications. However, in the computation of advection and the effect of wind stress on specific 1D network configurations, some differences are applied. This will be explained more elaborated below.  
+In words; in 1D, 3Di takes inertia, advection, pressure gradients, bottom friction and wind shear stresses into account. This yields for all types of 1D network applications. However, in the computation of advection and the effect of wind stress on specific 1D network configurations, some differences are applied. This will be explained more elaborated below.
 
 1D Network
 ------------
 
-In the most abstract form, a 1D network can be viewed as a combination of nodes and lines. Such a network is translated to a grid, as described in :ref:`1dgrid`. The nodes and the connections have their own characteristics. Based on those, cross-sectional areas, storage and flow is computed. 
+In the most abstract form, a 1D network can be viewed as a combination of nodes and lines. Such a network is translated to a grid, as described in :ref:`1dgrid`. The nodes and the connections have their own characteristics. Based on those, cross-sectional areas, storage and flow is computed.
 
 .. figure:: image/1dnetworkabstract.png
    :figwidth: 400 px
    :alt: abstract_1D_networks
    :align: left
-   
+
    Example of a 1D network
 
 .. _cross_section_of_1d_element:
@@ -45,7 +45,7 @@ The top width of cross-sections can be defined open or closed. When the cross-se
 
 .. figure:: image/b_1dcrosssections.png
    :alt: crosssec_1D_networks
-   
+
    Examples of cross-sections in 1D networks; circular, egg-shaped, rectangular, open and closed tabulated cross-sections.
 
 .. _calculation_types:
@@ -67,7 +67,7 @@ A water system consists often of small channels, ditches and pipes. These are di
    :figwidth: 400 px
    :alt: channel_types
    :align: left
-   
+
    A connected, a double connected and an embedded channel in a 2D domain.
 
 In the sections below, these options are further discussed. In this figure, three channels are drawn within a 2D domain. It shows a connected channel (orange), a double connected channel (purple) and an embedded channel (green). The squares indicate the computational points of the water level and the circles the locations of the velocity points. Their connections with the 2D domain are indicated with curved, dashed lines.
@@ -86,24 +86,24 @@ In case the 1D network is defined as Isolated, the element does not interact wit
    :figwidth: 300 px
    :alt: isolated_1D_networks
    :align: right
-   
+
    Example of an isolated element, the thin red line in indicates the top of the cross-section information.
-   
+
 **How it works?**
 
-This is the simplest option for 1D networks. There is no interaction with the 2D domain, so only the 1D shallow water equations are solved. 
+This is the simplest option for 1D networks. There is no interaction with the 2D domain, so only the 1D shallow water equations are solved.
 
 Connected 1D network elements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **When do you use this?**
 
-In case the 1D network is defined as Connected, the element can interact with the 2D surface domain. For applications where one has an extended 2D domain including, various essential small scale features, 1D connected elements will improve the model results. Ditches, canals and manholes can be schematised using the 1D connected elements. Hereby, locally increasing the total resolution of the model.  
+In case the 1D network is defined as Connected, the element can interact with the 2D surface domain. For applications where one has an extended 2D domain including, various essential small scale features, 1D connected elements will improve the model results. Ditches, canals and manholes can be schematised using the 1D connected elements. Hereby, locally increasing the total resolution of the model.
 
 .. figure:: image/b_connectedelement.png
    :figwidth: 450 px
    :alt: connected_1D_networks
-   
+
    Four examples of connected elements. 1) The bank/drainage level is defined above the highest bed levels in the 2D domain. 2) The bank/drainage level is defined below the local bed level 3) The bank/drainage level is not defined, the exchange level is based on the local value of the bed level. 4) This is an example of a double connected channel, where exchange levels have different values.
 
 **How it works?**
@@ -117,7 +117,7 @@ The exchange levels can be set by the user or are based on the local bed level. 
 
    0 = -g\frac{\partial \zeta}{\partial s} \big\rvert_{1D2D}-\frac{\tau_f}{\rho}
 
-This momentum equation in combination with a cross-section defines the flux between the computational domains. 
+This momentum equation in combination with a cross-section defines the flux between the computational domains.
 
 .. math::
    :label: Q 1D2D
@@ -129,12 +129,12 @@ The cross-sectional area of the 1D2D connection is the exchange depth times an e
 .. math::
    :label: storagearea
 
-   A_{1D2D} = H_{1D2D} L_{1D2D} = H_{1D2D} \sqrt{S_{man}} 
+   A_{1D2D} = H_{1D2D} L_{1D2D} = H_{1D2D} \sqrt{S_{man}}
 
 where, :math:`S` is the storage area of the manhole. In case of open water elements, the exchange length is scaled with the lenght of banks:
 
 .. math::
-   :label: storagearea
+   :label: storagearea2
 
    A_{1D2D} = H_{1D2D} L_{1D2D} = H_{1D2D} 2 L_{bank}
 
@@ -145,20 +145,20 @@ Embedded 1D network elements
 
 **When do you use this?**
 
-The option to add 1D elements to the 2D domain will effectively increase your resolution and offers the possibility to take small elements into account. However, adding computational points will affect the computational effort. A middle ground could be the use of embedded 1D elements. In such case the information of the 1D elements is integrated with the information of the 2D domain. The number of computational points is not increased, but the number of velocity points is. 
+The option to add 1D elements to the 2D domain will effectively increase your resolution and offers the possibility to take small elements into account. However, adding computational points will affect the computational effort. A middle ground could be the use of embedded 1D elements. In such case the information of the 1D elements is integrated with the information of the 2D domain. The number of computational points is not increased, but the number of velocity points is.
 
 .. figure:: image/b_embeddedelement.png
    :figwidth: 400 px
    :alt: embedded_1D_networks
    :align: right
-   
+
    Examples for the storage in the combined 1D2D embedded domain.
 
 **How it works?**
 
-3Di analysis the location of the 1D element and its routing in the 2D domain. It fixes the locations where the 1D element crosses the 2D cells. In between those points, the 1D embedded point is defined. This embedded water level point, will always have the same value as the 2D water level point. But the velocities and discharges are computed based on the 1D flow equation. In case a structure connects the elements, the flow will be based on the appropriate formulations. 
+3Di analysis the location of the 1D element and its routing in the 2D domain. It fixes the locations where the 1D element crosses the 2D cells. In between those points, the 1D embedded point is defined. This embedded water level point, will always have the same value as the 2D water level point. But the velocities and discharges are computed based on the 1D flow equation. In case a structure connects the elements, the flow will be based on the appropriate formulations.
 
-The flow cross-sections and the storage within a cell, depend on the bed level information of the 2D domain and the cross-section information of the 1D element. It is analysed based on the largest surface area per height. In the figure at the right, there are the three possible configurations drawn for the storage in the combined 1D2D embedded domain. 1) The embedded channel is fully below the 2D bed levels. 2) the embedded takes over the 2D domain. This is allowed within 3Di, but it is from an application perspective a unnatural configuration. 3) The embedded information overlaps with the information of the 2D bed levels and some of the 1D information is ignored. 
+The flow cross-sections and the storage within a cell, depend on the bed level information of the 2D domain and the cross-section information of the 1D element. It is analysed based on the largest surface area per height. In the figure at the right, there are the three possible configurations drawn for the storage in the combined 1D2D embedded domain. 1) The embedded channel is fully below the 2D bed levels. 2) the embedded takes over the 2D domain. This is allowed within 3Di, but it is from an application perspective a unnatural configuration. 3) The embedded information overlaps with the information of the 2D bed levels and some of the 1D information is ignored.
 
 In the figure below the section *Types of 1D elements*, the channel on the right is an embedded case. It is shown that the geometry is simplified based upon the 2D geometry. It also shows, indicated with the coloured, transparent hollows, which domain contribute to the volumes. As they can be shifted with respect to the 2D domain, recalculation by hand can be difficult. There is an option to define the length of interest of an embedded channel. If the channel within a 2D computational cell is shorter than that length, that part of the channel is skipped. This is indicated by the red circle in the same figure.
 
@@ -169,6 +169,6 @@ Every method has advantages and disadvantages. This is also true for choices con
 
 - considering *connected* types, the seperate dealing of the 1D and 2D domain in the same geographic area results in an overlapping volume domain. This means that the volume above a 1D channel, is counted twice.
 
-- For embedded 1D elements yield that the tools for dealing with this are still very limited. Moreover, the specific handling of the 1D information is strongly related to the 2D resolution. However, there is no double counting of volume and no increase in computational cost. 
+- For embedded 1D elements yield that the tools for dealing with this are still very limited. Moreover, the specific handling of the 1D information is strongly related to the 2D resolution. However, there is no double counting of volume and no increase in computational cost.
 
-- In general, use 1D models for applications that are truely 1D with respect the rest of the domain. Use it for elements that are narrow with respect to the 2D resolution and all will be fine. In those cases the advantages are great, and the disadvantges will remain small. 
+- In general, use 1D models for applications that are truely 1D with respect the rest of the domain. Use it for elements that are narrow with respect to the 2D resolution and all will be fine. In those cases the advantages are great, and the disadvantges will remain small.
