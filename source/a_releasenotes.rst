@@ -189,7 +189,7 @@ This release contains a big change in 3Di model creation. The Grid and Table bui
 **Breaking changes**
 
 - Previously, 3Di models were created from repositories in models.lizard.net, by inpy. The new 3Di models are created from schematisations in the 3Di API, by POSTing to the "create_threedimodel" API endpoint.
-Because of a new Grid generation. Node ids can differ from old versions of a threedimodel.
+  Because of a new Grid generation. Node ids can differ from old versions of a threedimodel.
 
 **General**
 
@@ -255,7 +255,7 @@ Technical details:
 
 - Added simulation name, simulation type, threedimodel name, schematisation name, started, total_time, and simulation username ordering options to Usage.
 - Added simulation name, simulation status, threedimodel id, threedimodel name,
-simulation username, simulation active_status filter options to Usage.
+  simulation username, simulation active_status filter options to Usage.
 
 **OpenAPI changes:**
 
