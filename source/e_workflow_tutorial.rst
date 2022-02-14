@@ -22,7 +22,7 @@ tutorial.
 You will learn the following skills in this tutorial:
 
 * Load an existing model into the 3Di modeller interface,
-* Upload you model to the 3Di model repository,
+* Upload your model to the 3Di model repository,
 * Initialise your model in the 3Di model repository,
 * View your model on the 3Di live site,
 * Update your model using TortoiseHG. 
