@@ -189,6 +189,7 @@ This release contains a big change in 3Di model creation. The Grid and Table bui
 **Breaking changes**
 
 - Previously, 3Di models were created from repositories in models.lizard.net, by inpy. The new 3Di models are created from schematisations in the 3Di API, by POSTing to the "create_threedimodel" API endpoint.
+
   Because of a new Grid generation. Node ids can differ from old versions of a threedimodel.
 
 **General**
