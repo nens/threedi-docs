@@ -2,7 +2,7 @@ Tutorial 5: Building a 1D model
 ===============================
 
 Welcome to the tutorial for building a 1D model in 3Di. In this tutorial, you will learn to work with a 1D flow model in 3Di. We will start with a database file (.sqlite) that is already partly filled in. The sqlite is not yet complete, so we will add information to the model to get a basic working model that you can run on the 3Di live site.
-The system in the .sqlite is a non-existent combined sewerage system. The model does not represent a real-world system, but is meant to get acquainted with the different components of a 1D combined sewerage system. 
+The system in the .sqlite is a non-existent combined sewerage system. The model does not represent a real-world system, but is meant to get acquainted with the different components of a 1D combined sewerage system.
 
 You will learn the following skills in this tutorial:
 
@@ -14,7 +14,7 @@ You will learn the following skills in this tutorial:
 
 Before you start, please make sure to:
 
-* Install the 3Di Modeller Interface. Please see :ref:`3di_instruments_and_downloads` for instructions. 
+* Install the 3Di Modeller Interface. Please see :ref:`3di_instruments_and_downloads` for instructions.
 * Install the 3Di toolbox in the Modeller Interface. Please see :ref:`plugin_installation` for instructions.
 * Gain access to the 3Di web portal. Please see the :ref:`guide_to_portal` for instructions.
 * Download the dataset for this tutorial `here <https://nens.lizard.net/media/3di-tutorials/Tutorial_1D_gemengd.zip>`_.
@@ -44,7 +44,7 @@ E.	You should now see the 3Di model as part of your Modeller Interface layers. [
 .. figure:: image/t_04_load_model_tut_1d.png
     :alt: Load model
 
-The outlook of the model is depicted in the figure below. Depending on the coordinate system of your screen, it is possible that the model looks a bit ‘distorted’. You can solve this by changing the coordinate system in the lower right corner to EPSG:28992. 
+The outlook of the model is depicted in the figure below. Depending on the coordinate system of your screen, it is possible that the model looks a bit ‘distorted’. You can solve this by changing the coordinate system in the lower right corner to EPSG:28992.
 
 .. figure:: image/t_05_overview_model.png
     :alt: Overview model
@@ -57,9 +57,9 @@ Compile the global settings
 
 The global settings are contained in the v2_global_settings table. For every 3Di model, the v2_global_settings table must be filled in. Follow these steps:
 
-A. **Open** the attribute table v2_global_settings. [1] 
-#. Select **Toggle editing mode** in the top right corner. [2] 
-#. Select **Add feature**. [3] 
+A. **Open** the attribute table v2_global_settings. [1]
+#. Select **Toggle editing mode** in the top right corner. [2]
+#. Select **Add feature**. [3]
 #. Select **Switch to form view** in the bottom right corner. [4]
 
 
@@ -72,7 +72,7 @@ Attempts to save the settings before all mandatory field have been completed wil
 A list of mandatory settings and detailed descriptions can be found :download:`in the database overview <pdf/database-overview.pdf>`.
 Finally, please note that the following settings have been selected specifically for this tutorial.
 
-Let us now fill in the settings of each tab in the global settings table. 
+Let us now fill in the settings of each tab in the global settings table.
 
 
 .. csv-table:: General
@@ -165,13 +165,13 @@ Complete the aggregation settings
 The aggregation settings control the aggregation of model results.
 They are contained in the v2_aggregation_settings table.
 
-As with the previous settings, open the attribute table [1] and toggle the editing mode [2]. However, select **switch to table view** this time [3]. 
+As with the previous settings, open the attribute table [1] and toggle the editing mode [2]. However, select **switch to table view** this time [3].
 
 The different rows of the table refer to different model output categories. For each category, set the global_settings_id to 1. You can either do this manually by filling in 1's in the column [4], or by:
 
 A. Selecting the column global_settings_id in the drop down menu
-B. Typing a 1 in the bar 
-C. Clicking **update All** 
+B. Typing a 1 in the bar
+C. Clicking **update All**
 D. And pressing **save edits**
 
 Retain the default values for all other settings.
@@ -241,12 +241,12 @@ Complete the v2_pipe settings
 We will zoom in on the different components of the model. The model in the .sqlite contains a network of pipes. The different parameters of these pipes can be set in the table v2_pipe. The values and a short explanation of the parameters is given in the tables below.
 To save time, it is recommended to adjust the parameters for the different pipes at the same time. This can be done by following these steps:
 
-A. **Open** the attribute table v2_pipe. [1] 
-#. Select **Toggle editing mode** and in the top right corner. [2] 
+A. **Open** the attribute table v2_pipe. [1]
+#. Select **Toggle editing mode** and in the top right corner. [2]
 #.	Select **Switch to table view** with the button in the lower right corner. [3]
-#.	**Select** the parameter that needs to be adjusted in the box above the table. [4] 
+#.	**Select** the parameter that needs to be adjusted in the box above the table. [4]
 #.	Fill in the value that needs to be inputted. [5]
-#.  and choose **Adjust all**. [6] 
+#.  and choose **Adjust all**. [6]
 
 
 .. figure:: image/t_05_v2_pipe.png
@@ -259,12 +259,12 @@ A. **Open** the attribute table v2_pipe. [1]
     "Id", "N/A", "The id’s are already filled in"
     "display_name:", "N/A", "The display names are already filled in"
     "Code", "N/A", "The codes are already filled in"
-    "Calculation_type", "1: Isolated", "*"
-    "Dist_calc_points", "1000", "**"
+    "Calculation_type", "1: Isolated", "See below"
+    "Dist_calc_points", "1000", "See below"
 
-*Calculation type: You have different choices for the calculation type. You can choose between embedded, isolated, connected, broad crest en short crest. An elaborated explanation of these calculation types can be found in the 3Di documentation: :ref:`calculation_types`. In this model, we set the calculation_type for all pipes to ‘isolated’. This means that the 1D pipe cannot exchange water.
+Calculation type: You have different choices for the calculation type. You can choose between embedded, isolated, connected, broad crest en short crest. An elaborated explanation of these calculation types can be found in the 3Di documentation: :ref:`calculation_types`. In this model, we set the calculation_type for all pipes to ‘isolated’. This means that the 1D pipe cannot exchange water.
 
-**Dist_calc_points: This parameter controls the distance between the calculation points on the pipe. In this tutorial, set this parameter to 1000. Since all pipes are shorter than 1000 m, this means that there are no calculation points on the pipes; the water levels, velocities and discharges are calculated on the connection nodes.  
+Dist_calc_points: This parameter controls the distance between the calculation points on the pipe. In this tutorial, set this parameter to 1000. Since all pipes are shorter than 1000 m, this means that there are no calculation points on the pipes; the water levels, velocities and discharges are calculated on the connection nodes.
 
 
 .. csv-table:: Characteristics
@@ -298,7 +298,7 @@ Complete the v2_manhole settings
 
 The different pipes in the model are connected via connection nodes. Open de v2_connection_nodes attribute table. As you can see in this table, each connection node has an id, code and a storage area. For a 1D sewerage model, you do not have to fill in the initial water levels for the connection nodes. The model will then be empty at the start of each model run. All parameters in the v2_connection_nodes table are already filled in, so you can close the table again.
 
-Next, open the v2_manhole attribute table. Each connection node is connected to a manhole. The different parameters for these manholes can be set in the v2_manhole table. The values and a short explanation of the parameters are given in the tables below. To save time, it is recommended to adjust the parameters for the different manholes simultaneously. This can be done in the same manner as was described for the v2_pipe table. 
+Next, open the v2_manhole attribute table. Each connection node is connected to a manhole. The different parameters for these manholes can be set in the v2_manhole table. The values and a short explanation of the parameters are given in the tables below. To save time, it is recommended to adjust the parameters for the different manholes simultaneously. This can be done in the same manner as was described for the v2_pipe table.
 
 
 .. csv-table:: General
@@ -308,22 +308,20 @@ Next, open the v2_manhole attribute table. Each connection node is connected to 
     "display_name", "N/A", "The display names are already filled in"
     "Code", "N/A", "The codes are already filled in"
     "Connection_node_id", "N/A", "The id of the connection node that is connected to the manhole. These are already filled in."
-    "Calculation_type", "1: isolated or 2: connected", "*"
+    "Calculation_type", "1: isolated or 2: connected", "See below"
 
+Calculation_type: You can choose here between embedded, isolated and connected. An elaborated explanation of these calculation types can be found in the 3Di documentation: :ref:`calculation_types`. As was described above, the calculation type depends on the manhole type. Set the calculation type to ‘connected’ for inspection manholes, by following these steps:
 
-
-*Calculation_type: You can choose here between embedded, isolated and connected. An elaborated explanation of these calculation types can be found in the 3Di documentation: :ref:`calculation_types`. As was described above, the calculation type depends on the manhole type. Set the calculation type to ‘connected’ for inspection manholes, by following these steps:
-
-A. **Open** the attribute table v2_manhole. [1] 
-#. Select **Toggle editing mode** and in the top right corner. [2] 
+A. **Open** the attribute table v2_manhole. [1]
+#. Select **Toggle editing mode** and in the top right corner. [2]
 #.	Select **Switch to table view** with the button in the lower right corner. [3]
-#.	**Select** the parameter that needs to be adjusted in the box above the table. [4] 
+#.	**Select** the parameter that needs to be adjusted in the box above the table. [4]
 #.	Fill in the value that needs to be inputted. [5]
-#.  and choose **Adjust all**. [6] 
+#.  and choose **Adjust all**. [6]
 
-By setting the calculation type of the inspection manholes to ‘connected’, these manholes can exchange with a storage area that was defined in the global settings with the parameter manhole_storage_area (under Options_1D ). As soon as the water level in the manhole exceeds the drain level, the water in the manhole can exchange with a storage area that has a surface area of 100 m2. 
+By setting the calculation type of the inspection manholes to ‘connected’, these manholes can exchange with a storage area that was defined in the global settings with the parameter manhole_storage_area (under Options_1D ). As soon as the water level in the manhole exceeds the drain level, the water in the manhole can exchange with a storage area that has a surface area of 100 m2.
 
-In the same manner, set the calculation type of the manhole features that are either outlets or pump station to ‘1: isolated’. By setting the calculation type of these manholes to isolated, these manholes cannot exchange water with the surface. 
+In the same manner, set the calculation type of the manhole features that are either outlets or pump station to ‘1: isolated’. By setting the calculation type of these manholes to isolated, these manholes cannot exchange water with the surface.
 
 .. figure:: image/t_05_v2_manhole.png
     :alt: Complete the v2_manhole table
@@ -335,11 +333,11 @@ In the same manner, set the calculation type of the manhole features that are ei
     "Shape", "00: square", "Are already filled in"
     "Width", "N/A", "Are already filled in"
     "Length", "N/A", "Are already filled in, usually 0.8 is chosen."
-    "Surface_level", "N/A", "Are already filled in. **"
-    "Drain_level", "Surface_level – 0.15", "**"
-    "Bottom_level", "N/A", "Are already filled in. **"
+    "Surface_level", "N/A", "Are already filled in. See below"
+    "Drain_level", "Surface_level – 0.15", "See below"
+    "Bottom_level", "N/A", "Are already filled in. See below"
 
-**Bottom level, drain level and surface level: For each manhole, you have to enter 3 levels, that are visualized in the figure below. 
+Bottom level, drain level and surface level: For each manhole, you have to enter 3 levels, that are visualized in the figure below.
 
 -	The bottom level represents the bottom of the manhole
 -	The surface level represents the top of the manhole
@@ -351,8 +349,8 @@ In the same manner, set the calculation type of the manhole features that are ei
 
 In the .sqlite, the surface levels are already entered, but the drain levels are not yet filled in. We want to set these drain levels 15 cm below the surface level. This can be done by following these steps:
 
-A. **Open** the attribute table v2_manhole. [1] 
-#. Select **Toggle editing mode** and in the top right corner. [2] 
+A. **Open** the attribute table v2_manhole. [1]
+#. Select **Toggle editing mode** and in the top right corner. [2]
 #.	Select **Switch to table view** with the button in the lower right corner. [3]
 #.  **Open** the field calculator. [4]
 
@@ -360,10 +358,10 @@ A. **Open** the attribute table v2_manhole. [1]
     :alt: Adjusting v2_manhole
 
 
-E. **Select** **Bestanden velden verniewen**. [5] 
+E. **Select** **Bestanden velden verniewen**. [5]
 #. **select** the parameter "drain_level". [6]
 #. Type the following expression in the box: "surface_level" -0.15. [7]
-#. Press **OK**. [8] 
+#. Press **OK**. [8]
 
 .. Bestanden velden verniewen dit nog omzetten naar engels met nieuwe screenshot!
 
@@ -375,9 +373,9 @@ E. **Select** **Bestanden velden verniewen**. [5]
     :header: "Setting", "Value for this tutorial", "Comments"
 
     "Zoom_category", "-"
-    "Manhole_indicator", "0: inspection, 1: outlet or 2: pumpstation", "***"
+    "Manhole_indicator", "0: inspection, 1: outlet or 2: pumpstation", "See below"
 
-*** Manhole_indicator: This parameter indicates the type of manhole. Although this parameter does not influence the 3Di calculations, it is still recommended to use it since it will make the visual overview of the model in the Modeller Interface better understandable. You can distinguish between inspection, outlet and pumpstation. In the .sqlite, the manhole_indicator for the different manholes is already set.
+Manhole_indicator: This parameter indicates the type of manhole. Although this parameter does not influence the 3Di calculations, it is still recommended to use it since it will make the visual overview of the model in the Modeller Interface better understandable. You can distinguish between inspection, outlet and pumpstation. In the .sqlite, the manhole_indicator for the different manholes is already set.
 
 
 Complete the v2_weir settings
@@ -426,8 +424,8 @@ At some locations in the 1D sewerage system, pumpstations schematized in the mod
 Complete the v2_boundary_conditions settings
 ++++++++++++++++++++++++++++++++++++++++++++
 
-Each outlet of the 1D model consists of a weir connected to a 1D boundary condition. These boundary conditions can be found in the attribute table v2_1d_boundary_conditions. Open the attribute table to see these conditions. In this tutorial, the boundary conditions for the different outlets are already inputted in the model, so we don’t have to change anything. 
-Note that the boundary conditions are all water level boundaries, where the water level is set to -10 m for the entire computation time of the model. Since the level of the sewerage pipes and manholes is much higher than -10 m, this means that water can always flow out of the model, once it reaches a level higher than the crest level of the weirs. 
+Each outlet of the 1D model consists of a weir connected to a 1D boundary condition. These boundary conditions can be found in the attribute table v2_1d_boundary_conditions. Open the attribute table to see these conditions. In this tutorial, the boundary conditions for the different outlets are already inputted in the model, so we don’t have to change anything.
+Note that the boundary conditions are all water level boundaries, where the water level is set to -10 m for the entire computation time of the model. Since the level of the sewerage pipes and manholes is much higher than -10 m, this means that water can always flow out of the model, once it reaches a level higher than the crest level of the weirs.
 
 
 Complete the v2_impervious_surface settings
@@ -438,15 +436,15 @@ The input for the 1D model in this tutorial comes from the 0D inflow module in 3
 In order to add impervious surfaces for 0D inflow to the model, we need the v2_impervious_surface table and the v2_impervious_surface_map table. In the v2_impervious_surface table, the different surfaces are defined. Subsequently, these surfaces are linked to a connection node in the v2_impervious_surface_map table. We are now going to add a surface for 0D inflow to the model:
 
 
-A. **Open** the attribute table v2_impervious_surface. [1] 
-#. Select **Toggle editing mode** in the top right corner. [2] 
-#. Select **Object polygoon toevoegen**. [3] 
+A. **Open** the attribute table v2_impervious_surface. [1]
+#. Select **Toggle editing mode** in the top right corner. [2]
+#. Select **Object polygoon toevoegen**. [3]
 #. Draw a new polygon in the model and right-click when the surface is ready.
 #. A pop-up screen appears where different parameters need to be filled in.
 #. Fill in the surface_class. You can choose which class you want to add. [4]
 #. Fill in the surface_inclination. You can choose which inclination you want to add. [5]
 #. click on **OK** and save your changes. [6]
-#. Remember the id of the surface that you just added. 
+#. Remember the id of the surface that you just added.
 
 .. ook hier weer dingen in het nederlands...
 
@@ -455,8 +453,8 @@ A. **Open** the attribute table v2_impervious_surface. [1]
     :alt: Adding an impervious surface
 
 J. **Select** the v2_impervious_surface_map attribute table. [1]
-#. Select **Toggle editing mode** in the top right corner. [2] 
-#. Select **Add feature**. [3] 
+#. Select **Toggle editing mode** in the top right corner. [2]
+#. Select **Add feature**. [3]
 #. Enter the id of the surface that you just added as ‘impervious_surface_id’. [4]
 #. Enter the id of the connection node that you want to link to the surface as the ‘connection_node_id’. [5]
 #. Set the percentage to 100. This means that 100% of the rainfall that falls on the surface is discharged to the connection node. [6]
@@ -478,9 +476,9 @@ Verify the model schematisation using the schematisation checker
 
 Before sending the model to the web portal we want to check the schematization. We can use the schematization checker for this. It checks the model tables for many possible errors that cause the model to crash when you want to compile the model. In order to check your model schematization, follow these steps:
 
-A.	Select the **commands for working with 3Di models** button. On the right of your screen, a tab "3Di" will open. [1] 
-B.	Expand the "Step 1 – Check data" line and click on the **raster checker**. [2] 
-C.	In the pop-up screen, select ‘spatialite: 1D_gemengd' and click **OK**. 
+A.	Select the **commands for working with 3Di models** button. On the right of your screen, a tab "3Di" will open. [1]
+B.	Expand the "Step 1 – Check data" line and click on the **raster checker**. [2]
+C.	In the pop-up screen, select ‘spatialite: 1D_gemengd' and click **OK**.
 
 The following screen will appear:
 
@@ -517,7 +515,7 @@ E.	Press **Submit**.
 Compile your model
 +++++++++++++++++++
 
-Now your model is stored in the model database and it is ready for compilation. 
+Now your model is stored in the model database and it is ready for compilation.
 
 A.	Go to https://3di.lizard.net/models/
 B.	Use the search function to retrieve your model. Search for the name that you gave your model in the previous section. You may to select **also show repositories that do not have inp files yet**. It may take some time for the model to show here, after you have uploaded it to the model database.

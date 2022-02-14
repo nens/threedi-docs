@@ -115,7 +115,7 @@ For type 1 the user defines a fixed thickness of the interflow layer throuhout t
 | :math:`L` = interflow layer depth and
 | :math:`H_I = D_{sur} – D_{inp}`,
 
-|defining,
+| defining,
 | :math:`D_{sur}` = surface level elevation and
 | :math:`D_{inp}`  = elevation of the impervious layer.
 
@@ -193,7 +193,7 @@ Good to know
 ------------
 
 
-**Infiltration** Infiltration from the interflow layer is only active when the water level is above the surface level (lowest point of the DEM in that computational cell). Infiltration is not a process that allows water from the surface to the interflow layer, it is from the total cell volume out of the model. When the water level drops below the lowest surface level of the cell, the infiltration stops. In case, you would like to allow the infiltration to contiunu and allow water to exit interflow layer, one can use the surface sources and sinks functionality.  
+**Infiltration** Infiltration from the interflow layer is only active when the water level is above the surface level (lowest point of the DEM in that computational cell). Infiltration is not a process that allows water from the surface to the interflow layer, it is from the total cell volume out of the model. When the water level drops below the lowest surface level of the cell, the infiltration stops. In case, you would like to allow the infiltration to contiunu and allow water to exit interflow layer, one can use the surface sources and sinks functionality.
 
 **Laterals** Nothing actually changes for the laterals. The extraction of water continues until the total volume is zero. This means that the water level can be lower than the DEM.
 
