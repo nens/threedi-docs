@@ -357,17 +357,17 @@ Old table
 The most used API options are included in the newest version of the plugin. Important consideration is a difference between API v1 and v3 how initial waterzylevels, laterals and boundaries are handled. The current status is as follows:
 
 ============================= =========================== =========================================== ==================================
-Forcings                        Live site                  "3Di Models and Simulations" Wizard                       OpenAPI Client
+Forcings                        Live site                  "3Di Models and Simulations" Wizard         OpenAPI Client
 ============================= =========================== =========================================== ==================================
 Boundary conditions            SQLite                      SQLite                                      SQLite, can be overwritten*
 Initial water level 2D         SQLite, always 'max'        Add raster/global in wizard                 Add raster/global to simulation
 Initial water level 1D         SQLite                      Add predefined/global in wizard             Add predefined to simulation
 Initial water level GW         SQLite                      Add predefined/global in wizard             Add predefined to simulation
 Laterals  1D and 2D            Not used                    Add in wizard with CSV**                    Add CSV
-Breaches			           Open in gui                 Open breach using wizard                    Open breach
+Breaches                       Open in gui                 Open breach using wizard                    Open breach
 Precipitation                  Add using live site         Add using wizard***                         Add to simulation
-Wind                           Add using live site    	   Add using wizard			                   Add to simulation
-Control Structures	           Not used from SQLite        Not used from SQLite                        Add to simulation
+Wind                           Add using live site         Add using wizard                            Add to simulation
+Control Structures             Not used from SQLite        Not used from SQLite                        Add to simulation
 DWF (inflow)                   Not used from SQLite        Add as laterals, use dwf calculator         Add to simulation as lateral CSV
 Settings                       SQLite                      SQLite                                      SQLite, can be overwritten
 ============================= =========================== =========================================== ==================================
