@@ -232,7 +232,9 @@ Complete the following settings:
 
 
 The overview of all settings for this tutorial can be referenced `here <https://docs.google.com/spreadsheets/d/1qHTS0TdwnYaCYRaohDAVvkaGW2sJ1pt8IX31HZ7OcBY/edit?usp=sharing>`_.
+
 .. TODO:Deze link nog aanpassen naar de pdf als die er is
+
 
 
 Complete the v2_pipe settings
