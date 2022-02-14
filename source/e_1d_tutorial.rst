@@ -259,8 +259,8 @@ A. **Open** the attribute table v2_pipe. [1]
     "Id", "N/A", "The id’s are already filled in"
     "display_name:", "N/A", "The display names are already filled in"
     "Code", "N/A", "The codes are already filled in"
-    "Calculation_type", "1: Isolated", "*"
-    "Dist_calc_points", "1000", "**"
+    "Calculation_type", "1: Isolated", "See below"
+    "Dist_calc_points", "1000", "See below"
 
 Calculation type: You have different choices for the calculation type. You can choose between embedded, isolated, connected, broad crest en short crest. An elaborated explanation of these calculation types can be found in the 3Di documentation: :ref:`calculation_types`. In this model, we set the calculation_type for all pipes to ‘isolated’. This means that the 1D pipe cannot exchange water.
 
@@ -308,9 +308,7 @@ Next, open the v2_manhole attribute table. Each connection node is connected to 
     "display_name", "N/A", "The display names are already filled in"
     "Code", "N/A", "The codes are already filled in"
     "Connection_node_id", "N/A", "The id of the connection node that is connected to the manhole. These are already filled in."
-    "Calculation_type", "1: isolated or 2: connected", "*"
-
-
+    "Calculation_type", "1: isolated or 2: connected", "See below"
 
 Calculation_type: You can choose here between embedded, isolated and connected. An elaborated explanation of these calculation types can be found in the 3Di documentation: :ref:`calculation_types`. As was described above, the calculation type depends on the manhole type. Set the calculation type to ‘connected’ for inspection manholes, by following these steps:
 
@@ -335,9 +333,9 @@ In the same manner, set the calculation type of the manhole features that are ei
     "Shape", "00: square", "Are already filled in"
     "Width", "N/A", "Are already filled in"
     "Length", "N/A", "Are already filled in, usually 0.8 is chosen."
-    "Surface_level", "N/A", "Are already filled in. **"
-    "Drain_level", "Surface_level – 0.15", "**"
-    "Bottom_level", "N/A", "Are already filled in. **"
+    "Surface_level", "N/A", "Are already filled in. See below"
+    "Drain_level", "Surface_level – 0.15", "See below"
+    "Bottom_level", "N/A", "Are already filled in. See below"
 
 Bottom level, drain level and surface level: For each manhole, you have to enter 3 levels, that are visualized in the figure below.
 
@@ -375,7 +373,7 @@ E. **Select** **Bestanden velden verniewen**. [5]
     :header: "Setting", "Value for this tutorial", "Comments"
 
     "Zoom_category", "-"
-    "Manhole_indicator", "0: inspection, 1: outlet or 2: pumpstation", "***"
+    "Manhole_indicator", "0: inspection, 1: outlet or 2: pumpstation", "See below"
 
 Manhole_indicator: This parameter indicates the type of manhole. Although this parameter does not influence the 3Di calculations, it is still recommended to use it since it will make the visual overview of the model in the Modeller Interface better understandable. You can distinguish between inspection, outlet and pumpstation. In the .sqlite, the manhole_indicator for the different manholes is already set.
 
