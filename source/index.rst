@@ -6,8 +6,6 @@
 Welcome to 3Di's documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-*tekst van a_welcome kopieren naar hier.*
-
 
 .. toctree::
    :maxdepth: 1
