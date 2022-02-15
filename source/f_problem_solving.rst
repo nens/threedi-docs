@@ -19,11 +19,20 @@ As our software is constantly improving, we will update this page with solved is
 Frequently Asked Questions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+
 **Klondike**
 
--	Are all my models automatically migrated?
+- Are all my models automatically migrated?
 
-*We will supply schematisations for the new route*
+*We will supply schematisations for the new route. New Models need to be created by the user. This can easily be done by going to management.3di.live --> models --> schematisations select a schematisation and click 'generate model'*
+
+- I installed the new plugin but I don't see any models. What happened to them?
+
+*Don't worry, your schematisation have all been migrated. Simply generate the models using the management.3di.live page and your models will be available*
+
+- Can I calculate with models generated with inpy using the new simulations and models plugin?
+
+*No, you can't. Either use the old plugin for that or go to management.3di.live and generate the 3Di model from the schematisation of choice. We highly recommend everyone to start using the new route*
 
 -	I don’t like change, can I still use the old inpy & Tortoise?
 
