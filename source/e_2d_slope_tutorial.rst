@@ -3,6 +3,9 @@
 Tutorial 3: 2D flow model over sloped terrain with multiple rasters
 ===================================================================
 
+.. note:: This tutorial described the old route of building a 3Di model. 
+    After the Klondike release, you do not need Tortoise and Inpy anymore. This tutorial will be updated. 
+
 In this tutorial, we will build a basic 2D flow model in mountainous terrain using 3Di. We will edit an existing sqlite, and this tutorial will introduce friction and infiltration rasters.
 These rasters have been highly simplified for the purpose of this tutorial.
 As with any other component of the tutorials, the data and outcomes cannot be used to draw conclusions of the real-world location that was the inspiration for this tutorial. 

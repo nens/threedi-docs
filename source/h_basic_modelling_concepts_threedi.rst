@@ -108,7 +108,9 @@ A simulation template consists of:
 
 Simulation settings:
 
-aggregation settings () (TODO Jonas: refine this one more)
+aggregation settings () 
+
+.. TODO: (TODO Jonas: refine this one more)
 
 numerical settings
 
