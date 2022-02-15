@@ -7,11 +7,6 @@ Welcome to 3Di's documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-.. toctree::
-   :maxdepth: 1
-   
-   a_releasenotes
-   a_contributors
 
 .. toctree::
    :hidden:
@@ -20,6 +15,8 @@ Welcome to 3Di's documentation
    :name: Welcome to the 3Di documentation
 
    a_welcome
+   a_releasenotes
+   a_contributors
 
 .. toctree::
    :hidden:
