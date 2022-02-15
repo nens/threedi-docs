@@ -1,6 +1,9 @@
 Tutorial 4 Building a 2D flow model with levees, channels and breaches
 ======================================================================
 
+.. note:: This tutorial described the old route of building a 3Di model. 
+    After the Klondike release, you do not need Tortoise and Inpy anymore. This tutorial will be updated. 
+
 In this tutorial, you are going to build a basic 2D flooding model for an area with levees, with a breach location. We will start with a model for which the basic parameters are already filled in, and expand the model step by step. We will finish this tutorial with a working model that you can play around with on the Live Site. Our area of interest is the municipality of Nissewaard on the island of Voorne-Putten in the Netherlands. The municipality of Nissewaard consists of urban area and farmland. Whilst this tutorial represents a real-world area, it is important to keep in mind that some processes will be simplified for the purpose of this tutorial.
 
 

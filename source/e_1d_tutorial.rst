@@ -1,6 +1,9 @@
 Tutorial 5: Building a 1D model
 ===============================
 
+.. note:: This tutorial described the old route of building a 3Di model. 
+    After the Klondike release, you do not need Tortoise and Inpy anymore. This tutorial will be updated. 
+
 Welcome to the tutorial for building a 1D model in 3Di. In this tutorial, you will learn to work with a 1D flow model in 3Di. We will start with a database file (.sqlite) that is already partly filled in. The sqlite is not yet complete, so we will add information to the model to get a basic working model that you can run on the 3Di live site.
 The system in the .sqlite is a non-existent combined sewerage system. The model does not represent a real-world system, but is meant to get acquainted with the different components of a 1D combined sewerage system.
 

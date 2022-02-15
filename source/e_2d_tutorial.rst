@@ -3,6 +3,8 @@
 Tutorial 2: Building a basic 2D flow model
 ==========================================
 
+.. note:: This tutorial described the old route of building a 3Di model. 
+    After the Klondike release, you do not need Tortoise and Inpy anymore. This tutorial will be updated. 
 
 In this tutorial, we will build a basic 2D flow model in 3Di.
 We will start from scratch and build our model step by step.
