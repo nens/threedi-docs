@@ -91,7 +91,7 @@ Plugin settings
 To set the Base API URL:
 
 1) Open QGIS and via the menu bar go to 'Plugins > "3Di Models and Simulations" > Settings'
-2) Fill in a Base API URL. The Base API URL is in most cases https://api.3di.live/v3/. If you want to connect to our second calculation center in Taiwan, the base API URL is https://api.3di.tw/v3/.
+2) Fill in a Base API URL. The Base API URL is in most cases https://api.3di.live. If you want to connect to our second calculation center in Taiwan, the base API URL is https://api.3di.tw/
 
 
 
