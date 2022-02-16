@@ -6,10 +6,9 @@
 Welcome to 3Di's documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
+	
 
 .. toctree::
-   :hidden:
    :maxdepth: 1
    :caption: Welcome to the 3Di documentation
    :name: Welcome to the 3Di documentation

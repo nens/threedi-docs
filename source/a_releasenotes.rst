@@ -58,6 +58,11 @@ February 2022 (Klondike)
 
 We have released threeditoolbox 1.31 and 3Di Models & simulations 3.0.2.
 "3Di Models & simulations" is the new name for what was previously called "API client". 
+Please note: If you continue to use the old route, you still need the previous version of the plugin as well. 
+
+We have also released a new version of the Modeller Interface:
+Download here the latest version: `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.7-1-Setup-x86_64.exe>`_ 
+
 
 
 August 2021
@@ -217,6 +222,57 @@ We are constantly working on improving the 3Di experience. Based on user experie
 
 3Di API
 ----------
+
+February 2022 (Klondike)
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**General**
+
+- Reordering of nodes and lines: the order and ids of the calculation nodes and flowlines will be different.
+
+- Reprojection of 1D objects: the EPSG database that is used when reprojecting spatialite geometries to the model projection was upgraded from version 7.9 to 10.041. Due to improvements in the projection definitions, this may result in effects due to geometries that are displaced relative to the DEM (and correspondingly the 2D grid), for example 1D-2D lines or grid refinements. Note that in all cases no correction grids (e.g. RDNAPTRANS) or date-dependent datum shifts (e.g. ETRS89 to WGS84) are applied. Versions corresponding to EPSG database 7.9: PROJ4 4.8.0, August 2011 Versions corresponding to EPSG database 10.041: PROJ4 8.2.1, Dec 2021
+
+
+**Channels, pipes and culverts**
+
+- 1D initial waterlevels on channels/pipes/culvert nodes are now (linearly) interpolated between connection nodes.
+
+- The volume of an embedded channel/pipe/culvert (that is added to the 2D nodes in which they are embedded) now stems precisely from the part of the channel/pipe/culvert that is inside the 2D cell. Previously, this was not the case.
+
+- If the direction of a channel/pipe/culvert geometry is reversed compared to the “connection_node_start” and “connection_node_end”, then this is now fixed automatically.
+
+- The calculation type of culverts is not ignored anymore.
+
+- For calculation nodes on channels with connected calculation type, the cross section will be used until the surface level of the DEM. This will give differences for channels with connected calculation type in case the cross section is below the surface level.
+
+
+**Cross section definitions**
+
+- A new “closed rectangle” (type 0) cross section definition is available. This definition requires both width and height.
+
+- For tabulated cross section definitions, the input is validated more strictly. Previously, a wrong input (e.g. using a comma as separator between numbers) resulted in the table only receiving one value.
+
+
+**2D initial waterlevels**
+
+- The no data value in 2D initial waterlevels is now excluded while taking the min, max, or mean. This means that cells with partial data now receive a water level whereas in the old route they did not.
+
+
+**Obstacles / Levees**
+
+- The algorithm with which 2D flowlines are assigned to obstacles/levees is changed. Now, every flowline that intersects the obstacle/levee is assigned to it.
+
+- Also levee/obstacle geometries can be drawn outside the DEM area, which was previously not possible. 
+
+
+**2D boundary conditions**
+
+- The constraints on 2D boundary conditions have become less strict. Every border cell can now get a boundary condition. It is required however that the border cells of a single boundary condition form one horizontal or vertical edge. The boundary condition does not need to be precisely at the cell edge anymore. Also it is not required anymore to adjust the DEM to precisely align to the border cells; if there is no DEM data at the outer cell edge, the DEM data will be extrapolated.
+
+
+**Gridadmin / Results NetCDF**
+
+- The gridadmin.h5 and results_3di.nc file now uses NaN (not-a-number) instead of -9999 for missing values in float columns. Integer type columns still have –9999 to denote “missing”.
 
 
 January 31st 2022 (Klondike)
