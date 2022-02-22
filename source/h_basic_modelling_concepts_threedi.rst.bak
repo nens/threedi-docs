@@ -50,12 +50,17 @@ Together the ThreeDiModel, Scenario Information or Simulation Template form a Si
    :alt: 3Di Modelling Concepts part 7   
 
 
+The simulation template can be selected in QGIS.
+
+.. TODO:  [insert screenshot]
+ 
+
 The simulation template can either be used as is, or can be run with changes and stored as a new simulation template. 
 
 Schematisation
 ^^^^^^^^^^^^^^
 
-A detailed overview of a schematisation is given in this paragraph. It consists of:
+A schematisation consists of:
 
 General rasters: 
 
@@ -196,6 +201,17 @@ Forcings:
 -	Rain
 -	Wind
 -	Inflow 0D (impervious surfaces & surfaces)
+
+Migration to new work flow
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The current situation is that users create a repository. This repository can contain multiple sqlites, these sqlites can contain multiple global settings entries. With each edit a new version of the sqlites is pushed to the server. This situation will change. In the new workflow 3Di accepts only one global settings entry. To aid users to get to the new situation we migrate as follows: 
+
+Each of the global settings entries has been extracted into a schematisation with the following name:
+{repo slug}-{sqlite filename}_{global settings name}-{extra info}
+
+In the metadata of the threedimodel the current slug can be found. 
+[include screenshot with examples from API]
 
 
 Workflow
