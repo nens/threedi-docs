@@ -3,7 +3,7 @@ Release notes
 
 .. _release_notes_LS:
 
-3Di Live Site
+3Di Live Site 
 --------------
 
 February 2022 (Klondike)
@@ -46,6 +46,51 @@ Some bugfixes in 3Di live:
 - Moving dots for 0D1D models fixed
 - Correct handling of wind direction
 - Breach editing used wrong id
+
+
+.. _release_notes_MS:
+
+3Di Management Screens
+----------------------
+
+February 2022 (Klondike) v2
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+-	Fixed a bug where the models map page stayed empty if there were no models
+-	Fixed a bug where a schematisation that has no revisions yet showed an empty page
+-	Add information about the current framework version, so the user knows if the current 3Di model is up to date
+-	Show model id as well as name on the models list page
+-	The gridadmin.h5 file can now be downloaded from the model detail page as well as from the simulation results download
+-	Simulation templates can now also be deleted
+-	The information on the models list page can be exported as an Excel file
+-	Generating a model can fail if the schematisation already has the maximum number; show an error message if this happens.
+-	Add a column for 'latest revision' to the Schematisations table.
+-	Instead of subpages, now everything is reachable from the front page
+
+
+February 2022 (Klondike)
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The management screens have been extended with a Models section. In this Models section users can:
+
+For 3Di Models
+
+- See an overview of Models in a list 
+- See an overview of Models in the map 
+- Per Model a detailed page is available including the location on the map, size of the Model. 
+- Per Model is an option to run the simulation on the live site
+- On the detailed Model page there is an option to run the simulation on the live site
+- On the detailed Model page there is an option to delete the model
+- On the detailed Model page there is an option to re-generate the model from the schematisation
+- A history of simulations performed with the 3Di Model
+- An overview of available simulation templates. By default 1 simulation template is available for every Model. This is generated based on the spatialite. The name of the simulation template is the name in the v2_global_settings table. 
+
+For schematisations users can:
+
+- See all available schematisations in a list. 
+- See past revisions of a schematisation
+- Generate a 3Di Model from a schematisation or re-generate an existing model from the schematisation. Keep in mind that doing so will remove additionally generated templates
+
 
 
 .. _release_notes_MI:
@@ -91,9 +136,9 @@ The styling of all animation layers has been improved. The value categories are 
 Below are examples of a dike breach. Animation 1 is showing relative change in water level and discharge. The plot is done for every calculation cell and flow line. Animation 2 is the same situation as an absolute plot showing the water level per calculation cell and the discharge over the flow lines.
 Some other improvements to the toolbar include:
 
-•	More user feedback.
-•	The animation layers are removed when the Animation Toolbar is deactivated.
-•	The groundwater layers are only displayed when the simulation includes groundwater.
+-	More user feedback.
+-	The animation layers are removed when the Animation Toolbar is deactivated.
+-	The groundwater layers are only displayed when the simulation includes groundwater.
 
 *Dry weather flow calculator*
 
@@ -107,11 +152,11 @@ We have added the option to generate water depth/level maps for a range of times
  
 The water depth processing algorithm also has various minor bugfixes and improvements:
 
-•	Selecting DEM layer from project no longer gives an error.
-•	Generating outputs for timestep 0 without moving the timestep slider no longer gives an error.
-•	Improved readability of LCD display by adding days to the display.
-•	Set LCD value to 00:00 when file is loaded.
-•	More accurate description of what the tool does.
+-	Selecting DEM layer from project no longer gives an error.
+-	Generating outputs for timestep 0 without moving the timestep slider no longer gives an error.
+-	Improved readability of LCD display by adding days to the display.
+-	Set LCD value to 00:00 when file is loaded.
+-	More accurate description of what the tool does.
 
 
 *Bugfix SideView tool*
@@ -222,6 +267,29 @@ We are constantly working on improving the 3Di experience. Based on user experie
 
 3Di API
 ----------
+
+
+February 2022 
+^^^^^^^^^^^^^^^^
+
+2.17.4 (2022-02-23)
+- Bugfix in embedded (connection) node in lateral files processing
+
+2.17.3 (2022-02-22)
+- Make sure threedimodel workers receive tasks only once.
+- Include threedimodels which are being validated in max amount of threedimodels check for schematisation.
+- Support embedded (connection) nodes in laterals files and other API resources.
+
+2.17.2 (2022-02-16)
+- Bumped threedi-tables to 1.2.6
+- Bumped threedigrid to 1.1.14, geometry filtering bugfix.
+- All boundaries conditions in a file need to have the same timesteps.
+- Bugfix: simulations need either duration or end_datetime
+- Fixed uploading revision rasters with md5sum (deduplication) in case the other raster has a different type.
+- Improve speed of user_organisation_roles queries.
+- Allow threedimodel filtering on revision__schematisation__id.
+- Maximum number active model check no longer takes non valid models into account.
+
 
 February 2022 (Klondike)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -464,6 +532,28 @@ Extended API v3 with boundary conditions & bug fixing
 
 3Di computational core releases
 -------------------------------
+
+February 2022 
+^^^^^^^^^^^^^^^^
+
+2.17.4 (2022-02-23)
+- Bugfix in embedded (connection) node in lateral files processing
+
+2.17.3 (2022-02-22)
+- Make sure threedimodel workers receive tasks only once.
+- Include threedimodels which are being validated in max amount of threedimodels check for schematisation.
+- Support embedded (connection) nodes in laterals files and other API resources.
+
+2.17.2 (2022-02-16)
+- Bumped threedi-tables to 1.2.6
+- Bumped threedigrid to 1.1.14, geometry filtering bugfix.
+- All boundaries conditions in a file need to have the same timesteps.
+- Bugfix: simulations need either duration or end_datetime
+- Fixed uploading revision rasters with md5sum (deduplication) in case the other raster has a different type.
+- Improve speed of user_organisation_roles queries.
+- Allow threedimodel filtering on revision__schematisation__id.
+- Maximum number active model check no longer takes non valid models into account.
+
 
 
 January 31st 2022 (Klondike)
