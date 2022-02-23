@@ -13,26 +13,49 @@ In the workflow of 3Di we distinguish a schematisation and a simulation template
    The modelling concepts of 3Di
 
 In general, the schematisation contains all information that 3Di needs for preprocessing, e.g. to create a calculation grid, and subgrid tables. 
+
+.. figure:: image/d_modelling_concepts2.png
+   :alt: 3Di Modelling Concepts part 2
+   
+   The modelling concepts of 3Di
+
+
 The converted schematisation we call a 3Di model. 
+
+.. figure:: image/d_modelling_concepts3.png
+   :alt: 3Di Modelling Concepts part 3
+
+When building a schematisation, a user has more than one version. Online we support different versions of the same schematisation. For every version, or revision, a 3Di model can be created
+
+.. figure:: image/d_modelling_concepts4.png
+   :alt: 3Di Modelling Concepts part 4
+
+
 This 3Di model needs information to run, which are initial conditions or events (e.g. rain). 
+
 To run a simulation, a user can use a simulation template or select a 3Di model and add all information required to run a simulation. 
 
 We provide all models of a simulation template based on the sqlite. 
 
-.. TODO:      [create infographic]
+.. figure:: image/d_modelling_concepts6.png
+   :alt: 3Di Modelling Concepts part 5
+   
+   
+.. figure:: image/d_modelling_concepts6.png
+   :alt: 3Di Modelling Concepts part 6   
 
+Together the ThreeDiModel, Scenario Information or Simulation Template form a Simulation
 
-The simulation template can be selected in QGIS.
+.. figure:: image/d_modelling_concepts7.png
+   :alt: 3Di Modelling Concepts part 7   
 
-.. TODO:  [insert screenshot]
- 
 
 The simulation template can either be used as is, or can be run with changes and stored as a new simulation template. 
 
 Schematisation
 ^^^^^^^^^^^^^^
 
-A schematisation consists of:
+A detailed overview of a schematisation is given in this paragraph. It consists of:
 
 General rasters: 
 
@@ -173,17 +196,6 @@ Forcings:
 -	Rain
 -	Wind
 -	Inflow 0D (impervious surfaces & surfaces)
-
-Migration to new work flow
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The current situation is that users create a repository. This repository can contain multiple sqlites, these sqlites can contain multiple global settings entries. With each edit a new version of the sqlites is pushed to the server. This situation will change. In the new workflow 3Di accepts only one global settings entry. To aid users to get to the new situation we migrate as follows: 
-
-Each of the global settings entries has been extracted into a schematisation with the following name:
-{repo slug}-{sqlite filename}_{global settings name}-{extra info}
-
-In the metadata of the threedimodel the current slug can be found. 
-[include screenshot with examples from API]
 
 
 Workflow
