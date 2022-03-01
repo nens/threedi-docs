@@ -16,8 +16,8 @@ To use 3Di you need these software packages:
 
 
 .. note::
-    Are you running into problems when downloading or updating the software? 
-    Please contact our support office (servicedesk@nelen-schuurmans.nl)
+    Are you running into problems when downloading or updating the software? Please consult the 'problem solving' section and if the error and/or solution is not mentioned,
+    please contact our support office (servicedesk@nelen-schuurmans.nl)
 
 Modeller Interface or QGIS
 ----------------------------
@@ -32,7 +32,7 @@ For an overview on the modeller interface go to: :ref:`intro_modeller_interface`
 Plugin Installation
 ^^^^^^^^^^^^^^^^^^^^
 
-* QGIS 3.16 64bit Long term release (`Get QGIS <http://www.qgis.org/en/site/forusers/download.html#>`_ and use the standalone installer)
+* QGIS 3.16 64bit Long term release (`Get QGIS <http://www.qgis.org/en/site/forusers/download.html#>`_ and use the standalone installer). QGIS 3.22 LTR will be available soon. 
 
     After the installation of QGIS, set the interface language and locale to American English. This makes it easier to understand the instructions in this documentation. Some locales do not support scientific notations of numbers, these are required for very small numbers (e.g. 1e-09).
 

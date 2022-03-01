@@ -64,7 +64,7 @@ Frequently Asked Questions
 
 -	Can I change infiltration in a simulation template?
 
-*No infiltration is part of the schematisation. You can copy a schematisation and change the infiltration file there.*
+*No, infiltration is part of the schematisation. You can copy a schematisation and change the infiltration file there.*
 
 
 
@@ -72,6 +72,10 @@ Known Issues
 ^^^^^^^^^^^^^^
 
 - The 3Di Toolbox plugin does not work with QGIS 3.16.8 and above. To avoid problems, install the Modeller Interface or download the OsGeo Network Installer from qgis.org
+
+- The Modeller Interface and the plugins have trouble installing if there is already a previous version installed because of old dependencies. Please remove (before installing a new version) the folder '{user profile} \ python' alle oude dependencies  (e.g. the error 'sqlalchemy' might indicate this is the case)
+	
+- If you have an older version of the MI (e.g. based on QGIS 3.10), you should remove it via *Windows Apps & Features*, to avoid any conflicts. 
 
 - The live site uses always the max for initial water level, even when a different aggregation method is selected in the spatialite.
 
@@ -324,13 +328,3 @@ The python package that can assist in analysing and making your own tools based 
 
 
 
-Servicedesk
-------------
-
-If you are unable to find or solve an error you may contact the Nelen & Schuurmans servicedesk. The servicedesk will:
-
-#. always assist you in solving any problems you have using the various 3Di web pages, and
-
-#. help you solve problems in model schematisation if you are subscribed to 3Di support.
-
-Contact the servicedesk by sending an email to servicedesk@nelen-schuurmans.nl. Please provide as much information as you can about the error and the model and revision number for which the error occurs.

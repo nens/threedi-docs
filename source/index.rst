@@ -68,6 +68,7 @@ Welcome to 3Di's documentation
    
    f_3di_instruments_and_downloads
    f_problem_solving
+   f_servicedesk
 
 .. toctree::
    :hidden:
