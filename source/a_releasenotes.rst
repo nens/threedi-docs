@@ -98,6 +98,29 @@ For schematisations users can:
 3Di Modeller Interface 
 ----------------------
 
+March 2022
+^^^^^^^^^^^^
+
+*3Di Models & Simulations v3.0.3*
+
+- Show schematisation checker results in two separate, tidy list widgets: one for spatialite checks, one for raster checks (#229)
+- Include 'info' and 'warning' level log messages in schematisation checker output (#286)
+- Fix 'Revision is not valid' error when uploading new revision (#334)
+- Fix 'Revision does not exist' error when uploading new revision (#344)
+- On startup, check if any incompatible version of the python package threedi-api-client version is installed and attempt to upgrade to correct version (#348)
+- Allow rain intensities < 1 mm/hr (#180, #347)
+
+*3Di Customisations  v1.2*
+ 
+-	Remove all user interface customisations, except red menu bar
+-	Add "About 3Di modeller interface" dialog
+
+*3Di Toolbox v1.33*
+
+-	Processing tools have been added to check the Spatialite and Rasters. These processing algorithms add the check results as layers to your QGIS project, instead of in a separate shapefile, csv, or text file. You can access them through Processing > Toolbox > 3Di > Schematisation. In the future, these processing algorithms will replace the current checker tools available in the 'Commands' Toolbox.
+
+
+
 February 2022 (Klondike)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
