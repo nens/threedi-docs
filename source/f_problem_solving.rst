@@ -66,33 +66,28 @@ Frequently Asked Questions
 
 *No, infiltration is part of the schematisation. You can copy a schematisation and change the infiltration file there.*
 
+- How do I change my working directory in the Modeller Interface '3Di Models and Simulations' plugin?
 
+* Via the settings of the plugin (see below). 
+
+.. figure:: image/f_changepluginsettings1.png
+    :alt: Open the settings of 3Di Models and Simulations
+
+.. figure:: image/f_changepluginsettings2.png
+    :alt: Change the working directory of 3Di Models and Simulations	
+	
 
 Known Issues
 ^^^^^^^^^^^^^^
 
-- The 3Di Toolbox plugin does not work with QGIS 3.16.8 and above. To avoid problems, install the Modeller Interface or download the OsGeo Network Installer from qgis.org
-
-- The Modeller Interface and the plugins have trouble installing if there is already a previous version installed because of old dependencies. Please remove (before installing a new version) the folder '{user profile} \ python' alle oude dependencies  (e.g. the error 'sqlalchemy' might indicate this is the case)
-	
-- If you have an older version of the MI (e.g. based on QGIS 3.10), you should remove it via *Windows Apps & Features*, to avoid any conflicts. 
-
-- The live site uses always the max for initial water level, even when a different aggregation method is selected in the spatialite.
-
-- The live site doesn't show lateral inflow defined in the spatialite.
-
-- If a raster has both NaN and Nodata values the live site DEM will color yellow (showing color scale for -9999)
-
+General
+--------
 
 - When applying 2D boundary conditions, it is not allowed to have more than one grid resolution on the edge. However, there is no clear error message for this.
-
-- In the live site it is not possible to visualise structures together with the schematisation.
 
 - Note, that in v2_control tables (v2_control_table, v2_control_memory, v2_control_pid, v2_control_timed) the unit for adjusting the pump discharge capacity is actually *m3/s*, even tough the unit used normally is *L/s*.
 
 - For simulations including interflow or embedded elements, not all results can be viewed. Moreover, the water balance ignores part of the flow, therefore it will seem to be inconsistent.
-
-- When using the sideview-tool in the QGIS-plugin, the length of the side view profile of pipes in the graph can be different than the actual length of the pipe. This is due to a projection conversion error in QGIS and does not affect 3Di calculations.
 
 - There are some issues related to projections. We are encountered this for our UK-based models (.sqlite). These models will show a shift in the  geometries in QGIS. The reprojection from EPGS:27700 (British National Grid) to WGS84 is based on an outdated reprojection in the spatialite. There is a solution for this:
 
@@ -111,6 +106,49 @@ This might also be the case for other projections.
 - Wind shield factor is not taken into account during a simulation
 
 - Boundary conditions can only be applied via the model sqlite. Uploading a boundary condition as a json file using the API will result in a failure of the simulation.
+
+- DEM edits do not work as intented for newly generated models (Klondike route). 
+
+- If you use the type ‘half verhard’, the gridadmin generation will crash. We will fix this by 4-4-2022.  In the meantime, we advise to choose an other type.
+
+- The Pipe view and Orifice view can be broken in the downloaded spatialite. If that happens, the service desk can provide 2 SQL scripts as workaround.
+
+
+
+Modeller Interface
+---------------------
+- The 3Di Toolbox plugin does not work with QGIS 3.16.8 and above. To avoid problems, install the Modeller Interface or download the OsGeo Network Installer from qgis.org
+
+- The Modeller Interface and the plugins have trouble installing if there is already a previous version installed because of old dependencies. Please remove (before installing a new version) the folder '{user profile} \ python' alle oude dependencies  (e.g. the error 'sqlalchemy' might indicate this is the case)
+	
+- If you have an older version of the MI (e.g. based on QGIS 3.10), you should remove it via *Windows Apps & Features*, to avoid any conflicts. 
+
+- When using the sideview-tool in the QGIS-plugin, the length of the side view profile of pipes in the graph can be different than the actual length of the pipe. This is due to a projection conversion error in QGIS and does not affect 3Di calculations.
+
+- We receive comments that buttons are too big and some screens are too small. We will fix this in the next release. 
+
+- A schematisation that is uploaded via the MI without processing will appear falsely in the management pages as 'not valid'. If you upload the schematisation again with processing, the model will be generated. 
+
+
+
+Live site
+-----------
+
+- The live site uses always the max for initial water level, even when a different aggregation method is selected in the spatialite.
+
+- The live site doesn't show lateral inflow defined in the spatialite.
+
+- If a raster has both NaN and Nodata values the live site DEM will color yellow (showing color scale for -9999)
+
+- In the live site it is not possible to visualise structures together with the schematisation.
+
+
+Management pages
+-----------------
+
+- A schematisation that is uploaded via the MI without processing will appear falsely in the management pages as 'not valid'. If you upload the schematisation again with processing, the model will be generated. 
+
+
 
 
 Frequently endured issues
@@ -171,10 +209,6 @@ Runtime Error: NetCDF: String match to name in use
 
 Check the aggregation NetCDF name settings, names must be unique.
 
-No Limit to infiltration
-+++++++++++++++++++++++++++++
-
-The setting max_infiltration_capacity_file found in the global settings table is depricated. The setting was not removed from the global settings table, but is added to the infiltration_simple_table. Values from there are taken into account. This is solved in the autumn release 2018, however older versions of the spatialite still have this setting there.
 
 
 
@@ -182,6 +216,9 @@ Solved issues
 ^^^^^^^^^^^^^^
 
 The below errors and bugs should not be experienced anymore. Please let us know if you do still encounter them.
+
+
+- Calculations that had both rain radar and laterals crashed somewhere during the simulation. 
 
 
 - Dry Weather Flow in API v3 or the Modeller Interface is not taken from the spatialite. Users can define the DWF by using the dwf calculator and applying it as a lateral
@@ -325,6 +362,11 @@ ThreeDiGrid
 
 The python package that can assist in analysing and making your own tools based on the 3Di results can be found at this `location <https://github.com/nens/threedigrid>`_. The full threedigrid documentation can be found via the following link: `Threedigrid documentation <https://threedigrid.readthedocs.io/en/latest/readme.html>`_.
 
+
+No Limit to infiltration
++++++++++++++++++++++++++++++
+
+The setting max_infiltration_capacity_file found in the global settings table is depricated. The setting was not removed from the global settings table, but is added to the infiltration_simple_table. Values from there are taken into account. This is solved in the autumn release 2018, however older versions of the spatialite still have this setting there.
 
 
 
