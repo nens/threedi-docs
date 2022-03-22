@@ -24,13 +24,16 @@ Frequently Asked Questions
 
 - Are all my models automatically migrated?
 
-*We will supply schematisations for the new route. New Models need to be created by the user. This can easily be done by going to management.3di.live --> models --> schematisations select a schematisation and click 'generate model'*
+*We will supply schematisations for the new route. New Models need to be created by the user. This can easily be done by going to management.3di.live --> models --> schematisations select a schematisation and click 'generate model'.
+
+*An explainer on schematisations and simulation templates can be found* `here <https://docs.staging.3di.live/h_basic_modelling_concepts_threedi.html>`_.
+
 
 - I installed the new plugin but I don't see any models. What happened to them?
 
 *Don't worry, your schematisation have all been migrated. Simply generate the models using the management.3di.live page and your models will be available*
 
-- Can I calculate with models generated with inpy using the new simulations and models plugin?
+- Can I calculate with models generated with inpy using the new Models and Simulations plugin?
 
 *No, you can't. Either use the old plugin for that or go to management.3di.live and generate the 3Di model from the schematisation of choice. We highly recommend everyone to start using the new route*
 
@@ -40,15 +43,17 @@ Frequently Asked Questions
 
 -	Do all models work on the new route after the Klondike release?
 
-*Almost all of them do. There is a very limited number of models that contains errors we cannot fix or set as a warning. We will contact the owners of these models individually.*
+*Almost all of them do. There is a very limited number of models that contains errors we cannot fix or set as a warning. We have contacted the owners of these models individually. 
+Even though we have done our best in identifying these models, but in some rare cases your model doesn't do what you expect in the new route. Please contact our servicedesk if this is the case*
 
 -	Are all grid generation functionalities of 3Di still supported?
 
-*All of them except for the rarely used dem obstacle detection.*
+*All of them except for the dem obstacle detection.*
 
 -	Do I need to change all of my scripts?
 
-*In most cases not, there’s mostly extra functionality. If you like to know more don’t hesitate to contact us.*
+*There is a migration workflow available* `here <https://api.3di.live/v3/docs/migrate_to_threediapi/>`_. 
+*The migration is only required if you want to use the new functionality.*
 
 -	I uploaded extra files using Tortoise. Is this still supported?
 
@@ -64,7 +69,24 @@ Frequently Asked Questions
 
 -	Can I change infiltration in a simulation template?
 
-*No, infiltration is part of the schematisation. You can copy a schematisation and change the infiltration file there.*
+*No, infiltration is part of the schematisation. You can copy a schematisation and change the infiltration file there.
+An explainer on schematisations and simulation templates can be found* `here <https://docs.staging.3di.live/h_basic_modelling_concepts_threedi.html>`_.
+
+- Why is the name of my simulation template 'default'? 
+
+*The name is being read from the v2_global_settings table in the 'name' column. If that happens to be 'default', then that is the name of your simulation template.*
+
+- What happens if I add an extra entry in the v2_global_settings table? 
+
+*Extra entries will be ignored.*
+
+- I have a variant on my schematisation that I like to test, what is the best way of doing so? 
+
+*Copy/clone the schematisation, make your changes and upload it as a new schematisation.*
+
+- What is a good location for my working directory in the Modeller Interface 3Di Models And simulations plugin?
+
+*Choose any directory you like but we strongly advise you not to use the same directory as you were using for tortoise.*
 
 - How do I change my working directory in the Modeller Interface '3Di Models and Simulations' plugin?
 
@@ -75,6 +97,18 @@ Frequently Asked Questions
 
 .. figure:: image/f_changepluginsettings2.png
     :alt: Change the working directory of 3Di Models and Simulations	
+
+- Is all information from my spatialite being read ?
+
+*Yes, either it is being used as part of the schematisation and converted to a 3Di Model, or it is part of the simulation template.*
+
+- My QGIS defaults to the Dutch language, does that matter?
+
+*What matters is that the numbers notation is set to English. There is some bug in QGIS with scientific notations and Dutch number notations which can cause weird behaviour of the plugin. 
+Please set your QGIS or Modeller Interface to English (settings --> options --> locale --> en_GB).*
+
+
+
 	
 
 Known Issues
@@ -147,7 +181,6 @@ Management pages
 -----------------
 
 - A schematisation that is uploaded via the MI without processing will appear falsely in the management pages as 'not valid'. If you upload the schematisation again with processing, the model will be generated. 
-
 
 
 
