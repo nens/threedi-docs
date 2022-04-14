@@ -141,19 +141,15 @@ This might also be the case for other projections.
 
 - Boundary conditions can only be applied via the model sqlite. Uploading a boundary condition as a json file using the API will result in a failure of the simulation.
 
-- DEM edits do not work as intented for newly generated models (Klondike route). 
 
-- If you use the type ‘half verhard’, the gridadmin generation will crash. We will fix this by 4-4-2022.  In the meantime, we advise to choose an other type.
-
-- The Pipe view and Orifice view can be broken in the downloaded spatialite. If that happens, the service desk can provide 2 SQL scripts as workaround.
 
 
 
 Modeller Interface
 ---------------------
-- The 3Di Toolbox plugin does not work with QGIS 3.16.8 and above. To avoid problems, install the Modeller Interface or download the OsGeo Network Installer from qgis.org
 
-- The Modeller Interface and the plugins have trouble installing if there is already a previous version installed because of old dependencies. Please remove (before installing a new version) the folder '{user profile} \ python' alle oude dependencies  (e.g. the error 'sqlalchemy' might indicate this is the case)
+
+- The Modeller Interface and the plugins have trouble installing if there is already a previous version installed because of old dependencies. Please remove (before installing a new version) the folder '{user profile} \ python' alle folders instead of 'expressions', 'plugins' and 'share'.  (e.g. the error 'sqlalchemy' might indicate this is the case)
 	
 - If you have an older version of the MI (e.g. based on QGIS 3.10), you should remove it via *Windows Apps & Features*, to avoid any conflicts. 
 
@@ -162,6 +158,10 @@ Modeller Interface
 - We receive comments that buttons are too big and some screens are too small. We will fix this in the next release. 
 
 - A schematisation that is uploaded via the MI without processing will appear falsely in the management pages as 'not valid'. If you upload the schematisation again with processing, the model will be generated. 
+
+- The Sideview is not supported for channels. 
+
+- Embedded and interflow can not be read with the standard tooling.
 
 
 
@@ -190,8 +190,11 @@ Frequently endured issues
 Per category, we include the frequently endured issues. In case you think a specific issue should be included, please let us know.
 
 
-Uploading a new revision
---------------------------
+Uploading a new revision/migrating a model
+--------------------------------------------
+
+Error: (400)
+++++++++++++++
 
 *Error: (400)
 Reason: Bad Request
@@ -200,6 +203,15 @@ HTTP response body: ["Maximum number of active threedimodels for a schematisatio
 
 You have reached the max number of active 3Di models for this schematisation. Please go the management.3di.live and remove one or more 3Di models that are attached to this schematisation
 
+
+sqlite3.IntegrityError: CHECK constraint failed: _alembic_tmp_v2_aggregation_settings
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+This can be fixed by the following 2 adjustments.
+
+1. Set aggregation = 0  instead of aggregation = FALSE
+
+2. remove table _alembic_tmp_v2_aggregation_settings 
 
 
 Running a simulation
@@ -243,12 +255,30 @@ Runtime Error: NetCDF: String match to name in use
 Check the aggregation NetCDF name settings, names must be unique.
 
 
+Loading results
+-----------------
+
+Runtime Error: attempt to write a readonly database
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+This means that the gridadmin.sqlite is still in use by you or another user or is not closed correctly.
+You can fix this by removing the file 'gridadmin.sqlite-journal' (not gridadmin.sqlite!). 
+
+
 
 
 Solved issues
 ^^^^^^^^^^^^^^
 
 The below errors and bugs should not be experienced anymore. Please let us know if you do still encounter them.
+
+- DEM edits do not work as intented for newly generated models (Klondike route). 
+
+- If you use the type ‘half verhard’, the gridadmin generation will crash. We will fix this by 4-4-2022.  In the meantime, we advise to choose an other type.
+
+- The Pipe view and Orifice view can be broken in the downloaded spatialite. If that happens, the service desk can provide 2 SQL scripts as workaround.
+
+- The 3Di Toolbox plugin does not work with QGIS 3.16.8 and above. To avoid problems, install the Modeller Interface or download the OsGeo Network Installer from qgis.org
 
 
 - Calculations that had both rain radar and laterals crashed somewhere during the simulation. 
