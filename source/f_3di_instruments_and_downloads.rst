@@ -32,7 +32,7 @@ For an overview on the modeller interface go to: :ref:`intro_modeller_interface`
 Plugin Installation
 ^^^^^^^^^^^^^^^^^^^^
 
-* QGIS 3.16 64bit Long term release (`Get QGIS <http://www.qgis.org/en/site/forusers/download.html#>`_ and use the standalone installer). QGIS 3.22 LTR will be available soon. 
+* QGIS Standalone Installer Version 3.22 (Long term release). `Get QGIS <http://www.qgis.org/en/site/forusers/download.html#>`_ . 
 
     After the installation of QGIS, set the interface language and locale to American English. This makes it easier to understand the instructions in this documentation. Some locales do not support scientific notations of numbers, these are required for very small numbers (e.g. 1e-09).
 
@@ -49,7 +49,7 @@ Plugin Installation
 
 The plugins work for:
 
-- QGIS 3.16.x (LTR after March 2021)
+- QGIS 3.22.x (LTR after March 2021)
 - 64-bit version of QGIS (see below for more details)
 - On Linux/OSX: install the following system dependencies: `python3-h5py python3-scipy python3-pyqt5.qtwebsockets`
 - 3Di v2 results

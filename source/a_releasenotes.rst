@@ -710,6 +710,19 @@ Short crested weirs: Flow over a weir knows three different stages: sub-, superc
 3Di general releases
 --------------------
 
+April 9th 2022 (hotfix)
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+In this hotfix release, we fixed the following issues: 
+
+- DEM edit
+- Error with type 'Half verhard' bugfix
+- Refinement errors
+- Sporadically filled DEM 
+- Initial ground water rasters 2D 
+- Cloning with initial saved stae
+
+
 
 January 31st 2022 (Klondike)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
