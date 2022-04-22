@@ -163,6 +163,8 @@ Modeller Interface
 
 - Embedded and interflow can not be read with the standard tooling.
 
+- When using an infiltration rate file in v2_simple_infiltration, an infiltration value of 'NULL' is not valid and will cause an error. Please use an infiltration rate value of 0 instead.
+
 
 
 Live site
