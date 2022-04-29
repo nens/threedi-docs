@@ -29,7 +29,7 @@ In 3Di, many raster input variables are stored in tables. This yields as well fo
 Maximum infiltration capacity
 -----------------------------------------
  
-De maximum infiltration capacity is the maximum volume of water that can infiltrate during one simulation. The user defines a layer with a thickness per pixel in meters. The maximum infiltration per computational cell is the sum of within all pixels. It will stop infiltrating when the maximum infiltration is reached.
+The maximum infiltration capacity is the maximum volume of water that can infiltrate during one simulation. The user defines a layer with a thickness per pixel in meters. The maximum infiltration per computational cell is the sum of within all pixels. It will stop infiltrating when the maximum infiltration is reached.
 
 Input
 ------

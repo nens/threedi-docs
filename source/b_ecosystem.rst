@@ -83,7 +83,107 @@ Colleagues can synchronise their models on their own laptop and continue working
 The Management Portal can be used to monitor running simulations, download results, manage 3Di models, schematisations and simulation templates. With our portal we aim to provide our users with the necessary information to run day-to-day tasks within a web browser.
 
 
+Authorisation and authentication
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Within 3Di the data governance structure is set-up per organisation. People from within the same organisation can see all models that belong to their entity. Sharing the model with people outside your organisation is also possible. There are two ways to organise this:
 
 - external people get access to the 3Di subscription, have read and write access to the models and can run them
 - external people download the 3Di models and use their own subscription for running simulation
+
+
+Signing in
+===========
+
+Users that already have a 3Di account can click the "Log in"
+button on the top right of the screen.
+
+First-time users require an invitation to create a 3Di account. Users with
+a "manager" role are able to send invitations to new users.
+If you do not know whom to contact, please contact our support office
+(servicedesk@nelen-schuurmans.nl).
+
+After clicking "Log in" or after following the invitation link, you will arrive
+at the login screen.
+
+
+
+On the login page you have three different options to sign in:
+
+1. through a company account,
+2. with username and password,
+3. by creating a new account (Sign up).
+
+First-time users may choose any of these options. If your company is listed as
+one of the possible companies to sign in with, that is the preferred choice.
+
+Existing users should use the same method as they used when signing in for 
+the first time. If your 3Di username/password existed before May 2022,
+use method 3.
+
+.. tip::
+    Do you want to add your company to the list to centralise the user accounts
+    of your organisation? Please contact our support office
+    (servicedesk@nelen-schuurmans.nl) for the options.
+
+
+
+Roles
+=====
+
+We have 4 roles and 3 different types of privileges. 
+
+* A **Viewer**, who can only *read* data and *follow* simulations
+* A **Simulation runner**, who can *read* data and *run* simulations
+* An **Creator**, who can *read* data and can *add*, *change* or *delete* schematisations and 3Di models
+* A **Manager**, who can *manage* other roles in the organisation. A manager can not read or write data by default. This role should be appointed separately. 
+
+
+
+User management
+===============
+
+Users can be managed in the User Management interface.
+This interface can be reached via https://api.3di.live/management/users/ 
+
+.. note::
+    You require a “manager” role to access the User Management interface.
+    Haven’t got a “manager” role but you would like to add the User Management interface?
+    Please contact the application manager within your organisation or our support office (servicedesk@nelen-schuurmans.nl)
+	
+.. image:: /image/b_usermanagement1.png
+
+In the example above, you see the current rights for 6 users under the organisation '3Di test'. 
+	
+Manage existing users
+----------------------
+
+The User Management interface gives you an overview of all users that have roles for your organisation.
+If you are Manager for multiple organisations you can switch organisation using the button in the dark green bar. You can change the role of a user by clicking the “+" next to the user and choose the roles you want to assign. Then click “Save” to make the changes. 
+
+Adding a new user
+-------------------
+
+You can add a new user by clicking the “NEW USER” icon in the upper right corner.
+
+This will lead you to the screen to add a new user.
+
+.. image:: /image/b_usermanagement2.png
+
+By default the new user is granted a “Viewer” role. At least one role is required when invite a new user.  
+Do not forget to click ‘Save’! When saved, an invitation email will be sent to the new user.
+This user can follow the invitation link to (if necessary) create an account and receive the new roles.
+The user will appear in the user management overview once they accepted the invite and created the account.
+
+.. note::
+    Sometimes this invitation mail will end up in the spam folder. 
+
+.. note::
+    The invitated user is required to sign in with the email address that is supplied by the manager. This email address can't be changed later on. 
+
+.. note::
+	Deselect all roles will remove the user from the organisation but will not delete the user's account. You cannot remove your own manager role.	
+	
+.. tip::
+	Click on 'Pending Users', to see who have not completed the acitvation process yet. 
+
