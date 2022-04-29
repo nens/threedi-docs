@@ -119,7 +119,8 @@ General
 
 - When applying 2D boundary conditions, it is not allowed to have more than one grid resolution on the edge. However, there is no clear error message for this.
 
-- Note, that in v2_control tables (v2_control_table, v2_control_memory, v2_control_pid, v2_control_timed) the unit for adjusting the pump discharge capacity is actually *m3/s*, even tough the unit used normally is *L/s*.
+- Note, that in v2_control tables (v2_control_table, v2_control_memory, v2_control_pid, v2_control_timed) the unit for adjusting the pump discharge capacity via the API is actually *m3/s*, even tough the unit used normally is *L/s*. 
+	NB: This is only the case via the API. In the Modeller Interface (sqlite) the unit is in l/s. 
 
 - For simulations including interflow or embedded elements, not all results can be viewed. Moreover, the water balance ignores part of the flow, therefore it will seem to be inconsistent.
 
@@ -264,6 +265,19 @@ Runtime Error: attempt to write a readonly database
 This means that the gridadmin.sqlite is still in use by you or another user or is not closed correctly.
 You can fix this by removing the file 'gridadmin.sqlite-journal' (not gridadmin.sqlite!). 
 
+
+Signing in and sign up
+------------------------
+
+403 - You do not have a 3Di account. Please contact your manager and ask for an invitation
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Please contact our support office and let us know your login name or mail address and the error code if you received any. 
+
+.. note::
+    Please ensure that "https://auth.lizard.net/" domain is indeed displayed
+    in your browser's address bar and that your browser displays the lock
+    symbol indicating that the connection is secure.
 
 
 
