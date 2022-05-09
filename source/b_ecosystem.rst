@@ -83,6 +83,8 @@ Colleagues can synchronise their models on their own laptop and continue working
 The Management Portal can be used to monitor running simulations, download results, manage 3Di models, schematisations and simulation templates. With our portal we aim to provide our users with the necessary information to run day-to-day tasks within a web browser.
 
 
+.. _authorisation_authentication:
+
 Authorisation and authentication
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -106,7 +108,7 @@ If you do not know whom to contact, please contact our support office
 After clicking "Log in" or after following the invitation link, you will arrive
 at the login screen.
 
-
+.. image:: /image/login.png
 
 On the login page you have three different options to sign in:
 

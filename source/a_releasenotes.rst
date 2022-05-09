@@ -1,6 +1,285 @@
 Release notes
 =============
 
+.. _general_3di_releases:
+
+3Di general releases
+--------------------
+
+May 2022
+^^^^^^^^^^
+
+The most important change in this release is the new login page.
+
+.. image:: /image/login.png
+
+For information about accounts and logging in, please visit this section in the documentation: :ref:`authorisation_authentication`.
+
+We also added or changed the following:
+
+- Added personal api keys (beta).
+- Copy simulation template between threedimodels.
+- Added user management screens
+- Added users sub-endpoint to organisations to be able to patch roles.
+- Enforce maximum amount of active ThreediModels per organisation and schematisation. 
+- Anybody who has the 'simulation_runner' role will get the 'creator' role in
+  a one-time data migration.
+- Solved error in the Swagger page having to do with external validation.
+- Set the 'security' (security requirements) in the OpenAPI spec.
+- Fixed v3/statuses.
+- Set up client-side OAuth2 in swagger.
+- Fixed error message formatting bug in has role in organisation check.
+- Fixed broken websocket `post_simulation_action`.
+- Prevent browser login screens by setting the WWW-Authenticate header on a
+  401 response to "Bearer".
+- Fixed login/logout buttons in DRF views.
+- JWT authentication needs to add `role_info` to User object.
+- Ansible fixes after deployment of 2.18.1.
+- Added creation of Cloud Optimize Geotiff's for `infiltration_rate_file` and `porosity_file` raster files.
+- Use Celery for API workers instead of Django channels.
+- Use access policies on all ViewSets, by default only admin has access.
+- Reroute all login/logout to Cognito, remove SSO connection (except for the
+  token endpoint which will migrate username/passwords to API Keys gradually).
+- Run API websockets (ASGI) in own service.
+- Threedimodel tables file can only be downloaded by admin user.
+- Dropped Django `Group` and model permissions, changed to using DRF permissions.
+- Automatically migrate SSO users to API keys with is_password=True when they
+  authenticate with username/password through the API (token endpoint).
+- Allow API keys for retrieving tokens.
+- Fixed the schema for schematisations/{}/revisions/{}/create-threedimodel and
+  /check.
+- Changed status code of "Not Authenticated" responses from 403 to 401.
+- Removed global-redis as a dependency for nginx.
+- Revised roles: new roles are viewer, simulation_runner, creator, and manager.
+- Catch file delete exception in post delete when file was deleted first.
+- Bumped threedi-tables to 1.2.7
+
+
+April 9th 2022 (hotfix)
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+In this hotfix release, we fixed the following issues: 
+
+- DEM edit
+- Error with type 'Half verhard' bugfix
+- Refinement errors
+- Sporadically filled DEM 
+- Initial ground water rasters 2D 
+- Cloning with initial saved stae
+
+
+
+January 31st 2022 (Klondike)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+On Januari 31st we have released the backend for the Klondike release. In this release we introduce a brand new route to process schematisations into 3Di models. This will replace the process known as 'inpy'. 
+For users that have not been migrated yet, this will not have effect on their work process. 3Di Models will simulate as before. 
+
+The migration will be rolled out gradually, users will be contacted for this. The management screens are available for all users right away, but keep in mind that the new features mostly work on migrated schematisations and 3Di Models. 
+Contact our servicedesk if you have any questions regarding migration. 
+
+We use the following definitions:
+
+- Simulation templates
+- Schematisations
+- 3Di Models
+
+**Simulation templates**
+
+Simulations can be started up using a simulation template. A simulation template can be seen as a pre-defined setup of a simulation. It can contain:
+
+- initial water level rasters
+- control structures
+- dry weather flow patterns
+- lateral inflow
+- time series of boundary conditions
+- simulation settings (Aggregation settings, Numerical settings*, Physical Settings*, Time step settings*)
+
+\*\ These settings are required
+
+
+**Numerical Settings**
+
+- pump_implicit_ratio: 0,
+- cfl_strictness_factor_1d: 0,
+- cfl_strictness_factor_2d: 0,
+- convergence_cg: 0,
+- flow_direction_threshold: 0,
+- friction_shallow_water_depth_correction: 0,
+- general_numerical_threshold: 0,
+- time_integration_method: 0,
+- limiter_waterlevel_gradient_1d: 0,
+- limiter_waterlevel_gradient_2d: 0,
+- limiter_slope_crossectional_area_2d: 0,
+- limiter_slope_friction_2d: 0,
+- max_non_linear_newton_iterations: 0,
+- max_degree_gauss_seidel: 0,
+- min_friction_velocity: 0,
+- min_surface_area: 0,
+- use_preconditioner_cg: 0,
+- preissmann_slot: 0,
+- limiter_slope_thin_water_layer: 0,
+- use_of_cg: 0,
+- use_nested_newton: true,
+- flooding_threshold: 0
+
+**Physical Settings**
+
+- use_advection_1d: 0,
+- use_advection_2d: 0
+
+**Time step settings**
+
+- time_step: 0,
+- min_time_step: 0,
+- max_time_step: 0,
+- use_time_step_stretch: true,
+- output_time_step: 0
+
+**Initial Water**
+
+- initial_groundwater (file / global setting)
+- initial_waterlevels (file / global setting)
+- saved state
+
+
+**Schematisation**
+
+A schematisation contains:
+
+General rasters: 
+
+-	dem_file
+-	frict_coef_file
+-	interception_file
+
+Simple infiltration rasters:
+
+-	infiltration_rate_file
+-	max_infiltration_capacity_file
+
+Interflow rasters:
+
+-	hydraulic_conductivity_file
+-	porosity_file
+
+Ground water rasters
+
+-	equilibrium_infiltration_rate_file
+-	groundwater_hydro_connectivity_file
+-	groundwater_impervious_layer_level_file
+-	infiltration_decay_period_file
+-	initial_infiltration_rate_file
+-	leakage_file
+-	phreatic_storage_capacity_file
+
+1D elements:
+
+-	channels
+-	pipes
+-	manholes
+-	connection nodes
+-	structures:
+	-	weirs
+	-	culverts
+	-	orifices
+	-	pumps
+-	location (node id) & type (e.g. water level / discharge / etc) of boundary conditions 
+-	dem averaging
+-	impervious surfaces & mapping
+-	surfaces
+-	dem refinement 
+-	cross section locations 
+-	levees & obstacles
+
+GridSettings
+
+-	use_2d: bool
+-	use_1d_flow: bool
+-	use_2d_flow: bool
+-	grid_space: float
+-	dist_calc_points: float
+-	kmax: int
+-	embedded_cutoff_threshold: float = 0.05
+-	max_angle_1d_advection: float = 90.0
+
+TableSettings 
+
+-	table_step_size: float
+-	frict_coef: float
+-	frict_coef_type: InitializationType
+-	frict_type: int = 4
+-	interception_global: Optional[float] = None
+-	interception_type: Optional[InitializationType] = None
+-	table_step_size_1d: float = None 
+-	table_step_size_volume_2d: float = None 
+
+
+
+**3Di Model**
+
+A 3Di Model is generated from a schematisation. The generation takes the grid & table settings from the spatialite and processess the schematisation into a 3Di Model. 
+
+
+**3Di Management Screens**
+
+The management screens have been extended with a Models section. In this Models section users can:
+
+For 3Di Models
+
+- See an overview of Models in a list 
+- See an overview of Models in the map 
+- Per Model a detailed page is available including the location on the map, size of the Model. 
+- Per Model is an option to run the simulation on the live site
+- On the detailed Model page there is an option to run the simulation on the live site
+- On the detailed Model page there is an option to delete the model
+- On the detailed Model page there is an option to re-generate the model from the schematisation
+- A history of simulations performed with the 3Di Model
+- An overview of available simulation templates. By default 1 simulation template is available for every Model. This is generated based on the spatialite. The name of the simulation template is the name in the v2_global_settings table. 
+
+For schematisations users can:
+
+- See all available schematisations in a list. 
+- See past revisions of a schematisation
+- Generate a 3Di Model from a schematisation or re-generate an existing model from the schematisation. Keep in mind that doing so will remove additionally generated templates
+
+
+
+
+March 23rd 2021
+^^^^^^^^^^^^^^^^
+
+3Di is expanding! We are proud to announce that due to international recognition we are expanding the capacity of 3Di:
+
+- The first stage of setting up our second calculation center in Taiwan is finished. Organizations that prefer this center can connect to 3Di via `3di.tw <https://www.3di.tw>`_.  
+- To cope with increasing demand for calculations the capacity of our main calculation center has been upgraded
+
+
+*3Di available for scientific researchers*
+
+Interested to use 3Di in your research? We are proud to announce that we now supply free licenses for scientific researchers.
+Contact us via info@3diwatermanagement.com when you're interested. 
+
+March 8th 2021
+^^^^^^^^^^^^^^
+
+*Update land use map for the calculation of damage estimations*
+
+For usage in The Netherlands only:
+
+We have updated the land use map that is being used for the calculation of damage estimations. This to ensure tunnels are placed under a road. 
+
+Source date & time
+
+- BAG: 2019-05-09
+- BGT: 2019-05-09
+- BRP: 2019-05-15
+- NWB: 2019-05-01
+- Top10NL: 2018-07-16
+
+The map can be viewed here: stowa.lizard.net
+
+
 .. _release_notes_LS:
 
 3Di Live Site 
@@ -290,6 +569,50 @@ We are constantly working on improving the 3Di experience. Based on user experie
 
 3Di API
 ----------
+
+May 2022
+^^^^^^^^^^
+
+- Added personal api keys (beta).
+- Copy simulation template between threedimodels.
+- Added user management screens
+- Added users sub-endpoint to organisations to be able to patch roles.
+- Enforce maximum amount of active ThreediModels per organisation and schematisation. 
+
+Moreover:
+
+- Anybody who has the 'simulation_runner' role will get the 'creator' role in
+  a one-time data migration.
+- Solved error in the Swagger page having to do with external validation.
+- Set the 'security' (security requirements) in the OpenAPI spec.
+- Fixed v3/statuses.
+- Set up client-side OAuth2 in swagger.
+- Fixed error message formatting bug in has role in organisation check.
+- Fixed broken websocket `post_simulation_action`.
+- Prevent browser login screens by setting the WWW-Authenticate header on a
+  401 response to "Bearer".
+- Fixed login/logout buttons in DRF views.
+- JWT authentication needs to add `role_info` to User object.
+- Ansible fixes after deployment of 2.18.1.
+- Added creation of Cloud Optimize Geotiff's for `infiltration_rate_file` and `porosity_file` raster files.
+- Use Celery for API workers instead of Django channels.
+- Use access policies on all ViewSets, by default only admin has access.
+- Reroute all login/logout to Cognito, remove SSO connection (except for the
+  token endpoint which will migrate username/passwords to API Keys gradually).
+- Run API websockets (ASGI) in own service.
+- Threedimodel tables file can only be downloaded by admin user.
+- Dropped Django `Group` and model permissions, changed to using DRF permissions.
+- Automatically migrate SSO users to API keys with is_password=True when they
+  authenticate with username/password through the API (token endpoint).
+- Allow API keys for retrieving tokens.
+- Fixed the schema for schematisations/{}/revisions/{}/create-threedimodel and
+  /check.
+- Changed status code of "Not Authenticated" responses from 403 to 401.
+- Removed global-redis as a dependency for nginx.
+- Revised roles: new roles are viewer, simulation_runner, creator, and manager.
+- Catch file delete exception in post delete when file was deleted first.
+- Bumped threedi-tables to 1.2.7
+
 
 
 February 2022 
@@ -705,231 +1028,3 @@ Long crested weirs: The formulation of the long crested weir has been replaced b
 Short crested weirs: Flow over a weir knows three different stages: sub-, supercritical and critical flow.  Under super-critical flow conditions, the formulation remains the same. We fixed the formulation under sub-critical flow conditions and in strong varying flow conditions.  The biggest change in discharge behaviour is expected for weirs that flow in negative direction. Moreover, the time dependency of the flow over the weir has been adjusted. This has no effect on stationary flow, but has a slightly improved stabilizing effect on the flow under changing flow conditions. 
 
 
-.. _general_3di_releases:
-
-3Di general releases
---------------------
-
-April 9th 2022 (hotfix)
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-In this hotfix release, we fixed the following issues: 
-
-- DEM edit
-- Error with type 'Half verhard' bugfix
-- Refinement errors
-- Sporadically filled DEM 
-- Initial ground water rasters 2D 
-- Cloning with initial saved stae
-
-
-
-January 31st 2022 (Klondike)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-On Januari 31st we have released the backend for the Klondike release. In this release we introduce a brand new route to process schematisations into 3Di models. This will replace the process known as 'inpy'. 
-For users that have not been migrated yet, this will not have effect on their work process. 3Di Models will simulate as before. 
-
-The migration will be rolled out gradually, users will be contacted for this. The management screens are available for all users right away, but keep in mind that the new features mostly work on migrated schematisations and 3Di Models. 
-Contact our servicedesk if you have any questions regarding migration. 
-
-We use the following definitions:
-
-- Simulation templates
-- Schematisations
-- 3Di Models
-
-**Simulation templates**
-
-Simulations can be started up using a simulation template. A simulation template can be seen as a pre-defined setup of a simulation. It can contain:
-
-- initial water level rasters
-- control structures
-- dry weather flow patterns
-- lateral inflow
-- time series of boundary conditions
-- simulation settings (Aggregation settings, Numerical settings*, Physical Settings*, Time step settings*)
-
-\*\ These settings are required
-
-
-**Numerical Settings**
-
-- pump_implicit_ratio: 0,
-- cfl_strictness_factor_1d: 0,
-- cfl_strictness_factor_2d: 0,
-- convergence_cg: 0,
-- flow_direction_threshold: 0,
-- friction_shallow_water_depth_correction: 0,
-- general_numerical_threshold: 0,
-- time_integration_method: 0,
-- limiter_waterlevel_gradient_1d: 0,
-- limiter_waterlevel_gradient_2d: 0,
-- limiter_slope_crossectional_area_2d: 0,
-- limiter_slope_friction_2d: 0,
-- max_non_linear_newton_iterations: 0,
-- max_degree_gauss_seidel: 0,
-- min_friction_velocity: 0,
-- min_surface_area: 0,
-- use_preconditioner_cg: 0,
-- preissmann_slot: 0,
-- limiter_slope_thin_water_layer: 0,
-- use_of_cg: 0,
-- use_nested_newton: true,
-- flooding_threshold: 0
-
-**Physical Settings**
-
-- use_advection_1d: 0,
-- use_advection_2d: 0
-
-**Time step settings**
-
-- time_step: 0,
-- min_time_step: 0,
-- max_time_step: 0,
-- use_time_step_stretch: true,
-- output_time_step: 0
-
-**Initial Water**
-
-- initial_groundwater (file / global setting)
-- initial_waterlevels (file / global setting)
-- saved state
-
-
-**Schematisation**
-
-A schematisation contains:
-
-General rasters: 
-
--	dem_file
--	frict_coef_file
--	interception_file
-
-Simple infiltration rasters:
-
--	infiltration_rate_file
--	max_infiltration_capacity_file
-
-Interflow rasters:
-
--	hydraulic_conductivity_file
--	porosity_file
-
-Ground water rasters
-
--	equilibrium_infiltration_rate_file
--	groundwater_hydro_connectivity_file
--	groundwater_impervious_layer_level_file
--	infiltration_decay_period_file
--	initial_infiltration_rate_file
--	leakage_file
--	phreatic_storage_capacity_file
-
-1D elements:
-
--	channels
--	pipes
--	manholes
--	connection nodes
--	structures:
-	-	weirs
-	-	culverts
-	-	orifices
-	-	pumps
--	location (node id) & type (e.g. water level / discharge / etc) of boundary conditions 
--	dem averaging
--	impervious surfaces & mapping
--	surfaces
--	dem refinement 
--	cross section locations 
--	levees & obstacles
-
-GridSettings
-
--	use_2d: bool
--	use_1d_flow: bool
--	use_2d_flow: bool
--	grid_space: float
--	dist_calc_points: float
--	kmax: int
--	embedded_cutoff_threshold: float = 0.05
--	max_angle_1d_advection: float = 90.0
-
-TableSettings 
-
--	table_step_size: float
--	frict_coef: float
--	frict_coef_type: InitializationType
--	frict_type: int = 4
--	interception_global: Optional[float] = None
--	interception_type: Optional[InitializationType] = None
--	table_step_size_1d: float = None 
--	table_step_size_volume_2d: float = None 
-
-
-
-**3Di Model**
-
-A 3Di Model is generated from a schematisation. The generation takes the grid & table settings from the spatialite and processess the schematisation into a 3Di Model. 
-
-
-**3Di Management Screens**
-
-The management screens have been extended with a Models section. In this Models section users can:
-
-For 3Di Models
-
-- See an overview of Models in a list 
-- See an overview of Models in the map 
-- Per Model a detailed page is available including the location on the map, size of the Model. 
-- Per Model is an option to run the simulation on the live site
-- On the detailed Model page there is an option to run the simulation on the live site
-- On the detailed Model page there is an option to delete the model
-- On the detailed Model page there is an option to re-generate the model from the schematisation
-- A history of simulations performed with the 3Di Model
-- An overview of available simulation templates. By default 1 simulation template is available for every Model. This is generated based on the spatialite. The name of the simulation template is the name in the v2_global_settings table. 
-
-For schematisations users can:
-
-- See all available schematisations in a list. 
-- See past revisions of a schematisation
-- Generate a 3Di Model from a schematisation or re-generate an existing model from the schematisation. Keep in mind that doing so will remove additionally generated templates
-
-
-
-
-March 23rd 2021
-^^^^^^^^^^^^^^^^
-
-3Di is expanding! We are proud to announce that due to international recognition we are expanding the capacity of 3Di:
-
-- The first stage of setting up our second calculation center in Taiwan is finished. Organizations that prefer this center can connect to 3Di via `3di.tw <https://www.3di.tw>`_.  
-- To cope with increasing demand for calculations the capacity of our main calculation center has been upgraded
-
-
-*3Di available for scientific researchers*
-
-Interested to use 3Di in your research? We are proud to announce that we now supply free licenses for scientific researchers.
-Contact us via info@3diwatermanagement.com when you're interested. 
-
-March 8th 2021
-^^^^^^^^^^^^^^
-
-*Update land use map for the calculation of damage estimations*
-
-For usage in The Netherlands only:
-
-We have updated the land use map that is being used for the calculation of damage estimations. This to ensure tunnels are placed under a road. 
-
-Source date & time
-
-- BAG: 2019-05-09
-- BGT: 2019-05-09
-- BRP: 2019-05-15
-- NWB: 2019-05-01
-- Top10NL: 2018-07-16
-
-The map can be viewed here: stowa.lizard.net

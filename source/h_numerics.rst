@@ -13,16 +13,16 @@ Preissman slot
 
 [preissmann_slot ] (default= 0.0 m^2)
 
-A preissmann slot is often used to model flows in pipes. When the pipes are not completely filled, such flows can be modelled as free surface flows. However, when the discharges increase, the pipes are filled and the flow can become pressurized. Not all hyrdodynamic models are suited for these kind of flows. Therefore, to mimic the effects of pressurized flows, the water level can be allowed to rise higher than the upper limit of the cross section. In order to allow this, a narrow tube is added on top of the pipe (Figure 2). These tubes are generally quite narrow to allow the water level to rise, at a minimum cost of extra added volume. In 3Di this is not necessary, however it can be added to circular tubes. This can increase the stability at larger time steps. The way flow is computed in pipes is described here.
+A preissmann slot is often used to model flows in pipes. When the pipes are not completely filled, such flows can be modelled as free surface flows. However, when the discharges increase, the pipes are filled and the flow can become pressurised. Not all hyrdodynamic models are suited for these kind of flows. Therefore, to mimic the effects of pressurised flows, the water level can be allowed to rise higher than the upper limit of the cross section. In order to allow this, a narrow tube is added on top of the pipe (Figure 2). These tubes are generally quite narrow to allow the water level to rise, at a minimum cost of extra added volume. In 3Di this is not necessary, however it can be added to circular tubes. This can increase the stability at larger time steps. The way flow is computed in pipes is described here.
 
-(To add, test results flow with and without preissman slot.)
+.. TODO:  (To add, test results flow with and without preissman slot.)
 
 .. figure:: image/preissmanslots_schematisch.png
    :alt: Preissman slot
 
    Upper Panel) Flow through a half emtpty pipe. 
-   Middle Panel) Pressurized flow through a pipe with a preissman slot. 
-   Lower Panel) Pressurized flowtrhough a pipe with a virtual water level (red).
+   Middle Panel) Pressurised flow through a pipe with a preissman slot. 
+   Lower Panel) Pressurised flow trhough a pipe with a virtual water level (red).
 
 
 Integration method
@@ -30,7 +30,7 @@ Integration method
 
 [integration_method] (default=0)
 
-There are various ways to discretize equation. At the moment only first order semi implicit is supported and tested. 
+There are various ways to discretise equation. At the moment only first order semi implicit is supported and tested. 
 
 
 Settings for Matrix solvers 
