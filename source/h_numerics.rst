@@ -32,6 +32,7 @@ Integration method
 
 There are various ways to discretise equation. At the moment only first order semi implicit is supported and tested. 
 
+.. _matrixsolvers:
 
 Settings for Matrix solvers 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -70,8 +71,6 @@ There is a limit to the time step, called the CFL condition. This condition is d
    C = |U| + \sqrt(gH) 
 
 Often it is not necessary to be so strict, so sometimes the user can set this parameter which loosens the strictness of it. Consequently, stability can decrease.
-
-.. _pump_implicit_ratio:
 
 
 **Pump implicit ratio**
