@@ -3,39 +3,54 @@
 1D flow over structures
 =======================
 
-Structures control the behaviour of water systems, therefore it is crucial to take these into account. 3Di recognises various types of structures, pumps, weirs, orifices and culverts. To guarantee the structures are implemented in your 3Di model, structures are defined as connections between two computational nodes, similar to channels and pipes. The sections below give an overview of the structures available in 3Di. Moreover, structures can be controled. This means that characteristics can be adjusted based on simulation results. This can be done using the, in 3Di implemented, control functions (:ref:`control`) or by controls designed by the user via the 3Di API (:ref:`apicalculations`).
+Structures control the behaviour of water systems, therefore it is crucial to take these into account. 3Di recognises various types of structures, pumps, weirs, orifices and culverts. To guarantee the structures are implemented in your 3Di model, structures are defined as connections between two computational nodes, similar to channels and pipes. The sections below give an overview of the structures available in 3Di. Moreover, structures can be controled. This means that characteristics can be adjusted based on simulation results. 
+This can be done using the, in 3Di implemented, control functions (:ref:`control`) or by controls designed by the user via the 3Di API (:ref:`apicalculations`).
 
 .. _pump:
 
-Pump station
-------------
+Pumps
+------
 
-Pumps drain water from a certain location to another location within or outside the model domain. In 3Di, users can add pumps to a schematisation via a connection node. Characteristics for pumps can be set by configuring the attributes. The attributes specify the start and stop levels of the pump and the pump capacity.
-
-The computational core can only drain water that is actually there. To avoid timestep reductions and/or continuously switching on and off of the pump, the user can request the computational core to adjust the capacity slightly for smooth computations. This can be done by switching on the implicit pump ration on, it adjusts the capacity of the pump on the downstream supply. The implicit ratio for pumps can be set in the numerical settings. 
-
+Pumps in 3Di drain water from one location to another location, within or outside the model domain. The behaviour of a pump is specified by defining the start and stop levels of the pump and the pump capacity. Naturally, water cannot be drained by a pump when it is not there. In real life, pump capacities are often larger than its supply. This behaviour will be seen in your model results. However, this behaviour causes alternating water levels and discharges. This happens in real life and also in your simulations on short time scales, but will effectively not affect the behaviour of your system. 
+In the computational core, we can adjust the pump capacity to ensure a more balanced of the pump.  
+This functionality is called the pump_implicit_ratio and can be switched off or on. In default it is switched on. More about this functionality can be found in this section in the documentation: :ref:`pump_implicit_ratio`.
+ 
 .. figure:: image/b_structures_pump.png
    :alt: structures_pump
      
    Schematic display of a pump function
 
-The pump characteristics:
+In 3Di, users can add pumps to a schematisation via a connection node. Characteristics for pumps can be set by configuring the attributes: 
 
-* Capacity: Maximum discharge for which the pump is able to displace water from the suction node to the delivery node.
+.. TODO:  Eenheden van attributen toevoegen
 
-* Start level: Water level for which the pump is switched on.
+* Capacity: Maximum discharge for which the pump is able to displace water from the suction node to the delivery node. 
 
-* Lower stop level: Water level under which the pump will be switched off. This level should be below the start level.
+* Start level: in case of water levels higher than the start level, the pump is switched on. 
 
-* Upper stop level: for waterlevels above this level the pump is switched off. This is an optional value, but if it is used, it is always higher that the start level.
+* Lower stop level: in case of water level below the stop level, the pump is switched off. This level should be below the start level. 
 
-* Type: Parameter to set whether the start and stop levels are defined at suction side or delivery side of the pump.
+* Upper stop level: in case of water levels above this level the pump is switched off as well. This is an optional value, but if it is used, it is always higher that the start level. 
 
-Furthermore, there are two methods to add a pump in a 3Di:
+* Type: Parameter to set whether the start and stop levels are defined at suction side or delivery side of the pump. [See Figure] 
+
+
+There are two methods to define a pump in a 3Di schematisation: 
 
 1. *Pump between two nodes*: A pump between two nodes drains water from the  node at suction side to the node at delivery side with the specified pump capacity. Depending on the type of pump the suction side or delivery side water levels determine the activity of the pump.
 
 2. *End pump*:  For an end pump only the suction side node needs to be specified. With no node defined for the delivery side, all water being drained by this pump. All water pumped from the model is specified in the flow_summary.log as contribution to the global water balance. The pump characteristics to be specified are the same as for a pump type with start/stop levels at suction side. Since no delivery side node is present, it is not possible to specify a pump type with start stop level at delivery side.
+
+
+**Pumps in combination with structure controls**
+
+Pumps can be used in combination with controls. You can design a control that allows the water level at different or multiple locations determine the pumps behaviour, instead of purely local water levels. However, the local availability of water will always affect the pump capacity as well. As water that is not locally at the pump cannot be drained away. This is ensured by stopping the pump when the local water level is below the stop level. Your control affects the pumps’ behaviour, within the range of conditions for which the pump is designed.  
+
+*Example* 
+
+Given a controlled pump at location X with a stop and start level of 0.0 mNAP and 2 mNAP, respectively. The trigger for the control is the water level from location A. For higher waterlevels the pump capacity is increased. However, in case the water level at X is below 0.0 mNAP, but at A in a active range, the pump will stop. The pump can only become active again for waterlevels at X above 2.0 mNAP. 
+
+
 
 
 .. _weir:
@@ -56,7 +71,8 @@ where :math:`h` is the local water depth, :math:`u` the local cross-sectionally 
      
    Illustration of short crested weir and orifice under sub- and (super-)critical conditions; a simplified view of the 1D network and a sketch of the available discretised information. 
 
-It is assumed that :math:`u_I` is negligible compared to :math:`u_{II}`. Two states of the flow are identified; sub- and (super)-critical flow. In case of (super-)critical flow, the downstream waterlevel does not affect the flow over the structure. Although, this is the case under sub-critical conditions. To optimize between accuracy and computational speed, 3Di schematises structures as connections between two nodes, as can be seen in the third panel of the figure. This assumption implies that the water level on the location of the structure is unknown. The fourth panel of the figure shows the information known in a discretised world. In case the flow is critical, the waterdepth/level at the structure can be determined using the upstream waterlevel and the definition for critical flow: 
+It is assumed that :math:`u_I` is negligible compared to :math:`u_{II}`. Two states of the flow are identified; sub- and (super)-critical flow. In case of (super-)critical flow, the downstream waterlevel does not affect the flow over the structure. Although, this is the case under sub-critical conditions. To optimize between accuracy and computational speed, 3Di schematises structures as connections between two nodes, as can be seen in the third panel of the figure. This assumption implies that the water level on the location of the structure is unknown. 
+The fourth panel of the figure shows the information known in a discretised world. In case the flow is critical, the waterdepth/level at the structure can be determined using the upstream waterlevel and the definition for critical flow: 
 
 .. math::e
    h_{II}= \frac{2}{3}(h_I-a)

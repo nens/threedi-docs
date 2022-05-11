@@ -107,6 +107,18 @@ An explainer on schematisations and simulation templates can be found* `here <ht
 *What matters is that the numbers notation is set to English. There is some bug in QGIS with scientific notations and Dutch number notations which can cause weird behaviour of the plugin. 
 Please set your QGIS or Modeller Interface to English (settings --> options --> locale --> en_GB).*
 
+**General**
+
+- My model is instable. What can I do?
+
+*We have these tips:*
+
+1) Decrease your calculation time step to 5 seconds or less (background information: courant number)
+2) Decrease your output time step temporarily to 60 seconds. This makes it easier to analyse what goes wrong
+3) Check combinations of nodes with a small storage area and pump stations with a large capacity. Make sure the 'gemaalkelder/pump basement' is large enough
+4) Check if there are pump stations that are pumping to another 1D-node within the same 2D-computational cell
+5) Check if there are sewers smaller than 1 meter
+6) Put the 'pump_implicit_ratio' in the numerical settings to 1. This makes sure that the model calculates smoothly for pump stations (see  :ref:`pump_implicit_ratio` )
 
 
 	
@@ -119,8 +131,8 @@ General
 
 - When applying 2D boundary conditions, it is not allowed to have more than one grid resolution on the edge. However, there is no clear error message for this.
 
-- Note, that in v2_control tables (v2_control_table, v2_control_memory, v2_control_pid, v2_control_timed) the unit for adjusting the pump discharge capacity via the API is actually *m3/s*, even tough the unit used normally is *L/s*. 
-	NB: This is only the case via the API. In the Modeller Interface (sqlite) the unit is in l/s. 
+- Note, that in v2_control tables (v2_control_table, v2_control_memory, v2_control_pid, v2_control_timed) the unit for adjusting the pump discharge capacity via the API is actually *m3/s*, even though the unit used normally is *L/s*. 
+NB: This is only the case via the API. In the Modeller Interface (sqlite) the unit is in l/s. 
 
 - For simulations including interflow or embedded elements, not all results can be viewed. Moreover, the water balance ignores part of the flow, therefore it will seem to be inconsistent.
 
@@ -149,6 +161,7 @@ This might also be the case for other projections.
 Modeller Interface
 ---------------------
 
+- The toolbox does currently not work properly for QGIS 3.22. You cannot edit your schematisations. Please use QGIS 3.16 for now if you have this issue or use the Modeller Interface.
 
 - The Modeller Interface and the plugins have trouble installing if there is already a previous version installed because of old dependencies. Please remove (before installing a new version) the folder '{user profile} \ python' alle folders instead of 'expressions', 'plugins' and 'share'.  (e.g. the error 'sqlalchemy' might indicate this is the case)
 	

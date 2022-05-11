@@ -71,11 +71,18 @@ There is a limit to the time step, called the CFL condition. This condition is d
 
 Often it is not necessary to be so strict, so sometimes the user can set this parameter which loosens the strictness of it. Consequently, stability can decrease.
 
-**Implicit pump settings**
+.. _pump_implicit_ratio:
+
+
+**Pump implicit ratio**
 
 [pump_implicit_ratio] (default=1, between 0 and 1)
 
-A pump will be turned on or of depending on the water level. When the pump capacity is higher than the available volume the time step will be decreased. Another consequence is that the pump will switch often from maximum capacity to nothing. This can cause for instabilities, even though in real life this can happen as well. By allowing the pump capacity to be determined implicitly, the capacity is adjusted based on the available water. This will enhance the stability, but the pumps capacity will be affected in cases of limited supply.
+:ref:`pump` will be switched on or off depending on the characteristics of the pump and the local water level. For water levels between the start and stop levels of the pump, the pump will drain at maximum capacity. For an optimal pump operation, the supply of water is in balance with or larger than the pump capacity. However, in real-life applications, the pump capacity is larger than the supply. This results in a pump that switches repetitively on and off during an event. Even though, this is a real-life issue and is known from observations, one does not always want to mimic this behaviour in a simulation. This behaviour can make the analysis of your results on water levels and discharges more difficult and as this triggers wave-like phenomenon in the water levels and flow, it can cause time step reductions.   
+
+The computational core of 3Di can make estimates of the available water to the pump and adjust the capacity based in these estimates. This will avoid the switching on/off of the pump unnecessarily. The pump capacity is not affected in cases where the supply is higher or equal to the capacity and in cases where the supply is that low that the water level should drop below the stop level. How strong this implicit behaviour is used in the simulation, can be set by the pump implicit ratio. 
+
+A pump_implicit_ratio of 0 means the computational core does not take the supply information into account. By setting it higher than zero, this information is taken into account more strongly according to the value. So, the pump capacity is adjusted based on the (expected) available water.  
 
 **Thresholds**
 
