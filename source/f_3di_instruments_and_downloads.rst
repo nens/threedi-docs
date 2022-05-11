@@ -25,12 +25,16 @@ Modeller Interface or QGIS
 For an overview on the modeller interface go to: :ref:`intro_modeller_interface`
 
 - Install the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.7-1-Setup-x86_64.exe>`_  or
-- Install the Long Term Release (LTR) of QGIS, and install the 3Di toolbox and"3Di Models and Simulations" as QGIS plugins
+- Install the Long Term Release (LTR) of QGIS, and install the 3Di toolbox and "3Di Models and Simulations" as QGIS plugins
 
 .. _plugin_installation:
 
 Plugin Installation
 ^^^^^^^^^^^^^^^^^^^^
+
+.. warning::
+    The toolbox does currently not work properly for QGIS 3.22. You cannot edit your schematisations. Please use QGIS 3.16 for now if you have this issue or use the Modeller Interface. We are working on this issue with high priority. 
+
 
 * QGIS Standalone Installer Version 3.22 (Long term release). `Get QGIS <http://www.qgis.org/en/site/forusers/download.html#>`_ . 
 
