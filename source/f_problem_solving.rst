@@ -118,7 +118,7 @@ Please set your QGIS or Modeller Interface to English (settings --> options --> 
 3) Check combinations of nodes with a small storage area and pump stations with a large capacity. Make sure the 'gemaalkelder/pump basement' is large enough
 4) Check if there are pump stations that are pumping to another 1D-node within the same 2D-computational cell
 5) Check if there are sewers smaller than 1 meter
-6) Put the 'pump_implicit_ratio' in the numerical settings to 1. This makes sure that the model calculates smoothly for pump stations (see  :ref:`pump_implicit_ratio` )
+6) Put the 'pump_implicit_ratio' in the numerical settings to 1. This makes sure that the model calculates smoothly for pump stations (see  :ref:`matrixsolvers` --> pump_implicit_ratio)
 
 
 	

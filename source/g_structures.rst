@@ -13,7 +13,7 @@ Pumps
 
 Pumps in 3Di drain water from one location to another location, within or outside the model domain. The behaviour of a pump is specified by defining the start and stop levels of the pump and the pump capacity. Naturally, water cannot be drained by a pump when it is not there. In real life, pump capacities are often larger than its supply. This behaviour will be seen in your model results. However, this behaviour causes alternating water levels and discharges. This happens in real life and also in your simulations on short time scales, but will effectively not affect the behaviour of your system. 
 In the computational core, we can adjust the pump capacity to ensure a more balanced of the pump.  
-This functionality is called the pump_implicit_ratio and can be switched off or on. In default it is switched on. More about this functionality can be found in this section in the documentation: :ref:`pump_implicit_ratio`.
+This functionality is called the pump_implicit_ratio and can be switched off or on. In default it is switched on. More about this functionality can be found in this section in the documentation: :ref:`matrixsolvers` --> pump_implicit_ratio.
  
 .. figure:: image/b_structures_pump.png
    :alt: structures_pump
