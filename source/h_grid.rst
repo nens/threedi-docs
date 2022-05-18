@@ -31,7 +31,7 @@ The hydrodynamic computations are based on the conservation of volume and moment
 Grid Refinement in 2D
 ++++++++++++++++++++++++
 
-The computational cost of a simulation is strongly related to the number of computational cells. One always needs to find a balance between grid resolution and computational time. There are often regions where the flow is more complex or where one requires results with a finer resolution. To optimize the computational cost and grid resolution, users can refine the grid locally. 3Di uses a method called quad-tree refinement. This means, that in space, refinements are placed by dividing neighboring cells by a factor 4 (Figures below and above). This is a simple refinement method that forces smooth grid variations, which enhances an accurate solution of the equation.
+The computational cost of a simulation is strongly related to the number of computational cells. One always needs to find a balance between grid resolution and computational time. There are often regions where the flow is more complex or where one requires results with a finer resolution. To optimise the computational cost and grid resolution, users can refine the grid locally. 3Di uses a method called quad-tree refinement. This means, that in space, refinements are placed by dividing neighboring cells by a factor 4 (Figures below and above). This is a simple refinement method that forces smooth grid variations, which enhances an accurate solution of the equation.
 
 .. figure:: image/b1_6_quadtree_grid.png
    :figwidth: 400 px
@@ -117,3 +117,33 @@ Input
 ++++++
 
 1D networks can consist of open channels, closed pipes and various structures. More about the various options can be found in the Sections :ref:`structures` and :ref:`channels`. The resolution of the 1D domain can be defined per 1D element.
+
+Calculation point distance
++++++++++++++++++++++++++++
+
+When the computational grid is generated from the schematisation input, computational nodes  are placed at each connection node. Additionally, computational nodes can be generated in between these locations. The spacing between these computational nodes is determined by a calculation point distance, the 1D grid resolution.  In 3Di this can be specified for each individual pipe, culvert, or channel by filling the ‘dist_calc_points’ attribute of those features. 
+If the specified calculation point distance is larger than the length of the feature, no additional calculation points are generated in between the connection nodes. This is visualised in the figure below.
+
+.. figure:: image/h_calculation_point_distance_intro.png
+   :figwidth: 600 px
+   :alt: calculation point distance intro
+   :align: center
+
+The cross-section of channel segments at a (new) velocity point is determined by linearly interpolating the wet cross-sectional area from the cross-section locations during the simulation. If a velocity point is not in between two cross-section locations, the cross-section from the nearest cross-section location is used. 
+If more than two cross-section locations exist between two velocity points, the ones in the middle are ignored. 
+
+.. figure:: image/h_calculation_point_distance_cross_section.png
+   :figwidth: 600 px
+   :alt: calculation point distance cross-section
+   :align: center
+
+These additional computational nodes can be isolated, (double) connected or embedded. This depends on the type that was attributed to the original pipe, cannel or culvert. In case of (double) connected elements the exchange levels are set automatically. The exchange levels for for (double-) connected elements are determined similarly as the cross-sections. For channels, the bank levels for the additional computational nodes are determined by linear interpolation between the bank levels that are specified by the user at  the cross-section locations on the channel. If the computational node is not in between two cross-section locations, the bank level of the nearest cross-section location is used. This is illustrated in the figure below.
+In case more than two cross-section locations are defined between two (new) computational nodes, the ones in the middle are ignored.
+
+.. figure:: image/h_calculation_point_distance_bank_level.png
+   :figwidth: 600 px
+   :alt: calculation point distance bank level
+   :align: center
+
+For pipes and culverts, the drain level of the generated computational nodes is determined by linear interpolation between the drain levels at the start and end of the pipe or culvert. This is relevant only for pipes and culverts with calculation type ‘connected’. In the case of pipes, this can be way to schematise gullies. Pipes and culverts always have a single cross-section over their entire length, so interpolation of the cross-section is not necessary. 
+If drain levels are not set, the height of the DEM at that location is used as exchange height.

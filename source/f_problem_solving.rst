@@ -109,15 +109,17 @@ Please set your QGIS or Modeller Interface to English (settings --> options --> 
 
 **General**
 
-- My model is instable. What can I do?
+- My model shows unstable behaviour, what can I do to avoid this? 
+
+Instability is not common within 3Di, but certain settings or modelling choices can cause problems for the solver. 
 
 *We have these tips:*
 
-1) Decrease your calculation time step to 5 seconds or less (background information: courant number)
-2) Decrease your output time step temporarily to 60 seconds. This makes it easier to analyse what goes wrong
+1) Decrease your calculation time step (background information: courant number)
+2) Decrease your output time step temporarily. This makes it easier to analyse what goes wrong
 3) Check combinations of nodes with a small storage area and pump stations with a large capacity. Make sure the 'gemaalkelder/pump basement' is large enough
 4) Check if there are pump stations that are pumping to another 1D-node within the same 2D-computational cell
-5) Check if there are sewers smaller than 1 meter
+5) Check whether there are sewerage pipes shorter than 1 meter. If so, see if you can make them longer or add storage on the nodes that the pipes are connected to. 
 6) Put the 'pump_implicit_ratio' in the numerical settings to 1. This makes sure that the model calculates smoothly for pump stations (see  :ref:`matrixsolvers` --> pump_implicit_ratio)
 
 
@@ -307,9 +309,7 @@ The below errors and bugs should not be experienced anymore. Please let us know 
 
 - The 3Di Toolbox plugin does not work with QGIS 3.16.8 and above. To avoid problems, install the Modeller Interface or download the OsGeo Network Installer from qgis.org
 
-
 - Calculations that had both rain radar and laterals crashed somewhere during the simulation. 
-
 
 - Dry Weather Flow in API v3 or the Modeller Interface is not taken from the spatialite. Users can define the DWF by using the dwf calculator and applying it as a lateral
 
