@@ -3,7 +3,8 @@
 1D Flow
 +++++++
 
-3Di offers the possibility to model areas as 1D networks. Generally, these simulations are very fast, but the schematisation is a strong simplification of the real world. The 1D elements should be used for applications in which only one horizontal dimension (flow direction) is dominant over the other directions. In other cases, 3Di offers the possibility to make connection to the 2D domain. 3Di has various options to integrate 1D elements in the 2D domain. This offers the possibility to preserve the complexity of the modelling domain, but to make use of the extra resolution and speed of 1D computations. In such case, the 1D elements are generally narrow compared to the dimensions of the 2D resolution.
+3Di offers the possibility to model areas as 1D networks. Generally, these simulations are very fast, but the schematisation is a strong simplification of the real world. The 1D elements should be used for applications in which only one horizontal dimension (flow direction) is dominant over the other directions. In other cases, 3Di offers the possibility to make connection to the 2D domain. 3Di has various options to integrate 1D elements in the 2D domain. 
+This offers the possibility to preserve the complexity of the modelling domain, but to make use of the extra resolution and speed of 1D computations. In such case, the 1D elements are generally narrow compared to the dimensions of the 2D resolution.
 
 The flow in 1D networks is computed, using the equations of conservation of mass and momentum, more specifically the 1D depth-averaged shallow water equations. The momentum equation for 1D flow is:
 
@@ -124,19 +125,30 @@ This momentum equation in combination with a cross-section defines the flux betw
 
    Q_{1D2D} = u_{1D2D} A_{1D2D}
 
-The cross-sectional area of the 1D2D connection is the exchange depth times an exchange length. The exchange length varies for sewerages and for open channels. For sewerages the exchange length is based on the storage areas of the corresonding manhole:
+The cross-sectional area of the 1D2D connection is the exchange depth times an exchange length. The exchange length varies for sewerages and for open channels. For sewerages the exchange length is based on the storage areas of the corresponding connection node [S]:
 
 .. math::
    :label: storagearea
 
-   A_{1D2D} = H_{1D2D} L_{1D2D} = H_{1D2D} \sqrt{S_{man}}
+   A_{1D2D} = L_{1D2D} H_{1D2D} = 4 \sqrt{S H_{1D2D}}
 
-where, :math:`S` is the storage area of the manhole. In case of open water elements, the exchange length is scaled with the lenght of banks:
+
+In case of open water elements, there is a difference whether the elements are of the type  connected or double connected. This type depends whether the exchange length represents one bank or two banks. 
+For connected elements:
 
 .. math::
    :label: storagearea2
 
-   A_{1D2D} = H_{1D2D} L_{1D2D} = H_{1D2D} 2 L_{bank}
+   A_{1D2D} = L_{1D2D} H_{1D2D} = 2 L_{bank} H_{1D2D} 
+   
+   
+For double connected elements this implies:
+
+.. math::
+   :label: storagearea2
+
+   A_{1D2D} = L_{1D2D} H_{1D2D} = L_{bank} H_{1D2D} 
+   
 
 The connections between the 1D and 2D elements are set automatically. The connection is made, based on the location of the 1D element and the nearest 2D computational node. Users can rearrange the connections between the 1D elements and the 2D elements using the tooling in the Modeller Interface.
 
@@ -158,9 +170,11 @@ The option to add 1D elements to the 2D domain will effectively increase your re
 
 3Di analysis the location of the 1D element and its routing in the 2D domain. It fixes the locations where the 1D element crosses the 2D cells. In between those points, the 1D embedded point is defined. This embedded water level point, will always have the same value as the 2D water level point. But the velocities and discharges are computed based on the 1D flow equation. In case a structure connects the elements, the flow will be based on the appropriate formulations.
 
-The flow cross-sections and the storage within a cell, depend on the bed level information of the 2D domain and the cross-section information of the 1D element. It is analysed based on the largest surface area per height. In the figure at the right, there are the three possible configurations drawn for the storage in the combined 1D2D embedded domain. 1) The embedded channel is fully below the 2D bed levels. 2) the embedded takes over the 2D domain. This is allowed within 3Di, but it is from an application perspective a unnatural configuration. 3) The embedded information overlaps with the information of the 2D bed levels and some of the 1D information is ignored.
+The flow cross-sections and the storage within a cell, depend on the bed level information of the 2D domain and the cross-section information of the 1D element. It is analysed based on the largest surface area per height. In the figure at the right, there are the three possible configurations drawn for the storage in the combined 1D2D embedded domain. 1) The embedded channel is fully below the 2D bed levels. 2) the embedded takes over the 2D domain. 
+This is allowed within 3Di, but it is from an application perspective a unnatural configuration. 3) The embedded information overlaps with the information of the 2D bed levels and some of the 1D information is ignored.
 
-In the figure below the section *Types of 1D elements*, the channel on the right is an embedded case. It is shown that the geometry is simplified based upon the 2D geometry. It also shows, indicated with the coloured, transparent hollows, which domain contribute to the volumes. As they can be shifted with respect to the 2D domain, recalculation by hand can be difficult. There is an option to define the length of interest of an embedded channel. If the channel within a 2D computational cell is shorter than that length, that part of the channel is skipped. This is indicated by the red circle in the same figure.
+In the figure below the section *Types of 1D elements*, the channel on the right is an embedded case. It is shown that the geometry is simplified based upon the 2D geometry. It also shows, indicated with the coloured, transparent hollows, which domain contribute to the volumes. As they can be shifted with respect to the 2D domain, recalculation by hand can be difficult. There is an option to define the length of interest of an embedded channel. 
+If the channel within a 2D computational cell is shorter than that length, that part of the channel is skipped. This is indicated by the red circle in the same figure.
 
 Some considerations for 1D elements
 -----------------------------------

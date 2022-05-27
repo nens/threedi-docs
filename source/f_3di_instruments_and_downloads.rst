@@ -122,8 +122,7 @@ This is a preconfigured version of QGIS (www.qgis.org), with some options switch
 Two of these plugins (3Di Toolbox and "3Di Models and Simulations") are maintained by Nelen & Schuurmans.
 QGIS itself and the other pre-installed plugins are not made / maintained by Nelen & Schuurmans.
 
-Install instructions for the 3Di Modeller Interface can be found here:
-https://docs.3di.live/d_before_you_begin.html#modeller-interface-or-qgis
+Install instructions for the 3Di Modeller Interface can be found in :ref:`3di_instruments_and_downloads`.
 
 Because the 3Di Modeller Interface is a customized QGIS,
 we refer to the QGIS documentation when you run into any issues that are not specifically related to the plugins '3Di Toolbox' or '"3Di Models and Simulations"': 
