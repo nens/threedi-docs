@@ -70,7 +70,7 @@ Even though we have done our best in identifying these models, but in some rare 
 -	Can I change infiltration in a simulation template?
 
 *No, infiltration is part of the schematisation. You can copy a schematisation and change the infiltration file there.
-An explainer on schematisations and simulation templates can be found* `here <https://docs.staging.3di.live/h_basic_modelling_concepts_threedi.html>`_.
+An explainer on schematisations and simulation templates can be found* `here <https://docs.3di.live/h_basic_modelling_concepts_threedi.html>`_.
 
 - Why is the name of my simulation template 'default'? 
 
