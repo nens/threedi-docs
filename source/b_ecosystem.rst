@@ -189,3 +189,7 @@ The user will appear in the user management overview once they accepted the invi
 .. tip::
 	Click on 'Pending Users', to see who have not completed the acitvation process yet. 
 
+Database overview
+^^^^^^^^^^^^^^^^^^^
+
+Download the database overview including the global settings section :download:`here <pdf/database-overview.pdf>`.
