@@ -234,6 +234,18 @@ Running a simulation
 ----------------------
 
 
+"exit_code": "4161 [health_check_premature_container_error]"
+++++++++++++++++++++++++++++++++++++++++++++++
+
+Please run the simulation again. There was a temporary disruption.
+
+
+"exit_code": "4265 [health_check_postprocessing_error]"
+++++++++++++++++++++++++++++++++++++++++++++++
+
+Please run the simulation again. There was a temporary disruption.
+
+
 ERROR - F - Matrix diagonal element, near zero
 ++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -294,6 +306,17 @@ Please contact our support office and let us know your login name or mail addres
     in your browser's address bar and that your browser displays the lock
     symbol indicating that the connection is secure.
 
+
+Finding a model
+-----------------
+
+Can't find the model you are looking for?
+Please check the following:
+
+- If you have access to the organisation to which the model belongs
+
+- If the model is available on API v3 (https://docs.3di.live/d_api.html#api-v3)
+Please contact the service desk if you need assistance.
 
 
 Solved issues
