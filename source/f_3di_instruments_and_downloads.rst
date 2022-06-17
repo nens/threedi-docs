@@ -18,14 +18,27 @@ To use 3Di you need these software packages:
 .. note::
     Are you running into problems when downloading or updating the software? Please consult the 'problem solving' section and if the error and/or solution is not mentioned,
     please contact our support office (servicedesk@nelen-schuurmans.nl)
+	
 
-Modeller Interface or QGIS
-----------------------------
+.. _MI_installation:
 
-For an overview on the modeller interface go to: :ref:`intro_modeller_interface`
+Modeller Interface installation
+---------------------------------
 
-- Install the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.22.7-1-Setup-x86_64.exe>`_  or
+You can install the modeller interface simply with the downloadlink below.
+
+- Install the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.22.7-1-Setup-x86_64.exe>`_
+
+
+
+
+Advanced: seperate installation of QGIS and appropriate plugins
+----------------------------------------------------------------------
+
+You can also install QGIS seperately with the appropriate plugins. We only recommend this if you have specific reasons for this. 
+
 - Install the Long Term Release (LTR) of QGIS, and install the 3Di toolbox and "3Di Models and Simulations" as QGIS plugins
+
 
 .. _plugin_installation:
 

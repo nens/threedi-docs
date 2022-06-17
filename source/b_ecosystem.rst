@@ -21,10 +21,7 @@ We have chosen QGIS as our supporting platform to build, edit and analyse the 3D
 - It is an open source platform.
 
 
-You can install the Modeller Interface `here <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.7-1-Setup-x86_64.exe>`_.
-
-For advanced installs, please consult :ref:`plugin_installation`.
-
+You can find the downloads and instructions of the Modeller Interface in this section: :ref:`MI_installation`.
 
 
 
