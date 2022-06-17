@@ -645,6 +645,17 @@ We are constantly working on improving the 3Di experience. Based on user experie
 3Di API
 ----------
 
+June 2022
+^^^^^^^^^^
+
+(2022-06-12)
+
+- Threedi-modelchecker now support spatialite 4 
+- Bugfix for file boundary conditions expiry date in simulation templates. 
+- Bugfix for sending e-mails for simulations picked up from the queue 
+- Bugfix for async (file) event validation. 
+
+
 May 2022
 ^^^^^^^^^^
 
