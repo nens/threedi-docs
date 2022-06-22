@@ -163,15 +163,12 @@ This might also be the case for other projections.
 Modeller Interface
 ---------------------
 
-- The toolbox does currently not work properly for QGIS 3.22. You cannot edit your schematisations. Please use QGIS 3.16 for now if you have this issue or use the Modeller Interface.
 
 - The Modeller Interface and the plugins have trouble installing if there is already a previous version installed because of old dependencies. Please remove (before installing a new version) the folder '{user profile} \ python' alle folders instead of 'expressions', 'plugins' and 'share'.  (e.g. the error 'sqlalchemy' might indicate this is the case)
 	
 - If you have an older version of the MI (e.g. based on QGIS 3.10), you should remove it via *Windows Apps & Features*, to avoid any conflicts. 
 
 - When using the sideview-tool in the QGIS-plugin, the length of the side view profile of pipes in the graph can be different than the actual length of the pipe. This is due to a projection conversion error in QGIS and does not affect 3Di calculations.
-
-- We receive comments that buttons are too big and some screens are too small. We will fix this in the next release. 
 
 - A schematisation that is uploaded via the MI without processing will appear falsely in the management pages as 'not valid'. If you upload the schematisation again with processing, the model will be generated. 
 
@@ -236,6 +233,18 @@ Running a simulation
 ----------------------
 
 
+"exit_code": "4161 [health_check_premature_container_error]"
+++++++++++++++++++++++++++++++++++++++++++++++
+
+Please run the simulation again. There was a temporary disruption.
+
+
+"exit_code": "4265 [health_check_postprocessing_error]"
+++++++++++++++++++++++++++++++++++++++++++++++
+
+Please run the simulation again. There was a temporary disruption.
+
+
 ERROR - F - Matrix diagonal element, near zero
 ++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -297,11 +306,24 @@ Please contact our support office and let us know your login name or mail addres
     symbol indicating that the connection is secure.
 
 
+Finding a model
+-----------------
+
+Can't find the model you are looking for?
+Please check the following:
+
+- If you have access to the organisation to which the model belongs
+
+- If the model is available on API v3 (https://docs.3di.live/d_api.html#api-v3)
+Please contact the service desk if you need assistance.
+
 
 Solved issues
 ^^^^^^^^^^^^^^
 
 The below errors and bugs should not be experienced anymore. Please let us know if you do still encounter them.
+
+- The toolbox does currently not work properly for QGIS 3.22. You cannot edit your schematisations. Please use QGIS 3.16 for now if you have this issue or use the Modeller Interface.
 
 - DEM edits do not work as intented for newly generated models (Klondike route). 
 

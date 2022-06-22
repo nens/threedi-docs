@@ -377,6 +377,81 @@ For schematisations users can:
 3Di Modeller Interface 
 ----------------------
 
+June 2022
+^^^^^^^^^^^^
+
+*3Di Schematisation Editor v1.1 - EXPERIMENTAL*
+
+
+This is a new plugin that will make editing schematisations much easier than before. 
+
+What does this plugin have to offer for modellers?
+
+- Directly edit all layers of your schematisation, using all native QGIS functionality for editing vector features
+- Quickly add features to your schematision with the "magic" editing functionality for 1D layers. For example: existing connection nodes are used when drawing a pipe between them, new connection nodes and manholes are created when a new pipe is digitized, etc.
+- Easily move nodes and all connected lines using the smartly pre-configured snapping and topological editing settings
+- Easily move the start or end of pipes, channels, culverts, orifices, weirs, pumps, and the connection node id's will be automatically updated for you
+- Get a complete overview of your schematistion: all rasters that are part of your schematisation are added to the QGIS project when the schematisation is loaded
+- Spot the tiniest local variation in elevation with the hillshade layer is automatically added on top of your DEM
+- Visualise the mapping of (impervious) surfaces to connection nodes and change them by updating the geometries
+- Easily navigate through your schematisation: layers in the layer panel are neatly grouped together in collapsed groups
+
+Version 1.1 is 'experimental' plugin, because it is not yet fully integrated with the other components of the Modeller Interface. In practice, this mainly means that you will have to convert between the Spatialite and the Schematisation Editor's Geopackage format every time you start or finish editing your schematisation.
+
+New in version 1.1 (for those users who already tried out version 1.0):
+
+- Facilitate adding channels and cross section locations (also fixes the issue that sometimes it was not possible to fill in channel start or end node ids)
+- Delete referencing features
+- Release through plugins.3di.live as experimental plugin
+- Rename to 3Di Schematisation Editor
+- Set scale dependent visibility for manholes
+- Fix export to spatialite in QGIS 3.22 (was fixed by adding a schema migration in threedi-modelchecker)
+- Fix drawing of pipe trajectory over existing manholes
+- Consistent handling of geomtry edits
+- Check write permissions for Geopackage target location
+- Support spatialite schema_version 206 + updated the popup message if schema is not up to date
+- Remove field cross_section_code
+- Remove table cross_section_definition
+- Make all id fields autoincrement
+- End all editing sessions when user clicks Save to Spatialite
+- Rename column calculation_pnt_id of connected_point to calculation_point_id
+- Pump capacity should be NULL by default
+- Add geopackage database connection to QGIS list
+- Refresh map canvas after removing 3Di model
+- Correct list of calculation types in culvert attribute form
+- Guarantee that layers are added to the correct group
+- Add hillshade styled DEM
+- Raster styling classes
+- Hide 'fid' columns
+- More intuitive validation color logic in attribute forms
+- Make snapping work properly after saving/loading project
+- Fix scale dependent visibility for manholes
+- Rename plugin to 3Di Schematisation Editor
+- Fix width and diameter labels for tabulated cross sections
+- Compatibility with QGIS 3.22 / Spatialite v4.3
+- Drop-downs are used in the attribute table for fields with a limited list of valid integer values (e.g. calculation type).
+
+*3Di Toolbox v2.1*
+
+- IMPORTANT: If you update to 3Di Toolbox v2.1, you also _must_ update the 3Di Models & Simulations plugin to version 3.1. Failing to do so may lead to unexpected behaviour of several tools.
+- Fix several issues with 3Di Spatialites in QGIS 3.22. Until now, all 3Di Spatialites were built using Spatialite 3, which QGIS 3.22 no longer supports. Migrate Spatialite now tranfers all data to a Spatialite 4.3 file.
+- Graph Tool and Water Balance Tool plots now render properly on second screens
+- Bugfix for using the SideView tool for open water
+- Water Balance Tool in/out labels near the x axis are now located correctly
+- Graph Tool and Water Balance Tool plots: time units can be chosen as s / min / hrs.
+- SideView Tool and Statistics Tool: Feedback is given to user when manhole surface level is not filled in.
+
+*3Di Models & Simulations v3.1*
+
+- Compatibility with migrating to the new Spatialite v4.3 file
+- Support rainfall events from csv with more than 300 steps
+- The "New schematisation" wizard now has the option to use an existing spatialite
+- You will receive a warning when trying to upload a rainfall CSV with non-equidistant timesteps
+- Errors from the 3Di API are reported more clearly
+- You can now view all simulation results available for download, even when more than 50 are available
+
+
+
 March 2022
 ^^^^^^^^^^^^
 
@@ -569,6 +644,17 @@ We are constantly working on improving the 3Di experience. Based on user experie
 
 3Di API
 ----------
+
+June 2022
+^^^^^^^^^^
+
+(2022-06-12)
+
+- Threedi-modelchecker now support spatialite 4 
+- Bugfix for file boundary conditions expiry date in simulation templates. 
+- Bugfix for sending e-mails for simulations picked up from the queue 
+- Bugfix for async (file) event validation. 
+
 
 May 2022
 ^^^^^^^^^^

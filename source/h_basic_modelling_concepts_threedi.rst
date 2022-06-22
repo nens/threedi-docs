@@ -203,7 +203,10 @@ Workflow
 
 In the 3Di workflow a user creates a schematisation. This schematisation consists of sqlite & rasters. The simulation template is extracted from the spatialite. The name of the simulation template is the same as the name in global settings.
 
+Database overview
+^^^^^^^^^^^^^^^^^^^
 
+Download the database overview including the global settings section :download:`here <pdf/database-overview.pdf>`.
 
 
 
