@@ -52,6 +52,54 @@ The **Remove 3Di Model** button deletes the geopackage file from your QGIS proje
 
 Creating new features (digitizing)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+General
+--------
+
+To add a feature:
+
+#) Select the layer in the Layers panel.
+#) Press the 'Toggle Editing' button (|toggleEditing|).
+#) Click on 'Add Point-' (|addPoint|), 'Add Line-' (|addLine|) or 'Add Polygon Feature' (|addPoly|), depening on what kind of feature you want to add.
+#) Left click on the map to add a Point feature. When adding Line or Polygon features, add multiple locations by left clicking and finish by right clicking.
+#) Fill in the Feature Attributes window. The orange fields are required to fill in. The other fields are optional. Press OK to finish the process.
+#) When you are finished with adding the features, disable 'Toggle Editing' and save your schematisation as geopackage or spatialite.
+
+Please check out the :ref:`3di_feature_notes` below for information to correctly add 3Di features to the schematisation.
+
+.. figure:: image/d_feature_attributes.png
+   :alt: Feature attributes window
+   :scale: 80%
+
+   An example of the Feature Attribute window when adding a pipe.
+
+
+
+.. _3di_feature_notes:
+
+Notes on the 3Di Features
+-------------------------
+
+* **Channel** - A channel can exist of 2 or more vertices. The *connection nodes* and the *Cross Section Location* are added automatically. Do not forget to fill in the required Feature Attributes for the Cross Section Location.
+
+* **Cross Section Location** - Should be placed on top of a channel vertex, except for the start or end vertex.
+
+* **Culvert** - The culvert can also exist of 2 or more vertices and the *connection nodes* are added automatically.
+
+* **Orifice** - An orifice can only consist of 2 vertices. The *connection nodes* are added automatically.
+
+* **Pipe** - To draw a single pipe, the geometry must have exactly 2 vertices. A line with more than 2 vertices will be split into several pipes. Check out the tip below to add a trajectory of multiple pipes.
+
+* **Pump** - The geometry of a pump must have exactly 2 vertices. The *connection nodes* are added automatically. For external pumps, which pimp water out of the model domain, the *Pumpstation (without end node)* should be used. For internal pumps, which pumps water between two nodes within the model domain, the *Pumpstation (with end node)* should be used.
+
+* **Weir** - The weir also consist of exactly 2 vertices, and the *connection nodes* are added automatically.
+
+* **(Impervisous) Surfaces** - First draw the (impervious) surface polygon(s), then add (impervious) surface map lines. These should start on the impervious surface polygon and end at the connection node to which it is mapped.
+
+
+.. tip::
+    In order to digitize **a trajectory of multiple pipes**, first digitize the manholes, fill in the bottom levels, and then draw the pipe trajectory over these manholes by adding a vertex at each of the manholes. 
+    The pipes that are generated will use the manhole's bottom levels as invert levels and the *connection nodes* and *manholes* will be added automatically.
+
 
 
 Pasting features from external data sources
@@ -65,4 +113,14 @@ Editing feature geometries
 
 Deleting features
 ^^^^^^^^^^^^^^^^^
+
+
+
+.. |toggleEditing| image:: /image/d_toggle_editing.png
+
+.. |addPoint| image:: /image/d_addpoint.png
+
+.. |addLine| image:: /image/d_addline.png
+
+.. |addPoly| image:: /image/d_addpolygon.png
 
