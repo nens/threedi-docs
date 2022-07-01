@@ -55,8 +55,8 @@ The flow through the interflow layer is calculated by the 2D implementation of D
 .. math::
    :label: interflow_flow
 
-   Q_I^x = \kappa A_I^x \frac{\delta \zeta}{\delta x}\\
-   Q_I^y = \kappa A_I^y \frac{\delta \zeta}{\delta y}
+   Q_I^x = -\kappa A_I^x \frac{\delta \zeta}{\delta x}\\
+   Q_I^y = -\kappa A_I^y \frac{\delta \zeta}{\delta y}
 
 
 | In which:
