@@ -317,6 +317,32 @@ Please check the following:
 - If the model is available on API v3 (https://docs.3di.live/d_api.html#api-v3)
 Please contact the service desk if you need assistance.
 
+Connecting to the 3Di API
+-------------------------
+
+In some cases the 3Di Models and Simulations plugin (part of the 3Di Modeller Interface) can give a generic SSlError on a Windows system::
+
+  Error: HTTPSConnectionPool(host='api.3di.live', port=443): Max retries exceeded with url: /v3/auth/token/ (Caused by SSLError(1, 'A failure in the SSL Library occurred (_ssl.c:1129)')))
+
+.. figure:: image/f_ssl_error_qgis.png
+    :alt: Screenshot of the error
+
+This error is resulting from a combination of how the plugin validates SSL/TLS certificates and how Windows expects that to happen.
+We are using Let's Encrypt as our certificate supplier for most of our 3Di webservices.
+In September 2021 their root certificate DST Root CA X3 expired and was replaced by a ISRG Root X1.
+All of the Let's Encrypt domain name certificates are issued by Intermediate Certificate R3.
+There are some cases where this Intermediate Certificate is issues by DST Root CA X3, and this will create issues.
+
+To solve this, please open a Microsoft Management Console (mmc.exe) and add the Certificates Snap-In for the user.
+
+.. figure:: image/f_mmc_certificates_snapin.png
+    :alt: MMC Certificates Snap-In
+
+Open the "Intermediate Certification Authorities" and then the "Certificates" folder.
+Find the 'R3' Intermdiate Certificate, and check who the issuer is.
+If this is only 'DST Root CA X3', please remove it and visit https://api.3di.live/v3 with a browser.
+
+Please contact support after you have done this, and are still receiving the error message.
 
 Solved issues
 ^^^^^^^^^^^^^^
