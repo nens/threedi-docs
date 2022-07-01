@@ -377,8 +377,25 @@ For schematisations users can:
 3Di Modeller Interface 
 ----------------------
 
+
+
 June 2022
 ^^^^^^^^^^^^
+
+*3Di Toolbox v2.2*
+
+- Introducing the Watershed Tool! Analyse upstream and downstream areas of any location in your model area, based on a network analysis of your simulation results (#641)
+- Migrating spatialites to the newest schema version now follows the same logic in all plugins: if a migration is required, a popup message will ask you if you want this. If you click Yes, migration will be performed immediately. (#644)
+- Added 3Di logo in the Plugin Manager (#606)
+- Installation and update procedure has been improved. Black command prompt windows are no longer shown on startup. (#621, #625)
+
+Documentation on the Watershet Tool can be found `here <https://github.com/nens/threedi-network-analyst#user-manual>`_. 
+
+
+*3Di Schematisation Editor v1.1.1*
+
+- Migrating spatialites to the newest schema version now follows the same logic in all plugins: if a migration is required, a popup message will ask you if you want this. If you click Yes, migration will be performed immediately. (#50)
+
 
 *3Di Schematisation Editor v1.1 - EXPERIMENTAL*
 
