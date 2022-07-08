@@ -178,6 +178,8 @@ Modeller Interface
 
 - When using an infiltration rate file in v2_simple_infiltration, an infiltration value of 'NULL' is not valid and will cause an error. Please use an infiltration rate value of 0 instead.
 
+- Leakage does not work in the Modeller Interface. Please use the API for now if you want to use leakage. 
+
 
 
 Live site
