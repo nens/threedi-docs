@@ -377,7 +377,15 @@ For schematisations users can:
 3Di Modeller Interface 
 ----------------------
 
+July 2022
+^^^^^^^^^^^^
 
+*3Di Models & Simulations v3.2*
+
+- Logging in with your username and password is no longer needed. Instead, you can now set a Personal API Key in the plugin settings. The Personal API Key will be stored (encrypted) in the QGIS Password Manager. (#382, #372, #366)
+- Migrating spatialites to the newest schema version now follows the same logic in all plugins: if a migration is required, a popup message will ask you if you want this. If you click Yes, migration will be performed immediately. (#377)
+- Some users experienced SSL Errors, caused by expired SSL certificates that are not properly removed by Windows. A popup message with specific instructions on how to fix this issue now appears when the error occurs. (#379)
+- When creating a new schematisation based on an existing spatialite, all rasters will be copied into the new schematisation. In the previous version, only the rasters referenced from the global settings were copied. (#375)
 
 June 2022
 ^^^^^^^^^^^^
@@ -389,16 +397,15 @@ June 2022
 - Added 3Di logo in the Plugin Manager (#606)
 - Installation and update procedure has been improved. Black command prompt windows are no longer shown on startup. (#621, #625)
 
-Documentation on the Watershet Tool can be found `here <https://github.com/nens/threedi-network-analyst#user-manual>`_. 
+Documentation on the Watershed Tood can be found `here <https://github.com/nens/threedi-network-analyst#user-manual>`_. 
 
 
-*3Di Schematisation Editor v1.1.1*
+*3Di Schematisation Editor v1.1.1 - EXPERIMENTAL*
 
 - Migrating spatialites to the newest schema version now follows the same logic in all plugins: if a migration is required, a popup message will ask you if you want this. If you click Yes, migration will be performed immediately. (#50)
 
 
 *3Di Schematisation Editor v1.1 - EXPERIMENTAL*
-
 
 This is a new plugin that will make editing schematisations much easier than before. 
 
