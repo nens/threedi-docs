@@ -126,6 +126,27 @@ use method 3.
     (servicedesk@nelen-schuurmans.nl) for the options.
 
 
+.. _personal_api_key:
+
+Personal API Key
+==================
+
+When you login via your browser, your browser receives a session cookie.
+All subsequent requests to the API are authenticated with that session cookie.
+
+Authenticating to the REST API outside of a browser is done by attaching a
+Personal API Key to *every* request. You can attach a Personal API Key to 
+a request by using HTTP Basic Authentication with password = {your api key}.
+The username needs to be fixed to ``__key__`` (with double underscores on both
+sides of the word "key").
+
+Almost all applications or script languages support HTTP Basic Authentication.
+
+Generate a Personal API key at https://management.3di.live/personal_api_keys.
+It is considered best practise to generate one Personal API Key per application
+or script, so that you can selectively revoke keys in case they are compromised.
+
+
 
 Roles
 =====

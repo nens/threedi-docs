@@ -27,7 +27,37 @@ Modeller Interface installation
 
 You can install the modeller interface simply with the downloadlink below.
 
-- Install the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.22.7-1-Setup-x86_64.exe>`_
+- Install the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.22.7-1-2-Setup-x86_64.exe>`_
+
+*last update: 8 July 2022*
+
+
+Personal API Key
+^^^^^^^^^^^^^^^^^^
+
+When you start the 3Di Models & Simulations plugin for the first time, you are required to set a :ref:`personal_api_key` that will be used to log in. 
+The QGIS Password Manager stores this Personal API Key securely (encrypted). If you have never used the QGIS Password Manager before, you will be asked to set a master password for the QGIS Password Manager. 
+Fill in a password and make sure you remember it. Check the box 'Store/update the master password in your Password Manager' so that you do not have to fill in the master password every time you start up QGIS. 
+
+
+.. figure:: image/f_master_password.png
+    :alt: Master password
+
+
+Now, when you log in through the 3Di Models & Simulations plugin, you will be asked to set a Personal API Key and the settings dialog will appear.
+
+.. figure:: image/f_set_api_key.png
+    :alt: Set Personal API key
+
+
+- Click 'Obtain...'. Your web browser will open, showing the management page where you can create a new Personal API Key.  
+- Copy the created Personal API Key to your clipboard. 
+- Return to the 3Di Modeller Interface.
+- In the 3Di Models & Simulations plugin Settings dialog, click 'Set...'.
+- Paste the Personal API Key and click OK.
+- Click Save.
+
+You can now use all online functionalities of the 3Di Models & Simulations plugin. When logging in is required, the Personal API Key will be read from the QGIS Password manager and be used for logging in. 
 
 
 
@@ -59,7 +89,7 @@ Plugin Installation
 	
 	* 3Di Toolbox
 	* 3Di Models and Simulations
-	* 3Di Schematisation Editor v1.1 - EXPERIMENTAL
+	* 3Di Schematisation Editor - EXPERIMENTAL
 
 The plugins work for:
 
