@@ -46,7 +46,7 @@ Fill in a password and make sure you remember it. Check the box 'Store/update th
 
 Now, when you log in through the 3Di Models & Simulations plugin, you will be asked to set a Personal API Key and the settings dialog will appear.
 
-.. figure:: image/f_set_api_key.png
+.. figure:: image/f_set_apikey.png
     :alt: Set Personal API key
 
 
