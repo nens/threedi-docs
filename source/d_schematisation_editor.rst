@@ -8,14 +8,23 @@ Introduction
 ^^^^^^^^^^^^
 The Schematisation Editor is a powerful tool that simplifies the process of building and editing schematisations. 
 It automates certain tasks of the regular workflow, which enables the user to build schematisations faster while reducing the chance of making errors. The main advantages of the Schematisation Editor are:
-- Directly edit all layers of your schematisation, using all native QGIS functionality for editing vector features
-- Quickly add features to your schematision with the "magic" editing functionality for 1D layers. For example: existing connection nodes are used when drawing a pipe between them, new connection nodes and manholes are created when a new pipe is digitized, etc.
-- Easily move nodes and all connected lines using the smartly pre-configured snapping and topological editing settings
-- Easily move the start or end of pipes, channels, culverts, orifices, weirs, pumps. Connection node id's will be automatically updated for you
-- Get a complete overview of your schematistion: all rasters that are part of your schematisation are added to the QGIS project when the schematisation is loaded
-- Spot the tiniest local variation in elevation with the hillshade layer that is automatically added on top of your DEM
-- Visualise the mapping of (impervious) surfaces to connection nodes and change them by updating the geometries
-- Easily navigate through your schematisation: layers in the layer panel are neatly grouped together in collapsed groups
+
+    - Directly edit all layers of your schematisation, using all native QGIS functionality for editing vector features.
+
+    - Quickly add features to your schematision with the "magic" editing functionality for 1D layers. For example: existing connection nodes are used when drawing a pipe between them, new connection nodes and manholes are created when a new pipe is digitized, etc.
+
+    - Easily move nodes and all connected lines using the smartly pre-configured snapping and topological editing settings.
+
+    - Easily move the start or end of pipes, channels, culverts, orifices, weirs, pumps. Connection node id's will be automatically updated for you.
+
+    - Get a complete overview of your schematistion: all rasters that are part of your schematisation are added to the QGIS project when the schematisation is loaded.
+
+    - Spot the tiniest local variation in elevation with the hillshade layer that is automatically added on top of your DEM.
+
+    - Visualise the mapping of (impervious) surfaces to connection nodes and change them by updating the geometries.
+
+    - Easily navigate through your schematisation: layers in the layer panel are neatly grouped together in collapsed groups.
+
 
 In the regular workflow, schematisation data is stored in a *spatialite (.sqlite)* . The Schematisation Editor stores this data in a *geopackage (.gpkg)*. The database *schema* (the names and data types of tables and columns) of this geopackage also differs from the spatialite database schema. The Schematisation Editor loads the data from the spatialite into a geopackage; you make your edits in the geopackage, and when you have finished editing, save your changes to the spatialite.
 
@@ -27,17 +36,21 @@ Installation and updating
 The easiest and recommended way to **install** the Schematisation Editor is:
 
     #) Installing the newest version of the :ref:`Modeller Interface <MI_installation>`.
-	#) In the Plugin Manager (Plugins > Manage and Install Plugins), go to Installed and check the box for '3Di Schematisation Editor'
+
+    #) In the Plugin Manager (Plugins > Manage and Install Plugins), go to Installed and check the box for '3Di Schematisation Editor'
 
 To **update** to a newer version of the Schematisation Editor:
 
-	#) Make sure that in Plugins > Manage and Install Plugins > Settings, the '*Show also experimental plugins*' box is checked
-	#) Go to Installed plugins, click on 3Di Schematisation Editor and then '*Upgrade plugin*'
+    #) Make sure that in Plugins > Manage and Install Plugins > Settings, the '*Show also experimental plugins*' box is checked
+
+    #) Go to Installed plugins, click on 3Di Schematisation Editor and then '*Upgrade plugin*'
 
 If you prefer using your own QGIS installation, the Schematisation Editor can be installed by:
 
     #) Making sure that in the Plugins > Manage and Install Plugins > Settings the '*Show also experimental plugins*' box is checked;
+
     #) Searching '*3Di Schematisation Editor*' in the Plugin Management Screen, and pressing the *Install Plugin* button.
+
     #) Make sure that '*Enable macros*' is set to '*Always*' in Settings > Options > General > Project files. 
 
 
@@ -119,15 +132,50 @@ Notes on the 3Di Features
 
 Pasting features from external data sources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Features can be copy-pasted from external data sources into the schematisation editor. 
+Check out the `QGIS Documentation <https://docs.qgis.org/3.22/en/docs/user_manual/working_with_vector/attribute_table.html>`_ for how to work with the attribute table.
+
+
+.. Note::
+    Please note that when pasting features from external sources, the above mentioned perks of the Schematisation Editor will not be applied to the features. 
+
+
 
 Editing feature attributes
 ^^^^^^^^^^^^^^^^^^^^^^^^
+There are two options to edit feature attributes:
+
+    #) Via the attribute table.
+
+    #) Select the desired feature layer, enable the 'Identify Feature' option (|idendifyFeature|), and select a feature on the map. This will open a window with not only all feature attributes of the feature, but also the feature attributes of all related features. These can be found in the other tabs within the window.
 
 Editing feature geometries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+For editing the geometries of features, the 'Vertex tool' can be used, see the `QGIS documentation <https://docs.qgis.org/3.22/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html?highlight=vertex%20tool#vertex-tool>`_.
+On top of the standard QGIS functionalty, the Schematisation Editor provides extra functionalities:
+
+    - When moving a node, all connected features will move along.
+    
+    - Changing the start/end vertex of a line feature (e.g. pipe, channel, culvert, orifice, weir, pump (impervious) surface map) allows you to connect the line to another connection node.
+
+
+
 
 Deleting features
 ^^^^^^^^^^^^^^^^^
+For the general documentation on deleting features, check out the `QGIS documentation <https://docs.qgis.org/3.22/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html?highlight=vertex%20tool#deleting-selected-features>`_.
+When following those steps in the Schematisation Editor, one will be prompted the following screen:
+
+.. figure:: image/d_deleting_features.png
+   :alt: Deleting features options
+
+   Deleting features options
+
+
+When selecting 'Delete this feature only', only the selected features will be deleted. This will result in an invalid schematisation, but can come in handy if a part of the model has to be deleted.
+
+When selecting 'Delete all referenced features', all connected features will also be deleted. Your schematisation will most likely still be valid when using this option.
+
 
 
 
@@ -138,4 +186,6 @@ Deleting features
 .. |addLine| image:: /image/d_addline.png
 
 .. |addPoly| image:: /image/d_addpolygon.png
+
+.. |idendifyFeature| image:: /image/d_identify_features.png
 
