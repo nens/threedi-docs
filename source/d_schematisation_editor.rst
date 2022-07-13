@@ -87,7 +87,7 @@ To add a feature:
 
 #) Select the layer in the Layers panel.
 #) Press the 'Toggle Editing' button (|toggleEditing|).
-#) Click on 'Add Point-' (|addPoint|), 'Add Line-' (|addLine|) or 'Add Polygon Feature' (|addPoly|), depening on what kind of feature you want to add.
+#) Click on 'Add Point-' (|addPoint|), 'Add Line-' (|addLine|) or 'Add Polygon Feature' (|addPoly|), depending on what kind of feature you want to add.
 #) Left click on the map to add a Point feature. When adding Line or Polygon features, add multiple locations by left clicking and finish by right clicking.
 #) Fill in the Attribute Form. The orange fields are required to fill in. The other fields are optional. Press OK to finish the process.
 #) When you are finished with adding the features, disable 'Toggle Editing' and save your schematisation to spatialite.
