@@ -3,33 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Home
-^^^^
-
-Welcome to the 3Di Documentation!
-Here you can find everything you need to know about the **hydrodynamic modelling software product 3Di**.
-
-Documentation Overview
-======================
-* To read more about the 3Di :ref:`Background <a_background>`, :ref:`Ecosystem <a_ecosystem>`, :ref:`Basic Modelling Concepts <a_basic_modelling_concepts>`, and the :ref:`Release Notes <a_release_notes>`, check out the **Introduction** section.
-
-* Navigate to the **Getting Started** section for the :ref:`b_installation_manual`, the :ref:`b_workflow`, a :ref:`b_livesite` guide and a :ref:`b_management_screens` manual.
-
-* For a more enhanced documentation of all features of the Modeller Interface, such as :ref:`c_building_editing_schematisation` and :ref:`c_analysying_results`, consult the **Modeller Interface** section.
-
-* Stuck with your model? Check out our :ref:`d_faq` and :ref:`d_known_issues` in the **Problem Solving and Support** before contacting our :ref:`d_servicedesk`.
-
-* To get a more profound knowledge about 3Di, follow our **Tutorials**. These include an enhanced :ref:`API tutorial <e_api>` and multiple :ref:`Tutorials <e_tutorial1>`.
-
-* To read more about the :ref:`science <f_conservation_mass>` and :ref:`modelling techniques <g_grid>` behind 3Di, please consult the **Physics** and **Modelling Concepts** sections.
-
-
-If you are interested in a **product demo**, a **live** or **online training**, or **becoming a partner**, please visit the `3Di website <https://3diwatermanagement.com/>`_.
-
-.. figure:: image/2_a_3di.png
-   :alt: 3Di Logo
-   :width: 240px
-   :align: center
+Welcome to 3Di's documentation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 .. toctree::
