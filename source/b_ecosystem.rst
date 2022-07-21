@@ -63,6 +63,8 @@ We give here some examples of applications, where it can be usefull to interact 
 
 The current production API of 3Di is v3.
 
+.. _management_portal:
+
 Management Portal
 ^^^^^^^^^^^^^^^^^^^
 

@@ -68,6 +68,7 @@ In this hotfix release, we fixed the following issues:
 - Cloning with initial saved stae
 
 
+.. _klondike_release:
 
 January 31st 2022 (Klondike)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
