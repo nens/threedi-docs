@@ -71,7 +71,8 @@ Follow these steps to upload the schematisation to the management screens:
 
 #) The default settings of this window are to upload the Schematisation and process it to generate a 3Di Model. Select UPLOAD ONLY if you do not need a 3Di Model.
 
-#) Once the progress bar is complete, your schematisation should be visible in the management screens. If you selected UPLOAD AND PROCESS, the newly generated 3Di Model can be found in both the management screens and the 3Di Livesite.
+
+Once the progress bar is complete, your schematisation should be visible in the management screens. If you selected UPLOAD AND PROCESS, the newly generated 3Di Model can be found in both the management screens and the 3Di Livesite.
 
 
 
