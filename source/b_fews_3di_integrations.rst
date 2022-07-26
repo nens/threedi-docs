@@ -28,7 +28,7 @@ The authorization for interaction with the 3Di API is based on a 3Di service acc
 Select 3Di model
 ++++++++++++++++
 
-Simulations can be started with 3Di models that are available to the user. A list of the available models can be found through the API or through 3di.lizard.net/models. Every 3Di model has a unique identifier, which needs to be submitted when creating a new simulation.
+Simulations can be started with 3Di models that are available to the user. A list of the available models can be found through the API or through https://management.3di.live/models. Every 3Di model has a unique identifier, which needs to be submitted when creating a new simulation.
 
 Create simulation
 ++++++++++++++++++

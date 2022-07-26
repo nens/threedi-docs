@@ -662,6 +662,24 @@ We are constantly working on improving the 3Di experience. Based on user experie
 3Di API
 ----------
 
+July 2022
+^^^^^^^^^^
+
+(2022-07-20)
+
+- Bumped pyjwt in scheduler and fixed decoding issues.
+- Restore simulation labels for Marathon (Mesos).
+- Increased total Lizard radar rain (multiple requests) timeout to 5 minutes.
+- Upgraded pypi packages in services.
+- Api-workers: Added Celery readiness/liveness file probes.
+- Changed order in ThreediModelTask so Simululation Template worker is started after aggregations are done.
+- Fixed bug in simulation template processing.
+- Fix bug where threedimodel resources were not incorperated in simulation copy using the from-template endpoint.
+- Allow to dynamically enable/disable tasks in api-worker.
+- Prevent simulation deletion which is simulation-template
+- Frontends have moved to ghcr.io.
+- Bumped threedicore to 2.2.12
+
 June 2022
 ^^^^^^^^^^
 

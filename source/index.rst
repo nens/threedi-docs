@@ -24,6 +24,14 @@ Welcome to 3Di's documentation
    :name: 3Di Ecosystem
 
    b_ecosystem
+   
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: 3Di Connectors
+   :name: 3Di Connectors
+
+   b_fews_3di_integrations 
 
 .. toctree::
    :hidden:
@@ -45,6 +53,7 @@ Welcome to 3Di's documentation
    d_checking_model_schematisation
    d_adding_running_scenario
    d_viewing_analysing_results
+   d_management
    
 
 .. toctree::
