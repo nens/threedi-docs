@@ -39,7 +39,7 @@ To create a new schematisation:
 .. note::
     Select the downloaded DEM for the Digital elevation model field.
 
-.. figure:: image/tut1_schem_settings.png
+.. figure:: image/e_tut1_schem_settings.png
     :scale: 75%
 
     The settings for your new schematisation.
@@ -80,13 +80,13 @@ Once the progress bar is complete, your schematisation should be visible in the 
 Congratulations! You have just uploaded your first schematisation and threedimodel.
 
 
-.. |modelsSimulations| image:: /image/modelsandsimulations.png
+.. |modelsSimulations| image:: /image/e_modelsandsimulations.png
     :scale: 90%
 
-.. |newschematisation| image:: /image/newschematisation.png
+.. |newschematisation| image:: /image/e_newschematisation.png
     :scale: 90%
 
-.. |addresults| image:: /image/addresults.png
+.. |addresults| image:: /image/e_addresults.png
 
-.. |upload| image:: /image/tut1upload.png
+.. |upload| image:: /image/e_tut1upload.png
     :scale: 90%
