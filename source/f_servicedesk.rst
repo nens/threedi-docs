@@ -1,4 +1,7 @@
-Service desk
+
+.. _servicedesk:
+
+Servicedesk
 ============================
 
 Nelen & Schuurmans provide a Service Desk function via https://nelen-schuurmans.topdesk.net/, The Nelen & Schuurmans Self Service Portal shall be available 24/7.

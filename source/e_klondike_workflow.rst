@@ -18,6 +18,9 @@ Requirements
 
 * Having a copy of the Digital Elevation Map (DEM) for the Burrows area saved locally, which can be downloaded `here <https://nens.lizard.net/media/3di-tutorials/3di-tutorial-01.zip>`_.
 
+.. tip::
+    Feel free to reach out to the :ref:`servicedesk` whenever you get stuck or experience problems during this tutorial.
+
 
 Creating a Schematisation
 -------------------------
@@ -53,7 +56,7 @@ This can be done by clicking the 'Select 3Di results' button (|addresults|) and 
 
 .. note::
     Please note that, so far, your schematisation only contains the minimum required information to be uploaded to the management screens.
-    Now that your sqlite has been imported to your modeller interface, your schematisation can be extender. This, however, falls outside the scope of this tutorial.
+    Now that your sqlite has been imported to your modeller interface, your schematisation can be extended. This, however, falls outside the scope of this tutorial.
 
 
 
@@ -74,6 +77,7 @@ Follow these steps to upload the schematisation to the management screens:
 
 Once the progress bar is complete, your schematisation should be visible in the management screens. If you selected UPLOAD AND PROCESS, the newly generated 3Di Model can be found in both the management screens and the 3Di Livesite.
 
+Congratulations! You have just uploaded your first schematisation and threedimodel.
 
 
 .. |modelsSimulations| image:: /image/modelsandsimulations.PNG
