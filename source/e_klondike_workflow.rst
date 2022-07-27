@@ -80,13 +80,13 @@ Once the progress bar is complete, your schematisation should be visible in the 
 Congratulations! You have just uploaded your first schematisation and threedimodel.
 
 
-.. |modelsSimulations| image:: /image/modelsandsimulations.PNG
+.. |modelsSimulations| image:: /image/modelsandsimulations.png
     :scale: 90%
 
-.. |newschematisation| image:: /image/newschematisation.PNG
+.. |newschematisation| image:: /image/newschematisation.png
     :scale: 90%
 
-.. |addresults| image:: /image/addresults.PNG
+.. |addresults| image:: /image/addresults.png
 
-.. |upload| image:: /image/tut1upload.PNG
+.. |upload| image:: /image/tut1upload.png
     :scale: 90%
