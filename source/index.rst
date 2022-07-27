@@ -62,11 +62,7 @@ Welcome to 3Di's documentation
    :name: tutorials
   
 
-   e_workflow_tutorial
-   e_2d_tutorial
-   e_2d_slope_tutorial
-   e_2d_levees_tutorial
-   e_1d_tutorial
+   e_klondike_workflow
 
 .. toctree::
    :hidden:
