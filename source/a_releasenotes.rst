@@ -378,6 +378,23 @@ For schematisations users can:
 3Di Modeller Interface 
 ----------------------
 
+August 2022
+^^^^^^^^^^^^
+
+*Release notes 3Di Toolbox v2.3*
+
+
+- Visualise any computatial grid (gridadmin.h5 file), using the new Processing Algorithm "Computational grid from gridadmin.h5". This works for gridadmin.h5 files that were generated on the server as well as those generated locally.
+- Generate the computational grid for your schematisation in the 3Di Modeller Interface. The routine that is used on the server to generate the computational grid, has now also been made available locally, so that you can continously check how your schematisation is translated to a computational grid. Use the new Processing Algorithm "Computational grid from schematisation".
+- Bugfix: pumped volume for pumps without end note is now also included in the water balance 
+- Bugfix: total balance in water balance tool now also works in QGIS 3.22 
+- Bugfix: water balance tool now handles aggregation netcdf's that have different timesteps for different variables 
+- Bugfix: side view tool now handles models that contain cross section locations that refer to non-existent cross section definitions 
+- Bugfix: statistics tool gave IndexError for some datasets 
+- Bugfix: processing algorithm for water depth/level: batch functionality has been repaired 
+
+
+
 July 2022
 ^^^^^^^^^^^^
 
