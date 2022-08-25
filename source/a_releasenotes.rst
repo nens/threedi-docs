@@ -525,7 +525,7 @@ We have released threeditoolbox 1.31 and 3Di Models & simulations 3.0.2.
 Please note: If you continue to use the old route, you still need the previous version of the plugin as well. 
 
 We have also released a new version of the Modeller Interface:
-Download here the latest version: `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.7-1-Setup-x86_64.exe>`_ 
+Download here the latest version: `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.22.7-1-3-Setup-x86_64.exe>`_ 
 
 
 
