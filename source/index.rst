@@ -3,26 +3,56 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to 3Di's documentation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Home
+^^^^
+Welcome to the 3Di Documentation!
+Here you can find everything you need to know about the **hydrodynamic modelling software product 3Di**.
+
+Documentation Overview
+======================
+* To read more about the 3Di :ref:`Background <a_background>`, :ref:`Ecosystem <a_ecosystem>`, :ref:`Basic Modelling Concepts <a_basic_modelling_concepts>`, and the :ref:`Release Notes <a_release_notes>`, check out the **Introduction** section.
+
+* Check out the **3Di Connectors** section for a guide on how to :ref:`integrate FEWS with 3Di <b_fews-integration>`. More connectors will follow.
+
+* Navigate to the **Guide to the 3Di Livesite** section to read more on :ref:`how to use the 3Di Livesite <guide_to_portal>`.
+
+* For more specified information on :ref:`how to build a schematisation in the Modeller Interface <qgisplugin>`, please consult the **How to work with 3Di** page.
+
+* In the **Tutorials** section you will find :ref:`tutorials <tutorial1_workflow>` on how to use 3Di.
+
+* Stuck with your model? Check out our :ref:`f_problem_solving` in the **Problem Solving and Support** before contacting our :ref:`servicedesk`.
+
+* To read more about the :ref:`science <cons_volume>` and :ref:`modelling techniques <grid>` behind 3Di, please consult the **Physics** and **Modelling Concepts** sections.
+
+.. * Navigate to the **Getting Started** section for the :ref:`b_installation_manual`, the :ref:`b_workflow`, a :ref:`b_livesite` guide and a :ref:`b_management_screens` manual.
+
+.. * For a more enhanced documentation of all features of the Modeller Interface, such as :ref:`c_building_editing_schematisation` and :ref:`c_analysying_results`, consult the **Modeller Interface** section.
+
+.. * To get a more profound knowledge about 3Di, follow our **Tutorials**. These include an enhanced :ref:`API tutorial <e_api>` and multiple :ref:`Tutorials <e_tutorial1>`.
 
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Welcome to the 3Di documentation
-   :name: Welcome to the 3Di documentation
 
-   a_welcome
-   a_releasenotes
-   a_contributors
+
+If you are interested in a **product demo**, a **live** or **online training**, or **becoming a partner**, please visit the `3Di website <https://3diwatermanagement.com/>`_.
+
+.. figure:: image/a_3di-logo.png
+   :alt: 3Di Logo
+   :width: 240px
+   :align: center
+
 
 .. toctree::
    :hidden:
    :maxdepth: 1
-   :caption: 3Di Ecosystem
-   :name: 3Di Ecosystem
+   :caption: Introduction
+   :name: Introduction
 
-   b_ecosystem
+   a_background
+   a_ecosystem
+   a_modelling_concepts
+   a_releasenotes
+   a_contact
+
    
 .. toctree::
    :hidden:
