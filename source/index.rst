@@ -33,7 +33,7 @@ Documentation Overview
 
 
 
-If you are interested in a **product demo**, a **live** or **online training**, or **becoming a partner**, please visit the `3Di website <https://3diwatermanagement.com/>`_.
+If you are interested in a **product demo**, a **live** or **online training**, or **becoming a partner**, please visit the `3Di website <https://3diwatermanagement.com/>`_. Also, do not forget to check out our `Youtube Channel <https://www.youtube.com/channel/UCecYX88MyFeP-1mpx7HOoJw>`_ for more information and detailed tutorials!
 
 .. figure:: image/a_3di-logo.png
    :alt: 3Di Logo
