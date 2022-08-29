@@ -1,3 +1,5 @@
+.. _f_problem_solving:
+
 FAQ and Problem Solving
 ============================
 

@@ -1,3 +1,5 @@
+.. _b_fews-integration:
+
 FEWS-3Di integration
 =========================
 
