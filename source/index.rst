@@ -63,6 +63,10 @@ Welcome to 3Di's documentation
   
 
    e_klondike_workflow
+   e_2d_tutorial
+   e_2d_slope_tutorial
+   e_2d_levees_tutorial
+   e_1d_tutorial
 
 .. toctree::
    :hidden:
