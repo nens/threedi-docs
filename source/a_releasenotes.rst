@@ -288,6 +288,37 @@ The map can be viewed here: stowa.lizard.net
 3Di Live Site 
 --------------
 
+August 2022
+^^^^^^^^^^^^
+- Added Icon Forecast
+
+- Implemented the following rasters:
+
+    - ICON-global forecast of precipitation with hourly timestamp
+
+    - ICON-EU forecast of precipitation with hourly timestamp
+
+    - ICON-D2 forecast of precipitation with hourly timestamp
+
+
+- Icon forecast gives you a global forecast of rainfall for the next 24 hours. More information can be found `here  <https://www.dwd.de/EN/research/weatherforecasting/num_modelling/01_num_weather_prediction_modells/icon_description.html>`_:
+
+- Added a rainbarchart to show the amount of precipitation during the simulation time
+
+- Limit the datepicker of forecasted rain to the range of dates that the forecast spans. Mostly 2-7 days. 
+
+- Show in the datepicker if there actually is a rain-event on the model extend.
+
+- Improved search functionality. For instance you can now toggle to view all types of sewers when searching on sewers.
+
+- Fixed a bug where a model without a simulation template would stall in the live-site.
+
+- Fixed a bug where the water depth on nodes would display incorrect.
+
+- Fixed a bug where the mouse cursor would change to a hand indicating you would be able to click the element but couldn't.
+
+
+
 February 2022 (Klondike)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1026,6 +1057,13 @@ Extended API v3 with boundary conditions & bug fixing
 
 3Di computational core releases
 -------------------------------
+
+August 2022 (Hotfix)
+^^^^^^^^^^^^^^^^^^^^
+- Fixed the initialisation of the calculation core. 
+
+- Let a simulation crash when a NaN occurs during the calculation.
+
 
 March 2022
 ^^^^^^^^^^^^
