@@ -290,6 +290,8 @@ The map can be viewed here: stowa.lizard.net
 
 August 2022
 ^^^^^^^^^^^^
+- We have hotfixed the waterdepth interpolation to make sure that no water is shown visually before the start of a simulation and to avoid large patches  of interpolated water when zooming out
+
 - Added Icon Forecast
 
 - Implemented the following rasters:
