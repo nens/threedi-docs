@@ -106,7 +106,7 @@ C. Select **Switch to form view** in the bottom right corner. [1]
 D. Select **Toggle editing mode** and in the top right corner. [2]
 
 
-.. figure:: image/04_toggle_editing.png
+.. figure:: image/04_toggle_editing2.png
     :alt: Toggle editing
 
 Now everything is set up to configure the global settings.
@@ -325,7 +325,7 @@ Run your 3Di Model on the Livesite
 
 You can now find your 3Di Model via the `3Di Live Site <https://www.3di.live/>`_ or via the 3Di Modeller Interface and use it for simulations. The Schematisation can also be found in the `Management screens <https://management.3di.live/>`_.
 
-.. image:: image/17_livesite.png
+.. image:: image/17_livesite2.png
     :alt: Live calculation in the live site
 
 You have now succesfully build a 2D flow model Schematisation from scratch!
