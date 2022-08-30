@@ -1,92 +1,100 @@
 .. _tutorial2_2dflatmodel:
 
-Tutorial 2: Building a basic 2D flow model
+Tutorial 2: Building a Basic 2D Flow Schematisation
 ==========================================
 
-.. note:: This tutorial described the old route of building a 3Di model. 
-    After the Klondike release, you do not need Tortoise and Inpy anymore. This tutorial will be updated. 
+Introduction
+------------
 
-In this tutorial, we will build a basic 2D flow model in 3Di.
-We will start from scratch and build our model step by step.
-We will finish with a working model that you can play around with on the 3Di live site.
-This model is based on the Laugharne and Pendine Burrows in the United Kingdom.
+In this tutorial, you will build a schematisation to model basic 2D flow in 3Di.
+We will start from scratch with an empty sqlite and build a schematisation step by step.
+The final product will be a working 3Di model that can be used on the 3Di Live site.
+The schematisation will be a representation of the Laugharne and Pendine Burrows, which are located in Carmarthenshire (Wales).
 The burrows enclose a flat area of reclaimed salt marshes that are currently used as farmland.
-While this tutorial represents a real-world area, it is important to keep in mind that some processes will be simplified for the purpose of this tutorial. 
+Although the schematisation represents a real-world area, some processes will be simplified for the sake of this tutorial. Please keep this in mind while analysing the results of your simulations.
 
-You will learn the following skills in this tutorial:
 
-* Prepare an empty 3Di model.
-* Couple a digital elevation model (DEM) to your 3Di-model. 
+**In this tutorial you will**:
+
+* Re-practice :ref:`the workflow of creating a new schematisation <tutorial1_workflow>`.
+* Couple a digital elevation model (DEM) to your schematisation. 
 * Configure the settings of a 2D model.
-* Validate your model input using the raster checker.
-* Validate your model schematization using the schematization checker.
-* Compile your model on the 3Di live site. 
+* Validate your model input with the raster checker.
+* Validate your model schematization with the schematization checker.
+* Generate a 3Di Model and play with it on the 3Di Livesite. 
 
-Before you start, please make sure to:
+**Before you start, please make sure to**:
 
 * Install the 3Di Modeller Interface. Please see :ref:`3di_instruments_and_downloads` for instructions. 
 * Install the 3Di toolbox in the Modeller Interface. Please see :ref:`plugin_installation` for instructions.
 * Gain access to the 3Di Live Site. Please see :ref:`guide_to_portal` for instructions.
-* Download the Taf `dataset <https://nens.lizard.net/media/3di-tutorials/3di-2d_flow_tutorial.zip>`_ for this tutorial, which contains an empty .sqlite and a digital elevation model (DEM). 
+* Download the Taf `dataset <https://nens.lizard.net/media/3di-tutorials/3di-2d_flow_tutorial.zip>`_ , which contains a digital elevation model (DEM) of the Laugharne and Pendine Burrows called dem_2m_LPB.tif and an empty .sqlite database, which can be ignored. 
     
     :sub:`The digital elevation model contains United Kingdom public sector information licensed under the Open Government Licence v2.0.`
 
-Model initialisation
----------------------
-
-Model preparation
-+++++++++++++++++++++
-
-Before we can start building our model, we need prepare our model and organize our data.
-The Taf dataset that you have downloaded contains an empty .sqlite database and a digital elevation model (DEM) of the Laugharne and Pendine Burrows called dem_2m_LPB.tif.
-The structured .sqlite database contains all elements that can be included in a 3Di model.
-It will slowly be filled in when you build a model. **Rename empty.sqlite to LP_Burrows.sqlite.**
-
-.. figure:: image/00_filemanagement.png
-    :alt: File Management
-
-Loading the model in the Modeller Interface
-++++++++++++++++++++++++++++++++++++++++++++
-
-Our model must be imported in the Modeller Interface to view and modify its contents.
-The model can be loaded via the 3Di toolbar (part of the 3Di toolbox plug in) by following these steps: 
-
-A.	Open the Modeller Interface.
-B.	Create a new project.
-C.	Click the **Select 3Di results** button on the 3Di Toolbar (white database icon). [1]
-D.	Select **load** in the model section, and select the LP_Burrows.sqlite database provided with this tutorial. [2]
-E.	You should now see the 3Di model as part of your the Modeller Interface layers. [3]
-
-.. figure:: image/01_loadsql.png
-    :alt: Load SQL
-
-You can also import the DEM as a raster layer:
-
-A. go to the folder where you downloaded the Taf dataset.
-B. Select the .tif file.
-C. Drag the .tif file from your folder into the Modeller Interface screen.
-
-This can improve your feel with the data, but it is not strictly required.
-
-It is advised that you set your project reference EPSG:27700 (British National Grid) for this tutorial. To do this, click on the current project reference at the bottom right and select the coordinate reference system you want. 
 
 
-.. figure:: image/02_modelview.png
-    :alt: Empty LP_burrows.sqlite and DEM loaded into the Modeller Interface and projected on a google satellite background map.
+Building the Schematisation
+---------------------------
 
-    Empty LP_burrows.sqlite and DEM loaded into the Modeller Interface and projected on a google satellite background map.
-
-Model building
---------------
-
-The most fundamental element to building a 3Di is choosing your correct settings.
-We will go through all settings that are required for a basic 2D flow model. A list of mandatory settings and detailed descriptions can be found :download:`in the database overview <pdf/database-overview.pdf>`.
-We will introduce extra elements like 1D channels, levees or hydraulic structures in later tutorials. 
-
-Complete the global settings
+Creating a new Schematisation
 +++++++++++++++++++++++++++++
 
-The global settings are contained in the v2_global_settings table. Open the settings by
+As we are building a schematisation from scratch, the workflow explained in :ref:`Tutorial 1 <tutorial1_workflow>` will be used to initialize a new schematisation.
+If you haven't followed this tutorial yet, please do so before continuing this tutorial.
+
+Name your newly created schematisation **'Tutorial2_<your_name>'**, select the correct organisation and check the 'Create new Spatialite' box. 
+Press the 'Next' button twice and fill in the data as provided in :numref:`schem-settings`. Select your downloaded DEM .tif file for the Digital elevation model field. 
+
+
+.. figure:: image/e_schematisation_settings.png
+    :alt: Initial Schematisation settings.
+    :name: schem-settings
+
+    Initial Schematisation settings
+
+
+Setting up your QGIS project
++++++++++++++++++++++++++++++
+When your schematisation has successfully been generated, it can be added to your QGIS project. During this process, you might get a warning prompt on an outdated database schema version. If so, select **Yes**.
+Your spatialite should now be visible in your Layers panel. 
+
+It is convenient (but not required) to add the DEM to your project as well.
+This is simply done by navigating to the folder of your schematisation, navigate to 'work in progress'>'schematisation'>'rasters' and finally drag your DEM file into your QGIS project. 
+Please make sure that you use the DEM file from your project folder in stead of your download folder. Changes made to your DEM file will not be tracked if you use the wrong file.
+
+Another way to make building your schematisation visually easier is to add a background. A good option would be the Google Satellite background map:
+
+a.  In your browser panel, right-click on “XYZ Tiles” and select “new connection”. If the browser panel is not visible in your 3Di modeller interface, select “view” > “panels” > “browser panel” from the top menu bar. [1] 
+b.  Fill in Name as “Google Satellite” and URL as ``https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}``. [2] 
+c.  Select “OK”. The Google Satellite layer should now be visible in your browser panel. You may need to click the small triangle to the left of “XYZ tiles” if the layer does not become immediately visible. [3] 
+d.  Double-click the Google Satellite layer to load it into your project. [4] 
+e.  Reorder the layers such that the Google Satellite layer is below the 3Di model. This will ensure the visibility of the model components at later stages. [5] 
+
+
+Lastly, it is advised to set your project reference to EPSG:27700 (British National Grid) for this tutorial. 
+This can be done in the bottom right of your QGIS/MI window. 
+
+Your QGIS project should now look like this:
+
+
+.. figure:: image/e_qgis-project.png
+    :alt: QGIS project setup.
+    :name: qgis-setup
+
+    The proposed setup of your QGIS project including i) your Spatialite loaded, ii) the DEM added, iii) a background layer, and iv) a projection of 27700.
+
+
+Set up your Schematisation settings
++++++++++++++++++++++++++++++++++++
+The most fundamental element to building a Shematisation is choosing your correct settings.
+We will go through all required settings for a basic 2D flow model. A list of mandatory settings and detailed descriptions can be found :download:`in the database overview <pdf/database-overview.pdf>`.
+Extra elements, such as 1D channels, levees or hydraulic structures, are discussed in the other tutorials.
+
+Complete the global settings
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The global settings are found in the v2_global_settings table. Open the settings by
 
 A.	Right-click the v2_global_settings table. [1]
 B.	Select **Open attribute table**. [2]
@@ -96,18 +104,18 @@ B.	Select **Open attribute table**. [2]
 
 C. Select **Switch to form view** in the bottom right corner. [1]
 D. Select **Toggle editing mode** and in the top right corner. [2]
-E. Select **Add feature**. [3]
+
 
 .. figure:: image/04_toggle_editing.png
     :alt: Toggle editing
 
-Now we can start to configure all settings.
-3Di requires you to complete all mandatory settings before changes can be saved.
+Now everything is set up to configure the global settings.
+3Di requires you to complete all mandatory settings before changes can be saved. These are recognized by the orange color when not filled in. 
+For an overview of the mandatory settings, checkout the :download:`database overview pdf <pdf/database-overview.pdf>`.
 Attempts to save the settings before all mandatory field have been completed will result in an error message.
-A list of mandatory settings and detailed descriptions can be found :download:`in the database overview <pdf/database-overview.pdf>`.
-Finally, please note that the following settings have been selected specifically for this tutorial.
 
-Let us now fill in the settings of each tab in the global settings table. 
+The settings that we will use for the 2D flow simulations in the Laugharne and Pendine Burrows Model are as follows (some settings allready have been filled in due to the settings that you have set during the Schematisation creation):
+
 
 .. csv-table:: General
     :header: "Setting", "Value for this tutorial", "Comments"
@@ -129,7 +137,7 @@ Let us now fill in the settings of each tab in the global settings table.
 .. csv-table:: Terrain information
     :header: "Setting", "Value for this tutorial", "Comments"
 
-    "dem_file", "dem_2m_LPB.tif"
+    "dem_file", "rasters/dem_2m_LPB.tif"
     "epsg_code", "27700", "British national grid"
     "frict_coef_file", "NULL", "Only used for spatially varying friction"
     "frict_coef", "0.06", "Farmland"
@@ -152,8 +160,8 @@ Let us now fill in the settings of each tab in the global settings table.
     "start_time", "2020-01-01 00:00:00"
     "sim_time_step", "30", "in seconds"
     "timestep_plus", "No", "Only when extra control over the timestep is required"
-    "minimum_sim_time_step", "NULL"
-    "maximum_sim_time_step", "NULL"
+    "minimum_sim_time_step", "0.01"
+    "maximum_sim_time_step", "30"
     "nr_timesteps", "240", "for a 2 hour simulation"
     "output_time_step", "120", "in seconds"
 
@@ -186,12 +194,14 @@ Let us now fill in the settings of each tab in the global settings table.
     "flooding_threshold", "1e-06"
     "table_step_size_volume_2d", "NULL"
 
-Don’t forget to save your changes after completing all settings, by clicking on **save edits** in the top left corner.
+.. tip::
+    Do not forget to save your changes after completing all settings, by clicking on **save edits** in the top left corner.
 
 Complete the infiltration settings
-+++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The settings for the infiltration mechanism are contained in the v2_simple_infiltration table. 
+The settings for the infiltration mechanism are contained in the v2_simple_infiltration table, which can be found just above the global settings.
+Right-click again to open the Attribute Table [1], toggle editing [2], add a new feature [3] and start editing the settings to the provided values in :numref:`inf_settings`.
 
 .. image:: image/05_infiltration.png
     :alt: infiltration
@@ -199,6 +209,7 @@ The settings for the infiltration mechanism are contained in the v2_simple_infil
 Editing the table work in a similar manner as with the v2_global_settings table. Complete the following settings:
 
 .. csv-table:: General
+    :name: inf_settings
     :header: "Setting", "Value for this tutorial", "Comments"
 
     "id", "1", "Must match the simple_infiltration_settings_id in the v2_global_settings_table"
@@ -208,8 +219,9 @@ Editing the table work in a similar manner as with the v2_global_settings table.
     "max_infiltration_capacity_file", "NULL", "infinite infiltration capacity is assumed in this tutorial"
     "infiltration_surface_option", "0", "See :ref:`infiltration`"
 
+
 Complete the aggregation settings
-+++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The aggregation settings control the aggregation of model results.
 They are contained in the v2_aggregation_settings table.
@@ -220,7 +232,7 @@ As with the previous settings, open the attribute table, toggle the editing mode
     :alt: Aggregation Settings update
 
 The different rows of the table refer to different model output categories.
-For each category, set the global_settings_id at 1. You can either do this manually by filling in 1's in the column [1], or by:
+For each category, set the global_settings_id at 1 if this is not the case yet. You can either do this manually by filling in 1's in the column [1], or by:
 
 A. Selecting the column global_settings_id in the drop down menu [2]
 B. Typing a 1 in the bar [3]
@@ -238,8 +250,8 @@ The numerical settings are contained in the v2_numerical_settings table which ca
 .. image:: image/06_numerical.png
     :alt: Numerical settings
 
-As with the previous settings, open the attribute table, toggle the editing mode, switch to form view and add a feature.
-Complete the following settings:
+As with the previous settings, open the attribute table, toggle the editing mode, switch to form view and add a feature if the settings do not yet contain one.
+Change the settings, where required, to the following values:
 
 .. csv-table:: General
     :header: "Setting", "Value for this tutorial", "Comments"
@@ -285,113 +297,35 @@ Complete the following settings:
     "preissmann_slot", "0"
 
 
-
-With the completion of the numerical settings, we have built a basic working 2D flow model. 
-
-The overview of all settings for this tutorial can be referenced `here <https://docs.google.com/spreadsheets/d/1qHTS0TdwnYaCYRaohDAVvkaGW2sJ1pt8IX31HZ7OcBY/edit?usp=sharing>`_.
-
-Model validation
-----------------
-
-Verify the model rasters using the raster checker
-+++++++++++++++++++++++++++++++++++++++++++++++++
-
-Before sending our new model to the web portal, it is important to validate that our model contains no errors.
-The Raster checker is part of the 3Di toolbox and performs 18 checks to verify the quality of the DEM. For more information, see: :ref:`rasterchecker`
-The raster checker can also be applied to other 3Di-related rasters when relevant.
-
-.. image:: image/08_rasterchecker.png
-    :alt: RasterChecker
-
-A log of the performed test is written to the log file in the location as denoted in the result prompt.
-This location is typically the location of your DEM-file.
-The log file can be opened to view additional details of the checks performed.
-
-Verify the model schematisation using the schematisation checker
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-The second validation is that of the model schematisation.
-This is checked with the :ref:`schematisationchecker` in the 3Di toolbox.
-It checks the model tables for many possible errors that could lead to crashes when the model is compiled.
-
-.. image:: image/10_schemachecker.png
-    :alt: Schematization Checker
-
-Now open the log file at your specified location.
-You may find the error “Value in v2_aggregation_settings.aggregation_in_space should to be of type integer”.
-This is a known bug in the schematisation checker, which will be removed in a future update.
-You should not find any other warnings.
-
-.. figure:: image/11_modelerrors.png
-    :alt: Model Errors
-
-    Log of the schematisation checker
-
-
-If you do not get any further warnings or errors, your model is successfully validated and is ready for activation.
-
-.. _model_activation:
-
-Model activation
-----------------
-
-Upload your model to the repository
-++++++++++++++++++++++++++++++++++++++
-
-The first stage towards running your model in the web portal is to upload you model to the 3Di model databank.
-Take the following actions:
-
-**Create a new .zip file** with your new LP_Burrows.sqlite database and your DEM dem_2m_LPB.tif. Here we name it Tutorial_01_2D_flow.zip.
-
-Be mindful that the folder structure in the .zip file matches that of your schematisation. Based on the settings in this tutorial, your .sqlite database and your DEM should be in the same folder. Exclude the log files from your .zip folder.
-
-.. image:: image/12_zipfolder.png
-    :alt: ZIP folder
-
-	
-Go to `<https://models.lizard.net/model_databank/>`_. Log in and select **Upload new model**.
-
-.. image:: image/13_databanklogin.png
-    :alt: Model databank login
-
-	
-Fill in the details of your models. Be sure to select **3Di-v2** as your model type. Select **Submit** when you have completed the form.
-
-.. image:: image/14_databank.png
-    :alt: Login form
+All the settings should now be up to date, which means you are good to go validate and upload your Schematisation.
 
 
 
-Compile your model
-++++++++++++++++++++++
+Validate and upload your Schematisation & Generate a 3Di Model
+-----------------------------------------------------------
+Following the basic workflow (explained in :ref:`Tutorial 1 <tutorial1_workflow>`), we are now checking the Schematisation, uploading it to the 3Di Management screens and generate a 3Di model by:
 
-Now your model is stored in the model database, it is ready for compilation. It can take a couple minutes before your model appears in the list of available models.
+#) Pressing the Upload button in the Models & Simulations plugin.
 
-A. Go to https://3di.lizard.net/models/.
-B. Use to search function to retrieve your model. Search for the name that you gave your model in the previous step. You have to select **also show repositories that do not have inp files yet**.
-C. Select **initialize inp generation** for your model.
+#) Clicking the New Upload button, followed by the Next button.
 
-.. image:: image/15_repositories.png
-    :alt: Repository overview
+#) Clicking the Check Schematisation button. This should result in no errors. If you did get a warning or error, please thoroughly check the preceding steps. Otherwise, click Next.
 
-Your model will now be compiled.
-After a few minutes the blue bar “no models” will turn to a green bar with the text “success” when the model is successfully compiled. You may have refresh the page.
-Once completed, you can select the model to view its details.
-The model is now also available on the 3Di Live Site.
+#) Select Upload for the Spatialite and Terrain Model, fill in a commit message such as "First Commit Tutorial 2 <name>", select UPLOAD AND PROCESS and click the Start Upload button.
 
-.. figure:: image/16_compilation.png
-    :alt: Compilation of a model
+After waiting for about 2 minutes, you should see the following window:
 
-    Your screen after a successful compilation
+.. figure:: image/e_schem_upload_success.png
+    :alt: successfull schematisation upload.
 
 
-Run your model
-++++++++++++++++++
 
-You can now run your model via the 3Di Live Site (:ref:`guide_to_portal`) or via the 3Di Modeller Interface (:ref:`simulate_api_qgis`).
-It will be available under the name you gave it.
+Run your 3Di Model on the Livesite
+----------------------------------
+
+You can now find your 3Di Model via the `3Di Live Site <https://www.3di.live/>`_ or via the 3Di Modeller Interface and use it for simulations. The Schematisation can also be found in the `Management screens <https://management.3di.live/>`_.
 
 .. image:: image/17_livesite.png
     :alt: Live calculation in the live site
 
-Congratulations on building a 2D flow model from scratch!
+You have now succesfully build a 2D flow model Schematisation from scratch!
