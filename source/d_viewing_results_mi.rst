@@ -105,30 +105,30 @@ Empty v2_aggregation_settings table::
   
 Add aggregation settings for all rows in the global settings table::
 
-    INSERT INTO v2_aggregation_settings(global_settings_id, var_name, flow_variable, aggregation_method, aggregation_in_space, timestep)
-    SELECT id, 'pump_discharge_cum', 'pump_discharge', 'cum', 0, output_time_step FROM v2_global_settings
+    INSERT INTO v2_aggregation_settings(global_settings_id, var_name, flow_variable, aggregation_method, timestep)
+    SELECT id, 'pump_discharge_cum', 'pump_discharge', 'cum', output_time_step FROM v2_global_settings
     UNION
-    SELECT id, 'lateral_discharge_cum', 'lateral_discharge', 'cum', 0, output_time_step FROM v2_global_settings
+    SELECT id, 'lateral_discharge_cum', 'lateral_discharge', 'cum', output_time_step FROM v2_global_settings
     UNION
-    SELECT id, 'simple_infiltration_cum', 'simple_infiltration', 'cum', 0, output_time_step FROM v2_global_settings
+    SELECT id, 'simple_infiltration_cum', 'simple_infiltration', 'cum', output_time_step FROM v2_global_settings
     UNION
-    SELECT id, 'rain_cum', 'rain', 'cum', 0, output_time_step FROM v2_global_settings
+    SELECT id, 'rain_cum', 'rain', 'cum', output_time_step FROM v2_global_settings
     UNION
-    SELECT id, 'leakage_cum', 'leakage', 'cum', 0, output_time_step FROM v2_global_settings
+    SELECT id, 'leakage_cum', 'leakage', 'cum', output_time_step FROM v2_global_settings
     UNION
-    SELECT id, 'interception_current', 'interception', 'current', 0, output_time_step FROM v2_global_settings
+    SELECT id, 'interception_current', 'interception', 'current', output_time_step FROM v2_global_settings
     UNION
-    SELECT id, 'discharge_cum', 'discharge', 'cum', 0, output_time_step FROM v2_global_settings
+    SELECT id, 'discharge_cum', 'discharge', 'cum', output_time_step FROM v2_global_settings
     UNION
-    SELECT id, 'discharge_cum_neg', 'discharge', 'cum_negative', 0, output_time_step FROM v2_global_settings
+    SELECT id, 'discharge_cum_neg', 'discharge', 'cum_negative', output_time_step FROM v2_global_settings
     UNION
-    SELECT id, 'discharge_cum_pos', 'discharge', 'cum_positive', 0, output_time_step FROM v2_global_settings
+    SELECT id, 'discharge_cum_pos', 'discharge', 'cum_positive', output_time_step FROM v2_global_settings
     UNION
-    SELECT id, 'volume_current', 'volume', 'current', 0, output_time_step  FROM v2_global_settings
+    SELECT id, 'volume_current', 'volume', 'current', output_time_step  FROM v2_global_settings
     UNION
-    SELECT id, 'qsss_cum_pos', 'surface_source_sink_discharge', 'cum_positive', 0, output_time_step FROM v2_global_settings
+    SELECT id, 'qsss_cum_pos', 'surface_source_sink_discharge', 'cum_positive', output_time_step FROM v2_global_settings
     UNION
-    SELECT id, 'qsss_cum_neg', 'surface_source_sink_discharge', 'cum_negative', 0, output_time_step FROM v2_global_settings
+    SELECT id, 'qsss_cum_neg', 'surface_source_sink_discharge', 'cum_negative', output_time_step FROM v2_global_settings
     ;
 	
 Note that the above query sets the aggregation time step equal to the output time step. If you want to use different aggregation time step, make sure to use the same time step for all aggregation variables in order to enable the use of the water balance tool.
