@@ -77,3 +77,15 @@ numfig = True
 if not is_development_build:
     # Only use google analytics on the production doc site.
     html_theme_options = {"analytics_id": "UA-111119907-2"}
+
+
+# Latex output settings, mostly to get unicode characters in math working.
+latex_engine = "xelatex"
+latex_elements = {
+    "papersize": "a4paper",
+    "extrapackages": r"\usepackage{unicode-math}",
+    # The next two are to prevent the html "align" from wreaking pdf output.
+    # See https://github.com/sphinx-doc/sphinx/issues/3289#issuecomment-298942353
+    "figure_align": "H",
+    'preamble': r'\renewenvironment{wrapfigure}[2]{\begin{figure}[H]}{\end{figure}}',
+}
