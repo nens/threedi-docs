@@ -21,7 +21,7 @@ jobs:
         run: |
           docker-compose run builder python3 fix-uppercase-lowercase.py
           docker-compose run builder make html latexpdf
-          docker-compose run buildout cp build/latex/3di.pdf build/html
+          docker-compose run builder cp build/latex/3di.pdf build/html
           zip -r threedi-docs.zip build/html
 
       - name: Publish tags on https://docs.3di.live
