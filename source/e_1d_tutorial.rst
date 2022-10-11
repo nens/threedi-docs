@@ -1,9 +1,6 @@
 Tutorial 5: Building a 1D model
 ===============================
 
-.. note:: This tutorial described the old route of building a 3Di model. 
-    After the Klondike release, you do not need Tortoise and Inpy anymore. This tutorial will be updated. 
-
 Welcome to the tutorial for building a 1D model in 3Di. In this tutorial, you will learn to work with a 1D flow model in 3Di. We will start with a database file (.sqlite) that is already partly filled in. The sqlite is not yet complete, so we will add information to the model to get a basic working model that you can run on the 3Di live site.
 The system in the .sqlite is a non-existent combined sewerage system. The model does not represent a real-world system, but is meant to get acquainted with the different components of a 1D combined sewerage system.
 
@@ -503,31 +500,12 @@ Model activation
 A short description of the model activation is given here. A comprehensive guidance with visual support is provided in Tutorial 2 (:ref:`model_activation`).
 
 
-Upload your model to the repository
-+++++++++++++++++++++++++++++++++++
+Upload your model
++++++++++++++++++
 
-The first step towards running your model is to upload your model to the 3Di model database. Follow these steps:
+See :ref:`_uploading_schematisation` for how to upload your model.
 
-A.	Create a new .zip file with the 1D_gemengd.sqlite database.
-B.	Go to https://models.lizard.net/model_databank/
-C.	Select **Upload new model**. Make sure that you are logged in for this step.
-D.	Fill in the details of your models and include the .zip file. Be sure to select **3Di-v2** as your model type. Note: when you name your model, make sure to include your name in order to make the model name unique (so: “Tutorial_1D_yourName” instead of “Tutorial_1D”)
-E.	Press **Submit**.
-
-
-Compile your model
-+++++++++++++++++++
-
-Now your model is stored in the model database and it is ready for compilation.
-
-A.	Go to https://3di.lizard.net/models/
-B.	Use the search function to retrieve your model. Search for the name that you gave your model in the previous section. You may to select **also show repositories that do not have inp files yet**. It may take some time for the model to show here, after you have uploaded it to the model database.
-C.	Select **initialize inp generation** for your model.
-
-Your model will now be compiled.
-The blue bar “no models” will turn into a green bar with the text “success” when the model is successfully compiled.
-You can now select the model to view the details of your model.
-The model is now also available on the 3Di live site.
+The model is now also available on the 3Di live site and the management screens.
 
 Run your model
 ++++++++++++++
