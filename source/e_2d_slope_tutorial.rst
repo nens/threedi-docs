@@ -3,9 +3,6 @@
 Tutorial 3: 2D flow model over sloped terrain with multiple rasters
 ===================================================================
 
-.. note:: This tutorial described the old route of building a 3Di model. 
-    After the Klondike release, you do not need Tortoise and Inpy anymore. This tutorial will be updated. 
-
 In this tutorial, we will build a basic 2D flow model in mountainous terrain using 3Di. We will edit an existing sqlite, and this tutorial will introduce friction and infiltration rasters.
 These rasters have been highly simplified for the purpose of this tutorial.
 As with any other component of the tutorials, the data and outcomes cannot be used to draw conclusions of the real-world location that was the inspiration for this tutorial. 
@@ -289,28 +286,11 @@ Model activation
 A short description of the model activation is given here. A comprehensive guidance with visual support is provided in Tutorial 2 (:ref:`model_activation`).
 
 
-Upload your model to the repository
-+++++++++++++++++++++++++++++++++++
+Upload your model
++++++++++++++++++
 
-The first step towards running your model is to upload your model to the 3Di model database. Follow these steps:
+See :ref:`_uploading_schematisation` for how to upload your model.
 
-A.	Create a new .zip file with the Lake_Mead.sqlite database and the raster folder. Be mindful that the folder structure in the .zip file matches that of your schematisation. Based on the settings in this tutorial, you zip file should contain your .sqlite database and the folder “raster”. The DEM, friction and infiltration rasters should be in this folder “raster”. 
-B.	Go to https://models.lizard.net/model_databank/
-C.	Select **Upload new model**. Make sure that you are logged in for this step.
-D.	Fill in the details of your models and include the .zip file. Be sure to select **3Di-v2** as your model type.
-E.	Press **Submit**.
-
-Compile your model
-+++++++++++++++++++
-
-Now your model is stored in the model database and it is ready for compilation. 
-
-A.	Go to https://3di.lizard.net/models/
-B.	Use the search function to retrieve your model. Search for the name that you gave your model in the previous section. You may  to select **also show repositories that do not have inp files yet**. It may take some time for the model to show here, after you have uploaded it to the model database.
-C.	Select **initialize inp generation** for your model.
-
-Your model will now be compiled.
-The blue bar “no models” will turn into a green bar with the text “success” when the model is successfully compiled.
 You can now select the model to view the details of your model.
 The model is now also available on the 3Di live site.
 
