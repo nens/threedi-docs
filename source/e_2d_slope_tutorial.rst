@@ -291,8 +291,7 @@ Upload your model
 
 See :ref:`_uploading_schematisation` for how to upload your model.
 
-You can now select the model to view the details of your model.
-The model is now also available on the 3Di live site.
+The model is now also available on the 3Di live site and the management screens.
 
 Run your model
 ++++++++++++++
