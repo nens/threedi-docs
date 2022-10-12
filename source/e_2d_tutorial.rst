@@ -87,7 +87,7 @@ Your QGIS project should now look like this:
 
 Set up your Schematisation settings
 +++++++++++++++++++++++++++++++++++
-The most fundamental element to building a Shematisation is choosing your correct settings.
+The most fundamental element to building a schematisation is choosing your correct settings.
 We will go through all required settings for a basic 2D flow model. A list of mandatory settings and detailed descriptions can be found :download:`in the database overview <pdf/database-overview.pdf>`.
 Extra elements, such as 1D channels, levees or hydraulic structures, are discussed in the other tutorials.
 
