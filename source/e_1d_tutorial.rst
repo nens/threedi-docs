@@ -503,7 +503,7 @@ A short description of the model activation is given here. A comprehensive guida
 Upload your model
 +++++++++++++++++
 
-See :ref:`_uploading_schematisation` for how to upload your model.
+See :ref:`uploading_schematisation` for how to upload your model.
 
 The model is now also available on the 3Di live site and the management screens.
 
