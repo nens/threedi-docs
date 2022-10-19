@@ -11,7 +11,7 @@ The flow in 1D networks is computed, using the equations of conservation of mass
 .. math::
    :label: 1D momentum equation
 
-   \\frac{\\partial u}{\\partial t}+u \\frac{\\partial u}{\\partial s}=-g\\frac{\\partial \\zeta}{\\partial x}-\\frac{\\tau_f}{\\rho}-\\frac{\\tau_w}{\\rho}
+   \\frac{\\partial u}{\\partial t}+u \\frac{\\partial u}{\\partial s}=-g\\frac{\\partial \\zeta}{\\partial x}-\\frac{\tau_f}{\rho}-\\frac{\tau_w}{\rho}
 
 | In which:
 | :math:`u` is the cross-sectionally averaged velocity
