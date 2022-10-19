@@ -11,7 +11,7 @@ The flow in 1D networks is computed, using the equations of conservation of mass
 .. math::
    :label: 1D momentum equation
 
-   \frac{\partial u}{\partial t}+u \frac{\partial u}{\partial s}=-g\frac{\partial \zeta}{\partial x}-\frac{\tau_f}{\rho}-\frac{\tau_w}{\rho}
+   \\frac{\\partial u}{\\partial t}+u \\frac{\\partial u}{\\partial s}=-g\\frac{\\partial \\zeta}{\\partial x}-\\frac{\\tau_f}{\\rho}-\\frac{\\tau_w}{\\rho}
 
 | In which:
 | :math:`u` is the cross-sectionally averaged velocity
@@ -116,7 +116,7 @@ The exchange levels can be set by the user or are based on the local bed level. 
 .. math::
    :label: reduced 1D momentum equation
 
-   0 = -g\frac{\partial \zeta}{\partial s} \big\rvert_{1D2D}-\frac{\tau_f}{\rho}
+   0 = -g\\frac{\\partial \\zeta}{\\partial s} \\big\\rvert_{1D2D}-\\frac{\\tau_f}{\\rho}
 
 This momentum equation in combination with a cross-section defines the flux between the computational domains.
 
@@ -130,7 +130,7 @@ The cross-sectional area of the 1D2D connection is the exchange depth times an e
 .. math::
    :label: storagearea
 
-   A_{1D2D} = L_{1D2D} H_{1D2D} = 4 \sqrt{S H_{1D2D}}
+   A_{1D2D} = L_{1D2D} H_{1D2D} = 4 \\sqrt{S H_{1D2D}}
 
 
 In case of open water elements, there is a difference whether the elements are of the type  connected or double connected. This type depends whether the exchange length represents one bank or two banks. 
