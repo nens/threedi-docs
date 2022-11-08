@@ -52,7 +52,7 @@ The schematisation should also be selected in your 3Di Models and Simulations Pl
 Adding the schematisation to your QGIS project
 ----------------------------------------------
 In order to upload the new schematisation to the management screens, the sqlite has to be loaded into your Modeller Interface.
-This can be done by clicking the 'Select 3Di results' button (|addresults|) and selecting the sqlite at the above mentioned file location.
+This can be done by clicking the 'Select 3Di results' button (|addresults|) and selecting the sqlite at the above mentioned file location. The 'Select 3Di results' button can be found in the 3Di toolbar or via Plugins -> 3Di toolbox -> Select 3Di results.
 
 .. note::
     Please note that, so far, your schematisation only contains the minimum required information to be uploaded to the management screens.
