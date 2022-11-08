@@ -68,7 +68,7 @@ Follow these steps to upload the schematisation to the management screens:
 
 #) Click on 'New Upload' in the window that has popped up and click 'Next'.
 
-#) Press the 'Check Schematisation' button, which controls whether your spatialite and Rasters are valid to upload. During this tutorial, this should give no warnings nor errors.
+#) Press the 'Check Schematisation' button, which controls whether your spatialite and Rasters are valid to upload. During this tutorial, this should give no warnings nor errors. If the database schema version of your spatialite is outdated, you get a popup asking you to migrate (update) the spatialite to the current schema version. Update the schematisation for this tutorial.
 
 #) Continue by going to the next screen. Here you have to fill in a commit message. "First commit" is the conventional way of describing the first commit of a new schematisation. Later on, when you want to upload newer versions of your schematisation (so-called Revisions), it is a good-practice to enter detailed information about the changes that you have made.
 
