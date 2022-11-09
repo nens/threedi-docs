@@ -433,7 +433,7 @@ A sample result looks like this:
 	
 The processing toolbox enables users to generate water depth maps in batch in case this is required. For more information on how this works we refer to the QGIS documentation here: docs.qgis.org/3.16/en/docs/user_manual/processing/modeler.html
 
-.. _3di_network_analyst:
+.. _watershed_tool:
 
 Watershed Tool
 ^^^^^^^^^^^^^^
@@ -443,7 +443,7 @@ Network Analysis for 3Di results
 Introduction
 ############
 
-Watershed Tool is a QGIS Plugin that allows you to find what is
+The Watershed Tool allows you to find what is
 upstream and downstream of any point or area in a
 `3Di <https://3diwatermanagement.com/>`__ simulation result. Upstream or
 downstream elements include surface areas (2D cells), sewerage and open
