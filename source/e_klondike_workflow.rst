@@ -52,7 +52,7 @@ The schematisation should also be selected in your 3Di Models and Simulations Pl
 Adding the schematisation to your QGIS project
 ----------------------------------------------
 In order to upload the new schematisation to the management screens, the sqlite has to be loaded into your Modeller Interface.
-This can be done by clicking the 'Select 3Di results' button (|addresults|) and selecting the sqlite at the above mentioned file location.
+This can be done by clicking the 'Select 3Di results' button (|addresults|) and selecting the sqlite at the above mentioned file location. The 'Select 3Di results' button can be found in the 3Di toolbar or via Plugins -> 3Di toolbox -> Select 3Di results.
 
 .. note::
     Please note that, so far, your schematisation only contains the minimum required information to be uploaded to the management screens.
@@ -68,14 +68,14 @@ Follow these steps to upload the schematisation to the management screens:
 
 #) Click on 'New Upload' in the window that has popped up and click 'Next'.
 
-#) Press the 'Check Schematisation' button, which controls whether your spatialite and Rasters are valid to upload. During this tutorial, this should give no warnings nor errors.
+#) Press the 'Check Schematisation' button, which controls whether your spatialite and Rasters are valid to upload. During this tutorial, this should give no warnings nor errors. If the database schema version of your spatialite is outdated, you get a popup asking you to migrate (update) the spatialite to the current schema version. Update the schematisation for this tutorial.
 
 #) Continue by going to the next screen. Here you have to fill in a commit message. "First commit" is the conventional way of describing the first commit of a new schematisation. Later on, when you want to upload newer versions of your schematisation (so-called Revisions), it is a good-practice to enter detailed information about the changes that you have made.
 
 #) The default settings of this window are to upload the Schematisation and process it to generate a 3Di Model. Select UPLOAD ONLY if you do not need a 3Di Model.
 
 
-Once the progress bar is complete, your schematisation should be visible in the management screens. If you selected UPLOAD AND PROCESS, the newly generated 3Di Model can be found in both the management screens and the 3Di Livesite.
+Once the progress bar is complete, your schematisation should be visible in the management screens. If you selected UPLOAD AND PROCESS, the newly generated 3Di Model can be found in both the `management screens <https://management.3di.live>`_ and the `3Di Livesite <https://www.3di.live/>`_.
 
 Congratulations! You have just uploaded your first schematisation and threedimodel.
 
