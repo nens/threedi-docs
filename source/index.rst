@@ -1,15 +1,12 @@
-.. 3Di documentation master file, created by
-   sphinx-quickstart on Fri Jun  9 12:35:04 2017.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. Note: don't re-add the 'home' header as it breaks the heading levels in the
+   pdf output.
 
-Home
-^^^^
 Welcome to the 3Di Documentation!
 Here you can find everything you need to know about the **hydrodynamic modelling software product 3Di**.
 
 Documentation Overview
 ======================
+
 * To read more about the 3Di :ref:`Background <a_background>`, :ref:`Ecosystem <a_ecosystem>`, :ref:`Basic Modelling Concepts <a_basic_modelling_concepts>`, and the :ref:`Release Notes <a_release_notes>`, check out the **Introduction** section.
 
 * Check out the **3Di Connectors** section for a guide on how to :ref:`integrate FEWS with 3Di <b_fews-integration>`. More connectors will follow.
@@ -53,14 +50,14 @@ If you are interested in a **product demo**, a **live** or **online training**, 
    a_releasenotes
    a_contact
 
-   
+
 .. toctree::
    :hidden:
    :maxdepth: 1
    :caption: 3Di Connectors
    :name: 3Di Connectors
 
-   b_fews_3di_integrations 
+   b_fews_3di_integrations
 
 .. toctree::
    :hidden:
@@ -75,7 +72,7 @@ If you are interested in a **product demo**, a **live** or **online training**, 
    :maxdepth: 1
    :caption: How to work with 3Di
    :name: How to work with 3Di
-   
+
 
 
    d_building_a_model
@@ -83,14 +80,14 @@ If you are interested in a **product demo**, a **live** or **online training**, 
    d_adding_running_scenario
    d_viewing_analysing_results
    d_management
-   
+
 
 .. toctree::
    :hidden:
    :maxdepth: 1
    :caption: Tutorials
    :name: tutorials
-  
+
 
    e_klondike_workflow
    e_2d_tutorial
@@ -103,7 +100,7 @@ If you are interested in a **product demo**, a **live** or **online training**, 
    :maxdepth: 2
    :caption: Problem solving and support
    :name: instalation_manual
-   
+
    f_3di_instruments_and_downloads
    f_problem_solving
    f_servicedesk
@@ -127,7 +124,7 @@ If you are interested in a **product demo**, a **live** or **online training**, 
    :maxdepth: 2
    :caption: Model concepts
    :name: Model_concepts
-  
+
 
    h_basic_modelling_concepts_threedi
    h_grid

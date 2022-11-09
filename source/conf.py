@@ -17,7 +17,7 @@ THREEDI_RELEASE = "2022-02 Klondike Release"
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ["sphinx.ext.todo", "sphinx.ext.imgmath", "sphinx.ext.imgmath"]
+extensions = ["sphinx.ext.todo"]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
@@ -77,3 +77,15 @@ numfig = True
 if not is_development_build:
     # Only use google analytics on the production doc site.
     html_theme_options = {"analytics_id": "UA-111119907-2"}
+
+
+# Latex output settings, mostly to get unicode characters in math working.
+latex_engine = "xelatex"
+latex_elements = {
+    "papersize": "a4paper",
+    "extrapackages": r"\usepackage{unicode-math}",
+    # The next two are to prevent the html "align" from wreaking pdf output.
+    # See https://github.com/sphinx-doc/sphinx/issues/3289#issuecomment-298942353
+    "figure_align": "H",
+    'preamble': r'\renewenvironment{wrapfigure}[2]{\begin{figure}[H]}{\end{figure}}',
+}

@@ -58,56 +58,79 @@ Given a controlled pump at location X with a stop and start level of 0.0 mNAP an
 Weirs and Orifices
 ------------------
 
-Weirs are generally used to maintain and control the water level. Orifices connect two parts of channel networks. Both structures force the flow to converge strongly at the entrance and to diverge behind the structure. At the converging part of the flow, the assumption of conservation of momentum in 1D is invalid. Locally at the structure, conservation of energy is much more suited. The formulations for the flow over the weir and through the orifice are therefore based on Bernoulli's principle. For a weir in open water it reads: 
+Weirs are generally used to maintain and control the water level. Orifices connect two parts of channel networks. Both structures force the flow to converge strongly at the entrance and to diverge behind the structure. At the converging part of the flow, the assumption of conservation of momentum in 1D is invalid. Locally at the structure, conservation of energy is much more suited. The formulations for the flow over the weir and through the orifice are therefore based on Bernoulli's principle. The computations of the flow of both structures follow the same reasoning. In the explanation below, the focus is on an open water rectangular weir, but similar steps are taken for structures with different open/closed cross-sections.
+
+For a weir in open water the energy head balance reads: 
 
 .. math::
    
    h_I+\frac{u_I^2}{2g}=h_{II}+a+\frac{u_{II}^2}{2g}
 
-where :math:`h` is the local water depth, :math:`u` the local cross-sectionally averaged velocity, :math:`g` the gravitational accelaration and :math:`a` the height of the crest. The sub-scripts refer to the flow domains, indicated in the figure below. This is an example for open water structures, but the principle is the same for structures with closed profiles. In that case :math:`h` is not the water depth, but the energy height. For structures having closed profiles, the transition of water depth to energy height is automatically taken care of in case the area fills with water.
+where :math:`h` is the local water depth, :math:`u` the local cross-sectionally averaged velocity, :math:`g` the gravitational acceleration  and :math:`a` the height of the crest. The sub-scripts refer to the flow domains, indicated in the figure below. 
 
 .. figure:: image/b_structure_weir_orifice.png
    :alt: structures_weir_short
      
    Illustration of short crested weir and orifice under sub- and (super-)critical conditions; a simplified view of the 1D network and a sketch of the available discretised information. 
 
-It is assumed that :math:`u_I` is negligible compared to :math:`u_{II}`. Two states of the flow are identified; sub- and (super)-critical flow. In case of (super-)critical flow, the downstream waterlevel does not affect the flow over the structure. Although, this is the case under sub-critical conditions. To optimize between accuracy and computational speed, 3Di schematises structures as connections between two nodes, as can be seen in the third panel of the figure. This assumption implies that the water level on the location of the structure is unknown. 
-The fourth panel of the figure shows the information known in a discretised world. In case the flow is critical, the waterdepth/level at the structure can be determined using the upstream waterlevel and the definition for critical flow: 
+In case of structures with closed profiles, in the equation of the energy balance :math:`h` is not the water depth, but the energy height. For structures having closed profiles, the transition of water depth to energy height is automatically taken care of in case the area fills with water.
 
-.. math::e
-   h_{II}= \frac{2}{3}(h_I-a)
+For robustness, 3Di schematises structures as connections between two nodes, as can be seen in the third panel of the figure. This assumption implies that the water level on the location of the structure is unknown. To compute accurately the discharge over the structure, a difference is made between long crested and short crested structures. Both resulting formulations are based on Bernoulli's principle, but for long crested structures, frictional losses are computed separately.
+
+
+Short crested
+^^^^^^^^^^^^^
+
+The discharge over the structure is computed based on the effective cross-sectional area :math:`A_{eff}` and the velocity over the structure :math:`u_{II}`. Two states of the flow can occur over the structure: sub- and (super)-critical flow. For both states, different assumptions are valid. However, for both states it is assumed that :math:`u_I` is negligible compared to :math:`u_{II}`.
+
+In case of (super-)critical flow, the downstream waterlevel does not affect the flow over the structure, as is the case under sub-critical conditions. The fourth panel of the figure shows the information known in a discretised world. In case the flow is critical, the water depth at the crest can be determined using the upstream waterlevel and the definition for critical flow: 
+
+.. math::
+   h_{cr}= \frac{2}{3}(h_I-a) = h_{II}
    
-For this case, the velocity through/over the structure is given by:
+The critical velocity over the structure is given by:
 
 .. math::
-   u_{II}= C \sqrt{\frac{2}{3}g (h_I-a)}
+   u_{II}= C_1 \sqrt{\frac{2}{3} g (h_I-a)}
 
-:math:`C` is a discharge coefficient, which can be set depending on the type and the shape of the structure and the entrance. It is a measure for the so-called shape losses.
-
-In case of sub-critical flows, the waterlevel downstream of the structure is important.  Under these conditions the flow velocity through/over the structure is:
+:math:`C_1` is a loss coefficient, which can be set depending on the type and the shape of the structure itself and the entrance. The effective cross-sectional area is in this case based on the critical water depth. For a simple rectangular cross-section:
 
 .. math::
-   u_{II}= C \sqrt{\frac{2} g (\zeta_I-\zeta_{III})}
+   A_{eff}= C_2 W \frac{2}{3}(h_I-a)
 
-
-at the weir crest is assumed to be the same as the downstream water level. In this case :math:`\zeta` is the water level, which can be derived from the waterdepth.
-
-The total discharge through the structure depends on the defined cross-section and the derived water level at the location of the structure. 
+In which :math:`C_2` is a loss coefficient due to contraction of the flow. For the total discharge in 3Di, the discharge under free flowing conditions is computed as:
 
 .. math::
-   Q_{II}= A_{II} u_{II}
-   
-where :math:`A` is the wet cross-sectional area and :math:`Q` is the total discharge.
+   Q_{cr} = C_1 \sqrt{\frac{2}{3} g (h_I-a)} C_2 W \frac{2}{3}(h_I-a) = C \frac{2}{3}\sqrt{\frac{2}{3}g} (h_I-a)^{\frac{3}{2}}
 
-For longer structures, frictional effects can become important. For the so-called broad-crested weirs and orifices an extra loss-term is added to Bernoulli's equation. The frictional losses :math:`dh_F` are computed as:
+Note, that the coefficients :math:`C_1` and :math:`C_2` are combined is the general discharge coefficient :math:`C`, which can be set by the user.
+
+In case of sub-critical flows, the waterlevel downstream of the structure is important.  Under these conditions the flow velocity over the structure is:
 
 .. math::
-   dh_F= \frac{c_f L u_{II}^2}{2 g R}
+   u_{II}= C_1 \sqrt{2 g (h_{I}-h_{II}-a)}
 
-where :math:`c_f` is the dimensionless friction coefficient, :math:`L` the length of the structure and :math:`R` is the hydraulic radius. The dimensionless friction coefficient can be based on either Manning or the Chézy formulation. It is also of importance that the strucure length is correctly set. The computational core expects that this is the geometrical distance between the two connection nodes. 
+To determine the depth at the crest, it is assumed that the waterlevel at the crest is equal to the waterlevel downstream. Based on that assumption, the effective cross-section becomes:
+
+.. math::
+   A_{sub}= C_2 W h_{II}
+
+Combining these equations, results in the discharge formulation.
+
+.. math::
+   Q_{sub} = C_1 \sqrt{2 g (h_I-h_{II})} C_2 W h_{II}= C W \sqrt{2 g (h_I-h_{II})} h_{II}
+
+Long crested
+^^^^^^^^^^^^
+
+For longer structures, frictional effects can become important. For the so-called broad-crested weirs and orifices an extra loss-term is added to Bernoulli's equation. The frictional losses :math:`\Delta h_F` are computed as:
+
+.. math::
+   \Delta h_F= \frac{c_f L u_{II}^2}{2 g R}
+
+where :math:`c_f` is the dimensionless friction coefficient, :math:`L` the length of the structure and :math:`R` is the hydraulic radius. The dimensionless friction coefficient can be based on either Manning or the Chézy formulation. It is also of importance that the structure length is correctly set. The computational core expects that this is the geometrical distance between the two connection nodes. The friction coefficient can be defined either by a Manning or a Chézy value.
  
 An advantage of these formulations is that these do not limit the timestep during the simulation.
-
 
 The attributes that define these structures are:
 

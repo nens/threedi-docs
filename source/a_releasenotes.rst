@@ -8,6 +8,14 @@ Release notes
 3Di general releases
 --------------------
 
+October 26th 2022
+^^^^^^^^^^^^^^^^^^^^
+
+Hotfix:
+
+- fixed issue with embedded channel cross-sections
+
+
 May 2022
 ^^^^^^^^^^
 
