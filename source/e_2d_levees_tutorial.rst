@@ -320,7 +320,7 @@ Upload your model
 
 See :ref:`uploading_schematisation` for how to upload your model.
 
-The model is now also available on the 3Di live site and the management screens.
+The model is now also available on the `3Di Livesite <https://www.3di.live/>`_ and the `management screens <https://management.3di.live>`_.
 
 Run your model
 ++++++++++++++
