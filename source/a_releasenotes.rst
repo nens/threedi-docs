@@ -8,6 +8,14 @@ Release notes
 3Di general releases
 --------------------
 
+
+November 2nd 2022
+^^^^^^^^^^^^^^^^^^^^
+
+Hotfix:
+
+- Removed incorrect boundary conditions (legacy) initialization at t=0 with only 0 values
+
 October 26th 2022
 ^^^^^^^^^^^^^^^^^^^^
 
