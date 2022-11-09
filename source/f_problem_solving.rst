@@ -160,6 +160,11 @@ This might also be the case for other projections.
 
 - The waterdepth interpolation in the livesite may show unexpected behaviour; it shows triangular patterns. These deviations are only visual, so the results are still correctly. This will be fixed in the near future.
 
+- The following checks don’t work in case there is no index in the spatialite:
+
+   * It doesn’t check for stand alone connection nodes
+   * It doesn’t check for connection nodes that are too close or on top of each other
+
 
 
 Modeller Interface
