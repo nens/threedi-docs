@@ -435,15 +435,15 @@ The processing toolbox enables users to generate water depth maps in batch in ca
 
 .. _3di_network_analyst:
 
-3Di Network Analyst
-^^^^^^^^^^^^^^^^^^^
+Watershed Tool
+^^^^^^^^^^^^^^
 
 Network Analysis for 3Di results
 
 Introduction
 ############
 
-3Di Network Analyst is a QGIS Plugin that allows you to find what is
+Watershed Tool is a QGIS Plugin that allows you to find what is
 upstream and downstream of any point or area in a
 `3Di <https://3diwatermanagement.com/>`__ simulation result. Upstream or
 downstream elements include surface areas (2D cells), sewerage and open
