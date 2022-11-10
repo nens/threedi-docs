@@ -58,7 +58,7 @@ This can be done by clicking the 'Select 3Di results' button (|addresults|) and 
     Please note that, so far, your schematisation only contains the minimum required information to be uploaded to the management screens.
     Now that your sqlite has been imported to your modeller interface, your schematisation can be extended. This, however, falls outside the scope of this tutorial.
 
-
+.. _uploading_schematisation:
 
 Uploading the Schematisation
 ----------------------------
