@@ -50,7 +50,7 @@ Now, when you log in through the 3Di Models & Simulations plugin, you will be as
     :alt: Set Personal API key
 
 
-- Click 'Obtain...'. Your web browser will open, showing the management page where you can create a new Personal API Key. Create a new API key by pressing the '+NEW ITEM' button in the upper right corner.
+- Click 'Obtain...'. Your web browser will open, showing the management page where you can `create a new Personal API Key <https://management.3di.live/personal_api_keys>`_. Create a new API key by pressing the '+NEW ITEM' button in the upper right corner.
 
 .. figure:: image/f_set_apikey_managementscreen_overview.png
     :alt: API keys in the management screen
