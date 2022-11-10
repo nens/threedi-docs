@@ -50,8 +50,24 @@ Now, when you log in through the 3Di Models & Simulations plugin, you will be as
     :alt: Set Personal API key
 
 
-- Click 'Obtain...'. Your web browser will open, showing the management page where you can create a new Personal API Key.  
-- Copy the created Personal API Key to your clipboard. 
+- Click 'Obtain...'. Your web browser will open, showing the management page where you can create a new Personal API Key. Create a new API key by pressing the '+NEW ITEM' button in the upper right corner.
+
+.. figure:: image/f_set_apikey_managementscreen_overview.png
+    :alt: API keys in the management screen
+
+
+- Add a name for the new api key. You could use 'qgis', for example. Press on 'Submit' to the right.
+
+.. figure:: image/f_set_apikey_managementscreen_name_key.png
+    :alt: Set the name for the API key
+
+
+- A popup shows with your API key. You can copy the API key to your clipboard with the icon on the right of the API key or select and copy the text. This API key cannot be accessed after closing this popup. In case you closed the popup before you added the API key to QGIS, you can always create a new API key.
+
+.. figure:: image/f_set_apikey_managementscreen_popup_with_key.png
+    :alt: The popup that shows your API key.
+
+
 - Return to the 3Di Modeller Interface.
 - In the 3Di Models & Simulations plugin Settings dialog, click 'Set...'.
 - Paste the Personal API Key and click OK.
