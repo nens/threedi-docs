@@ -91,6 +91,7 @@ When starting or following a session, the screen in :numref:`fig_main_ses` will 
 - :ref:`rain_tool_guide`
 - :ref:`wind_tool_guide`
 - :ref:`raster_edit_tool`
+- :ref:`_flood_barrier_tool`
 - :ref:`Layer tool <layers_menu_guide>`
 
 .. _user_menu:
@@ -251,6 +252,15 @@ The **Raster-edit tool** lets you edit the elevation raster (DEM) by pressing **
 	:alt: Raster edits
 
 	Raster edit tool.
+
+
+
+.. _flood_barrier_tool:
+
+Flood barrier tool
+------------------
+
+*TBD*
 
 
 
