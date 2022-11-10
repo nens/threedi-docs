@@ -62,7 +62,7 @@ Now, when you log in through the 3Di Models & Simulations plugin, you will be as
     :alt: Set the name for the Personal API Key
 
 
-- A popup shows with your Personal API Key. You can copy the Personal API Key to your clipboard with the icon on the right of the Personal API Key or select and copy the text. This Personal API Key cannot be accessed after closing this popup. In case you closed the popup before you added the Personal API Key to QGIS, you can always create a new Personal API Key.
+- A popup shows with your Personal API Key. You can copy the Personal API Key to your clipboard with the icon on the right or select and copy the text. This Personal API Key cannot be accessed after closing this popup. In case you closed the popup before you added the Personal API Key to QGIS, you can always create a new one.
 
 .. figure:: image/f_set_apikey_managementscreen_popup_with_key.png
     :alt: The popup that shows your Personal API Key
