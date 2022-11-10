@@ -262,6 +262,11 @@ Flood barrier tool
 
 *TBD*
 
+.. ifconfig:: internal
+
+   update screenshot of everything with also the flood barrier icon in the left
+   wait till its on production before adding this part
+
 
 
 .. _layers_menu_guide:
