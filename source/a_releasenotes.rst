@@ -9,6 +9,26 @@ Release notes
 --------------------
 
 
+November 15th 2022
+^^^^^^^^^^^^^^^^^^
+
+**Tables**
+
+When generating the subgrid tables the approach has changed. Instead of user defined equidistant steps 3Di now takes non equidistant steps. This saves a ton of space when generating 3Di models and is especially of impact when modelling in hilly areas or in areas where there is a large difference between pixels.
+
+.. image:: /image/subgrid_tables_non_equidistant_steps.png
+   :alt: Showing the difference between equidistant and non equidistant steps.
+
+*DEM edits*
+
+- Refactor of dem edits to make this feature more robust.
+
+**Gridbuilder**
+
+- More efficient: ignores unused refinement levels
+
+
+
 November 2nd 2022
 ^^^^^^^^^^^^^^^^^^^^
 
@@ -304,6 +324,22 @@ The map can be viewed here: stowa.lizard.net
 3Di Live Site 
 --------------
 
+November 15th 2022
+^^^^^^^^^^^^^^^^^^
+
+**Flood barriers tool**
+
+.. todo: - Add a short movie showing the capabilities
+
+**Other added features**
+
+- Show 2D flow lines (new model generation required for this)
+
+**Fixed**
+
+- Link to 3Di documentation under ‘help
+
+
 August 2022
 ^^^^^^^^^^^^
 - We have hotfixed the waterdepth interpolation to make sure that no water is shown visually before the start of a simulation and to avoid large patches  of interpolated water when zooming out
@@ -384,6 +420,31 @@ Some bugfixes in 3Di live:
 3Di Management Screens
 ----------------------
 
+November 15th 2022
+^^^^^^^^^^^^^^^^^^
+
+- See the complete commit message in the revision overview when hovering
+- This overview now also shows for which revisions a 3Di model is available
+
+.. image:: /image/management_screen_schematisation_commit_message_when_hovering.png
+   :alt: You can now see the commit message when hovering.
+
+- When clicking on a simulation template, the link now is directed to the details page of the simulation where the template was based upon. Showing the events in the simulation template.
+- Added a save as template button to simulations detail page
+
+.. image:: /image/management_screens_save_as_template.png
+
+- Shows queued simulations:
+
+.. image:: /image/management_screens_queued_simulations.png
+
+- Regenerating a model that is active now gives a clear error message
+
+.. image:: /image/management_screens_regenerating_active_model_gives_clear_error_message.png
+
+- If a project tag is added to a simulation it will be shown
+
+
 February 2022 (Klondike) v2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -428,6 +489,30 @@ For schematisations users can:
 
 3Di Modeller Interface 
 ----------------------
+
+November 15th 2022
+^^^^^^^^^^^^^^^^^^
+
+**Schematisation editor**
+
+ - Added support for the closed profile ‘0’.
+
+**Checker**
+
+- Warning for double cumultative cumulative discharges in the aggregation NetCDF - https://app.zenhub.com/workspaces/team-3di-5ef60eff1973dd0024268b90/issues/nens/threedi-api/1766 ?
+
+- Check on flooding treshold is now more strict
+
+**Postprocessing Lizard**
+
+- Added the possibility to use the projects in Lizard directly. Give your simulation as a tag: ‘project:number’ and the number will be added in lizard to the project.
+
+**Reminder**
+
+- The server known as inpy is no more. If you started using 3Di this year you can ignore this message. For the other users: the 3Di models cannot run anymore on the live site. But the schematisations are all available. The be able to run the 3Di model again, simply look for your schematisation on management.3di.live and press ‘generate model’.
+
+- If you’re not sure whether your model is generated using inpy, go to management.3di.live search for your model. If there is no details page available (link is greyed out) then the model is generated via inpy.
+
 
 August 2022
 ^^^^^^^^^^^^
@@ -737,6 +822,71 @@ We are constantly working on improving the 3Di experience. Based on user experie
 
 3Di API
 ----------
+
+November 15th 2022
+^^^^^^^^^^^^^^^^^^
+
+When using an .env fileyou need to change the content of this file to:
+
+THREEDI_API_HOST=https://api.3di.live
+THREEDI_API_PERSONAL_API_TOKEN= supersecret API key
+
+   - Instead of username / password. It is more secure and for new users the username/password combination will not work anymore. Note: Try to avoid committing passwords and API keys to public github repositories.
+
+- Added variable increment table step sizes.
+
+- Block obstacle/raster edits for models generated before 3.0.0 release.
+
+- Obstacle edits support.
+
+- Duration on structure-controls has become mandatory.
+
+Note: this is not backwards compatible, but without duration it does not work...
+
+- Increased total timeout for trying Lizard rain requests for one timestep to 30 minutes.
+
+- Gridadmin.h5 `epsg_code` is only an attribute on root level.
+
+- Threedimodel 1d/2d/0d extent's can now be zero size (singular point).
+
+- Allow patching `duration` on Lizard raster rain and sources & sinks Lizard raster resources.
+
+- Set `simulation.threedicore_version` on simulation start.
+
+- Added rain (node) graph websocket to results-api and registration endpoint.
+
+- Added rain graph endpoint in API v3
+
+- Add endpoint for uploading and downloading 'flowlines' geojson file on threedimodel.
+
+- Added `has_threedimodel` field to schematisation revisions and querystring filter option.
+
+- Stopped Inpy-generated models support.
+
+- Fixed a bug in the LizardRasterSourcesSinks serialization.
+
+- Fixed a bug in api/v3/auth/users (non-superusers).
+
+- Changed link in email sent when queued simulation is started. #1657
+
+- Bugfix: get correct list of related rasters for DEM raster edits. #1711
+
+- Bugfix: Aggregation of uploaded initial waterlevel rasters on threedimodels was not triggered.
+
+- Allow an user to create multiple initial waterlevel rasters on a threedimodel.
+
+- Support bigger geotiffs by enabling temporary compression for Cloud Optimize Geotiff creation.
+
+Hotfixes that were already set in production
+
+- Stop initializing boundaries with 0 values at t0 by default.
+
+- Improve waterdepth interpolation by using `vol/vol1` to prune Delaunay triangles that have volume < 0.001 voor all 3 nodes.
+
+**Fixed**
+
+- Threedicore version is now correctly written to the simulation details
+
 
 July 2022
 ^^^^^^^^^^
