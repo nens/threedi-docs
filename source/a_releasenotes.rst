@@ -9,8 +9,8 @@ Release notes
 --------------------
 
 
-November 15th 2022
-^^^^^^^^^^^^^^^^^^
+November 2022
+^^^^^^^^^^^^^
 
 **Tables**
 
@@ -324,8 +324,8 @@ The map can be viewed here: stowa.lizard.net
 3Di Live Site 
 --------------
 
-November 15th 2022
-^^^^^^^^^^^^^^^^^^
+November 2022
+^^^^^^^^^^^^^
 
 **Flood barriers tool**
 
@@ -420,8 +420,8 @@ Some bugfixes in 3Di live:
 3Di Management Screens
 ----------------------
 
-November 15th 2022
-^^^^^^^^^^^^^^^^^^
+November 2022
+^^^^^^^^^^^^^
 
 - See the complete commit message in the revision overview when hovering
 - This overview now also shows for which revisions a 3Di model is available
@@ -490,8 +490,8 @@ For schematisations users can:
 3Di Modeller Interface 
 ----------------------
 
-November 15th 2022
-^^^^^^^^^^^^^^^^^^
+November 2022
+^^^^^^^^^^^^^
 
 **Schematisation editor**
 
@@ -823,8 +823,8 @@ We are constantly working on improving the 3Di experience. Based on user experie
 3Di API
 ----------
 
-November 15th 2022
-^^^^^^^^^^^^^^^^^^
+November 2022
+^^^^^^^^^^^^^
 
 When using an .env fileyou need to change the content of this file to:
 
