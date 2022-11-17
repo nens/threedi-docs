@@ -493,9 +493,59 @@ For schematisations users can:
 November 2022
 ^^^^^^^^^^^^^
 
-**Schematisation editor**
+**Release notes 3Di Toolbox v2.4**
 
- - Added support for the closed profile ‘0’.
+- Bugfix: "predict calc points" tool no longer fails with "TypeError: not all arguments converted during string formatting" #699
+
+- Spatialite schema version compatibility upgraded from schema version 207 to 209 (#693, #648)
+
+**Release notes 3Di Schematisation Editor v1.2**
+
+- Editing channel start- or end vertices now disconnects channel from connection node, consistent with behaviour for other line features (#66)
+
+- Unused field "max_capacity" has been removed from Orifice layer (#73)
+
+- Spatialite database schema version is now saved to Geopackage during conversion (#72)
+
+- "Load from Spatialite" no longer fails when the spatialite contains a v2_surface_map or v2_impervious_surface_map with a connection_node_id that does not exist (#75)
+
+- In all attribute forms, units are added to fields for which this is relevant (#8)
+
+- Explainer text has been added to cross section 'table' input boxes in the attribute forms (#64)
+
+- Mistakes in cross_section_table inputs are fixed if possible, and mistakes that cannot be fixed are identified and reported to the user before "Save to Spatialite" starts. are checked GPKG to Spatialite (#70)
+
+- Remove unnecessary popup "Save edits to Manhole?" in specific cases (#80)
+
+- Spatialite schema version compatibility upgraded from schema version 207 to 209 (#71, #83)
+
+- Add cross section shape 0: "Closed rectangle" (#79)
+
+- Enable/disable the width, height and table widgets based on cross section shape (#78)
+
+**Release notes 3Di Models & Simulations v3.3**
+
+- 2D grid (geojson file) is no longer downloaded after choosing model for new simulation. Instead, please use the processing algorithms in Processing > Toolbox > 3Di > Computational Grid (#325)
+
+- New project > New simulation no longer fails (#400)
+
+- Fix issues with Models & Simulations Panel when other dock widget on the right are also opened. The status bar at the bottom no longer dissapears when opening the Models & Simulations Panel. (#153)
+
+- New schematisation: spatialite is migrated to most recent version (#359)
+
+- New schematisation becomes the active schematisation after "New schematisation from existing spatialite" (#385)
+
+- Add option to upload new initial water level rasters in the Simulation wizard (#280)
+
+- In the dropdown for selecting an initial water level raster in the Simulation Wizard, show name of the source file instead of "initial_waterlevels.msgpack" (#179)
+
+- In the simulation wizard, you can now set the discharge coefficients and max breach depth in the breach tab (#187)
+
+- Spatialite schema version compatibility upgraded from schema version 207 to 209 (#398, #406)
+
+- When downloading simulation results, the gridadmin.h5 file is now (also) downloaded to {3Di working directory}\{schematisation}\{revision n}\grid (#403)
+
+- When downloading a revision, the gridadmin.h5 is also downloaded if available (#402)
 
 **Checker**
 
