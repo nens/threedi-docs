@@ -548,10 +548,6 @@ November 21th 2022
 
 - When downloading a revision, the gridadmin.h5 is also downloaded if available (#402)
 
-**Schematisation editor**
-
-Added support for the closed profile ‘0’.
-
 **Checker**
 
 - Warning for double cumultative cumulative discharges in the aggregation NetCDF - https://app.zenhub.com/workspaces/team-3di-5ef60eff1973dd0024268b90/issues/nens/threedi-api/1766 ?
