@@ -329,9 +329,10 @@ November 21th 2022
 
 **Flood barriers tool**
 
-.. todo: - Add a short movie showing the capabilities
+A flood barrier can prevent a certain area from flooding. You can also set the height of the flood barrier.
+For more information about the flood barriers tool, you can watch the `Floodbarriers preview <https://www.youtube.com/watch?v=by4MS5DdEgY>`_ on Youtube.
 
-**Other added features**
+**Added features**
 
 - Show 2D flow lines (new model generation required for this)
 
@@ -490,8 +491,8 @@ For schematisations users can:
 3Di Modeller Interface 
 ----------------------
 
-November 2022
-^^^^^^^^^^^^^
+November 21th 2022
+^^^^^^^^^^^^^^^^^^
 
 **Release notes 3Di Toolbox v2.4**
 
@@ -877,8 +878,8 @@ We are constantly working on improving the 3Di experience. Based on user experie
 3Di API
 ----------
 
-November 2022
-^^^^^^^^^^^^^
+November 21th 2022
+^^^^^^^^^^^^^^^^^^
 
 When using an .env fileyou need to change the content of this file to:
 
