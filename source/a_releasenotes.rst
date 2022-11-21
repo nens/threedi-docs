@@ -329,7 +329,7 @@ November 21th 2022
 
 **Flood barriers tool**
 
-A flood barrier can prevent a certain area from flooding. You can also set the height of the flood barrier.
+A flood barrier can prevent a certain area from flooding. You can set the height of the flood barrier.
 For more information about the flood barriers tool, you can watch the `Floodbarriers preview <https://www.youtube.com/watch?v=by4MS5DdEgY>`_ on Youtube.
 
 **Added features**
