@@ -9,8 +9,8 @@ Release notes
 --------------------
 
 
-November 2022
-^^^^^^^^^^^^^
+November 21th 2022
+^^^^^^^^^^^^^^^^^^
 
 **Tables**
 
@@ -324,8 +324,8 @@ The map can be viewed here: stowa.lizard.net
 3Di Live Site 
 --------------
 
-November 2022
-^^^^^^^^^^^^^
+November 21th 2022
+^^^^^^^^^^^^^^^^^^
 
 **Flood barriers tool**
 
@@ -420,8 +420,8 @@ Some bugfixes in 3Di live:
 3Di Management Screens
 ----------------------
 
-November 2022
-^^^^^^^^^^^^^
+November 21th 2022
+^^^^^^^^^^^^^^^^^^
 
 - See the complete commit message in the revision overview when hovering
 - This overview now also shows for which revisions a 3Di model is available
