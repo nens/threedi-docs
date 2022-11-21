@@ -5,7 +5,7 @@ import sphinx_rtd_theme
 # The 3Di release name that's shown at the top of the sidebar.
 # Note: non-production documentation builds are marked as such, you don't need
 # to change the release name for that.
-THREEDI_RELEASE = "2022-02 Klondike Release"
+THREEDI_RELEASE = "2022-03 Klondike Release"
 
 
 # -- General configuration ------------------------------------------------
