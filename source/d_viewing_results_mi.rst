@@ -438,22 +438,19 @@ The processing toolbox enables users to generate water depth maps in batch in ca
 Watershed Tool
 ^^^^^^^^^^^^^^
 
-Network Analysis for 3Di results
-
 Introduction
 ############
 
 The Watershed Tool allows you to find what is
 upstream and downstream of any point or area in a
-`3Di <https://3diwatermanagement.com/>`__ simulation result. Upstream or
+3Di simulation result. Upstream or
 downstream elements include surface areas (2D cells), sewerage and open
 water system flow (1D flowlines) and impervious surfaces (0D inflow). If
 there is a significant net flow from the element to the target location,
 the element is included in the upstream result set; for the downstream
 area, this is based on flow from the target node(s) to the downstream
 elements. These connections may consist of any (combination of) type of
-flowline included in the model (pumplines and breaches are not yet
-implemented).
+flowline included in the model. Pumplines are not yet implemented.
 
 User manual
 ###########
@@ -470,8 +467,7 @@ Most basic use of the tool
    ‘3Di results NetCDF’.
 -  If the corresponding gridadmin.h5 file is located in the same folder,
    it will be found automatically.
--  You may leave empty the input ‘3Di model sqlite’; this is an optional
-   input.
+-  If you want to include impervious surfaces in your analysis, fill the ‘3Di model sqlite’ input (optional).
 -  After selecting the inputs, the tool preprocesses your model results.
    This may take a few seconds (up to half a minute for very large
    models).
@@ -503,7 +499,7 @@ Required input.
 
 The 3Di model sqlite (.sqlite file) is an optional input, required only
 for visualizing which v2_impervious_surface features are upstream of the
-target node(s).
+target node(s). This functionality is currently not supported for v2_surface features.
 
 Settings section
 ****************
@@ -513,25 +509,25 @@ Threshold (m3)
 
 Determines which flowlines are included in the network used for
 calculating upstream or downstream connectivity. Only flowlines that
-have a cumulative discharge above the threshold included.
+have a cumulative discharge above the threshold are included.
 
 More specifically, the threshold applies to the *absolute net
 cumulative* discharge. E.g., if the time window is 30 minutes (1800 s)
-and the discharge is -1.0 m3/s, the net cumulative discharge is 1800 m3.
+and the discharge is -1.0 m:sup:`3`/s, the net cumulative discharge is 1800 m:sup:`3`.
 If flow direction changes during the simulation, the discharge may be
--1.0 m3/s in the first 15 minutes (900 s) and 0.5 m3/s in the last 15
+-1.0 m:sup:`3`/s in the first 15 minutes (900 s) and 0.5 m:sup:`3`/s in the last 15
 minutes, the absolute net cumulative discharge = abs(-900 + 450) = 450
-m3
+m:sup:`3`
 
 Start and end time (s)
 ~~~~~~~~~~~~~~~~~~~~~~
 
-This setting allows to analyse the flow during part of the simulation
+These settings allows you to analyse the flow during part of the simulation
 time instead of the full simulation time.
 
 Please note that if an area is marked as upstream or downstream of a
 node for the chosen time window, it does not mean that water can flow to
-that point within that time window. E.g. if you’d select the source of
+that point within the given time window. E.g. if you would select the source of
 the Nile as target node and a time window of 10 minutes, there would
 still be a fully connected network of flowlines all the way down to the
 Mediterrean, but this does not mean that a drop of water can flow all
@@ -551,17 +547,12 @@ Click the ‘Click on Canvas’ button, then click on a target node on the
 map canvas. This works in a way comparable to the Identify tool. Using
 Click on Canvas, you will always select only one target node.
 
-Please note that if you zoom in and click too far away from any target
-node, nothing will happen.
-
 Catchment for selected nodes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 First use the Select tool to select one or more target nodes, then click
 ‘Catchment for selected nodes’.
 
-Please note that if you have not selected any target nodes and click
-this button, nothing will happen.
 
 Target nodes in polygons
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -585,22 +576,6 @@ Control whether only upstream, only downstream or both types of
 cells/areas/flowlines/impervious surfaces are calculated by checking the
 upstream and/or downstream boxes.
 
-Single cells checkbox
-~~~~~~~~~~~~~~~~~~~~~
-
-*This option is not yet implemented (always on)*. In addition to the
-catchments, the ‘raw’ single cells are included in the result set. The
-catchments are made from these single cells by dissolving them, removing
-the holes from the resulting polygons, and then smoothing them. This is
-more visually attractive, but the single cells are more precise.
-
-Flow pattern checkbox
-~~~~~~~~~~~~~~~~~~~~~
-
-*This option is not yet implemented (always off)*. When implemented and
-switched on, arrows showing the flow pattern within the catchments will
-be included in the result set.
-
 Browse result sets
 ~~~~~~~~~~~~~~~~~~
 
@@ -615,20 +590,10 @@ If you want to delete the results you have generated so far, the button
 ‘clear results’ can be used (rather than deleting all features from all
 result layers).
 
-Algorithm
-#########
-
-*TBD*
-
 Please note
 ***********
-
 -  Pumplines (pumping stations that pump from one location in the model
    to another) are not taken into account in the network analysis.
 -  Interflow is not taken into account in the network analysis
 -  Groundwater flow is taken into account but has not been tested yet,
    please check the results
-
-
-
-
