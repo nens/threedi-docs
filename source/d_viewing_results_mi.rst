@@ -517,7 +517,7 @@ and the discharge is -1.0 m:sup:`3`/s, the net cumulative discharge is 1800 m:su
 If flow direction changes during the simulation, the discharge may be
 -1.0 m:sup:`3`/s in the first 15 minutes (900 s) and 0.5 m:sup:`3`/s in the last 15
 minutes, the absolute net cumulative discharge = abs(-900 + 450) = 450
-m:sup:`3`
+m\ :sup:`3`
 
 Start and end time (s)
 ~~~~~~~~~~~~~~~~~~~~~~
