@@ -206,13 +206,58 @@ Through the **Rain tool** icon, rainfall can be added to the model. The followin
 
 * **Constant**: a homogeneous event in both space and time across the entire model range.
 * **Radar**: use historical rainfall data (only available in the Netherlands).
+* **Forecast**: use forecast data from ICON or QPE.
 * **Design**: use a design event. This event is homogeneous over the entire model area and heterogeneous in time.
 
-These three options for adding rainfall all cover the entire model area.
+These four options for adding rainfall all cover the entire model area.
 
 When choosing a **Constant** type of precipitation, the rain intensity (in mm/h) and duration of the rain must be defined. The rain intensity is uniform and constant in the given time frame.
 
 The option **Radar** is currently only available in the Netherlands and uses historical rainfall data that is based on radar rain images. Providing temporally and spatially varying rain information. The Dutch Nationale Regenradar is available for all Dutch applications for organisations that have this module in their contract. On request, the information from other radars (worldwide) can be made available to 3Di as well. In order to apply this type of rain a historical time frame needs to be set. 
+
+The **Forecast** option gives you the option to add forecast data from several sources to the model.
+Currently, we support forecast data from ICON Global, ICON EU, ICON-D2 and QPE Forecast.
+
+Below is a table showing information about the ICON forecast. It shows the difference in time between the forecast moment in UTC and a few derivates thereof, including forecast finished UTC, run moment ansible (CEST/UTC+2) and forecast horizon (hours).
+
+.. list-table:: ICON Forecast data
+
+   * - Forecast moment UTC
+     - 0
+     - 3
+     - 6
+     - 9
+     - 12
+     - 15
+     - 18
+     - 21
+   * - Forecast finished UTC
+     - 01:30
+     - 04:30
+     - 07:30
+     - 10:30
+     - 13:30
+     - 16:30
+     - 19:30
+     - 22:30
+   * - Run moment ansible (CEST/UTC+2)
+     - 03:30
+     - 06:30
+     - 09:30
+     - 12:30
+     - 15:30
+     - 18:30
+     - 21:30
+     - 00:30
+   * - Forecast horizon (hours)
+     - 48
+     - 48
+     - 48
+     - 48
+     - 48
+     - 48
+     - 48
+     - 48
 
 When choosing the option **Design**, a number between 3 and 16 must be selected. These numbers correlate to predetermined rain events, with differing return periods, that fall homogeneous over the entire model. Numbers 3 to 10 originate from `RIONED <https://www.riool.net/bui01-bui10>`_ and are heterogeneous in time. Numbers 11 to 16 have a constant rain intensity. When selecting a design rain the total rainfall and duration information will change in the tab.
 
