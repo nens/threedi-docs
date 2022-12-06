@@ -9,6 +9,26 @@ Release notes
 --------------------
 
 
+November 21th 2022
+^^^^^^^^^^^^^^^^^^
+
+**Tables**
+
+When generating the subgrid tables the approach has changed. Instead of user defined equidistant steps 3Di now takes non equidistant steps. This saves a ton of space when generating 3Di models and is especially of impact when modelling in hilly areas or in areas where there is a large difference between pixels.
+
+.. image:: /image/subgrid_tables_non_equidistant_steps.png
+   :alt: Showing the difference between equidistant and non equidistant steps.
+
+*DEM edits*
+
+- Refactor of dem edits to make this feature more robust.
+
+**Gridbuilder**
+
+- More efficient: ignores unused refinement levels
+
+
+
 November 2nd 2022
 ^^^^^^^^^^^^^^^^^^^^
 
@@ -304,6 +324,23 @@ The map can be viewed here: stowa.lizard.net
 3Di Live Site 
 --------------
 
+November 21th 2022
+^^^^^^^^^^^^^^^^^^
+
+**Flood barriers tool**
+
+A flood barrier can prevent a certain area from flooding. You can set the height of the flood barrier.
+For more information about the flood barriers tool, you can watch the `Floodbarriers preview <https://www.youtube.com/watch?v=by4MS5DdEgY>`_ on Youtube.
+
+**Added features**
+
+- Show 2D flow lines (new model generation required for this)
+
+**Fixed**
+
+- Link to 3Di documentation under ‘help
+
+
 August 2022
 ^^^^^^^^^^^^
 - We have hotfixed the waterdepth interpolation to make sure that no water is shown visually before the start of a simulation and to avoid large patches  of interpolated water when zooming out
@@ -384,6 +421,31 @@ Some bugfixes in 3Di live:
 3Di Management Screens
 ----------------------
 
+November 21th 2022
+^^^^^^^^^^^^^^^^^^
+
+- See the complete commit message in the revision overview when hovering
+- This overview now also shows for which revisions a 3Di model is available
+
+.. image:: /image/management_screen_schematisation_commit_message_when_hovering.png
+   :alt: You can now see the commit message when hovering.
+
+- When clicking on a simulation template, the link now is directed to the details page of the simulation where the template was based upon. Showing the events in the simulation template.
+- Added a save as template button to simulations detail page
+
+.. image:: /image/management_screens_save_as_template.png
+
+- Shows queued simulations:
+
+.. image:: /image/management_screens_queued_simulations.png
+
+- Regenerating a model that is active now gives a clear error message
+
+.. image:: /image/management_screens_regenerating_active_model_gives_clear_error_message.png
+
+- If a project tag is added to a simulation it will be shown
+
+
 February 2022 (Klondike) v2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -428,6 +490,80 @@ For schematisations users can:
 
 3Di Modeller Interface 
 ----------------------
+
+November 21th 2022
+^^^^^^^^^^^^^^^^^^
+
+**Release notes 3Di Toolbox v2.4**
+
+- Bugfix: "predict calc points" tool no longer fails with "TypeError: not all arguments converted during string formatting" #699
+
+- Spatialite schema version compatibility upgraded from schema version 207 to 209 (#693, #648)
+
+**Release notes 3Di Schematisation Editor v1.2**
+
+- Editing channel start- or end vertices now disconnects channel from connection node, consistent with behaviour for other line features (#66)
+
+- Unused field "max_capacity" has been removed from Orifice layer (#73)
+
+- Spatialite database schema version is now saved to Geopackage during conversion (#72)
+
+- "Load from Spatialite" no longer fails when the spatialite contains a v2_surface_map or v2_impervious_surface_map with a connection_node_id that does not exist (#75)
+
+- In all attribute forms, units are added to fields for which this is relevant (#8)
+
+- Explainer text has been added to cross section 'table' input boxes in the attribute forms (#64)
+
+- Mistakes in cross_section_table inputs are fixed if possible, and mistakes that cannot be fixed are identified and reported to the user before "Save to Spatialite" starts. are checked GPKG to Spatialite (#70)
+
+- Remove unnecessary popup "Save edits to Manhole?" in specific cases (#80)
+
+- Spatialite schema version compatibility upgraded from schema version 207 to 209 (#71, #83)
+
+- Add cross section shape 0: "Closed rectangle" (#79)
+
+- Enable/disable the width, height and table widgets based on cross section shape (#78)
+
+**Release notes 3Di Models & Simulations v3.3**
+
+- 2D grid (geojson file) is no longer downloaded after choosing model for new simulation. Instead, please use the processing algorithms in Processing > Toolbox > 3Di > Computational Grid (#325)
+
+- New project > New simulation no longer fails (#400)
+
+- Fix issues with Models & Simulations Panel when other dock widget on the right are also opened. The status bar at the bottom no longer dissapears when opening the Models & Simulations Panel. (#153)
+
+- New schematisation: spatialite is migrated to most recent version (#359)
+
+- New schematisation becomes the active schematisation after "New schematisation from existing spatialite" (#385)
+
+- Add option to upload new initial water level rasters in the Simulation wizard (#280)
+
+- In the dropdown for selecting an initial water level raster in the Simulation Wizard, show name of the source file instead of "initial_waterlevels.msgpack" (#179)
+
+- In the simulation wizard, you can now set the discharge coefficients and max breach depth in the breach tab (#187)
+
+- Spatialite schema version compatibility upgraded from schema version 207 to 209 (#398, #406)
+
+- When downloading simulation results, the gridadmin.h5 file is now (also) downloaded to {3Di working directory}\{schematisation}\{revision n}\grid (#403)
+
+- When downloading a revision, the gridadmin.h5 is also downloaded if available (#402)
+
+**Checker**
+
+- Warning for double cumultative cumulative discharges in the aggregation NetCDF - https://app.zenhub.com/workspaces/team-3di-5ef60eff1973dd0024268b90/issues/nens/threedi-api/1766 ?
+
+- Check on flooding treshold is now more strict
+
+**Postprocessing Lizard**
+
+- Added the possibility to use the projects in Lizard directly. Give your simulation as a tag: ‘project:number’ and the number will be added in lizard to the project.
+
+**Reminder**
+
+- The server known as inpy is no more. If you started using 3Di this year you can ignore this message. For the other users: the 3Di models cannot run anymore on the live site. But the schematisations are all available. The be able to run the 3Di model again, simply look for your schematisation on management.3di.live and press ‘generate model’.
+
+- If you’re not sure whether your model is generated using inpy, go to management.3di.live search for your model. If there is no details page available (link is greyed out) then the model is generated via inpy.
+
 
 August 2022
 ^^^^^^^^^^^^
@@ -737,6 +873,71 @@ We are constantly working on improving the 3Di experience. Based on user experie
 
 3Di API
 ----------
+
+November 21th 2022
+^^^^^^^^^^^^^^^^^^
+
+When using an .env fileyou need to change the content of this file to:
+
+THREEDI_API_HOST=https://api.3di.live
+THREEDI_API_PERSONAL_API_TOKEN= supersecret API key
+
+   - Instead of username / password. It is more secure and for new users the username/password combination will not work anymore. Note: Try to avoid committing passwords and API keys to public github repositories.
+
+- Added variable increment table step sizes.
+
+- Block obstacle/raster edits for models generated before 3.0.0 release.
+
+- Obstacle edits support.
+
+- Duration on structure-controls has become mandatory.
+
+Note: this is not backwards compatible, but without duration it does not work...
+
+- Increased total timeout for trying Lizard rain requests for one timestep to 30 minutes.
+
+- Gridadmin.h5 `epsg_code` is only an attribute on root level.
+
+- Threedimodel 1d/2d/0d extent's can now be zero size (singular point).
+
+- Allow patching `duration` on Lizard raster rain and sources & sinks Lizard raster resources.
+
+- Set `simulation.threedicore_version` on simulation start.
+
+- Added rain (node) graph websocket to results-api and registration endpoint.
+
+- Added rain graph endpoint in API v3
+
+- Add endpoint for uploading and downloading 'flowlines' geojson file on threedimodel.
+
+- Added `has_threedimodel` field to schematisation revisions and querystring filter option.
+
+- Stopped Inpy-generated models support.
+
+- Fixed a bug in the LizardRasterSourcesSinks serialization.
+
+- Fixed a bug in api/v3/auth/users (non-superusers).
+
+- Changed link in email sent when queued simulation is started. #1657
+
+- Bugfix: get correct list of related rasters for DEM raster edits. #1711
+
+- Bugfix: Aggregation of uploaded initial waterlevel rasters on threedimodels was not triggered.
+
+- Allow an user to create multiple initial waterlevel rasters on a threedimodel.
+
+- Support bigger geotiffs by enabling temporary compression for Cloud Optimize Geotiff creation.
+
+Hotfixes that were already set in production
+
+- Stop initializing boundaries with 0 values at t0 by default.
+
+- Improve waterdepth interpolation by using `vol/vol1` to prune Delaunay triangles that have volume < 0.001 voor all 3 nodes.
+
+**Fixed**
+
+- Threedicore version is now correctly written to the simulation details
+
 
 July 2022
 ^^^^^^^^^^

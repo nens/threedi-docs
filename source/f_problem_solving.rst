@@ -148,8 +148,6 @@ NB: This is only the case via the API. In the Modeller Interface (sqlite) the un
 
 This might also be the case for other projections.
 
-- Laterals currently do not work for other projection systems than epsg:28992.
-
 - The *manhole_storage_area* in the v2_global_settings table of the data base must be set as an INTEGER.
 
 - After downloading a recent result netcdf within the QGIS-plugin the following error occurs: "The selected result data is too old and no longer supported in this version of ThreediToolbox. Please recalculate the results with a newer version of threedicore or use the ThreediToolbox plugin for QGIS 2." This error might also occur when trying to download a NetCDF larger than 2GB. If this happens, try downloading it via the result email or adjust the model settings.
@@ -158,7 +156,7 @@ This might also be the case for other projections.
 
 - Boundary conditions can only be applied via the model sqlite. Uploading a boundary condition as a json file using the API will result in a failure of the simulation.
 
-- The waterdepth interpolation in the livesite may show unexpected behaviour; it shows triangular patterns. These deviations are only visual, so the results are still correctly. This will be fixed in the near future.
+- In rare cases the waterdepth interpolation in the livesite may show unexpected behaviour; it shows triangular patterns. These deviations are only visual, so the results are still correctly. This will be fixed in the near future.
 
 - The following checks don’t work in case there is no index in the spatialite:
 
@@ -192,13 +190,7 @@ Modeller Interface
 Live site
 -----------
 
-- The live site uses always the max for initial water level, even when a different aggregation method is selected in the spatialite.
-
-- The live site doesn't show lateral inflow defined in the spatialite.
-
 - If a raster has both NaN and Nodata values the live site DEM will color yellow (showing color scale for -9999)
-
-- In the live site it is not possible to visualise structures together with the schematisation.
 
 
 Management pages
