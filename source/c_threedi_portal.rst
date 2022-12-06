@@ -260,12 +260,24 @@ The **Raster-edit tool** lets you edit the elevation raster (DEM) by pressing **
 Flood barrier tool
 ------------------
 
-*TBD*
+A flood barrier can prevent a certain area from flooding. You can set the height of the flood barrier.
+To see the flood barriers tool in action, you can watch the `Floodbarriers preview <https://www.youtube.com/watch?v=by4MS5DdEgY>`_ on Youtube.
 
-.. ifconfig:: internal
+Open the flood barrier tool
 
-   update screenshot of everything with also the flood barrier icon in the left
-   wait till its on production before adding this part
+- screenshot
+
+Set the height
+
+- screenshot
+
+Select an area. You can cancel the whole (cancel in the toolbar) or cancel a point (round with /)
+
+- screenshot
+
+Select the round with v  or conform to apply
+
+- screenshot
 
 
 
