@@ -8,6 +8,11 @@ Release notes
 3Di general releases
 --------------------
 
+December 6th 2022
+
+Hotfix:
+
+- Fixed obstacle edits for max infiltration capacity raster
 
 November 21th 2022
 ^^^^^^^^^^^^^^^^^^
