@@ -263,21 +263,25 @@ Flood barrier tool
 A flood barrier can prevent a certain area from flooding. You can set the height of the flood barrier.
 To see the flood barriers tool in action, you can watch the `Floodbarriers preview <https://www.youtube.com/watch?v=by4MS5DdEgY>`_ on Youtube.
 
-Open the flood barrier tool
+.. ifconfig:: internal
 
-- screenshot
+   wait till its on production before adding this part
 
-Set the height
+	Open the flood barrier tool
 
-- screenshot
+	- screenshot
 
-Select an area. You can cancel the whole (cancel in the toolbar) or cancel a point (round with /)
+	Set the height
 
-- screenshot
+	- screenshot
 
-Select the round with v  or conform to apply
+	Select an area. You can cancel the whole (cancel in the toolbar) or cancel a point (round with /)
 
-- screenshot
+	- screenshot
+
+	Select the round with v  or conform to apply
+
+	- screenshot
 
 
 
