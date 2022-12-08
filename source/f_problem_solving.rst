@@ -168,6 +168,7 @@ This might also be the case for other projections.
 Modeller Interface
 ---------------------
 
+- Maximum time step requires a value and cannot be NULL
 
 - The Modeller Interface and the plugins have trouble installing if there is already a previous version installed because of old dependencies. Please remove (before installing a new version) the folder '{user profile} \ python' alle folders instead of 'expressions', 'plugins' and 'share'.  (e.g. the error 'sqlalchemy' might indicate this is the case)
 	
