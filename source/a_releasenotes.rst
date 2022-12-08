@@ -12,7 +12,7 @@ December 6th 2022
 
 Hotfix:
 
-- Fixed obstacle edits for max infiltration capacity raster
+- Fixed obstacle edits for models with maximum infiltration capacity raster
 
 November 21th 2022
 ^^^^^^^^^^^^^^^^^^
