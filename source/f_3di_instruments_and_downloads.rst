@@ -29,7 +29,9 @@ You can install the modeller interface simply with the downloadlink below.
 
 - Install the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.22.13-2-2-Setup-x86_64.exe>`_
 
-*last update: 8 July 2022*
+*last update: 12 December 2022*
+
+- In case you would like to upgrade the different plugins within the Modeller Interface, you could follow the instructions from this movie: `How to upgrade 3Di plugins in the Modeller Interface <https://www.youtube.com/watch?v=9XeVuZo28jw>`_.
 
 
 Personal API Key
@@ -182,12 +184,14 @@ Install instructions for the 3Di Modeller Interface can be found in :ref:`3di_in
 
 Because the 3Di Modeller Interface is a customized QGIS,
 we refer to the QGIS documentation when you run into any issues that are not specifically related to the plugins '3Di Toolbox' or '"3Di Models and Simulations"': 
+
 * QGIS User Manual: https://docs.qgis.org/latest/en/docs/user_manual/
 * Installation section in QGIS User Manual: https://docs.qgis.org/latest/en/docs/user_manual/introduction/getting_started.html#installing-qgis
 
 **URLs accessed by 3Di Modeller Interface**
 
 Make sure the 3Di Modeller Interface is allowed to communicate with following URLs:
+
 * PyPI: https://pypi.org/ (only during first run after installation / update)
 * 3Di API: https://api.3di.live (each time a simulation is started from the Modeller Interface)
 
