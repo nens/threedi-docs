@@ -13,8 +13,7 @@ Installation manual
 
 .. note::
 
-    Are you running into problems when downloading or updating the software? Please consult the 'problem solving' section and if the error and/or solution is not mentioned,
-    please contact our support office (servicedesk@nelen-schuurmans.nl)
+    Are you running into problems when downloading or updating the software? Please consult the 'problem solving' section and if the error and/or solution is not mentioned, please contact our support office (servicedesk@nelen-schuurmans.nl)
 	
 
 .. _MI_installation:
