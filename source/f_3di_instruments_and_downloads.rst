@@ -3,8 +3,8 @@
 Installation manual
 ======================
 
-
-Below we explain how to install the Modeller Interface or QGIS with plugins. 
+3Di Software requirements
+---------------------------------
 
 .. _software:
 
