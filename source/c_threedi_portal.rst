@@ -91,7 +91,7 @@ When starting or following a session, the screen in :numref:`fig_main_ses` will 
 - :ref:`rain_tool_guide`
 - :ref:`wind_tool_guide`
 - :ref:`raster_edit_tool`
-- :ref:`_flood_barrier_tool`
+- :ref:`flood_barrier_tool`
 - :ref:`Layer tool <layers_menu_guide>`
 
 .. _user_menu:
