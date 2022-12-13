@@ -31,7 +31,7 @@ You can install the modeller interface simply with the downloadlink below.
 
 *last update: 12 December 2022*
 
-The newest Modeller Interface also includes the newest versions of the 3Di plugins. In case you would like to upgrade these plugins manually, follow the instructions of this movie: `How to upgrade 3Di plugins in the Modeller Interface <https://www.youtube.com/watch?v=9XeVuZo28jw>`_.
+The newest Modeller Interface also includes the newest versions of the 3Di plugins. If you would like, you could also upgrade the 3Di plugins from within the Modeller Interface manually. Follow the instructions of this movie to do so: `How to upgrade 3Di plugins in the Modeller Interface <https://www.youtube.com/watch?v=9XeVuZo28jw>`_.
 
 
 Personal API Key
