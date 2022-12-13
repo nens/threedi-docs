@@ -8,12 +8,8 @@ Below we explain how to install the Modeller Interface or QGIS with plugins.
 
 .. _software:
 
-To use 3Di you need these software packages:
-
-* Recent version of Google Chrome (`Get Chrome <https://www.google.nl/chrome/browser/desktop/index.html>`_)
-
-* The 'Modeller Interface' or install a recent version of QGIS with the appropriate plugins. 
-
+•	To be able to build, edit and run schematisations you need to install the Modeller Interface 
+•	Our live site and management screens are optimized for chrome browser
 
 .. note::
     Are you running into problems when downloading or updating the software? Please consult the 'problem solving' section and if the error and/or solution is not mentioned,
