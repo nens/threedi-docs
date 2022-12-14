@@ -91,6 +91,7 @@ When starting or following a session, the screen in :numref:`fig_main_ses` will 
 - :ref:`rain_tool_guide`
 - :ref:`wind_tool_guide`
 - :ref:`raster_edit_tool`
+- :ref:`flood_barrier_tool`
 - :ref:`Layer tool <layers_menu_guide>`
 
 .. _user_menu:
@@ -251,6 +252,62 @@ The **Raster-edit tool** lets you edit the elevation raster (DEM) by pressing **
 	:alt: Raster edits
 
 	Raster edit tool.
+
+
+
+.. _flood_barrier_tool:
+
+Flood barrier tool
+------------------
+
+A flood barrier can prevent a certain area from flooding. To see the flood barriers tool in action, you can watch the `Floodbarriers preview <https://www.youtube.com/watch?v=by4MS5DdEgY>`_ on Youtube.
+
+Click on the **Flood barrier tool** icon |flood_barrier_icon| at the left of the screen. The flood barrier tool appears.
+
+.. |flood_barrier_icon| image:: image/d3.6_flood_barrier_icon.png
+
+.. figure:: image/d3.6_flood_barrier.png
+	:alt: Flood barrier tool.
+
+	Flood barrier tool.
+
+You can set the height in the elevation box. 
+
+- The height is in meters Mean Sea Level (m MSL). If the waterlevel in the flow link crossing the flood barrier exceeds this height the water will flow over the flood barrier. 
+
+Press the DRAW ON MAP button to draw the shape of the flood barrier on the map.
+
+.. figure:: image/d3.6_flood_barrier_draw_on_map.png
+	:alt: Flood barrier tool - start creating flood barrier.
+
+	Flood barrier tool - start creating flood barrier.
+
+Click on the map to set the first point. The flood barrier is created by selecting points on the map. Every new point selected on the map creates a line connecting with the previous point. All points together form the flood barrier. 
+
+.. figure:: image/d3.6_flood_barrier_first_point_selected.png
+	:alt: Flood barrier - first point selected.
+
+	Flood barrier - first point selected.
+
+During the creation, you can go back to the previous point or cancel the entire flood barrier.
+Cancel the last point by clicking on the |flood_barrier_cancel_point| on the map or clicking UNDO LAST POINT in the flood barrier tool (on the left).
+Cancel the entire flood barrier by pressing CANCEL in the flood barrier tool.
+
+.. |flood_barrier_cancel_point| image:: image/d3.6_flood_barrier_cancel_point.png
+
+.. figure:: image/d3.6_flood_barrier_multiple_points_selected.png
+	:alt: Flood barrier - multiple points selected.
+
+	Flood barrier - multiple points selected.
+
+Confirm the flood barrier by pressing the |flood_barrier_confirm_flood_barrier| on the map or CONFIM in the flood barrier tool.
+
+.. |flood_barrier_confirm_flood_barrier| image:: image/d3.6_flood_barrier_confirm_flood_barrier.png
+
+.. figure:: image/d3.6_flood_barrier_created.png
+	:alt: Flood barrier created.
+
+	Flood barrier created.
 
 
 
