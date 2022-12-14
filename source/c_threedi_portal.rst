@@ -271,7 +271,11 @@ Click on the **Flood barrier tool** icon |flood_barrier_icon| at the left of the
 
 	Flood barrier tool.
 
-You can set the height in the elevation box. Press the DRAW ON MAP button to draw the shape of the flood barrier on the map.
+You can set the height in the elevation box. 
+
+- The height is in meters Mean Sea Level (m MSL). If the waterlevel in the flow link crossing the flood barrier exceeds this height the water will flow over the flood barrier. 
+
+Press the DRAW ON MAP button to draw the shape of the flood barrier on the map.
 
 .. figure:: image/d3.6_flood_barrier_draw_on_map.png
 	:alt: Flood barrier tool - start creating flood barrier.
