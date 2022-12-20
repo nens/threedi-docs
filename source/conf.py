@@ -60,6 +60,12 @@ release = version
 # This patterns also effect to html_static_path and html_extra_path
 exclude_patterns = []
 
+# These folders are copied to the documentation's HTML output
+html_static_path = ['_static']
+html_js_files = [
+    'matomo.js',
+]
+
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = "sphinx"
 
