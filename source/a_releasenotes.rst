@@ -504,6 +504,16 @@ For schematisations users can:
 3Di Modeller Interface 
 ----------------------
 
+December 8th 2022
+^^^^^^^^^^^^^^^^^^
+
+**Release notes 3Di Toolbox v2.4.1**
+
+Due to changes introduced in v2.4, threedi-modelchecker would re-install on every startup. This has been fixed now. (#729)
+Fixed 'Import sufhyd': this routine expected a the table v2_pipe to have a column 'pipe_quality', which was removed recently (#728)
+A schema version check was added to 'Import sufhyd'. If the target spatialite has a too low schema version, you will be instructed to migrate it and try again (#726)
+
+
 November 21th 2022
 ^^^^^^^^^^^^^^^^^^
 
