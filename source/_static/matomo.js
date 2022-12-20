@@ -1,3 +1,7 @@
+/* Note: Due to //analytics, the link won't work if we view the file locally
+ * with file://, which  is fine as we don't want to run analytics while in
+ * development. */
+
   var _paq = window._paq = window._paq || [];
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
   _paq.push(['trackPageView']);
