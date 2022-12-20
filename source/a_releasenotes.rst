@@ -8,7 +8,15 @@ Release notes
 3Di general releases
 --------------------
 
+December 16th 2022
+^^^^^^^^^^^^^^^^^^
+
+Hotfix:
+
+-Fixed saved states using interception 
+
 December 6th 2022
+^^^^^^^^^^^^^^^^^^
 
 Hotfix:
 
