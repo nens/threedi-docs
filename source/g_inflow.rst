@@ -178,10 +178,11 @@ If you are using 'impervious surfaces', the inflow parameters are predefined for
 The parametrisation for the impervious surface types is fixed. It uses the following parameters:
 
 .. list-table:: Parameters Impervious Surface
-   :widths: 50 30 30 30 30 30 30 30
+   :widths: 30 30 30 30 30 30 30 30 30
    :header-rows: 1
 
-   * - Surface description
+   * - Surface class
+     - Surface inclination
      - Outflow delay :math:`k_q` (min\ :sup:`-1`)
      - Surface storage (mm)
      - Infiltration (boolean)
@@ -189,7 +190,8 @@ The parametrisation for the impervious surface types is fixed. It uses the follo
      - Minimum infiltration rate :math:`f_c` (mm/h)
      - Infiltration decay constant :math:`k_d` (h\ :sup:`-1`)
      - Infiltration recovery constant :math:`k_r` (h\ :sup:`-1`)
-   * - gesloten verharding, hellend
+   * - gesloten verharding
+     - hellend
      - 0.5
      - 0.0
      - False
@@ -197,7 +199,8 @@ The parametrisation for the impervious surface types is fixed. It uses the follo
      - 0.0
      - 0.0
      - 0.0
-   * - gesloten verharding, vlak
+   * -
+     - vlak
      - 0.2
      - 0.5
      - False
@@ -205,7 +208,8 @@ The parametrisation for the impervious surface types is fixed. It uses the follo
      - 0.0
      - 0.0
      - 0.0
-   * - gesloten verharding, vlak uitgestrekt
+   * -
+     - vlak uitgestrekt
      - 0.1
      - 1.0
      - False
@@ -213,7 +217,8 @@ The parametrisation for the impervious surface types is fixed. It uses the follo
      - 0.0
      - 0.0
      - 0.0
-   * - open verharding, hellend
+   * - open verharding
+     - hellend
      - 0.5
      - 0.0
      - True
@@ -221,7 +226,8 @@ The parametrisation for the impervious surface types is fixed. It uses the follo
      - 0.5
      - 3.0
      - 0.1
-   * - open verharding, vlak
+   * -
+     - vlak
      - 0.2
      - 0.5
      - True
@@ -229,7 +235,8 @@ The parametrisation for the impervious surface types is fixed. It uses the follo
      - 0.5
      - 3.0
      - 0.1
-   * - open verharding, vlak uitgestrekt
+   * -
+     - vlak uitgestrekt
      - 0.1
      - 1.0
      - True
@@ -237,7 +244,8 @@ The parametrisation for the impervious surface types is fixed. It uses the follo
      - 0.5
      - 3.0
      - 0.1
-   * - dak, hellend
+   * - dak
+     - hellend
      - 0.5
      - 0.0
      - False
@@ -245,7 +253,8 @@ The parametrisation for the impervious surface types is fixed. It uses the follo
      - 0.0
      - 0.0
      - 0.0
-   * - dak, vlak
+   * -
+     - vlak
      - 0.2
      - 2.0
      - False
@@ -253,7 +262,8 @@ The parametrisation for the impervious surface types is fixed. It uses the follo
      - 0.0
      - 0.0
      - 0.0
-   * - dak, vlak uitgestrekt
+   * -
+     - vlak uitgestrekt
      - 0.1
      - 4.0
      - False
@@ -261,7 +271,8 @@ The parametrisation for the impervious surface types is fixed. It uses the follo
      - 0.0
      - 0.0
      - 0.0
-   * - onverhard, hellend
+   * - onverhard
+     - hellend
      - 0.5
      - 2.0
      - True
@@ -269,7 +280,8 @@ The parametrisation for the impervious surface types is fixed. It uses the follo
      - 1.0
      - 3.0
      - 0.1
-   * - onverhard, vlak
+   * -
+     - vlak
      - 0.2
      - 4.0
      - True
@@ -277,7 +289,8 @@ The parametrisation for the impervious surface types is fixed. It uses the follo
      - 1.0
      - 3.0
      - 0.1
-   * - onverhard, vlak uitgestrekt
+   * -
+     - vlak uitgestrekt
      - 0.1
      - 6.0
      - True
