@@ -177,7 +177,7 @@ If you are using 'impervious surfaces', the inflow parameters are predefined for
 
 The parametrisation for the impervious surface types is fixed. It uses the following parameters:
 
-.. list-table:: Parameters Impervious Surface
+.. list-table:: Inflow model parameters for each available combination of surface class and inclination
    :widths: 30 30 30 30 30 30 30 30 30
    :header-rows: 1
 
