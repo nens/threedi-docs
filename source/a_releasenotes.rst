@@ -13,7 +13,7 @@ December 16th 2022
 
 Hotfix:
 
--Fixed saved states using interception 
+- Fixed saved states using interception
 
 December 6th 2022
 ^^^^^^^^^^^^^^^^^^
@@ -54,7 +54,7 @@ October 26th 2022
 
 Hotfix:
 
-- fixed issue with embedded channel cross-sections
+- Fixed issue with embedded channel cross-sections
 
 
 May 2022
@@ -72,7 +72,7 @@ We also added or changed the following:
 - Copy simulation template between threedimodels.
 - Added user management screens
 - Added users sub-endpoint to organisations to be able to patch roles.
-- Enforce maximum amount of active ThreediModels per organisation and schematisation. 
+- Enforce maximum amount of active ThreediModels per organisation and schematisation.
 - Anybody who has the 'simulation_runner' role will get the 'creator' role in
   a one-time data migration.
 - Solved error in the Swagger page having to do with external validation.
@@ -109,13 +109,13 @@ We also added or changed the following:
 April 9th 2022 (hotfix)
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-In this hotfix release, we fixed the following issues: 
+In this hotfix release, we fixed the following issues:
 
 - DEM edit
 - Error with type 'Half verhard' bugfix
 - Refinement errors
-- Sporadically filled DEM 
-- Initial ground water rasters 2D 
+- Sporadically filled DEM
+- Initial ground water rasters 2D
 - Cloning with initial saved stae
 
 
@@ -124,11 +124,11 @@ In this hotfix release, we fixed the following issues:
 January 31st 2022 (Klondike)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-On Januari 31st we have released the backend for the Klondike release. In this release we introduce a brand new route to process schematisations into 3Di models. This will replace the process known as 'inpy'. 
-For users that have not been migrated yet, this will not have effect on their work process. 3Di Models will simulate as before. 
+On Januari 31st we have released the backend for the Klondike release. In this release we introduce a brand new route to process schematisations into 3Di models. This will replace the process known as 'inpy'.
+For users that have not been migrated yet, this will not have effect on their work process. 3Di Models will simulate as before.
 
-The migration will be rolled out gradually, users will be contacted for this. The management screens are available for all users right away, but keep in mind that the new features mostly work on migrated schematisations and 3Di Models. 
-Contact our servicedesk if you have any questions regarding migration. 
+The migration will be rolled out gradually, users will be contacted for this. The management screens are available for all users right away, but keep in mind that the new features mostly work on migrated schematisations and 3Di Models.
+Contact our servicedesk if you have any questions regarding migration.
 
 We use the following definitions:
 
@@ -199,7 +199,7 @@ Simulations can be started up using a simulation template. A simulation template
 
 A schematisation contains:
 
-General rasters: 
+General rasters:
 
 -	dem_file
 -	frict_coef_file
@@ -236,12 +236,12 @@ Ground water rasters
 	-	culverts
 	-	orifices
 	-	pumps
--	location (node id) & type (e.g. water level / discharge / etc) of boundary conditions 
+-	location (node id) & type (e.g. water level / discharge / etc) of boundary conditions
 -	dem averaging
 -	impervious surfaces & mapping
 -	surfaces
--	dem refinement 
--	cross section locations 
+-	dem refinement
+-	cross section locations
 -	levees & obstacles
 
 GridSettings
@@ -255,7 +255,7 @@ GridSettings
 -	embedded_cutoff_threshold: float = 0.05
 -	max_angle_1d_advection: float = 90.0
 
-TableSettings 
+TableSettings
 
 -	table_step_size: float
 -	frict_coef: float
@@ -263,14 +263,14 @@ TableSettings
 -	frict_type: int = 4
 -	interception_global: Optional[float] = None
 -	interception_type: Optional[InitializationType] = None
--	table_step_size_1d: float = None 
--	table_step_size_volume_2d: float = None 
+-	table_step_size_1d: float = None
+-	table_step_size_volume_2d: float = None
 
 
 
 **3Di Model**
 
-A 3Di Model is generated from a schematisation. The generation takes the grid & table settings from the spatialite and processess the schematisation into a 3Di Model. 
+A 3Di Model is generated from a schematisation. The generation takes the grid & table settings from the spatialite and processess the schematisation into a 3Di Model.
 
 
 **3Di Management Screens**
@@ -279,19 +279,19 @@ The management screens have been extended with a Models section. In this Models 
 
 For 3Di Models
 
-- See an overview of Models in a list 
-- See an overview of Models in the map 
-- Per Model a detailed page is available including the location on the map, size of the Model. 
+- See an overview of Models in a list
+- See an overview of Models in the map
+- Per Model a detailed page is available including the location on the map, size of the Model.
 - Per Model is an option to run the simulation on the live site
 - On the detailed Model page there is an option to run the simulation on the live site
 - On the detailed Model page there is an option to delete the model
 - On the detailed Model page there is an option to re-generate the model from the schematisation
 - A history of simulations performed with the 3Di Model
-- An overview of available simulation templates. By default 1 simulation template is available for every Model. This is generated based on the spatialite. The name of the simulation template is the name in the v2_global_settings table. 
+- An overview of available simulation templates. By default 1 simulation template is available for every Model. This is generated based on the spatialite. The name of the simulation template is the name in the v2_global_settings table.
 
 For schematisations users can:
 
-- See all available schematisations in a list. 
+- See all available schematisations in a list.
 - See past revisions of a schematisation
 - Generate a 3Di Model from a schematisation or re-generate an existing model from the schematisation. Keep in mind that doing so will remove additionally generated templates
 
@@ -303,14 +303,14 @@ March 23rd 2021
 
 3Di is expanding! We are proud to announce that due to international recognition we are expanding the capacity of 3Di:
 
-- The first stage of setting up our second calculation center in Taiwan is finished. Organizations that prefer this center can connect to 3Di via `3di.tw <https://www.3di.tw>`_.  
+- The first stage of setting up our second calculation center in Taiwan is finished. Organizations that prefer this center can connect to 3Di via `3di.tw <https://www.3di.tw>`_.
 - To cope with increasing demand for calculations the capacity of our main calculation center has been upgraded
 
 
 *3Di available for scientific researchers*
 
 Interested to use 3Di in your research? We are proud to announce that we now supply free licenses for scientific researchers.
-Contact us via info@3diwatermanagement.com when you're interested. 
+Contact us via info@3diwatermanagement.com when you're interested.
 
 March 8th 2021
 ^^^^^^^^^^^^^^
@@ -319,7 +319,7 @@ March 8th 2021
 
 For usage in The Netherlands only:
 
-We have updated the land use map that is being used for the calculation of damage estimations. This to ensure tunnels are placed under a road. 
+We have updated the land use map that is being used for the calculation of damage estimations. This to ensure tunnels are placed under a road.
 
 Source date & time
 
@@ -334,7 +334,7 @@ The map can be viewed here: stowa.lizard.net
 
 .. _release_notes_LS:
 
-3Di Live Site 
+3Di Live Site
 --------------
 
 November 21th 2022
@@ -373,7 +373,7 @@ August 2022
 
 - Added a rainbarchart to show the amount of precipitation during the simulation time
 
-- Limit the datepicker of forecasted rain to the range of dates that the forecast spans. Mostly 2-7 days. 
+- Limit the datepicker of forecasted rain to the range of dates that the forecast spans. Mostly 2-7 days.
 
 - Show in the datepicker if there actually is a rain-event on the model extend.
 
@@ -390,7 +390,7 @@ August 2022
 February 2022 (Klondike)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We have released new versions of the live site. 
+We have released new versions of the live site.
 
 - Simulation templates are used
 
@@ -481,19 +481,19 @@ The management screens have been extended with a Models section. In this Models 
 
 For 3Di Models
 
-- See an overview of Models in a list 
-- See an overview of Models in the map 
-- Per Model a detailed page is available including the location on the map, size of the Model. 
+- See an overview of Models in a list
+- See an overview of Models in the map
+- Per Model a detailed page is available including the location on the map, size of the Model.
 - Per Model is an option to run the simulation on the live site
 - On the detailed Model page there is an option to run the simulation on the live site
 - On the detailed Model page there is an option to delete the model
 - On the detailed Model page there is an option to re-generate the model from the schematisation
 - A history of simulations performed with the 3Di Model
-- An overview of available simulation templates. By default 1 simulation template is available for every Model. This is generated based on the spatialite. The name of the simulation template is the name in the v2_global_settings table. 
+- An overview of available simulation templates. By default 1 simulation template is available for every Model. This is generated based on the spatialite. The name of the simulation template is the name in the v2_global_settings table.
 
 For schematisations users can:
 
-- See all available schematisations in a list. 
+- See all available schematisations in a list.
 - See past revisions of a schematisation
 - Generate a 3Di Model from a schematisation or re-generate an existing model from the schematisation. Keep in mind that doing so will remove additionally generated templates
 
@@ -501,7 +501,7 @@ For schematisations users can:
 
 .. _release_notes_MI:
 
-3Di Modeller Interface 
+3Di Modeller Interface
 ----------------------
 
 December 8th 2022
@@ -596,12 +596,12 @@ August 2022
 
 - Visualise any computatial grid (gridadmin.h5 file), using the new Processing Algorithm "Computational grid from gridadmin.h5". This works for gridadmin.h5 files that were generated on the server as well as those generated locally.
 - Generate the computational grid for your schematisation in the 3Di Modeller Interface. The routine that is used on the server to generate the computational grid, has now also been made available locally, so that you can continously check how your schematisation is translated to a computational grid. Use the new Processing Algorithm "Computational grid from schematisation".
-- Bugfix: pumped volume for pumps without end note is now also included in the water balance 
-- Bugfix: total balance in water balance tool now also works in QGIS 3.22 
-- Bugfix: water balance tool now handles aggregation netcdf's that have different timesteps for different variables 
-- Bugfix: side view tool now handles models that contain cross section locations that refer to non-existent cross section definitions 
-- Bugfix: statistics tool gave IndexError for some datasets 
-- Bugfix: processing algorithm for water depth/level: batch functionality has been repaired 
+- Bugfix: pumped volume for pumps without end note is now also included in the water balance
+- Bugfix: total balance in water balance tool now also works in QGIS 3.22
+- Bugfix: water balance tool now handles aggregation netcdf's that have different timesteps for different variables
+- Bugfix: side view tool now handles models that contain cross section locations that refer to non-existent cross section definitions
+- Bugfix: statistics tool gave IndexError for some datasets
+- Bugfix: processing algorithm for water depth/level: batch functionality has been repaired
 
 
 
@@ -625,7 +625,7 @@ June 2022
 - Added 3Di logo in the Plugin Manager (#606)
 - Installation and update procedure has been improved. Black command prompt windows are no longer shown on startup. (#621, #625)
 
-Documentation on the Watershed Tood can be found `here <https://github.com/nens/threedi-network-analyst#user-manual>`_. 
+Documentation on the Watershed Tood can be found `here <https://github.com/nens/threedi-network-analyst#user-manual>`_.
 
 
 *3Di Schematisation Editor v1.1.1 - EXPERIMENTAL*
@@ -635,7 +635,7 @@ Documentation on the Watershed Tood can be found `here <https://github.com/nens/
 
 *3Di Schematisation Editor v1.1 - EXPERIMENTAL*
 
-This is a new plugin that will make editing schematisations much easier than before. 
+This is a new plugin that will make editing schematisations much easier than before.
 
 What does this plugin have to offer for modellers?
 
@@ -717,7 +717,7 @@ March 2022
 - Allow rain intensities < 1 mm/hr (#180, #347)
 
 *3Di Customisations  v1.2*
- 
+
 -	Remove all user interface customisations, except red menu bar
 -	Add "About 3Di modeller interface" dialog
 
@@ -731,11 +731,11 @@ February 2022 (Klondike)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We have released threeditoolbox 1.31 and 3Di Models & simulations 3.0.2.
-"3Di Models & simulations" is the new name for what was previously called "API client". 
-Please note: If you continue to use the old route, you still need the previous version of the plugin as well. 
+"3Di Models & simulations" is the new name for what was previously called "API client".
+Please note: If you continue to use the old route, you still need the previous version of the plugin as well.
 
 We have also released a new version of the Modeller Interface:
-Download here the latest version: `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.22.7-1-3-Setup-x86_64.exe>`_ 
+Download here the latest version: `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.22.7-1-3-Setup-x86_64.exe>`_
 
 
 
@@ -746,10 +746,10 @@ We have released a new version of the Modeller Interface with the following:
 
 - Update on the animation toolbar
 - Added tooling for dry weather flow calculations
-- Water depth maps for multiple timesteps 
+- Water depth maps for multiple timesteps
 - Bugfix Sideview Tool
 
-Download here the latest version: `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.7-1-Setup-x86_64.exe>`_ 
+Download here the latest version: `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.7-1-Setup-x86_64.exe>`_
 
 Also we have included a comprehensive table on our docs showing the current status of implementation of features of API v3: :ref:`simulate_api_qgis_overview`
 
@@ -761,7 +761,7 @@ Please note that installing QGIS has been undergoing some changes, at the moment
 *Animation Toolbar update*
 
 The styling of all animation layers has been improved. The value categories are no longer fixed but based on the value distribution in the entire simulation. In the 2D domain, the animation toolbar now visualizes cells instead of nodes. Furthermore, the option 'relative to timestep 0' was introduced. This allows you to switch between e.g. absolute water levels and water level relative to the start of your simulation.
- 
+
 Below are examples of a dike breach. Animation 1 is showing relative change in water level and discharge. The plot is done for every calculation cell and flow line. Animation 2 is the same situation as an absolute plot showing the water level per calculation cell and the discharge over the flow lines.
 Some other improvements to the toolbar include:
 
@@ -778,7 +778,7 @@ In the current API (v3), dry weather flow is added as lateral discharges to allo
 *Water depth maps for multiple timestep*
 
 We have added the option to generate water depth/level maps for a range of timesteps. The output is a multiband geotiff, where each band contains the water depth map of one timestep.
- 
+
 The water depth processing algorithm also has various minor bugfixes and improvements:
 
 -	Selecting DEM layer from project no longer gives an error.
@@ -789,7 +789,7 @@ The water depth processing algorithm also has various minor bugfixes and improve
 
 
 *Bugfix SideView tool*
- 
+
 The SideView tool no longer worked since QGIS 3.16.6. This has now been fixed
 
 
@@ -798,7 +798,7 @@ May 21st 2021 - 3Di API QGIS Client
 
 We have released a new version of the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.7-1-Setup-x86_64.exe>`_ and an update of our 3Di API QGIS Client to version 2.4.1. The following has been fixed:
 
-- Users no longer get a throttling warning when trying to start a simulation. 
+- Users no longer get a throttling warning when trying to start a simulation.
 - Results download only shows results for the model that is selected in the panel.
 
 The location of plugins has changed from https://plugins.lizard.net/plugins.xml to https://plugins.3di.live/plugins.xml
@@ -812,13 +812,13 @@ ModuleNotFoundError: No module named 'alembic' "*
 
 April 1st 2021 - 3Di Toolbox
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Due to some changes under the hood in QGIS 3.16 we have released a new version of the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.4-1-Setup-x86_64.exe>`_ and the `ThreediToolbox 1.17 <https://plugins.lizard.net/ThreeDiToolbox.1.17.zip>`_ 
+Due to some changes under the hood in QGIS 3.16 we have released a new version of the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.4-1-Setup-x86_64.exe>`_ and the `ThreediToolbox 1.17 <https://plugins.lizard.net/ThreeDiToolbox.1.17.zip>`_
 
 March 8th 2021
 ^^^^^^^^^^^^^^^^
 
-Download the latest version of the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.4-1-Setup-x86_64.exe>`_ , which at the time of writing uses QGIS 3.16.4. 
-For QGIS users: upgrade the plugin using the plugin panel. In case this doesn't work, it is possible to install the plugins as zip file. The latest versions are `ThreediToolbox 1.16 <https://plugins.lizard.net/ThreeDiToolbox.1.16.1.zip>`_  and `Threedi-API-QGIS client is 2.4.0 <https://plugins.lizard.net/threedi_api_qgis_client.2.4.0.zip>`_. 
+Download the latest version of the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.4-1-Setup-x86_64.exe>`_ , which at the time of writing uses QGIS 3.16.4.
+For QGIS users: upgrade the plugin using the plugin panel. In case this doesn't work, it is possible to install the plugins as zip file. The latest versions are `ThreediToolbox 1.16 <https://plugins.lizard.net/ThreeDiToolbox.1.16.1.zip>`_  and `Threedi-API-QGIS client is 2.4.0 <https://plugins.lizard.net/threedi_api_qgis_client.2.4.0.zip>`_.
 
 
 *Local calculation of water depth & water level maps*
@@ -836,15 +836,15 @@ Or check out our documentation: :ref:`waterdepthtool`
 
 We have added the following support for starting simulations from the Modeller Interface:
 
-- added support for wind. See our user manual: :ref:`simulate_api_qgis` or our technical documentation : :ref:`wind_effects`  for more information. 
+- added support for wind. See our user manual: :ref:`simulate_api_qgis` or our technical documentation : :ref:`wind_effects`  for more information.
 - added option of tags. This can be used to tag a simulation with a project related tag. This way it is easier to organise simulations.
-- added time-interpolation options for laterals 
+- added time-interpolation options for laterals
 - added the option for Netcdf upload for rain
 - option to set base URL for the API (for use of 3Di in other countries)
 
 The following bugs have been fixed:
 
-- start time is now correctly used 
+- start time is now correctly used
 - search window for models is now case insensitive
 - bug fix lateral file upload
 
@@ -867,7 +867,7 @@ For QGIS users: upgrade the plugin using the plugin panel.
 
 *3Di Modeller Interface styling improvements*
 
-Based on your feedback we have improved the styling of the schematizations in the Modeller Interface. Not only that, we now have support for multiple stylings! Check out the video to see how it works. 
+Based on your feedback we have improved the styling of the schematizations in the Modeller Interface. Not only that, we now have support for multiple stylings! Check out the video to see how it works.
 
 The improvements are:
 
@@ -985,10 +985,10 @@ June 2022
 
 (2022-06-12)
 
-- Threedi-modelchecker now support spatialite 4 
-- Bugfix for file boundary conditions expiry date in simulation templates. 
-- Bugfix for sending e-mails for simulations picked up from the queue 
-- Bugfix for async (file) event validation. 
+- Threedi-modelchecker now support spatialite 4
+- Bugfix for file boundary conditions expiry date in simulation templates.
+- Bugfix for sending e-mails for simulations picked up from the queue
+- Bugfix for async (file) event validation.
 
 
 May 2022
@@ -998,7 +998,7 @@ May 2022
 - Copy simulation template between threedimodels.
 - Added user management screens
 - Added users sub-endpoint to organisations to be able to patch roles.
-- Enforce maximum amount of active ThreediModels per organisation and schematisation. 
+- Enforce maximum amount of active ThreediModels per organisation and schematisation.
 
 Moreover:
 
@@ -1036,7 +1036,7 @@ Moreover:
 
 
 
-February 2022 
+February 2022
 ^^^^^^^^^^^^^^^^
 
 2.17.4 (2022-02-23)
@@ -1097,7 +1097,7 @@ February 2022 (Klondike)
 
 - The algorithm with which 2D flowlines are assigned to obstacles/levees is changed. Now, every flowline that intersects the obstacle/levee is assigned to it.
 
-- Also levee/obstacle geometries can be drawn outside the DEM area, which was previously not possible. 
+- Also levee/obstacle geometries can be drawn outside the DEM area, which was previously not possible.
 
 
 **2D boundary conditions**
@@ -1116,35 +1116,35 @@ January 31st 2022 (Klondike)
 The following endpoints have been added to the API:
 
 - Upload Schematisations
-- Download Schematisations 
+- Download Schematisations
 - Create 3Di Models from a Schematisation
 - Create Simulation Templates
 
-Technical details: 
+Technical details:
 
 **Filters:**
 
 - Added threedimodel__revision__id filter on simulations.
 - Added threedimodel__id filter to simulations endpoint.
 - Renamed revision_id filter on threedimodels endpoint to revision__id.
-- Added filter on /threedimodels/ for organisation unique_id. 
-- Tags in filter now support icontains lookups. 
+- Added filter on /threedimodels/ for organisation unique_id.
+- Tags in filter now support icontains lookups.
 
 **Ordering:**
 
-- Added simulation name, simulation type, threedimodel name, schematisation name, started, total_time, and simulation username ordering options to Usage. 
-- Added simulation name, simulation status, threedimodel id, threedimodel name, simulation username, simulation active_status filter options to Usage. 
+- Added simulation name, simulation type, threedimodel name, schematisation name, started, total_time, and simulation username ordering options to Usage.
+- Added simulation name, simulation status, threedimodel id, threedimodel name, simulation username, simulation active_status filter options to Usage.
 
 **OpenAPI changes:**
 
-- Changed swagger definition for LineString to array containing 2 arrays of 2 numbers. 
-- Added min_started and max_started to Usage serializer. 
+- Changed swagger definition for LineString to array containing 2 arrays of 2 numbers.
+- Added min_started and max_started to Usage serializer.
 - Changed openapi tags field definition to become equivalent of Python List[str].
 - Added mandatory longitude, latitude order for coordinates at all relevant places in openapi/swagger docs.
 
 **Threedicore:**
 
-- Updated to 2.2.3. 
+- Updated to 2.2.3.
 
 **Boundary conditions:**
 
@@ -1172,13 +1172,13 @@ Technical details:
 
 - Bugfix: added missing permissions for local rain endpoints and deleting physical/timestep/numerical settings.
 - Fixed bug in threedimodels levees geojson download.
-- Fixed websocket issue for raster-edit update and delete events 
+- Fixed websocket issue for raster-edit update and delete events
 
 **1D initial waterlevels:**
 
-- Enabled management of initial_waterlevel and initial_groundwater_level model rasters for default users. 
--  Added 'dimension' field (default: 'two_d', optional new value: 'one_d') to threedimodels/{pk}/initial_waterlevels. 
-- Added simulations/{simulation_pk}/initial/1d_water_level/file resource to refer to initial_waterlevels with dimension = 'one_d'. 
+- Enabled management of initial_waterlevel and initial_groundwater_level model rasters for default users.
+-  Added 'dimension' field (default: 'two_d', optional new value: 'one_d') to threedimodels/{pk}/initial_waterlevels.
+- Added simulations/{simulation_pk}/initial/1d_water_level/file resource to refer to initial_waterlevels with dimension = 'one_d'.
 - A POST on simulations/{simulation_pk}/initial/1d_water_level/predefined now also creates a simulations/{simulation_pk}/initial/file resource. The scheduler ignores the /predefined one if the /file resource exists.
 
 
@@ -1220,9 +1220,9 @@ After this release, we stop to support API v1. Do you still need access to API v
 *Bugfixes*
 
 - Removed 5 min timed-out when uploading result files.
-- Set simulation state to finished after pause timeout. 
+- Set simulation state to finished after pause timeout.
 - File endpoint max pagination size is now 250, like rest of the API endpoints.
-- Boundary conditions interpolation 
+- Boundary conditions interpolation
 - Added convergence_eps to Simulation settings
 - Properly set file status after upload_processor crash.
 - Gracefully handle invalid "spatial_ref" in default NetCDF.
@@ -1245,12 +1245,12 @@ We have released the following hotfixes:
 1. fix for errors with initial waterlevels (2D only model / Embedded problems)
 2. fix for edge cases regenradar concerning the 2D extent and the 0D extent
 
-June 14th 2021 
+June 14th 2021
 ^^^^^^^^^^^^^^
 
 We have released the following:
 
-- Simulation settings endpoint 
+- Simulation settings endpoint
 
 This settings endpoint contains 4 different type of settings:
 
@@ -1259,7 +1259,7 @@ This settings endpoint contains 4 different type of settings:
 - timestep
 - aggregation
 
-Using this settings endpoint overrules the settings that are uploaded with the spatialite. Currently this option is only available via our API. For more information on usage please check the `swagger pages <https://api.staging.3di.live/v3/swagger>`_ 
+Using this settings endpoint overrules the settings that are uploaded with the spatialite. Currently this option is only available via our API. For more information on usage please check the `swagger pages <https://api.staging.3di.live/v3/swagger>`_
 
 For users using dry weather flow in urban sewerage systems please note that there is a difference between API v1 and v3 how inflow from dry weather flow is being handled. Please check our :ref:`simulate_api_qgis` section for more information.
 
@@ -1269,7 +1269,7 @@ April 11th 2021
 We have the following release announcements:
 - API v3 now has support for leakage
 
-March 8th 2021 
+March 8th 2021
 ^^^^^^^^^^^^^^^^
 
 Extended API v3 with boundary conditions & bug fixing
@@ -1302,7 +1302,7 @@ Extended API v3 with boundary conditions & bug fixing
 
 August 2022 (Hotfix)
 ^^^^^^^^^^^^^^^^^^^^
-- Fixed the initialisation of the calculation core. 
+- Fixed the initialisation of the calculation core.
 
 - Let a simulation crash when a NaN occurs during the calculation.
 
@@ -1355,7 +1355,7 @@ March 2022
 
 - The gridadmin.h5 and results_3di.nc file now uses NaN (not-a-number) instead of -9999 for missing values in float columns. Integer type columns still have –9999 to denote “missing”.
 
-February 2022 
+February 2022
 ^^^^^^^^^^^^^^^^
 
 2.17.4 (2022-02-23)
@@ -1382,50 +1382,50 @@ January 31st 2022 (Klondike)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-This release contains a big change in 3Di model creation. The Grid and Table builder have been rewritten from the ground up. 
+This release contains a big change in 3Di model creation. The Grid and Table builder have been rewritten from the ground up.
 
 **Breaking changes**
 
-- Previously, 3Di models were created from repositories in models.lizard.net, by inpy. The new 3Di models are created from schematisations in the 3Di API, by POSTing to the "create_threedimodel" API endpoint. Because of a new Grid generation. Node ids can differ from old versions of a threedimodel. 
+- Previously, 3Di models were created from repositories in models.lizard.net, by inpy. The new 3Di models are created from schematisations in the 3Di API, by POSTing to the "create_threedimodel" API endpoint. Because of a new Grid generation. Node ids can differ from old versions of a threedimodel.
 
 **General**
 
-- CRS transformation (reprojection): transformations from the native spatialite projection (WGS84) to the model projection is now done using the PROJ4 library version 8.2.0 instead of version 4.8. Expect slight changes in coordinates if you use CRS definitions that received updates in the past years (Dutch “rijksdriehoek”, British national grid). 
-- Quadtree creation (2D Cells) 
-- The behavior around refinements is altered slightly. Grid cell sizes at edges can differ slightly. 
+- CRS transformation (reprojection): transformations from the native spatialite projection (WGS84) to the model projection is now done using the PROJ4 library version 8.2.0 instead of version 4.8. Expect slight changes in coordinates if you use CRS definitions that received updates in the past years (Dutch “rijksdriehoek”, British national grid).
+- Quadtree creation (2D Cells)
+- The behavior around refinements is altered slightly. Grid cell sizes at edges can differ slightly.
 
 **Channels, pipes and culverts**
 
-- The order of the coordinates in a channel or culvert linestring does not matter anymore. Previously, in case that the geometry was reversed (the first coordinate in the linestring coincides with the “connection_node_end” and vice versa), makegrid connected the “connection_node_end” to the wrong side of the channel. 
-- 1D initial waterlevels on channels/pipes/culvert nodes are now (linearly) interpolated between connection nodes. 
-- The volume of an embedded channel/pipe/culvert (that is added to the 2D nodes in which they are embedded) now stems precisely from the part of the channel/pipe/culvert that is inside the 2D cell. Previously, this was not the case. 
+- The order of the coordinates in a channel or culvert linestring does not matter anymore. Previously, in case that the geometry was reversed (the first coordinate in the linestring coincides with the “connection_node_end” and vice versa), makegrid connected the “connection_node_end” to the wrong side of the channel.
+- 1D initial waterlevels on channels/pipes/culvert nodes are now (linearly) interpolated between connection nodes.
+- The volume of an embedded channel/pipe/culvert (that is added to the 2D nodes in which they are embedded) now stems precisely from the part of the channel/pipe/culvert that is inside the 2D cell. Previously, this was not the case.
 
 **Cross section definitions**
 
-- A new “closed rectangle” (type 0) cross section definition is available. This definition requires both width and height. 
-- For tabulated cross section definitions, the input is validated more strictly. Previously, a wrong input (e.g. using a comma as separator between numbers) resulted in the table only receiving one value. 
+- A new “closed rectangle” (type 0) cross section definition is available. This definition requires both width and height.
+- For tabulated cross section definitions, the input is validated more strictly. Previously, a wrong input (e.g. using a comma as separator between numbers) resulted in the table only receiving one value.
 
 **Obstacles / Levees**
 
-- The algorithm with which 2D flowlines are assigned to obstacles/levees is changed. Now, every flowline that intersects the obstacle/levee is assigned to it. 
-- Also levee/obstacle geometries can be drawn outside the DEM area, which was previously not possible. 
+- The algorithm with which 2D flowlines are assigned to obstacles/levees is changed. Now, every flowline that intersects the obstacle/levee is assigned to it.
+- Also levee/obstacle geometries can be drawn outside the DEM area, which was previously not possible.
 
 **2D boundary conditions**
 
-- The constraints on 2D boundary conditions have become less strict. It is required that the 2D boundary condition intersects a horizontal or vertical string of cells. If there is no DEM data at the outer cell edge, the DEM data will be extrapolated to compute the cross sectional area of the boundary flow line. 
+- The constraints on 2D boundary conditions have become less strict. It is required that the 2D boundary condition intersects a horizontal or vertical string of cells. If there is no DEM data at the outer cell edge, the DEM data will be extrapolated to compute the cross sectional area of the boundary flow line.
 
 **Gridadmin**
 
-- The gridadmin file now uses NaN (not-a-number) instead of -9999 for missing values in float columns. Integer type columns still have –9999 to denote “missing”. 
-- The following datasets were added for nodes: code, dmax, s1d, embedded_in, boundary_type, has_dem_averaged 
-- A group "nodes_embedded” was added. 
-- The following datasets were added for lines: s1d, ds1d, dpumax, flod, flou, cross1, cross2, cross_weight 
-- The following values were removed from meta: ijmax, imax, jap1d, jmax, levnms, lgrmin, linall, lintot, n2dall, nodall, nodobc, nodtot. 
-- The “prepared” attributes were removed. 
-- The following datasets were removed from pumps: nodp1d, p1dtyp. The datasets code and upper_stop_level were added. 
-- A group “cross_sections” was added. 
-- The following datasets were removed from breaches: llev, kcu, seq_ids. 
-- The group “surface” was added if the model contains 0D (surfaces/impervious surfaces) 
+- The gridadmin file now uses NaN (not-a-number) instead of -9999 for missing values in float columns. Integer type columns still have –9999 to denote “missing”.
+- The following datasets were added for nodes: code, dmax, s1d, embedded_in, boundary_type, has_dem_averaged
+- A group "nodes_embedded” was added.
+- The following datasets were added for lines: s1d, ds1d, dpumax, flod, flou, cross1, cross2, cross_weight
+- The following values were removed from meta: ijmax, imax, jap1d, jmax, levnms, lgrmin, linall, lintot, n2dall, nodall, nodobc, nodtot.
+- The “prepared” attributes were removed.
+- The following datasets were removed from pumps: nodp1d, p1dtyp. The datasets code and upper_stop_level were added.
+- A group “cross_sections” was added.
+- The following datasets were removed from breaches: llev, kcu, seq_ids.
+- The group “surface” was added if the model contains 0D (surfaces/impervious surfaces)
 
 
 October 18th 2021
@@ -1434,7 +1434,7 @@ October 18th 2021
 We have released a new version of the computational core.
 
 - There is an improved version to compute flow through a breach. The new formula is 2D-grid-size independent and allows sensitivity studies to be conducted based on the discharge. In most cases, your discharge results will remain roughly the same. Also, the discharge becomes tunable, to offer an easy sensitivity option. It also allows you to get back your previous results.
- 
+
 Bugfixes:
 
 - Fixed the computation of the breach width. Especially, the initial growth was underestimated in case the time to reach the maximum breach depth was large.
@@ -1445,14 +1445,12 @@ March 8th 2021
 ^^^^^^^^^^^^^^
 
 In short the following fixes are included in the calculation core:
-- Fix for long crested weir; new routine that does not request an extra computational node. 
-- Fix for short crested weir; Fix to determine super- from sub-critical regime. 
-- Fix for weirs for negative subcritical flows 
+- Fix for long crested weir; new routine that does not request an extra computational node.
+- Fix for short crested weir; Fix to determine super- from sub-critical regime.
+- Fix for weirs for negative subcritical flows
 - Fix for 1D coordinates in netcdf file: The z-coordinates of the boundary points, are now set correctly in the netcdf
-- Fix for initial conditions in netcdf file: In case of 1D-2D models, some variables, like the wet-surface areas of a computational node, the wrong value was written in the results netcdf at the start of the simulation. 
+- Fix for initial conditions in netcdf file: In case of 1D-2D models, some variables, like the wet-surface areas of a computational node, the wrong value was written in the results netcdf at the start of the simulation.
 
 Long crested weirs: The formulation of the long crested weir has been replaced by a new one. This new version is based on the law of Bernouilli instead of an alternative implementation of the advective terms for a regular 1D element. The flow over the weir is an accurate computation of the flow under ideal circumstances, but the new formulation does not require an extra computational node and has proven to be more stable under varying flow conditions.
 
-Short crested weirs: Flow over a weir knows three different stages: sub-, supercritical and critical flow.  Under super-critical flow conditions, the formulation remains the same. We fixed the formulation under sub-critical flow conditions and in strong varying flow conditions.  The biggest change in discharge behaviour is expected for weirs that flow in negative direction. Moreover, the time dependency of the flow over the weir has been adjusted. This has no effect on stationary flow, but has a slightly improved stabilizing effect on the flow under changing flow conditions. 
-
-
+Short crested weirs: Flow over a weir knows three different stages: sub-, supercritical and critical flow.  Under super-critical flow conditions, the formulation remains the same. We fixed the formulation under sub-critical flow conditions and in strong varying flow conditions.  The biggest change in discharge behaviour is expected for weirs that flow in negative direction. Moreover, the time dependency of the flow over the weir has been adjusted. This has no effect on stationary flow, but has a slightly improved stabilizing effect on the flow under changing flow conditions.
