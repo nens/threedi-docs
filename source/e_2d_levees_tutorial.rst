@@ -315,31 +315,12 @@ Model activation
 A short description of the model activation is given here. A comprehensive guidance with visual support is provided in Tutorial 2 (:ref:`model_activation`).
 
 
-Upload your model to the repository
-+++++++++++++++++++++++++++++++++++
+Upload your model
++++++++++++++++++
 
-The first step towards running your model is to upload your model to the 3Di model database. Follow these steps:
+See :ref:`uploading_schematisation` for how to upload your model.
 
-A. Create a new .zip file with the Lake_Mead.sqlite database and the raster folder. Be mindful that the folder structure in the .zip file matches that of your schematisation. Based on the settings in this tutorial, you zip file should contain your .sqlite database and the folder “raster”. The DEM, friction and infiltration rasters should be in this folder “raster”.
-B. Go to https://models.lizard.net/model_databank/
-C. Select **Upload new model**. Make sure that you are logged in for this step.
-D. Fill in the details of your models and include the .zip file. Be sure to select **3Di-v2** as your model type.
-E. Press **Submit**.
-
-
-Compile your model
-+++++++++++++++++++
-
-Now your model is stored in the model database and it is ready for compilation.
-
-A. Go to https://3di.lizard.net/models/
-B. Use the search function to retrieve your model. Search for the name that you gave your model in the previous section. You may to select **also show repositories that do not have inp files yet**. It may take some time for the model to show here, after you have uploaded it to the model database.
-C. Select **initialize inp generation** for your model.
-
-Your model will now be compiled.
-The blue bar “no models” will turn into a green bar with the text “success” when the model is successfully compiled.
-You can now select the model to view the details of your model.
-The model is now also available on the 3Di live site.
+The model is now also available on the `3Di Livesite <https://www.3di.live/>`_ and the `management screens <https://management.3di.live>`_.
 
 Run your model
 ++++++++++++++

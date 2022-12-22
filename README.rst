@@ -36,9 +36,11 @@ Special commands
 ----------------
 
 If the sphinx documentation tells you about a makefile: you can run those
-commands from within docker, too. For example::
+commands from within docker, too. For example to build the pdf version::
 
   $ docker-compose run builder make latexpdf
+
+(The output is in ``build/pdf/3di.pdf``).
 
 
 Images

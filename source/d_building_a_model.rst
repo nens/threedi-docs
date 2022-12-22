@@ -14,5 +14,7 @@ Are you a novice 3Di modeller? Please consult :ref:`tutorial1_workflow` or apply
    :name: building_model
    
    d_building_w_modeller_interface
+   d_schematisation_editor
+   d_visualising_computational_grids
    d_building_w_live_site
    d_modeling_guidelines

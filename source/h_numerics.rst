@@ -13,16 +13,16 @@ Preissman slot
 
 [preissmann_slot ] (default= 0.0 m^2)
 
-A preissmann slot is often used to model flows in pipes. When the pipes are not completely filled, such flows can be modelled as free surface flows. However, when the discharges increase, the pipes are filled and the flow can become pressurized. Not all hyrdodynamic models are suited for these kind of flows. Therefore, to mimic the effects of pressurized flows, the water level can be allowed to rise higher than the upper limit of the cross section. In order to allow this, a narrow tube is added on top of the pipe (Figure 2). These tubes are generally quite narrow to allow the water level to rise, at a minimum cost of extra added volume. In 3Di this is not necessary, however it can be added to circular tubes. This can increase the stability at larger time steps. The way flow is computed in pipes is described here.
+A preissmann slot is often used to model flows in pipes. When the pipes are not completely filled, such flows can be modelled as free surface flows. However, when the discharges increase, the pipes are filled and the flow can become pressurised. Not all hyrdodynamic models are suited for these kind of flows. Therefore, to mimic the effects of pressurised flows, the water level can be allowed to rise higher than the upper limit of the cross section. In order to allow this, a narrow tube is added on top of the pipe (Figure 2). These tubes are generally quite narrow to allow the water level to rise, at a minimum cost of extra added volume. In 3Di this is not necessary, however it can be added to circular tubes. This can increase the stability at larger time steps. The way flow is computed in pipes is described here.
 
-(To add, test results flow with and without preissman slot.)
+.. TODO:  (To add, test results flow with and without preissman slot.)
 
 .. figure:: image/preissmanslots_schematisch.png
    :alt: Preissman slot
 
    Upper Panel) Flow through a half emtpty pipe. 
-   Middle Panel) Pressurized flow through a pipe with a preissman slot. 
-   Lower Panel) Pressurized flowtrhough a pipe with a virtual water level (red).
+   Middle Panel) Pressurised flow through a pipe with a preissman slot. 
+   Lower Panel) Pressurised flow trhough a pipe with a virtual water level (red).
 
 
 Integration method
@@ -30,8 +30,9 @@ Integration method
 
 [integration_method] (default=0)
 
-There are various ways to discretize equation. At the moment only first order semi implicit is supported and tested. 
+There are various ways to discretise equation. At the moment only first order semi implicit is supported and tested. 
 
+.. _matrixsolvers:
 
 Settings for Matrix solvers 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -71,11 +72,16 @@ There is a limit to the time step, called the CFL condition. This condition is d
 
 Often it is not necessary to be so strict, so sometimes the user can set this parameter which loosens the strictness of it. Consequently, stability can decrease.
 
-**Implicit pump settings**
+
+**Pump implicit ratio**
 
 [pump_implicit_ratio] (default=1, between 0 and 1)
 
-A pump will be turned on or of depending on the water level. When the pump capacity is higher than the available volume the time step will be decreased. Another consequence is that the pump will switch often from maximum capacity to nothing. This can cause for instabilities, even though in real life this can happen as well. By allowing the pump capacity to be determined implicitly, the capacity is adjusted based on the available water. This will enhance the stability, but the pumps capacity will be affected in cases of limited supply.
+:ref:`pump` will be switched on or off depending on the characteristics of the pump and the local water level. For water levels between the start and stop levels of the pump, the pump will drain at maximum capacity. For an optimal pump operation, the supply of water is in balance with or larger than the pump capacity. However, in real-life applications, the pump capacity is larger than the supply. This results in a pump that switches repetitively on and off during an event. Even though, this is a real-life issue and is known from observations, one does not always want to mimic this behaviour in a simulation. This behaviour can make the analysis of your results on water levels and discharges more difficult and as this triggers wave-like phenomenon in the water levels and flow, it can cause time step reductions.   
+
+The computational core of 3Di can make estimates of the available water to the pump and adjust the capacity based in these estimates. This will avoid the switching on/off of the pump unnecessarily. The pump capacity is not affected in cases where the supply is higher or equal to the capacity and in cases where the supply is that low that the water level should drop below the stop level. How strong this implicit behaviour is used in the simulation, can be set by the pump implicit ratio. 
+
+A pump_implicit_ratio of 0 means the computational core does not take the supply information into account. By setting it higher than zero, this information is taken into account more strongly according to the value. So, the pump capacity is adjusted based on the (expected) available water.  
 
 **Thresholds**
 

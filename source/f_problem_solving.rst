@@ -1,3 +1,5 @@
+.. _f_problem_solving:
+
 FAQ and Problem Solving
 ============================
 
@@ -19,11 +21,23 @@ As our software is constantly improving, we will update this page with solved is
 Frequently Asked Questions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+
 **Klondike**
 
--	Are all my models automatically migrated?
+- Are all my models automatically migrated?
 
-*We will supply schematisations for the new route*
+*We will supply schematisations for the new route. New Models need to be created by the user. This can easily be done by going to management.3di.live --> models --> schematisations select a schematisation and click 'generate model'.
+
+*An explainer on schematisations and simulation templates can be found* `here <https://docs.staging.3di.live/h_basic_modelling_concepts_threedi.html>`_.
+
+
+- I installed the new plugin but I don't see any models. What happened to them?
+
+*Don't worry, your schematisation have all been migrated. Simply generate the models using the management.3di.live page and your models will be available*
+
+- Can I calculate with models generated with inpy using the new Models and Simulations plugin?
+
+*No, you can't. Either use the old plugin for that or go to management.3di.live and generate the 3Di model from the schematisation of choice. We highly recommend everyone to start using the new route*
 
 -	I don’t like change, can I still use the old inpy & Tortoise?
 
@@ -31,15 +45,17 @@ Frequently Asked Questions
 
 -	Do all models work on the new route after the Klondike release?
 
-*Almost all of them do. There is a very limited number of models that contains errors we cannot fix or set as a warning. We will contact the owners of these models individually.*
+*Almost all of them do. There is a very limited number of models that contains errors we cannot fix or set as a warning. We have contacted the owners of these models individually. 
+Even though we have done our best in identifying these models, but in some rare cases your model doesn't do what you expect in the new route. Please contact our servicedesk if this is the case*
 
 -	Are all grid generation functionalities of 3Di still supported?
 
-*All of them except for the rarely used dem obstacle detection.*
+*All of them except for the dem obstacle detection.*
 
 -	Do I need to change all of my scripts?
 
-*In most cases not, there’s mostly extra functionality. If you like to know more don’t hesitate to contact us.*
+*There is a migration workflow available* `here <https://api.3di.live/v3/docs/migrate_to_threediapi/>`_. 
+*The migration is only required if you want to use the new functionality.*
 
 -	I uploaded extra files using Tortoise. Is this still supported?
 
@@ -55,31 +71,74 @@ Frequently Asked Questions
 
 -	Can I change infiltration in a simulation template?
 
-*No infiltration is part of the schematisation. You can copy a schematisation and change the infiltration file there.*
+*No, infiltration is part of the schematisation. You can copy a schematisation and change the infiltration file there.
+An explainer on schematisations and simulation templates can be found* `here <https://docs.3di.live/h_basic_modelling_concepts_threedi.html>`_.
+
+- Why is the name of my simulation template 'default'? 
+
+*The name is being read from the v2_global_settings table in the 'name' column. If that happens to be 'default', then that is the name of your simulation template.*
+
+- What happens if I add an extra entry in the v2_global_settings table? 
+
+*Extra entries will be ignored.*
+
+- I have a variant on my schematisation that I like to test, what is the best way of doing so? 
+
+*Copy/clone the schematisation, make your changes and upload it as a new schematisation.*
+
+- What is a good location for my working directory in the Modeller Interface 3Di Models And simulations plugin?
+
+*Choose any directory you like but we strongly advise you not to use the same directory as you were using for tortoise.*
+
+- How do I change my working directory in the Modeller Interface '3Di Models and Simulations' plugin?
+
+* Via the settings of the plugin (see below). 
+
+.. figure:: image/f_changepluginsettings1.png
+    :alt: Open the settings of 3Di Models and Simulations
+
+.. figure:: image/f_changepluginsettings2.png
+    :alt: Change the working directory of 3Di Models and Simulations	
+
+- Is all information from my spatialite being read ?
+
+*Yes, either it is being used as part of the schematisation and converted to a 3Di Model, or it is part of the simulation template.*
+
+- My QGIS defaults to the Dutch language, does that matter?
+
+*What matters is that the numbers notation is set to English. There is some bug in QGIS with scientific notations and Dutch number notations which can cause weird behaviour of the plugin. 
+Please set your QGIS or Modeller Interface to English (settings --> options --> locale --> en_GB).*
+
+**General**
+
+- My model shows unstable behaviour, what can I do to avoid this? 
+
+Instability is not common within 3Di, but certain settings or modelling choices can cause problems for the solver. 
+
+*We have these tips:*
+
+1) Decrease your calculation time step (background information: courant number)
+2) Decrease your output time step temporarily. This makes it easier to analyse what goes wrong
+3) Check combinations of nodes with a small storage area and pump stations with a large capacity. Make sure the 'gemaalkelder/pump basement' is large enough
+4) Check if there are pump stations that are pumping to another 1D-node within the same 2D-computational cell
+5) Check whether there are sewerage pipes shorter than 1 meter. If so, see if you can make them longer or add storage on the nodes that the pipes are connected to. 
+6) Put the 'pump_implicit_ratio' in the numerical settings to 1. This makes sure that the model calculates smoothly for pump stations (see  :ref:`matrixsolvers` --> pump_implicit_ratio)
 
 
+	
 
 Known Issues
 ^^^^^^^^^^^^^^
 
-- The 3Di Toolbox plugin does not work with QGIS 3.16.8 and above. To avoid problems, install the Modeller Interface or download the OsGeo Network Installer from qgis.org
+General
+--------
 
-- The live site uses always the max for initial water level, even when a different aggregation method is selected in the spatialite.
+- When applying 2D boundary conditions, it is not allowed to have more than one grid resolution on the edge. However, there is no clear error message for this. To solve this, add a grid refinement line on the boundary. This will force a uniform grid on the 2D boundary line.
 
-- The live site doesn't show lateral inflow defined in the spatialite.
-
-- If a raster has both NaN and Nodata values the live site DEM will color yellow (showing color scale for -9999)
-
-
-- When applying 2D boundary conditions, it is not allowed to have more than one grid resolution on the edge. However, there is no clear error message for this.
-
-- In the live site it is not possible to visualise structures together with the schematisation.
-
-- Note, that in v2_control tables (v2_control_table, v2_control_memory, v2_control_pid, v2_control_timed) the unit for adjusting the pump discharge capacity is actually *m3/s*, even tough the unit used normally is *L/s*.
+- Note, that in v2_control tables (v2_control_table, v2_control_memory, v2_control_pid, v2_control_timed) the unit for adjusting the pump discharge capacity via the API is actually *m3/s*, even though the unit used normally is *L/s*. 
+NB: This is only the case via the API. In the Modeller Interface (sqlite) the unit is in l/s. 
 
 - For simulations including interflow or embedded elements, not all results can be viewed. Moreover, the water balance ignores part of the flow, therefore it will seem to be inconsistent.
-
-- When using the sideview-tool in the QGIS-plugin, the length of the side view profile of pipes in the graph can be different than the actual length of the pipe. This is due to a projection conversion error in QGIS and does not affect 3Di calculations.
 
 - There are some issues related to projections. We are encountered this for our UK-based models (.sqlite). These models will show a shift in the  geometries in QGIS. The reprojection from EPGS:27700 (British National Grid) to WGS84 is based on an outdated reprojection in the spatialite. There is a solution for this:
 
@@ -89,8 +148,6 @@ Known Issues
 
 This might also be the case for other projections.
 
-- Laterals currently do not work for other projection systems than epsg:28992.
-
 - The *manhole_storage_area* in the v2_global_settings table of the data base must be set as an INTEGER.
 
 - After downloading a recent result netcdf within the QGIS-plugin the following error occurs: "The selected result data is too old and no longer supported in this version of ThreediToolbox. Please recalculate the results with a newer version of threedicore or use the ThreediToolbox plugin for QGIS 2." This error might also occur when trying to download a NetCDF larger than 2GB. If this happens, try downloading it via the result email or adjust the model settings.
@@ -99,6 +156,50 @@ This might also be the case for other projections.
 
 - Boundary conditions can only be applied via the model sqlite. Uploading a boundary condition as a json file using the API will result in a failure of the simulation.
 
+- In rare cases the waterdepth interpolation in the livesite may show unexpected behaviour; it shows triangular patterns. These deviations are only visual, so the results are still correctly. This will be fixed in the near future.
+
+- The following checks don’t work in case there is no index in the spatialite:
+
+   * It doesn’t check for stand alone connection nodes
+   * It doesn’t check for connection nodes that are too close or on top of each other
+
+
+
+Modeller Interface
+---------------------
+
+- "TypeError: setValue(self, float): argument 1 has unexpected type 'NoneType' ". Maximum time step requires a value and cannot be NULL
+
+- The Modeller Interface and the plugins have trouble installing if there is already a previous version installed because of old dependencies. Please remove (before installing a new version) the folder '{user profile} \ python' alle folders instead of 'expressions', 'plugins' and 'share'.  (e.g. the error 'sqlalchemy' might indicate this is the case)
+	
+- If you have an older version of the MI (e.g. based on QGIS 3.10), you should remove it via *Windows Apps & Features*, to avoid any conflicts. 
+
+- When using the sideview-tool in the QGIS-plugin, the length of the side view profile of pipes in the graph can be different than the actual length of the pipe. This is due to a projection conversion error in QGIS and does not affect 3Di calculations.
+
+- A schematisation that is uploaded via the MI without processing will appear falsely in the management pages as 'not valid'. If you upload the schematisation again with processing, the model will be generated. 
+
+- The Sideview is not supported for channels. 
+
+- Embedded and interflow can not be read with the standard tooling.
+
+- When using an infiltration rate file in v2_simple_infiltration, an infiltration value of 'NULL' is not valid and will cause an error. Please use an infiltration rate value of 0 instead.
+
+- Leakage does not work in the Modeller Interface. Please use the API for now if you want to use leakage. 
+
+
+
+Live site
+-----------
+
+- If a raster has both NaN and Nodata values the live site DEM will color yellow (showing color scale for -9999)
+
+
+Management pages
+-----------------
+
+- A schematisation that is uploaded via the MI without processing will appear falsely in the management pages as 'not valid'. If you upload the schematisation again with processing, the model will be generated. 
+
+
 
 Frequently endured issues
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -106,8 +207,11 @@ Frequently endured issues
 Per category, we include the frequently endured issues. In case you think a specific issue should be included, please let us know.
 
 
-Uploading a new revision
---------------------------
+Uploading a new revision/migrating a model
+--------------------------------------------
+
+Error: (400)
+++++++++++++++
 
 *Error: (400)
 Reason: Bad Request
@@ -117,9 +221,30 @@ HTTP response body: ["Maximum number of active threedimodels for a schematisatio
 You have reached the max number of active 3Di models for this schematisation. Please go the management.3di.live and remove one or more 3Di models that are attached to this schematisation
 
 
+sqlite3.IntegrityError: CHECK constraint failed: _alembic_tmp_v2_aggregation_settings
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+This can be fixed by the following 2 adjustments.
+
+1. Set aggregation = 0  instead of aggregation = FALSE
+
+2. remove table _alembic_tmp_v2_aggregation_settings 
+
 
 Running a simulation
 ----------------------
+
+
+"exit_code": "4161 [health_check_premature_container_error]"
+++++++++++++++++++++++++++++++++++++++++++++++
+
+Please run the simulation again. There was a temporary disruption.
+
+
+"exit_code": "4265 [health_check_postprocessing_error]"
+++++++++++++++++++++++++++++++++++++++++++++++
+
+Please run the simulation again. There was a temporary disruption.
 
 
 ERROR - F - Matrix diagonal element, near zero
@@ -158,18 +283,87 @@ Runtime Error: NetCDF: String match to name in use
 
 Check the aggregation NetCDF name settings, names must be unique.
 
-No Limit to infiltration
-+++++++++++++++++++++++++++++
 
-The setting max_infiltration_capacity_file found in the global settings table is depricated. The setting was not removed from the global settings table, but is added to the infiltration_simple_table. Values from there are taken into account. This is solved in the autumn release 2018, however older versions of the spatialite still have this setting there.
+Loading results
+-----------------
+
+Runtime Error: attempt to write a readonly database
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+This means that the gridadmin.sqlite is still in use by you or another user or is not closed correctly.
+You can fix this by removing the file 'gridadmin.sqlite-journal' (not gridadmin.sqlite!). 
 
 
+Signing in and sign up
+------------------------
+
+403 - You do not have a 3Di account. Please contact your manager and ask for an invitation
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Please contact our support office and let us know your login name or mail address and the error code if you received any. 
+
+.. note::
+    Please ensure that "https://auth.lizard.net/" domain is indeed displayed
+    in your browser's address bar and that your browser displays the lock
+    symbol indicating that the connection is secure.
+
+
+Finding a model
+-----------------
+
+Can't find the model you are looking for?
+Please check the following:
+
+- If you have access to the organisation to which the model belongs
+
+- If the model is available on API v3 (https://docs.3di.live/d_api.html#api-v3)
+Please contact the service desk if you need assistance.
+
+Connecting to the 3Di API
+-------------------------
+
+In some cases the 3Di Models and Simulations plugin (part of the 3Di Modeller Interface) can give a generic SSLError on a Windows system (see figure below).
+To solve this issue, please contact your organisation's system administrator.
+Instructions for your system administrator on how to solve this problem are given below the figure::
+
+  Error: HTTPSConnectionPool(host='api.3di.live', port=443): Max retries exceeded with url: /v3/auth/token/ (Caused by SSLError(1, 'A failure in the SSL Library occurred (_ssl.c:1129)')))
+
+.. figure:: image/f_ssl_error_qgis.png
+    :alt: Screenshot of the error
+
+This error is resulting from a combination of how the plugin validates SSL/TLS certificates and how Windows expects that to happen.
+We are using Let's Encrypt as our certificate supplier for most of our 3Di webservices.
+In September 2021 their root certificate 'DST Root CA X3' expired and was replaced by the 'ISRG Root X1' certificate.
+All of the Let's Encrypt domain name certificates are issued by Intermediate Certificate 'R3'.
+There are some cases where this Intermediate Certificate is still issued by 'DST Root CA X3', and this can create issues.
+
+To solve this, please open a Microsoft Management Console (mmc.exe) and add the Certificates Snap-In for the user.
+
+.. figure:: image/f_mmc_certificates_snapin.png
+    :alt: MMC Certificates Snap-In
+
+Open the "Intermediate Certification Authorities" and then the "Certificates" folder.
+Find the 'R3' Intermdiate Certificate, and check who the issuer is.
+If this is only 'DST Root CA X3', please remove it and visit https://api.3di.live/v3 with a browser.
+
+Please contact our servicedesk after this fix is applied and are still receiving the error message.
 
 Solved issues
 ^^^^^^^^^^^^^^
 
 The below errors and bugs should not be experienced anymore. Please let us know if you do still encounter them.
 
+- The toolbox does currently not work properly for QGIS 3.22. You cannot edit your schematisations. Please use QGIS 3.16 for now if you have this issue or use the Modeller Interface.
+
+- DEM edits do not work as intented for newly generated models (Klondike route). 
+
+- If you use the type ‘half verhard’, the gridadmin generation will crash. We will fix this by 4-4-2022.  In the meantime, we advise to choose an other type.
+
+- The Pipe view and Orifice view can be broken in the downloaded spatialite. If that happens, the service desk can provide 2 SQL scripts as workaround.
+
+- The 3Di Toolbox plugin does not work with QGIS 3.16.8 and above. To avoid problems, install the Modeller Interface or download the OsGeo Network Installer from qgis.org
+
+- Calculations that had both rain radar and laterals crashed somewhere during the simulation. 
 
 - Dry Weather Flow in API v3 or the Modeller Interface is not taken from the spatialite. Users can define the DWF by using the dwf calculator and applying it as a lateral
 
@@ -313,15 +507,10 @@ ThreeDiGrid
 The python package that can assist in analysing and making your own tools based on the 3Di results can be found at this `location <https://github.com/nens/threedigrid>`_. The full threedigrid documentation can be found via the following link: `Threedigrid documentation <https://threedigrid.readthedocs.io/en/latest/readme.html>`_.
 
 
+No Limit to infiltration
++++++++++++++++++++++++++++++
+
+The setting max_infiltration_capacity_file found in the global settings table is depricated. The setting was not removed from the global settings table, but is added to the infiltration_simple_table. Values from there are taken into account. This is solved in the autumn release 2018, however older versions of the spatialite still have this setting there.
 
 
-Servicedesk
-------------
 
-If you are unable to find or solve an error you may contact the Nelen & Schuurmans servicedesk. The servicedesk will:
-
-#. always assist you in solving any problems you have using the various 3Di web pages, and
-
-#. help you solve problems in model schematisation if you are subscribed to 3Di support.
-
-Contact the servicedesk by sending an email to servicedesk@nelen-schuurmans.nl. Please provide as much information as you can about the error and the model and revision number for which the error occurs.

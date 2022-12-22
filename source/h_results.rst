@@ -187,7 +187,7 @@ The meta information, that defines the structure for the line variables is menti
   Mesh2D_au:
 
   - Name: Wet cross-sectional area
-  - Unit: m
+  - Unit: m2
 
   Mesh2D_up1:
 
@@ -198,7 +198,7 @@ The meta information, that defines the structure for the line variables is menti
   Mesh2D_qp:
 
   - Name: Discharge in interflow layer
-  - Unit: m/s
+  - Unit: m3/s
 
 1D Mesh Node variables:
 -----------------------
