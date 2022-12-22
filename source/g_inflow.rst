@@ -104,32 +104,32 @@ If you are using 'surfaces', you have full freedom to set the inflow parameters 
      - infiltration_decay_constant
      - decimal number
      - h\ :sup:`-1`
-     - infiltration decay constant :math:`k_d`
+     - Infiltration decay constant :math:`k_d`
    * -
      - infiltration_recovery_constant
      - decimal number
      - h\ :sup:`-1`
-     - infiltration recovery constant :math:`k_r`
+     - Infiltration recovery constant :math:`k_r`
    * -
      - max_infiltration_capacity
      - decimal number
      - mm/h
-     - initial (maximum) infiltration rate :math:`f_0`
+     - Initial (maximum) infiltration rate :math:`f_0`
    * -
      - min_infiltration_capacity
      - decimal number
      - mm/h
-     - equilibrium (minimum) infiltration rate :math:`f_c`
+     - Equilibrium (minimum) infiltration rate :math:`f_c`
    * -
      - outflow_delay
      - decimal number
      - min\ :sup:`-1`
-     - outflow delay constant :math:`k_q`
+     - Outflow delay constant :math:`k_q`
    * -
      - surface_layer_thickness
      - decimal number
      - mm
-     - storage on the surface
+     - Storage on the surface
 
 Parameters for 'impervious surface' inflow (Dutch NWRW model)
 -------------------------------------------------------------
