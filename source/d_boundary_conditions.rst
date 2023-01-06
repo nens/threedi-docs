@@ -32,8 +32,8 @@ The 2D  boundary condition can be defined in the *v2_2d_boundary_conditions* tab
 0,10
 9999,10
 
-The values are interpolated between the different times. A time series must be defined over the full period of the simulation. The time series may be longer, but not shorter. In QGIS it is not possible to add a new line in the attribute table. Therefore you should either compose the timeseries in a text-editor and copy paste it into the field, or compose the timeseries through the field calculator and use "\\n" to create a new line. With the *Meuse* Release of the 3Di Plugin, a specific menu came available to assist in editing the values.
+The values are interpolated between the different times. A time series must be defined over the full period of the simulation. The time series may be longer, but not shorter. 
 
 There are some tips and tricks to define the location of the 2D boundary condition. 
--  As the boundary condition is defined at the edge of the batymetry raster, it works best with straight rasters.
-- It can help to convert the raster outline to a shapefile, that defines the location of the boundary condition.
+
+- As the boundary condition is defined at the edge of the batymetry raster, it works best with straight rasters.
