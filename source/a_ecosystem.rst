@@ -28,11 +28,7 @@ All components are secured by an **Authentication** and **Authorisation** system
 3Di Modeller Interface
 ======================
 
-The Modeller Interface is the QGIS based interface, where hydrology experts can build and edit models, start simulations and analyse their results. 
-It is a customised QGIS installation, which automatically installs the required plugins for working with 3Di.
-This setup empowers the user to benefit of all processing power of QGIS, combined with the **3Di Models and Simulations** and the **3Di Toolbox**, two powerfull custom made 3Di plugins.
-The 3Di Models and Simulations plugin enables the user to perform a complete modeling workflow (i.e. upload your model, start a simulation and download & analyze your results) within the Modeller Interface. 
-The 3Di Toolbox is used for importing schematisations, checking your data and analysing the results.
+The Modeller Interface is a customized version of QGIS, a software tool used by hydrology experts to build and edit models, start simulations, and analyze their results. It comes with a number of pre-installed plugins, including the **3Di Models and Simulations** and the **3Di Toolbox**, which are custom-made for use with 3Di. The 3Di Models and Simulations plugin allows users to complete a full modeling workflow, including uploading their model, starting a simulation, and downloading and analyzing the results, all within the Modeller Interface. The 3Di Toolbox, on the other hand, is used for importing schematizations, checking data, and analyzing results. This setup allows users to take advantage of the processing power of QGIS while using the specialized 3Di plugins to create, simulate, and analyze their models.
 
 
 .. note::
