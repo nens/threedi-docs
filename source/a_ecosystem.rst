@@ -73,12 +73,9 @@ The video below gives a brief demo of the Livesite. For more detailed informatio
 
 3Di Management Screens
 ======================
-When using the Modeller Interface, schematisations are stored locally. However, if a user uploads the schematisation via the Model and Simulations plugin, the schematisation is uploaded to our private cloud.
-These uploaded schematisation can be found in the Management screens. Furtheremore, all relevant information on the revisions, 3Di Models and simulations related to the schematisations can be found in the Management Screens.
-Therefore colleagues can synchronise their models on their own laptop and continue working with the improved version. This enables the use of version control on your schematisations.
+When using the Modeller Interface, schematizations are stored locally on your computer. However, if you use the Model and Simulations plugin to upload a schematization, it will be saved to our private cloud. These uploaded schematizations can be accessed and viewed in the Management Screens. In addition, all relevant information about revisions, 3Di models, and simulations related to the schematizations can be found in the Management Screens. This allows colleagues to sync their models on their own laptops and continue working with the updated version, enabling the use of version control on your schematizations.
 
-The Management Portal can also be used to manage 3Di Models, start simulations from simulation templates, monitor running simulations, and download results.
-With our portal we aim to provide our users with the necessary information to run day-to-day tasks within a web browser.
+The Management Portal can also be used to manage 3Di models, start simulations from simulation templates, monitor running simulations, and download results. This web-based portal is designed to provide users with the tools and information needed to perform day-to-day tasks efficiently.
 
 A more enhanced use of the Management screens is described in the :ref:`Management Screens <b_management_screens>` manual. 
 
