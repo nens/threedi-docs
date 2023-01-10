@@ -7,8 +7,8 @@ This section will help you solve some problems or errors that may occur when usi
 Some issues are due to the software, these will be summarised in the section Known Issues, including a temporary solution.
 Errors, due to input data or other user settings are usually covered by the schematisation and raster checker. In rare cases however they might not catch a potential issue. On this page we cover the FAQ & Known Issues with 3Di.
 
-* :ref:`_faq`
-* :ref:`_known_issues`
+- :ref:`faq`
+- :ref:`known_issues`
 
 
 .. _faq:
@@ -31,7 +31,7 @@ Frequently Asked Questions
 -	Can I change infiltration in a simulation template?
 
 *No, infiltration is part of the schematisation. You can copy a schematisation and change the infiltration file there.
-An explainer on schematisations and simulation templates can be found* :ref:`_basic_modelling_concepts`
+An explainer on schematisations and simulation templates can be found here* :ref:`basic_modelling_concepts`
 
 - Why is the name of my simulation template 'default'? 
 
@@ -300,7 +300,7 @@ The below errors and bugs should not be experienced anymore. Please let us know 
 
 
 ThreeDiGrid
-+++++++++++++++++++++++++++
+-----------
 
 The python package that can assist in analysing and making your own tools based on the 3Di results can be found at this `location <https://github.com/nens/threedigrid>`_. The full threedigrid documentation can be found via the following link: `Threedigrid documentation <https://threedigrid.readthedocs.io/en/latest/readme.html>`_.
 
