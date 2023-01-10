@@ -244,7 +244,7 @@ Signing in and sign up
 403 - You do not have a 3Di account. Please contact your manager and ask for an invitation
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Please contact our servicedesk and let us know your login name or mail address and the error code if you received any. 
+Please contact our :ref:`servicedesk` and let us know your login name or mail address and the error code if you received any. 
 
 
 Finding a model
@@ -256,9 +256,9 @@ Please check the following:
 - If you have access to the organisation to which the model belongs
 
 - If the model is available on API v3 (https://docs.3di.live/d_api.html#api-v3)
-Please contact the service desk if you need assistance.
+Please contact the :ref:`servicedesk` if you need assistance.
 
-- If the schematisation has a 3Di model. Go to management.3di.live, search for your schematisation and check out the details page. 
+- If the schematisation has a 3Di model. Go to `management.3di.live <https://management.3di.live>`_, search for your schematisation and check out the details page. 
 
 Connecting to the 3Di API
 -------------------------
@@ -287,7 +287,7 @@ Open the "Intermediate Certification Authorities" and then the "Certificates" fo
 Find the 'R3' Intermdiate Certificate, and check who the issuer is.
 If this is only 'DST Root CA X3', please remove it and visit https://api.3di.live/v3 with a browser.
 
-Please contact our servicedesk after this fix is applied and are still receiving the error message.
+Please contact our :ref:`servicedesk` after this fix is applied and are still receiving the error message.
 
 Solved issues
 ^^^^^^^^^^^^^^
