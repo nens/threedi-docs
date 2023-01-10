@@ -8,6 +8,13 @@ Release notes
 3Di general releases
 --------------------
 
+January 3rd 2023
+^^^^^^^^^^^^^^^^
+
+Hotfix:
+
+- Correct use of offset for timed control structures
+
 December 16th 2022
 ^^^^^^^^^^^^^^^^^^
 
