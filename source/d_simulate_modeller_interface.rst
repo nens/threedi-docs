@@ -171,6 +171,121 @@ Initial conditions either refer to the use of saved state file, or the use of in
 - Global value: This would be a generic initial water level value in m MSL which is applied in all 2D ground water nodes of the model.
 
 
+.. _simulate_api_qgis_boundary_conditions:
+
+Boundary conditions
+"""""""""""""""""""
+
+If the 3Di model contains boundary conditions, a timeseries for each boundary condition will be included in the simulation template. On the 'boundary conditions' page of the simulation wizard, you can upload CSV files to replace the boundary conditions that are included in the simulation template. You can only replace *all* boundary conditions. For example, if your model contains two 1D boundary conditions and five 2D boundary condition, the CSV file for the 1D boundary conditions should contain time series for both of the two 1D boundary conditions and the CSV file for the 2D boundary conditions should contain time series for all five 2D boundary conditions. The simulation wizard will merge them into a single JSON file that is sent to the API
+
+
+Boundary conditions CSV file format
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The CSV file input should have the following columns:
+
+- "id": integer; is the id of the corresponding row in the v2_1d_boundary_conditions table in the spatialite
+- "timeseries": a CSV-formatted text field: pairs of time step (in minutes or seconds) and value (in m\ :sup:`3`/s, m, or m/m, depending on the boundary condition type). The timestep is separated from the value by a comma and lines are separated from one another by a newline.
+
+Example (as a table):
+
+.. list-table:: Boundary conditions CSV file format
+   :header-rows: 1
+
+   * - id
+     - timeseries
+   * - 4
+     - 0,1.2
+
+       99999,1.2
+   * - 5
+     - 0,2.1
+
+       99999,2.1
+   * - 6
+     - 0,1.3
+
+       99999,5.6
+   * - 7
+     - 0,8.2
+
+       99999,1.0
+   * - 8
+     - 0,63.307
+
+       99999,63.307
+
+Text example::
+
+    id,timeseries
+    "4","0,1.2
+         99999,1.2"
+    "5","0,2.1
+         99999,2.1"
+    "6","0,1.3
+         99999,5.6"
+    "7","0,8.2
+         99999,1.0"
+    "8","0,63.307
+         99999,63.307"
+
+
+Options
+^^^^^^^
+
+If you have selected the option "Upload file(s)", you have two configuration options:
+
+
+Units
+#####
+
+Here you can set the time units used in your CSV file (hours, minutes, or seconds). The default is minutes, because this is the time unit that is used in the 3Di spatialite.
+
+
+Interpolate
+###########
+
+
+If this option is checked, the value between time steps will be linearly interpolated. For example, consider the following time series:
+
+.. list-table:: Timeseries example for interpolation
+   :header-rows: 1
+
+   * - time [hours]
+     - discharge [m\ :sup:`3`/s]
+   * - 0
+     - 0
+   * - 1
+     - 16
+   * - 3
+     - 10
+
+If *interpolate* is checked, the discharge after half an hour will be 8 m\ :sup:`3`/s. If it is not checked, the discharge after half an hour will be 0 m\ :sup:`3`/s.
+
+Editing a time series for a single boundary condition
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To run a simulation in which only one or a few boundary conditions have a different time series, take the following steps. The instructions are for 1D Boundary conditions; for 2D Boundary conditions, the same instructions apply. 
+
+- Load your schematisation
+- In the Layers panel, right click on the layer *1D Boundary condition* > *Export* > *Save features as..*
+- For *Format*, choose *Comma Separated Value [CSV]*
+- Choose a *File name* to save the file to
+- Click *Select fields to export and their export options*
+- Make sure only the checkboxes for the fields *id* and *timeseries* are checked
+- Under *Geometry* > *Geometry type* choose *No Geometry*
+- Under *Layer options*, make sure the *Separator* is 'comma'
+- Save the file
+- Open the file in a text editor to edit the values and save the CSV file.
+- In the simulation wizard, on the *Boundary conditions* page, choose the option "Upload file(s)" and browse for the edited CSV file you just saved.
+     
+
+Running a model without boundary conditions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If the 3Di model contains boundary conditions, you can only run a simulation if a time series is specified for each one of them. To run a simulation without boundary conditions, you will need to remove them from your schematisation and generate a new 3Di model. 
+
+
 .. _simulate_api_qgis_laterals:
 
 Laterals
