@@ -182,9 +182,10 @@ If the 3Di model contains boundary conditions, a timeseries for each boundary co
 Boundary conditions CSV file format
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The CSV file input should look have the following columns:
+The CSV file input should have the following columns:
+
 - "id": integer; is the id of the corresponding row in the v2_1d_boundary_conditions table in the spatialite
-- "timeseries": a CSV-formatted text field: pairs of time step (in minutes or seconds) and value (in m3/s, m, or m/m, depending on the boundary condition type). The timestep is separated from the value by a comma and lines are separated from one another by a newline.
+- "timeseries": a CSV-formatted text field: pairs of time step (in minutes or seconds) and value (in m\ :sup:`3`/s, m, or m/m, depending on the boundary condition type). The timestep is separated from the value by a comma and lines are separated from one another by a newline.
 
 Example (as a table):
 
@@ -194,24 +195,39 @@ Example (as a table):
    * - id
      - timeseries
    * - 4
-     - 0,1.299999,1.2
+     - 0,1.2
+
+       99999,1.2
    * - 5
-     - 0,2.199999,2.1
+     - 0,2.1
+
+       99999,2.1
    * - 6
-     - 0,1.399999,5.6
+     - 0,1.3
+
+       99999,5.6
    * - 7
-     - 0,8.299999,1.0
+     - 0,8.2
+
+       99999,1.0
    * - 8
-     - 0,63.30799999,63.307
+     - 0,63.307
+
+       99999,63.307
 
 Text example::
 
     id,timeseries
-    "4","0,1.299999,1.2"
-    "5","0,2.199999,2.1"
-    "6","0,1.399999,5.6"
-    "7","0,8.299999,1.0"
-    "8","0,63.30799999,63.307"
+    "4","0,1.2
+         99999,1.2"
+    "5","0,2.1
+         99999,2.1"
+    "6","0,1.3
+         99999,5.6"
+    "7","0,8.2
+         99999,1.0"
+    "8","0,63.307
+         99999,63.307"
 
 
 Options
@@ -236,7 +252,7 @@ If this option is checked, the value between time steps will be linearly interpo
    :header-rows: 1
 
    * - time [hours]
-     - discharge [m<sup>3</sup>/s]
+     - discharge [m\ :sup:`3`/s]
    * - 0
      - 0
    * - 1
@@ -244,7 +260,7 @@ If this option is checked, the value between time steps will be linearly interpo
    * - 3
      - 10
 
-If *interpolate* is checked, the discharge after half an hour will be 8 m<sup>3</sup>/s. If it is not checked, the discharge after half an hour will be 0 m<sup>3</sup>/s.
+If *interpolate* is checked, the discharge after half an hour will be 8 m\ :sup:`3`/s. If it is not checked, the discharge after half an hour will be 0 m\ :sup:`3`/s.
 
 Editing a time series for a single boundary condition
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
