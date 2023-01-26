@@ -8,6 +8,22 @@ Release notes
 3Di general releases
 --------------------
 
+February 6th 2023
+^^^^^^^^^^^^^^^^^^
+
+We have released the following features:
+
+- Support to import gwsw hydx
+- Eased restrictions on rasters 
+- User friendly breaches editing. Also added the ability to name them and keep breaches persistent throughout revisions, model changes and calculation grid changes. 
+- Boundary conditions timeseries can be uploaded as CSV files, so it is no longer needed to make a new revision when you want to use different boundary conditions
+- Structure control can be set by uploading a JSON file
+- Support for tabulated YZ profiles
+
+..
+   TODO: Add links for each highlight to documentation
+
+
 January 3rd 2023
 ^^^^^^^^^^^^^^^^
 
@@ -511,6 +527,56 @@ For schematisations users can:
 3Di Modeller Interface
 ----------------------
 
+February 6th 2023
+^^^^^^^^^^^^^^^^^^
+
+Release notes 3Di Toolbox v2.5.0
+---------------------------------
+
+- The raster checker has been integrated in the schematisation checker and has therefore been removed from the "Commands" window and from the Processing Toolbox (#710). Most checks in the raster checker are no longer relevant, because 3Di can now handle most of these cases.
+- Import GWSW HydX files to a 3Di Spatialite, including the possibility to download it directly from the server
+
+
+Release notes 3Di Schematisation Editor v1.3
+--------------------------------------------
+
+- NOT COMPLETED YET * You can now add 'Exchange lines' to your schematisation to set the 2D cells with which a Channel should make 1D2D connections (#92)
+- NOT COMPLETED YET * You can now add 'Potential breaches' to your schematisation by drawing a line starting from a connected channel (#92)
+- NOT COMPLETED YET * You can generate exchange lines automatically using the processing algorithm 'Generate exchange lines' (#93)
+
+
+Release notes 3Di Models & Simulations v3.4
+-------------------------------------------
+
+The simulation wizard has been improved and some important additions have been made:
+
+- Boundary conditions timeseries can be uploaded as CSV files, so it is no longer needed to make a new revision when you want to use different boundary conditions. (#134)
+- Structure control can be set by uploading a JSON file (#313)
+- Upon completion of the simulation wizard, all data for the starting the simulation is sent to the 3Di API. This upload now happens in the background, so that you can continue working while the simulation is starting. (#389)
+- Because of this, the upload timeout can be set to a much higher value; please change this yourself if you after upgrading to the new version. The default upload timeout has been set to 15 minutes (#216). This is relevant when your simulation includes large files, such as laterals, dry weather flow, or 2D initial conditions.
+- Progress through the steps of the simulation wizard has been improved to only include the steps that you included in the 'options' screen before starting the simulation wizard. (#262)
+- The "Options" dialog that is shown before starting the simulation wizard has been reordered and clearly shows which options are available to the 3Di model you have chosen. (#261)
+- "Post-processing in Lizard" now has its own page in the simulation wizard. #432
+- Invalid parameter values for damage estimations (repair times of 0 hours) can no longer be chosen. #104
+NOT COMPLETED YET * Forcings and events that cannot (yet) be added to a simulation through the simulation wizard, will now be preserved if they are part of the simulation template (#316). This applies to the following forcings and events:
+  - Raster edits 
+  - Obstacle edits
+  - Leakage
+  - Sources & sinks
+  - Local or Lizard time series rain
+
+The schematisation checker in the "Upload new revision" wizard has been improved in the following ways:
+- The raster checker has been integrated in the schematisation checker (#412). Most checks in the raster checker are no longer relevant, because 3Di can now handle most of these cases.
+- You can now export schematisation checker results to a CSV file (#230)
+
+Other changes and bugfixes:
+- The minimum friction velocity in new schematisations now defaults to 0.005 instead of 0.05 (#411)
+- A newer version (4.1.1) of the python package threedi-api-client is now used (#417)
+- If the maximum number of 3Di models for your organisation has has been reached, a popup will allow you to delete one or more of them before uploading a new revision (#367)
+- Bugfix: in some cases, schematisation revisions could not be downloaded if "Generate 3Di model" had failed for that revision (#428)
+NOT COMPLETED YET - Bugfix: prevent python error when attempting to start the simulation wizard with a template that has NULL as maximum_time_step value #418
+
+
 December 8th 2022
 ^^^^^^^^^^^^^^^^^^
 
@@ -903,6 +969,23 @@ We are constantly working on improving the 3Di experience. Based on user experie
 
 3Di API
 ----------
+
+February 6h 2023
+^^^^^^^^^^^^^^^^^^
+
+- Added support for uploading and downloading (exported gridadmin.h5) Geopackage files on threedimodels.
+- Added copy-to-threedimodel endpoint.
+- Added exchange_lines and potential_breaches in the schematization input (sqlite). The calculation_point / connected_pnt are migrated to potential breaches. The levees are migrated to obstacles. Corresponding version updates: sqlite schema version 214, threedi-modelchecker 0.35, threedigrid-builder 1.7, threedigrid 2.0.
+- The threedimodels/<id>/potentialbreaches endpoint is only filled with breaches having a content_pk, levee material and maximum breach depth (in gridadmin).
+- Removed the (admin-only) threedimodels/<id>/bulk_potentialbreaches endpoint.
+- Allow creation of Breach events by line_id. In that case, levee_material and maximum_breach_depth are required. Note that the old creation method will be deprecated (along with the threedimodels/<id>/potentialbreaches resource).
+- Removed the "potential_breach" field on the breach event.
+- Fixed model checker (v0.33), included raster checks via rasterio.
+- Invalidate boundary files without any boundaries.
+- Upgrade threedi-tables to 3.0, raster reading is now done through a VRT, so that any projection / sampling is allowed.
+- Upgraded threedi-modelchecker to 0.34 and threedigrid-buidler to 1.6, allowing TABULATED_YZ profiles, and adding rudimentary support for exchange lines and new potential breach input.
+- Disable inpy model mounts
+
 
 November 21th 2022
 ^^^^^^^^^^^^^^^^^^
