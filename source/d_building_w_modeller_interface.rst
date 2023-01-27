@@ -1,19 +1,23 @@
 .. _qgisplugin:
 
 
-Building and adjusting a model with the Modeller Interface
+Building and editing a model with the Modeller Interface
 ===========================================================
 
 Introduction
 ^^^^^^^^^^^^^
-The Modeller Interface (MI) will help you with building 3Di models locally. 
+3Di schematisations are created and edited in the Modeller Interface and then uploaded to the server, where a 3Di model is generated from the schematisation. The Modeller Interface makes it easy to:
 
+* Create new schematisations
+* Download existing schematisations
+* Edit schematisations
+* Upload new revisions of a schematisation
+* Generate a 3Di model from a schematisation
+* Start a simulation
+* Download results
+* Analyse results
 
-.. figure:: image/d_newprocess.png
-   :alt: Simplified modelling process
-
-With the Klondike Release (January 2022), all modelling steps can be done in the Modeller Interface.
-
+The general workflow is illustrated in this video:
 
 .. raw:: html
 
@@ -23,7 +27,7 @@ With the Klondike Release (January 2022), all modelling steps can be done in the
 
 
 
-Create a new 3Di model schematisation
+Create a new schematisation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. figure:: image/d_openplugin.png
@@ -55,12 +59,6 @@ Create a new 3Di model schematisation
 #. If you get errors, please solve them, otherwise you will get a "SUCCESS" message
 
 Congratulations, you have your first commit!
-
-
-An alternative way to load a schematisation is via :ref:`importsufhyd`. 
-
-
-
 
 
 .. _view_model_results:
@@ -741,6 +739,17 @@ zoom_category					0
 
 **Notables:**
 The 3Di database has some fields that are not in use. To clean the view, we have hidden them in the form view. They are still available in the database. Moreover, we have made some field names easier to read: for example, prefixes are excluded (e.g. \pipe_).
+
+
+.. _importseweragedata:
+
+Importers for Dutch sewerage data formats
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+3Di has importers for two sewerage data formats: SUF-Hyd and GWSW-HydX. Instructions can be found here: 
+
+:ref:`importsufhyd`
+:ref:`importgwswhydx`
 
 
 .. _addleveebreaches:
