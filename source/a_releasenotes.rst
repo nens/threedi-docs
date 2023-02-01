@@ -13,10 +13,10 @@ February 6th 2023
 
 We have released the following features:
 
-- Support to import gwsw hydx
+- Support to :ref:`import_gwsw_hydx`
 - Eased restrictions on rasters 
 - User friendly breaches editing. Also added the ability to name them and keep breaches persistent throughout revisions, model changes and calculation grid changes. 
-- Boundary conditions timeseries can be uploaded as CSV files, so it is no longer needed to make a new revision when you want to use different boundary conditions
+- :ref:`Boundary conditions timeseries can be uploaded as CSV files <simulate_api_qgis_boundary_conditions>`, so it is no longer needed to make a new revision when you want to use different boundary conditions. 
 - Structure control can be set by uploading a JSON file
 - Support for tabulated YZ profiles
 
