@@ -741,15 +741,15 @@ zoom_category					0
 The 3Di database has some fields that are not in use. To clean the view, we have hidden them in the form view. They are still available in the database. Moreover, we have made some field names easier to read: for example, prefixes are excluded (e.g. \pipe_).
 
 
-.. _importseweragedata:
+.. _import_sewerage_data:
 
 Importers for Dutch sewerage data formats
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 3Di has importers for two sewerage data formats: SUF-Hyd and GWSW-HydX. Instructions can be found here: 
 
-:ref:`importsufhyd`
-:ref:`importgwswhydx`
+* :ref:`import_sufhyd`
+* :ref:`import_gwsw_hydx`
 
 
 .. _addleveebreaches:

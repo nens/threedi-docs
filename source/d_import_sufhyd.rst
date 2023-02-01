@@ -1,6 +1,4 @@
-
-
-.. _importsufhyd:
+.. _import_sufhyd:
 
 Import from SUF-HYD
 ^^^^^^^^^^^^^^^^^^^
@@ -49,7 +47,8 @@ Note: the shape of the manhole is refered as 'rnd' = round, 'sqr' = square and '
     *    The defined storage area is added to a manhole on the bottomlevel of the manhole. The defined bottom_level of the storage (niv_001) is ignored.
     *    Only one storage area is supported
 	
-*    *Drainage area/ Impervious surface (``*AFV``)*
+*    *Drainage area/ Impervious surface* (``*AFV``)
+
 
 *    Linkage nodes (``*KPG``)
 
