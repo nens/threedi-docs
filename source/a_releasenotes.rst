@@ -559,6 +559,7 @@ The simulation wizard has been improved and some important additions have been m
 - "Post-processing in Lizard" now has its own page in the simulation wizard. #432
 - Invalid parameter values for damage estimations (repair times of 0 hours) can no longer be chosen. #104
 NOT COMPLETED YET * Forcings and events that cannot (yet) be added to a simulation through the simulation wizard, will now be preserved if they are part of the simulation template (#316). This applies to the following forcings and events:
+
   - Raster edits 
   - Obstacle edits
   - Leakage
@@ -566,10 +567,12 @@ NOT COMPLETED YET * Forcings and events that cannot (yet) be added to a simulati
   - Local or Lizard time series rain
 
 The schematisation checker in the "Upload new revision" wizard has been improved in the following ways:
+
 - The raster checker has been integrated in the schematisation checker (#412). Most checks in the raster checker are no longer relevant, because 3Di can now handle most of these cases.
 - You can now export schematisation checker results to a CSV file (#230)
 
 Other changes and bugfixes:
+
 - The minimum friction velocity in new schematisations now defaults to 0.005 instead of 0.05 (#411)
 - A newer version (4.1.1) of the python package threedi-api-client is now used (#417)
 - If the maximum number of 3Di models for your organisation has has been reached, a popup will allow you to delete one or more of them before uploading a new revision (#367)
