@@ -533,17 +533,30 @@ February 6th 2023
 Release notes 3Di Toolbox v2.5.0
 ---------------------------------
 
-- The raster checker has been integrated in the schematisation checker and has therefore been removed from the "Commands" window and from the Processing Toolbox (#710). Most checks in the raster checker are no longer relevant, because 3Di can now handle most of these cases.
+A new processing tool is introduced:
+
 - Import GWSW HydX files to a 3Di Spatialite, including the possibility to download it directly from the server
+
+The 'Commands' toolbox has been removed, and tools that are still relevant have been deleted or moved to the QGIS native Processing Toolbox (#715):
+
+- 'Raster checker' has been removed, as it has been integrated into Schematisation Checker (#710). Most checks in the raster checker are no longer relevant, because 3Di can now handle most of these cases.
+- 'Schematisation checker' is available from the Processing Toolbox > 3Di > Schematisation
+- 'Create breach locations', 'Add connected points' and 'Predict calc points' have been removed. These are no longer compatible with the latest sqlite schema version (214), where v2_connected_pnt, v2_calculation_point and v2_levee where replaced by v2_exchange_line and v2_potential_breach. Please use the 3Di Schematisation Editor for schematising breaches and/or setting the 2D cell with which 'connected' channels connect.
+- 'Import SufHyd' is available from the Processing Toolbox > 3Di > Schematisation
+- 'Guess indicators' is available from the Processing Toolbox > 3Di > Schematisation
+- 'Control structures' has been removed. Please fill the spatialite tables directly or upload a JSON file through the Simulation Wizard to use structure control.
+
+Other improvements:
+
+- Processing algorithm 'Computational grid from schematisation' no longer remembers the input parameters from previous uses, because this was confusing (#723)
 
 
 Release notes 3Di Schematisation Editor v1.3
 --------------------------------------------
 
-- NOT COMPLETED YET * You can now add 'Exchange lines' to your schematisation to set the 2D cells with which a Channel should make 1D2D connections (#92)
-- NOT COMPLETED YET * You can now add 'Potential breaches' to your schematisation by drawing a line starting from a connected channel (#92)
-- NOT COMPLETED YET * You can generate exchange lines automatically using the processing algorithm 'Generate exchange lines' (#93)
-
+- You can now add 'Exchange lines' to your schematisation to set the 2D cells with which a Channel should make 1D2D connections (#92)
+- You can now add 'Potential breaches' to your schematisation by drawing a line starting from a connected channel (#92)
+- Bugfix: editing attributes of referenced, not yet committed features (e.g. the connection node of a new manhole) now works without issues. #107
 
 Release notes 3Di Models & Simulations v3.4
 -------------------------------------------
@@ -562,8 +575,6 @@ NOT COMPLETED YET * Forcings and events that cannot (yet) be added to a simulati
 
   - Raster edits 
   - Obstacle edits
-  - Leakage
-  - Sources & sinks
   - Local or Lizard time series rain
 
 The schematisation checker in the "Upload new revision" wizard has been improved in the following ways:
@@ -577,7 +588,7 @@ Other changes and bugfixes:
 - A newer version (4.1.1) of the python package threedi-api-client is now used (#417)
 - If the maximum number of 3Di models for your organisation has has been reached, a popup will allow you to delete one or more of them before uploading a new revision (#367)
 - Bugfix: in some cases, schematisation revisions could not be downloaded if "Generate 3Di model" had failed for that revision (#428)
-NOT COMPLETED YET - Bugfix: prevent python error when attempting to start the simulation wizard with a template that has NULL as maximum_time_step value #418
+- Bugfix: prevent python error when attempting to start the simulation wizard with a template that has NULL as maximum_time_step value #418
 
 
 December 8th 2022
