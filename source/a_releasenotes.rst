@@ -571,11 +571,13 @@ The simulation wizard has been improved and some important additions have been m
 - The "Options" dialog that is shown before starting the simulation wizard has been reordered and clearly shows which options are available to the 3Di model you have chosen. (#261)
 - "Post-processing in Lizard" now has its own page in the simulation wizard. #432
 - Invalid parameter values for damage estimations (repair times of 0 hours) can no longer be chosen. #104
-NOT COMPLETED YET * Forcings and events that cannot (yet) be added to a simulation through the simulation wizard, will now be preserved if they are part of the simulation template (#316). This applies to the following forcings and events:
+- Forcings and events that cannot (yet) be added to a simulation through the simulation wizard, will now be preserved if they are part of the simulation template (#316). This applies to the following forcings and events:
 
   - Raster edits 
   - Obstacle edits
   - Local or Lizard time series rain
+- When selecting a breach, the breach's code and display name are shown on the map along with the id. 
+
 
 The schematisation checker in the "Upload new revision" wizard has been improved in the following ways:
 
