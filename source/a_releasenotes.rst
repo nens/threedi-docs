@@ -20,6 +20,9 @@ We have released the following features:
 - Structure control can be set by uploading a JSON file
 - Support for tabulated YZ profiles
 
+..
+   TODO: Add links for each highlight to documentation
+
 
 January 3rd 2023
 ^^^^^^^^^^^^^^^^
@@ -527,7 +530,8 @@ For schematisations users can:
 February 6th 2023
 ^^^^^^^^^^^^^^^^^^
 
-**Release notes 3Di Toolbox v2.5.0**
+Release notes 3Di Toolbox v2.5.0
+---------------------------------
 
 A new processing tool is introduced:
 
@@ -547,13 +551,15 @@ Other improvements:
 - Processing algorithm 'Computational grid from schematisation' no longer remembers the input parameters from previous uses, because this was confusing (#723)
 
 
-**Release notes 3Di Schematisation Editor v1.3**
+Release notes 3Di Schematisation Editor v1.3
+--------------------------------------------
 
 - You can now add 'Exchange lines' to your schematisation to set the 2D cells with which a Channel should make 1D2D connections (#92)
 - You can now add 'Potential breaches' to your schematisation by drawing a line starting from a connected channel (#92)
 - Bugfix: editing attributes of referenced, not yet committed features (e.g. the connection node of a new manhole) now works without issues. #107
 
-**Release notes 3Di Models & Simulations v3.4**
+Release notes 3Di Models & Simulations v3.4
+-------------------------------------------
 
 The simulation wizard has been improved and some important additions have been made:
 
