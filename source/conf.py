@@ -35,7 +35,8 @@ master_doc = "index"
 
 # General information about the project.
 project = "3Di"
-copyright = "2022, Nelen & Schuurmans"
+current_year = datetime.date.today().year
+copyright = str(current_year) + ", Nelen & Schuurmans"
 author = "Nelen & Schuurmans"
 
 documentation_version = open("../version.txt").readlines()[0].strip()
