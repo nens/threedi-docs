@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Modelling Concepts &mdash; 3Di  (dev doc 2023-02-13) documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/matomo.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Release notes" href="a_releasenotes.html" />
+    <link rel="prev" title="3Di Ecosystem" href="a_ecosystem.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            3Di
+          </a>
+              <div class="version">
+                 (dev doc 2023-02-13)
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="a_background.html">Background of 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_ecosystem.html">3Di Ecosystem</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_releasenotes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_contact.html">Contact</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">3Di Connectors</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="b_fews_3di_integrations.html">FEWS-3Di integration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html">Login to the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#start-or-follow-a-session">Start or follow a session</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#overview-session-screen-and-tooling">Overview session screen and tooling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#quitting-the-simulation">Quitting the simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#store-results">Store results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#notables">Notables</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How to work with 3Di</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_building_a_model.html">Building and editing a model schematisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_checking_model_schematisation.html">Checking the model schematisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_adding_running_scenario.html">Adding scenario information and running a simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_viewing_analysing_results.html">Storing, viewing and analysing results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html">Manage your schematisations and models</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="e_klondike_workflow.html">Tutorial 1: Workflow of creating a 3Di Schematisation and a 3Di Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_tutorial.html">Tutorial 2: Building a Basic 2D Flow Schematisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_slope_tutorial.html">Tutorial 3: 2D flow model over sloped terrain with multiple rasters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_levees_tutorial.html">Tutorial 4 Building a 2D flow model with levees, channels and breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_1d_tutorial.html">Tutorial 5: Building a 1D model</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Problem solving and support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="f_3di_instruments_and_downloads.html">Installation manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_problem_solving.html">FAQ and Problem Solving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_servicedesk.html">Servicedesk</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Physics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="g_massconservation.html">Conservation of mass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_flow.html">Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_sources_sinks.html">Source and Sink terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_levees_obstacles_breaches.html">Obstacles, Levees and Breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_wind.html">Wind effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_interception.html">Interception</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Model concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="h_basic_modelling_concepts_threedi.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_grid.html">The grid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_numerics.html">Numerics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_control.html">Control Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_calculation_grid_data.html">Tabulated data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_results.html">Results 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_aggregate_results.html">Aggregated output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_state_files.html">State files</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">3Di</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Basic Modelling Concepts</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/a_modelling_concepts.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="basic-modelling-concepts">
+<span id="a-basic-modelling-concepts"></span><h1>Basic Modelling Concepts<a class="headerlink" href="#basic-modelling-concepts" title="Permalink to this heading"></a></h1>
+<figure class="align-default" id="id1">
+<img alt="A schematic overview of the 3Di Workflow modelling concepts" src="_images/a_modelling_concepts_schema.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">A schematic overview of the 3Di Workflow modelling concepts.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>During the <span class="xref std std-ref">workflow</span> from real-world data to simulation results, one encounters various modelling concepts.
+The first important concept is the <strong>Schematisation</strong>. A schematisation consists of all the required information to create a calculation grid and subgrid tables: one or more rasters and a single SQLite.
+The latter contains vector based information and the schematisation settings, such as grid and table settings.</p>
+<p>When a new version of a schematisation is re-uploaded, a new <strong>Revision</strong> is created.
+A schematisation can thus consist of multiple revisions. Out of each revision a so called <strong>3Di Model</strong> can be generated.
+A 3Di Model is the required format (i.e. a calculation grid and subgrid tables) of the data for the calculation core to run a calculation.
+For each schematisation, the maximum amount of generated 3Di Models to exists is 3.
+This means that if a fourth revision is uploaded, while the first three revisions contain a generated 3Di Model, one 3Di Model needs to be deleted before being able to generate one for the newest revision.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please note that when deleting a 3Di Model, the revision of the schematisation will <strong>not</strong> be removed. This means that a deleted 3Di Model can be re-generated at any time, as long as the schematisation has no more than 3 existing 3Di Models.</p>
+</div>
+<p>In order to run a <strong>Simulation</strong>, additional <strong>Scenario Information</strong> is required.
+The Scenario Information is a bundle of information of one or more of the following factors: 1) Forcings (i.e. wind, rain etc.), 2) Events (i.e. breaches, laterals etc.), 3) Initial Information (i.e. initial water levels), and 4) the Simulation Settings (i.e. numerical and timestep settings).</p>
+<p>After a simulation has run, a <strong>Simulation Template</strong> can be created.
+A simulation template is basically a copy of the simulation, which refers to the model and scenario settings that were used for the simulation.
+The power of a simulation template is that it can be used to start another simulation with the option to change various settings, including the scenario information.
+This enables the option to clone and change past simulations, instead of having to start from scratch all over again.
+Therefore, simulation templates comes in very handy in, for example, batch calculations.</p>
+<p>More information on how to download and analyse the <strong>Results</strong> can be found in the <a class="reference internal" href="d_viewing_analysing_results.html#viewing-and-analyzing-results"><span class="std std-ref">Analysing Results</span></a> section.</p>
+<figure class="align-default" id="id2">
+<img alt="A visual overview of the 3Di Workflow modelling concepts" src="_images/a_modelling_concepts_visual.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">A visual overview of the 3Di Workflow modelling concepts.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="a_ecosystem.html" class="btn btn-neutral float-left" title="3Di Ecosystem" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="a_releasenotes.html" class="btn btn-neutral float-right" title="Release notes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nelen &amp; Schuurmans.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

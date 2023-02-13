@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The grid &mdash; 3Di  (dev doc 2023-02-13) documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="_static/matomo.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Numerics" href="h_numerics.html" />
+    <link rel="prev" title="Basic Modelling Concepts" href="h_basic_modelling_concepts_threedi.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            3Di
+          </a>
+              <div class="version">
+                 (dev doc 2023-02-13)
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="a_background.html">Background of 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_ecosystem.html">3Di Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_modelling_concepts.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_releasenotes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_contact.html">Contact</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">3Di Connectors</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="b_fews_3di_integrations.html">FEWS-3Di integration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html">Login to the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#start-or-follow-a-session">Start or follow a session</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#overview-session-screen-and-tooling">Overview session screen and tooling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#quitting-the-simulation">Quitting the simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#store-results">Store results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#notables">Notables</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How to work with 3Di</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_building_a_model.html">Building and editing a model schematisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_checking_model_schematisation.html">Checking the model schematisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_adding_running_scenario.html">Adding scenario information and running a simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_viewing_analysing_results.html">Storing, viewing and analysing results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html">Manage your schematisations and models</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="e_klondike_workflow.html">Tutorial 1: Workflow of creating a 3Di Schematisation and a 3Di Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_tutorial.html">Tutorial 2: Building a Basic 2D Flow Schematisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_slope_tutorial.html">Tutorial 3: 2D flow model over sloped terrain with multiple rasters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_levees_tutorial.html">Tutorial 4 Building a 2D flow model with levees, channels and breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_1d_tutorial.html">Tutorial 5: Building a 1D model</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Problem solving and support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="f_3di_instruments_and_downloads.html">Installation manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_problem_solving.html">FAQ and Problem Solving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_servicedesk.html">Servicedesk</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Physics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="g_massconservation.html">Conservation of mass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_flow.html">Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_sources_sinks.html">Source and Sink terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_levees_obstacles_breaches.html">Obstacles, Levees and Breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_wind.html">Wind effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_interception.html">Interception</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Model concepts</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="h_basic_modelling_concepts_threedi.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The grid</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#computational-grid-for-2d-domain">Computational grid for 2D domain</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#grid-refinement-in-2d">Grid Refinement in 2D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subgrid-method">Subgrid method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#input">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#some-facts-and-figures">Some facts and figures:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Input</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#computational-grid-for-1d-domain">Computational grid for 1D domain</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calculation-point-distance">Calculation point distance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="h_numerics.html">Numerics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_control.html">Control Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_calculation_grid_data.html">Tabulated data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_results.html">Results 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_aggregate_results.html">Aggregated output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_state_files.html">State files</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">3Di</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">The grid</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/h_grid.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="the-grid">
+<span id="grid"></span><h1>The grid<a class="headerlink" href="#the-grid" title="Permalink to this heading"></a></h1>
+<p>To allow flow to be computed numerically, space and time need to be discretised. For time are time-steps defined, and for space is a grid defined. In the sections below we elaborate on the grid specified for computations in the 1D and in the 2D surface water and groundwater domains.</p>
+<p>3Di simulations can consist of a surface water, a groundwater and a 1D network component. The surface water and groundwater components are in principle a two-layer model, which can be coupled to the 1D network. Therefore, the grid of the surface water and groundwater domain are similar, while the 1D network is fundamentally different.</p>
+<section id="computational-grid-for-2d-domain">
+<h2>Computational grid for 2D domain<a class="headerlink" href="#computational-grid-for-2d-domain" title="Permalink to this heading"></a></h2>
+<p>In 3Di we make use of a so-called structured, staggered grid. This implies for the surface water and the groundwater domain that computational cells are perfect squares, where the pressure/ water levels and volumes are defined in the cell centres and velocities and discharges are defined at the cell edges. This also yields for the vertical coupling. In the Figures below, an example is shown of a grid in a 2D domain and the two-layer coupling.</p>
+<figure class="align-right" id="id3" style="width: 400px">
+<img alt="grid 2d" src="_images/b1_1.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 79 </span><span class="caption-text">Example of a staggered 2D grid including a refinement; water levels/ pressures are defined in the cell centres (blue dots) and velocities at the cell edges (blue bars). Water level domains are indicated by blue areas, and the momentum domains by green and orange areas.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-left" id="id4" style="width: 300px">
+<img alt="grid 2dv" src="_images/b1_2dv.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 80 </span><span class="caption-text">Example of a vertical staggered grid</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The hydrodynamic computations are based on the conservation of volume and momentum. In the next sections (<a class="reference internal" href="g_massconservation.html#cons-volume"><span class="std std-ref">Conservation of mass</span></a>,  <a class="reference internal" href="g_onedee_flow.html#onedee-flow"><span class="std std-ref">1D Flow</span></a>, <a class="reference internal" href="g_surfaceflow.html#surface-flow"><span class="std std-ref">2D Surface Flow</span></a>, and <a class="reference internal" href="g_groundwater.html#groundwater"><span class="std std-ref">2D Groundwater flow</span></a>), the methods concerned for the computations are discussed. However, in order to solve the equations, the domains in which they are valid, need to be defined. In the Figure above, the volume and momentum domains are shown.</p>
+<section id="grid-refinement-in-2d">
+<h3>Grid Refinement in 2D<a class="headerlink" href="#grid-refinement-in-2d" title="Permalink to this heading"></a></h3>
+<p>The computational cost of a simulation is strongly related to the number of computational cells. One always needs to find a balance between grid resolution and computational time. There are often regions where the flow is more complex or where one requires results with a finer resolution. To optimise the computational cost and grid resolution, users can refine the grid locally. 3Di uses a method called quad-tree refinement. This means, that in space, refinements are placed by dividing neighboring cells by a factor 4 (Figures below and above). This is a simple refinement method that forces smooth grid variations, which enhances an accurate solution of the equation.</p>
+<figure class="align-right" id="id5" style="width: 400px">
+<img alt="quadtree_refinement" src="_images/b1_6_quadtree_grid.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 81 </span><span class="caption-text">An example of a computational grid with quad-tree refinements.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>In case groundwater is taken into account, the grid refinement is present in both the surface layer and the groundwater layer.</p>
+</section>
+<section id="subgrid-method">
+<span id="subgridmethod"></span><h3>Subgrid method<a class="headerlink" href="#subgrid-method" title="Permalink to this heading"></a></h3>
+<p>Flow is strongly affected by the bathymetry. Therefore, to simulate flow accurately, information of the bathymetry is crucial. To illustrate the importance of a well described bathymetry, consider the three flows in a flume shown shown in the Figure below. While the bathymetry differs only slightly, the flow behaves  completely different.</p>
+<p>Nowadays, detailed bathymetry information becomes more and more available.  However, it is difficult to take detailed grid information into account, without a strong increase in computational cost. In search of an optimal balance between computational cost and accuracy, the so-called subgrid method (Casulli 2009, Casulli&amp;Stelling 2011, Stelling 2012, Volp &amp; Stelling 2013) is developed and implemented in 3Di.</p>
+<figure class="align-center" id="id6" style="width: 600px">
+<img alt="bathymetry variations example" src="_images/b1_3.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 82 </span><span class="caption-text">Examples of flow in a flume, where a slight change in bathymetry, strongly affects the flow.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The basic idea behind the subgrid method, is that water levels vary much more gradually than the bathymetry. In hydrodynamic computations, water levels are assumed to be uniform within a computational cell. Traditionally, this is also assumed for the bathymetry within such a cell. The subgrid-based approach allows the bathymetry to vary within one computational cell, while the water level remains uniform. In 3Di two grids are to be defined; a high resolution subgrid and a coarse(r) computational grid. All input data, such as the bathymetry, roughness and infiltration rates can be defined on the high resolution grid, while the computations are performed on the coarse computational grid. Volumes and cross-sectional areas are based using the high resolution bathymetry information. The variation of the bathymetry within a computational cell means that a cell can be dry, wet or partly wet. This approach has two implications:</p>
+<ul class="simple">
+<li><p>The volume has a non-linear relation with the water level, because when the water level rises, the wet surface area increases is well. Such a system can be solved using a newton iteration. To compute the volumes at the next time step.</p></li>
+<li><p>As we are allowed to have a non-linear relation between water level and volume, 3Di can deal automatically with flooding and drying. No artificial thresholds are necessary.</p></li>
+</ul>
+<figure class="align-left" id="id7" style="width: 400px">
+<img alt="subgrid_bathymety_cell" src="_images/b1_4.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 83 </span><span class="caption-text">An example of a computational cell with a bathymetry defined on the subgrid.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="input">
+<h3>Input<a class="headerlink" href="#input" title="Permalink to this heading"></a></h3>
+<p>Users define for the grid generation a cell size (of the finest grid resolution) and the number of refinement layers. A computational cell consists always of an even number of subgrid cells. In addition, the user needs to define where and if refinements should be defined. One can define polygons or lines to indicate these areas and the refinement level. For a detailed example, see <a class="reference internal" href="d_flood_model.html#flood-model"><span class="std std-ref">Flood model</span></a>.</p>
+</section>
+<section id="some-facts-and-figures">
+<h3>Some facts and figures:<a class="headerlink" href="#some-facts-and-figures" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>The use of high resolution information goes hand in hand with large amounts of data. To compress this data, it is stored during the computations in tables. More information about this can be found in <a class="reference internal" href="h_calculation_grid_data.html#tables"><span class="std std-ref">Tabulated data storage</span></a>.</p></li>
+<li><p>There are more variables defined at the high resolution grid; such as roughness, infiltration capacity and hydraulic connectivity. These will be introduced later in the documentation.</p></li>
+</ul>
+</section>
+<section id="id1">
+<h3>Input<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<p>The numerical grid is generated based on some the following settings:
+- Grid space
+- Number of refinement levels
+- Grid refinements</p>
+<p>The grid space is the measure of the dimension of a computational cell. It is important that a width and the height of a grid cell contains an even number of subgrid cells. In case the dimensions of a subgrid cell are <em>0.5 x 0.5 m</em><sup>2</sup>, the grid space can be 5.0 x 5.0 <span class="math notranslate nohighlight">\(m^2\)</span>. In case the dimensions of a subgrid cell are <em>1.0 x 1.0 m</em><sup>2</sup>, the grid space can not be <em>5.0 x 5.0 m</em><sup>2</sup>. The grid space is defined in the v2_global_settings table and is the dimension of the smallest grid size. The <em>kmax</em> setting is the number of refinement levels. Locations where the refinements need to be defined can be added by a line using the v2_grid_refinement table, or by an area using v2_grid_refinement_area. In case two refinement levels are defined at the same location, 3Di will refine to the highest level indicated. 3Di will always aim at a minimum number of grid cells, it will coarsen the grid as fast as possible, but it will only be possible to do that in steps of four.</p>
+</section>
+</section>
+<section id="computational-grid-for-1d-domain">
+<span id="dgrid"></span><h2>Computational grid for 1D domain<a class="headerlink" href="#computational-grid-for-1d-domain" title="Permalink to this heading"></a></h2>
+<p>For studying the flow of narrow features in the landscape or sewer systems, it is advantageous to use one dimensional models. This allows for an extensive description of the system, without actually computing cross-flow phenomena. These are in those cases limited and the use of a 1D representation will reduce the computational cost. In 3Di 1D networks can be defined, representing open channels, manholes, weirs, orifices, culverts and closed pipes. There are several options to couple the 1D and the 2D domain (see Section <a class="reference internal" href="g_onedee_flow.html#onedee-flow"><span class="std std-ref">1D Flow</span></a>). All options for the coupling allow for a fully integrated computation, this means that the full 1D and 2D systems are solved as one.</p>
+<p>To compute the flow in a 1D network a grid is to be defined as well. Consistent with the grid defined for the 2D domain, a staggered grid is used again. Pressure/ water level points are allocated with a velocity point. An example can be seen in the Figure below.</p>
+<figure class="align-right" id="id8" style="width: 400px">
+<img alt="1D structure of the grid." src="_images/b1_1d.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 84 </span><span class="caption-text">An example of the grid of a 1D Network. Water levels/ pressures are defined in the cell centres (blue dots) and velocities at the cell edges (blue bars). Water level domains are indicated by blue areas, and the momentum domains by green and orange areas.</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<section id="id2">
+<h3>Input<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<p>1D networks can consist of open channels, closed pipes and various structures. More about the various options can be found in the Sections <a class="reference internal" href="g_structures.html#structures"><span class="std std-ref">1D flow over structures</span></a> and <a class="reference internal" href="d_water_system.html#channels"><span class="std std-ref">Channels</span></a>. The resolution of the 1D domain can be defined per 1D element.</p>
+</section>
+<section id="calculation-point-distance">
+<h3>Calculation point distance<a class="headerlink" href="#calculation-point-distance" title="Permalink to this heading"></a></h3>
+<p>When the computational grid is generated from the schematisation input, computational nodes  are placed at each connection node. Additionally, computational nodes can be generated in between these locations. The spacing between these computational nodes is determined by a calculation point distance, the 1D grid resolution.  In 3Di this can be specified for each individual pipe, culvert, or channel by filling the ‘dist_calc_points’ attribute of those features.
+If the specified calculation point distance is larger than the length of the feature, no additional calculation points are generated in between the connection nodes. This is visualised in the figure below.</p>
+<figure class="align-center" style="width: 600px">
+<img alt="calculation point distance intro" src="_images/h_calculation_point_distance_intro.png" />
+</figure>
+<p>The cross-section of channel segments at a (new) velocity point is determined by linearly interpolating the wet cross-sectional area from the cross-section locations during the simulation. If a velocity point is not in between two cross-section locations, the cross-section from the nearest cross-section location is used.
+If more than two cross-section locations exist between two velocity points, the ones in the middle are ignored.</p>
+<figure class="align-center" style="width: 600px">
+<img alt="calculation point distance cross-section" src="_images/h_calculation_point_distance_cross_section.png" />
+</figure>
+<p>These additional computational nodes can be isolated, (double) connected or embedded. This depends on the type that was attributed to the original pipe, cannel or culvert. In case of (double) connected elements the exchange levels are set automatically. The exchange levels for for (double-) connected elements are determined similarly as the cross-sections. For channels, the bank levels for the additional computational nodes are determined by linear interpolation between the bank levels that are specified by the user at  the cross-section locations on the channel. If the computational node is not in between two cross-section locations, the bank level of the nearest cross-section location is used. This is illustrated in the figure below.
+In case more than two cross-section locations are defined between two (new) computational nodes, the ones in the middle are ignored.</p>
+<figure class="align-center" style="width: 600px">
+<img alt="calculation point distance bank level" src="_images/h_calculation_point_distance_bank_level.png" />
+</figure>
+<p>For pipes and culverts, the drain level of the generated computational nodes is determined by linear interpolation between the drain levels at the start and end of the pipe or culvert. This is relevant only for pipes and culverts with calculation type ‘connected’. In the case of pipes, this can be way to schematise gullies. Pipes and culverts always have a single cross-section over their entire length, so interpolation of the cross-section is not necessary.
+If drain levels are not set, the height of the DEM at that location is used as exchange height.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="h_basic_modelling_concepts_threedi.html" class="btn btn-neutral float-left" title="Basic Modelling Concepts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="h_numerics.html" class="btn btn-neutral float-right" title="Numerics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nelen &amp; Schuurmans.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

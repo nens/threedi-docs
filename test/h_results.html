@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Results 3Di &mdash; 3Di  (dev doc 2023-02-13) documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/matomo.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Aggregated output" href="h_aggregate_results.html" />
+    <link rel="prev" title="Tabulated data storage" href="h_calculation_grid_data.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            3Di
+          </a>
+              <div class="version">
+                 (dev doc 2023-02-13)
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="a_background.html">Background of 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_ecosystem.html">3Di Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_modelling_concepts.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_releasenotes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_contact.html">Contact</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">3Di Connectors</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="b_fews_3di_integrations.html">FEWS-3Di integration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html">Login to the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#start-or-follow-a-session">Start or follow a session</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#overview-session-screen-and-tooling">Overview session screen and tooling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#quitting-the-simulation">Quitting the simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#store-results">Store results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#notables">Notables</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How to work with 3Di</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_building_a_model.html">Building and editing a model schematisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_checking_model_schematisation.html">Checking the model schematisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_adding_running_scenario.html">Adding scenario information and running a simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_viewing_analysing_results.html">Storing, viewing and analysing results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html">Manage your schematisations and models</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="e_klondike_workflow.html">Tutorial 1: Workflow of creating a 3Di Schematisation and a 3Di Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_tutorial.html">Tutorial 2: Building a Basic 2D Flow Schematisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_slope_tutorial.html">Tutorial 3: 2D flow model over sloped terrain with multiple rasters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_levees_tutorial.html">Tutorial 4 Building a 2D flow model with levees, channels and breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_1d_tutorial.html">Tutorial 5: Building a 1D model</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Problem solving and support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="f_3di_instruments_and_downloads.html">Installation manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_problem_solving.html">FAQ and Problem Solving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_servicedesk.html">Servicedesk</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Physics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="g_massconservation.html">Conservation of mass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_flow.html">Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_sources_sinks.html">Source and Sink terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_levees_obstacles_breaches.html">Obstacles, Levees and Breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_wind.html">Wind effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_interception.html">Interception</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Model concepts</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="h_basic_modelling_concepts_threedi.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_grid.html">The grid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_numerics.html">Numerics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_control.html">Control Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_calculation_grid_data.html">Tabulated data storage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Results 3Di</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-format-results-3di-nc">Data format <em>results_3di.nc</em></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#d-mesh-cell-node-variables">2D Mesh Cell/Node variables:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#d-mesh-line-variables">2D Mesh Line variables:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#d-mesh-node-variables">1D Mesh Node variables:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">1D Mesh Line variables:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pump-variables">Pump variables:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#data-format-subgrid-map-nc">Data format <em>subgrid_map.nc</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="h_aggregate_results.html">Aggregated output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_state_files.html">State files</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">3Di</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Results 3Di</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/h_results.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="results-3di">
+<span id="dinetcdf"></span><h1>Results 3Di<a class="headerlink" href="#results-3di" title="Permalink to this heading"></a></h1>
+<p>The results of a simulation are written to file. The result file is created using NetCDF, which is a set of software libraries and self-describing, machine-independent data formats that support the creation, access, and sharing of array-oriented scientific data. The set of libraries can be used by multiple tools and programming languages, such as matlab, python and excel, to extract the data from the netcdf data formats.</p>
+<p>The 3Di Plugin visualizes the information stored in this file. An overview of the data format in the output file is given in this chapter, to help users in reading data from file. To facilitate users in the direct access to the results from the output file, users can make use of the python package <em>threedigrid</em>. Which can be downloaded from <a class="reference external" href="https://pypi.org/project/threedigrid/">https://pypi.org/project/threedigrid</a>. This package helps to link the output data to the input data.</p>
+<p>During the spring release of 2018 the output file has been changed. The changes include a change in name from <em>subgrid_map.nc</em> to <em>results_3di.nc</em> and changes to the data format within the output file. An overview of both data formats is presented below.</p>
+<p>These files consist of all relevant variables that are necessary to analyze the results of a simulation. The user defines the output time step. The snapshots of the flow are saved at these intervals. Note, that the output time step in combination with the size of the model will define the size of the output file. In addition to these snap shots, 3Di can generate aggregated results. More about this can be found in  <a class="reference internal" href="h_aggregate_results.html#aggregationnetcdf"><span class="std std-ref">Aggregated output</span></a>.</p>
+<section id="data-format-results-3di-nc">
+<h2>Data format <em>results_3di.nc</em><a class="headerlink" href="#data-format-results-3di-nc" title="Permalink to this heading"></a></h2>
+<p>The current output NetCDF file consists of all flow variables of the 1D and the 2D mesh. The results file is constructed according to the <a class="reference external" href="http://cfconventions.org/">CF Conventions</a> . In this data format, the 2D and 1D mesh are split, so each part of the mesh has its own result and mesh variable. A description of all the flow and mesh variables for the 1D and 2D mesh are given below.</p>
+<p>For the results in the 1D and in the 2D domain, results are split between node and line variable. Node variables are typically, variables related to volumes. This concens volumes, water levels and all the source and sink terms. Line variables are related to flow variables, in other words velocities and discharges. This distiction is also clear in the 3Di Plugin and in the contsruction of the result files.</p>
+<section id="d-mesh-cell-node-variables">
+<h3>2D Mesh Cell/Node variables:<a class="headerlink" href="#d-mesh-cell-node-variables" title="Permalink to this heading"></a></h3>
+<p>First the meta information of the computational grid is defined.</p>
+<p><strong>Coordinates</strong></p>
+<blockquote>
+<div><p>Mesh2DFace_xcc: x-coordinate of the center of the computational cell</p>
+<ul class="simple">
+<li><p>Name: Flow Face 2D center x coordinate</p></li>
+<li><p>Unit: [m]</p></li>
+</ul>
+<p>Mesh2DFace_ycc: y-coordinate of the center of the computational cell</p>
+<ul class="simple">
+<li><p>Name: Flow Face 2D center y coordinate</p></li>
+<li><p>Unit: [m]</p></li>
+</ul>
+<p>Mesh2DFace_zcc: The deepest point in either the surface water cell or the groundwater cell</p>
+<ul class="simple">
+<li><p>Name: Flow Face 2D center z coordinate</p></li>
+<li><p>Unit: [m MSL]</p></li>
+</ul>
+<p>Mesh2DContour_x: x-coordinates of the location of the edge of the cell</p>
+<ul class="simple">
+<li><p>Name: List of x-coordinates forming Face</p></li>
+<li><p>Unit: m</p></li>
+</ul>
+<p>Mesh2DContour_y: y-coordinates of the location of the edge of the cell</p>
+<ul class="simple">
+<li><p>Name: List of y-coordinates forming Face</p></li>
+<li><p>Unit: m</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Attributes</strong> Some administrative information</p>
+<blockquote>
+<div><p>Mesh2DNode_id:  IDfrom the computational core</p>
+<ul class="simple">
+<li><p>Name: Node Identifier</p></li>
+</ul>
+<p>Mesh2DFace_sumax: Maximum surface area in a computational cell</p>
+<ul class="simple">
+<li><p>Name: Total cell surface</p></li>
+<li><p>Unit: m2</p></li>
+</ul>
+<p>Mesh2DNode_type: Type of 2D computational cell</p>
+<ul class="simple">
+<li><p>Name: Type of 2D mesh node/face</p></li>
+<li><p>Types: surface_water_2d, grounwater_2d, groundwater_2d, open_water_boundary_2d, groundwater_boundary_2d</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Dimensions</strong> Lenght of the arrays</p>
+<blockquote>
+<div><p>nMesh2D_nodes:</p>
+<ul class="simple">
+<li><p>Name: Number of 2D mesh nodes/faces.</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Flow Variables</strong> These are the variable that are defined in the cell centers.</p>
+<blockquote>
+<div><p>Mesh2D_s1: Water level, depending on the node type, it is the surface or the groundwater level.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Name: waterlevel</p></li>
+<li><p>Unit: m MSL</p></li>
+</ul>
+<p>Mesh2D_vol: water volume in a cell</p>
+<ul class="simple">
+<li><p>Name: Water volume</p></li>
+<li><p>Unit: m3</p></li>
+</ul>
+<p>Mesh2D_su: current wet surface area</p>
+<ul class="simple">
+<li><p>Name: Wet surface area</p></li>
+<li><p>Unit: m2</p></li>
+</ul>
+<p>Mesh2D_ucx: Interpolated flow velocity in the cell center in x-direction</p>
+<ul class="simple">
+<li><p>Name: Flow velocity in x direction in cell center</p></li>
+<li><p>Unit: m/s</p></li>
+</ul>
+<p>Mesh2D_ucy: Interpolated flow velocity in the cell center in y-direction</p>
+<ul class="simple">
+<li><p>Name: Flow velocity in y direction in cell center</p></li>
+<li><p>Unit: m/s</p></li>
+</ul>
+<p>Mesh2D_rain: Current amount of rain in computational cell</p>
+<ul class="simple">
+<li><p>Name: Rain</p></li>
+<li><p>Unit: m3/s</p></li>
+</ul>
+<p>Mesh2D_q_lat: Point discharge in computational cell</p>
+<ul class="simple">
+<li><p>Name: Lateral discharge</p></li>
+<li><p>Unit: m3/s</p></li>
+</ul>
+<p>Mesh2D_infiltration_rate_simple: Current amount of infiltration in computational cell</p>
+<ul class="simple">
+<li><p>Name: Infiltration rate</p></li>
+<li><p>Unit: m3/s</p></li>
+</ul>
+<p>Mesh2D_leak: Current amount of leakage in computational cell.</p>
+<ul class="simple">
+<li><p>Name: Leakage rate</p></li>
+<li><p>Unit: m3/s</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p>Mesh2D_intercepted_volume: Amount of intercepted volume</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Name: intercepted_volume</p></li>
+<li><p>Unit: m3</p></li>
+</ul>
+</div></blockquote>
+<p>Mesh2D_q_sss: Current amount of surface sources and sinks discharge in computational cell.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Name: Surface sources and sinks discharge</p></li>
+<li><p>Unit: m3/s</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="d-mesh-line-variables">
+<h3>2D Mesh Line variables:<a class="headerlink" href="#d-mesh-line-variables" title="Permalink to this heading"></a></h3>
+<p>The meta information, that defines the structure for the line variables is mentioned first.</p>
+<p><strong>Coordinates</strong></p>
+<blockquote>
+<div><p>Mesh2DLine_xcc:</p>
+<ul class="simple">
+<li><p>Name: Flow line 2D center x coordinate.</p></li>
+<li><p>Unit = m</p></li>
+</ul>
+<p>Mesh2DLine_ycc:</p>
+<ul class="simple">
+<li><p>Name: Flow line 2D center y coordinate.</p></li>
+<li><p>Unit = m</p></li>
+</ul>
+<p>Mesh2DLine_zcc:</p>
+<ul class="simple">
+<li><p>Flow line 2D center z coordinate.</p></li>
+<li><p>Unit = m</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Attributes</strong></p>
+<blockquote>
+<div><p>Mesh2DLine_type:</p>
+<ul class="simple">
+<li><p>Name: Type of Cell edge</p></li>
+<li><p>Types: open_water_2d, open_water_obstacles_2d, vertical_infiltration_2d, groundwater_2d, open_water_boundary_2d, groundwater_boundary_2d</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Dimensions</strong></p>
+<blockquote>
+<div><p>nMesh2D_lines:</p>
+<ul class="simple">
+<li><p>Name: Number of 2D Mesh lines.</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Flow variables</strong></p>
+<blockquote>
+<div><p>Mesh2D_u1:
+This variable, in case of Horton-based infiltration and groundwater flow, also consists of the vertical flow and the groundwater flow. This depends on the Line Type. This also yields for most of the other line variables.</p>
+<ul class="simple">
+<li><p>Name: Flow velocity on 2D flow line</p></li>
+<li><p>Unit: m/s</p></li>
+</ul>
+<p>Mesh2D_q:</p>
+<ul class="simple">
+<li><p>Name: Discharge on flow line</p></li>
+<li><p>Unit: m3/s</p></li>
+</ul>
+<p>Mesh2D_au:</p>
+<ul class="simple">
+<li><p>Name: Wet cross-sectional area</p></li>
+<li><p>Unit: m2</p></li>
+</ul>
+<p>Mesh2D_up1:</p>
+<ul class="simple">
+<li><p>Name: Flow velocity in interflow layer</p></li>
+<li><p>Unit: m/s</p></li>
+</ul>
+<p>Mesh2D_qp:</p>
+<ul class="simple">
+<li><p>Name: Discharge in interflow layer</p></li>
+<li><p>Unit: m3/s</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="d-mesh-node-variables">
+<h3>1D Mesh Node variables:<a class="headerlink" href="#d-mesh-node-variables" title="Permalink to this heading"></a></h3>
+<p>The results for the 1D variables are structured in a similar way. Note that embedded nodes do not have a 1D water level, volume etc information. This information can be found in the 2D results.</p>
+<p><strong>Coordinates</strong></p>
+<blockquote>
+<div><p>Mesh1DNode_xcc:</p>
+<ul class="simple">
+<li><p>Name: Node 1D x coordinate</p></li>
+<li><p>Unit: m</p></li>
+</ul>
+<p>Mesh1DNode_ycc:</p>
+<ul class="simple">
+<li><p>Name: Node 1D y coordinate</p></li>
+<li><p>Unit: m</p></li>
+</ul>
+<p>Mesh1DNode_zcc:</p>
+<ul class="simple">
+<li><p>Name: Node 1D z coordinate</p></li>
+<li><p>Unit: m MSL</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Attributes</strong></p>
+<blockquote>
+<div><p>Mesh1DNode_id:</p>
+<ul class="simple">
+<li><p>Name: Node Identifier</p></li>
+</ul>
+<p>Mesh1DNode_sumax:</p>
+<ul class="simple">
+<li><p>Name: Total cell surface</p></li>
+<li><p>Unit: m2</p></li>
+</ul>
+<p>Mesh1DNode_type:</p>
+<ul class="simple">
+<li><p>Types = node_without_storage_1d, open_water_with_storage_1d, open_water_boundary_1d</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Dimensions</strong></p>
+<blockquote>
+<div><p>nMesh1D_nodes:</p>
+<ul class="simple">
+<li><p>Name: Number of 1D mesh nodes</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Node variables</strong></p>
+<blockquote>
+<div><p>Mesh1D_s1: Waterlevel in 1D Node</p>
+<ul class="simple">
+<li><p>Name: Waterlevel</p></li>
+<li><p>Unit: m MSL</p></li>
+</ul>
+<p>Mesh1D_vol: Water Volume in a cell</p>
+<ul class="simple">
+<li><p>Name: Water volume</p></li>
+<li><p>Unit: m3</p></li>
+</ul>
+<p>Mesh1D_su: Current wet surface area</p>
+<ul class="simple">
+<li><p>Name: Wet surface of 1D Node</p></li>
+<li><p>Unit: m2</p></li>
+</ul>
+<p>Mesh1D_rain:  Inflow in 1D from rain or dry wetter discharge</p>
+<ul class="simple">
+<li><p>Name: Inflow in 1D from rain</p></li>
+<li><p>Unit = m3/s</p></li>
+</ul>
+<p>Mesh1D_q_lat: Point source/sink flux in 1D cell</p>
+<ul class="simple">
+<li><p>Name: Lateral discharge in/from 1D cell</p></li>
+<li><p>Unit = m3/s</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="id1">
+<h3>1D Mesh Line variables:<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<p><strong>Coordinates</strong></p>
+<blockquote>
+<div><p>Mesh1DLine_xcc:</p>
+<ul class="simple">
+<li><p>Name: Flow line 1D x center coordinate</p></li>
+<li><p>Unit: m</p></li>
+</ul>
+<p>Mesh1DLine_ycc:</p>
+<ul class="simple">
+<li><p>Name: Flow line 1D center y coordinate</p></li>
+<li><p>Unit: m</p></li>
+</ul>
+<p>Mesh1DLine_zcc:</p>
+<ul class="simple">
+<li><p>Name: Flow line 1D z center coordinate</p></li>
+<li><p>Unit = m MSL</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Attributes</strong></p>
+<blockquote>
+<div><p>Mesh1DLine_id:</p>
+<ul class="simple">
+<li><p>Name: Line identifier</p></li>
+</ul>
+<p>Mesh1DLine_type:</p>
+<ul class="simple">
+<li><p>Types: embedded_1d, isolated_1d, connected_1d, long_crested_structure_1d, short_crested_structure_1d, double_connected_1d, from_node_with_storage_1d2d, from_node_without_storage_1d2d, potential_breach_1d2d, groundwater_1d2d, boundary_1d</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Dimensions</strong></p>
+<p>nMesh1D_lines:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Name: Number of 1D Mesh lines</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Flow variables</strong></p>
+<blockquote>
+<div><p>Mesh1D_u1:Flow velocity on 1D flow line, including 1D2D connections.</p>
+<ul class="simple">
+<li><p>Name: Flow velocity on 1D flow line</p></li>
+<li><p>Unit: m/s</p></li>
+</ul>
+<p>Mesh1D_q:</p>
+<ul class="simple">
+<li><p>Name: Discharge on 1D flow line</p></li>
+<li><p>Unit: m3/s</p></li>
+</ul>
+<p>Mesh1D_au:</p>
+<ul class="simple">
+<li><p>Name: Wet cross-sectional area</p></li>
+<li><p>Unit: m</p></li>
+</ul>
+<p>Mesh1D_breach_depth:</p>
+<ul class="simple">
+<li><p>Name: Breach depth on 1D2D connection</p></li>
+<li><p>Unit: m</p></li>
+</ul>
+<p>Mesh1D_breach_width:</p>
+<ul class="simple">
+<li><p>Name: Breach width on 1D2D connection</p></li>
+<li><p>Unit: m</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="pump-variables">
+<h3>Pump variables:<a class="headerlink" href="#pump-variables" title="Permalink to this heading"></a></h3>
+<p><strong>Coordinates</strong></p>
+<blockquote>
+<div><p>Mesh1DPump_xcc:</p>
+<ul class="simple">
+<li><p>Name: Start point Pump 1D x-coordinate</p></li>
+<li><p>Unit: m</p></li>
+</ul>
+<p>Mesh1DPump_ycc:</p>
+<ul class="simple">
+<li><p>Name: Start point Pump 1D y-coordinate</p></li>
+<li><p>Unit: m</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Attributes</strong></p>
+<blockquote>
+<div><p>Mesh1DPump_id:</p>
+<ul class="simple">
+<li><p>Name: Pump identifier</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Dimensions</strong></p>
+<blockquote>
+<div><p>nPumps:</p>
+<ul class="simple">
+<li><p>Name: Number of 1D pumps</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Flow variables</strong></p>
+<blockquote>
+<div><p>Mesh1D_q_pump:</p>
+<ul class="simple">
+<li><p>Name: Pump discharge</p></li>
+<li><p>Unit: m3/s</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="data-format-subgrid-map-nc">
+<h2>Data format <em>subgrid_map.nc</em><a class="headerlink" href="#data-format-subgrid-map-nc" title="Permalink to this heading"></a></h2>
+<p>In the file called: subgrid_map.nc exists the following information:</p>
+<ul>
+<li><p>X-coordinates of the 2D computational cell corner points (FlowElemContour_x)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>size[4,n2dtot]</p></li>
+<li><p>dimension [m]</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Y-coordinates of the 2D computational cell corner points (FlowElemContour_y)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>size [4,n2dtot]</p></li>
+<li><p>dimension [m]</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>X-coordinates 1D en 2D computational cell center point (FlowElem_xcc)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>size [number of computational nodes]</p></li>
+<li><p>dimension [m]</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>y-coordinates 1D en 2D computational cell center point (FlowElem_ycc)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>size [number of computational nodes]</p></li>
+<li><p>dimension [m]</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Maximum surface area computational cell (sumax)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>size [number of computational nodes]</p></li>
+<li><p>dimension [m2]</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Connections between computational points in 1D network (FlowLine_connections)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>size [2,number of flow lines]</p></li>
+<li><p>dimension [-]</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Connections by a pump (PumpLine_connections)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>size [2,number of pumps]</p></li>
+<li><p>dimension [-]</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>(projected_coordinate_system (projected_coordinate_system)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>size [1]</p></li>
+<li><p>dimension [-]</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Deepest point of a computational cell (bath)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>size [number of computational nodes]</p></li>
+<li><p>dimension [m MSL]</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Potential breaches</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>size [number of potential breaches]</p></li>
+<li><p>dimension [-]</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<ul>
+<li><p>Mapping of input and out put of connection nodes (node_mapping)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>size [2,number of connection nodes]</p></li>
+<li><p>dimension [-]</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Mapping of input and out put of connection lines (channel_mapping)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>size [2,number of flow lines]</p></li>
+<li><p>dimension [-]</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<ul>
+<li><p>Time (time)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>size [number of time steps]</p></li>
+<li><p>dimension [s]</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Water level (s1)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>size [number of computational nodes]</p></li>
+<li><p>dimension [m MSL]</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Volume in a computational cell (vol)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>size [number of computational nodes]</p></li>
+<li><p>dimension [m3]</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Wet surface areas computational cell (su)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>size [number of computational nodes]</p></li>
+<li><p>dimension [m2]</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Velocity interpolated in cell centre in x-direction (ucx)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>size [number of computational nodes]</p></li>
+<li><p>dimension [m/s]</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Velocity interpolated in cell centre in y-direction (ucy)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>size [number of computational nodes]</p></li>
+<li><p>dimension [m/s]</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Rain per computational cell (rain)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>size [number of computational nodes]</p></li>
+<li><p>dimension [m3/s]</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Lateralen per computational cell (qlat)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>size [number of computational nodes]</p></li>
+<li><p>dimension [m3/s]</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Infiltration per computational cell (infiltration)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>size [n2dtot]</p></li>
+<li><p>dimension [m3/s]</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<ul>
+<li><p>Velocity (u1)</p>
+<ul class="simple">
+<li><p>size [number of flow lines]</p></li>
+<li><p>dimension [m/s]</p></li>
+</ul>
+</li>
+<li><p>Discharge (q)</p>
+<ul class="simple">
+<li><p>size [number of flow lines]</p></li>
+<li><p>dimension [m3/s]</p></li>
+</ul>
+</li>
+<li><p>Wet Cross-Sectional area (au)</p>
+<ul class="simple">
+<li><p>size [number of flow lines]</p></li>
+<li><p>dimension [m2]</p></li>
+</ul>
+</li>
+<li><p>Velocity in interflow layer (up1) (if defined)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>size [number of flow lines]</p></li>
+<li><p>dimension [m/s]</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Discharge in interflow layer (qp) (if defined)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>size [number of flow lines]</p></li>
+<li><p>dimension [m3/s]</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<ul class="simple">
+<li><p>Discharge (q_pump)</p></li>
+<li><p>size [Number of pumps]</p></li>
+<li><p>dimension [m3/s]</p></li>
+</ul>
+<ul class="simple">
+<li><p>computational cells in 2D (nFlowElem2D)</p>
+<ul>
+<li><p>[n2dtot]</p></li>
+</ul>
+</li>
+<li><p>computational cells in 1D (nFlowElem1D)</p>
+<ul>
+<li><p>[n1dtot]</p></li>
+</ul>
+</li>
+<li><p>computational cells concerning 2D boundary conditions (nFlowElemBound2d)</p>
+<ul>
+<li><p>[n2dobc]</p></li>
+</ul>
+</li>
+<li><p>computational cells concerning 1D boundary conditions  (nFlowElemBound1d)</p>
+<ul>
+<li><p>[n1dobc]</p></li>
+</ul>
+</li>
+<li><p>total computational cells (nFlowElem)</p>
+<ul>
+<li><p>[number of computational nodes]</p></li>
+</ul>
+</li>
+<li><p>Flowlines in 2D Domain (nFlowline2D)</p>
+<ul>
+<li><p>[l2dtot of liutot+livtot]</p></li>
+</ul>
+</li>
+<li><p>Flowlines in 1D Domain (nFlowline(1D)</p>
+<ul>
+<li><p>[l1dtot]</p></li>
+</ul>
+</li>
+<li><p>1D2D Connections (nFlowline1D2D)</p>
+<ul>
+<li><p>[infl1d]</p></li>
+</ul>
+</li>
+<li><p>Flowlines concerning 2D boundary conditions (nFlowline2DBound)</p>
+<ul>
+<li><p>[n2dobc]</p></li>
+</ul>
+</li>
+<li><p>Flowlines  concerning 1D boundary (nFlowline1DBound)</p>
+<ul>
+<li><p>[nodobc-n2dobc]</p></li>
+</ul>
+</li>
+<li><p>Total number of flowlines  (nFlowline)</p>
+<ul>
+<li><p>[number of flow lines]</p></li>
+</ul>
+</li>
+<li><p>Number of Pumps (nPumps)</p>
+<ul>
+<li><p>[jap1d]</p></li>
+</ul>
+</li>
+<li><p>Number of potential breaches (nBreaches)</p>
+<ul>
+<li><p>[levnms]</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="h_calculation_grid_data.html" class="btn btn-neutral float-left" title="Tabulated data storage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="h_aggregate_results.html" class="btn btn-neutral float-right" title="Aggregated output" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nelen &amp; Schuurmans.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Numerics &mdash; 3Di  (dev doc 2023-02-13) documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="_static/matomo.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Control Structures" href="h_control.html" />
+    <link rel="prev" title="The grid" href="h_grid.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            3Di
+          </a>
+              <div class="version">
+                 (dev doc 2023-02-13)
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="a_background.html">Background of 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_ecosystem.html">3Di Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_modelling_concepts.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_releasenotes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_contact.html">Contact</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">3Di Connectors</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="b_fews_3di_integrations.html">FEWS-3Di integration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html">Login to the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#start-or-follow-a-session">Start or follow a session</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#overview-session-screen-and-tooling">Overview session screen and tooling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#quitting-the-simulation">Quitting the simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#store-results">Store results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#notables">Notables</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How to work with 3Di</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_building_a_model.html">Building and editing a model schematisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_checking_model_schematisation.html">Checking the model schematisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_adding_running_scenario.html">Adding scenario information and running a simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_viewing_analysing_results.html">Storing, viewing and analysing results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html">Manage your schematisations and models</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="e_klondike_workflow.html">Tutorial 1: Workflow of creating a 3Di Schematisation and a 3Di Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_tutorial.html">Tutorial 2: Building a Basic 2D Flow Schematisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_slope_tutorial.html">Tutorial 3: 2D flow model over sloped terrain with multiple rasters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_levees_tutorial.html">Tutorial 4 Building a 2D flow model with levees, channels and breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_1d_tutorial.html">Tutorial 5: Building a 1D model</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Problem solving and support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="f_3di_instruments_and_downloads.html">Installation manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_problem_solving.html">FAQ and Problem Solving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_servicedesk.html">Servicedesk</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Physics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="g_massconservation.html">Conservation of mass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_flow.html">Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_sources_sinks.html">Source and Sink terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_levees_obstacles_breaches.html">Obstacles, Levees and Breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_wind.html">Wind effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_interception.html">Interception</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Model concepts</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="h_basic_modelling_concepts_threedi.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_grid.html">The grid</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Numerics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#numerical-settings">Numerical Settings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#preissman-slot">Preissman slot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#integration-method">Integration method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#settings-for-matrix-solvers">Settings for Matrix solvers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#limiters">Limiters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#limiter-for-water-level-gradient">Limiter for water level gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#limiter-for-cross-sectional-area">Limiter for cross-sectional area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#limiter-for-friction-depth">Limiter for friction depth</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#settings-for-friction">Settings for Friction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#friction-shallow-water-correction">Friction shallow water correction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#friction-average">Friction Average</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minimum-friction-velocity">Minimum Friction  velocity</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="h_control.html">Control Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_calculation_grid_data.html">Tabulated data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_results.html">Results 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_aggregate_results.html">Aggregated output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_state_files.html">State files</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">3Di</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Numerics</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/h_numerics.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="numerics">
+<span id="id1"></span><h1>Numerics<a class="headerlink" href="#numerics" title="Permalink to this heading"></a></h1>
+<p>There are various numerical settings that can either improve the solution under certain conditions, and some can speed up the computations and others will improve the stability. The various options are here explained.</p>
+<section id="numerical-settings">
+<h2>Numerical Settings<a class="headerlink" href="#numerical-settings" title="Permalink to this heading"></a></h2>
+<section id="preissman-slot">
+<h3>Preissman slot<a class="headerlink" href="#preissman-slot" title="Permalink to this heading"></a></h3>
+<p>[preissmann_slot ] (default= 0.0 m^2)</p>
+<p>A preissmann slot is often used to model flows in pipes. When the pipes are not completely filled, such flows can be modelled as free surface flows. However, when the discharges increase, the pipes are filled and the flow can become pressurised. Not all hyrdodynamic models are suited for these kind of flows. Therefore, to mimic the effects of pressurised flows, the water level can be allowed to rise higher than the upper limit of the cross section. In order to allow this, a narrow tube is added on top of the pipe (Figure 2). These tubes are generally quite narrow to allow the water level to rise, at a minimum cost of extra added volume. In 3Di this is not necessary, however it can be added to circular tubes. This can increase the stability at larger time steps. The way flow is computed in pipes is described here.</p>
+<figure class="align-default" id="id3">
+<img alt="Preissman slot" src="_images/preissmanslots_schematisch.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 85 </span><span class="caption-text">Upper Panel) Flow through a half emtpty pipe.
+Middle Panel) Pressurised flow through a pipe with a preissman slot.
+Lower Panel) Pressurised flow trhough a pipe with a virtual water level (red).</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="integration-method">
+<h3>Integration method<a class="headerlink" href="#integration-method" title="Permalink to this heading"></a></h3>
+<p>[integration_method] (default=0)</p>
+<p>There are various ways to discretise equation. At the moment only first order semi implicit is supported and tested.</p>
+</section>
+<section id="settings-for-matrix-solvers">
+<span id="matrixsolvers"></span><h3>Settings for Matrix solvers<a class="headerlink" href="#settings-for-matrix-solvers" title="Permalink to this heading"></a></h3>
+<p>There are several methods available to solve the matrix consisting of the unknown water levels. Depending on the application, these settings can speed up the simulation or make the solutions more accurate. As 3Di uses the so-called subgrid method, the system of equations becomes a weakly non-linear system. Therefore, we need the use of a Newton iteration method in combination with matrix solvers in order to actually solve this system of equations. The so-called nested-Newton method is needed when the application consists of closed profiles.</p>
+<p><strong>The settings that belong to the Newton iteration are:</strong></p>
+<p>[max_nonlin_iterations] (default = 20), [convergence_eps] (default = 1.0^-5), [use_of_nested_newton] (no default)</p>
+<p>Maximum number of non lineair iterations (max_nonlin_iterations) is the number the computational core will try to reach the convergence value of the Newton iteration. In cases where is extensive flooding and drying of areas, this number can be raised as it might need more iterations to find the correct solution. The Newton iteration needs a value that defines convergence. Initially, 3Di requires a much lower value, but in case the system has difficulties with finding a solution, it will loosen this requirement with a maximum of the by the user set convergence_eps.</p>
+<p>Nested newton iterations are needed in case profiles in 1D are narrowing with height. Mathematically, in case d^2V/dzeta^2&lt;0. This occurs, for example, a lot in sewer systems. For these cases, the Newton iteration method does not guarantee a solution, so the system is split in two systems that do guarantee a solution. In case 3Di cannot find a solution it will always try, whether it can find a solution using the nested Newton method. However, in case one has an application that consists of many of these profiles it is faster to tel the system that it should always used the nested Newton method (use_of_nested_newton).</p>
+<p><strong>Maximum Degree</strong></p>
+<p>[max_degree](no default)</p>
+<p>One of the methods to solve a matrix is by Gauss-Jordan elimination, substitution. Depending on the type of network, either 1D, 2D or 1D with many bifurcations or combination of those, this method is very efficient or not. It is also possible to solve parts of the system using this method and others with the other method. The efficiency of the solver depends on the network. For 1D simulations this is a very efficient solver, for 2D simulations it is less so.</p>
+<p><strong>Conjugate gradient Method</strong></p>
+<p>[use_of_cg] (default =20) [convergence_cg] (default = 1.0^-9) [precon_cg] (default =1) [convergence_cg] (default=1.0^-9)</p>
+<p>This is an iterative method to solve matrices. Therefore, also a convergence definition (convergence_cg) is required. It is possible to prepare this method to make it more efficient during the simulation. The system will then be preconditioned (precon_cg), this will take time in the initializing phase, but will safe time during the simulation itself. To limit the possible amount of iterations in order to guarantee swiftness of the solver, there can be put a maximum of iterations before the convergence threshold is loosened.</p>
+<p><strong>CFL condition</strong></p>
+<p>[cfl_strictness_factor_1d] (default=1.0) [cfl_strictness_factor_2d] (default=1.0)</p>
+<p>There is a limit to the time step, called the CFL condition. This condition is due to the chosen discretization of the equations. It defined as cdt/dx&lt;1. C is the velocity, defined as</p>
+<div class="math notranslate nohighlight" id="equation-cfl-condition">
+<span class="eqno">(23)<a class="headerlink" href="#equation-cfl-condition" title="Permalink to this equation"></a></span>\[C = |U| + \sqrt(gH)\]</div>
+<p>Often it is not necessary to be so strict, so sometimes the user can set this parameter which loosens the strictness of it. Consequently, stability can decrease.</p>
+<p><strong>Pump implicit ratio</strong></p>
+<p>[pump_implicit_ratio] (default=1, between 0 and 1)</p>
+<p><a class="reference internal" href="g_structures.html#pump"><span class="std std-ref">Pumps</span></a> will be switched on or off depending on the characteristics of the pump and the local water level. For water levels between the start and stop levels of the pump, the pump will drain at maximum capacity. For an optimal pump operation, the supply of water is in balance with or larger than the pump capacity. However, in real-life applications, the pump capacity is larger than the supply. This results in a pump that switches repetitively on and off during an event. Even though, this is a real-life issue and is known from observations, one does not always want to mimic this behaviour in a simulation. This behaviour can make the analysis of your results on water levels and discharges more difficult and as this triggers wave-like phenomenon in the water levels and flow, it can cause time step reductions.</p>
+<p>The computational core of 3Di can make estimates of the available water to the pump and adjust the capacity based in these estimates. This will avoid the switching on/off of the pump unnecessarily. The pump capacity is not affected in cases where the supply is higher or equal to the capacity and in cases where the supply is that low that the water level should drop below the stop level. How strong this implicit behaviour is used in the simulation, can be set by the pump implicit ratio.</p>
+<p>A pump_implicit_ratio of 0 means the computational core does not take the supply information into account. By setting it higher than zero, this information is taken into account more strongly according to the value. So, the pump capacity is adjusted based on the (expected) available water.</p>
+<p><strong>Thresholds</strong></p>
+<p>For numerical computation several tresholds are needed in the code, to avoid deficiencies due to a limited numerical accuracy. Generally this is to keep the behaviour consistent:</p>
+<p>In order to determine the upwind method the direction of the flow is considered. To avoid the exact 0.0 m/s point we use a threshold given by flow_direction_threshold (default=1.0^-5).</p>
+<p>We also use for various things a general threshold, this one is defined as general_numerical_threshold, the default is 1.0d-8.</p>
+</section>
+</section>
+<section id="limiters">
+<span id="id2"></span><h2>Limiters<a class="headerlink" href="#limiters" title="Permalink to this heading"></a></h2>
+<p>A limiter is a general term used for certain aspects in numerical schemes that limit the effect of high gradients in flow or forcing. This is to avoid strong oscillations, instabilities in the solution and to increase the stability. 3Di has various limiters implemented, which can be turned on or off.</p>
+<section id="limiter-for-water-level-gradient">
+<h3>Limiter for water level gradient<a class="headerlink" href="#limiter-for-water-level-gradient" title="Permalink to this heading"></a></h3>
+<p>[limiter_grad_2d] [limiter_grad_1d]</p>
+<p>The limiter on the water level gradient allows the model to deal with unrealistically steep gradients. These can occur when there are, for example, jumps in the bottom. In such case the water is not forced by the difference in water level as this gradient is limited to the actual depth. Therefore a limiter function is part of the discretization scheme. This setting exist for both the flow in the 1D domain as for the 2D domain.</p>
+<figure class="align-default" id="id4">
+<img alt="Limiter for water level gradient" src="_images/lim_watlev_grad.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 86 </span><span class="caption-text">Visualization of a case where the gradient is adjusted. The red dashed line indicates the outcome of the limiter function.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Function where the ratio between water depth and water level gradient prescribes the behaviour.</p>
+<div class="math notranslate nohighlight" id="equation-limiter-function">
+<span class="eqno">(24)<a class="headerlink" href="#equation-limiter-function" title="Permalink to this equation"></a></span>\[\phi_(m+1) = min[ 1 , H / ( \sigma_(m+1) - \sigma_m ) ]\]</div>
+</section>
+<section id="limiter-for-cross-sectional-area">
+<h3>Limiter for cross-sectional area<a class="headerlink" href="#limiter-for-cross-sectional-area" title="Permalink to this heading"></a></h3>
+<p>[limiter_slope_crossectional_area_2d ] default = 0</p>
+<p>In sloping areas we are dealing with a situation where the primary assumption of a subgrid-based method does not yield. The method assumes that the water level variation in space is much smaller than the variation of the bed. This is untrue for larger cells in sloping areas. The consequence is that in that case all the water is concentrated at the lower end of the cell. The depth that defines the cross-sectional area, that determines the discharge within a time step, is overestimated (black boxes Figure 2).</p>
+<p><em>limiter_slope_crossectional_area_2d = 1</em></p>
+<p>This limiter starts working in case the depth based on the downstream water level is zero. Then two options are possible, in case of a large difference in waterlevel the volume is spread over the cell domains (Figure 2, alternative situation 1). When the difference is smaller, the average water level of upstream and downstream is used (Figure 2, alternative situation 2). Theoretically this would make the scheme partly second order. This is described mathematically in Figure 3.</p>
+<p><em>limiter_slope_crossectional_area_2d = 2</em></p>
+<p>This is a very stable upwind method to redefine the water level depth. It is assumed that the flow behaves as a thin sheet flow. Therefore, the depth is defined as the upwind volume defined by the maximum surface area.</p>
+<p><em>limiter_slope_crossectional_area_2d = 3, in combination with thin_layer_definition = xx [m]</em></p>
+<p>In this case the limiter is more or less effective depending of the local depth. In case the depth at the edge base on the down wind water level is larger than the definition that is given of a thin layer, the cross-sectional area is based on the high resolution grid. When this ‘down wind’ depth is smaller than the thin layer definition, then the limiter described for option 2 is determining the cross-sectional area. In the in between phase the two types of cross-sections are weighed to define a new value.</p>
+<p>This is decribed in the figure below. Mathematical derivation will follow.</p>
+<figure class="align-default">
+<img alt="Limiter for cross-sectional area" src="_images/slopelimiter.png" />
+</figure>
+<figure class="align-default" id="id5">
+<img alt="Limiter for cross-sectional area" src="_images/lim_slope_3.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 87 </span><span class="caption-text">Grid schematisation in a sloping areas. Two alternatives to determine an effective depth for the cross-sectional area. Lower:   The alternatives for the cross-sectional area in case of limiter option 2.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="limiter-for-friction-depth">
+<h3>Limiter for friction depth<a class="headerlink" href="#limiter-for-friction-depth" title="Permalink to this heading"></a></h3>
+<p>[limiter_slope_friction_2d] default = 0</p>
+<p>In order to take high resolution depth and roughness variations into account to determine the friction, an estimate is made of the effective frictional depth. For this the actual depth is needed. Similar to the limiter for the cross-sectional area, the actual depth in sloping areas is overestimated. In such case not only the depth to determine the cross-sectional area can be adjusted, but also the depth to determine the effective frictional depth. The friction can therefore be underestimated in sloping areas. Therefor the same limiter can be used to determine the effective frictional depth by switching this limiter on. This limiter is obligated in combination with the limiter_slope_crossectional_area_2d.</p>
+</section>
+</section>
+<section id="settings-for-friction">
+<h2>Settings for Friction<a class="headerlink" href="#settings-for-friction" title="Permalink to this heading"></a></h2>
+<p>There are several settings that affect the friction.</p>
+<section id="friction-shallow-water-correction">
+<h3>Friction shallow water correction<a class="headerlink" href="#friction-shallow-water-correction" title="Permalink to this heading"></a></h3>
+<p>[friction_shallow_water_correction]  (default =0) (possible values 0,1,2,3)</p>
+<p>In case the friction assumptions based on the dominant friction balance gives a structurally underestimation of the friction, one can switch this setting on. This situation can occur in case the flow is mainly distributed based on continuity in stead. In Figure 1, the difference between the two type of flows is shown. Such a situation occurs for example in a sloping area where filled canals are cutting through in cross slope direction. When the correction is switched on, the friction is determined both the classical way and based on averaged values of depth, velocity and roughness coefficients. The maximum friction computed by the two is used.</p>
+<p>It is important to define a depth for which the friction is computed. Choosing the correction for the settings 2 or 3 it will define the depth similar to the cross-sectional area limiter. For the value 1 it will use the maximum depth at the edge of the cell.</p>
+<figure class="align-default" id="id6">
+<img alt="Friction shallow water correction" src="_images/friction_cont_dominated_flow.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 88 </span><span class="caption-text">Upper Panel) Flow distributed based on friction dominated flow.
+Lower Panel) Flow distributed based on continuity.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="friction-average">
+<h3>Friction Average<a class="headerlink" href="#friction-average" title="Permalink to this heading"></a></h3>
+<p>[frict_avg] (default = 0)</p>
+<p>The roughness coefficient will be averaged within one cell.</p>
+</section>
+<section id="minimum-friction-velocity">
+<h3>Minimum Friction  velocity<a class="headerlink" href="#minimum-friction-velocity" title="Permalink to this heading"></a></h3>
+<p>minimum_friction_velocity [float], (default = 0.01 m/s)</p>
+<p>In case a cell is flooded, there is a moment that initially there is no water, therefore no friction as the velocity is zero. Followed by a moment that there is a velocity. To assure a smooth transition and to avoid extreme accelerations of the flow, we define a sort of minimum amount of friction based on this velocity. Generally this is important only when a cell is flooded.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="h_grid.html" class="btn btn-neutral float-left" title="The grid" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="h_control.html" class="btn btn-neutral float-right" title="Control Structures" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nelen &amp; Schuurmans.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

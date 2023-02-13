@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>State files &mdash; 3Di  (dev doc 2023-02-13) documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/matomo.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Aggregated output" href="h_aggregate_results.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            3Di
+          </a>
+              <div class="version">
+                 (dev doc 2023-02-13)
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="a_background.html">Background of 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_ecosystem.html">3Di Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_modelling_concepts.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_releasenotes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_contact.html">Contact</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">3Di Connectors</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="b_fews_3di_integrations.html">FEWS-3Di integration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html">Login to the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#start-or-follow-a-session">Start or follow a session</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#overview-session-screen-and-tooling">Overview session screen and tooling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#quitting-the-simulation">Quitting the simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#store-results">Store results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#notables">Notables</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How to work with 3Di</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_building_a_model.html">Building and editing a model schematisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_checking_model_schematisation.html">Checking the model schematisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_adding_running_scenario.html">Adding scenario information and running a simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_viewing_analysing_results.html">Storing, viewing and analysing results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html">Manage your schematisations and models</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="e_klondike_workflow.html">Tutorial 1: Workflow of creating a 3Di Schematisation and a 3Di Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_tutorial.html">Tutorial 2: Building a Basic 2D Flow Schematisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_slope_tutorial.html">Tutorial 3: 2D flow model over sloped terrain with multiple rasters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_levees_tutorial.html">Tutorial 4 Building a 2D flow model with levees, channels and breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_1d_tutorial.html">Tutorial 5: Building a 1D model</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Problem solving and support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="f_3di_instruments_and_downloads.html">Installation manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_problem_solving.html">FAQ and Problem Solving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_servicedesk.html">Servicedesk</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Physics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="g_massconservation.html">Conservation of mass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_flow.html">Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_sources_sinks.html">Source and Sink terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_levees_obstacles_breaches.html">Obstacles, Levees and Breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_wind.html">Wind effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_interception.html">Interception</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Model concepts</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="h_basic_modelling_concepts_threedi.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_grid.html">The grid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_numerics.html">Numerics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_control.html">Control Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_calculation_grid_data.html">Tabulated data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_results.html">Results 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_aggregate_results.html">Aggregated output</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">State files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#choices-in-saving-a-state-file">Choices in saving a state file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#saving-state-files">Saving state files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#finding-and-removing-state-files">Finding and removing state files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-state-files">Using state files</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">3Di</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">State files</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/h_state_files.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="state-files">
+<span id="id1"></span><h1>State files<a class="headerlink" href="#state-files" title="Permalink to this heading"></a></h1>
+<p>During a 3Di computation, the user can choose to save a state of a 3Di simulation. This state can be used in future simulations as an initial condition. The state file contains a snapshot complete flow condition of the model.</p>
+<p>A save state assists the user in:</p>
+<ol class="arabic simple">
+<li><p>A correct initial condition, for speeding up simulations and consistent scenario comparisons.</p></li>
+<li><p>Defining a “warm state” in a operational setting. It allows the computations to continue a simulation from a previous run.</p></li>
+</ol>
+<section id="choices-in-saving-a-state-file">
+<h2>Choices in saving a state file<a class="headerlink" href="#choices-in-saving-a-state-file" title="Permalink to this heading"></a></h2>
+<p>3Di allows the user to choose when to save a state and thereby generating a state-file. The three options for defining a state-file are:</p>
+<ol class="arabic simple">
+<li><p>A specific moment in time. The user dictates an exact date and time to save the state file.</p></li>
+<li><p>The end of the simulation. For this option, the simulation will run until the indicated end of simulation is reached. At the end of the simulation, the flow variables of the model are saved.</p></li>
+<li><p>The moment that the flow is stationary, c.q. the flow does not change in time. The “stable” condition is defined by the user. The user indicates the maximum change in water levels and/or flow velocities. For example: the user saves the flow state when the water level in all computational nodes, changes less than  the “threshold” 0.0000001 [m] within one time step.</p></li>
+</ol>
+</section>
+<section id="saving-state-files">
+<h2>Saving state files<a class="headerlink" href="#saving-state-files" title="Permalink to this heading"></a></h2>
+<p>Currently, state files can only be saved when the simulation is run via the API. In the API POST use the parameter <em>save_states</em>. When a simulation is started with the parameter save_states, the response will contain at least a <em>status</em>, <em>organization_id</em>, <em>subgrid_id</em> and a <em>save_state_id</em>. The <em>save_state_id</em> is a unique id that corresponds to the exact version of the model and the version of the computational core. This state will be deprecated when either one is updated. This means that after a new 3Di Release, a new state file should be made. It is recommended the add a description to the saved state, although it is optional.</p>
+</section>
+<section id="finding-and-removing-state-files">
+<h2>Finding and removing state files<a class="headerlink" href="#finding-and-removing-state-files" title="Permalink to this heading"></a></h2>
+<p>A simulation is initialized with a state file, by refering to the unique id of the state file. The <em>save_state_id</em> can be found via the user interface or the API.</p>
+<p>The save_state_id can be found in the repository of the specific model via the user interface at <a class="reference external" href="http://www.3Di.lizard.net/models">user interface</a> . There is a column named “Nr of saved states”. By clicking on that number, the resulting page lists the state files that are available to use for that specific model. It also shows the description if it was provided. Note the column “available”. It indicates whether the file can be used. It might take some time before it becomes available. From this page saved states can also be removed.</p>
+<p>To find the saved states via the API you can navigate to: <a class="reference external" href="https://3di.lizard.net/api/v1/threedimodelsavedstates/">API</a>
+This page lists all the state files and it also contains instructions on how to use and remove them via API.</p>
+</section>
+<section id="using-state-files">
+<h2>Using state files<a class="headerlink" href="#using-state-files" title="Permalink to this heading"></a></h2>
+<p>To use a saved state for initializing a simulation, the user chooses the parameter <em>use_saved_state</em> and provides the unique save_state_id. The simulation will ignore the initial conditions that were defined in the model schematization and uses the state instead.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="h_aggregate_results.html" class="btn btn-neutral float-left" title="Aggregated output" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nelen &amp; Schuurmans.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

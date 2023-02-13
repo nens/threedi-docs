@@ -1,7 +1,7 @@
 .. _a_release_notes:
 
 Release notes
-=============
+==============
 
 .. _general_3di_releases:
 

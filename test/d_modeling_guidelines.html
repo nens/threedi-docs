@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modeling guidelines &mdash; 3Di  (dev doc 2023-02-13) documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/matomo.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Rasters" href="d_rasters.html" />
+    <link rel="prev" title="Editing a model schematisation with the live site" href="d_building_w_live_site.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            3Di
+          </a>
+              <div class="version">
+                 (dev doc 2023-02-13)
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="a_background.html">Background of 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_ecosystem.html">3Di Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_modelling_concepts.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_releasenotes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_contact.html">Contact</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">3Di Connectors</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="b_fews_3di_integrations.html">FEWS-3Di integration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html">Login to the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#start-or-follow-a-session">Start or follow a session</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#overview-session-screen-and-tooling">Overview session screen and tooling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#quitting-the-simulation">Quitting the simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#store-results">Store results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#notables">Notables</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How to work with 3Di</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="d_building_a_model.html">Building and editing a model schematisation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="d_building_w_modeller_interface.html">Building and editing a model with the Modeller Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_schematisation_editor.html">Using the Schematisation Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_visualising_computational_grids.html">Visualising computational grids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_building_w_live_site.html">Editing a model schematisation with the live site</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Modeling guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="d_rasters.html">Rasters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="d_flood_model.html">Flood model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="d_water_system.html">Water system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="d_sewerage.html">Sewerage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="d_urban_areas.html">Hybrid Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="d_control_structures.html">Control Structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="d_boundary_conditions.html">Boundary Conditions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="d_checking_model_schematisation.html">Checking the model schematisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_adding_running_scenario.html">Adding scenario information and running a simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_viewing_analysing_results.html">Storing, viewing and analysing results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html">Manage your schematisations and models</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="e_klondike_workflow.html">Tutorial 1: Workflow of creating a 3Di Schematisation and a 3Di Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_tutorial.html">Tutorial 2: Building a Basic 2D Flow Schematisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_slope_tutorial.html">Tutorial 3: 2D flow model over sloped terrain with multiple rasters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_levees_tutorial.html">Tutorial 4 Building a 2D flow model with levees, channels and breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_1d_tutorial.html">Tutorial 5: Building a 1D model</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Problem solving and support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="f_3di_instruments_and_downloads.html">Installation manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_problem_solving.html">FAQ and Problem Solving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_servicedesk.html">Servicedesk</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Physics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="g_massconservation.html">Conservation of mass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_flow.html">Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_sources_sinks.html">Source and Sink terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_levees_obstacles_breaches.html">Obstacles, Levees and Breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_wind.html">Wind effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_interception.html">Interception</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Model concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="h_basic_modelling_concepts_threedi.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_grid.html">The grid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_numerics.html">Numerics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_control.html">Control Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_calculation_grid_data.html">Tabulated data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_results.html">Results 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_aggregate_results.html">Aggregated output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_state_files.html">State files</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">3Di</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="d_building_a_model.html">Building and editing a model schematisation</a></li>
+      <li class="breadcrumb-item active">Modeling guidelines</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/d_modeling_guidelines.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="modeling-guidelines">
+<h1>Modeling guidelines<a class="headerlink" href="#modeling-guidelines" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound" id="modeling-components">
+<p class="caption" role="heading"><span class="caption-text">Modeling components</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_rasters.html">Rasters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="d_rasters.html#raster-files">Raster-files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_rasters.html#dem">DEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_rasters.html#raster-requirements">Raster requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_rasters.html#using-gdal-to-check-and-edit-your-rasters">Using GDAL to check and edit your rasters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="d_flood_model.html">Flood model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="d_flood_model.html#spatialite-database">Spatialite database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_flood_model.html#global-settings">Global settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_flood_model.html#computational-grid">Computational grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_flood_model.html#local-grid-refinement">Local grid refinement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_flood_model.html#levees-or-obstacles">Levees or obstacles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_flood_model.html#breach-locations">Breach locations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="d_water_system.html">Water system</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="d_water_system.html#channels">Channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_water_system.html#structures">Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_water_system.html#d-boundary-condition">1D boundary condition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_water_system.html#embedded-channels">Embedded channels</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="d_sewerage.html">Sewerage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="d_sewerage.html#manholes">Manholes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_sewerage.html#structures-sewerage">Structures (sewerage)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_sewerage.html#impervious-surfaces">Impervious surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_sewerage.html#d-boundary-conditions">1D boundary conditions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="d_urban_areas.html">Hybrid Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="d_urban_areas.html#d-inflow">0D inflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_urban_areas.html#d-rainfall">2D Rainfall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_urban_areas.html#hybrid-modelling">Hybrid Modelling</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="d_control_structures.html">Control Structures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="d_control_structures.html#connect-your-model">Connect your model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_control_structures.html#measuring-group">Measuring group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_control_structures.html#measuring-station">Measuring station</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_control_structures.html#rule">Rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_control_structures.html#control-group">Control group</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="d_boundary_conditions.html">Boundary Conditions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="d_boundary_conditions.html#boundaries-in-the-1d-network">Boundaries in the 1D network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_boundary_conditions.html#boundaries-in-the-2d-domain">Boundaries in the 2D domain</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="d_building_w_live_site.html" class="btn btn-neutral float-left" title="Editing a model schematisation with the live site" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="d_rasters.html" class="btn btn-neutral float-right" title="Rasters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nelen &amp; Schuurmans.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
