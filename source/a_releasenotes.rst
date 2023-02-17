@@ -8,6 +8,16 @@ Release notes
 3Di general releases
 --------------------
 
+February 10th 2023
+^^^^^^^^^^^^^^^^^^
+
+Hotfix:
+
+- Fixed CRS comparison in table generation (threedi-tables 3.0.5).
+- Sources & sinks Lizard raster source did dot work due to problem with internal `LizardRasterSourcesSinks` serialization/deserialization.
+- Max time step set to NULL is allowed 
+
+
 February 6th 2023
 ^^^^^^^^^^^^^^^^^^
 
