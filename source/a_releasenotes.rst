@@ -13,7 +13,7 @@ February 24th 2023
 
 Hotfix:
 
-- DEM edit sometimes crashing is fixed
+- In rare cases the DEM edit was crashing. This is fixed
 
 
 February 10th 2023
