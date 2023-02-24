@@ -8,6 +8,14 @@ Release notes
 3Di general releases
 --------------------
 
+February 24th 2023
+^^^^^^^^^^^^^^^^^^
+
+Hotfix:
+
+- DEM edit sometimes crashing is fixed
+
+
 February 10th 2023
 ^^^^^^^^^^^^^^^^^^
 
