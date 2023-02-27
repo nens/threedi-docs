@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tutorial 2: Building a Basic 2D Flow Schematisation &mdash; 3Di  (dev doc 2023-02-13) documentation</title>
+  <title>Tutorial 2: Building a Basic 2D Flow Schematisation &mdash; 3Di  (dev doc 2023-02-27) documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -35,7 +35,7 @@
             3Di
           </a>
               <div class="version">
-                 (dev doc 2023-02-13)
+                 (dev doc 2023-02-27)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -57,22 +57,31 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="b_fews_3di_integrations.html">FEWS-3Di integration</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Modelling guidelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_modeling_guidelines.html">Modelling guidelines</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Modeller Interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="i_what_is_mi.html">What is the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html">Overview of the user Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html">Login to the Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#start-or-follow-a-session">Start or follow a session</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#overview-session-screen-and-tooling">Overview session screen and tooling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#quitting-the-simulation">Quitting the simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#store-results">Store results</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#notables">Notables</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">How to work with 3Di</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="d_building_a_model.html">Building and editing a model schematisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_checking_model_schematisation.html">Checking the model schematisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_adding_running_scenario.html">Adding scenario information and running a simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_viewing_analysing_results.html">Storing, viewing and analysing results</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_management.html">Manage your schematisations and models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the live site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html#using-the-3di-live-site">Using the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the live site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html#login-to-the-live-site">Login to the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html#overview-session-screen-and-tooling">Overview session screen and tooling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html#notables">Notables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the live site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#start-or-follow-a-session">Start or follow a session</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#editing-a-model-schematisation-with-the-live-site">Editing a model schematisation with the live site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#simulation-interventions">Simulation interventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#analyzing-results-while-scenario-is-running">Analyzing results while scenario is running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#quitting-the-simulation">Quitting the simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#store-results">Store results</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul class="current">
@@ -162,7 +171,7 @@ The burrows enclose a flat area of reclaimed salt marshes that are currently use
 Although the schematisation represents a real-world area, some processes will be simplified for the sake of this tutorial. Please keep this in mind while analysing the results of your simulations.</p>
 <p><strong>In this tutorial you will</strong>:</p>
 <ul class="simple">
-<li><p>Re-practice <a class="reference internal" href="e_workflow_tutorial.html#tutorial1-workflow"><span class="std std-ref">the workflow of creating a new schematisation</span></a>.</p></li>
+<li><p>Re-practice <a class="reference internal" href="e_klondike_workflow.html#tutorial1-workflow"><span class="std std-ref">the workflow of creating a new schematisation</span></a>.</p></li>
 <li><p>Couple a digital elevation model (DEM) to your schematisation.</p></li>
 <li><p>Configure the settings of a 2D model.</p></li>
 <li><p>Validate your model input with the raster checker.</p></li>
@@ -173,7 +182,7 @@ Although the schematisation represents a real-world area, some processes will be
 <ul>
 <li><p>Install the 3Di Modeller Interface. Please see <a class="reference internal" href="f_3di_instruments_and_downloads.html#di-instruments-and-downloads"><span class="std std-ref">Installation manual</span></a> for instructions.</p></li>
 <li><p>Install the 3Di toolbox in the Modeller Interface. Please see <a class="reference internal" href="f_3di_instruments_and_downloads.html#plugin-installation"><span class="std std-ref">Plugin Installation</span></a> for instructions.</p></li>
-<li><p>Gain access to the 3Di Live Site. Please see <a class="reference internal" href="c_threedi_portal.html#guide-to-portal"><span class="std std-ref">Login to the Live Site</span></a> for instructions.</p></li>
+<li><p>Gain access to the 3Di Live Site. Please see <a class="reference internal" href="c_what_is_the_live_site.html#guide-to-portal"><span class="std std-ref">What is the live site</span></a> for instructions.</p></li>
 <li><p>Download the Taf <a class="reference external" href="https://nens.lizard.net/media/3di-tutorials/3di-2d_flow_tutorial.zip">dataset</a> , which contains a digital elevation model (DEM) of the Laugharne and Pendine Burrows called dem_2m_LPB.tif and an empty .sqlite database, which can be ignored.</p>
 <blockquote>
 <div><p><sub>The digital elevation model contains United Kingdom public sector information licensed under the Open Government Licence v2.0.</sub></p>
@@ -185,14 +194,14 @@ Although the schematisation represents a real-world area, some processes will be
 <h2>Building the Schematisation<a class="headerlink" href="#building-the-schematisation" title="Permalink to this heading"></a></h2>
 <section id="creating-a-new-schematisation">
 <h3>Creating a new Schematisation<a class="headerlink" href="#creating-a-new-schematisation" title="Permalink to this heading"></a></h3>
-<p>As we are building a schematisation from scratch, the workflow explained in <a class="reference internal" href="e_workflow_tutorial.html#tutorial1-workflow"><span class="std std-ref">Tutorial 1</span></a> will be used to initialize a new schematisation.
+<p>As we are building a schematisation from scratch, the workflow explained in <a class="reference internal" href="e_klondike_workflow.html#tutorial1-workflow"><span class="std std-ref">Tutorial 1</span></a> will be used to initialize a new schematisation.
 If you haven’t followed this tutorial yet, please do so before continuing this tutorial.</p>
 <p>Name your newly created schematisation <strong>‘Tutorial2_&lt;your_name&gt;’</strong>, select the correct organisation and check the ‘Create new Spatialite’ box.
-Press the ‘Next’ button twice and fill in the data as provided in <a class="reference internal" href="#schem-settings"><span class="std std-numref">Fig. 35</span></a>. Select your downloaded DEM .tif file for the Digital elevation model field.</p>
+Press the ‘Next’ button twice and fill in the data as provided in <a class="reference internal" href="#schem-settings"><span class="std std-numref">Fig. 31</span></a>. Select your downloaded DEM .tif file for the Digital elevation model field.</p>
 <figure class="align-default" id="schem-settings">
 <img alt="Initial Schematisation settings." src="_images/e_schematisation_settings.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 35 </span><span class="caption-text">Initial Schematisation settings</span><a class="headerlink" href="#schem-settings" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 31 </span><span class="caption-text">Initial Schematisation settings</span><a class="headerlink" href="#schem-settings" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -217,7 +226,7 @@ This can be done in the bottom right of your QGIS/MI window.</p>
 <figure class="align-default" id="qgis-setup">
 <img alt="QGIS project setup." src="_images/e_qgis-project.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 36 </span><span class="caption-text">The proposed setup of your QGIS project including i) your Spatialite loaded, ii) the DEM added, iii) a background layer, and iv) a projection of 27700.</span><a class="headerlink" href="#qgis-setup" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 32 </span><span class="caption-text">The proposed setup of your QGIS project including i) your Spatialite loaded, ii) the DEM added, iii) a background layer, and iv) a projection of 27700.</span><a class="headerlink" href="#qgis-setup" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -743,7 +752,7 @@ Change the settings, where required, to the following values:</p>
 </section>
 <section id="validate-and-upload-your-schematisation-generate-a-3di-model">
 <h2>Validate and upload your Schematisation &amp; Generate a 3Di Model<a class="headerlink" href="#validate-and-upload-your-schematisation-generate-a-3di-model" title="Permalink to this heading"></a></h2>
-<p>Following the basic workflow (explained in <a class="reference internal" href="e_workflow_tutorial.html#tutorial1-workflow"><span class="std std-ref">Tutorial 1</span></a>), we are now checking the Schematisation, uploading it to the 3Di Management screens and generate a 3Di model by:</p>
+<p>Following the basic workflow (explained in <a class="reference internal" href="e_klondike_workflow.html#tutorial1-workflow"><span class="std std-ref">Tutorial 1</span></a>), we are now checking the Schematisation, uploading it to the 3Di Management screens and generate a 3Di model by:</p>
 <ol class="arabic simple">
 <li><p>Pressing the Upload button in the Models &amp; Simulations plugin.</p></li>
 <li><p>Clicking the New Upload button, followed by the Next button.</p></li>

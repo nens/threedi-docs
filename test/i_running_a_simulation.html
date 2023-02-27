@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Running a simulation &mdash; 3Di  (dev doc 2023-02-27) documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/matomo.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Downloading results" href="i_downloading_results.html" />
+    <link rel="prev" title="Uploading and downloading schematisations" href="i_uploading_and_downloading_schematisations.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            3Di
+          </a>
+              <div class="version">
+                 (dev doc 2023-02-27)
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="a_background.html">Background of 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_ecosystem.html">3Di Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_modelling_concepts.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_releasenotes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_contact.html">Contact</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">3Di Connectors</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="b_fews_3di_integrations.html">FEWS-3Di integration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modelling guidelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_modeling_guidelines.html">Modelling guidelines</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Modeller Interface</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="i_what_is_mi.html">What is the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html">Overview of the user Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="i_create_new_schematisation.html">Create a new schematisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i_loading_schematisations.html">Loading a schematisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i_editing_schematisations.html">View and edit a 3Di model schematisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i_checking_schematisations.html">Checking the model schematisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i_uploading_and_downloading_schematisations.html">Uploading and downloading schematisations</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Running a simulation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#start-up-the-3di-models-and-simulations">Start up the “3Di Models and Simulations”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load-model">Load model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simulate">Simulate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-scenario-information">Add scenario information</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#initial-conditions">Initial conditions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#boundary-conditions">Boundary conditions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#laterals">Laterals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#breaches">Breaches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#precipitation">Precipitation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#multiple-simulations">Multiple simulations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wind">Wind</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generate-saved-state-after-simulation">Generate saved state after simulation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#post-processing-in-lizard">Post-processing in Lizard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#results">Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#old-table">Old table</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="i_downloading_results.html">Downloading results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i_analyzing_results.html">Viewing and Analysing results</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the live site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html#using-the-3di-live-site">Using the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the live site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html#login-to-the-live-site">Login to the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html#overview-session-screen-and-tooling">Overview session screen and tooling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html#notables">Notables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the live site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#start-or-follow-a-session">Start or follow a session</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#editing-a-model-schematisation-with-the-live-site">Editing a model schematisation with the live site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#simulation-interventions">Simulation interventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#analyzing-results-while-scenario-is-running">Analyzing results while scenario is running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#quitting-the-simulation">Quitting the simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#store-results">Store results</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="e_klondike_workflow.html">Tutorial 1: Workflow of creating a 3Di Schematisation and a 3Di Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_tutorial.html">Tutorial 2: Building a Basic 2D Flow Schematisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_slope_tutorial.html">Tutorial 3: 2D flow model over sloped terrain with multiple rasters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_levees_tutorial.html">Tutorial 4 Building a 2D flow model with levees, channels and breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_1d_tutorial.html">Tutorial 5: Building a 1D model</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Problem solving and support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="f_3di_instruments_and_downloads.html">Installation manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_problem_solving.html">FAQ and Problem Solving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_servicedesk.html">Servicedesk</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Physics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="g_massconservation.html">Conservation of mass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_flow.html">Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_sources_sinks.html">Source and Sink terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_levees_obstacles_breaches.html">Obstacles, Levees and Breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_wind.html">Wind effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_interception.html">Interception</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Model concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="h_basic_modelling_concepts_threedi.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_grid.html">The grid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_numerics.html">Numerics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_control.html">Control Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_calculation_grid_data.html">Tabulated data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_results.html">Results 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_aggregate_results.html">Aggregated output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_state_files.html">State files</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">3Di</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a></li>
+      <li class="breadcrumb-item active">Running a simulation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/i_running_a_simulation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="running-a-simulation">
+<span id="simulate-api-qgis"></span><h1>Running a simulation<a class="headerlink" href="#running-a-simulation" title="Permalink to this heading"></a></h1>
+<p>To perform a simulation using the Modeller Interface, we will utilize the 3Di Models and Simulation plugin. This section offers valuable insights into the various options available for your specific <a class="reference internal" href="#add-scenario-info"><span class="std std-ref">scenario</span></a>.</p>
+<section id="start-up-the-3di-models-and-simulations">
+<span id="start-up-api-qgis"></span><h2>Start up the “3Di Models and Simulations”<a class="headerlink" href="#start-up-the-3di-models-and-simulations" title="Permalink to this heading"></a></h2>
+<p>Open the Modeller Interface. Click on <strong>Plug-ins</strong> from the menu bar and open the dropdown menu. Click on <strong>“3Di Models and Simulations”</strong> to start up the plugin.
+For a guide on how to install the Modeller Interface or the”3Di Models and Simulations” see <a class="reference internal" href="f_3di_instruments_and_downloads.html#di-instruments-and-downloads"><span class="std std-ref">Installation manual</span></a>.</p>
+<figure class="align-default">
+<img alt="Open the 3Di Models and Simulations plugin" src="_images/d_openplugin.png" />
+</figure>
+</section>
+<section id="load-model">
+<span id="load-model-api-qgis"></span><h2>Load model<a class="headerlink" href="#load-model" title="Permalink to this heading"></a></h2>
+<p>Load your model by clicking <strong>start</strong> in the “3Di Models and Simulations”. In the pop-up window (wizard) choose <strong>Load from Web</strong>.</p>
+<p><strong>Note:</strong> If you are using 3Di outside of the Netherlands you need to change the Base API. See: <a class="reference internal" href="f_3di_instruments_and_downloads.html#plugin-settings"><span class="std std-ref">Plugin settings</span></a> on how to do this.</p>
+<p><em>screenshot toevoegen</em></p>
+<figure class="align-default">
+<img alt="Load from web" src="_images/d_qgisplugin_apiclient_start.png" />
+</figure>
+<figure class="align-default">
+<img alt="Load from web" src="_images/d_qgisplugin_apiclient_login.png" />
+</figure>
+<p>Users that have access to run simulations for more than one organisation will get a menu in which they choose the organisation:</p>
+<figure class="align-default">
+<img alt="Choose organisation" src="_images/d_qgisplugin_apiclient_login_choose_organisation.png" />
+</figure>
+<p>Now choose <strong>only simulate</strong> (only option available at the moment):</p>
+<figure class="align-default">
+<img alt="Choose simulate" src="_images/d_qgisplugin_apiclient_choose_simulate.png" />
+</figure>
+<p>Choose the model that you like to run simulations on, and click <strong>Load model</strong>:</p>
+<figure class="align-default">
+<img alt="Choose simulate" src="_images/d_qgisplugin_apiclient_login_choose_model.png" />
+</figure>
+<p>On load of the model the following files are retrieved from the server:</p>
+<ul class="simple">
+<li><p>cells</p></li>
+<li><p>breaches (only when present in your model)</p></li>
+</ul>
+<figure class="align-default">
+<img alt="Loaded model with Cells and Breach" src="_images/d_qgisplugin_load_model_cells_breaches.png" />
+</figure>
+<p>Cells represent the computational grid comprised of computational cells. This file can help analyze modelling results when used in an overlay with the model schematization.
+For theoretical information, see <a class="reference internal" href="h_grid.html#grid"><span class="std std-ref">The grid</span></a>.</p>
+<p>Breaches can be used for breach calculations. The number of the breach as shown in the map canvas is the number required in the wizard. Alternatively, you can also select a breach before starting the wizard, see <a class="reference internal" href="i_editing_schematisations.html#addleveebreaches"><span class="std std-ref">Add levee breaches</span></a>. This breach will then be used in the calculation. For theoretical information, see <a class="reference internal" href="g_levees_obstacles_breaches.html#breaches"><span class="std std-ref">Breaches</span></a>.</p>
+<p>Note: if the files have been downloaded before the Modeller Interface will use the cached version.</p>
+</section>
+<section id="simulate">
+<h2>Simulate<a class="headerlink" href="#simulate" title="Permalink to this heading"></a></h2>
+<p>To start a simulation, click on the <strong>SIMULATE</strong> button. Next, the following window will be shown:</p>
+<figure class="align-default">
+<img alt="Choose simulate" src="_images/d_qgisplugin_apiclient_runningsimulations.png" />
+</figure>
+<p>This window shows an overview of current simulations for the specific organisation. In this panel simulations can be started and stopped.</p>
+<p>To stop a simulation, select the simulation you want to stop and click on <strong>Stop Simulation</strong>.</p>
+<p>To start a simulation you can either use <strong>Load template</strong> or <strong>New simulation</strong>. Both options will enable you to fill in scenario information and start a simulation.</p>
+</section>
+<section id="add-scenario-information">
+<span id="add-scenario-info"></span><h2>Add scenario information<a class="headerlink" href="#add-scenario-information" title="Permalink to this heading"></a></h2>
+<p>Using <strong>Load template</strong> enables you to re-use a previously stored scenario template. All the previous defined settings are automatically filled into the scenario information. This information can still be edited, before you run the simulation.</p>
+<p>Selecting <strong>New Simulation</strong> will start a simulation with a new scenario that still needs to be filled in. After clicking ‘new simulation’ the start screen of the wizard is shown:</p>
+<figure class="align-default">
+<img alt="Choose new simulation" src="_images/d_qgisplugin_apiclient_start_screen_new_simulation.png" />
+</figure>
+<p>In this window the various options, to be used in the simulation calculation, can be defined.</p>
+<p>Boundary conditions:
+Not configurable yet. Boundary conditions are taken from the spatialite directly.</p>
+<p><a class="reference internal" href="#simulate-api-qgis-initial-conditions"><span class="std std-ref">Initial conditions</span></a>:
+To define the use of a (previously) saved state or initial water levels in 1D, 2D or Ground water.</p>
+<p><a class="reference internal" href="#simulate-api-qgis-laterals"><span class="std std-ref">Laterals</span></a>:
+To select laterals to use in the model.</p>
+<p><a class="reference internal" href="#simulate-api-qgis-breaches"><span class="std std-ref">Breaches</span></a>:
+To select a breach to open in the model.</p>
+<p><a class="reference internal" href="#simulate-api-qgis-precipitation"><span class="std std-ref">Precipitation</span></a>:
+To define precipitation in the model.</p>
+<p><a class="reference internal" href="#wind-apiclient"><span class="std std-ref">Wind</span></a>:
+To define wind in the model.</p>
+<p><a class="reference internal" href="#simulate-api-qgis-multi-sim"><span class="std std-ref">Multiple simulations</span></a> (becomes available when using either breaches or precipitation):
+To define multiple simulations with rainfall or breaches. Useful when simulating multiple events on the same model.</p>
+<p><a class="reference internal" href="#generate-api-qgis-saved-state"><span class="std std-ref">Generate saved state after simulation</span></a>:
+To save the end result of the simulation as a saved state.</p>
+<p><a class="reference internal" href="#simulate-api-qgis-post-processing"><span class="std std-ref">Post-processing in Lizard</span></a>:
+This is a feature that is only available for users of organisations that have a Lizard account. It enables you to store the results in the cloud and it triggers automated post-processing of water depth, water levels, time of arrival, flood hazard rating and damage estimations maps.
+See <a class="reference internal" href="#simulate-api-qgis-post-processing"><span class="std std-ref">Post-processing in Lizard</span></a> on how to use post-processing.</p>
+<p><strong>Check</strong> the options you want to be used in the calculations of your simulation, and click <strong>Next</strong>.</p>
+<p>The next step is to name the simulation. You and other users within your organisation will be able to find this simulation and its results based on the name. It can also be used to look up simulations later.</p>
+<p>Adding tags can clarify for other users what your simulation calculated or can be used to assign a simulation a certain project name or number.</p>
+<figure class="align-default">
+<img alt="Choose new simulation" src="_images/d_qgisplugin_apiclient_new_simulation.png" />
+</figure>
+<p>The first step in any simulation is choosing the duration of the simulation:</p>
+<figure class="align-default">
+<img alt="Choose duration" src="_images/d_qgisplugin_apiclient_choose_duration.png" />
+</figure>
+<p>The next steps depend on the selection of options from the initial screen of the wizard. Unchecked options will be omitted by the wizard.</p>
+<section id="initial-conditions">
+<span id="simulate-api-qgis-initial-conditions"></span><h3>Initial conditions<a class="headerlink" href="#initial-conditions" title="Permalink to this heading"></a></h3>
+<p>Initial conditions either refer to the use of saved state file, or the use of initial water level in 1D, 2D or groundwater (2D).</p>
+<figure class="align-default">
+<img alt="Choose initial conditions" src="_images/d_qgisplugin_apiclient_initialconditions_start.png" />
+</figure>
+<p>1D options:</p>
+<ul class="simple">
+<li><p>Predefined: this refers to the initial water level as defined in the column initial_waterlevel in the connection nodes in the spatialite.</p></li>
+<li><p>Global value: this would be a generic initial water level value in m MSL which is applied in all 1D nodes of the model.</p></li>
+</ul>
+<p>2D Surface Water options:</p>
+<ul class="simple">
+<li><p>Raster: this refers to the initial water level raster as uploaded with the model to the model database.</p></li>
+<li><p>Aggregation settings: This can min, max or average</p></li>
+<li><p>Global value: this would be a generic initial water level value in m MSL which is applied in all 2D nodes of the model.</p></li>
+</ul>
+<p>2D Groundwater options:</p>
+<ul class="simple">
+<li><p>Raster: This refers to the initial water level raster as uploaded with the model to the model database.</p></li>
+<li><p>Global value: This would be a generic initial water level value in m MSL which is applied in all 2D ground water nodes of the model.</p></li>
+</ul>
+</section>
+<section id="boundary-conditions">
+<span id="simulate-api-qgis-boundary-conditions"></span><h3>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this heading"></a></h3>
+<p>If the 3Di model contains boundary conditions, a timeseries for each boundary condition will be included in the simulation template. On the ‘boundary conditions’ page of the simulation wizard, you can upload CSV files to replace the boundary conditions that are included in the simulation template. You can only replace <em>all</em> boundary conditions. For example, if your model contains two 1D boundary conditions and five 2D boundary condition, the CSV file for the 1D boundary conditions should contain time series for both of the two 1D boundary conditions and the CSV file for the 2D boundary conditions should contain time series for all five 2D boundary conditions. The simulation wizard will merge them into a single JSON file that is sent to the API</p>
+<section id="boundary-conditions-csv-file-format">
+<h4>Boundary conditions CSV file format<a class="headerlink" href="#boundary-conditions-csv-file-format" title="Permalink to this heading"></a></h4>
+<p>The CSV file input should have the following columns:</p>
+<ul class="simple">
+<li><p>“id”: integer; is the id of the corresponding row in the v2_1d_boundary_conditions table in the spatialite</p></li>
+<li><p>“timeseries”: a CSV-formatted text field: pairs of time step (in minutes or seconds) and value (in m<sup>3</sup>/s, m, or m/m, depending on the boundary condition type). The timestep is separated from the value by a comma and lines are separated from one another by a newline.</p></li>
+</ul>
+<p>Example (as a table):</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">Boundary conditions CSV file format</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>timeseries</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>0,1.2</p>
+<p>99999,1.2</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>0,2.1</p>
+<p>99999,2.1</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>0,1.3</p>
+<p>99999,5.6</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>0,8.2</p>
+<p>99999,1.0</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>0,63.307</p>
+<p>99999,63.307</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Text example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">,</span><span class="n">timeseries</span>
+<span class="s2">&quot;4&quot;</span><span class="p">,</span><span class="s2">&quot;0,1.2</span>
+     <span class="mi">99999</span><span class="p">,</span><span class="mf">1.2</span><span class="s2">&quot;</span>
+<span class="s2">&quot;5&quot;</span><span class="p">,</span><span class="s2">&quot;0,2.1</span>
+     <span class="mi">99999</span><span class="p">,</span><span class="mf">2.1</span><span class="s2">&quot;</span>
+<span class="s2">&quot;6&quot;</span><span class="p">,</span><span class="s2">&quot;0,1.3</span>
+     <span class="mi">99999</span><span class="p">,</span><span class="mf">5.6</span><span class="s2">&quot;</span>
+<span class="s2">&quot;7&quot;</span><span class="p">,</span><span class="s2">&quot;0,8.2</span>
+     <span class="mi">99999</span><span class="p">,</span><span class="mf">1.0</span><span class="s2">&quot;</span>
+<span class="s2">&quot;8&quot;</span><span class="p">,</span><span class="s2">&quot;0,63.307</span>
+     <span class="mi">99999</span><span class="p">,</span><span class="mf">63.307</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="options">
+<h4>Options<a class="headerlink" href="#options" title="Permalink to this heading"></a></h4>
+<p>If you have selected the option “Upload file(s)”, you have two configuration options:</p>
+<section id="units">
+<h5>Units<a class="headerlink" href="#units" title="Permalink to this heading"></a></h5>
+<p>Here you can set the time units used in your CSV file (hours, minutes, or seconds). The default is minutes, because this is the time unit that is used in the 3Di spatialite.</p>
+</section>
+<section id="interpolate">
+<h5>Interpolate<a class="headerlink" href="#interpolate" title="Permalink to this heading"></a></h5>
+<p>If this option is checked, the value between time steps will be linearly interpolated. For example, consider the following time series:</p>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-number">Table 2 </span><span class="caption-text">Timeseries example for interpolation</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>time [hours]</p></th>
+<th class="head"><p>discharge [m<sup>3</sup>/s]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>16</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>10</p></td>
+</tr>
+</tbody>
+</table>
+<p>If <em>interpolate</em> is checked, the discharge after half an hour will be 8 m<sup>3</sup>/s. If it is not checked, the discharge after half an hour will be 0 m<sup>3</sup>/s.</p>
+</section>
+</section>
+<section id="editing-a-time-series-for-a-single-boundary-condition">
+<h4>Editing a time series for a single boundary condition<a class="headerlink" href="#editing-a-time-series-for-a-single-boundary-condition" title="Permalink to this heading"></a></h4>
+<p>To run a simulation in which only one or a few boundary conditions have a different time series, take the following steps. The instructions are for 1D Boundary conditions; for 2D Boundary conditions, the same instructions apply.</p>
+<ul class="simple">
+<li><p>Load your schematisation</p></li>
+<li><p>In the Layers panel, right click on the layer <em>1D Boundary condition</em> &gt; <em>Export</em> &gt; <em>Save features as..</em></p></li>
+<li><p>For <em>Format</em>, choose <em>Comma Separated Value [CSV]</em></p></li>
+<li><p>Choose a <em>File name</em> to save the file to</p></li>
+<li><p>Click <em>Select fields to export and their export options</em></p></li>
+<li><p>Make sure only the checkboxes for the fields <em>id</em> and <em>timeseries</em> are checked</p></li>
+<li><p>Under <em>Geometry</em> &gt; <em>Geometry type</em> choose <em>No Geometry</em></p></li>
+<li><p>Under <em>Layer options</em>, make sure the <em>Separator</em> is ‘comma’</p></li>
+<li><p>Save the file</p></li>
+<li><p>Open the file in a text editor to edit the values and save the CSV file.</p></li>
+<li><p>In the simulation wizard, on the <em>Boundary conditions</em> page, choose the option “Upload file(s)” and browse for the edited CSV file you just saved.</p></li>
+</ul>
+</section>
+<section id="running-a-model-without-boundary-conditions">
+<h4>Running a model without boundary conditions<a class="headerlink" href="#running-a-model-without-boundary-conditions" title="Permalink to this heading"></a></h4>
+<p>If the 3Di model contains boundary conditions, you can only run a simulation if a time series is specified for each one of them. To run a simulation without boundary conditions, you will need to remove them from your schematisation and generate a new 3Di model.</p>
+</section>
+</section>
+<section id="laterals">
+<span id="simulate-api-qgis-laterals"></span><h3>Laterals<a class="headerlink" href="#laterals" title="Permalink to this heading"></a></h3>
+<p>Laterals can be uploaded using .csv format for either 1D or 2D. For a more detailed description on laterals, see: <a class="reference internal" href="g_laterals.html#laterals"><span class="std std-ref">Laterals</span></a>.</p>
+<figure class="align-default">
+<img alt="Choose laterals" src="_images/d_qgisplugin_apiclient_laterals_start.png" />
+</figure>
+<p>The CSV file format is generated by a right-mouse click on table: v2_1d_lateral. Then choose export –&gt; save features as –&gt; Select csv as output format. Choose a filename and location to store and click OK. the file should like like this:</p>
+<figure class="align-default">
+<img alt="Export laterals as csv" src="_images/d_qgisplugin_apiclient_laterals_export_csv_example.png" />
+</figure>
+<p><em>Important note: Units in the CSV are seconds (for time steps) and m3/s (for the flows).</em></p>
+</section>
+<section id="breaches">
+<span id="simulate-api-qgis-breaches"></span><h3>Breaches<a class="headerlink" href="#breaches" title="Permalink to this heading"></a></h3>
+<p>A breach can be selected using the menu below:</p>
+<figure class="align-default">
+<img alt="Breaches" src="_images/d_qgisplugin_apiclient_breaches.png" />
+</figure>
+<p>When choosing the model to calculate in a breaches file was downloaded from the server. The number of the breach as shown in the map canvas is the number required in the wizard. Alternatively, you can also select a breach before starting the wizard. This breach will then be used in the calculation.</p>
+<p>For a description on breaches, see: <a class="reference internal" href="g_levees_obstacles_breaches.html#breaches"><span class="std std-ref">Breaches</span></a>.</p>
+</section>
+<section id="precipitation">
+<span id="simulate-api-qgis-precipitation"></span><h3>Precipitation<a class="headerlink" href="#precipitation" title="Permalink to this heading"></a></h3>
+<p>There are several options to define a precipitation event for your simulation. In the drop-down menu, one can choose Constant, Custom, Design and Radar events. For all events an offset can be defined. The offset is the duration between start simulation and the start of the rainfall event.</p>
+<figure class="align-default">
+<img alt="Choose type of precipitation" src="_images/d_qgisplugin_choose_type_of_precipitation.png" />
+</figure>
+<p>When choosing a <strong>Constant</strong> type of precipitation, the stop after and rain intensity (in mm/h) must also be defined. The stop after is the duration between the start of the simulation and the end of the rain event. The rain intensity is uniform and constant in the given timeframe. The rain intensity preview provides the rain intensity throughout the simulation in the form of a histogram.</p>
+<figure class="align-default">
+<img alt="Choose constant rain" src="_images/d_qgisplugin_apiclient_rain_constant.png" />
+</figure>
+<p>When choosing the option <strong>Custom</strong>, the event is defined in a CSV-file. The format is in minutes, and the rainfall in mm for that time step. Please keep in mind that the duration of the rain in the custom format cannot exceed the duration of the simulation. The interpolate option will gradually change the rain intensity throughout a time series. Without the interpolate function the rain intensity will stay constant within a time step and will make an abrupt transition to the next time step.</p>
+<figure class="align-default">
+<img alt="Choose custom rain" src="_images/d_qgisplugin_apiclient_rain_custom.png" />
+</figure>
+<figure class="align-default">
+<img alt="Example CSV" src="_images/d_qgisplugin_apiclient_csv_format.png" />
+</figure>
+<p>When choosing the option <strong>Design</strong>, a design number between 1 and 16 must be filled in. These numbers correlate to predetermined rain events, with differing return periods, that fall homogeneous over the entire model. Numbers 1 to 10 originate from <a class="reference external" href="https://www.riool.net/bui01-bui10">RIONED</a> and are heterogeneous in time. Numbers 11 to 16 have a constant rain intensity:</p>
+<p>Rain 11 statistically occurs once every 100 years. The duration of this event is 1 hour with a constant rain intensity of 70 mm/h. (T= 100.0 year, V=70 mm, Standard rain event (local) from Delta Programme 2019).</p>
+<p>Rain 12 statistically occurs once every 250 years. The duration of this event is 1 hour with a constant rain intensity of 90 mm/h. (T=250.0 year, V=90 mm, Standard rain event (local) from Delta Programme 2019).</p>
+<p>Rain 13 statistically occurs once every 1000 years. The duration of this event is 2 hours, with a constant rain intensity of 80 mm/h. (T=1000.0 year, V=160 mm, Standard rain event (local) from Delta Programme 2019).</p>
+<p>Rain 14 statistically occurs once every 100 years. The duration of this event is 48 hours, with a constant rain intensity of 2.5 mm/h. (T=100.0 year, V=120 mm, Standard rain event (regional) from Delta Programme 2019).</p>
+<p>Rain 15 statistically occurs once every 250 years. The duration of this event is 48 hours, with a constant rain intensity of 2.7 mm/h. (T=250.0 year, V=130 mm, Standard rain event (regional) from Delta Programme 2019).</p>
+<p>Rain 16 statistically occurs once every 1000 years. The duration of this event is 48 hours, with a constant rain intensity of 3.4 mm/h. (T=1000.0 year, V=160 mm, Standard rain event (regional) from Delta Programme 2019).</p>
+<p>These so-called design rain events are time series, which are traditionally used to test the functioning of a sewer system in the Netherlands.</p>
+<figure class="align-default">
+<img alt="Choose design rain" src="_images/d_qgisplugin_apiclient_rain_design.png" />
+</figure>
+<p><strong>Radar - NL Only</strong> is only available in the Netherlands and uses historical rainfall data that is based on radar rain images. Providing temporally and spatially varying rain information. The Dutch <a class="reference external" href="https://nationaleregenradar.nl/">Nationale Regenradar</a> is available for all Dutch applications. On request, the information from other radars can be made available to 3Di as well.</p>
+<figure class="align-default">
+<img alt="Choose radar rain" src="_images/d_qgisplugin_apiclient_rain_radar.png" />
+</figure>
+</section>
+<section id="multiple-simulations">
+<span id="simulate-api-qgis-multi-sim"></span><h3>Multiple simulations<a class="headerlink" href="#multiple-simulations" title="Permalink to this heading"></a></h3>
+<p>This option becomes available when using either breaches or precipitation. You can define multiple simulations with different rainfall or breaches. Useful when simulating multiple events on the same model.</p>
+</section>
+<section id="wind">
+<span id="wind-apiclient"></span><h3>Wind<a class="headerlink" href="#wind" title="Permalink to this heading"></a></h3>
+<p>Wind in 3Di applies to 2D surface water. Read more about wind and the physics used by 3Di here: <a class="reference internal" href="g_wind.html#wind-effects"><span class="std std-ref">Wind effects</span></a>.</p>
+<p>You can choose between a Constant or a Custom type of wind. For both events an offset and a drag coefficient can be defined. The offset (start after) is the duration between the start of the simulation and the start of the wind event. The drag coefficient has a default value of 0,005. By increasing the drag coefficient, you increase the influence of the wind.</p>
+<p>When choosing a <strong>Constant</strong> wind event, the stop after, wind speed and direction must also be defined. The stop after is the duration between the start of the simulation and the end of the wind event.
+The (meteorological) wind direction is defined as the direction from which the wind originates, measured in degrees clockwise from due north. Therefore, wind blowing toward the south has a direction of 0 degrees. You can either use the wind rose to depict which way the wind is blowing, or enter the direction manually.</p>
+<figure class="align-default">
+<img alt="Choose Constant wind" src="_images/d_qgisplugin_apiclient_wind_constant.png" />
+</figure>
+<p>When choosing a <strong>Custom</strong> wind, the CSV format is minutes, wind speed in m/s and wind direction, both for that time step. The interpolate options will gradually change the wind speed or wind direction throughout a time series. Without the interpolate functions the wind speed and wind direction will stay constant within the time steps and will make an abrupt transition to the next time step.</p>
+<figure class="align-default">
+<img alt="Choose Custom wind" src="_images/d_qgisplugin_apiclient_wind_custom.png" />
+</figure>
+<figure class="align-default">
+<img alt="Example CSV wind" src="_images/d_qgisplugin_apiclient_wind_csv.png" />
+</figure>
+<p>After choosing all the settings check the overview, press <strong>Next</strong> and <strong>Add to Queue</strong>. The simulation will start up when there is a session available on the servers within your organisation.</p>
+<figure class="align-default">
+<img alt="Overview new simulation" src="_images/d_qgisplugin_apiclient_preview_simulation.png" />
+</figure>
+</section>
+<section id="generate-saved-state-after-simulation">
+<span id="generate-api-qgis-saved-state"></span><h3>Generate saved state after simulation<a class="headerlink" href="#generate-saved-state-after-simulation" title="Permalink to this heading"></a></h3>
+<p>To save the end result of the simulation as a saved state. A saved state file can be used as an initial condition. For more information, see: <a class="reference internal" href="h_state_files.html#state-files"><span class="std std-ref">State files</span></a>.</p>
+</section>
+</section>
+<section id="post-processing-in-lizard">
+<span id="simulate-api-qgis-post-processing"></span><h2>Post-processing in Lizard<a class="headerlink" href="#post-processing-in-lizard" title="Permalink to this heading"></a></h2>
+<p>Storing your results in Lizard and automated post-processing is only available for users of organisations with a Lizard account.
+This function will generate maps of water depth for each output time step, a maximum water depth for the whole simulation water levels for each output time step, a maximum water level for the whole simulation, time of arrival, flood hazard rating and damage estimations.
+The damage estimations are only available in the Netherlands. Contact us at <a class="reference external" href="mailto:servicedesk&#37;&#52;&#48;nelen-schuurmans&#46;nl">servicedesk<span>&#64;</span>nelen-schuurmans<span>&#46;</span>nl</a> if you like to use this option and don’t have access yet.</p>
+<figure class="align-default">
+<img alt="Example CSV" src="_images/d_qgisplugin_apiclient_postprocessing_lizard.png" />
+</figure>
+<p><strong>Basic processed results</strong> stores the 3Di output files in the Lizard platform:</p>
+<ul class="simple">
+<li><p>Result NetCDF (containing actual values)</p></li>
+<li><p>Aggregate NetCDF (availability and content dependent on user settings. required for water balance tool in Modeller Interface)</p></li>
+<li><p>Grid administration (gridadmin.h5 file. required to load NetCDF results in Modeller Interface)</p></li>
+<li><p>Calculation core logging (A zip containing logfiles)</p></li>
+</ul>
+<p>As a service, the following maps are available in Lizard:</p>
+<ul class="simple">
+<li><p>water depth maps per output time step</p></li>
+<li><p>maximum water depth map</p></li>
+<li><p>flood hazard rating</p></li>
+<li><p>rise velocity</p></li>
+<li><p>water level</p></li>
+<li><p>max water level</p></li>
+<li><p>max velocity</p></li>
+<li><p>rainfall</p></li>
+</ul>
+<p>All maps can be downloaded as GTiff, either via the interface demo.lizard.net or via the lizard API.</p>
+<p>When <strong>Arrival time map</strong> is checked a map with arrival time is being calculated showing the time of arrival of water per pixel in hours.</p>
+<p><strong>Damage estimation</strong> is only available in the Netherlands: automated estimate of damage as a result of flooding. Takes into account water depth and duration of flood. Result is the following damage maps:</p>
+<ul class="simple">
+<li><p>Water depth (WSS)</p></li>
+<li><p>Damage (direct)</p></li>
+<li><p>Damage (indirect)</p></li>
+<li><p>Total damage</p></li>
+</ul>
+<p>And a damage summary in csv format. For more information check the documentation here: <a class="reference external" href="https://docs.3di.lizard.net/d_results_from_lizard.html">https://docs.3di.lizard.net/d_results_from_lizard.html</a></p>
+</section>
+<section id="results">
+<span id="simulate-api-qgis-results"></span><h2>Results<a class="headerlink" href="#results" title="Permalink to this heading"></a></h2>
+<p>For information on how to get, view and analyse results, see <a class="reference internal" href="i_analyzing_results.html#view-model-results-with-modeller-interface"><span class="std std-ref">Viewing results with the Modeller Interface</span></a>.</p>
+</section>
+<section id="old-table">
+<h2>Old table<a class="headerlink" href="#old-table" title="Permalink to this heading"></a></h2>
+<p>The most used API options are included in the newest version of the plugin. Important consideration is a difference between API v1 and v3 how initial waterzylevels, laterals and boundaries are handled. The current status is as follows:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Forcings</p></th>
+<th class="head"><p>Live site</p></th>
+<th class="head"><p>“3Di Models and Simulations” Wizard</p></th>
+<th class="head"><p>OpenAPI Client</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Boundary conditions</p></td>
+<td><p>SQLite</p></td>
+<td><p>SQLite</p></td>
+<td><p>SQLite, can be overwritten (a)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Initial water level 2D</p></td>
+<td><p>SQLite, always ‘max’</p></td>
+<td><p>Add raster/global in wizard</p></td>
+<td><p>Add raster/global to simulation</p></td>
+</tr>
+<tr class="row-even"><td><p>Initial water level 1D</p></td>
+<td><p>SQLite</p></td>
+<td><p>Add predefined/global in wizard</p></td>
+<td><p>Add predefined to simulation</p></td>
+</tr>
+<tr class="row-odd"><td><p>Initial water level GW</p></td>
+<td><p>SQLite</p></td>
+<td><p>Add predefined/global in wizard</p></td>
+<td><p>Add predefined to simulation</p></td>
+</tr>
+<tr class="row-even"><td><p>Laterals  1D and 2D</p></td>
+<td><p>Not used</p></td>
+<td><p>Add in wizard with CSV (b)</p></td>
+<td><p>Add CSV</p></td>
+</tr>
+<tr class="row-odd"><td><p>Breaches</p></td>
+<td><p>Open in gui</p></td>
+<td><p>Open breach using wizard</p></td>
+<td><p>Open breach</p></td>
+</tr>
+<tr class="row-even"><td><p>Precipitation</p></td>
+<td><p>Add using live site</p></td>
+<td><p>Add using wizard (c)</p></td>
+<td><p>Add to simulation</p></td>
+</tr>
+<tr class="row-odd"><td><p>Wind</p></td>
+<td><p>Add using live site</p></td>
+<td><p>Add using wizard</p></td>
+<td><p>Add to simulation</p></td>
+</tr>
+<tr class="row-even"><td><p>Control Structures</p></td>
+<td><p>Not used from SQLite</p></td>
+<td><p>Not used from SQLite</p></td>
+<td><p>Add to simulation</p></td>
+</tr>
+<tr class="row-odd"><td><p>DWF (inflow)</p></td>
+<td><p>Not used from SQLite</p></td>
+<td><p>Add as laterals, use dwf calculator</p></td>
+<td><p>Add to simulation as lateral CSV</p></td>
+</tr>
+<tr class="row-even"><td><p>Settings</p></td>
+<td><p>SQLite</p></td>
+<td><p>SQLite</p></td>
+<td><p>SQLite, can be overwritten</p></td>
+</tr>
+</tbody>
+</table>
+<p>This is a temporary situation, simulation templates will be implemented on our servers. In these templates users will be able to predefine the forcings and settings that users want to use in a model. A model can contain multiple simulation templates</p>
+<p><strong>(a):</strong> When overwriting the boundary conditions, both 1D and 2D need to be supplied</p>
+<p><strong>(b):</strong> When using the laterals as a CSV note that units of the laterals in the wizard are expected in m3/s</p>
+<p><strong>(c):</strong> CSV files can contain up to 300 entries</p>
+<p>This means that for <em>boundary conditions</em> nothing changes between API v1 and v3. Values are taken from the spatialite. The following requirements still hold for the boundary conditions:</p>
+<ul class="simple">
+<li><p>number of entries have to be exactly the same</p></li>
+<li><p>time has to be the same value (e.g. al time series have 0, 10, 20, 40 as time. It is not possible to have a boundary condition with the time as 0,15,20,40)</p></li>
+</ul>
+<p><em>Initial water levels</em> are taken from the spatialite if the users selects this in the wizard, see the section on initial conditions below for a ‘how to’.</p>
+<p><em>Laterals</em> are not taken into account when added to the spatialite. The user has to add them to the API call for them to be taken into account. See the section on laterals below for a ‘how to’.</p>
+<p><em>DWF (inflow)</em> In API v1 inflow on connection nodes is being calculated based on nr of inhabitants per impervious surface and the mapping to the connection nodes. In API v3 users can calculate the inflow separately using the dwa calculator tool. The output of this tool is a csv with lateral inflow. This csv can be used in the “3Di Models and Simulations”. In this approach is more transparant and generic usable for different countries.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="i_uploading_and_downloading_schematisations.html" class="btn btn-neutral float-left" title="Uploading and downloading schematisations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="i_downloading_results.html" class="btn btn-neutral float-right" title="Downloading results" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nelen &amp; Schuurmans.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

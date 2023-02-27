@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tutorial 4 Building a 2D flow model with levees, channels and breaches &mdash; 3Di  (dev doc 2023-02-13) documentation</title>
+  <title>Tutorial 4 Building a 2D flow model with levees, channels and breaches &mdash; 3Di  (dev doc 2023-02-27) documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -35,7 +35,7 @@
             3Di
           </a>
               <div class="version">
-                 (dev doc 2023-02-13)
+                 (dev doc 2023-02-27)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -57,22 +57,31 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="b_fews_3di_integrations.html">FEWS-3Di integration</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Modelling guidelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_modeling_guidelines.html">Modelling guidelines</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Modeller Interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="i_what_is_mi.html">What is the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html">Overview of the user Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html">Login to the Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#start-or-follow-a-session">Start or follow a session</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#overview-session-screen-and-tooling">Overview session screen and tooling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#quitting-the-simulation">Quitting the simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#store-results">Store results</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#notables">Notables</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">How to work with 3Di</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="d_building_a_model.html">Building and editing a model schematisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_checking_model_schematisation.html">Checking the model schematisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_adding_running_scenario.html">Adding scenario information and running a simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_viewing_analysing_results.html">Storing, viewing and analysing results</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_management.html">Manage your schematisations and models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the live site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html#using-the-3di-live-site">Using the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the live site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html#login-to-the-live-site">Login to the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html#overview-session-screen-and-tooling">Overview session screen and tooling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html#notables">Notables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the live site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#start-or-follow-a-session">Start or follow a session</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#editing-a-model-schematisation-with-the-live-site">Editing a model schematisation with the live site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#simulation-interventions">Simulation interventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#analyzing-results-while-scenario-is-running">Analyzing results while scenario is running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#quitting-the-simulation">Quitting the simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#store-results">Store results</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul class="current">
@@ -170,7 +179,7 @@
 <ul class="simple">
 <li><p>Install the 3Di Modeller Interface. Please see <a class="reference internal" href="f_3di_instruments_and_downloads.html#di-instruments-and-downloads"><span class="std std-ref">Installation manual</span></a> for instructions.</p></li>
 <li><p>Install the 3Di toolbox in the Modeller Interface. Please see <a class="reference internal" href="f_3di_instruments_and_downloads.html#plugin-installation"><span class="std std-ref">Plugin Installation</span></a> for instructions.</p></li>
-<li><p>Gain access to the 3Di web portal. Please see the <a class="reference internal" href="c_threedi_portal.html#guide-to-portal"><span class="std std-ref">Login to the Live Site</span></a> for instructions.</p></li>
+<li><p>Gain access to the 3Di web portal. Please see the <a class="reference internal" href="c_what_is_the_live_site.html#guide-to-portal"><span class="std std-ref">What is the live site</span></a> for instructions.</p></li>
 <li><p>Download the dataset for this tutorial <a class="reference external" href="https://nens.lizard.net/media/3di-tutorials/3di-tutorial-04.zip">here</a>.</p></li>
 </ul>
 <section id="model-initialisation">
@@ -360,7 +369,7 @@ The model can be loaded via the 3Di toolbar (part of the 3Di toolbox plug in) by
 </section>
 <section id="breach-location">
 <h3>Breach location<a class="headerlink" href="#breach-location" title="Permalink to this heading"></a></h3>
-<p>Now that we have added a connected channel to our model, we are going to add a breach location. For more theoretical information on breaches, see: <a class="reference internal" href="g_levees_obstacles_breaches.html#breaches"><span class="std std-ref">Breaches</span></a>. For a more detailed guide on how to add a levee breach, see: <a class="reference internal" href="d_building_w_modeller_interface.html#addleveebreaches"><span class="std std-ref">Add levee breaches</span></a>.</p>
+<p>Now that we have added a connected channel to our model, we are going to add a breach location. For more theoretical information on breaches, see: <a class="reference internal" href="g_levees_obstacles_breaches.html#breaches"><span class="std std-ref">Breaches</span></a>. For a more detailed guide on how to add a levee breach, see: <a class="reference internal" href="i_editing_schematisations.html#addleveebreaches"><span class="std std-ref">Add levee breaches</span></a>.</p>
 <p>Follow these steps to add a breach:</p>
 <ol class="upperalpha simple">
 <li><p>Click on the <strong>Commands for working with 3di models</strong> button. [1]</p></li>
@@ -397,7 +406,7 @@ The model can be loaded via the 3Di toolbar (part of the 3Di toolbox plug in) by
 <section id="model-validation">
 <h2>Model validation<a class="headerlink" href="#model-validation" title="Permalink to this heading"></a></h2>
 <p>A short description of the model validation is given here.
-A comprehensive guide with visual support is provided in Tutorial 1 (<a class="reference internal" href="e_workflow_tutorial.html#post-processing"><span class="std std-ref">Post-processing</span></a>) and for a general guide see <a class="reference internal" href="d_checking_model_schematisation.html#checking-model"><span class="std std-ref">Checking the model schematisation</span></a>.</p>
+A comprehensive guide with visual support is provided in Tutorial 1 (<a class="reference internal" href="e_workflow_tutorial.html#post-processing"><span class="std std-ref">Post-processing</span></a>) and for a general guide see <a class="reference internal" href="i_checking_schematisations.html#checking-model"><span class="std std-ref">Checking the model schematisation</span></a>.</p>
 <section id="verify-the-model-rasters-using-the-raster-checker">
 <h3>Verify the model rasters using the raster checker<a class="headerlink" href="#verify-the-model-rasters-using-the-raster-checker" title="Permalink to this heading"></a></h3>
 <p>Before sending our model to the web portal, it is important to validate that our model contains no errors. The raster checker is part of the 3Di toolbox and performs 18 checks to verify the quality of the DEM. The raster checker checks all the rasters that are included in the model. In our case, this is only the DEM for the area of Nissewaard, but in more sophisticated models you can also include other rasters, like friction and infiltration.</p>
@@ -429,7 +438,7 @@ If you get this error, you can ignore it.</p>
 </section>
 <section id="model-activation">
 <h2>Model activation<a class="headerlink" href="#model-activation" title="Permalink to this heading"></a></h2>
-<p>A short description of the model activation is given here. A comprehensive guidance with visual support is provided in Tutorial 2 (<span class="xref std std-ref">model_activation</span>).</p>
+<p>A short description of the model activation is given here. A comprehensive guidance with visual support is provided in Tutorial 2 (<a class="reference internal" href="e_2d_tutorial.html#tutorial2-2dflatmodel"><span class="std std-ref">Tutorial 2: Building a Basic 2D Flow Schematisation</span></a>).</p>
 <section id="upload-your-model">
 <h3>Upload your model<a class="headerlink" href="#upload-your-model" title="Permalink to this heading"></a></h3>
 <p>See <a class="reference internal" href="e_klondike_workflow.html#uploading-schematisation"><span class="std std-ref">Uploading the Schematisation</span></a> for how to upload your model.</p>
@@ -438,7 +447,7 @@ If you get this error, you can ignore it.</p>
 <section id="run-your-model">
 <h3>Run your model<a class="headerlink" href="#run-your-model" title="Permalink to this heading"></a></h3>
 <p>You have now build a 2D flow model for mountainous terrain from scratch!
-You can now run your model via the 3Di Live Site (<a class="reference internal" href="c_threedi_portal.html#guide-to-portal"><span class="std std-ref">Login to the Live Site</span></a>) or via the 3Di Modeller Interface (<a class="reference internal" href="d_simulate_modeller_interface.html#simulate-api-qgis"><span class="std std-ref">Using the Modeller Interface</span></a>).
+You can now run your model via the 3Di Live Site (<a class="reference internal" href="c_what_is_the_live_site.html#guide-to-portal"><span class="std std-ref">What is the live site</span></a>) or via the 3Di Modeller Interface (<a class="reference internal" href="i_running_a_simulation.html#simulate-api-qgis"><span class="std std-ref">Running a simulation</span></a>).
 It will be available under the name you gave it.</p>
 <p>It is important to note that you have to open your breach in the 3Di Live Site. In the 3Di Live Site, breaches are depicted as a brown dot [1].  You can open a breach by clicking on the breach and clicking on the settings button [2]. Here you can open the breach. Also, you can set the time it takes for the breach location to be fully breached (Time [H]) and the initial breach width.</p>
 <figure class="align-default">

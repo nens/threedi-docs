@@ -152,7 +152,7 @@ Your model will now be initialised. The blue status bar “no models” will tur
 Running your model
 ++++++++++++++++++++++++++++++++++++++
 
-You can now run your model via the 3Di live site `3Di livesite <http://3di.live#>`_ or via the :ref:`apicalculations`. It will be available under the name “LP_Burrows_Workflow”.
+You can now run your model via the 3Di live site `3Di livesite <http://3di.live#>`_ . It will be available under the name “LP_Burrows_Workflow”.
 
 .. figure:: image/12_livesite.png
 

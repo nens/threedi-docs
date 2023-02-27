@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The grid &mdash; 3Di  (dev doc 2023-02-13) documentation</title>
+  <title>The grid &mdash; 3Di  (dev doc 2023-02-27) documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -36,7 +36,7 @@
             3Di
           </a>
               <div class="version">
-                 (dev doc 2023-02-13)
+                 (dev doc 2023-02-27)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -58,22 +58,31 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="b_fews_3di_integrations.html">FEWS-3Di integration</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Modelling guidelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_modeling_guidelines.html">Modelling guidelines</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Modeller Interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="i_what_is_mi.html">What is the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html">Overview of the user Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html">Login to the Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#start-or-follow-a-session">Start or follow a session</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#overview-session-screen-and-tooling">Overview session screen and tooling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#quitting-the-simulation">Quitting the simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#store-results">Store results</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#notables">Notables</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">How to work with 3Di</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="d_building_a_model.html">Building and editing a model schematisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_checking_model_schematisation.html">Checking the model schematisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_adding_running_scenario.html">Adding scenario information and running a simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_viewing_analysing_results.html">Storing, viewing and analysing results</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_management.html">Manage your schematisations and models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the live site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html#using-the-3di-live-site">Using the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the live site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html#login-to-the-live-site">Login to the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html#overview-session-screen-and-tooling">Overview session screen and tooling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html#notables">Notables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the live site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#start-or-follow-a-session">Start or follow a session</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#editing-a-model-schematisation-with-the-live-site">Editing a model schematisation with the live site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#simulation-interventions">Simulation interventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#analyzing-results-while-scenario-is-running">Analyzing results while scenario is running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#quitting-the-simulation">Quitting the simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#store-results">Store results</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul>
@@ -159,13 +168,13 @@
 <figure class="align-right" id="id3" style="width: 400px">
 <img alt="grid 2d" src="_images/b1_1.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 79 </span><span class="caption-text">Example of a staggered 2D grid including a refinement; water levels/ pressures are defined in the cell centres (blue dots) and velocities at the cell edges (blue bars). Water level domains are indicated by blue areas, and the momentum domains by green and orange areas.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 75 </span><span class="caption-text">Example of a staggered 2D grid including a refinement; water levels/ pressures are defined in the cell centres (blue dots) and velocities at the cell edges (blue bars). Water level domains are indicated by blue areas, and the momentum domains by green and orange areas.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-left" id="id4" style="width: 300px">
 <img alt="grid 2dv" src="_images/b1_2dv.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 80 </span><span class="caption-text">Example of a vertical staggered grid</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 76 </span><span class="caption-text">Example of a vertical staggered grid</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>The hydrodynamic computations are based on the conservation of volume and momentum. In the next sections (<a class="reference internal" href="g_massconservation.html#cons-volume"><span class="std std-ref">Conservation of mass</span></a>,  <a class="reference internal" href="g_onedee_flow.html#onedee-flow"><span class="std std-ref">1D Flow</span></a>, <a class="reference internal" href="g_surfaceflow.html#surface-flow"><span class="std std-ref">2D Surface Flow</span></a>, and <a class="reference internal" href="g_groundwater.html#groundwater"><span class="std std-ref">2D Groundwater flow</span></a>), the methods concerned for the computations are discussed. However, in order to solve the equations, the domains in which they are valid, need to be defined. In the Figure above, the volume and momentum domains are shown.</p>
@@ -175,7 +184,7 @@
 <figure class="align-right" id="id5" style="width: 400px">
 <img alt="quadtree_refinement" src="_images/b1_6_quadtree_grid.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 81 </span><span class="caption-text">An example of a computational grid with quad-tree refinements.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 77 </span><span class="caption-text">An example of a computational grid with quad-tree refinements.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>In case groundwater is taken into account, the grid refinement is present in both the surface layer and the groundwater layer.</p>
@@ -187,7 +196,7 @@
 <figure class="align-center" id="id6" style="width: 600px">
 <img alt="bathymetry variations example" src="_images/b1_3.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 82 </span><span class="caption-text">Examples of flow in a flume, where a slight change in bathymetry, strongly affects the flow.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 78 </span><span class="caption-text">Examples of flow in a flume, where a slight change in bathymetry, strongly affects the flow.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>The basic idea behind the subgrid method, is that water levels vary much more gradually than the bathymetry. In hydrodynamic computations, water levels are assumed to be uniform within a computational cell. Traditionally, this is also assumed for the bathymetry within such a cell. The subgrid-based approach allows the bathymetry to vary within one computational cell, while the water level remains uniform. In 3Di two grids are to be defined; a high resolution subgrid and a coarse(r) computational grid. All input data, such as the bathymetry, roughness and infiltration rates can be defined on the high resolution grid, while the computations are performed on the coarse computational grid. Volumes and cross-sectional areas are based using the high resolution bathymetry information. The variation of the bathymetry within a computational cell means that a cell can be dry, wet or partly wet. This approach has two implications:</p>
@@ -198,7 +207,7 @@
 <figure class="align-left" id="id7" style="width: 400px">
 <img alt="subgrid_bathymety_cell" src="_images/b1_4.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 83 </span><span class="caption-text">An example of a computational cell with a bathymetry defined on the subgrid.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 79 </span><span class="caption-text">An example of a computational cell with a bathymetry defined on the subgrid.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -229,7 +238,7 @@
 <figure class="align-right" id="id8" style="width: 400px">
 <img alt="1D structure of the grid." src="_images/b1_1d.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 84 </span><span class="caption-text">An example of the grid of a 1D Network. Water levels/ pressures are defined in the cell centres (blue dots) and velocities at the cell edges (blue bars). Water level domains are indicated by blue areas, and the momentum domains by green and orange areas.</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 80 </span><span class="caption-text">An example of the grid of a 1D Network. Water levels/ pressures are defined in the cell centres (blue dots) and velocities at the cell edges (blue bars). Water level domains are indicated by blue areas, and the momentum domains by green and orange areas.</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <section id="id2">

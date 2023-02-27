@@ -28,7 +28,7 @@ All components are secured by an **Authentication** and **Authorisation** system
 3Di Modeller Interface
 ======================
 
-The :ref:`Modeller Interface <a_modeller_interface>` is a customized version of QGIS, a software tool used by hydrology experts to build and edit models, start simulations, and analyze their results. It comes with a number of pre-installed plugins, including the **3Di Models and Simulations** and the **3Di Toolbox**, which are custom-made for use with 3Di. The 3Di Models and Simulations plugin allows users to complete a full modeling workflow, including uploading their model, starting a simulation, and downloading and analyzing the results, all within the Modeller Interface. The 3Di Toolbox, on the other hand, is used for importing schematizations, checking data, and analyzing results. This setup allows users to take advantage of the processing power of QGIS while using the specialized 3Di plugins to create, simulate, and analyze their models.
+The Modeller Interface is a customized version of QGIS, a software tool used by hydrology experts to build and edit models, start simulations, and analyze their results. It comes with a number of pre-installed plugins, including the **3Di Models and Simulations** and the **3Di Toolbox**, which are custom-made for use with 3Di. The 3Di Models and Simulations plugin allows users to complete a full modeling workflow, including uploading their model, starting a simulation, and downloading and analyzing the results, all within the Modeller Interface. The 3Di Toolbox, on the other hand, is used for importing schematizations, checking data, and analyzing results. This setup allows users to take advantage of the processing power of QGIS while using the specialized 3Di plugins to create, simulate, and analyze their models.
 
 
 .. note::
@@ -230,7 +230,7 @@ Sharing models with external users is also possible. The two options are:
 .. _personal_api_key:
 
 Personal API Key
-----------------
+-----------------
 
 When you login via your browser, your browser receives a session cookie.
 All subsequent requests to the API are authenticated with that session cookie.

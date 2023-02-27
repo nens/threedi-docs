@@ -9,7 +9,7 @@ Basic Modelling Concepts
    A schematic overview of the 3Di Workflow modelling concepts.
 
 
-During the :ref:`workflow <b_workflow>` from real-world data to simulation results, one encounters various modelling concepts.
+During the workflow from real-world data to simulation results, one encounters various modelling concepts.
 The first important concept is the **Schematisation**. A schematisation consists of all the required information to create a calculation grid and subgrid tables: one or more rasters and a single SQLite.
 The latter contains vector based information and the schematisation settings, such as grid and table settings. 
 

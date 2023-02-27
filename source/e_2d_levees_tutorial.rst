@@ -312,7 +312,7 @@ If you do not get any further warnings or errors, your model is successfully val
 
 Model activation
 ----------------
-A short description of the model activation is given here. A comprehensive guidance with visual support is provided in Tutorial 2 (:ref:`model_activation`).
+A short description of the model activation is given here. A comprehensive guidance with visual support is provided in Tutorial 2 (:ref:`tutorial2_2dflatmodel`).
 
 
 Upload your model

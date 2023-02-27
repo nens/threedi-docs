@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tutorial 1: Workflow of building a 3Di model - Old route (pre-klondike) &mdash; 3Di  (dev doc 2023-02-13) documentation</title>
+  <title>Tutorial 1: Workflow of building a 3Di model - Old route (pre-klondike) &mdash; 3Di  (dev doc 2023-02-27) documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -33,7 +33,7 @@
             3Di
           </a>
               <div class="version">
-                 (dev doc 2023-02-13)
+                 (dev doc 2023-02-27)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -55,22 +55,31 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="b_fews_3di_integrations.html">FEWS-3Di integration</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Modelling guidelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_modeling_guidelines.html">Modelling guidelines</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Modeller Interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="i_what_is_mi.html">What is the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html">Overview of the user Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html">Login to the Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#start-or-follow-a-session">Start or follow a session</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#overview-session-screen-and-tooling">Overview session screen and tooling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#quitting-the-simulation">Quitting the simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#store-results">Store results</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#notables">Notables</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">How to work with 3Di</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="d_building_a_model.html">Building and editing a model schematisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_checking_model_schematisation.html">Checking the model schematisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_adding_running_scenario.html">Adding scenario information and running a simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_viewing_analysing_results.html">Storing, viewing and analysing results</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_management.html">Manage your schematisations and models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the live site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html#using-the-3di-live-site">Using the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the live site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html#login-to-the-live-site">Login to the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html#overview-session-screen-and-tooling">Overview session screen and tooling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html#notables">Notables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the live site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#start-or-follow-a-session">Start or follow a session</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#editing-a-model-schematisation-with-the-live-site">Editing a model schematisation with the live site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#simulation-interventions">Simulation interventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#analyzing-results-while-scenario-is-running">Analyzing results while scenario is running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#quitting-the-simulation">Quitting the simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#store-results">Store results</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul>
@@ -159,7 +168,7 @@ tutorial.</p>
 <ul class="simple">
 <li><p>Install the 3Di modeller interface. Please see <a class="reference internal" href="f_3di_instruments_and_downloads.html#di-instruments-and-downloads"><span class="std std-ref">Installation manual</span></a> for instructions.</p></li>
 <li><p>Install TortoiseHG. Please see <a class="reference external" href="https://tortoisehg.bitbucket.io/download/index.html">TortoiseHG</a> for instructions.</p></li>
-<li><p>Gain access to the 3Di web portal. Please see <a class="reference internal" href="c_threedi_portal.html#guide-to-portal"><span class="std std-ref">Login to the Live Site</span></a> for instructions.</p></li>
+<li><p>Gain access to the 3Di web portal. Please see <a class="reference internal" href="c_what_is_the_live_site.html#guide-to-portal"><span class="std std-ref">What is the live site</span></a> for instructions.</p></li>
 <li><p>Click <a class="reference external" href="https://nens.lizard.net/media/3di-tutorials/3di-tutorial-01.zip">here</a> to download the Laugharne and Pendine Burrows model for this tutorial.</p></li>
 </ul>
 <section id="pre-processing-loading-a-model-into-the-3di-modeller-interface">
@@ -203,7 +212,7 @@ tutorial.</p>
 <p>Five steps are required for running your completed 3Di model successfully on the 3Di live site or via the API. These steps included checking your model for errors and activating your model in the 3Di repository. This procedure is referred to as post-processing.</p>
 <section id="raster-checker">
 <h3>Raster checker<a class="headerlink" href="#raster-checker" title="Permalink to this heading"></a></h3>
-<p>It is important to validate that our model contains no errors. The <a class="reference internal" href="d_checking_model_schematisation.html#rasterchecker"><span class="std std-ref">Raster checker</span></a> is part of the 3Di toolbox and performs 18 checks to verify the DEM and other rasters.</p>
+<p>It is important to validate that our model contains no errors. The <a class="reference internal" href="i_checking_schematisations.html#rasterchecker"><span class="std std-ref">Raster checker</span></a> is part of the 3Di toolbox and performs 18 checks to verify the DEM and other rasters.</p>
 <ol class="loweralpha simple">
 <li><p>Open the 3Di toolbox. The toolbox will appear as an extra panel in your QGIS window. [1]</p></li>
 <li><p>Select the raster checker under the check data tab. [2]</p></li>
@@ -213,7 +222,7 @@ tutorial.</p>
 <img alt="_images/04_rasterchecker_.png" src="_images/04_rasterchecker_.png" />
 </figure>
 <ol class="loweralpha simple" start="4">
-<li><p>A pop-up window with the result appears. There should be 0 errors and 0 warnings. If any warnings appear, please see the <a class="reference internal" href="d_checking_model_schematisation.html#rasterchecker"><span class="std std-ref">Raster checker</span></a> tutorial on how to read the log file. [4]</p></li>
+<li><p>A pop-up window with the result appears. There should be 0 errors and 0 warnings. If any warnings appear, please see the <a class="reference internal" href="i_checking_schematisations.html#rasterchecker"><span class="std std-ref">Raster checker</span></a> tutorial on how to read the log file. [4]</p></li>
 </ol>
 <figure class="align-default">
 <a class="reference internal image-reference" href="_images/05_rasterchecker_2.png"><img alt="_images/05_rasterchecker_2.png" src="_images/05_rasterchecker_2.png" style="width: 467.7px; height: 212.7px;" /></a>
@@ -222,7 +231,7 @@ tutorial.</p>
 </section>
 <section id="schematisation-checker">
 <h3>Schematisation checker<a class="headerlink" href="#schematisation-checker" title="Permalink to this heading"></a></h3>
-<p>The second validation is that of the model schematisation. This is checked with the <a class="reference internal" href="d_checking_model_schematisation.html#schematisationchecker"><span class="std std-ref">Schematisation checker</span></a> in the 3Di toolbox. It checks the model tables for many possible errors that could lead to crashes when the model is compiled.</p>
+<p>The second validation is that of the model schematisation. This is checked with the <a class="reference internal" href="i_checking_schematisations.html#schematisationchecker"><span class="std std-ref">Schematisation checker</span></a> in the 3Di toolbox. It checks the model tables for many possible errors that could lead to crashes when the model is compiled.</p>
 <ol class="loweralpha simple">
 <li><p>Open the 3Di toolbox. The toolbox will appear as an extra panel in your QGIS window. [1]</p></li>
 <li><p>Select the raster checker under the check data tab. [2]</p></li>
@@ -280,7 +289,7 @@ tutorial.</p>
 </section>
 <section id="running-your-model">
 <h3>Running your model<a class="headerlink" href="#running-your-model" title="Permalink to this heading"></a></h3>
-<p>You can now run your model via the 3Di live site <a class="reference external" href="http://3di.live#">3Di livesite</a> or via the <span class="xref std std-ref">apicalculations</span>. It will be available under the name “LP_Burrows_Workflow”.</p>
+<p>You can now run your model via the 3Di live site <a class="reference external" href="http://3di.live#">3Di livesite</a> . It will be available under the name “LP_Burrows_Workflow”.</p>
 <figure class="align-default">
 <img alt="_images/12_livesite.png" src="_images/12_livesite.png" />
 </figure>

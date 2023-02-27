@@ -191,3 +191,22 @@ Make sure the 3Di Modeller Interface is allowed to communicate with following UR
 * PyPI: https://pypi.org/ (only during first run after installation / update)
 * 3Di API: https://api.3di.live (each time a simulation is started from the Modeller Interface)
 
+
+Database
+----------	
+
+.. _database-overview:
+
+Database overview
+^^^^^^^^^^^^^^^^^^
+
+The database overview shows the complete overview of tables that 3Di uses in the spatialite database. You can download the complete overview of tables that 3Di uses in the spatialite database :download:`here <pdf/database-overview.pdf>`. Also, this :download:`flowchart <image/flowchart_edit_model.png>` may help you while editing your model. The following links show you the database schema's for :download:`sewerage <pdf/database-schema-sewerage.pdf>` and :download:`surface water <pdf/database-schema-surface-water.pdf>`.
+
+.. _empty_database:
+
+Empty database
+^^^^^^^^^^^^^^
+
+If you like to set up a new model it may be helpful to start from an empty database. Download an empty spatialite database :download:`here <other/empty.sqlite>`.
+
+Please be aware not to add any columns to existing tables in the spatialite as they may interfere with future migrations.

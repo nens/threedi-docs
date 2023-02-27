@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Flood model &mdash; 3Di  (dev doc 2023-02-13) documentation</title>
+  <title>Flood model &mdash; 3Di  (dev doc 2023-02-27) documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -35,7 +35,7 @@
             3Di
           </a>
               <div class="version">
-                 (dev doc 2023-02-13)
+                 (dev doc 2023-02-27)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -57,46 +57,48 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="b_fews_3di_integrations.html">FEWS-3Di integration</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Modelling guidelines</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="d_modeling_guidelines.html">Modelling guidelines</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="d_rasters.html">Rasters</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Flood model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#spatialite-database">Spatialite database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#global-settings">Global settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#computational-grid">Computational grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#local-grid-refinement">Local grid refinement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#levees-or-obstacles">Levees or obstacles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#breach-locations">Breach locations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="d_water_system.html">Water system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_sewerage.html">Sewerage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_urban_areas.html">Hybrid Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_control_structures.html">Control Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_boundary_conditions.html">Boundary Conditions</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Modeller Interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="i_what_is_mi.html">What is the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html">Overview of the user Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html">Login to the Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#start-or-follow-a-session">Start or follow a session</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#overview-session-screen-and-tooling">Overview session screen and tooling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#quitting-the-simulation">Quitting the simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#store-results">Store results</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_threedi_portal.html#notables">Notables</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">How to work with 3Di</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="d_building_a_model.html">Building and editing a model schematisation</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="d_building_w_modeller_interface.html">Building and editing a model with the Modeller Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="d_schematisation_editor.html">Using the Schematisation Editor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="d_visualising_computational_grids.html">Visualising computational grids</a></li>
-<li class="toctree-l2"><a class="reference internal" href="d_building_w_live_site.html">Editing a model schematisation with the live site</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="d_modeling_guidelines.html">Modeling guidelines</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="d_rasters.html">Rasters</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Flood model</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#spatialite-database">Spatialite database</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#global-settings">Global settings</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#computational-grid">Computational grid</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#local-grid-refinement">Local grid refinement</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#levees-or-obstacles">Levees or obstacles</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#breach-locations">Breach locations</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="d_water_system.html">Water system</a></li>
-<li class="toctree-l3"><a class="reference internal" href="d_sewerage.html">Sewerage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="d_urban_areas.html">Hybrid Models</a></li>
-<li class="toctree-l3"><a class="reference internal" href="d_control_structures.html">Control Structures</a></li>
-<li class="toctree-l3"><a class="reference internal" href="d_boundary_conditions.html">Boundary Conditions</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="d_checking_model_schematisation.html">Checking the model schematisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_adding_running_scenario.html">Adding scenario information and running a simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_viewing_analysing_results.html">Storing, viewing and analysing results</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_management.html">Manage your schematisations and models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the live site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html#using-the-3di-live-site">Using the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the live site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html#login-to-the-live-site">Login to the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html#overview-session-screen-and-tooling">Overview session screen and tooling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html#notables">Notables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the live site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#start-or-follow-a-session">Start or follow a session</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#editing-a-model-schematisation-with-the-live-site">Editing a model schematisation with the live site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#simulation-interventions">Simulation interventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#analyzing-results-while-scenario-is-running">Analyzing results while scenario is running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#quitting-the-simulation">Quitting the simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#store-results">Store results</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul>
@@ -147,8 +149,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="d_building_a_model.html">Building and editing a model schematisation</a></li>
-          <li class="breadcrumb-item"><a href="d_modeling_guidelines.html">Modeling guidelines</a></li>
+          <li class="breadcrumb-item"><a href="d_modeling_guidelines.html">Modelling guidelines</a></li>
       <li class="breadcrumb-item active">Flood model</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/d_flood_model.rst.txt" rel="nofollow"> View page source</a>
@@ -164,11 +165,11 @@
 <p>In this instruction we will set up a relatively simple model that can simulate floods, using a DEM and some levee’s. For a flood model we need a DEM and possibly a friction raster. For this instruction it is assumed you have both at the ready.</p>
 <section id="spatialite-database">
 <h2>Spatialite database<a class="headerlink" href="#spatialite-database" title="Permalink to this heading"></a></h2>
-<p>Once all your raster-files meet the requirements (as outlined in <a class="reference internal" href="d_rasters.html#rasters"><span class="std std-ref">Rasters</span></a>) we can set up the model through the spatialite database. The spatialite database contains all the information that goes into your model except the raster-files. To see what is inside the database, you have to connect to the spatialite database using the <a class="reference internal" href="d_building_w_modeller_interface.html#qgisplugin"><span class="std std-ref">Building and editing a model with the Modeller Interface</span></a>. This way, all relevant 3Di-layers are loaded.</p>
+<p>Once all your raster-files meet the requirements (as outlined in <a class="reference internal" href="d_rasters.html#rasters"><span class="std std-ref">Rasters</span></a>) we can set up the model through the spatialite database. The spatialite database contains all the information that goes into your model except the raster-files. To see what is inside the database, you have to connect to the spatialite database using the <span class="xref std std-ref">qgisplugin</span>. This way, all relevant 3Di-layers are loaded.</p>
 </section>
 <section id="global-settings">
 <h2>Global settings<a class="headerlink" href="#global-settings" title="Permalink to this heading"></a></h2>
-<p>The global settings table (v2_global_settings) contains all general settings for your model. It must contain at least one row for your model to work. You can find a complete overview of all settings through <span class="xref std std-ref">database-overview</span>. Here some basic settings are discussed as well as how to set up your computational grid, but you will need the database overview as well.</p>
+<p>The global settings table (v2_global_settings) contains all general settings for your model. It must contain at least one row for your model to work. You can find a complete overview of all settings through the <a class="reference download internal" download="" href="_downloads/84a660f75b3e8f891f1cd6c5f0b550f8/database-overview.pdf"><code class="xref download docutils literal notranslate"><span class="pre">database-overview</span></code></a>. Here some basic settings are discussed as well as how to set up your computational grid, but you will need the database overview as well.</p>
 <p>Some basic settings you must fill out have to do with keeping track of your scenario and the type of model you are making. Consider the following steps:</p>
 <ol class="arabic simple">
 <li><p>The first basic settings you must fill out are the scenario id and a simple name for your scenario. The scenario name will be shown in the 3Di web portal once you uploaded your model.</p></li>
@@ -178,7 +179,7 @@
 <li><p>The flooding threshold determines when water starts to flow from one cell to the next. Set it to 0.01 meter. This ensures a more stable and quicker simulation.</p></li>
 <li><p>Set the DEM and friction files relative paths to the raster-files you created. Make sure you use the full path (relative from the folder in which the spatialite is stored) and full filenames (including .tif).</p></li>
 <li><p>Set the friction type so that it matches your friction raster-file.</p></li>
-<li><p>Check the 3Di <span class="xref std std-ref">database-overview</span> for the remaining settings and fill-out all those listed as mandatory. Except <code class="docutils literal notranslate"><span class="pre">kmax</span></code> and <code class="docutils literal notranslate"><span class="pre">grid_space</span></code>, they are explained below.</p></li>
+<li><p>Check the 3Di <a class="reference download internal" download="" href="_downloads/84a660f75b3e8f891f1cd6c5f0b550f8/database-overview.pdf"><code class="xref download docutils literal notranslate"><span class="pre">database-overview</span></code></a> for the remaining settings and fill-out all those listed as mandatory. Except <code class="docutils literal notranslate"><span class="pre">kmax</span></code> and <code class="docutils literal notranslate"><span class="pre">grid_space</span></code>, they are explained below.</p></li>
 </ol>
 </section>
 <section id="computational-grid">
@@ -188,7 +189,7 @@ The <code class="docutils literal notranslate"><span class="pre">grid_space</spa
 <figure class="align-default" id="id3">
 <img alt="Grid refinement" src="_images/grid-refinement-in-3-layers.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 28 </span><span class="caption-text">Grid refinement</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Grid refinement</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>For now, set your <code class="docutils literal notranslate"><span class="pre">grid_space</span></code> and <code class="docutils literal notranslate"><span class="pre">kmax</span></code>. Your grid space must be a multitude of your raster pixel size. If we assume you are using a pixel size of 5 meter, a <code class="docutils literal notranslate"><span class="pre">grid_space</span></code> of 10 meter and a <code class="docutils literal notranslate"><span class="pre">kmax</span></code> of 4, then your biggest calculations cells will become 80 meters high and wide. The next section shows you how to add local grid refinement.</p>
@@ -209,7 +210,7 @@ Both tables allow you to set the minimum crest level at the edge of a calculatio
 <figure class="align-default" id="id4">
 <img alt="Levee in quadtree" src="_images/levee-in-non-uniform-grid.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 29 </span><span class="caption-text">Levee in computational grid</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Levee in computational grid</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>The table <code class="docutils literal notranslate"><span class="pre">v2_levee</span></code> works similar to the <code class="docutils literal notranslate"><span class="pre">v2_obstacle</span></code> but allows you the set some additional parameters that are used to simulate a breach. When the 2D-levee varies in height you can use different line segments. Make sure all your levee segments are drawn within the extent of your raster-files.</p>
@@ -219,7 +220,7 @@ Both tables allow you to set the minimum crest level at the edge of a calculatio
 <h2>Breach locations<a class="headerlink" href="#breach-locations" title="Permalink to this heading"></a></h2>
 <p>There are two ways to add breach locations to a model, manually for each breach or automatically for selected channels. In both cases the table <code class="docutils literal notranslate"><span class="pre">v2_connected_pnt</span></code> and <code class="docutils literal notranslate"><span class="pre">v2_calculation_points</span></code> must be filled completely and correctly. The calculation points are points on which 3Di will place water level calculation points. The connected points refer to these calculation points by a unique id. The location of the connected points marks the location where the 1D2D connection is made to the 2D computational grid. If a straight line between the calculation point and the connected point crosses a 1D-levee, a breach location is generated.</p>
 <p>To add a breach location next to a levee you have to have a model that has a connected channel and at least one levee.
-The <a class="reference internal" href="d_building_w_modeller_interface.html#qgisplugin"><span class="std std-ref">Building and editing a model with the Modeller Interface</span></a> can be used to add breach locations to your model.</p>
+The <span class="xref std std-ref">qgisplugin</span> can be used to add breach locations to your model.</p>
 <p>No actual breach points will become visible for either of these options in QGIS. These will only become visible on the 3Di web portal.</p>
 <p>More information about breaches can be found in <a class="reference internal" href="g_levees_obstacles_breaches.html#breaches"><span class="std std-ref">Breaches</span></a>.</p>
 </section>

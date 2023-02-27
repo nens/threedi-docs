@@ -145,7 +145,7 @@ For connected elements:
 For double connected elements this implies:
 
 .. math::
-   :label: storagearea2
+   :label: storagearea3
 
    A_{1D2D} = L_{1D2D} H_{1D2D} = L_{bank} H_{1D2D} 
    

@@ -12,11 +12,6 @@ You can run an interactive simulation on the Live Site. The Live Site will provi
 When you use the Modeller Interface your results will only be provided after the simulation has finished. The Modeller Interface does provide a more detailed overview where you can enter your scenario information. 
 
 
-.. toctree::
-   :maxdepth: 2
-   
-   d_simulate_modeller_interface
-   d_simulate_live_site
    
    
    

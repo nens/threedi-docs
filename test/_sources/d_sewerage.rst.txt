@@ -21,11 +21,11 @@ Manholes are the base of your sewerage model, because they define the locations 
 
 To add a manhole consider the following steps:
 
-#. First, load the table v2_connection_nodes (point geometry) from the spatialite database if you haven’t already.
+#. First, load the table v2_connection_nodes (point geometry) from the spatialite database if you haven't already.
 	
 #. Each manhole needs to be linked to a connection node, which determines its geographical location.
 
-#. Furthermore, each manhole must have dimensions. You have several options to define these dimensions. Check out the the :ref:`database-overview` for more details. Note that manholes do not refer to the cross section definition table (as do the structures). The drain_level determines the elevation at which the manhole can interact with the surface and water can flow in or out of the manhole. This is only used in case of connected manholes.
+#. Furthermore, each manhole must have dimensions. You have several options to define these dimensions. Check out the the :download:`database-overview <pdf/database-overview.pdf>` for more details. Note that manholes do not refer to the cross section definition table (as do the structures). The drain_level determines the elevation at which the manhole can interact with the surface and water can flow in or out of the manhole. This is only used in case of connected manholes.
 	
 #. The manholes must have manhole_indicators (what kind of manhole it is) and calculation_type. The calculation_type defines whether, and how, the water can flow in or out of the manhole.
 
@@ -45,7 +45,7 @@ Sewerage structures in 3Di are always a connection between two connection nodes,
 
 #. Pumpstation
 
-Check out the :ref:`database-overview` for how use the structure attributes. Below, some specific details are listed.
+Check out the :download:`database-overview <pdf/database-overview.pdf>` for how use the structure attributes. Below, some specific details are listed.
 
 * The shape of the pipe, weir and orifice is stored in the cross section definition table. So make sure you have some available before you start adding these structures.
 
@@ -57,7 +57,7 @@ Check out the :ref:`database-overview` for how use the structure attributes. Bel
 Impervious surfaces
 ------------------------
 It is also possible to use a solely 1D-sewerage model without any 2D component. If that is the case make sure you activate "use_0d_inflow" in the global settings. 
-In this case you force the '0D-surfaces' into the sewerage system. This is done by linking the '0D-surfaces' (v2_impervious_surface) to a connection node (using v2_impervious_surface_map), check the :ref:`database-overview` for more details. 
+In this case you force the '0D-surfaces' into the sewerage system. This is done by linking the '0D-surfaces' (v2_impervious_surface) to a connection node (using v2_impervious_surface_map), check the :download:`database-overview <pdf/database-overview.pdf>` for more details. 
 
 To calculate the dry weather flow, i.e. (household) wastewater, you have to define the 'nr_of_inhabitants' and 'dry_weather_flow' in the v2_impervious_surface table.
 
@@ -65,7 +65,7 @@ To calculate the dry weather flow, i.e. (household) wastewater, you have to defi
 1D boundary conditions
 ------------------------
 
-Boundary conditions for the 1D system are placed on connection nodes. They can only be placed on connection nodes that are connected to a single structure. So not on structures or embedded or connected channels. Check the different types of boundary conditions available in the :ref:`database-overview`.
+Boundary conditions for the 1D system are placed on connection nodes. They can only be placed on connection nodes that are connected to a single structure. So not on structures or embedded or connected channels. Check the different types of boundary conditions available in the :download:`database-overview <pdf/database-overview.pdf>`.
 
 The timeseries field in the spatialite database can only be filled by copy-pasting your timeseries into the spatialite as QGIS does not allow you to enter a newline. You may use this example::
     

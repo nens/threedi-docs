@@ -19,7 +19,7 @@ The following objects are imported:
 * Manhole (``*KNP``)
     * The number of inhabitants will be added as an *Impervious surface*.
 
-Note: the shape of the manhole is refered as 'rnd' = round, 'sqr' = square and 'rect' = rectangle
+Note: the shape of the manhole is referred as 'rnd' = round, 'sqr' = square and 'rect' = rectangle
 
 *    Pipe (``*LEI``)
 

@@ -1,5 +1,9 @@
-Modeling guidelines
+Modelling guidelines
 ====================
+
+.. todo:
+   hier nog een verhaaltje schrijven met uitleg wat modelling guidelines zijn.
+   wil hier ook de algemene flow kwijt.
 
 .. toctree::
    :maxdepth: 2

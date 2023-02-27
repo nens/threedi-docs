@@ -7,6 +7,7 @@ It allows the user to simulate real-world scenarios and make adjustments to them
 This way, water experts can predict and mitigate the impact of pluvial, fluvial and coastal floods, perform climate impact studies and make hydraulic designs of open channel and sewer networks.
 
 .. TODO: refs toevoegen voor subgrid technique en evt andere
+
 3Di distinguishes itself from other hydrodynamic software products because of the option **to model interactively** and **visually**.
 For example, it is possible to add or change external forcings (such as rain and wind), breaches and pump capacities during a simulation.
 Another very strong aspect of 3Di is the use of **the subgrid technique**. This technique includes high resolution information in coarse resolution computations, without compromising on calculation speed or detail.

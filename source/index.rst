@@ -59,27 +59,56 @@ If you are interested in a **product demo**, a **live** or **online training**, 
 
    b_fews_3di_integrations
 
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: Modelling guidelines
+   :name: Modelling guidelines
+
+   d_modeling_components
+   d_adding_running_scenario
+
+   .. dit kopje is not een beetje een zooitje.
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: Guide to the 3Di Modeller Interface
+   :name: Guide to the 3Di Modeller Interface
+
+   i_what_is_mi
+   i_overview_user_interface
+   i_modelling_with_mi
+
+   .. dit moet nog opgeschoond en up to date gemaakt worden.
+
+
 .. toctree::
    :hidden:
    :maxdepth: 1
    :caption: Guide to the 3Di Live Site
    :name: Guide to the 3Di Live Site
 
-   c_threedi_portal
+   c_what_is_the_live_site
+   c_livesite_overview
+   c_modelling_with_live_site
+
+   .. dit moet nog opgeschoond worden.
+
 
 .. toctree::
    :hidden:
    :maxdepth: 1
-   :caption: How to work with 3Di
-   :name: How to work with 3Di
+   :caption: Guide to the management portal
+   :name: Guide to the management portal
 
-
-
-   d_building_a_model
-   d_checking_model_schematisation
-   d_adding_running_scenario
-   d_viewing_analysing_results
    d_management
+   c_threedi_portal
+   d_scenario_archive
+
+   .. dit kopje is not een beetje een zooitje.
 
 
 .. toctree::

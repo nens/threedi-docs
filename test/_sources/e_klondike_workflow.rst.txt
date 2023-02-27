@@ -59,7 +59,7 @@ To create a new schematisation:
 Here you will find your sqlite file and a raster folder with, in this case, only a .tif file of your DEM.
 The schematisation should now also be selected in your 3Di Models and Simulations Plugin:
 
-.. figure:: image/e_tut1_overview_M_S_plugin.png
+.. figure:: image/e_tut1_overview_m_s_plugin.png
     :alt: Overview 3Di Models and Simulation Plugin.
 
 

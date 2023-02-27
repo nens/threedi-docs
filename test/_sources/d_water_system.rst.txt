@@ -36,7 +36,7 @@ To add a channel or network of channels consider the following steps:
 
 #. Now draw your channels from connection node to connection node. Make sure you snap the start and end-points to the connection nodes and fill out the connection_node_start_id and connection_node_end_id for every channel feature. Then fill all the attribute fields for all channels except the id's and save your edits.
 
-#. Every channels needs at least one cross-section. Start by adding one or multiple cross-section definitions in the table v2_cross_section_definition. You have several options to define you profile, check the :ref:`database-overview` for more details. One definition can be used on multiple locations. Note that the v2_cross_section_definition id’s are filled after you save your edits.
+#. Every channels needs at least one cross-section. Start by adding one or multiple cross-section definitions in the table v2_cross_section_definition. You have several options to define you profile, check the :download:`database-overview <pdf/database-overview.pdf>` for more details. One definition can be used on multiple locations. Note that the v2_cross_section_definition id's are filled after you save your edits.
 
 #. You can place cross-sections on channels using the v2_cross_section_location. You may place multiple cross-sections on one channel. When placing locations, consider the following:
 
@@ -67,7 +67,7 @@ Structures in 3Di are defined as a connection between two connection nodes. 3Di 
 
 #. Culvert
 
-Check out the :ref:`database-overview` for a short description of the requirements of the structure attributes.  However, here are some notes to help you:
+Check out the :download:`database-overview <pdf/database-overview.pdf>` for a short description of the requirements of the structure attributes.  However, here are some notes to help you:
 
 * The shape of the weir, orifice and culvert is stored in the cross-section definition table. So make sure you have some available before you start adding these structures. (:ref:`weir`)
 
@@ -85,7 +85,7 @@ Check out the :ref:`database-overview` for a short description of the requiremen
 1D boundary condition
 ------------------------
 
-Boundary conditions for the 1D system are placed on connection nodes. They can  be placed on connection nodes that are connected to a single isolated channel or structure, so not on an embedded or connected channel. Check the different types of boundary conditions available in the :ref:`database-overview`.
+Boundary conditions for the 1D system are placed on connection nodes. They can  be placed on connection nodes that are connected to a single isolated channel or structure, so not on an embedded or connected channel. Check the different types of boundary conditions available in the :download:`database-overview <pdf/database-overview.pdf>`.
 
 The time series field in the spatialite database can only be filled by copy-pasting your time serie into the spatialite as QGIS does not allow you to enter a newline. You may use this example::
     

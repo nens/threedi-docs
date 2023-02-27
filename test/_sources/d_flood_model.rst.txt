@@ -14,7 +14,7 @@ Once all your raster-files meet the requirements (as outlined in :ref:`rasters`)
 Global settings
 -------------------
 
-The global settings table (v2_global_settings) contains all general settings for your model. It must contain at least one row for your model to work. You can find a complete overview of all settings through :ref:`database-overview`. Here some basic settings are discussed as well as how to set up your computational grid, but you will need the database overview as well.
+The global settings table (v2_global_settings) contains all general settings for your model. It must contain at least one row for your model to work. You can find a complete overview of all settings through the :download:`database-overview <pdf/database-overview.pdf>`. Here some basic settings are discussed as well as how to set up your computational grid, but you will need the database overview as well.
 
 Some basic settings you must fill out have to do with keeping track of your scenario and the type of model you are making. Consider the following steps:
  
@@ -32,7 +32,7 @@ Some basic settings you must fill out have to do with keeping track of your scen
 
 #. Set the friction type so that it matches your friction raster-file.
 
-#. Check the 3Di :ref:`database-overview` for the remaining settings and fill-out all those listed as mandatory. Except ``kmax`` and ``grid_space``, they are explained below.
+#. Check the 3Di :download:`database-overview <pdf/database-overview.pdf>` for the remaining settings and fill-out all those listed as mandatory. Except ``kmax`` and ``grid_space``, they are explained below.
 
 .. _computational_grid:
 
