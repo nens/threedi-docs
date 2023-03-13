@@ -542,10 +542,29 @@ For schematisations users can:
 3Di Modeller Interface
 ----------------------
 
+
+March 10th 2023
+^^^^^^^^^^^^^^^
+
+**3Di Models & Simulations v3.4.3**
+
+- Bugfix: dialog "Remove excess 3Di models" sometimes did not pop up, even though the maximum model count for the given schematisation and/or organisation had been reached. This has been fixed now.
+
+**3Di Modeller Interface installer 3.28.4-2-1**
+
+- The 3Di Modeller Interface is now based on QGIS 3.28, which became the Long-Term Release (LTR) in March 2023
+
+- Installing a 3Di User Profile is now optional; if a user profile called 'default' already exists, installing a new one (overwriting it) is opt-in.
+
+- Installing the 3Di Modeller Interface is now optional (i.e. you can also use the installer to install a user profile only)
+
+- The name of the app is now "3Di Modeller Interface 3.28" instead of "3DiModellerInterface3.28"
+
+
 February 6th 2023
 ^^^^^^^^^^^^^^^^^^
 
-**Release notes 3Di Toolbox v2.5.0**
+**3Di Toolbox v2.5.0**
 
 A new processing tool is introduced:
 
@@ -564,13 +583,13 @@ Other improvements:
 
 - Processing algorithm 'Computational grid from schematisation' no longer remembers the input parameters from previous uses, because this was confusing (#723)
 
-**Release notes 3Di Schematisation Editor v1.3**
+**3Di Schematisation Editor v1.3**
 
 - You can now add 'Exchange lines' to your schematisation to set the 2D cells with which a Channel should make 1D2D connections (#92)
 - You can now add 'Potential breaches' to your schematisation by drawing a line starting from a connected channel (#92)
 - Bugfix: editing attributes of referenced, not yet committed features (e.g. the connection node of a new manhole) now works without issues. #107
 
-**Release notes 3Di Models & Simulations v3.4**
+**3Di Models & Simulations v3.4**
 
 The simulation wizard has been improved and some important additions have been made:
 
@@ -607,7 +626,7 @@ Other changes and bugfixes:
 December 8th 2022
 ^^^^^^^^^^^^^^^^^^
 
-**Release notes 3Di Toolbox v2.4.1**
+**3Di Toolbox v2.4.1**
 
 Due to changes introduced in v2.4, threedi-modelchecker would re-install on every startup. This has been fixed now. (#729)
 Fixed 'Import sufhyd': this routine expected a the table v2_pipe to have a column 'pipe_quality', which was removed recently (#728)
@@ -617,13 +636,13 @@ A schema version check was added to 'Import sufhyd'. If the target spatialite ha
 November 21th 2022
 ^^^^^^^^^^^^^^^^^^
 
-**Release notes 3Di Toolbox v2.4**
+**3Di Toolbox v2.4**
 
 - Bugfix: "predict calc points" tool no longer fails with "TypeError: not all arguments converted during string formatting" #699
 
 - Spatialite schema version compatibility upgraded from schema version 207 to 209 (#693, #648)
 
-**Release notes 3Di Schematisation Editor v1.2**
+**3Di Schematisation Editor v1.2**
 
 - Editing channel start- or end vertices now disconnects channel from connection node, consistent with behaviour for other line features (#66)
 
@@ -647,7 +666,7 @@ November 21th 2022
 
 - Enable/disable the width, height and table widgets based on cross section shape (#78)
 
-**Release notes 3Di Models & Simulations v3.3**
+**3Di Models & Simulations v3.3**
 
 - 2D grid (geojson file) is no longer downloaded after choosing model for new simulation. Instead, please use the processing algorithms in Processing > Toolbox > 3Di > Computational Grid (#325)
 
@@ -671,17 +690,17 @@ November 21th 2022
 
 - When downloading a revision, the gridadmin.h5 is also downloaded if available (#402)
 
-**Checker**
+*Checker*
 
 - Warning for double cumultative cumulative discharges in the aggregation NetCDF - https://app.zenhub.com/workspaces/team-3di-5ef60eff1973dd0024268b90/issues/nens/threedi-api/1766 ?
 
 - Check on flooding treshold is now more strict
 
-**Postprocessing Lizard**
+*Postprocessing Lizard*
 
 - Added the possibility to use the projects in Lizard directly. Give your simulation as a tag: ‘project:number’ and the number will be added in lizard to the project.
 
-**Reminder**
+*Reminder*
 
 - The server known as inpy is no more. If you started using 3Di this year you can ignore this message. For the other users: the 3Di models cannot run anymore on the live site. But the schematisations are all available. The be able to run the 3Di model again, simply look for your schematisation on management.3di.live and press ‘generate model’.
 
@@ -691,7 +710,7 @@ November 21th 2022
 August 2022
 ^^^^^^^^^^^^
 
-*Release notes 3Di Toolbox v2.3*
+**3Di Toolbox v2.3**
 
 
 - Visualise any computatial grid (gridadmin.h5 file), using the new Processing Algorithm "Computational grid from gridadmin.h5". This works for gridadmin.h5 files that were generated on the server as well as those generated locally.
