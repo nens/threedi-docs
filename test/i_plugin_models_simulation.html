@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3Di Models and Simulations Plugin &mdash; 3Di  (dev doc 2023-02-27) documentation</title>
+  <title>3Di Models and Simulations Plugin &mdash; 3Di  (dev doc 2023-03-13) documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -35,7 +35,7 @@
             3Di
           </a>
               <div class="version">
-                 (dev doc 2023-02-27)
+                 (dev doc 2023-03-13)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -57,21 +57,20 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="b_fews_3di_integrations.html">FEWS-3Di integration</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Modelling guidelines</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="d_modeling_guidelines.html">Modelling guidelines</a></li>
-</ul>
 <p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Modeller Interface</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="i_what_is_mi.html">What is the Modeller Interface</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="i_overview_user_interface.html">Overview of the user Interface</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="i_overview_user_interface.html#plugins">Plugins</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">3Di Models and Simulations Plugin</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#setting-up-the-3di-models-and-simulations-plugin">Setting up the 3Di Models and Simulations Plugin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#functionality">Functionality</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#di-models-and-simulation-settings">3Di Models and Simulation Settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#di-models-and-simulation-panel">3Di Models and Simulation panel</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="i_plugin_schematisation_editor.html">3Di Schematisation Editor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="i_plugin_toolbox.html">3Di Toolbox plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i_overview_user_interface.html#updating">Updating</a></li>
 </ul>
 </li>
 </ul>
@@ -156,7 +155,13 @@
              
   <section id="di-models-and-simulations-plugin">
 <h1>3Di Models and Simulations Plugin<a class="headerlink" href="#di-models-and-simulations-plugin" title="Permalink to this heading"></a></h1>
-<p>with this plugin you can:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The plugin comes pre-installed with the Modeller Interface. But when you use the plugin for the first time you need to set it up. Follow these <a class="reference internal" href="f_3di_instruments_and_downloads.html#setting-up-models-and-simulations"><span class="std std-ref">instructions</span></a>  to do this.</p>
+</div>
+<section id="functionality">
+<h2>Functionality<a class="headerlink" href="#functionality" title="Permalink to this heading"></a></h2>
+<p>With this plugin you can:</p>
 <ul class="simple">
 <li><p>Create new schematisations</p></li>
 <li><p>Download existing schematisations</p></li>
@@ -165,46 +170,45 @@
 <li><p>Generate a 3Di model from a schematisation</p></li>
 <li><p>Start a simulation</p></li>
 <li><p>Download results</p></li>
-<li><p>Analyse results</p></li>
+<li><p>Analyze results</p></li>
 </ul>
-<section id="setting-up-the-3di-models-and-simulations-plugin">
-<span id="setting-up-models-and-simulations"></span><h2>Setting up the 3Di Models and Simulations Plugin<a class="headerlink" href="#setting-up-the-3di-models-and-simulations-plugin" title="Permalink to this heading"></a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This step needs to be done just once.</p>
-</div>
-<ol class="arabic">
-<li><p>Open your Modeller Interface and click on the 3Di Models and Simulations icon (<a class="reference internal" href="_images/e_modelsandsimulations.png"><img alt="modelsSimulations" src="_images/e_modelsandsimulations.png" style="width: 34.2px; height: 33.300000000000004px;" /></a>). You should now see the Models and Simulations plugin panel.</p></li>
-<li><p>Click ‘Browse’ and set a local working directory.</p>
-<blockquote>
-<div><figure class="align-default">
-<img alt="Models and Simulations plugin panel." src="_images/d_setup_models_and_simulations.png" />
-</figure>
-</div></blockquote>
-</li>
-<li><p>Click ‘Obtain…’ to obtain your Personal API Key. You will be redirected.</p></li>
-<li><p>Click ‘+NEW ITEM’, enter a name and click ‘Submit’.</p>
-<figure class="align-default">
-<img alt="Redirected website where you can set your Personal API Key." src="_images/d_creating_personal_API_Key.png" />
-</figure>
-</li>
-<li><p>You now have your own personal API Key. Copy it (<a class="reference internal" href="_images/e_copy_button.png"><img alt="Copy_button" src="_images/e_copy_button.png" style="width: 28.8px; height: 30.6px;" /></a>) and go back to the Modeller Interface.</p></li>
-<li><p>Click ‘Set…’ and paste your Personal API Key. Then press ‘Save’.</p>
-<figure class="align-default">
-<a class="reference internal image-reference" href="_images/d_setup_models_and_simulations_set.png"><img alt="Redirected website where you can set your Personal API Key." src="_images/d_setup_models_and_simulations_set.png" style="width: 666.8000000000001px; height: 369.6px;" /></a>
-</figure>
-</li>
-<li><p>You are now logged in and your name should appear after User. You can now easily <strong>log out</strong> by clicking on the cross.</p>
-<figure class="align-default">
-<a class="reference internal image-reference" href="_images/d_singed_in_m_s.png"><img alt="Singed in Models and Simulations plugin panel." src="_images/d_singed_in_m_s.png" style="width: 479.20000000000005px; height: 228.8px;" /></a>
-</figure>
-</li>
-<li><p>And <strong>log in</strong> by clicking on the arrow.</p>
-<figure class="align-default">
-<a class="reference internal image-reference" href="_images/d_singed_out_m_s.png"><img alt="Singed out Models and Simulations plugin panel." src="_images/d_singed_out_m_s.png" style="width: 486.40000000000003px; height: 227.60000000000002px;" /></a>
-</figure>
-</li>
+</section>
+<section id="di-models-and-simulation-settings">
+<h2>3Di Models and Simulation Settings<a class="headerlink" href="#di-models-and-simulation-settings" title="Permalink to this heading"></a></h2>
+<p>You can activate the 3Di Models and Simulation Settings by clicking on ‘Plugins’ in the menubar &gt; ‘3Di Models and Simulations’ &gt; ‘Settings’</p>
+<section id="overview-interface">
+<h3>Overview Interface<a class="headerlink" href="#overview-interface" title="Permalink to this heading"></a></h3>
+<section id="base-api-url">
+<h4>Base API URL<a class="headerlink" href="#base-api-url" title="Permalink to this heading"></a></h4>
+</section>
+<section id="uploads-processing-timeout">
+<h4>Uploads processing timeout<a class="headerlink" href="#uploads-processing-timeout" title="Permalink to this heading"></a></h4>
+</section>
+<section id="working-directory">
+<h4>Working directory<a class="headerlink" href="#working-directory" title="Permalink to this heading"></a></h4>
+</section>
+<section id="api-key">
+<h4>API Key<a class="headerlink" href="#api-key" title="Permalink to this heading"></a></h4>
+</section>
+</section>
+</section>
+<section id="di-models-and-simulation-panel">
+<h2>3Di Models and Simulation panel<a class="headerlink" href="#di-models-and-simulation-panel" title="Permalink to this heading"></a></h2>
+<p>You can activate the 3Di Models and Simulation panel by clicking on ‘Plugins’ in the menubar &gt; ‘3Di Models and Simulations’ &gt; ‘3Di Models and Simulations’, or by clicking on the pictogram (<a class="reference internal" href="_images/e_modelsandsimulations.png"><img alt="modelsSimulations" src="_images/e_modelsandsimulations.png" style="width: 34.2px; height: 33.300000000000004px;" /></a>) in the toolbar.</p>
+<section id="id1">
+<h3>Overview Interface<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>User</p></li>
+<li><p>schematisation</p></li>
+<li><p>revisions</p></li>
+<li><p>download</p></li>
+<li><p>Upload</p></li>
+<li><p>new</p></li>
+<li><p>simulate</p></li>
+<li><p>results</p></li>
+<li><p>manage</p></li>
 </ol>
+</section>
 </section>
 </section>
 

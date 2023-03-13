@@ -46,30 +46,24 @@ If you are interested in a **product demo**, a **live** or **online training**, 
 
    a_background
    a_ecosystem
+   b_fews_3di_integrations
    a_modelling_concepts
    a_releasenotes
    a_contact
 
 
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-   :caption: 3Di Connectors
-   :name: 3Di Connectors
-
-   b_fews_3di_integrations
-
 
 .. toctree::
    :hidden:
    :maxdepth: 1
-   :caption: Modelling guidelines
-   :name: Modelling guidelines
+   :caption: How to work with 3Di
+   :name: How to work with 3Di
 
+   d_modelling_guidelines
    d_modeling_components
    d_adding_running_scenario
 
-   .. dit kopje is not een beetje een zooitje.
+   .. dit kopje is nog een beetje een zooitje.
 
 
 .. toctree::
@@ -105,10 +99,10 @@ If you are interested in a **product demo**, a **live** or **online training**, 
    :name: Guide to the management portal
 
    d_management
-   c_threedi_portal
+   d_overview_management_portal
    d_scenario_archive
 
-   .. dit kopje is not een beetje een zooitje.
+   .. dit kopje is nog een beetje een zooitje.
 
 
 .. toctree::

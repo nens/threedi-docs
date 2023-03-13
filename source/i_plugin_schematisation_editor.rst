@@ -15,17 +15,17 @@ It automates certain tasks of the regular workflow, which enables the user to bu
 
     - Directly edit all layers of your schematisation, using all native QGIS functionality for editing vector features.
 
-    - Quickly add features to your schematision with the "magic" editing functionality for 1D layers. For example: existing connection nodes are used when drawing a pipe between them, new connection nodes and manholes are created when a new pipe is digitized, etc.
+    - Quickly add features to your schematisation with the "magic" editing functionality for 1D layers. For example: existing connection nodes are used when drawing a pipe between them, new connection nodes and manholes are created when a new pipe is digitized, etc.
 
     - Easily move nodes and all connected lines using the smartly pre-configured snapping and topological editing settings.
 
     - Easily move the start or end of pipes, channels, culverts, orifices, weirs, pumps. Connection node id's will be automatically updated for you.
 
-    - Get a complete overview of your schematistion: all rasters that are part of your schematisation are added to the QGIS project when the schematisation is loaded.
+    - Get a complete overview of your schematisation: all rasters that are part of your schematisation are added to the QGIS project when the schematisation is loaded.
 
     - Spot the tiniest local variation in elevation with the hillshade layer that is automatically added on top of your DEM.
 
-    - Visualise the mapping of (impervious) surfaces to connection nodes and change them by updating the geometries.
+    - Visualize the mapping of (impervious) surfaces to connection nodes and change them by updating the geometries.
 
     - Easily navigate through your schematisation: layers in the layer panel are neatly grouped together in collapsed groups.
 

@@ -30,49 +30,38 @@ You can install the modeller interface simply with the downloadlink below.
 The newest Modeller Interface also includes the newest versions of the 3Di plugins. If you would like, you could also upgrade the 3Di plugins from within the Modeller Interface manually. Follow the instructions of this movie to do so: `How to upgrade 3Di plugins in the Modeller Interface <https://www.youtube.com/watch?v=9XeVuZo28jw>`_.
 
 
-Personal API Key
-^^^^^^^^^^^^^^^^^^
+.. _setting_up_models_and_simulations:
+
+Setting up the 3Di Models and Simulations Plugin
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. note::
+   This step needs to be done just once.
+
 
 When you start the 3Di Models & Simulations plugin for the first time, you are required to set a :ref:`personal_api_key` that will be used to log in. 
-The QGIS Password Manager stores this Personal API Key securely (encrypted). If you have never used the QGIS Password Manager before, you will be asked to set a master password for the QGIS Password Manager. 
-Fill in a password and make sure you remember it. Check the box 'Store/update the master password in your Password Manager' so that you do not have to fill in the master password every time you start up QGIS. 
+The QGIS Password Manager stores this Personal API Key securely (encrypted). 
 
+.. note::
+    If you have never used the QGIS Password Manager before, you will be asked to set a master password for the QGIS Password Manager. 
+    Fill in a password and make sure you remember it. Check the box 'Store/update the master password in your Password Manager' so that you do not have to fill in the master password every time you start up QGIS. 
 
-.. figure:: image/f_master_password.png
-    :alt: Master password
-
-
-Now, when you log in through the 3Di Models & Simulations plugin, you will be asked to set a Personal API Key and the settings dialog will appear.
-
-.. figure:: image/f_set_apikey.png
-    :alt: Set Personal API key
-
-
-- Click 'Obtain...'. Your web browser will open, showing the management page where you can `create a new Personal API Key <https://management.3di.live/personal_api_keys>`_. Create a new Personal API Key by pressing the '+NEW ITEM' button in the upper right corner.
-
-.. figure:: image/f_set_apikey_managementscreen_overview.png
-    :alt: Personal API Keys in the management screen
-
-
-- Add a name for the new Personal API Key. You could use 'qgis', for example. Press on 'Submit' to the right.
-
-.. figure:: image/f_set_apikey_managementscreen_name_key.png
-    :alt: Set the name for the Personal API Key
-
-
-- A popup shows with your Personal API Key. You can copy the Personal API Key to your clipboard with the icon on the right or select and copy the text. This Personal API Key cannot be accessed after closing this popup. In case you closed the popup before you added the Personal API Key to QGIS, you can always create a new one.
-
-.. figure:: image/f_set_apikey_managementscreen_popup_with_key.png
-    :alt: The popup that shows your Personal API Key
-
-
-- Return to the 3Di Modeller Interface.
-- In the 3Di Models & Simulations plugin Settings dialog, click 'Set...'.
-- Paste the Personal API Key and click OK.
-- Click Save.
+#) Open your Modeller Interface and click on the 3Di Models and Simulations icon (|modelsSimulations|). You should now see the Models and Simulations plugin panel.
+#)  Click 'Browse' and set a local working directory.
+#) Click 'Obtain…' to obtain your :ref:`personal_api_key`. You will be redirected to the management page where you can `create a new Personal API Key <https://management.3di.live/personal_api_keys>`_. 
+#) Create a new Personal API Key by pressing the '+NEW ITEM' button in the upper right corner.
+#) Add a name for the new Personal API Key. Click on 'Submit' to the right.
+#) You now have your own Personal API Key. Copy it (|Copy_button|).
+#) Return to the Modeller Interface.
+#) Click 'Set…' and paste your Personal API Key. Then press 'Save'.
+#) You are now logged in and your name should appear after User. You can now easily **log out** by clicking on the cross.
+#) And **log in** by clicking on the arrow.
 
 You can now use all online functionalities of the 3Di Models & Simulations plugin. When logging in is required, the Personal API Key will be read from the QGIS Password manager and be used for logging in. 
 
+.. |modelsSimulations| image:: /image/e_modelsandsimulations.png
+    :scale: 90%
+.. |Copy_button| image:: /image/e_copy_button.png
+    :scale: 90%
 
 
 

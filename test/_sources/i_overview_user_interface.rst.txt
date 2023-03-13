@@ -3,21 +3,31 @@
 Overview of the user Interface
 ===============================
 
+.. nog overview Modeller Interface maken.
+
 
 .. _overview_plugins:
 
 Plugins
---------
+---------
 
-The Modeller interface has 3 plugins. These plugins help you x and x (en dan verwijzen naar welke plugin wat doet).
-
-For how to install them, click here. (plugin_installation)
+The Modeller interface has 3 pre-installed plugins:
 
 .. toctree::
    :maxdepth: 1
-   :caption: Overview available 3Di plugins
-   :name: Overview available 3Di plugins
 
    i_plugin_models_simulation
    i_plugin_schematisation_editor
    i_plugin_toolbox
+
+
+Updating
+^^^^^^^^^
+
+.. note:: 
+   * Reinstall plugins every year in March.
+   * Update plugins after each release
+   * Always update all plugins.
+   * If you use the 3Di Schematisation Editor, make sure you Show Experimental Plugins
+
+You can Show Experimental Plugins by clicking: 'Plugins' in the menubar > 'Manage and Install Plugins..' > 'Settings' > check the box 'Show also experimental plugins'. 

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Installation manual &mdash; 3Di  (dev doc 2023-02-27) documentation</title>
+  <title>Installation manual &mdash; 3Di  (dev doc 2023-03-13) documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -35,7 +35,7 @@
             3Di
           </a>
               <div class="version">
-                 (dev doc 2023-02-27)
+                 (dev doc 2023-03-13)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -56,10 +56,6 @@
 <p class="caption" role="heading"><span class="caption-text">3Di Connectors</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="b_fews_3di_integrations.html">FEWS-3Di integration</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Modelling guidelines</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="d_modeling_guidelines.html">Modelling guidelines</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Modeller Interface</span></p>
 <ul>
@@ -96,7 +92,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation manual</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#di-software-requirements">3Di Software requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#modeller-interface-installation">Modeller Interface installation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#personal-api-key">Personal API Key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-the-3di-models-and-simulations-plugin">Setting up the 3Di Models and Simulations Plugin</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#advanced-seperate-installation-of-qgis-and-appropriate-plugins">Advanced: seperate installation of QGIS and appropriate plugins</a><ul>
@@ -185,42 +181,31 @@
 </ul>
 <p><em>last update: 9 February 2023</em></p>
 <p>The newest Modeller Interface also includes the newest versions of the 3Di plugins. If you would like, you could also upgrade the 3Di plugins from within the Modeller Interface manually. Follow the instructions of this movie to do so: <a class="reference external" href="https://www.youtube.com/watch?v=9XeVuZo28jw">How to upgrade 3Di plugins in the Modeller Interface</a>.</p>
-<section id="personal-api-key">
-<h3>Personal API Key<a class="headerlink" href="#personal-api-key" title="Permalink to this heading"></a></h3>
+<section id="setting-up-the-3di-models-and-simulations-plugin">
+<span id="setting-up-models-and-simulations"></span><h3>Setting up the 3Di Models and Simulations Plugin<a class="headerlink" href="#setting-up-the-3di-models-and-simulations-plugin" title="Permalink to this heading"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This step needs to be done just once.</p>
+</div>
 <p>When you start the 3Di Models &amp; Simulations plugin for the first time, you are required to set a <a class="reference internal" href="b_ecosystem.html#personal-api-key"><span class="std std-ref">Personal API Key</span></a> that will be used to log in.
-The QGIS Password Manager stores this Personal API Key securely (encrypted). If you have never used the QGIS Password Manager before, you will be asked to set a master password for the QGIS Password Manager.
+The QGIS Password Manager stores this Personal API Key securely (encrypted).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have never used the QGIS Password Manager before, you will be asked to set a master password for the QGIS Password Manager.
 Fill in a password and make sure you remember it. Check the box ‘Store/update the master password in your Password Manager’ so that you do not have to fill in the master password every time you start up QGIS.</p>
-<figure class="align-default">
-<img alt="Master password" src="_images/f_master_password.png" />
-</figure>
-<p>Now, when you log in through the 3Di Models &amp; Simulations plugin, you will be asked to set a Personal API Key and the settings dialog will appear.</p>
-<figure class="align-default">
-<img alt="Set Personal API key" src="_images/f_set_apikey.png" />
-</figure>
-<ul class="simple">
-<li><p>Click ‘Obtain…’. Your web browser will open, showing the management page where you can <a class="reference external" href="https://management.3di.live/personal_api_keys">create a new Personal API Key</a>. Create a new Personal API Key by pressing the ‘+NEW ITEM’ button in the upper right corner.</p></li>
-</ul>
-<figure class="align-default">
-<img alt="Personal API Keys in the management screen" src="_images/f_set_apikey_managementscreen_overview.png" />
-</figure>
-<ul class="simple">
-<li><p>Add a name for the new Personal API Key. You could use ‘qgis’, for example. Press on ‘Submit’ to the right.</p></li>
-</ul>
-<figure class="align-default">
-<img alt="Set the name for the Personal API Key" src="_images/f_set_apikey_managementscreen_name_key.png" />
-</figure>
-<ul class="simple">
-<li><p>A popup shows with your Personal API Key. You can copy the Personal API Key to your clipboard with the icon on the right or select and copy the text. This Personal API Key cannot be accessed after closing this popup. In case you closed the popup before you added the Personal API Key to QGIS, you can always create a new one.</p></li>
-</ul>
-<figure class="align-default">
-<img alt="The popup that shows your Personal API Key" src="_images/f_set_apikey_managementscreen_popup_with_key.png" />
-</figure>
-<ul class="simple">
-<li><p>Return to the 3Di Modeller Interface.</p></li>
-<li><p>In the 3Di Models &amp; Simulations plugin Settings dialog, click ‘Set…’.</p></li>
-<li><p>Paste the Personal API Key and click OK.</p></li>
-<li><p>Click Save.</p></li>
-</ul>
+</div>
+<ol class="arabic simple">
+<li><p>Open your Modeller Interface and click on the 3Di Models and Simulations icon (<a class="reference internal" href="_images/e_modelsandsimulations.png"><img alt="modelsSimulations" src="_images/e_modelsandsimulations.png" style="width: 34.2px; height: 33.300000000000004px;" /></a>). You should now see the Models and Simulations plugin panel.</p></li>
+<li><p>Click ‘Browse’ and set a local working directory.</p></li>
+<li><p>Click ‘Obtain…’ to obtain your <a class="reference internal" href="b_ecosystem.html#personal-api-key"><span class="std std-ref">Personal API Key</span></a>. You will be redirected to the management page where you can <a class="reference external" href="https://management.3di.live/personal_api_keys">create a new Personal API Key</a>.</p></li>
+<li><p>Create a new Personal API Key by pressing the ‘+NEW ITEM’ button in the upper right corner.</p></li>
+<li><p>Add a name for the new Personal API Key. Click on ‘Submit’ to the right.</p></li>
+<li><p>You now have your own Personal API Key. Copy it (<a class="reference internal" href="_images/e_copy_button.png"><img alt="Copy_button" src="_images/e_copy_button.png" style="width: 28.8px; height: 30.6px;" /></a>).</p></li>
+<li><p>Return to the Modeller Interface.</p></li>
+<li><p>Click ‘Set…’ and paste your Personal API Key. Then press ‘Save’.</p></li>
+<li><p>You are now logged in and your name should appear after User. You can now easily <strong>log out</strong> by clicking on the cross.</p></li>
+<li><p>And <strong>log in</strong> by clicking on the arrow.</p></li>
+</ol>
 <p>You can now use all online functionalities of the 3Di Models &amp; Simulations plugin. When logging in is required, the Personal API Key will be read from the QGIS Password manager and be used for logging in.</p>
 </section>
 </section>

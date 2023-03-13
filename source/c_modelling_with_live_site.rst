@@ -1,14 +1,16 @@
-Modelling with the live site
-=============================
+.. _simulate_w_live_site:
+
+Modelling with the 3Di Live Site
+=================================
 
 
 Start or follow a session
-==========================
+---------------------------
 
 .. _start_a_new_session:
 
 Start a new session
---------------------
+^^^^^^^^^^^^^^^^^^^^
 
 * Select the **New session** tab. 
 * Select your company in the **Billing goes to:** drop down menu. 
@@ -27,14 +29,14 @@ A new session will be started. During the start up of the model tips for use of 
 .. _follow_a_session:
 
 Following a session
---------------------
+^^^^^^^^^^^^^^^^^^^^
 
 Through the tab **Follow session** an active session of your organization can be followed. Select an active simulation and press **follow**. The number of followers of a session is unlimited. To leave the session, go to the **user menu** under the user icon (top right) and press **Leave session**. 
 
 
 
-Editing a model schematisation with the live site
-==================================================
+Editing a model schematisation
+--------------------------------
 
 In the live site, you can temporarily adjust values. For example, you can change the pump capacity and weir height, and you can close 1D elements such as channels, pipes, weirs, culverts and orifices.
 You can also perform a DEM edit via the raster edit tool. 
@@ -47,7 +49,7 @@ The buttons at the mid left of the screen are used to interactively adjust the f
 
 
 Adding a discharge point
--------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 With the discharge tool a constant source of water will be added to your model.
 Select the icon and change the rate (in m3/s) to what you want to apply, then click at a location on the map to point the location. 
 This can only be done when your simulation is paused. 
@@ -55,7 +57,7 @@ The water that is added to the 2D surface of your model and will flow in constan
 
 
 Adding a pump station
------------------------
+^^^^^^^^^^^^^^^^^^^^^^
 With the pump tool a constant sink will be added to your model. 
 Select the icon and change the rate (in m3/s) to what you want to apply, then click at a location on the map to point the location. 
 This can only be done when your simulation is paused. The water that is taken out of the model will not flow back into the model and is considered a loss. 
@@ -63,7 +65,7 @@ This can only be done when your simulation is paused. The water that is taken ou
 
 
 DEM edit/ Raster edit
-------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 A DEM edit is a tool in the live site, it allows to adjust the height of the bathymetry. This can be done at any time during the simulation. 
 
@@ -89,13 +91,10 @@ Please note that if there is water on the 2D while editing, and the edit lowers 
 
 
 
-
-
-
 .. _simulation_interventions:
 
 Simulation interventions
-=========================
+---------------------------
 
 The buttons at the mid left of the screen are used to interactively adjust the forcing of the model:
 
@@ -111,7 +110,7 @@ NOTE: The result of forcing water is not visible until the simulation is running
 .. _discharge_tool:
 
 Discharge point
-----------------
+^^^^^^^^^^^^^^^^^^^^
 
 With the **Discharge tool** a constant source of water can be added to the model. Select the icon and change the amount of water you want to apply. In the dropdown menu you can change the unit. You can also change the duration of the discharge. Click **PLACE ON MAP** and click a location on the map that should be the source. The water will start flowing from this location over the 2D domain.
 When you press the **Play** button the intervention will become active.
@@ -122,7 +121,7 @@ When you press the **Play** button the intervention will become active.
 .. _pump_tool:
 
 Pumping point
---------------
+^^^^^^^^^^^^^^^^^^^^
 
 With the **Pump tool** a constant sink of water can be added to the model. Select the icon and change the amount of water you want to pump out of the model. In the dropdown menu you can change the unit. You can also change the duration of the pumping. Click **PLACE ON MAP** and click a location on the map that should be the pump. The water will be pumped out from the 2D domain from this location (1D pumps should be added in the model schematisation). The water that is taken out of the model will not flow back into the model and is considered a loss.
 When you press the **Play** button the intervention will become active.
@@ -131,7 +130,7 @@ When you press the **Play** button the intervention will become active.
 .. _rain_tool:
 
 Rainfall
-----------
+^^^^^^^^^^^^^^^^^^^^
 
 Through the **Rain tool** icon, rainfall can be added to the model. The following Type's are available:
 
@@ -158,7 +157,7 @@ When the rainfall is active a cloud icon appears on the top right of the screen.
 .. _wind_tool:
 
 Wind
--------
+^^^^^^^^^^^^^^^^^^^^
 
 A compass card appears after clicking on the **Wind tool** icon. By clicking in the compass card a homogeneous wind field with a specific direction and speed can be set up for the whole model (v2). This direction can also be filled in numerically. The strength and duration of the wind can be changed. Because the wind is constant for the whole model you only need to press **CREATE**. When the wind is active a wind icon appears on the top right of the screen.
 
@@ -166,7 +165,7 @@ A compass card appears after clicking on the **Wind tool** icon. By clicking in 
 	:alt: Wind speed, direction and duration
 
 Breaches 
-----------
+^^^^^^^^^^^^^^^^^^^^
 
 If breach locations are predefined in the model, these can be activated as follows:
 
@@ -182,13 +181,13 @@ To show the flow rate over time, select a breach location using the point inform
 
 
 Analyzing results while scenario is running
-=============================================
+---------------------------------------------
 
 .. todo:
     nog kijken welke van de kopjes ik wil houden. Misschien zit er overlap in. misschien niet. ook checken of het up to date is.
 
 Real time results during a simulation
----------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 By default, the **selection tool** (top left) is switched on. With it you can click anywhere on the map to visualize the time series at that location. Default water depth and water level will be shown. If the model contains groundwater that graph is also shown. 
 
@@ -206,7 +205,7 @@ The side view shows the elevation in green and the water in blue. By hovering ov
 
 
 1D network
-----------
+^^^^^^^^^^^^^^^^^^^^
 
 Channels and structures can be included as 1D elements in the model. The channels show the direction of flow with the help of moving points. The direction and speed are based on the flow velocity in the channel. The different sizes of the points are based on thhe discharge. The results (discharge, water level, waterdepth and flow velocity) are available at the structures by selecting them.
 
@@ -228,7 +227,7 @@ It is also possible to adapt some properties of structures during the calculatio
 .. _timeoutlivesite:
 
 Quitting the simulation
-=======================
+---------------------------
 
 In the **menu menu** you can select **quitting the simulation**, this ends the use of calculation time. If this option is not used the session remains active. One of the following scenario's might apply:
 
@@ -245,7 +244,7 @@ You can:
 .. _store_results_live_site:
 
 Store results
-=============
+--------------
 
 Results can be stored by clicking **User menu**, then clicking **Quit Simulation** and then **Quit, Store Results**. There are two options:
 

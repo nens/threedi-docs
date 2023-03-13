@@ -1,6 +1,8 @@
 Modelling with the Modeller Interface
 ======================================
 
+The following sections will run though the modelling workflow.
+
 .. toctree::
    :maxdepth: 1
    :caption: Modelling workflow

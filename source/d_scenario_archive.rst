@@ -1,7 +1,10 @@
+How to use the management portal
+=================================
+
 .. _scenario_archive:
 
 Scenario Archive
-========================
+--------------------
 
 
 3Di users that have access to Lizard can view and playback stored scenarios. Depending on your contract and location you may be able to view estimates of damage caused by inundation or flooding (waterschadeschatter).
@@ -10,13 +13,6 @@ If scenario's are set to public, you do not need an account to view them.
 If you also have Lizard management rights, you can manage your scenario's here: https://demo.lizard.net/management/data_management/scenarios
 For more information, please visit the Lizard documentation page: https://docs.lizard.net/c_scenarios.html 
 
-
-
-
-
-
-3Di Scenario Archive
----------------------
 
 After simulating with 3Di, the scenario can be processed to several rasters to visualise your results. These rasters can be viewed using the Lizard portal and in the 3Di Modeller Interface using WMS. *Note: these post-processed results are only available for Lizard subscription holders.*
 

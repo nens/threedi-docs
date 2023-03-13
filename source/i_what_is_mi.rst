@@ -3,9 +3,7 @@
 What is the Modeller Interface
 ===============================
 
-The Modeller Interface is a customized version of QGIS created by Nelen & Schuurmans. With the use of :ref:`plugins <overview_plugins>` in the Modeller Interface, you can create, edit, upload and download 3Di :ref:`schematisations <basic_modelling_concepts>`.
-
-For a more extensive introduction on the Modeller Interface click :ref:`here <a_modeller_interface>`.
+The Modeller Interface is a customized version of QGIS with dedicated :ref:`plugins <overview_plugins>` for the use of 3Di. This interface is used to build :ref:`schematisations <basic_modelling_concepts>`, edit schematisations, start simulations and analyze results.
 
  
 Functionality of the Modeller Interface 
@@ -20,7 +18,7 @@ The Modeller Interface makes it easy to:
 * Generate a 3Di model from a schematisation
 * Start a simulation
 * Download results
-* Analyse results
+* Analyze results
 
 The general workflow is illustrated in this video:
 

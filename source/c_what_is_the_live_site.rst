@@ -1,17 +1,8 @@
-.. _guide_to_portal:
+.. _what_is_the_live_site:
 
-What is the live site
-======================
+What is the 3Di Live Site
+==========================
 
-.. todo:
-    nog schrijven!
+You can load your organization's models and start simulations through version 2.0 of `the 3Di Live Site <https://www.3di.live/>`_. During the session, others can follow the simulations live, and interventions can be made in the model during the simulation. Results are presented in real-time. The following :ref:`sections <simulate_w_live_site>` describe all the steps, from adjusting the water input to viewing the calculation results.
 
-
-.. _simulate_w_live_site:
-
-Using the 3Di Live Site
-=========================
-
-Through the 3Di live site (version 2.0) the models of your organisation can be loaded and simulations can be started. During the session others can follow the simulations 'live'. Also interventions can be done in the model during the simulation. Results are presented in real-time. All the steps from adjusting the input of water, to viewing the calculation results are described in this section.
-
-For instructions how to login to and use the 3Di live site see :ref:`guide_to_portal`.
+For instructions on how to log in to the 3Di Live Site, refer to the :ref:`guide_to_portal`. For an overview of the session screen and tooling, refer to :ref:`overview_screen_ls`.

@@ -1,8 +1,10 @@
-Overview of the live site
-==========================
+Overview of the 3Di Live Site
+==============================
+
+.. _guide_to_portal:
 
 Login to the Live Site
-======================
+-------------------------
 
 Follow the steps below to access the 3Di Live Site :
 
@@ -33,7 +35,7 @@ In this screen, there are two possibilities:
 .. _overview_screen_ls:
 
 Overview session screen and tooling
-===================================
+-------------------------------------
 
 When starting or following a session, the screen in :numref:`fig_main_ses` will be loaded. The loaded model will be shown in the complete extent. At the top left you can see the name of the loaded model.
 
@@ -66,7 +68,7 @@ When starting or following a session, the screen in :numref:`fig_main_ses` will 
 .. _user_menu:
 
 User menu
-----------
+^^^^^^^^^^
 
 Click the user icon at the top right of the screen to show the **User menu**. The user menu has the following options:
 
@@ -106,7 +108,7 @@ Restarting the simulation resets all the calculations that have been made and re
 .. _search_bar_ls:
 
 Search Bar
-----------
+^^^^^^^^^^^^
 The Search Bar enables you to locate assets of your schematisation. You can search for asset type (e.g. pipe), name, code or id.
 
 
@@ -114,7 +116,7 @@ The Search Bar enables you to locate assets of your schematisation. You can sear
 .. _selection_tool_guide:
 
 Selection tool
---------------
+^^^^^^^^^^^^^^^^
 By default, the **selection tool** is switched on. With it you can click anywhere on the map to visualise the time series at that location. By default water depth and water level will be shown. If the model contains ground water, that graph is also shown. 
 
 The time series can be downloaded in CSV format. The points in the graphs in :numref:`fig_point_select_tool` are the points calculated by the 3Di calculation core and are independent from the output time step that the modeller has set while following a location. If a location is clicked later during the simulation, the historic values on the graph are the values shown according to the output time step. 
@@ -129,7 +131,7 @@ The time series can be downloaded in CSV format. The points in the graphs in :nu
 .. _line_selection_tool:
 
 Line-selection tool
--------------------
+^^^^^^^^^^^^^^^^^^^^
 
 The **Line-selection tool** shows the height of a cross section, together with the water level in that transect. Click the start and end point in any place on the map for the cross section (within the 2D model domain).
 
@@ -143,7 +145,7 @@ The side view shows the elevation in green and the water in blue. By hovering ov
 .. _discharge_tool_guide:
 
 Discharge tool
---------------
+^^^^^^^^^^^^^^^
 
 With the **Discharge tool** a constant source of water can be added to the model. Select the icon and change the amount of water you want to apply. In the dropdown menu you can change the unit. You can also change the duration of the discharge. Click **PLACE ON MAP** and click a location on the map that should be the source. The water will start flowing from this location over the 2D domain. It is the modelling equivalent of a 2D lateral. 
 When you press the **Play** button, the intervention will become active.
@@ -158,7 +160,7 @@ If you made a mistake when creating discharge, you can **delete** before you act
 .. _pump_tool_guide:
 
 Pumping tool
-------------
+^^^^^^^^^^^^^
 
 With the **Pump tool**, a constant sink of water can be added to the model. Select the icon and change the amount of water you want to pump out of the model. In the dropdown menu you can change the unit. You can also change the duration of the pumping. Click **PLACE ON MAP** and click a location on the map that should be the pump. The water will be pumped out from the 2D domain from this location (1D pumps should be added in the model schematisation).
 The water that is taken out of the model will not flow back into the model and is considered a loss. It is the modelling equivalent of a negative 2D lateral. 
@@ -170,7 +172,7 @@ If you made a mistake when creating a pump you can **delete** before you activat
 .. _rain_tool_guide:
 
 Rain tool
----------
+^^^^^^^^^^
 
 Through the **Rain tool** icon, rainfall can be added to the model. The following rain event types are available:
 
@@ -199,7 +201,7 @@ When the rainfall is active a cloud icon appears on the top right of the screen.
 .. _wind_tool_guide:
 
 Wind tool
----------
+^^^^^^^^^^^
 
 A compass card appears after clicking on the **Wind tool** icon. By clicking in the compass card a homogeneous wind field with a specific direction and speed can be set up for the whole model in the 2D domain. This direction can also be filled in numerically. The strength and duration of the wind can be changed. Because the wind is constant for the whole model you only need to press **CREATE**. When the wind is active a wind icon appears on the top right of the screen.
 
@@ -213,7 +215,7 @@ Once you have created a wind event, you can press **EDIT**. This lets you either
 .. _raster_edit_tool:
 
 Raster-edit tool
-----------------
+^^^^^^^^^^^^^^^^^^
 
 The **Raster-edit tool** lets you edit the elevation raster (DEM) by pressing **DRAW ON MAP** and drawing a polygon and setting a constant elevation level (in mMSL) for that polygon. After you have drawn your polygon, you can **CONFIRM** the polygon and your raster edit will be active for the rest of the simulation. You can also **EDIT DRAWING** and change the shape of your polygon.  
 
@@ -227,7 +229,7 @@ The **Raster-edit tool** lets you edit the elevation raster (DEM) by pressing **
 .. _flood_barrier_tool:
 
 Flood barrier tool
-------------------
+^^^^^^^^^^^^^^^^^^^^
 
 A flood barrier can prevent a certain area from flooding. To see the flood barriers tool in action, you can watch the `Floodbarriers preview <https://www.youtube.com/watch?v=by4MS5DdEgY>`_ on Youtube.
 
@@ -283,7 +285,7 @@ Confirm the flood barrier by pressing the |flood_barrier_confirm_flood_barrier| 
 .. _layers_menu_guide:
 
 Layers tool
------------
+^^^^^^^^^^^^
 
 Click on the **Layer tool** at the bottom left of the screen. The **Map layers** appear: 
 
@@ -325,7 +327,7 @@ Colors for all these layers can be changed to reflect user preferences by clicki
 .. _notables:
 
 Notables
-========
+---------
 
 - When paused and inactive for too long, the session will close and say: 'This simulations is no longer active. You may start a new simulation.'
 - Editing of structures or DEM can only be done after *pausing* a simulation.

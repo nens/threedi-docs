@@ -1,6 +1,13 @@
 3Di Models and Simulations Plugin
 ==================================
-with this plugin you can:
+
+.. note:: 
+   The plugin comes pre-installed with the Modeller Interface. But when you use the plugin for the first time you need to set it up. Follow these :ref:`instructions <setting_up_models_and_simulations>`  to do this.
+
+Functionality
+--------------
+
+With this plugin you can:
 
 * Create new schematisations
 * Download existing schematisations
@@ -9,49 +16,58 @@ with this plugin you can:
 * Generate a 3Di model from a schematisation
 * Start a simulation
 * Download results
-* Analyse results
-
-.. _setting_up_models_and_simulations:
-
-Setting up the 3Di Models and Simulations Plugin
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. note::
-   This step needs to be done just once.
+* Analyze results
 
 
-#) Open your Modeller Interface and click on the 3Di Models and Simulations icon (|modelsSimulations|). You should now see the Models and Simulations plugin panel.
-#)  Click ‘Browse’ and set a local working directory.
+3Di Models and Simulation Settings
+----------------------------------
 
-      .. figure:: image/d_setup_models_and_simulations.png
-         :alt: Models and Simulations plugin panel.
+You can activate the 3Di Models and Simulation Settings by clicking on 'Plugins' in the menubar > '3Di Models and Simulations' > 'Settings'
 
-#) Click ‘Obtain…’ to obtain your Personal API Key. You will be redirected. 
-#) Click ‘+NEW ITEM’, enter a name and click ‘Submit’.
 
-   .. figure:: image/d_creating_personal_API_Key.png
-      :alt: Redirected website where you can set your Personal API Key.
+Overview Interface
+^^^^^^^^^^^^^^^^^^^
 
-#) You now have your own personal API Key. Copy it (|Copy_button|) and go back to the Modeller Interface.
-#) Click ‘Set…’ and paste your Personal API Key. Then press ‘Save’.
+Base API URL
+""""""""""""""
 
-   .. figure:: image/d_setup_models_and_simulations_set.png
-      :alt: Redirected website where you can set your Personal API Key.
-      :scale: 40%
+Uploads processing timeout
+""""""""""""""""""""""""""""
 
-#) You are now logged in and your name should appear after User. You can now easily **log out** by clicking on the cross.
+Working directory
+"""""""""""""""""""
 
-   .. figure:: image/d_singed_in_m_s.png
-      :alt: Singed in Models and Simulations plugin panel.
-      :scale: 40%
+API Key
+""""""""""
 
-#) And **log in** by clicking on the arrow.
+.. todo: deze knoppen nog uitwerken.
 
-   .. figure:: image/d_singed_out_m_s.png
-      :alt: Singed out Models and Simulations plugin panel.
-      :scale: 40%
 
+
+
+
+
+
+3Di Models and Simulation panel
+----------------------------------
+You can activate the 3Di Models and Simulation panel by clicking on 'Plugins' in the menubar > '3Di Models and Simulations' > '3Di Models and Simulations', or by clicking on the pictogram (|modelsSimulations|) in the toolbar. 
 
 .. |modelsSimulations| image:: /image/e_modelsandsimulations.png
     :scale: 90%
-.. |Copy_button| image:: /image/e_copy_button.png
-    :scale: 90%
+
+
+Overview Interface
+^^^^^^^^^^^^^^^^^^^^
+
+1) User
+2) schematisation
+3) revisions
+4) download
+5) Upload
+6) new
+7) simulate
+8) results
+9) manage
+
+
+.. todo: nog een plaatje maken en alle knopjes kort uitleggen.

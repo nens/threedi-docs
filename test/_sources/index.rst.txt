@@ -69,6 +69,8 @@ If you are interested in a **product demo**, a **live** or **online training**, 
    d_modeling_components
    d_adding_running_scenario
 
+   .. dit kopje is not een beetje een zooitje.
+
 
 .. toctree::
    :hidden:
@@ -79,6 +81,8 @@ If you are interested in a **product demo**, a **live** or **online training**, 
    i_what_is_mi
    i_overview_user_interface
    i_modelling_with_mi
+
+   .. dit moet nog opgeschoond en up to date gemaakt worden.
 
 
 .. toctree::
@@ -91,6 +95,8 @@ If you are interested in a **product demo**, a **live** or **online training**, 
    c_livesite_overview
    c_modelling_with_live_site
 
+   .. dit moet nog opgeschoond worden.
+
 
 .. toctree::
    :hidden:
@@ -102,6 +108,7 @@ If you are interested in a **product demo**, a **live** or **online training**, 
    c_threedi_portal
    d_scenario_archive
 
+   .. dit kopje is not een beetje een zooitje.
 
 
 .. toctree::
