@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Control Structures &mdash; 3Di  (dev doc 2023-03-20) documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/matomo.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tabulated data storage" href="h_calculation_grid_data.html" />
+    <link rel="prev" title="Numerics" href="h_numerics.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            3Di
+          </a>
+              <div class="version">
+                 (dev doc 2023-03-20)
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="a_background.html">Background of 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_ecosystem.html">3Di Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_releasenotes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_contact.html">Contact</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modelling Guidelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="a_modelling_concepts.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b_modeling_components.html">Modeling components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b_modelling_workflow.html">Modelling Workflow</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Modeller Interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="i_what_is_mi.html">What is the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html">Overview of the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the 3Di Live Site</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the management portal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the 3Di Management Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html#overview-management-portal">Overview management portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the management portal</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">3Di for developers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="j_api.html">3Di API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="j_threedigrid.html">3Di Results API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="j_fews_3di_integrations.html">FEWS-3Di integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="j_lizard_api.html">Lizard API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="e_klondike_workflow.html">Tutorial 1: Workflow of creating a 3Di Schematisation and a 3Di Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_tutorial.html">Tutorial 2: Building a Basic 2D Flow Schematisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_slope_tutorial.html">Tutorial 3: 2D flow model over sloped terrain with multiple rasters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_levees_tutorial.html">Tutorial 4 Building a 2D flow model with levees, channels and breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_1d_tutorial.html">Tutorial 5: Building a 1D model</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Problem solving and support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="f_3di_instruments_and_downloads.html">Installation manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_authentication_user_management.html">Authentication and User Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_problem_solving.html">FAQ and Problem Solving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_servicedesk.html">Servicedesk</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Physics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="g_massconservation.html">Conservation of mass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_flow.html">Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_sources_sinks.html">Source and Sink terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_levees_obstacles_breaches.html">Obstacles, Levees and Breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_wind.html">Wind effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_interception.html">Interception</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Model concepts</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="h_basic_modelling_concepts_threedi.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_grid.html">The grid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_numerics.html">Numerics</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Control Structures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#measuring-station">Measuring station</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#control-types">Control types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#table-control">Table control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#memory-control">Memory control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adjustable-hydraulic-structures">Adjustable hydraulic structures</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="h_calculation_grid_data.html">Tabulated data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_results.html">Results 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_aggregate_results.html">Aggregated output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_state_files.html">State files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Overig</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html">Scenario Archive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html#view-stored-results">View stored results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html#damage-estimation">Damage Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html#load-rasters-in-3di-modeller-interface-using-wms">Load rasters in 3Di Modeller Interface using WMS</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">3Di</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Control Structures</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/h_control.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="control-structures">
+<span id="control"></span><h1>Control Structures<a class="headerlink" href="#control-structures" title="Permalink to this heading"></a></h1>
+<p>The possibility exists to adjust hydraulic structure parameters within the water system based on flow variables. Flow variables can be measured during the simulation by assigning measuring locations to certain calculation nodes. Based on the user-defined values for the parameters of a hydraulic structure, a controller will then operate accordingly. The measuring options, different control types and the hydraulic structure parameters to adjust are explained here. Schematically adjusting properties of hydraulic structures using some control rules can be represented as:</p>
+<figure class="align-default">
+<img alt="Control structures overview" src="_images/c_control.png" />
+</figure>
+<section id="measuring-station">
+<h2>Measuring station<a class="headerlink" href="#measuring-station" title="Permalink to this heading"></a></h2>
+<p>Measuring stations are locations at which a certain flow variable is monitored during the simulation. The value of this flow variable can be used to trigger an action on a structure, based on the rules defined in the type of control. The flow variable that needs to be monitored is set at the different controls. At each location multiple flow variable can be monitored if necessary.</p>
+<p>The measurement of a flow variable can be performed at one or more locations. At each location a weight has to be allocated to the measurement. The weighted average of a group of measuring stations is used in the control of a hydraulic structure. The weights of these measurements have to add up to 1.0. When using one measuring station its weight has to be set to 1.0. At the moment measuring stations can only be defined at a connection node where the waterlevel can be monitored. Based on the waterlevel the controls be below can execute action on certain structures.</p>
+</section>
+<section id="control-types">
+<h2>Control types<a class="headerlink" href="#control-types" title="Permalink to this heading"></a></h2>
+<p>The different types of controls are now explained. The implemented types of control are:</p>
+<ul class="simple">
+<li><p>Table control</p></li>
+<li><p>Memory control</p></li>
+</ul>
+</section>
+<section id="table-control">
+<span id="id1"></span><h2>Table control<a class="headerlink" href="#table-control" title="Permalink to this heading"></a></h2>
+<p>The table control has a combination of flow values and action values as input. Each increment of the flow value in the input table acts as a threshold for a corresponding structure value which is set on the structure. In combination with a mathematical operators larger than and smaller than (&lt;,&gt;) the action will be executed when the measurement value either falls below the threshold or exceeds it. Example for table control input is:</p>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-number">Table 44 </span><span class="caption-text">Example control table</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Waterlevel [mNAP]</p></th>
+<th class="head"><p>Weir crest level [mNAP]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.2</p></td>
+<td><p>0.8</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.4</p></td>
+<td><p>0.6</p></td>
+</tr>
+<tr class="row-even"><td><p>1.6</p></td>
+<td><p>0.8</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.8</p></td>
+<td><p>1.0</p></td>
+</tr>
+</tbody>
+</table>
+<p>Dependent on the mathematical operator the behavior for this control of the crest level of the control is different. For instance, when the larger than (&gt;) operator the structure value will be 0.8 mNAP between 1.2 mNAP and 1.4 mNAP. When the smaller than (&lt;) operator is set the structure value will be 0.8 below 1.2 mNAP. Dependent on the operator the default value of the structure will be applied at the top or bottom of the increments. For instance with the larger than operator the structure default will be applied below 1.2 mNAP.</p>
+<p>The measurement value stems from the flow variable that is set to monitor within each control and linked to a group of measurement locations that are described above to react to this flow variable.</p>
+</section>
+<section id="memory-control">
+<h2>Memory control<a class="headerlink" href="#memory-control" title="Permalink to this heading"></a></h2>
+<p>The memory control has two thresholds which trigger an adjustment on a hydraulic structure. When the measured flow variable exceeds the defined upper threshold the control becomes active and adjusts the property of a structure to a new value. When the value flow variable subsequently (first the upper threshold has been exceeded) drops below the lower threshold the control becomes inactive and the property of the structure defaults back to its original value. This operation is similar to a pump with on and off thresholds.</p>
+<p>As an extra parameter the option for inverse operation of the control can be set. In this case when the flow variable exceeds the upper threshold the control becomes inactive and was already active. After the value of the flow variable subsequently falls below the lower threshold the control becomes active again and adjusts the structure property.</p>
+<p>We consider a memory control on a culvert by measuring water levels with the following input parameters:</p>
+<ul class="simple">
+<li><p>upper threshold: 1.2 mNAP</p></li>
+<li><p>lower threshold: 0.8 mNAP</p></li>
+<li><p>adjusted structure value (action value):  0.0 (cutoff using discharge coefficient)</p></li>
+</ul>
+<p>The control will be activated when the water level at the measuring station rises above 1.2 mNAP for the first time. Now the structure property of discharge coefficients becomes 0.0 resulting in the cutoff of flow. When the water level subsequently falls below 0.8 mNAP, the control becomes inactive and the discharge coefficients defaults back to 1.0 which was its original value.</p>
+</section>
+<section id="adjustable-hydraulic-structures">
+<h2>Adjustable hydraulic structures<a class="headerlink" href="#adjustable-hydraulic-structures" title="Permalink to this heading"></a></h2>
+<p>Different structures can be used when using a control on a structure. The list of structures with their possible properties to adjust  are:</p>
+<p><strong>Weirs</strong></p>
+<ul class="simple">
+<li><p>Crest level</p></li>
+<li><p>Discharge coeffients (to cutoff flow at 0.0)</p></li>
+</ul>
+<p><strong>Orifices</strong></p>
+<ul class="simple">
+<li><p>Crest level</p></li>
+<li><p>Discharge coeffients (to cutoff flow at 0.0)</p></li>
+</ul>
+<p><strong>Culverts</strong></p>
+<ul class="simple">
+<li><p>Discharge coeffients (to cutoff flow at 0.0)</p></li>
+</ul>
+<p><strong>Pumps</strong></p>
+<ul class="simple">
+<li><p>Pump discharge</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="h_numerics.html" class="btn btn-neutral float-left" title="Numerics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="h_calculation_grid_data.html" class="btn btn-neutral float-right" title="Tabulated data storage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nelen &amp; Schuurmans.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

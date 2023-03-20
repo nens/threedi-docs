@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boundary Conditions &mdash; 3Di  (dev doc 2023-03-20) documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/matomo.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Modelling Workflow" href="b_modelling_workflow.html" />
+    <link rel="prev" title="Control Structures" href="d_control_structures.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            3Di
+          </a>
+              <div class="version">
+                 (dev doc 2023-03-20)
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="a_background.html">Background of 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_ecosystem.html">3Di Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_releasenotes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_contact.html">Contact</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modelling Guidelines</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="a_modelling_concepts.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="b_modeling_components.html">Modeling components</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="d_rasters.html">Rasters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_flood_model.html">Flood model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_water_system.html">Water system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_sewerage.html">Sewerage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_urban_areas.html">Hybrid Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="d_control_structures.html">Control Structures</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Boundary Conditions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#boundaries-in-the-1d-network">Boundaries in the 1D network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#boundaries-in-the-2d-domain">Boundaries in the 2D domain</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="b_modelling_workflow.html">Modelling Workflow</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Modeller Interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="i_what_is_mi.html">What is the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html">Overview of the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the 3Di Live Site</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the management portal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the 3Di Management Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html#overview-management-portal">Overview management portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the management portal</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">3Di for developers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="j_api.html">3Di API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="j_threedigrid.html">3Di Results API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="j_fews_3di_integrations.html">FEWS-3Di integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="j_lizard_api.html">Lizard API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="e_klondike_workflow.html">Tutorial 1: Workflow of creating a 3Di Schematisation and a 3Di Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_tutorial.html">Tutorial 2: Building a Basic 2D Flow Schematisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_slope_tutorial.html">Tutorial 3: 2D flow model over sloped terrain with multiple rasters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_levees_tutorial.html">Tutorial 4 Building a 2D flow model with levees, channels and breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_1d_tutorial.html">Tutorial 5: Building a 1D model</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Problem solving and support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="f_3di_instruments_and_downloads.html">Installation manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_authentication_user_management.html">Authentication and User Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_problem_solving.html">FAQ and Problem Solving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_servicedesk.html">Servicedesk</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Physics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="g_massconservation.html">Conservation of mass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_flow.html">Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_sources_sinks.html">Source and Sink terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_levees_obstacles_breaches.html">Obstacles, Levees and Breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_wind.html">Wind effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_interception.html">Interception</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Model concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="h_basic_modelling_concepts_threedi.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_grid.html">The grid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_numerics.html">Numerics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_control.html">Control Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_calculation_grid_data.html">Tabulated data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_results.html">Results 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_aggregate_results.html">Aggregated output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_state_files.html">State files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Overig</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html">Scenario Archive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html#view-stored-results">View stored results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html#damage-estimation">Damage Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html#load-rasters-in-3di-modeller-interface-using-wms">Load rasters in 3Di Modeller Interface using WMS</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">3Di</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="b_modeling_components.html">Modeling components</a></li>
+      <li class="breadcrumb-item active">Boundary Conditions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/d_boundary_conditions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="boundary-conditions">
+<span id="boundary-conditons"></span><h1>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this heading"></a></h1>
+<p>Boundary conditions are used to describe the behavior of the system outside the domain of interest. Boundary conditions can be present in both the 1D and 2D domain. A boundary condition has a location, a type and a value. The type defines the method that is applied to handle the flow. There are four types of boundary conditions: water level, discharge, velocity and water level slope (Sommerfield) over time. Water level values can be defined as a constant or as a time series.</p>
+<ul class="simple">
+<li><p><em>Water level [mNAP]:</em> The user defines a water level. The computation of the solution will hold the water level at that location fixed at the given values. The flow will adapt to that value. For example, the water level behind a sewer spillway or an alternating tidal elevation.</p></li>
+<li><p><em>Discharge [m3/s]:</em> The user defines a discharge. This flux and momentum is applied to the boundaries. It is typically used to define incoming values, for example, the incoming discharge of a river.</p></li>
+<li><p><em>Velocity [m/s]:</em> The user defines a velocity into or out of the model. This type of boundary condition is also usually used at locations where water is entering the system.</p></li>
+<li><p><em>Water level slope (Sommerfeld) [m/m]:</em> The user fixes the water level gradient at this boundary. This is very convenient at the outgoing boundary. This boundary condition allows the system to go to an equilibrium, and allows disturbances to go out of the system in stead of being reflected.</p></li>
+</ul>
+<section id="boundaries-in-the-1d-network">
+<h2>Boundaries in the 1D network<a class="headerlink" href="#boundaries-in-the-1d-network" title="Permalink to this heading"></a></h2>
+<p>Boundary conditions for a 1D network are defined on connection nodes. They can only be defined on connection nodes that have only one connection to the rest of the network.</p>
+<p>The boundary is defined in the <em>v2_1d_boundary_conditions</em> table. There the user can define the type, the location and the time series. The values of the time series are interpolated between the defined times. A time series must be defined over the full period of the simulation. In QGIS it is not possible to add a new line in the attribute table. Therefore you should either compose the timeseries in a text-editor and copy paste it into the field, or compose the time series through the field calculator and use “\n” to create a new line. With the <em>Meuse</em> Release of the 3Di Plugin, a specific menu came available to assist in editing the values.</p>
+<p>The time series for all 1D boundary conditions must be the same. Check the different types of boundary conditions available in the Database overview. Please note that a boundary cannot be placed directly on a pump station.</p>
+</section>
+<section id="boundaries-in-the-2d-domain">
+<h2>Boundaries in the 2D domain<a class="headerlink" href="#boundaries-in-the-2d-domain" title="Permalink to this heading"></a></h2>
+<p>A 2D boundary can be used to specify the flow at the edges of the 2D domain. The boundary should exactly coincide with the edge of the bathymetry raster. The 2D boundaries can only be defined perfectly horizonal or vertical.</p>
+<p>The 2D  boundary condition can be defined in the <em>v2_2d_boundary_conditions</em> table. There you can define the type and the (time varying) values. The time series are specified as a list of time (seconds) and values (dependend on boundary type) i.e.:</p>
+<p>0,10
+9999,10</p>
+<p>The values are interpolated between the different times. A time series must be defined over the full period of the simulation. The time series may be longer, but not shorter.</p>
+<p>There are some tips and tricks to define the location of the 2D boundary condition.</p>
+<ul class="simple">
+<li><p>As the boundary condition is defined at the edge of the batymetry raster, it works best with straight rasters.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="d_control_structures.html" class="btn btn-neutral float-left" title="Control Structures" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="b_modelling_workflow.html" class="btn btn-neutral float-right" title="Modelling Workflow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nelen &amp; Schuurmans.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

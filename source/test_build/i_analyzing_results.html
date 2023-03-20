@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Viewing and analyzing results &mdash; 3Di  (dev doc 2023-03-20) documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/matomo.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="What is the 3Di Live Site" href="c_what_is_the_live_site.html" />
+    <link rel="prev" title="Downloading results" href="i_downloading_results.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            3Di
+          </a>
+              <div class="version">
+                 (dev doc 2023-03-20)
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="a_background.html">Background of 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_ecosystem.html">3Di Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_releasenotes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_contact.html">Contact</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modelling Guidelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="a_modelling_concepts.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b_modeling_components.html">Modeling components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b_modelling_workflow.html">Modelling Workflow</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Modeller Interface</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="i_what_is_mi.html">What is the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html">Overview of the Modeller Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="i_create_new_schematisation.html">Create a new schematisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i_loading_schematisations.html">Loading a schematisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i_editing_schematisations.html">View and edit a 3Di model schematisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i_checking_schematisations.html">Checking the model schematisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i_uploading_and_downloading_schematisations.html">Uploading and downloading schematisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i_running_a_simulation.html">Running a simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i_downloading_results.html">Downloading results</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Viewing and analyzing results</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#viewing-results">Viewing results</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#results">Results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#load-3di-model-and-results">Load 3Di model and results</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#analyzing-results">Analyzing results</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#graph-tool-graphs-of-time-series">Graph tool - Graphs of time series</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#side-view-tool">Side view tool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#statistical-tool">Statistical tool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-water-balance-tool">The water balance tool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#animation-tool">Animation tool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watershed-tool">Watershed tool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#calculate-waterdepth-and-waterlevel-maps">Calculate waterdepth and waterlevel maps</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the 3Di Live Site</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the management portal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the 3Di Management Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html#overview-management-portal">Overview management portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the management portal</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">3Di for developers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="j_api.html">3Di API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="j_threedigrid.html">3Di Results API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="j_fews_3di_integrations.html">FEWS-3Di integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="j_lizard_api.html">Lizard API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="e_klondike_workflow.html">Tutorial 1: Workflow of creating a 3Di Schematisation and a 3Di Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_tutorial.html">Tutorial 2: Building a Basic 2D Flow Schematisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_slope_tutorial.html">Tutorial 3: 2D flow model over sloped terrain with multiple rasters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_levees_tutorial.html">Tutorial 4 Building a 2D flow model with levees, channels and breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_1d_tutorial.html">Tutorial 5: Building a 1D model</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Problem solving and support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="f_3di_instruments_and_downloads.html">Installation manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_authentication_user_management.html">Authentication and User Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_problem_solving.html">FAQ and Problem Solving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_servicedesk.html">Servicedesk</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Physics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="g_massconservation.html">Conservation of mass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_flow.html">Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_sources_sinks.html">Source and Sink terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_levees_obstacles_breaches.html">Obstacles, Levees and Breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_wind.html">Wind effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_interception.html">Interception</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Model concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="h_basic_modelling_concepts_threedi.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_grid.html">The grid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_numerics.html">Numerics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_control.html">Control Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_calculation_grid_data.html">Tabulated data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_results.html">Results 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_aggregate_results.html">Aggregated output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_state_files.html">State files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Overig</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html">Scenario Archive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html#view-stored-results">View stored results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html#damage-estimation">Damage Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html#load-rasters-in-3di-modeller-interface-using-wms">Load rasters in 3Di Modeller Interface using WMS</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">3Di</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a></li>
+      <li class="breadcrumb-item active">Viewing and analyzing results</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/i_analyzing_results.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="viewing-and-analyzing-results">
+<span id="view-analyze-mi"></span><h1>Viewing and analyzing results<a class="headerlink" href="#viewing-and-analyzing-results" title="Permalink to this heading"></a></h1>
+<section id="viewing-results">
+<h2>Viewing results<a class="headerlink" href="#viewing-results" title="Permalink to this heading"></a></h2>
+<p>Results can be viewed in the Modeller Interface with the use of the 3Di Toolbox.</p>
+<section id="results">
+<h3>Results<a class="headerlink" href="#results" title="Permalink to this heading"></a></h3>
+<p>After a simulation is finished the results will be stored on our servers for 7 days. The files can be download via the <strong>RESULTS</strong> button in the “3Di Models and Simulations”.
+These files are a gridadmin.h5, results_3di.nc (the NetCDF) and log files. For information on the results, see <a class="reference internal" href="h_results.html#dinetcdf"><span class="std std-ref">Results 3Di</span></a>.</p>
+<figure class="align-default">
+<img alt="Example CSV" src="_images/d_qgisplugin_apiclient_download_panel.png" />
+</figure>
+<p><em>These same files can be extracted from lizard, including post-processing maps that are created when ‘Post-processing in Lizard’ is activated in the wizard.</em>
+<em>See :ref:`simulate_api_qgis_post_processing`.</em></p>
+<p>After download the NetCDF can be loaded together with the spatialite using <strong>the 3Di Toolbox</strong> as described below.</p>
+</section>
+<section id="load-3di-model-and-results">
+<span id="load-model-results"></span><h3>Load 3Di model and results<a class="headerlink" href="#load-3di-model-and-results" title="Permalink to this heading"></a></h3>
+<p>A model schematisation can be loaded by clicking the database icon with the blue plus-sign in the 3Di Toolbox in the toolbar. A new window will be opened.</p>
+<p>1) Under ‘Model’ you need to load the Sqlite containing your model
+In case you are loading you model schemetisation for checking and editing your Sqlite, step 2 is not necessary.
+2) Under ‘Results’ you can load the NetCDF containing your simulation results (usually named <em>results_3di.nc</em>). It is important to select a result file that belongs to the model you used for your simulation (i.e. your NetCDF must be generated by the sqlite you loaded. Do not use an old or changed Sqlite).
+3) After the loading finished, click ‘Close’ to return to the QGIS interface</p>
+<figure class="align-default">
+<img alt="Load 3Di model and results" src="_images/d_qgisplugin_select_model_results.png" />
+</figure>
+</section>
+</section>
+<section id="analyzing-results">
+<span id="analyse-model-results-with-modeller-interface"></span><h2>Analyzing results<a class="headerlink" href="#analyzing-results" title="Permalink to this heading"></a></h2>
+<p>We have various tools developed to assist users in analyzing a viewing their results. In this section, some of these are described.</p>
+<section id="graph-tool-graphs-of-time-series">
+<span id="graph-tool"></span><h3>Graph tool - Graphs of time series<a class="headerlink" href="#graph-tool-graphs-of-time-series" title="Permalink to this heading"></a></h3>
+<p>The graph tool (from the <a class="reference internal" href="i_plugin_toolbox.html#di-toolbox-plugin"><span class="std std-ref">3Di Toolbox plugin</span></a>) can be used for visualizing model results over time. for example, it allows users to quickly plot the water level variation of a specific node or the discharge variation of a flow link (e.g. a channel or pipe) over time. The information is quickly at hand in just a few steps. All the variable that are saved in the NetCDF are available. They are structured on flow lines and nodes, depending on how they are defined in the computational core. An overview of the variables in the NetCDF can be found in the section <a class="reference internal" href="h_results.html#dinetcdf"><span class="std std-ref">Results 3Di</span></a>.</p>
+<p>The following steps are required to view your results:
+1) First, make sure you have loaded a model schematisation and the corresponding results (NetCDF) into your QGIS project using <a class="reference internal" href="#load-model-results"><span class="std std-ref">Load 3Di model and results</span></a>.
+2) Activate the graph tool by clicking the <em>graph</em> button in the 3Di toolbar. A new panel with the title <em>3Di result plots</em> is launched in your QGIS-project.
+3) In the layer overview window go to the layer group <em>results: results_3di</em> and activate the ‘flow-lines’ layer or the ‘nodes’ layer:</p>
+<figure class="align-default">
+<img alt="Results layers" src="_images/d_qgisplugin_graphtool_activateresults.png" />
+</figure>
+<ol class="arabic simple" start="4">
+<li><p>Activate the <em>Select features</em> tool in QGIS, by clicking this logo in the <em>Attributes toolbar</em> from QGIS:</p></li>
+</ol>
+<figure class="align-default">
+<img alt="Selection tool" src="_images/d_qgisplugin_graphtool_selectiontool.png" />
+</figure>
+<ol class="arabic simple" start="5">
+<li><p>Select the specific nodes or flow lines. You can select multiple nodes or flow lines simultaneously, but for speed purposes it is advised to limit it to a maximum of 20 features.</p></li>
+<li><p>Click the <em>Add</em> button in the <em>3Di results plot</em> panel. The results for the selected features are loaded from the NetCDF and visualized over time in the graph.</p></li>
+</ol>
+<figure class="align-default">
+<img alt="Results graph example" src="_images/d_qgisplugin_graphtool_graphwindow.png" />
+</figure>
+<ol class="arabic simple" start="7">
+<li><p>You can switch between node and flow line results by activating the tab <em>Q-graph</em> for flow lines and <em>H-graph</em> for nodes.</p></li>
+<li><p>In the drop-down menu on the right side of the panel you can choose the type of results you want to see. The y-axis shows the corresponding range and unit of the results type. The x-axis shows the time. <em>Note: the time is often displayed in kilo-seconds (ks). 1 ks = 1000 seconds ≈ 16.7 minutes.</em></p></li>
+<li><p>Below the drop-down menu there is an overview of the nodes/flow lines you selected, with the id of the node/flow line and the type. In this overview you can activate or deactivate the results in the graph by clicking the checkbox next to it. A feature can be deleted by first selecting it in this overview and then clicking the <em>Delete</em> button below the overview.</p></li>
+<li><p>The data from the graph can also be exported to an image or csv-file. Right-click the the graph figure and choose ‘Export’ from the drop-down menu. A new window pops-up in which you can choose the output format and settings.</p></li>
+</ol>
+</section>
+<section id="side-view-tool">
+<span id="sideviewtool"></span><h3>Side view tool<a class="headerlink" href="#side-view-tool" title="Permalink to this heading"></a></h3>
+<figure class="align-default">
+<img alt="Sideview tool" src="_images/d_qgisplugin_sideviewtool.png" />
+</figure>
+<ol class="arabic">
+<li><p>Activate the <em>Show side view</em> tool by clicking the map icon in <a class="reference internal" href="i_plugin_toolbox.html#di-toolbox-plugin"><span class="std std-ref">3Di Toolbox plugin</span></a> in the toolbar.</p></li>
+<li><p>A new panel opens. Click ‘Choose sideview trajectory’.</p></li>
+<li><p>A new layer is created and is directly shown with yellow lines. These yellow lines are all possibile trajectories for a sideview. Choose a starting point by clicking on a yellow line (point A). By clicking on a second yellow line (point B), the end of your trajectory is defined. The tool automatically detects the shortest route from point A to B. The trajectory is shown as a red line on the map. The sideview of this trajectory is shown in the graph.</p></li>
+<li><p>A trajectory can contain multiple points. Just click on the next point on the yellow line (point C) and the sideview of the shortest route from point B to C is automatically added to the graph.</p></li>
+<li><p>The graph contains the following elements:</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>The pipe/channel dimensions, represented by the grey area.</p></li>
+<li><p>Dimensions and locations of manholes.</p></li>
+<li><p>Green line: surface levels of manholes</p></li>
+<li><p>Green dotted line: drain levels of manholes</p></li>
+<li><p>Blue line: the water level.</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>The slider in the <em>Animation</em> tool can be used to scroll through time.</p></li>
+</ol>
+</section>
+<section id="statistical-tool">
+<span id="statisticaltool"></span><h3>Statistical tool<a class="headerlink" href="#statistical-tool" title="Permalink to this heading"></a></h3>
+<p>The statistical tool (from <a class="reference internal" href="i_plugin_toolbox.html#di-toolbox-plugin"><span class="std std-ref">3Di Toolbox plugin</span></a>) can be used to calculate sewerage statistics from 3Di results. To use it, first make sure you load a 3Di model together with the results you want to calculate the statistics from.</p>
+<figure class="align-default">
+<img alt="Statistical Tool" src="_images/d_qgisplugin_statisticaltool.png" />
+</figure>
+<ol class="arabic simple">
+<li><p>Activate the Statistical Tool by clicking the statistics icon in the 3Di toolbar. The tool will immediately start calculating the statistics and a progress bar at the top of the map window shows the progress.</p></li>
+<li><p>When the calculations are finished, new layers are added to the QGIS project. These layers contain statistics from the 3Di results on pipes, manholes, pumps and weirs. The layers are explained below.</p></li>
+</ol>
+<p><em>Note: DWF = Dry Weather Flow, CSF = Combined Sewer Flow, SWF = Storm Water Flow</em></p>
+<p><strong>Metadata_statistics</strong></p>
+<ul class="simple">
+<li><p><em>table:</em> Refers to the table, see below</p></li>
+<li><p><em>field:</em> Refers to the field name, see below</p></li>
+<li><p><em>from_agg:</em> If set to 0 the statistics are derived using actual values on the output time step. This is the case if no aggregation value is available. Not using an aggregation netcdf makes the statistics derived using this tool less accurate</p></li>
+<li><p><em>input_param:</em> For advanced users: Refers to the input parameter from the NetCDF</p></li>
+<li><p><em>timestep:</em> When not derived from aggregation netcdf it is important what timestep has been used. It gives an indication of the accuracy of the value.</p></li>
+</ul>
+<p><strong>Pipes</strong></p>
+<ul class="simple">
+<li><p><em>Discharge (max):</em> Maximum discharge which occurs during the simulation</p></li>
+<li><p><em>Velocity (max):</em> Maximum velocity which occurs during the simulation</p></li>
+<li><p><em>Gradient (max):</em> Maximum gradient of the waterlevel in the pipe</p></li>
+<li><p><em>Velocity (end):</em> Velocity in the pipe occurring at the last timestep</p></li>
+<li><p><em>Velocity DWF and CSF (end)</em>: Velocity at the last timestep for DWF and CSF pipes</p></li>
+<li><p><em>Velocity SWF (end):</em> Velocity at the last timestep for SWF pipes</p></li>
+</ul>
+<p><strong>Manholes</strong></p>
+<ul class="simple">
+<li><p><em>Fill level (max):</em> Percentage of manhole that is filled based on maximum water level occurring during the simulation</p></li>
+<li><p><em>Fill level DWF and CSF (end):</em> Percentage of manhole that is filled based on water level at the last time step of the simulation for DWF and CSF manholes.</p></li>
+<li><p><em>Fill level SWF (max):</em> Percentage of manhole that is filled based on water level at the last time step of the simulation for SWF manholes.</p></li>
+<li><p><em>Duration of water on street:</em> The total amount of time the water level in the manhole is higher than the surface level of the manhole during the simulation. Note that the unit is in hours, so 0.25 hr means 15 minutes.</p></li>
+<li><p><em>Waterdepth (max):</em> The max water depth above the manhole surface level that is occurring during the simulation. Values greater than 0 mean there is water on the street.</p></li>
+<li><p><em>Waterdepth DWF and CSF (max):</em> The max water depth above the manhole surface level that is occurring during the simulation for DWF and CSF manholes. Values greater than 0 mean there is water on the street.</p></li>
+<li><p><em>Waterdepth SWF (max):</em> The max water depth above the manhole surface level that is occuring during the simulation for SWF manholes. Values greater than 0 mean there is water on the street.</p></li>
+</ul>
+<p><strong>Pumps</strong></p>
+<ul class="simple">
+<li><p><em>Percentage of pump capacity in use (max):</em> The percentage of the total pump capacity that is used at the moment the pump is pumping at max.</p></li>
+<li><p><em>Percentage of pump capacity in use (end):</em> The percentage of the total pump capacity that is used at the last time step of the simulation.</p></li>
+<li><p><em>Total pumped volume:</em> The total volume that is pumped over the entire simulation.</p></li>
+<li><p><em>Pump duration on  max capacity:</em> The total amount of time the pump is pumping at its max capacity.</p></li>
+</ul>
+<p><strong>Weirs</strong></p>
+<ul class="simple">
+<li><p><em>Head difference (max):</em> The maximum difference in head between the two sides of the weir.</p></li>
+<li><p><em>Overflow volume (cum):</em> The total cumulative volume that has flown over the weir.</p></li>
+</ul>
+</section>
+<section id="the-water-balance-tool">
+<span id="waterbalance"></span><h3>The water balance tool<a class="headerlink" href="#the-water-balance-tool" title="Permalink to this heading"></a></h3>
+<p>The water balance tool (from <a class="reference internal" href="i_plugin_toolbox.html#di-toolbox-plugin"><span class="std std-ref">3Di Toolbox plugin</span></a>) computes the water balance in a sub-domain of your model. It uses the incoming and outgoing flows in that domain and visualizes the various contributions of the flow in graphs. The development was an initiative of Deltares and jointly developed with Nelen &amp; Schuurmans. The water balance tool is co-funded by the Top Sector Water (Ministry of Economic Affairs)</p>
+<p>This is the only results tool that requirers the generation of specific results. Therefore, we also discuss the input requirements of this tool.</p>
+<section id="settings-to-use-the-water-balance-tool">
+<span id="waterbalanceactivate"></span><h4>Settings to use the water balance tool<a class="headerlink" href="#settings-to-use-the-water-balance-tool" title="Permalink to this heading"></a></h4>
+<p>To be able to use the water balance tool, aggregated results are required for a range of variables. This to ensure, that the shown water balance is consistent and complete.</p>
+<p>The aggregation settings can be found and configured in the spatialite-table <em>v2_aggregation_settings</em>. For more information on the aggregation settings, see <a class="reference internal" href="h_aggregate_results.html#aggregationnetcdf"><span class="std std-ref">Aggregated output</span></a>. The default settings for the water balance tool are listed below.</p>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-number">Table 3 </span><span class="caption-text">Aggregation settings for water balance tool</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 12%" />
+<col style="width: 24%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>timestep</p></th>
+<th class="head"><p>var_name</p></th>
+<th class="head"><p>aggregation_in_space</p></th>
+<th class="head"><p>aggregation_method</p></th>
+<th class="head"><p>flow_variable</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>300</p></td>
+<td><p>pump_discharge_cum</p></td>
+<td><p>FALSE</p></td>
+<td><p>cum</p></td>
+<td><p>pump_discharge</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>300</p></td>
+<td><p>lateral_discharge_cum</p></td>
+<td><p>FALSE</p></td>
+<td><p>cum</p></td>
+<td><p>lateral_discharge</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>300</p></td>
+<td><p>simple_infiltration_cum</p></td>
+<td><p>FALSE</p></td>
+<td><p>cum</p></td>
+<td><p>simple_infiltration</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>300</p></td>
+<td><p>rain_cum</p></td>
+<td><p>FALSE</p></td>
+<td><p>cum</p></td>
+<td><p>rain</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>300</p></td>
+<td><p>leakage_cum</p></td>
+<td><p>FALSE</p></td>
+<td><p>cum</p></td>
+<td><p>leakage</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>300</p></td>
+<td><p>interception_current</p></td>
+<td><p>FALSE</p></td>
+<td><p>current</p></td>
+<td><p>interception</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>300</p></td>
+<td><p>discharge_cum</p></td>
+<td><p>FALSE</p></td>
+<td><p>cum</p></td>
+<td><p>discharge</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>300</p></td>
+<td><p>discharge_cum_neg</p></td>
+<td><p>FALSE</p></td>
+<td><p>cum_negative</p></td>
+<td><p>discharge</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>300</p></td>
+<td><p>discharge_cum_pos</p></td>
+<td><p>FALSE</p></td>
+<td><p>cum_positive</p></td>
+<td><p>discharge</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>300</p></td>
+<td><p>volume_current</p></td>
+<td><p>FALSE</p></td>
+<td><p>current</p></td>
+<td><p>volume</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>300</p></td>
+<td><p>qsss_cum_neg</p></td>
+<td><p>FALSE</p></td>
+<td><p>cum_negative</p></td>
+<td><p>surface_source_sink_discharge</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>300</p></td>
+<td><p>qsss_cum_pos</p></td>
+<td><p>FALSE</p></td>
+<td><p>cum_positive</p></td>
+<td><p>surface_source_sink_discharge</p></td>
+</tr>
+</tbody>
+</table>
+<p>Of course, the time step, cq, the period over which is aggregated, is adjustable. For new models, these settings are included in the empty spatialite database. For existing models, these settings must be added to the <em>v2_aggregation_settings</em> -table. These SQL queries will help you in doing so:</p>
+<p>Empty v2_aggregation_settings table:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DELETE</span> <span class="n">FROM</span> <span class="n">v2_aggregation_settings</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Add aggregation settings for all rows in the global settings table:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">v2_aggregation_settings</span><span class="p">(</span><span class="n">global_settings_id</span><span class="p">,</span> <span class="n">var_name</span><span class="p">,</span> <span class="n">flow_variable</span><span class="p">,</span> <span class="n">aggregation_method</span><span class="p">,</span> <span class="n">timestep</span><span class="p">)</span>
+<span class="n">SELECT</span> <span class="nb">id</span><span class="p">,</span> <span class="s1">&#39;pump_discharge_cum&#39;</span><span class="p">,</span> <span class="s1">&#39;pump_discharge&#39;</span><span class="p">,</span> <span class="s1">&#39;cum&#39;</span><span class="p">,</span> <span class="n">output_time_step</span> <span class="n">FROM</span> <span class="n">v2_global_settings</span>
+<span class="n">UNION</span>
+<span class="n">SELECT</span> <span class="nb">id</span><span class="p">,</span> <span class="s1">&#39;lateral_discharge_cum&#39;</span><span class="p">,</span> <span class="s1">&#39;lateral_discharge&#39;</span><span class="p">,</span> <span class="s1">&#39;cum&#39;</span><span class="p">,</span> <span class="n">output_time_step</span> <span class="n">FROM</span> <span class="n">v2_global_settings</span>
+<span class="n">UNION</span>
+<span class="n">SELECT</span> <span class="nb">id</span><span class="p">,</span> <span class="s1">&#39;simple_infiltration_cum&#39;</span><span class="p">,</span> <span class="s1">&#39;simple_infiltration&#39;</span><span class="p">,</span> <span class="s1">&#39;cum&#39;</span><span class="p">,</span> <span class="n">output_time_step</span> <span class="n">FROM</span> <span class="n">v2_global_settings</span>
+<span class="n">UNION</span>
+<span class="n">SELECT</span> <span class="nb">id</span><span class="p">,</span> <span class="s1">&#39;rain_cum&#39;</span><span class="p">,</span> <span class="s1">&#39;rain&#39;</span><span class="p">,</span> <span class="s1">&#39;cum&#39;</span><span class="p">,</span> <span class="n">output_time_step</span> <span class="n">FROM</span> <span class="n">v2_global_settings</span>
+<span class="n">UNION</span>
+<span class="n">SELECT</span> <span class="nb">id</span><span class="p">,</span> <span class="s1">&#39;leakage_cum&#39;</span><span class="p">,</span> <span class="s1">&#39;leakage&#39;</span><span class="p">,</span> <span class="s1">&#39;cum&#39;</span><span class="p">,</span> <span class="n">output_time_step</span> <span class="n">FROM</span> <span class="n">v2_global_settings</span>
+<span class="n">UNION</span>
+<span class="n">SELECT</span> <span class="nb">id</span><span class="p">,</span> <span class="s1">&#39;interception_current&#39;</span><span class="p">,</span> <span class="s1">&#39;interception&#39;</span><span class="p">,</span> <span class="s1">&#39;current&#39;</span><span class="p">,</span> <span class="n">output_time_step</span> <span class="n">FROM</span> <span class="n">v2_global_settings</span>
+<span class="n">UNION</span>
+<span class="n">SELECT</span> <span class="nb">id</span><span class="p">,</span> <span class="s1">&#39;discharge_cum&#39;</span><span class="p">,</span> <span class="s1">&#39;discharge&#39;</span><span class="p">,</span> <span class="s1">&#39;cum&#39;</span><span class="p">,</span> <span class="n">output_time_step</span> <span class="n">FROM</span> <span class="n">v2_global_settings</span>
+<span class="n">UNION</span>
+<span class="n">SELECT</span> <span class="nb">id</span><span class="p">,</span> <span class="s1">&#39;discharge_cum_neg&#39;</span><span class="p">,</span> <span class="s1">&#39;discharge&#39;</span><span class="p">,</span> <span class="s1">&#39;cum_negative&#39;</span><span class="p">,</span> <span class="n">output_time_step</span> <span class="n">FROM</span> <span class="n">v2_global_settings</span>
+<span class="n">UNION</span>
+<span class="n">SELECT</span> <span class="nb">id</span><span class="p">,</span> <span class="s1">&#39;discharge_cum_pos&#39;</span><span class="p">,</span> <span class="s1">&#39;discharge&#39;</span><span class="p">,</span> <span class="s1">&#39;cum_positive&#39;</span><span class="p">,</span> <span class="n">output_time_step</span> <span class="n">FROM</span> <span class="n">v2_global_settings</span>
+<span class="n">UNION</span>
+<span class="n">SELECT</span> <span class="nb">id</span><span class="p">,</span> <span class="s1">&#39;volume_current&#39;</span><span class="p">,</span> <span class="s1">&#39;volume&#39;</span><span class="p">,</span> <span class="s1">&#39;current&#39;</span><span class="p">,</span> <span class="n">output_time_step</span>  <span class="n">FROM</span> <span class="n">v2_global_settings</span>
+<span class="n">UNION</span>
+<span class="n">SELECT</span> <span class="nb">id</span><span class="p">,</span> <span class="s1">&#39;qsss_cum_pos&#39;</span><span class="p">,</span> <span class="s1">&#39;surface_source_sink_discharge&#39;</span><span class="p">,</span> <span class="s1">&#39;cum_positive&#39;</span><span class="p">,</span> <span class="n">output_time_step</span> <span class="n">FROM</span> <span class="n">v2_global_settings</span>
+<span class="n">UNION</span>
+<span class="n">SELECT</span> <span class="nb">id</span><span class="p">,</span> <span class="s1">&#39;qsss_cum_neg&#39;</span><span class="p">,</span> <span class="s1">&#39;surface_source_sink_discharge&#39;</span><span class="p">,</span> <span class="s1">&#39;cum_negative&#39;</span><span class="p">,</span> <span class="n">output_time_step</span> <span class="n">FROM</span> <span class="n">v2_global_settings</span>
+<span class="p">;</span>
+</pre></div>
+</div>
+<p>Note that the above query sets the aggregation time step equal to the output time step. If you want to use different aggregation time step, make sure to use the same time step for all aggregation variables in order to enable the use of the water balance tool.</p>
+<blockquote>
+<div><p>UPDATE v2_aggregation_settings SET time_step = [fill in a number];</p>
+</div></blockquote>
+</section>
+<section id="using-the-water-balance-tool">
+<h4>Using the water balance tool<a class="headerlink" href="#using-the-water-balance-tool" title="Permalink to this heading"></a></h4>
+<p>In a few steps, one can get insight in the water balance of their own system.</p>
+<ol class="arabic simple">
+<li><p>Define a spatialite and the results that are to be analysed by loading your model and results using the ‘Select 3Di results’-button in the toolbox.</p></li>
+<li><p>The water balance tool is activated by clicking the balance icon in the 3Di-Toolbox bar.</p></li>
+</ol>
+<figure class="align-default">
+<img alt="3Di Toolbox Bar" src="_images/d_qgisplugin_waterbalance1.png" />
+</figure>
+<p>In case, the aggregated results are missing or incomplete the following error pops up:</p>
+<figure class="align-default">
+<img alt="Error no aggregation settings" src="_images/d_qgisplugin_wb_error_no_aggregation.png" />
+</figure>
+<ol class="arabic simple" start="3">
+<li><p>Draw a polygon to define the domain of the model for the area of interest. This can be done by clicking at multiple locations within the model domain. Click <em>Finalize polygon</em> to finish the polygon. The graph shows the water balance over time for the selected area.</p></li>
+<li><p>By right-clicking the graph, a menu appears in which the range of the x-axis and y-axis can be adjusted. The visible x-axis determines the period over which the water balance is calculated.</p></li>
+<li><p>The button <em>Hide on map</em> the polygon over which the water balance is calculated is hidden.</p></li>
+</ol>
+<figure class="align-default">
+<img alt="Draw polygon to define water balance area" src="_images/d_qgisplugin_wb_draw_polygon.png" />
+</figure>
+</section>
+<section id="display-settings">
+<h4>Display settings<a class="headerlink" href="#display-settings" title="Permalink to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>The different colours show the different flow types, explained in the legend on the right.</p></li>
+<li><p>By hovering over a flow type in the legend, the corresponding plane lights up in the graph and the corresponding flow lines will be marked with red dotted lines in the map of the model.</p></li>
+<li><p>The different flow types can be activated and deactivated in the graph by clicking the box next to the flow type name.</p></li>
+<li><p>All flow types can be activated or deactivated using the buttons <em>activate all</em> and <em>deactivate all</em>.</p></li>
+<li><p>In the water balance menu different display options can be chosen. In the first drop-down menu (default = ‘1d and 2d’) you can choose to display only 1D-flow (‘1d’) or 2D-flow (‘2d’) or both (‘1d and 2d’).</p></li>
+<li><p>In the second drop-down menu (default = ‘everything’) you can choose to display all flows (‘everything’) or only the main flows (‘main flows’).</p></li>
+<li><p>In the last drop-down menu (default = ‘m3/s’) you can choose to display flow (‘m3/s’) or cumulative volume (‘m3’).</p></li>
+</ol>
+<p>Note: the different flow types are ‘stacked’ in the graph. This means the flow volumes are added to each other when activating multiple flow types.</p>
+<p>Volume change is shown in the graph as well. In this case, the volume change is the result of the total positive and negative flow (inflow and outflow of the area). The volume change is not stacked but shown as a separate line in the graph.</p>
+<figure class="align-default">
+<img alt="Marked flow types" src="_images/d_qgisplugin_wb_marked_flow.png" />
+</figure>
+</section>
+<section id="total-balance">
+<h4>Total balance<a class="headerlink" href="#total-balance" title="Permalink to this heading"></a></h4>
+<ol class="arabic simple" start="13">
+<li><p>By clicking the button <em>Show total balance</em> a new screen will pop-up, showing the total volume balance over the period set on the x-axis of the graph (shown in title).</p></li>
+<li><p>To adjust this period, close the screen with the bar diagrams, right click on the water balance graph, open the option <em>x-axis</em>, activate the option <em>manual</em> and set the minimum and maximum time. Then, click again on <em>Show total balance</em> to create the water balance diagrams for the new time range.</p></li>
+</ol>
+<figure class="align-default">
+<img alt="Adjust axis range" src="_images/d_qgisplugin_showbalance_axis.png" />
+</figure>
+<p>The top diagram shows the net water balance from all domains. The bottom diagrams show the water balance per domain.</p>
+<figure class="align-default">
+<img alt="Total balance" src="_images/d_qgisplugin_wb_totalbalance_new_qgis3.png" />
+</figure>
+<p>It is possible to save the graphs as an image or export the water balance data to a CSV-file.</p>
+<ol class="arabic simple" start="15">
+<li><p>To save an image of the graphs, right-click on one of the graphs. Choose ‘Export’ in the menu that opens. A new window opens.</p></li>
+<li><p>In the first box you can choose the items you want to export. Click ‘Entire Scene’ to export all graphs or choose one of the ‘Plot’-items to export a graph seperately.</p></li>
+<li><p>In the second box you can choose the export format. Choose ‘Image file’ for an image and choose ‘CSV from plot data’ to export the actual data.</p></li>
+<li><p>Click ‘Export’ to generate your figure.</p></li>
+</ol>
+<figure class="align-default">
+<img alt="Export waterbalance graph" src="_images/d_qgisplugin_export_wb_graph.png" />
+</figure>
+</section>
+<section id="explanation-of-flow-types">
+<h4>Explanation of flow types<a class="headerlink" href="#explanation-of-flow-types" title="Permalink to this heading"></a></h4>
+<p>In the overviews the flow is split in several domains. These distinguish themselves based on how the flow is computed. Therefore, you will find the 2D flow, groundwater and the 1D flow domain. Below a more detailed description of the various components.</p>
+<p><em>2D Surface water domain</em></p>
+<ul class="simple">
+<li><p><em>2D Boundary flow:</em> Inflow and outflow through 2D boundaries</p></li>
+<li><p><em>2D Flow:</em> Inflow and outflow in the surface domain crossing the borders of the polygon</p></li>
+<li><p><em>Lateral flow to 2D:</em> Sources or sinks based on 2D laterals</p></li>
+<li><p><em>2D: 2D flow to 1D:</em> Flow exchange between the 2D surface domain and the 1D network elements within your polygon (for example, surface run-off from rain into a 1D-channel or water that overflows the banks in your channel).</p></li>
+<li><p><em>2D: 2D flow to 1D (domain exchange):</em> Flow exchange between the 2D surface domain and the 1D network elements crossing the borders of your polygon</p></li>
+<li><p><em>In/exfiltration (domain exchange):</em> Flow exchange between the 2D surface domain and the 2D groundwater domain</p></li>
+<li><p><em>Rain:</em> Incoming water from rain</p></li>
+<li><p><em>Constant infiltration:</em> Flow out of the 2D domain based on simple infiltration</p></li>
+<li><p><em>Interception:</em> Intercepted volume</p></li>
+</ul>
+<p><em>2D Groundwater domain</em></p>
+<ul class="simple">
+<li><p><em>Groundwater flow:</em> Inflow and outflow through the 2D groundwater domain crossing the borders of your polygon</p></li>
+<li><p><em>In/exfiltration (domain exchange):</em> Flow exchange between the 2D surface domain and the 2D groundwater domain (generally inflowing water through infiltration).</p></li>
+<li><p><em>Leakage:</em> sources or sinks based on leakage</p></li>
+</ul>
+<p><em>1D Network domain</em></p>
+<ul class="simple">
+<li><p><em>0D Rainfall runoff on 1D:</em> Inflow volume from 0D module</p></li>
+<li><p><em>1D Boundary flow:</em> Inflow and outflow over a 1D boundary</p></li>
+<li><p><em>1D Flow:</em> Inflow and outflow in 1D network elements crossing the borders of your polygon</p></li>
+<li><p><em>1D Laterals:</em> Sources and sinks based on 1D laterals</p></li>
+<li><p><em>1D: 2D flow to 1D:</em> Flow exchange between the 2D surface domain and the 1D network elements (e.g. surface runoff from rain into a 1D-channel) within your polygon</p></li>
+<li><p><em>1D: 2D flow to 1D (domain exchange)</em> Flow exchange between the 2D surface domain and the 1D network elements crossing the borders of your polygon</p></li>
+<li><p><em>Pump:</em> pumped volume</p></li>
+</ul>
+</section>
+</section>
+<section id="animation-tool">
+<span id="animationtool"></span><h3>Animation tool<a class="headerlink" href="#animation-tool" title="Permalink to this heading"></a></h3>
+<p>To understand the behavior of your water system, it is important to get insight in the flow that changes in space and in time. The Animation tool (from <a class="reference internal" href="i_plugin_toolbox.html#di-toolbox-plugin"><span class="std std-ref">3Di Toolbox plugin</span></a>) allows a spacial view of the results, which can be played back and forth in time. Water level, velocities and discharges can be visualized by this tool.</p>
+<ol class="arabic simple">
+<li><p>Activate the <em>Animation</em> tool by clicking ‘Animation on’. A blue progress bar appears at the top of the map-window. Wait till this progress bar has disappeared before you continue.</p></li>
+<li><p>The first drop-down menu defines the kind of results you will see on the flow lines (e.g. discharge, velocity).</p></li>
+<li><p>The second drop-down menu defines the kind of results you will see on the nodes (e.g. water level).</p></li>
+<li><p>The slider scrolls through time and allows you to go back and forth through the results of your simulation.</p></li>
+<li><p>The timestep of the slider is shown in the box on the right side. Time notation is in DAYS:HOURS:MINUTES from the start of the  simulation.</p></li>
+</ol>
+<figure class="align-default">
+<img alt="Animation on bar" src="_images/d_qgisplugin_animation_on.png" />
+</figure>
+<p>When the <em>Animation</em> tool is activated, temporary layers are created to show the chosen results:</p>
+<figure class="align-default">
+<img alt="Animation layers" src="_images/d_qgisplugin_animationlayers.png" />
+</figure>
+<p>The thickness of the lines scale with the the size of the flow over the lines. The arrows indicate the flow direction. The colors of the nodes, represent different values of the node results.</p>
+<p>When groundwater is not used in the model, the layers ‘line_results_groundwater’ and ‘node_results_groundwater’ can be turned off.</p>
+<p>An example of the animated flow lines is shown in the figure below.</p>
+<figure class="align-default">
+<img alt="Animation flow" src="_images/d_qgisplugin_stroming.png" />
+</figure>
+<p>Here, the purple arrows show flow over the 2D domain. The pink arrows show the flow from the 1D domain to the 2D domain or vice versa. In this case this is flow from the terrain into a sewerage manhole. The blue arrows show the flow in the 1D network.</p>
+<p>The line results can also be filtered to distinguish between type of flow. To do this, right click on the ‘line_results’ layer and choose ‘Filter’ from the drop-down menu. A new window will pop up:</p>
+<figure class="align-default">
+<img alt="Filter" src="_images/d_qgisplugin_filter.png" />
+</figure>
+<p>Double click on ‘type’ and click ‘Sample’ to see which types are available. In the ‘filter expression’ field you can specify the types of flow lines you want to show, e.g. “type” = ‘2d’. In the Figure below, an example of filtered 2D flow is shown.</p>
+<figure class="align-default">
+<img alt="Filter" src="_images/d_qgisplugin_2d_flow.png" />
+</figure>
+</section>
+<section id="watershed-tool">
+<span id="id1"></span><h3>Watershed tool<a class="headerlink" href="#watershed-tool" title="Permalink to this heading"></a></h3>
+<p>The Watershed Tool (from <a class="reference internal" href="i_plugin_toolbox.html#di-toolbox-plugin"><span class="std std-ref">3Di Toolbox plugin</span></a>) allows you to find what is upstream and downstream of any point or area in a 3Di simulation result. Upstream or downstream elements include surface areas (2D cells), sewerage and open
+water system flow (1D flowlines) and impervious surfaces (0D inflow). If
+there is a significant net flow from the element to the target location,
+the element is included in the upstream result set; for the downstream
+area, this is based on flow from the target node(s) to the downstream
+elements. These connections may consist of any (combination of) type of
+flowline included in the model. Pumplines are not yet implemented.</p>
+<section id="user-manual">
+<h4>User manual<a class="headerlink" href="#user-manual" title="Permalink to this heading"></a></h4>
+<p>The tool has four sections. From top to bottom: Inputs, Settings, Target
+Nodes, and Outputs. This manual first describes the most basic use of
+the tool and explains how the advanced options in these sections can be
+used.</p>
+</section>
+<section id="most-basic-use-of-the-tool">
+<h4>Most basic use of the tool<a class="headerlink" href="#most-basic-use-of-the-tool" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>In the Inputs section, select a ‘results_3di.nc’ file as input for
+‘3Di results NetCDF’.</p></li>
+<li><p>If the corresponding gridadmin.h5 file is located in the same folder,
+it will be found automatically.</p></li>
+<li><p>If you want to include impervious surfaces in your analysis, fill the ‘3Di model sqlite’ input (optional).</p></li>
+<li><p>After selecting the inputs, the tool preprocesses your model results.
+This may take a few seconds (up to half a minute for very large
+models).</p></li>
+<li><p>When the preprocessing is finished, click the button ‘Click on
+Canvas’ in the Target Nodes section.</p></li>
+<li><p>Now click on a target node on the map canvas. The upstream cells,
+area and 1D connections will be added to the result layers.</p></li>
+</ul>
+</section>
+<section id="inputs-section">
+<h4>Inputs section<a class="headerlink" href="#inputs-section" title="Permalink to this heading"></a></h4>
+<p><strong>3Di results NetCDF</strong></p>
+<p>Results of a 3Di simulation (results_3di.nc file). More information
+about this file type can be found in the <a class="reference external" href="https://docs.3di.lizard.net/c_results.html#data-format-results-3di-nc">3Di
+documentation</a>.
+Required input.</p>
+<p><strong>3Di gridadmin file</strong></p>
+<p>Grid administration (gridadmin.h5) file. If this file is located in the
+same folder as the results_3di.nc file, it will be found automatically.
+Required input.</p>
+<p><strong>3Di model sqlite (optional)</strong></p>
+<p>The 3Di model sqlite (.sqlite file) is an optional input, required only
+for visualizing which v2_impervious_surface features are upstream of the
+target node(s). This functionality is currently not supported for v2_surface features.</p>
+</section>
+<section id="settings-section">
+<h4>Settings section<a class="headerlink" href="#settings-section" title="Permalink to this heading"></a></h4>
+<p><strong>Threshold</strong> (m<sup>3</sup>)</p>
+<p>Determines which flowlines are included in the network used for
+calculating upstream or downstream connectivity. Only flowlines that
+have a cumulative discharge above the threshold are included.</p>
+<p>More specifically, the threshold applies to the <em>absolute net
+cumulative</em> discharge. E.g., if the time window is 30 minutes (1800 s)
+and the discharge is -1.0 m<sup>3</sup>/s, the net cumulative discharge is 1800 m<sup>3</sup>.
+If flow direction changes during the simulation, the discharge may be
+-1.0 m<sup>3</sup>/s in the first 15 minutes (900 s) and 0.5 m<sup>3</sup>/s in the last 15
+minutes, the absolute net cumulative discharge = abs(-900 + 450) = 450
+m<sup>3</sup></p>
+<p><strong>Start and end time (s)</strong></p>
+<p>These settings allows you to analyse the flow during part of the simulation
+time instead of the full simulation time.</p>
+<p>Please note that if an area is marked as upstream or downstream of a
+node for the chosen time window, it does not mean that water can flow to
+that point within the given time window. E.g. if you would select the source of
+the Nile as target node and a time window of 10 minutes, there would
+still be a fully connected network of flowlines all the way down to the
+Mediterrean, but this does not mean that a drop of water can flow all
+that distance within ten minutes.</p>
+</section>
+<section id="target-nodes-section">
+<h4>Target Nodes section<a class="headerlink" href="#target-nodes-section" title="Permalink to this heading"></a></h4>
+<p>Target nodes are the node(s) for which to compute the upstream and/or
+downstream cells, areas, flowlines and impervious surfaces. The tool
+allows you to select target nodes in three different ways.</p>
+<p><strong>Click on canvas</strong></p>
+<p>Click the ‘Click on Canvas’ button, then click on a target node on the
+map canvas. This works in a way comparable to the Identify tool. Using
+Click on Canvas, you will always select only one target node.</p>
+<p><strong>Catchment for selected nodes</strong></p>
+<p>First use the Select tool to select one or more target nodes, then click
+‘Catchment for selected nodes’.</p>
+<p><strong>Target nodes in polygons</strong></p>
+<p>Use this option to select target nodes based on their intersection with
+polygons in a layer of your choice. * Add the polygon layer to your
+QGIS project * Select the layer in the dropdown menu below ‘Target
+nodes in polygons’ * Click the button ‘Catchment for Polygons’</p>
+<p>If you want to perform the calculation for only a subset of the polygons
+in the polygon layer, first select the polygons you want to include in
+the analysis and check the box ‘Selected polygons only’</p>
+</section>
+<section id="outputs-section">
+<h4>Outputs section<a class="headerlink" href="#outputs-section" title="Permalink to this heading"></a></h4>
+<p><strong>Upstream and downstream checkboxes</strong></p>
+<p>Control whether only upstream, only downstream or both types of
+cells/areas/flowlines/impervious surfaces are calculated by checking the
+upstream and/or downstream boxes.</p>
+<p><strong>Browse result sets</strong></p>
+<p>If you have generated two or more result sets, it may be helpful to
+browse through them one by one. * Check the box ‘Browse result sets’ *
+Use the spinbox up/down arrows to go from one result set to the next.</p>
+<p><strong>Clear results</strong></p>
+<p>If you want to delete the results you have generated so far, the button
+‘clear results’ can be used (rather than deleting all features from all
+result layers).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Pumplines (pumping stations that pump from one location in the model
+to another) are not taken into account in the network analysis.</p></li>
+<li><p>Interflow is not taken into account in the network analysis</p></li>
+<li><p>Groundwater flow is taken into account but has not been tested yet,
+please check the results</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="calculate-waterdepth-and-waterlevel-maps">
+<span id="waterdepthtool"></span><h3>Calculate waterdepth and waterlevel maps<a class="headerlink" href="#calculate-waterdepth-and-waterlevel-maps" title="Permalink to this heading"></a></h3>
+<p>This tool is location in the Processing Toolbox (from <a class="reference internal" href="i_plugin_toolbox.html#di-toolbox-plugin"><span class="std std-ref">3Di Toolbox plugin</span></a>). It can be found by clicking ‘Processing’ in the menubar &gt; ‘Toolbox’ &gt; ‘3Di’ in the panel &gt; ‘Dry weather flow’ &gt; ‘DWF Calculator’</p>
+<p>The tool requires gridadmin.h5 file, the result_3Di.nc file and the DEM file that was used in the model.</p>
+<p>There is a choice between:</p>
+<ul class="simple">
+<li><p>interpolated water depth</p></li>
+<li><p>interpolate water level</p></li>
+<li><p>non-interpolated water depth</p></li>
+<li><p>non-interpolate water level</p></li>
+</ul>
+<p>Because 3Di calculates using the volumes in a quadtree grid, calculating water depth is done by interpolation water levels and subtracting the DEM from this result. In some cases the non-interpolated water level or depth is required, the tool supports those options too.</p>
+<figure class="align-default">
+<img alt="Screen water depth tool" src="_images/d_qgisplugin_waterdepthtool.png" />
+</figure>
+<p>The resulting file can be stored in the temp folder of the Modeller Interface, or stored in a project folder by the user. The resolution of the resulting map is equal to the resolution of the DEM.</p>
+<p>Please make sure to use the correct gridadmin file (downloaded with each simulation) and the correct DEM.</p>
+<p>A sample result looks like this:</p>
+<figure class="align-default">
+<img alt="Sample result water depth tool" src="_images/d_qgisplugin_waterdepth_resultsample.png" />
+</figure>
+<p>The processing toolbox enables users to generate water depth maps in batch in case this is required. For more information on how this works we refer to the QGIS documentation here: docs.qgis.org/3.16/en/docs/user_manual/processing/modeler.html</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="i_downloading_results.html" class="btn btn-neutral float-left" title="Downloading results" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="c_what_is_the_live_site.html" class="btn btn-neutral float-right" title="What is the 3Di Live Site" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nelen &amp; Schuurmans.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

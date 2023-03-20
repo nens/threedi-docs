@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3Di Ecosystem &mdash; 3Di  (dev doc 2023-03-13) documentation</title>
+  <title>3Di Ecosystem &mdash; 3Di  (dev doc 2023-03-20) documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -35,7 +35,7 @@
             3Di
           </a>
               <div class="version">
-                 (dev doc 2023-03-13)
+                 (dev doc 2023-03-20)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -49,11 +49,8 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="a_background.html">Background of 3Di</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">3Di Ecosystem</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#di-modeller-interface">3Di Modeller Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#di-livesite">3Di Livesite</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#di-management-screens">3Di Management Screens</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#di-computational-core">3Di Computational Core</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#di-api">3Di API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authentication-and-user-management">Authentication and User Management</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#signing-up">Signing up</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#signing-in">Signing in</a></li>
@@ -75,24 +72,15 @@
 <p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Modeller Interface</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="i_what_is_mi.html">What is the Modeller Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html">Overview of the user Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html">Overview of the Modeller Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the live site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html#using-the-3di-live-site">Using the 3Di Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the live site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html#login-to-the-live-site">Login to the Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html#overview-session-screen-and-tooling">Overview session screen and tooling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html#notables">Notables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the live site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#start-or-follow-a-session">Start or follow a session</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#editing-a-model-schematisation-with-the-live-site">Editing a model schematisation with the live site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#simulation-interventions">Simulation interventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#analyzing-results-while-scenario-is-running">Analyzing results while scenario is running</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#quitting-the-simulation">Quitting the simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#store-results">Store results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html#di-livesite">3Di Livesite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the 3Di Live Site</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul>
@@ -157,11 +145,11 @@
 <span id="a-ecosystem"></span><h1>3Di Ecosystem<a class="headerlink" href="#di-ecosystem" title="Permalink to this heading"></a></h1>
 <p>The 3Di Ecosystem consists of the following five components:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#a-modeller-interface"><span class="std std-ref">3Di Modeller Interface</span></a>: a QGIS based environment where schematisations can be build and edited.</p></li>
-<li><p><a class="reference internal" href="#a-livesite"><span class="std std-ref">3Di Livesite</span></a>: a web application to start, pause and adjust simulations.</p></li>
+<li><p><a class="reference internal" href="i_what_is_mi.html#mi-what-is"><span class="std std-ref">The Modeller Interface</span></a>: a QGIS based environment where you can build, edit and start schematisations. The interface can also be used to analyze results.</p></li>
+<li><p><a class="reference internal" href="c_what_is_the_live_site.html#a-livesite"><span class="std std-ref">3Di Livesite</span></a>: a web application to start, pause and adjust simulations.</p></li>
 <li><p><a class="reference internal" href="#a-management-screens"><span class="std std-ref">3Di Management Screens</span></a>: an online overview of your schematisations, models and simulations.</p></li>
 <li><p><a class="reference internal" href="#a-computational-core"><span class="std std-ref">3Di Computational Core</span></a>: a Fortran software package which handles the hydrodynamic calculations.</p></li>
-<li><p><a class="reference internal" href="#a-api"><span class="std std-ref">3Di API</span></a>: an <em>application programming interface</em>, which enables other applications and user interfaces to interact with the computational core.</p></li>
+<li><p><a class="reference internal" href="b_api.html#a-api"><span class="std std-ref">3Di API</span></a>: an <em>application programming interface</em>, which enables other applications and user interfaces to interact with the computational core.</p></li>
 </ul>
 <p>All components are secured by an <strong>Authentication</strong> and <strong>Authorisation</strong> system. This will be discussed in the <a class="reference internal" href="#a-authentication-user-management"><span class="std std-ref">Authentication and User Management</span></a> section.</p>
 <figure class="align-default" id="id2">
@@ -170,46 +158,15 @@
 <p><span class="caption-number">Fig. 1 </span><span class="caption-text">The 3Di Ecosystem.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-<section id="di-modeller-interface">
-<span id="a-modeller-interface"></span><h2>3Di Modeller Interface<a class="headerlink" href="#di-modeller-interface" title="Permalink to this heading"></a></h2>
-<p>The Modeller Interface is a customized version of QGIS, a software tool used by hydrology experts to build and edit models, start simulations, and analyze their results. It comes with a number of pre-installed plugins, including the <strong>3Di Models and Simulations</strong> and the <strong>3Di Toolbox</strong>, which are custom-made for use with 3Di. The 3Di Models and Simulations plugin allows users to complete a full modeling workflow, including uploading their model, starting a simulation, and downloading and analyzing the results, all within the Modeller Interface. The 3Di Toolbox, on the other hand, is used for importing schematizations, checking data, and analyzing results. This setup allows users to take advantage of the processing power of QGIS while using the specialized 3Di plugins to create, simulate, and analyze their models.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For more information on installing the Modeller Interface, please refer to our <a class="reference internal" href="f_3di_instruments_and_downloads.html#di-instruments-and-downloads"><span class="std std-ref">Installation manual</span></a>. The basics of the Modeller Interface are explained in the <a class="reference internal" href="e_klondike_workflow.html#tutorial1-workflow"><span class="std std-ref">Workflow</span></a> Tutorial.
-For the experienced modellers, the <span class="xref std std-ref">How to work with 3Di section</span> covers the more in depth applications of the Modeller Interface.</p>
-</div>
-<figure class="align-default" id="id3">
-<img alt="3Di Modeller Interface" src="_images/a_modeller_interface.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">An example of a schematisation in the Modeller Interface.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-<p>We have chosen QGIS as our supporting platform because of the following reasons:</p>
-<ul class="simple">
-<li><p>QGIS comes with hundreds of powerfull GIS processing tools;</p></li>
-<li><p>It enables the combination of web maps (aerial, topo, osm and may others) and model schematisations;</p></li>
-<li><p>It offers an exstensive amount of styling options;</p></li>
-<li><p>It has a highly customisable interface</p></li>
-<li><p>The option of building your own plugins to interact with the model;</p></li>
-<li><p>The fact that it is an open source platform.</p></li>
-</ul>
-</section>
-<section id="di-livesite">
-<span id="a-livesite"></span><h2>3Di Livesite<a class="headerlink" href="#di-livesite" title="Permalink to this heading"></a></h2>
-<p>On the <a class="reference external" href="https://www.3di.live/">Livesite</a> you can start, pause and adjust your simulations. This is the key to interactive and visual modelling, which is essential for a shared understanding of watersystems.
-A scientific paper on the importance of a shared understanding can be found <a class="reference external" href="https://www.researchgate.net/publication/285586163_Interactive_use_of_simulation_models_for_collaborative_knowledge_construction_-_The_case_of_flood_policy_decision-making">here</a>.</p>
-<p>The video below gives a brief demo of the Livesite. For more detailed information, visit the <a class="reference internal" href="c_what_is_the_live_site.html#guide-to-portal"><span class="std std-ref">Livesite</span></a> page.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/k9heL89ZF1E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p><em>A demo of the 3Di Livesite</em></p>
-</section>
 <section id="di-management-screens">
 <span id="a-management-screens"></span><h2>3Di Management Screens<a class="headerlink" href="#di-management-screens" title="Permalink to this heading"></a></h2>
 <p>When using the Modeller Interface, schematizations are stored locally on your computer. However, if you use the Model and Simulations plugin to upload a schematization, it will be saved to our private cloud. These uploaded schematizations can be accessed and viewed in the Management Screens. In addition, all relevant information about revisions, 3Di models, and simulations related to the schematizations can be found in the Management Screens. This allows colleagues to sync their models on their own laptops and continue working with the updated version, enabling the use of version control on your schematizations.</p>
 <p>The Management Portal can also be used to manage 3Di models, start simulations from simulation templates, monitor running simulations, and download results. This web-based portal is designed to provide users with the tools and information needed to perform day-to-day tasks efficiently.</p>
-<p>A more enhanced use of the <a class="reference external" href="https://management.3di.live/">Management screens</a> is described in the <a class="reference internal" href="d_management.html#management-screens-manual"><span class="std std-ref">Management Screens manual</span></a>.</p>
-<figure class="align-default" id="id4">
+<p>A more enhanced use of the <a class="reference external" href="https://management.3di.live/">Management screens</a> is described in the <a class="reference internal" href="d_overview_management_portal.html#management-screens-manual"><span class="std std-ref">Management Screens manual</span></a>.</p>
+<figure class="align-default" id="id3">
 <img alt="The management screen homepage" src="_images/a_managementscreen.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">The homepage of the Management Screens.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">The homepage of the Management Screens.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -218,21 +175,6 @@ A scientific paper on the importance of a shared understanding can be found <a c
 <p>The computational core handles the hydrodynamic calculations after a simulation is started.
 These calculations run on specialized servers to ensure computational power.
 Please visit the <strong>Physics</strong> and <strong>Modelling Concepts</strong> pages to read more about the science that underlies the Computational Core.</p>
-</section>
-<section id="di-api">
-<span id="a-api"></span><h2>3Di API<a class="headerlink" href="#di-api" title="Permalink to this heading"></a></h2>
-<p>Our <a class="reference external" href="https://api.3di.live/v3/">REST API</a> is the center of the 3Di Ecosystem, which serves as communication between all interactions of users and forcings and the functionality of 3Di.
-If you are only interested in using the above mentioned tools, no extra attention to the API is required.
-However, the API can be used if you want to connect your favourite tools (Jupyter Notebook, Matlab, Power BI etc.) or programming language to 3Di.
-This gives you a lot of flexibility to your modelling applications and can save you lots of manual work and time. Some examples of applications of the API are:</p>
-<ul class="simple">
-<li><p>Batch simulations: run hundred different rain events.</p></li>
-<li><p>Automated testruns, results checks and adjustments to a model before running another simulation.</p></li>
-<li><p>Run 3Di in an operational system, such as a Flood Early Warning System.</p></li>
-<li><p>Use Jupyter Notebooks to run, download and analyse your 3Di simulations. Examples can be found on the <a class="reference external" href="https://github.com/threedi/scripts-nens/tree/master/Notebooks%203Di%20-%20API%20v3%20-%20VD">3Di github repository</a>.</p></li>
-<li><p>Design your own control for weirs or other structures.</p></li>
-</ul>
-<p>The API Root can be found on <a class="reference external" href="https://api.3di.live/v3/">https://api.3di.live/v3/</a>. More enhanced information on the API is written in the <a class="reference external" href="https://api.3di.live/v3/swagger/">Swagger version</a>, where each endpoint contains a block of documentation.</p>
 </section>
 <section id="authentication-and-user-management">
 <span id="a-authentication-user-management"></span><h2>Authentication and User Management<a class="headerlink" href="#authentication-and-user-management" title="Permalink to this heading"></a></h2>
@@ -256,10 +198,10 @@ If you do not know whom to contact, please contact our <a class="reference inter
 <span id="a-singing-in"></span><h3>Signing in<a class="headerlink" href="#signing-in" title="Permalink to this heading"></a></h3>
 <p>Users can login in either the Modeller Interface, the Livesite, the Management Screens and the API.
 Except for the Modeller Interface, all 3Di components will redirect you to the following login screen:</p>
-<figure class="align-default" id="id5">
+<figure class="align-default" id="id4">
 <img alt="The login screen" src="_images/a_login.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 4 </span><span class="caption-text">The login screen.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">The login screen.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>If you do not have an account yet, please read  ‘<a class="reference internal" href="#a-singing-up"><span class="std std-ref">Signing up</span></a>’ first.
@@ -278,10 +220,10 @@ of your organisation? Please contact our support office
 </section>
 <section id="user-management">
 <span id="a-user-management"></span><h3>User management<a class="headerlink" href="#user-management" title="Permalink to this heading"></a></h3>
-<figure class="align-default" id="id6">
+<figure class="align-default" id="id5">
 <img alt="The User Management interface." src="_images/a_usermanagement1.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text">The User Management interface.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">The User Management interface.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Users can be managed in the User Management interface. This interface can be reached via <a class="reference external" href="https://api.3di.live/management/users/">https://api.3di.live/management/users/</a>.
@@ -302,10 +244,10 @@ If you wish to obtain one for your organisation, please contact the application 
 </div>
 <p><strong>Adding a new user</strong></p>
 <p>You can add a new user by clicking the “NEW USER” icon in the upper right corner. This will lead you to the screen to add a new user.</p>
-<figure class="align-default" id="id7">
+<figure class="align-default" id="id6">
 <img alt="The interface for adding a user." src="_images/a_usermanagement2.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 6 </span><span class="caption-text">The interface for adding a user.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">The interface for adding a user.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>By default the new user is granted a ‘Viewer’ role. At least one role is required when inviting a new user.

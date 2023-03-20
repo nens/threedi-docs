@@ -1,5 +1,5 @@
-Overview management portal
-===========================
+How to use the Management Portal
+=================================
 
 .. _management_screens_manual:
 

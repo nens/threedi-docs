@@ -1,36 +1,5 @@
-Overview of the 3Di Live Site
+Overview of the Live Site
 ==============================
-
-.. _guide_to_portal:
-
-Login to the Live Site
--------------------------
-
-Follow the steps below to access the 3Di Live Site :
-
-#) Start the internet browser (Chrome or Firefox) and go to: https://3di.live
-#) Log in with your username and password.
-
-	* Username and password can be requested via servicedesk@nelen-schuurmans.nl.
-
-
-.. figure:: image/d2.1_login.png
-	:scale: 50%
-	:alt: Login screen
-	
-
-After logging in to the 3Di Live Site , the *Welcome screen* will show:
-
-.. figure:: image/d2.2_login.png 
-	:alt: Welcome to 3Di screen
-
-	Welcome screen.
-
-In this screen, there are two possibilities:
-
-* Start a new session using the :ref:`start_a_new_session` tab.
-* Follow an ongoing session via the :ref:`follow_a_session` tab.
-
 
 .. _overview_screen_ls:
 

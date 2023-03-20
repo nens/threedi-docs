@@ -7,7 +7,9 @@ Here you can find everything you need to know about the **hydrodynamic modelling
 Documentation Overview
 ======================
 
-* To read more about the 3Di :ref:`Background <a_background>`, :ref:`Ecosystem <a_ecosystem>`, :ref:`Basic Modelling Concepts <a_basic_modelling_concepts>`, and the :ref:`Release Notes <a_release_notes>`, check out the **Introduction** section.
+* To read more about the 3Di :ref:`Background <a_background>`, :ref:`Ecosystems <a_ecosystem>`, and the :ref:`Release Notes <a_release_notes>`, check out the **Introduction** section.
+
+* In the **How to work with 3DI**, :ref:`Basic Modelling Concepts <a_basic_modelling_concepts>`, 
 
 * Check out the **3Di Connectors** section for a guide on how to :ref:`integrate FEWS with 3Di <b_fews-integration>`. More connectors will follow.
 
@@ -46,25 +48,18 @@ If you are interested in a **product demo**, a **live** or **online training**, 
 
    a_background
    a_ecosystem
-   b_fews_3di_integrations
-   a_modelling_concepts
    a_releasenotes
    a_contact
-
-
 
 .. toctree::
    :hidden:
    :maxdepth: 1
-   :caption: How to work with 3Di
-   :name: How to work with 3Di
+   :caption: Modelling Guidelines
+   :name: Modelling Guidelines
 
-   d_modelling_guidelines
-   d_modeling_components
-   d_adding_running_scenario
-
-   .. dit kopje is nog een beetje een zooitje.
-
+   a_modelling_concepts
+   b_modeling_components
+   b_modelling_workflow
 
 .. toctree::
    :hidden:
@@ -75,8 +70,6 @@ If you are interested in a **product demo**, a **live** or **online training**, 
    i_what_is_mi
    i_overview_user_interface
    i_modelling_with_mi
-
-   .. dit moet nog opgeschoond en up to date gemaakt worden.
 
 
 .. toctree::
@@ -89,28 +82,32 @@ If you are interested in a **product demo**, a **live** or **online training**, 
    c_livesite_overview
    c_modelling_with_live_site
 
-   .. dit moet nog opgeschoond worden.
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: Guide to the 3Di Management Portal
+   :name: Guide to the 3Di Management Portal
+
+   d_management
+   d_overview_management_portal
 
 
 .. toctree::
    :hidden:
    :maxdepth: 1
-   :caption: Guide to the management portal
-   :name: Guide to the management portal
+   :caption: 3Di for developers
+   :name: 3Di for developers
 
-   d_management
-   d_overview_management_portal
-   d_scenario_archive
-
-   .. dit kopje is nog een beetje een zooitje.
-
+   j_api
+   j_threedigrid
+   j_fews_3di_integrations
+   j_lizard_api
 
 .. toctree::
    :hidden:
    :maxdepth: 1
    :caption: Tutorials
    :name: tutorials
-
 
    e_klondike_workflow
    e_2d_tutorial
@@ -125,6 +122,7 @@ If you are interested in a **product demo**, a **live** or **online training**, 
    :name: instalation_manual
 
    f_3di_instruments_and_downloads
+   f_authentication_user_management
    f_problem_solving
    f_servicedesk
 
@@ -157,3 +155,12 @@ If you are interested in a **product demo**, a **live** or **online training**, 
    h_results
    h_aggregate_results
    h_state_files
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+   :caption: Overig
+   :name: Overig
+   
+   d_scenario_archive

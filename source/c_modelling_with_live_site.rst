@@ -1,6 +1,6 @@
 .. _simulate_w_live_site:
 
-Modelling with the 3Di Live Site
+Modelling with the Live Site
 =================================
 
 
@@ -34,9 +34,10 @@ Following a session
 Through the tab **Follow session** an active session of your organization can be followed. Select an active simulation and press **follow**. The number of followers of a session is unlimited. To leave the session, go to the **user menu** under the user icon (top right) and press **Leave session**. 
 
 
+.. _editing_with_live_site:
 
-Editing a model schematisation
---------------------------------
+Editing a schematisation
+---------------------------
 
 In the live site, you can temporarily adjust values. For example, you can change the pump capacity and weir height, and you can close 1D elements such as channels, pipes, weirs, culverts and orifices.
 You can also perform a DEM edit via the raster edit tool. 
@@ -179,6 +180,7 @@ If breach locations are predefined in the model, these can be activated as follo
 
 To show the flow rate over time, select a breach location using the point information tool. 
 
+.. _analyzing_livesite_running:
 
 Analyzing results while scenario is running
 ---------------------------------------------

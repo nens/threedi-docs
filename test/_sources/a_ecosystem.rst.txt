@@ -5,7 +5,8 @@
 
 The 3Di Ecosystem consists of the following five components:
 
-* :ref:`a_modeller_interface`: a QGIS based environment where schematisations can be build and edited.
+* :ref:`The Modeller Interface <mi_what_is>`: a QGIS based environment where you can build, edit and start schematisations. The interface can also be used to analyze results.
+
 
 * :ref:`a_livesite`: a web application to start, pause and adjust simulations.
 
@@ -23,51 +24,21 @@ All components are secured by an **Authentication** and **Authorisation** system
    
    The 3Di Ecosystem.
 
-.. _a_modeller_interface:
-
-3Di Modeller Interface
-======================
-
-The Modeller Interface is a customized version of QGIS, a software tool used by hydrology experts to build and edit models, start simulations, and analyze their results. It comes with a number of pre-installed plugins, including the **3Di Models and Simulations** and the **3Di Toolbox**, which are custom-made for use with 3Di. The 3Di Models and Simulations plugin allows users to complete a full modeling workflow, including uploading their model, starting a simulation, and downloading and analyzing the results, all within the Modeller Interface. The 3Di Toolbox, on the other hand, is used for importing schematizations, checking data, and analyzing results. This setup allows users to take advantage of the processing power of QGIS while using the specialized 3Di plugins to create, simulate, and analyze their models.
-
-
-.. note::
-   For more information on installing the Modeller Interface, please refer to our :ref:`3di_instruments_and_downloads`. The basics of the Modeller Interface are explained in the :ref:`Workflow <tutorial1_workflow>` Tutorial. 
-   For the experienced modellers, the :ref:`How to work with 3Di section<qgisplugin>` covers the more in depth applications of the Modeller Interface.
 
 
 
-.. figure:: image/a_modeller_interface.png
-   :alt: 3Di Modeller Interface
-
-   An example of a schematisation in the Modeller Interface.
-
-
-We have chosen QGIS as our supporting platform because of the following reasons:
-
-- QGIS comes with hundreds of powerfull GIS processing tools;
-- It enables the combination of web maps (aerial, topo, osm and may others) and model schematisations;
-- It offers an exstensive amount of styling options;
-- It has a highly customisable interface
-- The option of building your own plugins to interact with the model;
-- The fact that it is an open source platform.
 
 
 
-.. _a_livesite:
 
-3Di Livesite
-============
-On the `Livesite <https://www.3di.live/>`_ you can start, pause and adjust your simulations. This is the key to interactive and visual modelling, which is essential for a shared understanding of watersystems.
-A scientific paper on the importance of a shared understanding can be found `here <https://www.researchgate.net/publication/285586163_Interactive_use_of_simulation_models_for_collaborative_knowledge_construction_-_The_case_of_flood_policy_decision-making>`_.
 
-The video below gives a brief demo of the Livesite. For more detailed information, visit the :ref:`Livesite <guide_to_portal>` page.
 
-.. raw:: html
 
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/k9heL89ZF1E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-*A demo of the 3Di Livesite*
+
+
+
+
 
 .. _a_management_screens:
 
@@ -93,23 +64,6 @@ The computational core handles the hydrodynamic calculations after a simulation 
 These calculations run on specialized servers to ensure computational power. 
 Please visit the **Physics** and **Modelling Concepts** pages to read more about the science that underlies the Computational Core.
 
-.. _a_api:
-
-3Di API
-=======
-Our `REST API <https://api.3di.live/v3/>`_ is the center of the 3Di Ecosystem, which serves as communication between all interactions of users and forcings and the functionality of 3Di.
-If you are only interested in using the above mentioned tools, no extra attention to the API is required.
-However, the API can be used if you want to connect your favourite tools (Jupyter Notebook, Matlab, Power BI etc.) or programming language to 3Di.
-This gives you a lot of flexibility to your modelling applications and can save you lots of manual work and time. Some examples of applications of the API are:
-
-- Batch simulations: run hundred different rain events.
-- Automated testruns, results checks and adjustments to a model before running another simulation.
-- Run 3Di in an operational system, such as a Flood Early Warning System.
-- Use Jupyter Notebooks to run, download and analyse your 3Di simulations. Examples can be found on the `3Di github repository <https://github.com/threedi/scripts-nens/tree/master/Notebooks%203Di%20-%20API%20v3%20-%20VD>`_.
-- Design your own control for weirs or other structures.
-
-
-The API Root can be found on `https://api.3di.live/v3/ <https://api.3di.live/v3/>`_. More enhanced information on the API is written in the `Swagger version <https://api.3di.live/v3/swagger/>`_, where each endpoint contains a block of documentation.
 
 .. _a_authentication_user_management:
 

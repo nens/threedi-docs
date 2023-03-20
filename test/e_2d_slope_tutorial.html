@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tutorial 3: 2D flow model over sloped terrain with multiple rasters &mdash; 3Di  (dev doc 2023-03-13) documentation</title>
+  <title>Tutorial 3: 2D flow model over sloped terrain with multiple rasters &mdash; 3Di  (dev doc 2023-03-20) documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -35,7 +35,7 @@
             3Di
           </a>
               <div class="version">
-                 (dev doc 2023-03-13)
+                 (dev doc 2023-03-20)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -60,24 +60,15 @@
 <p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Modeller Interface</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="i_what_is_mi.html">What is the Modeller Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html">Overview of the user Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html">Overview of the Modeller Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the live site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html#using-the-3di-live-site">Using the 3Di Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the live site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html#login-to-the-live-site">Login to the Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html#overview-session-screen-and-tooling">Overview session screen and tooling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html#notables">Notables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the live site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#start-or-follow-a-session">Start or follow a session</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#editing-a-model-schematisation-with-the-live-site">Editing a model schematisation with the live site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#simulation-interventions">Simulation interventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#analyzing-results-while-scenario-is-running">Analyzing results while scenario is running</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#quitting-the-simulation">Quitting the simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html#store-results">Store results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html#di-livesite">3Di Livesite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the 3Di Live Site</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul class="current">
@@ -184,7 +175,7 @@ Therefore, different settings are required, which will be explored in this tutor
 <ul class="simple">
 <li><p>Install the 3Di Modeller Interface. Please see <a class="reference internal" href="f_3di_instruments_and_downloads.html#di-instruments-and-downloads"><span class="std std-ref">Installation manual</span></a> for instructions.</p></li>
 <li><p>Install the 3Di toolbox in the Modeller Interface. Please see <a class="reference internal" href="f_3di_instruments_and_downloads.html#plugin-installation"><span class="std std-ref">Plugin Installation</span></a> for instructions.</p></li>
-<li><p>Gain access to the 3Di web portal. Please see the <a class="reference internal" href="c_what_is_the_live_site.html#guide-to-portal"><span class="std std-ref">What is the live site</span></a> for instructions.</p></li>
+<li><p>Gain access to the 3Di web portal. Please see the <a class="reference internal" href="c_livesite_overview.html#guide-to-portal"><span class="std std-ref">Login to the Live Site</span></a> for instructions.</p></li>
 <li><p>Download the starter pack for this tutorial, which includes a partially completed .sqlite-database and rasters (DEM, friction, infiltration, infiltration capacity) for Lake Mead <a class="reference external" href="https://nens.lizard.net/media/3di-tutorials/3di-tutorial-02.zip">here</a>.</p></li>
 </ul>
 <section id="model-initialisation">
@@ -442,7 +433,7 @@ If you get this error, you can ignore it.</p>
 <section id="run-your-model">
 <h3>Run your model<a class="headerlink" href="#run-your-model" title="Permalink to this heading"></a></h3>
 <p>You have now build a 2D flow model for mountainous terrain from scratch!
-You can now run your model via the 3Di Live Site (<a class="reference internal" href="c_what_is_the_live_site.html#guide-to-portal"><span class="std std-ref">What is the live site</span></a>) or via the 3Di Modeller Interface (<a class="reference internal" href="i_running_a_simulation.html#simulate-api-qgis"><span class="std std-ref">Running a simulation</span></a>).
+You can now run your model via the 3Di Live Site (<a class="reference internal" href="c_livesite_overview.html#guide-to-portal"><span class="std std-ref">Login to the Live Site</span></a>) or via the 3Di Modeller Interface (<a class="reference internal" href="i_running_a_simulation.html#simulate-api-qgis"><span class="std std-ref">Running a simulation</span></a>).
 It will be available under the name you gave it.</p>
 <figure class="align-default" id="id3">
 <img alt="_images/13_compiled_model.png" src="_images/13_compiled_model.png" />

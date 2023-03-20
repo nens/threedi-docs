@@ -1,17 +1,24 @@
-.. _guide_to_portal:
+.. _what_is_the_live_site:
 
-What is the live site
-======================
+What is the 3Di Live Site
+==========================
 
-.. todo:
-    nog schrijven!
+You can load your organization's models and start simulations through version 2.0 of `the 3Di Live Site <https://www.3di.live/>`_. During the session, others can follow the simulations live, and interventions can be made in the model during the simulation. Results are presented in real-time. The following :ref:`sections <simulate_w_live_site>` describe all the steps, from adjusting the water input to viewing the calculation results.
+
+For instructions on how to log in to the 3Di Live Site, refer to the :ref:`guide_to_portal`. For an overview of the session screen and tooling, refer to :ref:`overview_screen_ls`.
 
 
-.. _simulate_w_live_site:
+.. _a_livesite:
 
-Using the 3Di Live Site
-=========================
+3Di Livesite
+============
+On the `Livesite <https://www.3di.live/>`_ you can start, pause and adjust your simulations. This is the key to interactive and visual modelling, which is essential for a shared understanding of watersystems.
+A scientific paper on the importance of a shared understanding can be found `here <https://www.researchgate.net/publication/285586163_Interactive_use_of_simulation_models_for_collaborative_knowledge_construction_-_The_case_of_flood_policy_decision-making>`_.
 
-Through the 3Di live site (version 2.0) the models of your organisation can be loaded and simulations can be started. During the session others can follow the simulations 'live'. Also interventions can be done in the model during the simulation. Results are presented in real-time. All the steps from adjusting the input of water, to viewing the calculation results are described in this section.
+The video below gives a brief demo of the Livesite. For more detailed information, visit the :ref:`Livesite <guide_to_portal>` page.
 
-For instructions how to login to and use the 3Di live site see :ref:`guide_to_portal`.
+.. raw:: html
+
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/k9heL89ZF1E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+*A demo of the 3Di Livesite*

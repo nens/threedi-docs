@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2D Groundwater flow &mdash; 3Di  (dev doc 2023-03-20) documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="_static/matomo.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1D Flow" href="g_onedee_flow.html" />
+    <link rel="prev" title="2D Interflow" href="g_interflow.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            3Di
+          </a>
+              <div class="version">
+                 (dev doc 2023-03-20)
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="a_background.html">Background of 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_ecosystem.html">3Di Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_releasenotes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_contact.html">Contact</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modelling Guidelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="a_modelling_concepts.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b_modeling_components.html">Modeling components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b_modelling_workflow.html">Modelling Workflow</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Modeller Interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="i_what_is_mi.html">What is the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html">Overview of the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the 3Di Live Site</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the management portal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the 3Di Management Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html#overview-management-portal">Overview management portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the management portal</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">3Di for developers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="j_api.html">3Di API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="j_threedigrid.html">3Di Results API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="j_fews_3di_integrations.html">FEWS-3Di integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="j_lizard_api.html">Lizard API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="e_klondike_workflow.html">Tutorial 1: Workflow of creating a 3Di Schematisation and a 3Di Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_tutorial.html">Tutorial 2: Building a Basic 2D Flow Schematisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_slope_tutorial.html">Tutorial 3: 2D flow model over sloped terrain with multiple rasters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_levees_tutorial.html">Tutorial 4 Building a 2D flow model with levees, channels and breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_1d_tutorial.html">Tutorial 5: Building a 1D model</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Problem solving and support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="f_3di_instruments_and_downloads.html">Installation manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_authentication_user_management.html">Authentication and User Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_problem_solving.html">FAQ and Problem Solving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_servicedesk.html">Servicedesk</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Physics</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="g_massconservation.html">Conservation of mass</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="g_flow.html">Flow</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="g_surfaceflow.html">2D Surface Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="g_interflow.html">2D Interflow</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2D Groundwater flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summary-of-groundwater-concepts-in-3di">Summary of groundwater concepts in 3Di</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#groundwater-concepts">Groundwater concepts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#horton-based-infiltration">Horton based infiltration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#input">Input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#groundwater-flow">Groundwater flow</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#numerical-implementation">Numerical implementation </a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="g_onedee_flow.html">1D Flow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="g_sources_sinks.html">Source and Sink terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_levees_obstacles_breaches.html">Obstacles, Levees and Breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_wind.html">Wind effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_interception.html">Interception</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Model concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="h_basic_modelling_concepts_threedi.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_grid.html">The grid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_numerics.html">Numerics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_control.html">Control Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_calculation_grid_data.html">Tabulated data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_results.html">Results 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_aggregate_results.html">Aggregated output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_state_files.html">State files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Overig</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html">Scenario Archive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html#view-stored-results">View stored results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html#damage-estimation">Damage Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html#load-rasters-in-3di-modeller-interface-using-wms">Load rasters in 3Di Modeller Interface using WMS</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">3Di</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="g_flow.html">Flow</a></li>
+      <li class="breadcrumb-item active">2D Groundwater flow</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/g_groundwater.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="d-groundwater-flow">
+<span id="groundwater"></span><h1>2D Groundwater flow<a class="headerlink" href="#d-groundwater-flow" title="Permalink to this heading"></a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
+<p>Surface water is not only affected by rain and in and outflow of water originating from other regions. In reality, surface water is fully coupled to and interacts with groundwater. This implies that the behaviour and the quantity of water at the surface is affected by groundwater too. The flow in the subsurface is influenced strongly by processes on both very large and small scales in time and space. In order to take all processes into account, models with significant computational times are required, even when surface flow, sewer systems and other processes are neglected.</p>
+<p>3Di aims at a modelling method that can handle short term effects of heavy precipitation and inundation, including the interaction with groundwater. For the computation of surface flow detailed information about the topography and the land use is often available. However, the information about the soil is often much less accurate and detailed. This lack of data and the complexity of the processes involved, favor a scenario-approach when dealing with groundwater flow. Especially, when investigating the sensitivity of areas to flooding and hindrance originating from groundwater. This approach requires a fast numerical model that can integrate the effects of the sewer system, surface water and overland flow. Therefore, processes need to be simplified. First, a short summary of the concepts implemented in 3Di is presented. In the sections that follow, some more detail and context is given about large scale groundwater flow, the implementation and the choices made in the model.</p>
+</section>
+<section id="summary-of-groundwater-concepts-in-3di">
+<h2>Summary of groundwater concepts in 3Di<a class="headerlink" href="#summary-of-groundwater-concepts-in-3di" title="Permalink to this heading"></a></h2>
+<figure class="align-default" id="id4">
+<img alt="master_figure2" src="_images/b_grw_overview_ass.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 44 </span><span class="caption-text">Overview of groundwater concepts in 3Di (1)</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The Figure above shows a cross-section of a region with surface and sub-surface water. The Letters in the Figure refer to the following description of the main assumptions made for the computation of groundwater flow:</p>
+<ol class="upperalpha simple">
+<li><p>The phreatic surface is assumed equal to the water table. The soil below is assumed fully saturated and the soil above assumed completely dry.</p></li>
+<li><p>In the saturated zone, the flow is assumed hydrostatic and horizontal (Dupuit-assumption).</p></li>
+<li><p>An example where assumption B is locally not strictly valid, is at a stream edge where the gradient in the groundwater level is high.</p></li>
+<li><p>The porosity (phreatic storage capacity) is a single, spatially variable value. It represents the potential storage in the saturated zone. Wetting or drying effects and isolation of moisture is not considered.</p></li>
+<li><p>The infiltration is based on the Horton equation.</p></li>
+<li><p>At the bottom boundary, effects of deeper groundwater layers or extraction of water can be defined. This bottom boundary condition is called <em>leakage</em> and is assumed constant in time and spatially variable. An elaborate explanation of Leakage can be found <a class="reference internal" href="g_leakage.html#grwleakage"><span class="std std-ref">Leakage</span></a>.</p></li>
+<li><p>For modelling a soil water zone, groundwater can be combined with <a class="reference internal" href="g_interflow.html#interflow"><span class="std std-ref">2D Interflow</span></a>.</p></li>
+</ol>
+<p>In the section below, while using the Letters and Numbers in <em>Figure 1</em>  and <em>3</em> the key concepts and the assumptions made for the groundwater computations are explained in more detail.</p>
+</section>
+<section id="groundwater-concepts">
+<h2>Groundwater concepts<a class="headerlink" href="#groundwater-concepts" title="Permalink to this heading"></a></h2>
+<p>The subsurface is a general term for the whole domain below the surface, where many processes of the hydrological cycle take place. 3Di aims at a fast, but accurate computation of the flow, especially concerning the interaction between groundwater and surface water. Therefore, the domain of computation focuses on the top aquifer. However, before zooming in at this layer, a schematic overview of some of the large scale processes is given in <em>Figure 1</em>. The various processes that are discussed here are indicated by Romain numbers. <em>Number I</em> indicates surface flow and overland flow. From the surface (<em>Number II</em> ) water can infiltrate or exfiltrate to and from the subsurface, where it can flow further in the horizontal or the vertical direction (<em>Number III</em> ). From thereon, several aquifers can overlap and interact. As they are separated by (semi-)impervious layers, they can exist under different pressure regimes. The exchange can, therefore, occur in both up- and downward direction (<em>Numbers IV and V</em> ).  One aquifer can consist of a zone of saturation and the zone of acration (unsaturated zone). In addition, within one aquifer, the soil characteristics vary over time and space (<em>Number VI</em> ). To limit the modelling domain and the number of processes to be taken into account, the current method for modelling groundwater flow in 3Di, is focused on the processes in the top aquifer of the sub-surface layer (the red box of <em>Number VII</em> ).</p>
+<figure class="align-default" id="id5">
+<img alt="largescale_figure" src="_images/b_grw_largescaleoverview.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 45 </span><span class="caption-text">Overview of large scale groundwater concepts (2)</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Most of the groundwater concepts on which the groundwater method in 3Di is based, are thoroughly described in the book of <em>Jacob Bear and Arnold Verruijt, Modeling Groundwater Flow and Pollution</em>. However, here a short overview is given of the key concepts and assumptions made for the groundwater method used in 3Di. These concepts are illustrated in the Figures 1 and 3 and indicated with Letters and Numbers. The general aim is to simplify the processes involved in the top aquifer, but to preserve enough accuracy for reliable simulations of the surface-subsurface interaction. The numbers below refer to those in Figure 3 and the letters refer to those in Figure 1.</p>
+<ol class="arabic simple">
+<li><p>When only looking at the top aquifer in a system, only one phreatic surface can be defined. This is the level at which the pressure is atmospheric (assumed zero). Below the phreatic surface is the soil fully saturated.</p></li>
+</ol>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Above the phreatic surface is the vadose water zone. There, some of the pore space is actually occupied by water, although the soil is not fully saturated. In the right graph, near <em>Number 2</em>, is the saturation of the soil is plotted as fuction of the depth. As can be seen, the change in gradient can be quite steep and is often approximated by a step function. The step-size depends on various issues including the characteristics of the soil. In the vadose water zone, pressures are negative, which allows the water to go upwards (capillary fringe). This can be seen in the left graph of depth versus pressure.</p></li>
+</ol>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>At the top of the capillary water, the water table is defined. In many applications it is valid to approximate the groundwater table at the top of the capillary fringe by assuming the soil to be saturated below this level and completely dry above it. This assumption is called the capillary fringe approximation and gives in combination with surface water flow,  a two-layer system.  When the <span class="math notranslate nohighlight">\(h_c\)</span> is much smaller than the thickness of the aquifer, the capillary fringe can be neglected. Then, the water table and the phreatic surface are at the same level. This is indeed assumed in 3Di. This is indicated by the <em>Letter A</em>.</p></li>
+</ol>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>The main flow in an aquifer follows the phreatic surface, therefore the phreatic surface is considered to be a stream-line. Within an aquifer the slope of the phreatic surface (<span class="math notranslate nohighlight">\(i\)</span>) is generally small. It is often much smaller than 1 ( <span class="math notranslate nohighlight">\(i&lt;&lt;1\)</span> ) <em>[Dupuit (1863)]</em>. In such case, one can assume the stream-lines to be horizontal, and use only the horizontal Darcy equations to compute the flow. The groundwater level gradients are than defined by the height of the phreatic surface. This is consistent with assuming a hydrostatic pressure within the aquifer. This assumption is called the Dupuit approximation (<em>Letter B</em> ).</p></li>
+</ol>
+<figure class="align-default" id="id6">
+<img alt="master_figure" src="_images/b_grw_overview.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 46 </span><span class="caption-text">Overview of general groundwater concepts (3)</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>The Dupuit approximation can be locally valid, while in other regions it can be invalid. <em>Number 5</em>  indicates an example where the gradient of the stream-lines is high. The dashed red line indicates where the Dupuit assumption is invalid. In stationary cases, one can apply the so-called Dupuit-Forchheimer discharge formula to compute the outflow from groundwater to surface water. The computation of the discharge is still quite accurate, even though the groundwater levels deviate.  In regions further than ones or twice the <span class="math notranslate nohighlight">\(\Delta h\)</span>, the solution approximates again the actual solution. In 3Di (<em>Letter C</em> ), the Dupuit-Forchheimer discharge formula is at these interfaces not applied, as they are often not a priori known. However, for practical purpose this is often only a local deviation.</p></li>
+</ol>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>The storage capacity in the soil is naturally very important, as it determines the volume that can be added and extracted from the soil. However, the storage capacity and the saturation of the soil is related to very complex processes. This deals with the pores, the distribution of pores and the molecular behaviour of water interacting with the soil.  These processes are responsible for the amount of water that can be added or be extracted to/ from the soil. Therefore, for each soil type there is difference between porosity, the specific yield and the specific retention. Where the porosity is measure for the pore space, the specific yield, also known as the effective porosity, is a measure for the space where water can be added or extracted. Whereas, the specific retention is representative for the space within the pores where water cannot be added nor extracted, for example in isolated pores. These values are actually also dependent on the local pressure distribution and partly also whether the pores where previously filled or dry. For simplicity, all these processes are simplified by defining a phreatic storage capacity that is a measure for the effective storage in this layer (<em>Letter D</em> ). Although, this is a simplification of reality, the structures in the soil at this level of detail are generally unknown and can, therefore not be added to a model.</p></li>
+</ol>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>In case of a porous surface layer, surface water will be flowing downward due to gravity, depending on the pressure gradient, the saturation and the hydraulic connectivity. As seen in the graph, there will be a saturated front flowing downward. There is a difference between the infiltration rate and the effective infiltration velocity. The infiltration rate is the rate in which the surface water level decreases. The effective infiltration velocity is the velocity of the front of the saturated zone. Due to differences in porosity the effective velocity can vary with depth. The vertical flow can be described by a Darcy-like formulation in the vertical:</p></li>
+</ol>
+<div class="math notranslate nohighlight" id="equation-inf-press">
+<span class="eqno">(6)<a class="headerlink" href="#equation-inf-press" title="Permalink to this equation"></a></span>\[     q(x,y,z,t) = -\kappa(x,y,z) \frac{\partial \phi}{\partial z}\]</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><p>where <span class="math notranslate nohighlight">\(\phi\)</span> is the hydraulic head. This equation is seemingly simple, but the hydraulic head and the hydraulic connectivity are both dependent on the saturation of the soil. Due to the complexity of the infiltration processes, there are various formulations for infiltration, such as Green and Ampt, Horton and Philip infiltration. There are several differences between those formulations. However, they share that the infiltration rate is initially higher and decreases more or less exponentially to an equilibrium rate. For now, only the Horton-based infiltration, see <a class="reference internal" href="#grwhortoninfiltration"><span class="std std-ref">Horton based infiltration</span></a>, is implemented, which is a formulation, originally, for ponded infiltration only. The formulation described by Horton (1875-1945) takes into account that when the soil contains more water, the infiltration rate will decrease. This can be seen in the graph in the  at <em>Label E</em> .</p>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>Within the soil, multiple aquifers can exist within one domain. Such aquifers are separated by (semi) impervious layers, but these can leak. To simulate the potential interaction between these layers, it is possible to add a bottom boundary condition for flow. This can represent the possible effect of deeper groundwater layers or other sources of extraction or recharge (See <em>Label F</em> ).</p></li>
+</ol>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ol class="arabic simple" start="9">
+<li><p>The soil water zone is the layer just below the surface. Often this is a fully saturated area, but the processes in this layer are heavily affected by the vegetation, precipitation and evaporation. Therefor, often the simulation of this layer is difficult. In case of heavy precipitation, this layer becomes saturated in a sort time. In such case, a user can simulate this layer with use of the interflow layer (<em>Label G</em> ).</p></li>
+</ol>
+</section>
+<section id="horton-based-infiltration">
+<span id="grwhortoninfiltration"></span><h2>Horton based infiltration<a class="headerlink" href="#horton-based-infiltration" title="Permalink to this heading"></a></h2>
+<p>Mentioned above, the infiltration process is rather complex, therefore many models use a parametrization for this process. In 3Di, two types of infiltration formulations are implemented; Horton based infiltration and a constant infiltration. Only the Horton based infiltration is coupled to groundwater. More information about the constant infiltration can be found at <a class="reference internal" href="g_infiltration.html#simpleinfiltration"><span class="std std-ref">Simple Infiltration</span></a>. Here, only the Horton infiltration is discussed.</p>
+<p>Horton based infiltration formulation describes infiltration rate that is decaying in time. Three variables determine the infiltration rate. It is based on the notion that the infiltration rate decays to an equilibrium value, due to changes in the soil characteristics. Mathematically, it is defined by:</p>
+<div class="math notranslate nohighlight" id="equation-inf-horton">
+<span class="eqno">(7)<a class="headerlink" href="#equation-inf-horton" title="Permalink to this equation"></a></span>\[     f(x,y,t) = f_{equ}(x,y)+(  f_{ini}(x,y)-f_{equ}(x,y))e^{-t/T(x,y)}\]</div>
+<p>in which <span class="math notranslate nohighlight">\(f\)</span> is the infiltration rate varying in time and space, <span class="math notranslate nohighlight">\(f_{equ}\)</span> and <span class="math notranslate nohighlight">\(f_{ini}\)</span> are the equilibrium and the initial infiltration rates, respectively. The decay period <span class="math notranslate nohighlight">\(T\)</span> determines the time that the infiltration rate reaches its equilibrium. An example of the decay function is shown in <em>Figure 4</em>.</p>
+<figure class="align-right" id="id7" style="width: 422px">
+<img alt="Horton infiltration" src="_images/b_grw_inf_rate.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 47 </span><span class="caption-text">Infiltration rate according to Horton; with <span class="math notranslate nohighlight">\(f_{ini}=300.0\)</span> mm/day and <span class="math notranslate nohighlight">\(f_{equ}=100.0\)</span> mm/day and <span class="math notranslate nohighlight">\(T=3.0\)</span> hours.    (4)</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The infiltration rate will start its decay as soon as the cell becomes wet. Currently, there is no process to restore the infiltration rate to its initial value. This would happen in real life when an area becomes dry again due to run-off or evaporation.</p>
+<section id="input">
+<h3>Input<a class="headerlink" href="#input" title="Permalink to this heading"></a></h3>
+<p>For the use of Horton infiltration, one chooses indirectly to take a groundwater level into account. This to ensure a limit to the infiltration; when the groundwater level reaches the surface. To take the storage capacity of the soil into account, one needs to define the impervious surface layer and the phreatic storage capacity, as well. The three Horton parameters (in <em>[mm/day]</em>), the impervious surface layer ([m] relative to a reference level)  and the phreatic storage capacity (<em>[-]</em> between 0-1) can be defined globally and spatially varying. In case one uses the spatially varying option, a user needs to define a method for analyzing the rasters (taking the minimum, maximum or the average in a computational domain).</p>
+<p>The initial conditions for the groundwater level can be added to the <em>v2_global_settings</em>  table using a global value or a raster for spatially varying values.</p>
+<p>You can download the complete overview of tables that 3Di uses in the spatialite database <a class="reference download internal" download="" href="_downloads/84a660f75b3e8f891f1cd6c5f0b550f8/database-overview.pdf"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p>
+</section>
+<section id="output">
+<h3>Output<a class="headerlink" href="#output" title="Permalink to this heading"></a></h3>
+<p>Similar to the other variables, the results are saved in the result files, snap-shots and aggregated results. In contrast to infiltration computed according to <a class="reference internal" href="g_infiltration.html#simpleinfiltration"><span class="std std-ref">Simple Infiltration</span></a>, the Horton-based infiltration is computed on a flow line. Both a discharge (<span class="math notranslate nohighlight">\([m^3/s]\)</span>) and a velocity (<em>[m/s]</em>) are available as output. Note, that the velocity is the infiltration rate and not the effective velocity. The effective velocity is the velocity that the water front would subside through the soil.</p>
+</section>
+</section>
+<section id="groundwater-flow">
+<span id="grwflow"></span><h2>Groundwater flow<a class="headerlink" href="#groundwater-flow" title="Permalink to this heading"></a></h2>
+<p>The flow in the subsurface is computed under the assumption of hydrostatic pressure. This is also known as the Dupuit assumption. This implies that the flow in the saturated zone is fully horizontal and described by the Darcy equations:</p>
+<div class="math notranslate nohighlight" id="equation-eq-darcy">
+<span class="eqno">(8)<a class="headerlink" href="#equation-eq-darcy" title="Permalink to this equation"></a></span>\[ \begin{align}\begin{aligned}Q_x=-K_x A_x \frac{\partial \phi}{\partial x}\\Q_y=-K_y A_y \frac{\partial \phi}{\partial y}\end{aligned}\end{align} \]</div>
+<p>with <span class="math notranslate nohighlight">\(Q_x, Q_y\)</span> the x- and y- component of the discharges, <span class="math notranslate nohighlight">\(A_x, A_y\)</span> the corresponding cross-sectional areas and the gradients of the preatic surface (<span class="math notranslate nohighlight">\(\phi\)</span>). Even though, the Dupuit assumption can be invalid locally, it is very applicable on the larger scale. A famous analytical case, based on these assumptions is the Hooghoudt equation. It describes the groundwater level in between two open water channels, see <em>Figure (5)</em>.</p>
+<figure class="align-right" id="id8" style="width: 400px">
+<img alt="Hooghoudt" src="_images/b_grw_hooghoudt.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 48 </span><span class="caption-text">Hooghoudt: Typical example of groundwater flow according to the Dupuit assumption. (5)</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<section id="id1">
+<h3>Input<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<p>The input for using groundwater flow is very similar to the input for <a class="reference internal" href="#grwhortoninfiltration"><span class="std std-ref">Horton based infiltration</span></a>. In addition to these parameters, one can define the Darcy or hydraulic connectivity values globally or using a raster for spatially varying values. The dimension of the hydraulic connectivity is in <em>[m/day]</em>. You can download the complete overview of settings that 3Di uses in the spatialite database <a class="reference download internal" download="" href="_downloads/84a660f75b3e8f891f1cd6c5f0b550f8/database-overview.pdf"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p>
+</section>
+<section id="id2">
+<h3>Output<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<p>The discharges ([m<sup>3</sup>/s]), the velocities <em>[m/s]</em> and the groundwater levels <em>[m]</em> are all included in the NetCDF and in the aggregated results NetCDF. Also for the groundwater related variables yields that discharges and velocities are defined at flow lines and the water levels at the nodes. Note, that the velocity is the effective velocity, not the velocity of a single water particle.</p>
+</section>
+</section>
+<section id="numerical-implementation">
+<span id="grwnummericalimplementation"></span><h2>Numerical implementation <a class="footnote-reference brackets" href="#f1" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><a class="headerlink" href="#numerical-implementation" title="Permalink to this heading"></a></h2>
+<p>The numerical implementation of the horizontal and vertical flow is based on the concept of staggered grids as explained in <a class="reference internal" href="h_grid.html#grid"><span class="std std-ref">The grid</span></a>. This implies that pressure points are defined in the cell centers and flow is defined at the cell edges. The spatial resolution of the 2D surface flow equals that of the groundwater flow. Therefore, the connections between the surface and the subsurface are completely vertical and orthogonal to the surface and subsurface layers.</p>
+<p>The timescales of groundwater flow compared to those of surface water flow, are generally considerably longer. This would favor an explicit formulation. However, the moment that the groundwater level reaches the surface, the timescales are the same. Therefore, only the horizontal flow is computed explicitly, but the vertical interaction is computed implicitly.</p>
+<p>For the sources and sinks, we choose an implementation where the sources are computed explicitly, but the sinks are implicitly taken into account. This is to guarantee mass conservation.</p>
+<p>We are working on a full description of the numerical implementation to be published in <em>International Journal For Numerical Methods in Fluids</em>.</p>
+<p class="rubric">Footnotes</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="f1" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">1</a><span class="fn-bracket">]</span></span>
+<p>The numerical implementation is developed by and under the supervision of G.S. Stelling, Stelling hydraulics, 2018</p>
+</aside>
+</aside>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="g_interflow.html" class="btn btn-neutral float-left" title="2D Interflow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="g_onedee_flow.html" class="btn btn-neutral float-right" title="1D Flow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nelen &amp; Schuurmans.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

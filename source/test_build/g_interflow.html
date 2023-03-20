@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2D Interflow &mdash; 3Di  (dev doc 2023-03-20) documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="_static/matomo.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2D Groundwater flow" href="g_groundwater.html" />
+    <link rel="prev" title="2D Surface Flow" href="g_surfaceflow.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            3Di
+          </a>
+              <div class="version">
+                 (dev doc 2023-03-20)
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="a_background.html">Background of 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_ecosystem.html">3Di Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_releasenotes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_contact.html">Contact</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modelling Guidelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="a_modelling_concepts.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b_modeling_components.html">Modeling components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b_modelling_workflow.html">Modelling Workflow</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Modeller Interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="i_what_is_mi.html">What is the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html">Overview of the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the 3Di Live Site</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the management portal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the 3Di Management Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html#overview-management-portal">Overview management portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the management portal</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">3Di for developers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="j_api.html">3Di API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="j_threedigrid.html">3Di Results API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="j_fews_3di_integrations.html">FEWS-3Di integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="j_lizard_api.html">Lizard API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="e_klondike_workflow.html">Tutorial 1: Workflow of creating a 3Di Schematisation and a 3Di Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_tutorial.html">Tutorial 2: Building a Basic 2D Flow Schematisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_slope_tutorial.html">Tutorial 3: 2D flow model over sloped terrain with multiple rasters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_levees_tutorial.html">Tutorial 4 Building a 2D flow model with levees, channels and breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_1d_tutorial.html">Tutorial 5: Building a 1D model</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Problem solving and support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="f_3di_instruments_and_downloads.html">Installation manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_authentication_user_management.html">Authentication and User Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_problem_solving.html">FAQ and Problem Solving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_servicedesk.html">Servicedesk</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Physics</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="g_massconservation.html">Conservation of mass</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="g_flow.html">Flow</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="g_surfaceflow.html">2D Surface Flow</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2D Interflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-principles-of-interflow">Basic Principles of Interflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#computation-of-volume-in-2d-domain">Computation of Volume in 2D domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#computation-of-flow-in-the-interflow-layer">Computation of Flow in the interflow layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interflow-in-combination-with-the-subgrid-approach">Interflow in combination with the subgrid approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#technical-explanation-of-the-four-interflow-types">Technical explanation of the four interflow types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#settings-for-interflow">Settings for interflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#good-to-know">Good to know</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="g_groundwater.html">2D Groundwater flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="g_onedee_flow.html">1D Flow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="g_sources_sinks.html">Source and Sink terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_levees_obstacles_breaches.html">Obstacles, Levees and Breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_wind.html">Wind effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_interception.html">Interception</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Model concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="h_basic_modelling_concepts_threedi.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_grid.html">The grid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_numerics.html">Numerics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_control.html">Control Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_calculation_grid_data.html">Tabulated data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_results.html">Results 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_aggregate_results.html">Aggregated output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_state_files.html">State files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Overig</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html">Scenario Archive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html#view-stored-results">View stored results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html#damage-estimation">Damage Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html#load-rasters-in-3di-modeller-interface-using-wms">Load rasters in 3Di Modeller Interface using WMS</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">3Di</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="g_flow.html">Flow</a></li>
+      <li class="breadcrumb-item active">2D Interflow</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/g_interflow.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="d-interflow">
+<span id="interflow"></span><h1>2D Interflow<a class="headerlink" href="#d-interflow" title="Permalink to this heading"></a></h1>
+<p>In a 2D model, the water flows over the surface and can infiltrate into the soil. Surface water flow is described by the shallow water equations. The infiltration is based on the available water above the surface, the maximum infiltration rate and the storage capacity of the soil. All these parameters are defined on a geographical raster, and translated to a set of values for each computational cell.</p>
+<p>The interflow layer is an extra layer that can be defined below the surface. Surface water can be stored and can flow within the interflow layer. The flow through the interflow layer is described by the Darcy equation. The Darcy type of flow is believed to be more realistic for surface/subsurface flow in rainfall runoff conditions. This is because, in these cases, one deals with very thin water layers for which small (unknown) structures in the soil and on the ground level affect the flow. In such case the flow resembles more a Darcy type of flow than surface water flows.</p>
+<section id="basic-principles-of-interflow">
+<h2>Basic Principles of Interflow<a class="headerlink" href="#basic-principles-of-interflow" title="Permalink to this heading"></a></h2>
+<figure class="align-default" id="id1">
+<img alt="Applications of the interflow layer" src="_images/b_interflow_applications.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 39 </span><span class="caption-text">Applications of the interflow layer</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The interflow layer is defined by setting the thickness of the interflow layer, the porosity and the hydraulic conductivity. Together, these variables determine the storage capacity and the flow of the interflow layer. When the ground level is uniform, the thickness of the interflow layer has a unique interpretation, but when the ground level varies within a computational cell, there are multiple interpretation possible. This interpretation can be chosen by the user by setting the interflow type. Before explaning the differences due to the subgrid approach, first, the interflow concept will be explained for a uniform ground level.</p>
+</section>
+<section id="computation-of-volume-in-2d-domain">
+<h2>Computation of Volume in 2D domain<a class="headerlink" href="#computation-of-volume-in-2d-domain" title="Permalink to this heading"></a></h2>
+<p>When introducing an interflow layer, one introduces only new flow links and extra storage capacity, but no new pressure/water level points. This implies that the volume of water in a computational cell consists of the volume in the porous layer and that of the open water layer. The thickness of the interflow layer, the porosity and the water level determine the water volume of a computational cell:</p>
+<div class="math notranslate nohighlight" id="equation-interflow-volume">
+<span class="eqno">(3)<a class="headerlink" href="#equation-interflow-volume" title="Permalink to this equation"></a></span>\[  V = \alpha H_I A + H A,\]</div>
+<div class="line-block">
+<div class="line">In which:</div>
+<div class="line"><span class="math notranslate nohighlight">\(\alpha\)</span> is the local porosity,</div>
+<div class="line"><span class="math notranslate nohighlight">\(H_I\)</span> is the thickness of the interflow layer,</div>
+<div class="line"><span class="math notranslate nohighlight">\(A\)</span> is the pixel surface and</div>
+<div class="line"><span class="math notranslate nohighlight">\(H\)</span> is the water depth.</div>
+</div>
+<figure class="align-default">
+<img alt="Sketch of interflow layer" src="_images/b_interflow_simple.png" />
+</figure>
+<p>The water level rises from the deepest level in a cell. Therefore, water is first stored in the interflow layer and only when the water level rises above the surface level is water stored on the surface. This implies, that <span class="math notranslate nohighlight">\(H_I\)</span> can be maximally the thickness of the interflow layer and H&gt;0 when the water level is above the surface level. The porosity depends on the soil characteristics, below one finds some examples.</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="_images/b_interflow_examples_porosity.png"><img alt="Applications of the interflow layer" src="_images/b_interflow_examples_porosity.png" style="width: 949.5px; height: 561.0px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 40 </span><span class="caption-text">Applications of the interflow layer</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="computation-of-flow-in-the-interflow-layer">
+<h2>Computation of Flow in the interflow layer<a class="headerlink" href="#computation-of-flow-in-the-interflow-layer" title="Permalink to this heading"></a></h2>
+<p>The flow through the interflow layer is calculated by the 2D implementation of Darcy’s law for groundwater flow:</p>
+<div class="math notranslate nohighlight" id="equation-interflow-flow">
+<span class="eqno">(4)<a class="headerlink" href="#equation-interflow-flow" title="Permalink to this equation"></a></span>\[\begin{split}Q_I^x = -\kappa A_I^x \frac{\delta \zeta}{\delta x}\\
+Q_I^y = -\kappa A_I^y \frac{\delta \zeta}{\delta y}\end{split}\]</div>
+<div class="line-block">
+<div class="line">In which:</div>
+<div class="line"><span class="math notranslate nohighlight">\(Q_I^x\)</span> and <span class="math notranslate nohighlight">\(Q_I^y\)</span> = the horizontal discharges in the interflow layer.</div>
+<div class="line"><span class="math notranslate nohighlight">\(\kappa\)</span> = the hydraulic condutivity</div>
+<div class="line"><span class="math notranslate nohighlight">\(A_I^x\)</span> and <span class="math notranslate nohighlight">\(A_I^y\)</span> = the cross-sectional area.</div>
+</div>
+<p>Note: The Darcy’s velocity does not take into account that medium is a grain-aggregate. In reality water flows through pore-paths (inter-connected pores) only. The interflow velocity computed in 3Di is related to the discharge through the concept of effective porosity.</p>
+</section>
+<section id="interflow-in-combination-with-the-subgrid-approach">
+<h2>Interflow in combination with the subgrid approach<a class="headerlink" href="#interflow-in-combination-with-the-subgrid-approach" title="Permalink to this heading"></a></h2>
+<p>The basic principles of interflow are simple, but applied with subgrid method, it becomes more complicated. To fully understand interflow with subgrids, it is important to realize that each computational cell (one computational cell has multiple subgrid  cells) has one volume value and hence one water level. The flow from one cell to another has two components, namely interflow and surface flow. (Only when using the groundwater flow option in 3Di, two volumes are computed for each cell, a groundwater volume and a surface water volume).</p>
+<p>However, when within a computational cell the surface level varies, the moment that the water level rises above the ground level is different per subgrid cell as the water level is uniform within a computational cell. 3Di allows four different methods to deal with the subgrid information. The user defines this by setting the interflow type.</p>
+<p>Without the interflow layer, the volume of water in a cell is computed from the surface of the lowest subgrid cell. If interflow is used, the volume is computed from another reference level, namely the impervious layer. In the example of the figure below, the lowest elevation is 0.0 m and the interflow depth is defined at 1.0 m. This means that the reference (or impervious) level is at -1.0 m in this cell.</p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="_images/b_interflow_build_volume.png"><img alt="Sketch of interflow layer for, form left to right, Part I, II and III" src="_images/b_interflow_build_volume.png" style="width: 2016.75px; height: 385.5px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 41 </span><span class="caption-text">Sketch of interflow layer for, form left to right, Part I, II and III</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The interflow layer is completely dry (V=0 m<sup>3</sup>) if the water level in a cell is at the level of the impervious layer (-1.0 m). The interflow layer is completely filled (saturated), if the water level is at the same level as the highest surface level of a subgrid cell in this computational cell (+1.0 m). The relation between the water level and the volume, as shown in the graph below, can be split into three parts. In part I; there is only water in the interflow layer. The curve is fully determined by the porosity distribution. In part II; water is partly in the interflow layer and partly above the ground level. In part III; the volume rises linearly with the water level as the interflow layer is fully saturated and the whole surface area of the cell is wet.</p>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="_images/b_interflow_volume_curve.png"><img alt="Relation between water level and volume" src="_images/b_interflow_volume_curve.png" style="width: 447.0px; height: 455.0px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 42 </span><span class="caption-text">Relation between water level and volume</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The user defines the thickness of the interflow layer. As the surface level varies, the level of the impermeable layer would vary too. Nummerically, it has advantages to choose within a computational cell a uniform reference level. So the defined thickness of the interflow layer is always relative to the lowest pixel. The lowest pixel is either defined in the computational cell or in the modelling domain. This is up to the user. To be able to control the storage capacity, the porosity within a subgrid cell can be rescaled, to guarentee for an unchanged storage capacity. Whether, this rescaling is performed depends also on the user settings. In the next paragraph, the four option are explained in detail.</p>
+<p>Using the automatic rescaling of the porosity, the storage volume in the interflow layer is according to the expected volume based on the defined porosity and defined depth of the interflow layer. If rescaling is used, then the user also has to define a reference level for the impervious layer. This extra reference level has no physical meaning and has been added for advanced numerical purposes, such as stability. The porosity is rescaled to this extra permeable reference level. In case the porosity is kept constant, the storage capacity in areas with higher surfae levels is larger than in lower lying areas. However, in this case the relation between the water level and the volume remains linear (except at the transsition of surface level).</p>
+</section>
+<section id="technical-explanation-of-the-four-interflow-types">
+<h2>Technical explanation of the four interflow types<a class="headerlink" href="#technical-explanation-of-the-four-interflow-types" title="Permalink to this heading"></a></h2>
+<p>There are 4 types or settings of interflow that determine the  relation between porosity, water level and volume. For types 1 and 2 the user explicitly defines the thickness of the porosity layer and the depth of the impervious (the reference) layer. In theory both should have the same value. But early practice showed that using a very deep impervious layer, results in a more stable simulation. When choosing interflow type 1 or 2, the porosity is rescaled in order to preserve the storage capacity as would be based on the thickness and the porosity. For interflow type 3 and four the porosity remains constant.</p>
+<p><strong>Type 1</strong>
+For type 1 the user defines a fixed thickness of the interflow layer throuhout the model domain and am uniform impervious layer elevation, which is determined relative per computational cell. One is also to define a porosity, which can be defined globally or with a raster. The porosity and the thickness of the interflow layer determine the storage capacity in the calculation cell. De elevation of the impervious layer determines whether the cell is dry or wet. To guarentee the storage capacity defined by the thickness of the layer and the porosity, the  porosity in the interflow layer is rescaled (<span class="math notranslate nohighlight">\(\hat{\alpha}\)</span>) to the elevation of the impervious layer, according to:</p>
+<div class="math notranslate nohighlight" id="equation-porosity-scaled">
+<span class="eqno">(5)<a class="headerlink" href="#equation-porosity-scaled" title="Permalink to this equation"></a></span>\[\hat{\alpha} = \frac{\alpha * L}{max(H_I, L)}\]</div>
+<div class="line-block">
+<div class="line">In which:</div>
+<div class="line"><span class="math notranslate nohighlight">\(\alpha\)</span> = input porosity,</div>
+<div class="line"><span class="math notranslate nohighlight">\(L\)</span> = interflow layer depth and</div>
+<div class="line"><span class="math notranslate nohighlight">\(H_I = D_{sur} – D_{inp}\)</span>,</div>
+</div>
+<div class="line-block">
+<div class="line">defining,</div>
+<div class="line"><span class="math notranslate nohighlight">\(D_{sur}\)</span> = surface level elevation and</div>
+<div class="line"><span class="math notranslate nohighlight">\(D_{inp}\)</span>  = elevation of the impervious layer.</div>
+</div>
+<p>The rescaled porosity is than used to compute the volumes and the water levels.</p>
+<p><strong>Type 2</strong> This interflow type resembles type 1. The porosity is determined according to the method described under type 1. The only difference is that the elevation of the impervious layer is not determined relative to the lowest surface level within one computational cel, but relative to the lowest pixel in the entire model domain.</p>
+<p><strong>Type 3</strong> When using interflow type 3, the volume in the interflow layer depends on the porosity per pixel and the depth of the impervious layer is relative to the deepest surface level in the computational cell. The porosity can be given globally or as a raster with different values per pixel. In type 3 the porosity is not rescaled.</p>
+<p><strong>Type 4</strong> is similar to type 3 but determines the depth of the interflow layer relative to the lowest surface level in the whole model.</p>
+<p><em>The figure and the table below show an example of de volumes in a calculation cell with interflow relative to the water level. In the last column the interflow settings are given. The rows in the table correspond to the situations displayed in the figure. The calculation cell’s area is one square meter and for simplicity the cells contains only 4 pixels</em></p>
+<figure class="align-default" id="id5">
+<img alt="Overview of different states using interflow" src="_images/b_interflow_states.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 43 </span><span class="caption-text">Overview of different states using interflow</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default">
+<img alt="Interflow example table" src="_images/b_interflow_example.png" />
+</figure>
+</section>
+<section id="settings-for-interflow">
+<h2>Settings for interflow<a class="headerlink" href="#settings-for-interflow" title="Permalink to this heading"></a></h2>
+<p>Below two tables are included with a summary of the possible settings for interflow.</p>
+<table class="docutils align-default" id="id6">
+<caption><span class="caption-number">Table 41 </span><span class="caption-text">Settings for interflow layer</span><a class="headerlink" href="#id6" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Uniform in Model Domain</p></th>
+<th class="head"><p>Spatially Varying in Model Domain</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Porosity</p></td>
+<td><div class="math notranslate nohighlight">
+\[\checkmark\]</div>
+</td>
+<td><div class="math notranslate nohighlight">
+\[\checkmark\]</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Porosity Layer</p></td>
+<td><div class="math notranslate nohighlight">
+\[\checkmark\]</div>
+</td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>Hydraulic Connectivity</p></td>
+<td><div class="math notranslate nohighlight">
+\[\checkmark\]</div>
+</td>
+<td><div class="math notranslate nohighlight">
+\[\checkmark\]</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Impervious Layer Elevation</p></td>
+<td><div class="math notranslate nohighlight">
+\[\checkmark\]</div>
+</td>
+<td><p>X</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id7">
+<caption><span class="caption-number">Table 42 </span><span class="caption-text">Interflow Types</span><a class="headerlink" href="#id7" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Porosity</p></th>
+<th class="head"><p>Per Cell</p></th>
+<th class="head"><p>Model Wide</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Rescale</p></td>
+<td><p>Type 1</p></td>
+<td><p>Type 2</p></td>
+<td><p>Storage is known apriori</p></td>
+</tr>
+<tr class="row-odd"><td><p>Constant</p></td>
+<td><p>Type 3</p></td>
+<td><p>Type 4</p></td>
+<td><p>Extra storage in interflow layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="good-to-know">
+<h2>Good to know<a class="headerlink" href="#good-to-know" title="Permalink to this heading"></a></h2>
+<p><strong>Infiltration</strong> Infiltration from the interflow layer is only active when the water level is above the surface level (lowest point of the DEM in that computational cell). Infiltration is not a process that allows water from the surface to the interflow layer, it is from the total cell volume out of the model. When the water level drops below the lowest surface level of the cell, the infiltration stops. In case, you would like to allow the infiltration to contiunu and allow water to exit interflow layer, one can use the surface sources and sinks functionality.</p>
+<p><strong>Laterals</strong> Nothing actually changes for the laterals. The extraction of water continues until the total volume is zero. This means that the water level can be lower than the DEM.</p>
+<p><strong>Obstacles and levees</strong> Flow in the interflow layer is affected (stopped) by obstacles and levees. Flow in the interflow layer does not flow under/through levees.</p>
+<p><strong>Connection with 1D</strong> There is no separate link between interflow and 1D-elements. So no seepage from deep channels, all flow between 1D and 2D happens via the 2D surface. This also implies that drainage or bank levels of 1D elements cannot be set below the 2D surface.</p>
+<p><strong>Embedded channels or pipes</strong> Both embedded elements and interflow affect the volume in 2D computational cells and it is therefore not advised to use them together.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="g_surfaceflow.html" class="btn btn-neutral float-left" title="2D Surface Flow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="g_groundwater.html" class="btn btn-neutral float-right" title="2D Groundwater flow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nelen &amp; Schuurmans.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

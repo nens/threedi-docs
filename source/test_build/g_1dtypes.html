@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1D Flow &mdash; 3Di  (dev doc 2023-03-20) documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="_static/matomo.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Pressurized flow" href="g_1dpressurized.html" />
+    <link rel="prev" title="1D Flow" href="g_onedee_flow.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            3Di
+          </a>
+              <div class="version">
+                 (dev doc 2023-03-20)
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="a_background.html">Background of 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_ecosystem.html">3Di Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_releasenotes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_contact.html">Contact</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modelling Guidelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="a_modelling_concepts.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b_modeling_components.html">Modeling components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b_modelling_workflow.html">Modelling Workflow</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Modeller Interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="i_what_is_mi.html">What is the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html">Overview of the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the 3Di Live Site</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the management portal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the 3Di Management Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html#overview-management-portal">Overview management portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the management portal</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">3Di for developers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="j_api.html">3Di API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="j_threedigrid.html">3Di Results API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="j_fews_3di_integrations.html">FEWS-3Di integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="j_lizard_api.html">Lizard API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="e_klondike_workflow.html">Tutorial 1: Workflow of creating a 3Di Schematisation and a 3Di Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_tutorial.html">Tutorial 2: Building a Basic 2D Flow Schematisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_slope_tutorial.html">Tutorial 3: 2D flow model over sloped terrain with multiple rasters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_levees_tutorial.html">Tutorial 4 Building a 2D flow model with levees, channels and breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_1d_tutorial.html">Tutorial 5: Building a 1D model</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Problem solving and support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="f_3di_instruments_and_downloads.html">Installation manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_authentication_user_management.html">Authentication and User Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_problem_solving.html">FAQ and Problem Solving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_servicedesk.html">Servicedesk</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Physics</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="g_massconservation.html">Conservation of mass</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="g_flow.html">Flow</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="g_surfaceflow.html">2D Surface Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="g_interflow.html">2D Interflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="g_groundwater.html">2D Groundwater flow</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="g_onedee_flow.html">1D Flow</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1D Flow</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#d-network">1D Network</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#types-of-1d-elements-calculation-types">Types of 1D elements (calculation types)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#some-considerations-for-1d-elements">Some considerations for 1D elements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="g_1dpressurized.html">Pressurized flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="g_structures.html">1D flow over structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="g_channelflow.html">Channel Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="g_sewerage.html">Pipe flow</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="g_sources_sinks.html">Source and Sink terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_levees_obstacles_breaches.html">Obstacles, Levees and Breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_wind.html">Wind effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_interception.html">Interception</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Model concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="h_basic_modelling_concepts_threedi.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_grid.html">The grid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_numerics.html">Numerics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_control.html">Control Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_calculation_grid_data.html">Tabulated data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_results.html">Results 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_aggregate_results.html">Aggregated output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_state_files.html">State files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Overig</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html">Scenario Archive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html#view-stored-results">View stored results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html#damage-estimation">Damage Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html#load-rasters-in-3di-modeller-interface-using-wms">Load rasters in 3Di Modeller Interface using WMS</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">3Di</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="g_flow.html">Flow</a></li>
+          <li class="breadcrumb-item"><a href="g_onedee_flow.html">1D Flow</a></li>
+      <li class="breadcrumb-item active">1D Flow</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/g_1dtypes.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="d-flow">
+<span id="dtypes"></span><h1>1D Flow<a class="headerlink" href="#d-flow" title="Permalink to this heading"></a></h1>
+<p>3Di offers the possibility to model areas as 1D networks. Generally, these simulations are very fast, but the schematisation is a strong simplification of the real world. The 1D elements should be used for applications in which only one horizontal dimension (flow direction) is dominant over the other directions. In other cases, 3Di offers the possibility to make connection to the 2D domain. 3Di has various options to integrate 1D elements in the 2D domain.
+This offers the possibility to preserve the complexity of the modelling domain, but to make use of the extra resolution and speed of 1D computations. In such case, the 1D elements are generally narrow compared to the dimensions of the 2D resolution.</p>
+<p>The flow in 1D networks is computed, using the equations of conservation of mass and momentum, more specifically the 1D depth-averaged shallow water equations. The momentum equation for 1D flow is:</p>
+<div class="math notranslate nohighlight" id="equation-1d-momentum-equation">
+<span class="eqno">(9)<a class="headerlink" href="#equation-1d-momentum-equation" title="Permalink to this equation"></a></span>\[\frac{\partial u}{\partial t}+u \frac{\partial u}{\partial s}=-g\frac{\partial \zeta}{\partial x}-\frac{\tau_f}{\rho}-\frac{\tau_w}{\rho}\]</div>
+<div class="line-block">
+<div class="line">In which:</div>
+<div class="line"><span class="math notranslate nohighlight">\(u\)</span> is the cross-sectionally averaged velocity</div>
+<div class="line"><span class="math notranslate nohighlight">\(s\)</span> is the 1D coordinate in along the network</div>
+<div class="line"><span class="math notranslate nohighlight">\(g\)</span> is the gravitational acceleration</div>
+<div class="line"><span class="math notranslate nohighlight">\(\rho\)</span> is the density of the water</div>
+<div class="line"><span class="math notranslate nohighlight">\(\tau_f\)</span> is the shear stress due to bottom friction</div>
+<div class="line"><span class="math notranslate nohighlight">\(\tau_w\)</span> is the shear stress due to wind</div>
+</div>
+<p>In words; in 1D, 3Di takes inertia, advection, pressure gradients, bottom friction and wind shear stresses into account. This yields for all types of 1D network applications. However, in the computation of advection and the effect of wind stress on specific 1D network configurations, some differences are applied. This will be explained more elaborated below.</p>
+<section id="d-network">
+<h2>1D Network<a class="headerlink" href="#d-network" title="Permalink to this heading"></a></h2>
+<p>In the most abstract form, a 1D network can be viewed as a combination of nodes and lines. Such a network is translated to a grid, as described in <a class="reference internal" href="h_grid.html#dgrid"><span class="std std-ref">Computational grid for 1D domain</span></a>. The nodes and the connections have their own characteristics. Based on those, cross-sectional areas, storage and flow is computed.</p>
+<figure class="align-left" id="id1" style="width: 400px">
+<img alt="abstract_1D_networks" src="_images/1dnetworkabstract.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 49 </span><span class="caption-text">Example of a 1D network</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<section id="cross-sections-of-1d-elements">
+<span id="cross-section-of-1d-element"></span><h3>Cross-sections of 1D elements<a class="headerlink" href="#cross-sections-of-1d-elements" title="Permalink to this heading"></a></h3>
+<p>There are various options to define cross-sectional areas in 3Di. There are ready made shapes; circular, egg-shape and squares. The other two options allow the user to customize the cross-sectional area. One can define a table with any height width combination. Moreover, the values can be interpreted as discrete values or linearized. Some examples are shown in the figure. These tabelised options are very suited to deal with measured profiles in open water channels.</p>
+<p>The top width of cross-sections can be defined open or closed. When the cross-section is defined open, the water level can rise above the defined height of the cross-section, the width of the cross-section remains the same. This is shown in the figure with the red dashed lines. In case the cross-section is closed at the top level, the water level cannot rise higher. The flow becomes pressurized.</p>
+<figure class="align-default" id="id2">
+<img alt="crosssec_1D_networks" src="_images/b_1dcrosssections.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 50 </span><span class="caption-text">Examples of cross-sections in 1D networks; circular, egg-shaped, rectangular, open and closed tabulated cross-sections.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="types-of-1d-elements-calculation-types">
+<span id="calculation-types"></span><h2>Types of 1D elements (calculation types)<a class="headerlink" href="#types-of-1d-elements-calculation-types" title="Permalink to this heading"></a></h2>
+<p>A water system consists often of small channels, ditches and pipes. These are difficult to model in 2D, and therefore they are schematised using the 1D network options in 3Di. These elements can interact with the 2D computational domain. There are three different calculation types that determine the interaction with the 2D domain. These calculation types are:</p>
+<ul class="simple">
+<li><p>Isolated; no connection to the 2D domain</p></li>
+<li><p>Connected; one connection to the 2D domain</p></li>
+<li><p>Double Connected; two connections to the 2D domain</p></li>
+<li><p>Embedded; fully integrated with the 2D domain</p></li>
+</ul>
+<figure class="align-left" id="id3" style="width: 400px">
+<img alt="channel_types" src="_images/b_1dchanneltypes.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 51 </span><span class="caption-text">A connected, a double connected and an embedded channel in a 2D domain.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>In the sections below, these options are further discussed. In this figure, three channels are drawn within a 2D domain. It shows a connected channel (orange), a double connected channel (purple) and an embedded channel (green). The squares indicate the computational points of the water level and the circles the locations of the velocity points. Their connections with the 2D domain are indicated with curved, dashed lines.</p>
+<p>In a 1D network all these types of 1D elements can be used together. The sections <a class="reference internal" href="g_sewerage.html#sewerage"><span class="std std-ref">Pipe flow</span></a>, <a class="reference internal" href="g_structures.html#structures"><span class="std std-ref">1D flow over structures</span></a> and <a class="reference internal" href="d_water_system.html#channels"><span class="std std-ref">Channels</span></a> describe how these elements can be defined in a model schematisation.</p>
+<section id="isolated-1d-network-elements">
+<h3>Isolated 1D network elements<a class="headerlink" href="#isolated-1d-network-elements" title="Permalink to this heading"></a></h3>
+<p><strong>When do you use this?</strong></p>
+<p>In case the 1D network is defined as Isolated, the element does not interact with the 2D surface domain. In case a network is fully isolated, it is a pure 1D simulation.</p>
+<figure class="align-right" id="id4" style="width: 300px">
+<img alt="isolated_1D_networks" src="_images/b_isolatedelement.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 52 </span><span class="caption-text">Example of an isolated element, the thin red line in indicates the top of the cross-section information.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>How it works?</strong></p>
+<p>This is the simplest option for 1D networks. There is no interaction with the 2D domain, so only the 1D shallow water equations are solved.</p>
+</section>
+<section id="connected-1d-network-elements">
+<h3>Connected 1D network elements<a class="headerlink" href="#connected-1d-network-elements" title="Permalink to this heading"></a></h3>
+<p><strong>When do you use this?</strong></p>
+<p>In case the 1D network is defined as Connected, the element can interact with the 2D surface domain. For applications where one has an extended 2D domain including, various essential small scale features, 1D connected elements will improve the model results. Ditches, canals and manholes can be schematised using the 1D connected elements. Hereby, locally increasing the total resolution of the model.</p>
+<figure class="align-default" id="id5" style="width: 450px">
+<img alt="connected_1D_networks" src="_images/b_connectedelement.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 53 </span><span class="caption-text">Four examples of connected elements. 1) The bank/drainage level is defined above the highest bed levels in the 2D domain. 2) The bank/drainage level is defined below the local bed level 3) The bank/drainage level is not defined, the exchange level is based on the local value of the bed level. 4) This is an example of a double connected channel, where exchange levels have different values.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>How it works?</strong></p>
+<p>The computational/water level points of 1D elements, that are defined as connected make a connection to the nearest 2D computational/water level point. The figure shows different variations of exchange levels. Water will start flowing when the water level rises higher than the exchange level in either the 1D or the 2D computational point.</p>
+<p>The exchange levels can be set by the user or are based on the local bed level. Once the water level reaches the exchange level, the computed flow is based on a reduced momentum balance;</p>
+<div class="math notranslate nohighlight" id="equation-reduced-1d-momentum-equation">
+<span class="eqno">(10)<a class="headerlink" href="#equation-reduced-1d-momentum-equation" title="Permalink to this equation"></a></span>\[0 = -g\frac{\partial \zeta}{\partial s} \big\rvert_{1D2D}-\frac{\tau_f}{\rho}\]</div>
+<p>This momentum equation in combination with a cross-section defines the flux between the computational domains.</p>
+<div class="math notranslate nohighlight" id="equation-q-1d2d">
+<span class="eqno">(11)<a class="headerlink" href="#equation-q-1d2d" title="Permalink to this equation"></a></span>\[Q_{1D2D} = u_{1D2D} A_{1D2D}\]</div>
+<p>The cross-sectional area of the 1D2D connection is the exchange depth times an exchange length. The exchange length varies for sewerages and for open channels. For sewerages the exchange length is based on the storage areas of the corresponding connection node [S]:</p>
+<div class="math notranslate nohighlight" id="equation-storagearea">
+<span class="eqno">(12)<a class="headerlink" href="#equation-storagearea" title="Permalink to this equation"></a></span>\[A_{1D2D} = L_{1D2D} H_{1D2D} = 4 \sqrt{S H_{1D2D}}\]</div>
+<p>In case of open water elements, there is a difference whether the elements are of the type  connected or double connected. This type depends whether the exchange length represents one bank or two banks.
+For connected elements:</p>
+<div class="math notranslate nohighlight" id="equation-storagearea2">
+<span class="eqno">(13)<a class="headerlink" href="#equation-storagearea2" title="Permalink to this equation"></a></span>\[A_{1D2D} = L_{1D2D} H_{1D2D} = 2 L_{bank} H_{1D2D}\]</div>
+<p>For double connected elements this implies:</p>
+<div class="math notranslate nohighlight" id="equation-storagearea3">
+<span class="eqno">(14)<a class="headerlink" href="#equation-storagearea3" title="Permalink to this equation"></a></span>\[A_{1D2D} = L_{1D2D} H_{1D2D} = L_{bank} H_{1D2D}\]</div>
+<p>The connections between the 1D and 2D elements are set automatically. The connection is made, based on the location of the 1D element and the nearest 2D computational node. Users can rearrange the connections between the 1D elements and the 2D elements using the tooling in the Modeller Interface.</p>
+</section>
+<section id="embedded-1d-network-elements">
+<h3>Embedded 1D network elements<a class="headerlink" href="#embedded-1d-network-elements" title="Permalink to this heading"></a></h3>
+<p><strong>When do you use this?</strong></p>
+<p>The option to add 1D elements to the 2D domain will effectively increase your resolution and offers the possibility to take small elements into account. However, adding computational points will affect the computational effort. A middle ground could be the use of embedded 1D elements. In such case the information of the 1D elements is integrated with the information of the 2D domain. The number of computational points is not increased, but the number of velocity points is.</p>
+<figure class="align-right" id="id6" style="width: 400px">
+<img alt="embedded_1D_networks" src="_images/b_embeddedelement.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 54 </span><span class="caption-text">Examples for the storage in the combined 1D2D embedded domain.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>How it works?</strong></p>
+<p>3Di analysis the location of the 1D element and its routing in the 2D domain. It fixes the locations where the 1D element crosses the 2D cells. In between those points, the 1D embedded point is defined. This embedded water level point, will always have the same value as the 2D water level point. But the velocities and discharges are computed based on the 1D flow equation. In case a structure connects the elements, the flow will be based on the appropriate formulations.</p>
+<p>The flow cross-sections and the storage within a cell, depend on the bed level information of the 2D domain and the cross-section information of the 1D element. It is analysed based on the largest surface area per height. In the figure at the right, there are the three possible configurations drawn for the storage in the combined 1D2D embedded domain. 1) The embedded channel is fully below the 2D bed levels. 2) the embedded takes over the 2D domain.
+This is allowed within 3Di, but it is from an application perspective a unnatural configuration. 3) The embedded information overlaps with the information of the 2D bed levels and some of the 1D information is ignored.</p>
+<p>In the figure below the section <em>Types of 1D elements</em>, the channel on the right is an embedded case. It is shown that the geometry is simplified based upon the 2D geometry. It also shows, indicated with the coloured, transparent hollows, which domain contribute to the volumes. As they can be shifted with respect to the 2D domain, recalculation by hand can be difficult. There is an option to define the length of interest of an embedded channel.
+If the channel within a 2D computational cell is shorter than that length, that part of the channel is skipped. This is indicated by the red circle in the same figure.</p>
+</section>
+</section>
+<section id="some-considerations-for-1d-elements">
+<h2>Some considerations for 1D elements<a class="headerlink" href="#some-considerations-for-1d-elements" title="Permalink to this heading"></a></h2>
+<p>Every method has advantages and disadvantages. This is also true for choices considering the 1D types. It depends on the application, where the balance lies:</p>
+<ul class="simple">
+<li><p>considering <em>connected</em> types, the seperate dealing of the 1D and 2D domain in the same geographic area results in an overlapping volume domain. This means that the volume above a 1D channel, is counted twice.</p></li>
+<li><p>For embedded 1D elements yield that the tools for dealing with this are still very limited. Moreover, the specific handling of the 1D information is strongly related to the 2D resolution. However, there is no double counting of volume and no increase in computational cost.</p></li>
+<li><p>In general, use 1D models for applications that are truely 1D with respect the rest of the domain. Use it for elements that are narrow with respect to the 2D resolution and all will be fine. In those cases the advantages are great, and the disadvantges will remain small.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="g_onedee_flow.html" class="btn btn-neutral float-left" title="1D Flow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="g_1dpressurized.html" class="btn btn-neutral float-right" title="Pressurized flow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nelen &amp; Schuurmans.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

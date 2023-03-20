@@ -12,7 +12,7 @@ The 3Di model offers the possibility to simulate 1D flow. This means that the ca
 
 
    g_1dtypes
-   g_1Dpressurized
+   g_1dpressurized
    g_structures
    g_channelflow
    g_sewerage
