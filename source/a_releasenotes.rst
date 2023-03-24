@@ -375,6 +375,12 @@ The map can be viewed here: stowa.lizard.net
 3Di Live Site
 --------------
 
+March 20th 2023
+^^^^^^^^^^^^^^^^^^
+
+- Now gives a message when max number of licenses is reached
+
+
 November 21th 2022
 ^^^^^^^^^^^^^^^^^^
 
@@ -471,6 +477,16 @@ Some bugfixes in 3Di live:
 
 3Di Management Screens
 ----------------------
+
+March 20th 2022
+^^^^^^^^^^^^^^^^^^
+
+- improved placement of data, using the correct definition of schematisation, simulation and model
+- show current number of license and how many are in use
+- show max allowed number of models
+- show an error message when a simulation template fails to be created
+- removed graphs from levee element
+
 
 November 21th 2022
 ^^^^^^^^^^^^^^^^^^
