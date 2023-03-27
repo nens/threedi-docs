@@ -542,6 +542,36 @@ For schematisations users can:
 3Di Modeller Interface
 ----------------------
 
+April 3rd 2023
+^^^^^^^^^^^^^^
+
+**3Di Schematisation Editor v1.4**
+
+*Cross sections*
+
+- Tabular cross-sections can now be edited in a table instead of in a text field. This applies to cross-section shapes Tabulated Rectangle, Tabulated Trapezium, and YZ (#90)
+
+- The 3Di Schematisation Editor now fully supports cross-section shapes "YZ" and "Inverted egg" (#89, #91)
+
+- The 'cross-section' stylings for Culvert, Cross-section location, Orifice, Pipe, and Weir have been re-implemented. Some bugs were fixed and support for recently introduced cross-section shapes was added. The stylings are now based on custom expressions, that can also be used for other purposes in any QGIS expression (#96)
+
+
+*1D2D exchange*
+
+- Add processing algorithm 'Generate exchange lines' (#93, #131)
+
+
+*Bugfixes*
+
+- Setting the reference level cross-section locations on newly digitized channel to 0 is now committed as 0 instead of NULL (#129)
+
+- Clicking on layer Potential breach in QGIS 3.28 no longer gives an error (#126)
+
+- Adding a cross-section location to a Channel between two cross-section locations with bank_level NULL no longer gives an error (#102)
+
+- Allow negative values for bank level and reference level in Cross section locations tab of Channel layer (#95)
+
+
 
 March 10th 2023
 ^^^^^^^^^^^^^^^
