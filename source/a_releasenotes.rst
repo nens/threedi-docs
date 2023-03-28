@@ -36,7 +36,6 @@ We have released the following features:
 - User friendly breaches editing. Also added the ability to name them and keep breaches persistent throughout revisions, model changes and calculation grid changes. 
 - :ref:`Boundary conditions timeseries can be uploaded as CSV files <simulate_api_qgis_boundary_conditions>`, so it is no longer needed to make a new revision when you want to use different boundary conditions. 
 - Structure control can be set by uploading a JSON file
-- Support for tabulated YZ profiles
 
 
 January 3rd 2023
