@@ -253,9 +253,9 @@ Finding a model
 Can't find the model you are looking for?
 Please check the following:
 
-- If you have access to the organisation to which the model belongs
+- If you have access to the organization to which the model belongs
 
-- If the model is available on API v3 (https://docs.3di.live/d_api.html#api-v3). Please contact the :ref:`servicedesk` if you need assistance.
+- If the model is available on API v3. Please contact the :ref:`servicedesk` if you need assistance.
 
 - If the schematisation has a 3Di model. Go to `management.3di.live <https://management.3di.live>`_, search for your schematisation and check out the details page. 
 

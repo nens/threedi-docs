@@ -1,34 +1,27 @@
+.. _schematisation_editor:
+
 3Di Schematisation Editor
 ==========================
 
-
-.. _schematisation_editor:
-
-Using the Schematisation Editor
---------------------------------
+The 3Di Schematisation Editor is a powerful tool that simplifies the process of building and editing schematisations. It automates certain tasks of the regular workflow, which enables the user to build schematisations faster while reducing the chance of making errors. 
 
 
-Introduction
-^^^^^^^^^^^^
-The Schematisation Editor is a powerful tool that simplifies the process of building and editing schematisations. 
-It automates certain tasks of the regular workflow, which enables the user to build schematisations faster while reducing the chance of making errors. The main advantages of the Schematisation Editor are:
+Functionality
+--------------
+The main advantages of the Schematisation Editor are:
 
-    - Directly edit all layers of your schematisation, using all native QGIS functionality for editing vector features.
+* Directly edit all layers of your schematisation, using all native QGIS functionality for editing vector features.
+* Quickly add features to your schematisation with the "magic" editing functionality for 1D layers. For example: existing connection nodes are used when drawing a pipe between them, new connection nodes and manholes are created when a new pipe is digitized, etc.
+* Easily move nodes and all connected lines using the smartly pre-configured snapping and topological editing settings.
+* Easily move the start or end of pipes, channels, culverts, orifices, weirs, pumps. Connection node id's will be automatically updated for you.
+* Get a complete overview of your schematisation: all rasters that are part of your schematisation are added to the QGIS project when the schematisation is loaded.
+* Spot the tiniest local variation in elevation with the hillshade layer that is automatically added on top of your DEM.
+* Visualize the mapping of (impervious) surfaces to connection nodes and change them by updating the geometries.
+* Easily navigate through your schematisation: layers in the layer panel are neatly grouped together in collapsed groups.
 
-    - Quickly add features to your schematisation with the "magic" editing functionality for 1D layers. For example: existing connection nodes are used when drawing a pipe between them, new connection nodes and manholes are created when a new pipe is digitized, etc.
 
-    - Easily move nodes and all connected lines using the smartly pre-configured snapping and topological editing settings.
 
-    - Easily move the start or end of pipes, channels, culverts, orifices, weirs, pumps. Connection node id's will be automatically updated for you.
-
-    - Get a complete overview of your schematisation: all rasters that are part of your schematisation are added to the QGIS project when the schematisation is loaded.
-
-    - Spot the tiniest local variation in elevation with the hillshade layer that is automatically added on top of your DEM.
-
-    - Visualize the mapping of (impervious) surfaces to connection nodes and change them by updating the geometries.
-
-    - Easily navigate through your schematisation: layers in the layer panel are neatly grouped together in collapsed groups.
-
+NOTE
 
 In the regular workflow, schematisation data is stored in a *spatialite (.sqlite)* . The Schematisation Editor stores this data in a *geopackage (.gpkg)*. The database *schema* (the names and data types of tables and columns) of this geopackage also differs from the spatialite database schema. The Schematisation Editor loads the data from the spatialite into a geopackage; you make your edits in the geopackage, and when you have finished editing, save your changes to the spatialite.
 

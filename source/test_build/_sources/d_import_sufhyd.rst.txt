@@ -2,12 +2,13 @@
 
 Import from SUF-HYD
 ^^^^^^^^^^^^^^^^^^^
+.. TODO: dit stukje is wat verouderd volgensmij. Even checken of de tekst nu klopt. 
 
-SUF-HYD is a Dutch standardised format for transferring data of sewerage systems for hydraulic analyses. This tool allows an automated import of the sewerage data in the 3Di model database. 
+SUF-HYD is a Dutch standardized format for transferring data of sewerage systems for hydraulic analyses. This tool allows an automated import of the sewerage data in the 3Di model database. 
 
-Before you can use the tool, make sure you have :ref:`downloaded an empty spatialite <empty_database>`. The SUF-HYD data will be imported to this spatialite. Save the Sqlite to a location fo choice on your computer.
+Before you can use the tool, make sure you have downloaded an :ref:`empty spatialite <empty_database>`. The SUF-HYD data will be imported to this spatialite. Save the Sqlite to a location fo choice on your computer.
 
-The tool can be accessed by :ref:`activating the toolbox <3ditoolbox>` and double clicking 'import_sufhyd.py' under 'Step 2 - Convert and import data' 
+The tool can be accessed by :ref:`activating the processing toolbox <processing_toolbox>` > clicking on '3Di' in the toolbox > 'Schematisation' > 'import Sufhyd' 
 
 1) First, make sure you have a connection with the sqlite you want to import your data to (see the first 3 steps under :ref:`rasterchecker`). 
 2) After opening the tool, select a SUF-HYD file and the database (sqlite) to import the data into and click 'OK'
@@ -27,7 +28,7 @@ Note: the shape of the manhole is referred as 'rnd' = round, 'sqr' = square and 
 	
 *    Pump station (``*GEM``)
 
-    *    If multiple stages are defined, this will be transformed into seperate pumpstations. Up to 10 stages are supported
+    *    If multiple stages are defined, this will be transformed into separate pumpstations. Up to 10 stages are supported
 	
 *    Weir (``*OVS``)
 

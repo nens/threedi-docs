@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3Di Schematisation Editor &mdash; 3Di  (dev doc 2023-03-20) documentation</title>
+  <title>3Di Schematisation Editor &mdash; 3Di  (dev doc 2023-04-03) documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,7 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="3Di Toolbox plugin" href="i_plugin_toolbox.html" />
+    <link rel="next" title="Modelling with the Modeller Interface" href="i_modelling_with_mi.html" />
     <link rel="prev" title="3Di Models and Simulations Plugin" href="i_plugin_models_simulation.html" /> 
 </head>
 
@@ -35,7 +35,7 @@
             3Di
           </a>
               <div class="version">
-                 (dev doc 2023-03-20)
+                 (dev doc 2023-04-03)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -61,34 +61,43 @@
 <p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Modeller Interface</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="i_what_is_mi.html">What is the Modeller Interface</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="i_overview_user_interface.html">Overview of the Modeller Interface</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="i_overview_user_interface.html#overview-plugins">Overview plugins</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="i_plugin_models_simulation.html">3Di Models and Simulations Plugin</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">3Di Schematisation Editor</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#using-the-schematisation-editor">Using the Schematisation Editor</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#notes-on-the-3di-features">Notes on the 3Di Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html">Overview of the Modeller Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="i_overview_user_interface.html#overview-plugins">Overview plugins</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="i_plugin_toolbox.html">3Di Toolbox plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i_plugin_models_simulation.html">3Di Models and Simulations Plugin</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3Di Schematisation Editor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#functionality">Functionality</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#installation-and-updating">Installation and updating</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loading-saving">Loading &amp; Saving</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-new-features-digitizing">Creating new features (digitizing)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="i_plugin_toolbox.html">3Di Toolbox plugin</a></li>
-<li class="toctree-l3"><a class="reference internal" href="i_overview_user_interface.html#updating">Updating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#general">General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#notes-on-the-3di-features">Notes on the 3Di Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pasting-features-from-external-data-sources">Pasting features from external data sources</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#editing-feature-attributes">Editing feature attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#editing-feature-geometries">Editing feature geometries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deleting-features">Deleting features</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="i_overview_user_interface.html#updating">Updating</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the 3Di Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the 3Di Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the Live Site</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Guide to the management portal</span></p>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Management Portal</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the 3Di Management Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the Management Portal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="d_management.html#overview-management-portal">Overview management portal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the management portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the Management Portal</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">3Di for developers</span></p>
 <ul>
@@ -166,15 +175,12 @@
            <div itemprop="articleBody">
              
   <section id="di-schematisation-editor">
-<h1>3Di Schematisation Editor<a class="headerlink" href="#di-schematisation-editor" title="Permalink to this heading"></a></h1>
-<section id="using-the-schematisation-editor">
-<span id="schematisation-editor"></span><h2>Using the Schematisation Editor<a class="headerlink" href="#using-the-schematisation-editor" title="Permalink to this heading"></a></h2>
-<section id="introduction">
-<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h3>
-<p>The Schematisation Editor is a powerful tool that simplifies the process of building and editing schematisations.
-It automates certain tasks of the regular workflow, which enables the user to build schematisations faster while reducing the chance of making errors. The main advantages of the Schematisation Editor are:</p>
-<blockquote>
-<div><ul class="simple">
+<span id="schematisation-editor"></span><h1>3Di Schematisation Editor<a class="headerlink" href="#di-schematisation-editor" title="Permalink to this heading"></a></h1>
+<p>The 3Di Schematisation Editor is a powerful tool that simplifies the process of building and editing schematisations. It automates certain tasks of the regular workflow, which enables the user to build schematisations faster while reducing the chance of making errors.</p>
+<section id="functionality">
+<h2>Functionality<a class="headerlink" href="#functionality" title="Permalink to this heading"></a></h2>
+<p>The main advantages of the Schematisation Editor are:</p>
+<ul class="simple">
 <li><p>Directly edit all layers of your schematisation, using all native QGIS functionality for editing vector features.</p></li>
 <li><p>Quickly add features to your schematisation with the “magic” editing functionality for 1D layers. For example: existing connection nodes are used when drawing a pipe between them, new connection nodes and manholes are created when a new pipe is digitized, etc.</p></li>
 <li><p>Easily move nodes and all connected lines using the smartly pre-configured snapping and topological editing settings.</p></li>
@@ -184,10 +190,9 @@ It automates certain tasks of the regular workflow, which enables the user to bu
 <li><p>Visualize the mapping of (impervious) surfaces to connection nodes and change them by updating the geometries.</p></li>
 <li><p>Easily navigate through your schematisation: layers in the layer panel are neatly grouped together in collapsed groups.</p></li>
 </ul>
-</div></blockquote>
+<p>NOTE</p>
 <p>In the regular workflow, schematisation data is stored in a <em>spatialite (.sqlite)</em> . The Schematisation Editor stores this data in a <em>geopackage (.gpkg)</em>. The database <em>schema</em> (the names and data types of tables and columns) of this geopackage also differs from the spatialite database schema. The Schematisation Editor loads the data from the spatialite into a geopackage; you make your edits in the geopackage, and when you have finished editing, save your changes to the spatialite.</p>
 <p>Currently, the Schematisation Editor is released as ‘experimental’ plugin. In a future release, we expect to replace the spatialite by the geopackage entirely (for editing as well as uploading), so that this loading and saving will no longer be necessary. Functionality for viewing and editing schematisations will be removed from the 3Di Toolbox plugin. The Schematisation Editor will remain ‘experimental’ until this has been completed.</p>
-</section>
 <section id="installation-and-updating">
 <h3>Installation and updating<a class="headerlink" href="#installation-and-updating" title="Permalink to this heading"></a></h3>
 <p>The easiest and recommended way to <strong>install</strong> the Schematisation Editor is:</p>
@@ -321,7 +326,7 @@ When following those steps in the Schematisation Editor, one will be prompted th
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="i_plugin_models_simulation.html" class="btn btn-neutral float-left" title="3Di Models and Simulations Plugin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="i_plugin_toolbox.html" class="btn btn-neutral float-right" title="3Di Toolbox plugin" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="i_modelling_with_mi.html" class="btn btn-neutral float-right" title="Modelling with the Modeller Interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

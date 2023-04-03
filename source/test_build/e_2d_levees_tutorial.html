@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tutorial 4 Building a 2D flow model with levees, channels and breaches &mdash; 3Di  (dev doc 2023-03-20) documentation</title>
+  <title>Tutorial 4 Building a 2D flow model with levees, channels and breaches &mdash; 3Di  (dev doc 2023-04-03) documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -35,7 +35,7 @@
             3Di
           </a>
               <div class="version">
-                 (dev doc 2023-03-20)
+                 (dev doc 2023-04-03)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -62,19 +62,20 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="i_what_is_mi.html">What is the Modeller Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html">Overview of the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html#overview-plugins">Overview plugins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the 3Di Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the 3Di Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the Live Site</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Guide to the management portal</span></p>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Management Portal</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the 3Di Management Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the Management Portal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="d_management.html#overview-management-portal">Overview management portal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the management portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the Management Portal</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">3Di for developers</span></p>
 <ul>
@@ -102,7 +103,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#model-validation">Model validation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#verify-the-model-rasters-using-the-raster-checker">Verify the model rasters using the raster checker</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#verify-the-model-schematisation-using-the-schematisation-checker">Verify the model schematisation using the schematisation checker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#verify-the-schematisation-using-the-schematisation-checker">Verify the schematisation using the schematisation checker</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#model-activation">Model activation</a><ul>
@@ -414,7 +415,7 @@ The model can be loaded via the 3Di toolbar (part of the 3Di toolbox plug in) by
 <section id="model-validation">
 <h2>Model validation<a class="headerlink" href="#model-validation" title="Permalink to this heading"></a></h2>
 <p>A short description of the model validation is given here.
-A comprehensive guide with visual support is provided in Tutorial 1 (<a class="reference internal" href="e_workflow_tutorial.html#post-processing"><span class="std std-ref">Post-processing</span></a>) and for a general guide see <a class="reference internal" href="i_checking_schematisations.html#checking-model"><span class="std std-ref">Checking the model schematisation</span></a>.</p>
+A comprehensive guide with visual support is provided in Tutorial 1 (<span class="xref std std-ref">post_processing</span>) and for a general guide see <a class="reference internal" href="i_checking_schematisations.html#checking-model"><span class="std std-ref">Checking the schematisation</span></a>.</p>
 <section id="verify-the-model-rasters-using-the-raster-checker">
 <h3>Verify the model rasters using the raster checker<a class="headerlink" href="#verify-the-model-rasters-using-the-raster-checker" title="Permalink to this heading"></a></h3>
 <p>Before sending our model to the web portal, it is important to validate that our model contains no errors. The raster checker is part of the 3Di toolbox and performs 18 checks to verify the quality of the DEM. The raster checker checks all the rasters that are included in the model. In our case, this is only the DEM for the area of Nissewaard, but in more sophisticated models you can also include other rasters, like friction and infiltration.</p>
@@ -429,12 +430,12 @@ A comprehensive guide with visual support is provided in Tutorial 1 (<a class="r
 <img alt="Raster checker" src="_images/t_04_raster_checker.png" />
 </figure>
 </section>
-<section id="verify-the-model-schematisation-using-the-schematisation-checker">
-<h3>Verify the model schematisation using the schematisation checker<a class="headerlink" href="#verify-the-model-schematisation-using-the-schematisation-checker" title="Permalink to this heading"></a></h3>
-<p>The second validation that we have to perform before sending the model to the web portal is that of the model schematisation.
+<section id="verify-the-schematisation-using-the-schematisation-checker">
+<h3>Verify the schematisation using the schematisation checker<a class="headerlink" href="#verify-the-schematisation-using-the-schematisation-checker" title="Permalink to this heading"></a></h3>
+<p>The second validation that we have to perform before sending the model to the web portal is that of the schematisation.
 For this, we use the schematisation checker.
 It checks the model tables for many possible errors that cause the model to crash when you want to compile the model.
-In order to check your model schematisation, follow steps a and b from the previous step, but now select <strong>schematisation checker</strong>.
+In order to check your schematisation, follow steps a and b from the previous step, but now select <strong>schematisation checker</strong>.
 Again, select ‘spatialite: Nissewaard’ and select the destination for the output file.
 Select <strong>Run</strong>.</p>
 <p>The output file is an excel file in which all the warnings and errors that were found are listed.

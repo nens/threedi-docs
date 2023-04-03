@@ -328,4 +328,4 @@ You can now find your 3Di Model via the `3Di Live Site <https://www.3di.live/>`_
 .. image:: image/17_livesite2.png
     :alt: Live calculation in the live site
 
-You have now succesfully build a 2D flow model Schematisation from scratch!
+You have now successfully build a 2D flow model Schematisation from scratch!

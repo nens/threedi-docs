@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Checking the model schematisation &mdash; 3Di  (dev doc 2023-03-20) documentation</title>
+  <title>Checking the schematisation &mdash; 3Di  (dev doc 2023-04-03) documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -35,7 +35,7 @@
             3Di
           </a>
               <div class="version">
-                 (dev doc 2023-03-20)
+                 (dev doc 2023-04-03)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -62,11 +62,12 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="i_what_is_mi.html">What is the Modeller Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html">Overview of the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html#overview-plugins">Overview plugins</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="i_create_new_schematisation.html">Create a new schematisation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="i_loading_schematisations.html">Loading a schematisation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="i_editing_schematisations.html">View and edit a 3Di model schematisation</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Checking the model schematisation</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Checking the schematisation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#raster-checker">Raster checker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#schematisation-checker">Schematisation checker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#visualising-computational-grids">Visualising computational grids</a><ul>
@@ -86,15 +87,15 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the 3Di Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the 3Di Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the Live Site</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Guide to the management portal</span></p>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Management Portal</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the 3Di Management Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the Management Portal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="d_management.html#overview-management-portal">Overview management portal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the management portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the Management Portal</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">3Di for developers</span></p>
 <ul>
@@ -161,7 +162,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a></li>
-      <li class="breadcrumb-item active">Checking the model schematisation</li>
+      <li class="breadcrumb-item active">Checking the schematisation</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/i_checking_schematisations.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -171,10 +172,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="checking-the-model-schematisation">
-<span id="checking-model"></span><h1>Checking the model schematisation<a class="headerlink" href="#checking-the-model-schematisation" title="Permalink to this heading"></a></h1>
-<p>It is very useful to check your model schematisation before uploading. It can raise errors and let you solve them early on, or it can raise warnings, which you might want to solve.</p>
-<p><em>Checking the model schematisation can only be done with plugins in QGIS designed for 3Di models, which come pre-installed with the Modeller Interface.
+  <section id="checking-the-schematisation">
+<span id="checking-model"></span><h1>Checking the schematisation<a class="headerlink" href="#checking-the-schematisation" title="Permalink to this heading"></a></h1>
+<p>It is very useful to check your schematisation before uploading. It can raise errors and let you solve them early on, or it can raise warnings, which you might want to solve.</p>
+<p><em>Checking the schematisation can only be done with plugins in QGIS designed for 3Di models, which come pre-installed with the Modeller Interface.
 For information how to download the Modeller Interface or the seperate plugins, please visit</em> <a class="reference internal" href="f_3di_instruments_and_downloads.html#di-instruments-and-downloads"><span class="std std-ref">Installation manual</span></a>.</p>
 <div class="admonition-todo admonition" id="id1">
 <p class="admonition-title">Todo</p>
@@ -255,7 +256,7 @@ This is done for all v2_global_setting rows.</p>
 <p>Here, one can also find the overview of the 18 checks that are performed.</p>
 <ol class="arabic simple" start="9">
 <li><p>The performed checks are numbered 1 to 18. This number is called a <em>check_id</em>.</p></li>
-<li><p>Under sub-heading <em>Found following raster references</em>, there is a list with the rasters used in your model schematisation.</p></li>
+<li><p>Under sub-heading <em>Found following raster references</em>, there is a list with the rasters used in your schematisation.</p></li>
 </ol>
 <p>Further down in the log-file, the outcome of the <em>raster checker</em> for each raster is shown.</p>
 <figure class="align-default">

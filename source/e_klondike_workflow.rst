@@ -18,7 +18,7 @@ Requirements
 
 * Having the 3Di Modeller Interface, or a custom QGIS with the Models and Simulations plugin, installed. Check out the :ref:`3di_instruments_and_downloads` if you do not have the most recent version installed.
 
-* Having access to the 3Di :ref:`management_portal`.
+* Having access to the 3Di :ref:`management screens <management_screens_what_is>`.
 
 * Having a copy of the Digital Elevation Map (DEM) for the Burrows area saved locally, which can be downloaded `here <https://nens.lizard.net/media/3di-tutorials/3di-tutorial-01.zip>`_.
 
@@ -65,7 +65,7 @@ The schematisation should now also be selected in your 3Di Models and Simulation
 
 Loading a schematisation into the Modeller Interface
 -----------------------------------------------------
-In order to upload the new schematisation to the :ref:`management screens <a_management_screens>`, the sqlite has to be loaded into your Modeller Interface.
+In order to upload the new schematisation to the :ref:`management screens <management_screens_what_is>`, the sqlite has to be loaded into your Modeller Interface.
 
 This can be done by:
 

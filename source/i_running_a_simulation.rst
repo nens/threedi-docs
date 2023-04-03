@@ -445,7 +445,7 @@ As a service, the following maps are available in Lizard:
 - max velocity
 - rainfall
 
-All maps can be downloaded as GTiff, either via the interface demo.lizard.net or via the lizard API.
+All maps can be downloaded as GTiff, either via the interface `<https://demo.lizard.net/>`_ or via the lizard API.
 
 When **Arrival time map** is checked a map with arrival time is being calculated showing the time of arrival of water per pixel in hours.
 
@@ -456,8 +456,7 @@ When **Arrival time map** is checked a map with arrival time is being calculated
 - Damage (indirect)
 - Total damage
 
-And a damage summary in csv format. For more information check the documentation here: https://docs.3di.lizard.net/d_results_from_lizard.html
-
+And a damage summary in csv format. For more information check the documentation here: https://docs.lizard.net/e_catalog.html#results
 
 
 
@@ -466,7 +465,7 @@ And a damage summary in csv format. For more information check the documentation
 Results
 ----------
 
-For information on how to get, view and analyse results, see :ref:`view_model_results_with_modeller_interface`.
+For information on how to get, view and analyze results, see :ref:`mi_download_res` and :ref:`view_analyze_mi`.
 
 
 

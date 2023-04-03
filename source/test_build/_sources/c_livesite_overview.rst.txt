@@ -1,4 +1,4 @@
-Overview of the 3Di Live Site
+Overview of the Live Site
 ==============================
 
 .. _overview_screen_ls:
@@ -55,7 +55,7 @@ If you want to calculate on full speed, choose the **Real-time speed** option. T
 
 Help
 """"
-Currently sends you to https://3diwatermanagement.com/3di-start/.
+Currently sends you :ref:`here <guide_to_portal>`.
 For support from the help desk, visit https://nelen-schuurmans.topdesk.net/.
 
 
@@ -131,7 +131,7 @@ If you made a mistake when creating discharge, you can **delete** before you act
 Pumping tool
 ^^^^^^^^^^^^^
 
-With the **Pump tool**, a constant sink of water can be added to the model. Select the icon and change the amount of water you want to pump out of the model. In the dropdown menu you can change the unit. You can also change the duration of the pumping. Click **PLACE ON MAP** and click a location on the map that should be the pump. The water will be pumped out from the 2D domain from this location (1D pumps should be added in the model schematisation).
+With the **Pump tool**, a constant sink of water can be added to the model. Select the icon and change the amount of water you want to pump out of the model. In the dropdown menu you can change the unit. You can also change the duration of the pumping. Click **PLACE ON MAP** and click a location on the map that should be the pump. The water will be pumped out from the 2D domain from this location (1D pumps should be added in the schematisation).
 The water that is taken out of the model will not flow back into the model and is considered a loss. It is the modelling equivalent of a negative 2D lateral. 
 When you press the **Play** button the intervention will become active.
 

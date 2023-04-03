@@ -1,11 +1,11 @@
 .. _checking_model:
 
-Checking the model schematisation
+Checking the schematisation
 ===================================
 
-It is very useful to check your model schematisation before uploading. It can raise errors and let you solve them early on, or it can raise warnings, which you might want to solve.
+It is very useful to check your schematisation before uploading. It can raise errors and let you solve them early on, or it can raise warnings, which you might want to solve.
 
-*Checking the model schematisation can only be done with plugins in QGIS designed for 3Di models, which come pre-installed with the Modeller Interface.
+*Checking the schematisation can only be done with plugins in QGIS designed for 3Di models, which come pre-installed with the Modeller Interface.
 For information how to download the Modeller Interface or the seperate plugins, please visit* :ref:`3di_instruments_and_downloads`.
 
 .. todo:: 
@@ -111,7 +111,7 @@ To use the *Raster checker*, set up a connection with the SQlite of your model.
 Here, one can also find the overview of the 18 checks that are performed. 
 
 9) The performed checks are numbered 1 to 18. This number is called a *check_id*. 
-10) Under sub-heading *Found following raster references*, there is a list with the rasters used in your model schematisation.
+10) Under sub-heading *Found following raster references*, there is a list with the rasters used in your schematisation.
 
 Further down in the log-file, the outcome of the *raster checker* for each raster is shown.
 

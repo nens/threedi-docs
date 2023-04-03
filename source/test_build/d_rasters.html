@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rasters &mdash; 3Di  (dev doc 2023-03-20) documentation</title>
+  <title>Rasters &mdash; 3Di  (dev doc 2023-04-03) documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -35,7 +35,7 @@
             3Di
           </a>
               <div class="version">
-                 (dev doc 2023-03-20)
+                 (dev doc 2023-04-03)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -81,15 +81,15 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the 3Di Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the 3Di Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the Live Site</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Guide to the management portal</span></p>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Management Portal</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the 3Di Management Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the Management Portal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="d_management.html#overview-management-portal">Overview management portal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the management portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the Management Portal</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">3Di for developers</span></p>
 <ul>
@@ -196,7 +196,7 @@
 <section id="using-gdal-to-check-and-edit-your-rasters">
 <h2>Using GDAL to check and edit your rasters<a class="headerlink" href="#using-gdal-to-check-and-edit-your-rasters" title="Permalink to this heading"></a></h2>
 <p>There are several packages available that allow you to meet the requirements stated above. Below are some examples using GDAL.</p>
-<p><em>If you are using Windows, GDAL should be installed together with QGIS and available through the OSGeo4W Shell. Try finding it through your start menu. A full list of GDAL functionalities and help can be found under the</em> <a class="reference external" href="http://www.gdal.org/gdal_utilities.html">gdal documentation</a>.</p>
+<p><em>If you are using Windows, GDAL should be installed together with QGIS and available through the OSGeo4W Shell. Try finding it through your start menu. A full list of GDAL functionalities and help can be found under the</em> <a class="reference external" href="http://www.gdal.org">gdal documentation</a>.</p>
 <p><strong>Retrieve raster information using gdalinfo</strong></p>
 <p>This example shows you how to find and retrieve the meta-information of your raster through the OSGeo4W Shell.</p>
 <ul class="simple">
@@ -217,7 +217,7 @@
 </pre></div>
 </div>
 <p>Tip: Always use the <code class="docutils literal notranslate"><span class="pre">-tap</span></code> option to make sure all your rasters are properly aligned.</p>
-<p>The example uses an extra shape-file of the study area. This is convenient when you are using several raster-files. It ensures that all raster-files you make have the same extent and NODATA pixels. You should make sure however that the shape-file’s projection matches that of your raster information. If you are not sure what any of the commands do exactly, you can check the <a class="reference external" href="http://www.gdal.org/gdal_utilities.html">gdal documentation</a> or try options separately to generate several output files and checking them with gdalinfo to see which option generates the result you want.</p>
+<p>The example uses an extra shape-file of the study area. This is convenient when you are using several raster-files. It ensures that all raster-files you make have the same extent and NODATA pixels. You should make sure however that the shape-file’s projection matches that of your raster information. If you are not sure what any of the commands do exactly, you can check the <a class="reference external" href="http://www.gdal.org">gdal documentation</a> or try options separately to generate several output files and checking them with gdalinfo to see which option generates the result you want.</p>
 <p><strong>Compress rasters using gdal_translate</strong></p>
 <p>Once your raster meets all requirements there is one last thing to consider. 3Di is cloud-based so we advise you to compress all raster-files before uploading. The example below shows you how:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gdal_translate</span> <span class="o">-</span><span class="n">co</span> <span class="n">COMPRESS</span><span class="o">=</span><span class="n">DEFLATE</span> <span class="n">warp_output</span><span class="o">.</span><span class="n">tif</span> <span class="n">compressed</span><span class="o">.</span><span class="n">tif</span>

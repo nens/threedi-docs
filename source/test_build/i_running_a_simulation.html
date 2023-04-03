@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Running a simulation &mdash; 3Di  (dev doc 2023-03-20) documentation</title>
+  <title>Running a simulation &mdash; 3Di  (dev doc 2023-04-03) documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -35,7 +35,7 @@
             3Di
           </a>
               <div class="version">
-                 (dev doc 2023-03-20)
+                 (dev doc 2023-04-03)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -62,11 +62,12 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="i_what_is_mi.html">What is the Modeller Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html">Overview of the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html#overview-plugins">Overview plugins</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="i_create_new_schematisation.html">Create a new schematisation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="i_loading_schematisations.html">Loading a schematisation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="i_editing_schematisations.html">View and edit a 3Di model schematisation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="i_checking_schematisations.html">Checking the model schematisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i_checking_schematisations.html">Checking the schematisation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="i_uploading_and_downloading_schematisations.html">Uploading and downloading schematisations</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Running a simulation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#start-up-the-3di-models-and-simulations">Start up the “3Di Models and Simulations”</a></li>
@@ -95,15 +96,15 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the 3Di Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the 3Di Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the Live Site</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Guide to the management portal</span></p>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Management Portal</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the 3Di Management Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the Management Portal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="d_management.html#overview-management-portal">Overview management portal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the management portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the Management Portal</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">3Di for developers</span></p>
 <ul>
@@ -522,7 +523,7 @@ The damage estimations are only available in the Netherlands. Contact us at <a c
 <li><p>max velocity</p></li>
 <li><p>rainfall</p></li>
 </ul>
-<p>All maps can be downloaded as GTiff, either via the interface demo.lizard.net or via the lizard API.</p>
+<p>All maps can be downloaded as GTiff, either via the interface <a class="reference external" href="https://demo.lizard.net/">https://demo.lizard.net/</a> or via the lizard API.</p>
 <p>When <strong>Arrival time map</strong> is checked a map with arrival time is being calculated showing the time of arrival of water per pixel in hours.</p>
 <p><strong>Damage estimation</strong> is only available in the Netherlands: automated estimate of damage as a result of flooding. Takes into account water depth and duration of flood. Result is the following damage maps:</p>
 <ul class="simple">
@@ -531,11 +532,11 @@ The damage estimations are only available in the Netherlands. Contact us at <a c
 <li><p>Damage (indirect)</p></li>
 <li><p>Total damage</p></li>
 </ul>
-<p>And a damage summary in csv format. For more information check the documentation here: <a class="reference external" href="https://docs.3di.lizard.net/d_results_from_lizard.html">https://docs.3di.lizard.net/d_results_from_lizard.html</a></p>
+<p>And a damage summary in csv format. For more information check the documentation here: <a class="reference external" href="https://docs.lizard.net/e_catalog.html#results">https://docs.lizard.net/e_catalog.html#results</a></p>
 </section>
 <section id="results">
 <span id="simulate-api-qgis-results"></span><h2>Results<a class="headerlink" href="#results" title="Permalink to this heading"></a></h2>
-<p>For information on how to get, view and analyse results, see <span class="xref std std-ref">view_model_results_with_modeller_interface</span>.</p>
+<p>For information on how to get, view and analyze results, see <a class="reference internal" href="i_downloading_results.html#mi-download-res"><span class="std std-ref">Downloading results</span></a> and <a class="reference internal" href="i_analyzing_results.html#view-analyze-mi"><span class="std std-ref">Viewing and analyzing results</span></a>.</p>
 </section>
 <section id="old-table">
 <h2>Old table<a class="headerlink" href="#old-table" title="Permalink to this heading"></a></h2>

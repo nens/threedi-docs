@@ -471,7 +471,9 @@ Model validation
 A short description of the model validation is given here.
 A comprehensive guide with visual support is provided in Tutorial 1 (:ref:`post_processing`) and for a general guide see :ref:`checking_model`.
 
-Verify the model schematisation using the schematisation checker
+.. TODO: post_processing is een kopje in de oude tutorial (e_workflow_tutorial). Is dit niet meer accuraat? of moet dit aan de nieuwe tutorial 1 nog worden toegevoegd. geen raster checker meer. Nieuwe revisie uploaden, dan gebeurt checken schematisatie al. dan verwijzen naar kopje "uploading schematisation", onder de Modeller Interface. 
+
+Verify the schematisation using the schematisation checker
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Before sending the model to the web portal we want to check the schematization. We can use the schematization checker for this. It checks the model tables for many possible errors that cause the model to crash when you want to compile the model. In order to check your model schematization, follow these steps:

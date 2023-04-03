@@ -3,7 +3,7 @@
 View and edit a 3Di model schematisation
 =========================================
 
-After loading your 3Di model schematisation, there are several ways to inspect your model. We have added the following features to assist you in viewing and editing the model schematisation:
+After loading your schematisation, there are several ways to inspect your model. We have added the following features to assist you in viewing and editing the schematisation:
 
 - Multiple styles per layer
 - Drop down menus
@@ -18,7 +18,7 @@ Multiple styles per layer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-The multiple styles per layer can help you when analysing your model. The different styles depict aspects of the layer you might be interested in, without cluttering your schematisation with too much information at once. 
+The multiple styles per layer can help you when analyzing your model. The different styles depict aspects of the layer you might be interested in, without cluttering your schematisation with too much information at once. 
 
 To switch between stylings: 1) Right click the layer you are interested in. 2) Hold your mouse over styles and the multiple styles will be shown. 3) Click on the style you want to use. The style with the dot next to it is the active style. The figure below shows an example for selecting a style. 
 
@@ -92,7 +92,7 @@ Default              The ‘default’ style is a categorised styling depicting 
 Levels               The ‘levels’ style adds a label to the default style, depicting the surface level (s:),
 
                      the drain level (d:) and the bottom level (b:).
-Calculation type     The `’calculation type’ <https://docs.3di.lizard.net/b_1dtypes.html#types-of-1d-elements-calculation-types>`_ style is a categorised styling that depicts the way 3Di  
+Calculation type     The `’calculation type’ <calculation_types>` style is a categorised styling that depicts the way 3Di calculated the interaction between the manhole and the 2D computational domain.
 
                      calculated the interaction between a manhole and the 2D computation domain.
 Code                 The ‘code’ style adds a label to the default style, depicting the code of the manhole.
@@ -150,7 +150,7 @@ Levels               The ‘levels’ style adds a label to the default style, d
 ===========================  ============================================================================
 Style                        Description  
 ===========================  ============================================================================
-Calculation type             The `’calculation type’ <https://docs.3di.lizard.net/b_1dtypes.html#types-of-1d-elements-calculation-types>`_ style is a categorised styling that depicts the way    
+Calculation type             The `’calculation type’ <calculation_types>` style is a categorized styling that depicts the way    
 
                              3Di calculated  the interaction between a channel and the 2D  
 
@@ -205,7 +205,7 @@ Levels and flow direction    The ‘levels and flow direction’ style adds arro
                              invert level) and the label shows the invert level for the start point (s:)  
  
                              and end point (e:) of the culvert.
-Calculation type             The `’calculation type’ <https://docs.3di.lizard.net/b_1dtypes.html#types-of-1d-elements-calculation-types>`_ style is a categorised styling that depicts the way  
+Calculation type             The `’calculation type’ <calculation_types>` style is a categorized styling that depicts the way  
 
                              3Di calculated the interaction between a culvert and the 2D computation 
 
@@ -253,7 +253,7 @@ Diameter             The line width is based on the average of the (max.) width 
 ===========================  ============================================================================
 Style                        Description  
 ===========================  ============================================================================
-Default                      The ‘default’ style is a categorised styling depicting the locations and  
+Default                      The ‘default’ style is a categorized styling depicting the locations and  
 
                              sewerage types of the pipes.
 Levels and flow direction    The ‘levels and flow direction’ style adds arrows and a label to the default 
@@ -263,7 +263,7 @@ Levels and flow direction    The ‘levels and flow direction’ style adds arro
                              invert level) and the label shows the invert level for the start point (s:) 
 
                              and end point (e:)  of the pipe.
-Calculation type             The `’calculation type’ <https://docs.3di.lizard.net/b_1dtypes.html#types-of-1d-elements-calculation-types>`_ style is a categorised styling that depicts the way 3Di   
+Calculation type             The `’calculation type’ <calculation_types>` style is a categorized styling that depicts the way 3Di   
 
                              calculated the interaction between a pipe and the 2D computation domain.
 Drawing direction            The ‘drawing direction’ styling depicts the drawing direction of the pipe,
@@ -345,7 +345,7 @@ Refinement levels    The ‘refinement level’ style adds a label to the defaul
 ===========================  ============================================================================
 Style                        Description  
 ===========================  ============================================================================
-Surface inclination          The ‘surface inclination’ style is a categorised styling depicting the  
+Surface inclination          The ‘surface inclination’ style is a categorized styling depicting the  
 
                              locations and the surface inclinations of the impervious surfaces.  
 Area and dry weather flow    The ‘area dry weather flow’ style depicts the amount of dry weather flow 
@@ -401,7 +401,7 @@ Multi-line fields are designed for editing time series. In the example of the Fi
 Automated field fill 
 ^^^^^^^^^^^^^^^^^^^^
 
-Some fields are automatically filled to assist in making your model schematisation. Here is an overview of the fields that are filled automatically:
+Some fields are automatically filled to assist in making your schematisation. Here is an overview of the fields that are filled automatically:
 
 - The cross-section location fetches the corresponding channel-id automatically
 - Channels and culverts automatically fill connection node ids when drawing between nodes with `snapping <https://docs.qgis.org/3.4/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#setting-the-snapping-tolerance-and-search-radius>`_.
@@ -561,7 +561,7 @@ Column name						Default value
 ============================= ===========================================================================
 display_name					new
 code							new
-type 							1: pump behaviour is based on water levels on the suction side
+type 							1: pump behavior is based on water levels on the suction side
 zoom_category					3
 ============================= ===========================================================================
 

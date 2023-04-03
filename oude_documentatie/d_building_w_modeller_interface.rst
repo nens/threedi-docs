@@ -83,7 +83,7 @@ Multiple styles per layer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-The multiple styles per layer can help you when analysing your model. The different styles depict aspects of the layer you might be interested in, without cluttering your schematisation with too much information at once. 
+The multiple styles per layer can help you when analyzing your model. The different styles depict aspects of the layer you might be interested in, without cluttering your schematisation with too much information at once. 
 
 To switch between stylings: 1) Right click the layer you are interested in. 2) Hold your mouse over styles and the multiple styles will be shown. 3) Click on the style you want to use. The style with the dot next to it is the active style. The figure below shows an example for selecting a style. 
 

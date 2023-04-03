@@ -293,13 +293,13 @@ The following screen will appear:
 .. figure:: image/t_04_raster_checker.png
     :alt: Raster checker
 
-Verify the model schematisation using the schematisation checker
+Verify the schematisation using the schematisation checker
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The second validation that we have to perform before sending the model to the web portal is that of the model schematisation.
+The second validation that we have to perform before sending the model to the web portal is that of the schematisation.
 For this, we use the schematisation checker.
 It checks the model tables for many possible errors that cause the model to crash when you want to compile the model.
-In order to check your model schematisation, follow steps a and b from the previous step, but now select **schematisation checker**.
+In order to check your schematisation, follow steps a and b from the previous step, but now select **schematisation checker**.
 Again, select ‘spatialite: Nissewaard' and select the destination for the output file.
 Select **Run**.
 

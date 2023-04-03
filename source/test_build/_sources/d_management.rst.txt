@@ -1,6 +1,6 @@
 .. _management_screens_what_is:
 
-What is the 3Di Management Portal
+What is the Management Portal
 ===================================
 
 When using the Modeller Interface, schematizations are stored locally on your computer. However, if you use the Model and Simulations plugin to upload a schematization, it will be saved to our private cloud. These uploaded schematizations can be accessed and viewed in the `Management Screens <https://management.3di.live/>`_. In addition, all relevant information about revisions, 3Di models, and simulations related to the schematizations can be found in the Management Screens. This allows colleagues to sync their models on their own laptops and continue working with the updated version, enabling the use of version control on your schematizations.

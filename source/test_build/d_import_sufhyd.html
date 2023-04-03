@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Import from SUF-HYD &mdash; 3Di  (dev doc 2023-03-20) documentation</title>
+  <title>Import from SUF-HYD &mdash; 3Di  (dev doc 2023-04-03) documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -35,7 +35,7 @@
             3Di
           </a>
               <div class="version">
-                 (dev doc 2023-03-20)
+                 (dev doc 2023-04-03)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -80,15 +80,15 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the 3Di Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the 3Di Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the Live Site</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Guide to the management portal</span></p>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Management Portal</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the 3Di Management Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the Management Portal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="d_management.html#overview-management-portal">Overview management portal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the management portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the Management Portal</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">3Di for developers</span></p>
 <ul>
@@ -168,9 +168,9 @@
              
   <section id="import-from-suf-hyd">
 <span id="import-sufhyd"></span><h1>Import from SUF-HYD<a class="headerlink" href="#import-from-suf-hyd" title="Permalink to this heading"></a></h1>
-<p>SUF-HYD is a Dutch standardised format for transferring data of sewerage systems for hydraulic analyses. This tool allows an automated import of the sewerage data in the 3Di model database.</p>
-<p>Before you can use the tool, make sure you have <a class="reference internal" href="f_3di_instruments_and_downloads.html#empty-database"><span class="std std-ref">downloaded an empty spatialite</span></a>. The SUF-HYD data will be imported to this spatialite. Save the Sqlite to a location fo choice on your computer.</p>
-<p>The tool can be accessed by <span class="xref std std-ref">activating the toolbox</span> and double clicking ‘import_sufhyd.py’ under ‘Step 2 - Convert and import data’</p>
+<p>SUF-HYD is a Dutch standardized format for transferring data of sewerage systems for hydraulic analyses. This tool allows an automated import of the sewerage data in the 3Di model database.</p>
+<p>Before you can use the tool, make sure you have downloaded an <a class="reference internal" href="f_3di_instruments_and_downloads.html#empty-database"><span class="std std-ref">empty spatialite</span></a>. The SUF-HYD data will be imported to this spatialite. Save the Sqlite to a location fo choice on your computer.</p>
+<p>The tool can be accessed by <a class="reference internal" href="i_plugin_toolbox.html#processing-toolbox"><span class="std std-ref">activating the processing toolbox</span></a> &gt; clicking on ‘3Di’ in the toolbox &gt; ‘Schematisation’ &gt; ‘import Sufhyd’</p>
 <ol class="arabic simple">
 <li><p>First, make sure you have a connection with the sqlite you want to import your data to (see the first 3 steps under <a class="reference internal" href="i_checking_schematisations.html#rasterchecker"><span class="std std-ref">Raster checker</span></a>).</p></li>
 <li><p>After opening the tool, select a SUF-HYD file and the database (sqlite) to import the data into and click ‘OK’</p></li>
@@ -200,7 +200,7 @@
 </ul>
 <blockquote>
 <div><ul class="simple">
-<li><p>If multiple stages are defined, this will be transformed into seperate pumpstations. Up to 10 stages are supported</p></li>
+<li><p>If multiple stages are defined, this will be transformed into separate pumpstations. Up to 10 stages are supported</p></li>
 </ul>
 </div></blockquote>
 <ul class="simple">

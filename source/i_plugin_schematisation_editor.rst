@@ -1,61 +1,40 @@
+.. _schematisation_editor:
+
 3Di Schematisation Editor
 ==========================
 
+The 3Di Schematisation Editor is a powerful tool that simplifies the process of building and editing schematisations. It automates certain tasks of the regular workflow, which enables the user to build schematisations faster while reducing the chance of making errors. 
 
-.. _schematisation_editor:
-
-Using the Schematisation Editor
---------------------------------
+The plugin comes pre-installed with the Modeller Interface and may need to be :ref:`updated <updating_plugin_schem_editor>`.
 
 
-Introduction
-^^^^^^^^^^^^
-The Schematisation Editor is a powerful tool that simplifies the process of building and editing schematisations. 
-It automates certain tasks of the regular workflow, which enables the user to build schematisations faster while reducing the chance of making errors. The main advantages of the Schematisation Editor are:
 
-    - Directly edit all layers of your schematisation, using all native QGIS functionality for editing vector features.
+Functionality
+--------------
+The main advantages of the Schematisation Editor are:
 
-    - Quickly add features to your schematisation with the "magic" editing functionality for 1D layers. For example: existing connection nodes are used when drawing a pipe between them, new connection nodes and manholes are created when a new pipe is digitized, etc.
+* Directly edit all layers of your schematisation, using all native QGIS functionality for editing vector features.
+* Quickly add features to your schematisation with the "magic" editing functionality for 1D layers. For example: existing connection nodes are used when drawing a pipe between them, new connection nodes and manholes are created when a new pipe is digitized, etc.
+* Easily move nodes and all connected lines using the smartly pre-configured snapping and topological editing settings.
+* Easily move the start or end of pipes, channels, culverts, orifices, weirs, pumps. Connection node id's will be automatically updated for you.
+* Get a complete overview of your schematisation: all rasters that are part of your schematisation are added to the QGIS project when the schematisation is loaded.
+* Spot the tiniest local variation in elevation with the hillshade layer that is automatically added on top of your DEM.
+* Visualize the mapping of (impervious) surfaces to connection nodes and change them by updating the geometries.
+* Easily navigate through your schematisation: layers in the layer panel are neatly grouped together in collapsed groups.
 
-    - Easily move nodes and all connected lines using the smartly pre-configured snapping and topological editing settings.
 
-    - Easily move the start or end of pipes, channels, culverts, orifices, weirs, pumps. Connection node id's will be automatically updated for you.
 
-    - Get a complete overview of your schematisation: all rasters that are part of your schematisation are added to the QGIS project when the schematisation is loaded.
-
-    - Spot the tiniest local variation in elevation with the hillshade layer that is automatically added on top of your DEM.
-
-    - Visualize the mapping of (impervious) surfaces to connection nodes and change them by updating the geometries.
-
-    - Easily navigate through your schematisation: layers in the layer panel are neatly grouped together in collapsed groups.
-
+NOTE
 
 In the regular workflow, schematisation data is stored in a *spatialite (.sqlite)* . The Schematisation Editor stores this data in a *geopackage (.gpkg)*. The database *schema* (the names and data types of tables and columns) of this geopackage also differs from the spatialite database schema. The Schematisation Editor loads the data from the spatialite into a geopackage; you make your edits in the geopackage, and when you have finished editing, save your changes to the spatialite.
 
 Currently, the Schematisation Editor is released as 'experimental' plugin. In a future release, we expect to replace the spatialite by the geopackage entirely (for editing as well as uploading), so that this loading and saving will no longer be necessary. Functionality for viewing and editing schematisations will be removed from the 3Di Toolbox plugin. The Schematisation Editor will remain 'experimental' until this has been completed.
 
 
-Installation and updating
-^^^^^^^^^^^^^^^^^^^^^^^^^
-The easiest and recommended way to **install** the Schematisation Editor is:
 
-    #) Installing the newest version of the :ref:`Modeller Interface <MI_installation>`.
-
-    #) In the Plugin Manager (Plugins > Manage and Install Plugins), go to Installed and check the box for '3Di Schematisation Editor'
-
-To **update** to a newer version of the Schematisation Editor:
-
-    #) Make sure that in Plugins > Manage and Install Plugins > Settings, the '*Show also experimental plugins*' box is checked
-
-    #) Go to Installed plugins, click on 3Di Schematisation Editor and then '*Upgrade plugin*'
-
-If you prefer using your own QGIS installation, the Schematisation Editor can be installed by:
-
-    #) Making sure that in the Plugins > Manage and Install Plugins > Settings the '*Show also experimental plugins*' box is checked;
-
-    #) Searching '*3Di Schematisation Editor*' in the Plugin Management Screen, and pressing the *Install Plugin* button.
-
-    #) Make sure that '*Enable macros*' is set to '*Always*' in Settings > Options > General > Project files. 
+Overview of the Schematisation editor
+--------------------------------------
+The plugins option menu is 
 
 
 Loading & Saving

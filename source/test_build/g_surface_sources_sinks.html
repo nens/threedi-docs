@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Surface source and sink &mdash; 3Di  (dev doc 2023-03-20) documentation</title>
+  <title>Surface source and sink &mdash; 3Di  (dev doc 2023-04-03) documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -35,7 +35,7 @@
             3Di
           </a>
               <div class="version">
-                 (dev doc 2023-03-20)
+                 (dev doc 2023-04-03)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -66,15 +66,15 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the 3Di Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the 3Di Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the Live Site</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Guide to the management portal</span></p>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Management Portal</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the 3Di Management Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the Management Portal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="d_management.html#overview-management-portal">Overview management portal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the management portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the Management Portal</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">3Di for developers</span></p>
 <ul>
@@ -168,7 +168,7 @@
 <p>3Di does not cover all processes that can affect a water system. To allow users to add and extract water from the 2D surface domain, the Surface Sources and Sinks function is implemented. It allows users to define their own source and sink rates related to a certain process. An example would be to capture evaporation effects. These rates are treated similar to the other source and sink terms.</p>
 <section id="input">
 <h2>Input<a class="headerlink" href="#input" title="Permalink to this heading"></a></h2>
-<p>The <em>Surface sources and sinks</em> is part of the scenario forcings, it forces the system to react to the input and it can differ per simulation. Therefor, the input is is not part of your schematisation, but is set in the API call. A more elaborate explanation about API calls and the specified input can be found <span class="xref std std-ref">apicalculations</span> and on the site <a class="reference external" href="https://3di.lizard.net/api/v1/calculation/start/">https://3di.lizard.net/api/v1/calculation/start/</a>.</p>
+<p>The <em>Surface sources and sinks</em> is part of the scenario forcings, it forces the system to react to the input and it can differ per simulation. Therefor, the input is is not part of your schematisation, but is set in the API call. A more elaborate explanation about API calls and the specified input can be found here: <a class="reference internal" href="j_api.html#a-api"><span class="std std-ref">3Di API</span></a>.</p>
 <p>In this first release, one can only use the option to add a time-series containing uniform values. In the near future, options to add temporally and spatially variating raster values will be released. In addition to those option, also an option for interpolation of these rates will become available. The input rates are defined in <em>m/s</em>, and will automatically scaled with the grid size.</p>
 </section>
 <section id="output">

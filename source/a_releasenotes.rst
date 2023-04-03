@@ -84,7 +84,7 @@ The most important change in this release is the new login page.
 
 .. image:: /image/login.png
 
-For information about accounts and logging in, please visit this section in the documentation: :ref:`authorisation_authentication`.
+For information about accounts and logging in, please visit this section in the documentation: :ref:`f_authentication_user_management`.
 
 We also added or changed the following:
 
@@ -900,7 +900,7 @@ March 8th 2021
 ^^^^^^^^^^^^^^^^
 
 Download the latest version of the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.4-1-Setup-x86_64.exe>`_ , which at the time of writing uses QGIS 3.16.4.
-For QGIS users: upgrade the plugin using the plugin panel. In case this doesn't work, it is possible to install the plugins as zip file. The latest versions are `ThreediToolbox 1.16 <https://plugins.lizard.net/ThreeDiToolbox.1.16.1.zip>`_  and `Threedi-API-QGIS client is 2.4.0 <https://plugins.lizard.net/threedi_api_qgis_client.2.4.0.zip>`_.
+For QGIS users: upgrade the plugin using the plugin panel. In case this doesn't work, it is possible to install the plugins as zip file. The latest versions are `ThreediToolbox 1.16 <https://plugins.lizard.net/ThreeDiToolbox.1.16.1.zip>`_  and Threedi-API-QGIS client is 2.4.0.
 
 
 *Local calculation of water depth & water level maps*
@@ -940,7 +940,7 @@ February 22nd 2021
 
 - We now support QGIS 3.16 for our toolbox
 
-Download the latest version of the :ref:`qgisplugin`
+Download the latest version of the :ref:`3di_toolbox_plugin`
 
 Please not that the Modeller Interface is not yet upgraded to QGIS 3.16, we will do so when the QGIS repo's are updated.
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Viewing and analyzing results &mdash; 3Di  (dev doc 2023-03-20) documentation</title>
+  <title>Viewing and analyzing results &mdash; 3Di  (dev doc 2023-04-03) documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,7 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="What is the 3Di Live Site" href="c_what_is_the_live_site.html" />
+    <link rel="next" title="What is the Live Site" href="c_what_is_the_live_site.html" />
     <link rel="prev" title="Downloading results" href="i_downloading_results.html" /> 
 </head>
 
@@ -35,7 +35,7 @@
             3Di
           </a>
               <div class="version">
-                 (dev doc 2023-03-20)
+                 (dev doc 2023-04-03)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -62,11 +62,12 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="i_what_is_mi.html">What is the Modeller Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html">Overview of the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html#overview-plugins">Overview plugins</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="i_create_new_schematisation.html">Create a new schematisation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="i_loading_schematisations.html">Loading a schematisation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="i_editing_schematisations.html">View and edit a 3Di model schematisation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="i_checking_schematisations.html">Checking the model schematisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i_checking_schematisations.html">Checking the schematisation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="i_uploading_and_downloading_schematisations.html">Uploading and downloading schematisations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="i_running_a_simulation.html">Running a simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="i_downloading_results.html">Downloading results</a></li>
@@ -93,15 +94,15 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the 3Di Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the 3Di Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the Live Site</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Guide to the management portal</span></p>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Management Portal</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the 3Di Management Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the Management Portal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="d_management.html#overview-management-portal">Overview management portal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the management portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the Management Portal</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">3Di for developers</span></p>
 <ul>
@@ -196,7 +197,7 @@ These files are a gridadmin.h5, results_3di.nc (the NetCDF) and log files. For i
 </section>
 <section id="load-3di-model-and-results">
 <span id="load-model-results"></span><h3>Load 3Di model and results<a class="headerlink" href="#load-3di-model-and-results" title="Permalink to this heading"></a></h3>
-<p>A model schematisation can be loaded by clicking the database icon with the blue plus-sign in the 3Di Toolbox in the toolbar. A new window will be opened.</p>
+<p>A schematisation can be loaded by clicking the database icon with the blue plus-sign in the 3Di Toolbox in the toolbar (<img alt="addresults" src="_images/e_addresults.png" />). A new window will be opened.</p>
 <p>1) Under ‘Model’ you need to load the Sqlite containing your model
 In case you are loading you model schemetisation for checking and editing your Sqlite, step 2 is not necessary.
 2) Under ‘Results’ you can load the NetCDF containing your simulation results (usually named <em>results_3di.nc</em>). It is important to select a result file that belongs to the model you used for your simulation (i.e. your NetCDF must be generated by the sqlite you loaded. Do not use an old or changed Sqlite).
@@ -213,7 +214,7 @@ In case you are loading you model schemetisation for checking and editing your S
 <span id="graph-tool"></span><h3>Graph tool - Graphs of time series<a class="headerlink" href="#graph-tool-graphs-of-time-series" title="Permalink to this heading"></a></h3>
 <p>The graph tool (from the <a class="reference internal" href="i_plugin_toolbox.html#di-toolbox-plugin"><span class="std std-ref">3Di Toolbox plugin</span></a>) can be used for visualizing model results over time. for example, it allows users to quickly plot the water level variation of a specific node or the discharge variation of a flow link (e.g. a channel or pipe) over time. The information is quickly at hand in just a few steps. All the variable that are saved in the NetCDF are available. They are structured on flow lines and nodes, depending on how they are defined in the computational core. An overview of the variables in the NetCDF can be found in the section <a class="reference internal" href="h_results.html#dinetcdf"><span class="std std-ref">Results 3Di</span></a>.</p>
 <p>The following steps are required to view your results:
-1) First, make sure you have loaded a model schematisation and the corresponding results (NetCDF) into your QGIS project using <a class="reference internal" href="#load-model-results"><span class="std std-ref">Load 3Di model and results</span></a>.
+1) First, make sure you have loaded a schematisation and the corresponding results (NetCDF) into your QGIS project using <a class="reference internal" href="#load-model-results"><span class="std std-ref">Load 3Di model and results</span></a>.
 2) Activate the graph tool by clicking the <em>graph</em> button in the 3Di toolbar. A new panel with the title <em>3Di result plots</em> is launched in your QGIS-project.
 3) In the layer overview window go to the layer group <em>results: results_3di</em> and activate the ‘flow-lines’ layer or the ‘nodes’ layer:</p>
 <figure class="align-default">
@@ -633,8 +634,8 @@ area and 1D connections will be added to the result layers.</p></li>
 <h4>Inputs section<a class="headerlink" href="#inputs-section" title="Permalink to this heading"></a></h4>
 <p><strong>3Di results NetCDF</strong></p>
 <p>Results of a 3Di simulation (results_3di.nc file). More information
-about this file type can be found in the <a class="reference external" href="https://docs.3di.lizard.net/c_results.html#data-format-results-3di-nc">3Di
-documentation</a>.
+about this file type can be found in the <cite>3Di
+documentation &lt;3dinetcdf&gt;</cite>.
 Required input.</p>
 <p><strong>3Di gridadmin file</strong></p>
 <p>Grid administration (gridadmin.h5) file. If this file is located in the
@@ -747,7 +748,7 @@ please check the results</p></li>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="i_downloading_results.html" class="btn btn-neutral float-left" title="Downloading results" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="c_what_is_the_live_site.html" class="btn btn-neutral float-right" title="What is the 3Di Live Site" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="c_what_is_the_live_site.html" class="btn btn-neutral float-right" title="What is the Live Site" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

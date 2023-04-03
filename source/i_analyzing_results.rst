@@ -40,7 +40,7 @@ After download the NetCDF can be loaded together with the spatialite using **the
 Load 3Di model and results
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-A model schematisation can be loaded by clicking the database icon with the blue plus-sign in the 3Di Toolbox in the toolbar. A new window will be opened. 
+A schematisation can be loaded by clicking the database icon with the blue plus-sign in the 3Di Toolbox in the toolbar (|addresults|). A new window will be opened. 
 
 1) Under 'Model' you need to load the Sqlite containing your model 
 In case you are loading you model schemetisation for checking and editing your Sqlite, step 2 is not necessary.  
@@ -51,6 +51,8 @@ In case you are loading you model schemetisation for checking and editing your S
 .. figure:: image/d_qgisplugin_select_model_results.png
     :alt: Load 3Di model and results
 
+
+.. |addresults| image:: /image/e_addresults.png
 
 
 .. _analyse_model_results_with_modeller_interface:
@@ -69,7 +71,7 @@ Graph tool - Graphs of time series
 The graph tool (from the :ref:`3di_toolbox_plugin`) can be used for visualizing model results over time. for example, it allows users to quickly plot the water level variation of a specific node or the discharge variation of a flow link (e.g. a channel or pipe) over time. The information is quickly at hand in just a few steps. All the variable that are saved in the NetCDF are available. They are structured on flow lines and nodes, depending on how they are defined in the computational core. An overview of the variables in the NetCDF can be found in the section :ref:`3dinetcdf`. 
 
 The following steps are required to view your results:
-1) First, make sure you have loaded a model schematisation and the corresponding results (NetCDF) into your QGIS project using :ref:`load_model_results`.
+1) First, make sure you have loaded a schematisation and the corresponding results (NetCDF) into your QGIS project using :ref:`load_model_results`.
 2) Activate the graph tool by clicking the *graph* button in the 3Di toolbar. A new panel with the title *3Di result plots* is launched in your QGIS-project. 
 3) In the layer overview window go to the layer group *results: results_3di* and activate the 'flow-lines' layer or the 'nodes' layer: 
 
@@ -439,7 +441,7 @@ Inputs section
 
 Results of a 3Di simulation (results_3di.nc file). More information
 about this file type can be found in the `3Di
-documentation <https://docs.3di.lizard.net/c_results.html#data-format-results-3di-nc>`__.
+documentation <3dinetcdf>`.
 Required input.
 
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>View and edit a 3Di model schematisation &mdash; 3Di  (dev doc 2023-03-20) documentation</title>
+  <title>View and edit a 3Di model schematisation &mdash; 3Di  (dev doc 2023-04-03) documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,7 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Checking the model schematisation" href="i_checking_schematisations.html" />
+    <link rel="next" title="Checking the schematisation" href="i_checking_schematisations.html" />
     <link rel="prev" title="Loading a schematisation" href="i_loading_schematisations.html" /> 
 </head>
 
@@ -35,7 +35,7 @@
             3Di
           </a>
               <div class="version">
-                 (dev doc 2023-03-20)
+                 (dev doc 2023-04-03)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -62,6 +62,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="i_what_is_mi.html">What is the Modeller Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html">Overview of the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html#overview-plugins">Overview plugins</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="i_create_new_schematisation.html">Create a new schematisation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="i_loading_schematisations.html">Loading a schematisation</a></li>
@@ -75,7 +76,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#add-levee-breaches">Add levee breaches</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="i_checking_schematisations.html">Checking the model schematisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i_checking_schematisations.html">Checking the schematisation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="i_uploading_and_downloading_schematisations.html">Uploading and downloading schematisations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="i_running_a_simulation.html">Running a simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="i_downloading_results.html">Downloading results</a></li>
@@ -85,15 +86,15 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the 3Di Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the 3Di Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the Live Site</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Guide to the management portal</span></p>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Management Portal</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the 3Di Management Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the Management Portal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="d_management.html#overview-management-portal">Overview management portal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the management portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the Management Portal</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">3Di for developers</span></p>
 <ul>
@@ -172,7 +173,7 @@
              
   <section id="view-and-edit-a-3di-model-schematisation">
 <span id="view-and-edit-model"></span><h1>View and edit a 3Di model schematisation<a class="headerlink" href="#view-and-edit-a-3di-model-schematisation" title="Permalink to this heading"></a></h1>
-<p>After loading your 3Di model schematisation, there are several ways to inspect your model. We have added the following features to assist you in viewing and editing the model schematisation:</p>
+<p>After loading your schematisation, there are several ways to inspect your model. We have added the following features to assist you in viewing and editing the schematisation:</p>
 <ul class="simple">
 <li><p>Multiple styles per layer</p></li>
 <li><p>Drop down menus</p></li>
@@ -182,7 +183,7 @@
 </ul>
 <section id="multiple-styles-per-layer">
 <span id="multiplestyles"></span><h2>Multiple styles per layer<a class="headerlink" href="#multiple-styles-per-layer" title="Permalink to this heading"></a></h2>
-<p>The multiple styles per layer can help you when analysing your model. The different styles depict aspects of the layer you might be interested in, without cluttering your schematisation with too much information at once.</p>
+<p>The multiple styles per layer can help you when analyzing your model. The different styles depict aspects of the layer you might be interested in, without cluttering your schematisation with too much information at once.</p>
 <p>To switch between stylings: 1) Right click the layer you are interested in. 2) Hold your mouse over styles and the multiple styles will be shown. 3) Click on the style you want to use. The style with the dot next to it is the active style. The figure below shows an example for selecting a style.</p>
 <figure class="align-default">
 <img alt="Selecting the drop down menu for multiple styles" src="_images/d_qgisplugin_multiple_stylings_drop_down_menu.png" />
@@ -269,7 +270,7 @@
 </td>
 </tr>
 <tr class="row-even"><td><p>Calculation type</p></td>
-<td><p>The <a class="reference external" href="https://docs.3di.lizard.net/b_1dtypes.html#types-of-1d-elements-calculation-types">’calculation type’</a> style is a categorised styling that depicts the way 3Di</p>
+<td><p>The <cite>’calculation type’ &lt;calculation_types&gt;</cite> style is a categorised styling that depicts the way 3Di calculated the interaction between the manhole and the 2D computational domain.</p>
 <p>calculated the interaction between a manhole and the 2D computation domain.</p>
 </td>
 </tr>
@@ -353,7 +354,7 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Calculation type</p></td>
-<td><p>The <a class="reference external" href="https://docs.3di.lizard.net/b_1dtypes.html#types-of-1d-elements-calculation-types">’calculation type’</a> style is a categorised styling that depicts the way</p>
+<td><p>The <cite>’calculation type’ &lt;calculation_types&gt;</cite> style is a categorized styling that depicts the way</p>
 <p>3Di calculated  the interaction between a channel and the 2D</p>
 <p>computation domain.</p>
 </td>
@@ -425,7 +426,7 @@
 </td>
 </tr>
 <tr class="row-odd"><td><p>Calculation type</p></td>
-<td><p>The <a class="reference external" href="https://docs.3di.lizard.net/b_1dtypes.html#types-of-1d-elements-calculation-types">’calculation type’</a> style is a categorised styling that depicts the way</p>
+<td><p>The <cite>’calculation type’ &lt;calculation_types&gt;</cite> style is a categorized styling that depicts the way</p>
 <p>3Di calculated the interaction between a culvert and the 2D computation</p>
 <p>domain.</p>
 </td>
@@ -486,7 +487,7 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Default</p></td>
-<td><p>The ‘default’ style is a categorised styling depicting the locations and</p>
+<td><p>The ‘default’ style is a categorized styling depicting the locations and</p>
 <p>sewerage types of the pipes.</p>
 </td>
 </tr>
@@ -498,7 +499,7 @@
 </td>
 </tr>
 <tr class="row-even"><td><p>Calculation type</p></td>
-<td><p>The <a class="reference external" href="https://docs.3di.lizard.net/b_1dtypes.html#types-of-1d-elements-calculation-types">’calculation type’</a> style is a categorised styling that depicts the way 3Di</p>
+<td><p>The <cite>’calculation type’ &lt;calculation_types&gt;</cite> style is a categorized styling that depicts the way 3Di</p>
 <p>calculated the interaction between a pipe and the 2D computation domain.</p>
 </td>
 </tr>
@@ -606,7 +607,7 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Surface inclination</p></td>
-<td><p>The ‘surface inclination’ style is a categorised styling depicting the</p>
+<td><p>The ‘surface inclination’ style is a categorized styling depicting the</p>
 <p>locations and the surface inclinations of the impervious surfaces.</p>
 </td>
 </tr>
@@ -657,7 +658,7 @@
 </section>
 <section id="automated-field-fill">
 <h2>Automated field fill<a class="headerlink" href="#automated-field-fill" title="Permalink to this heading"></a></h2>
-<p>Some fields are automatically filled to assist in making your model schematisation. Here is an overview of the fields that are filled automatically:</p>
+<p>Some fields are automatically filled to assist in making your schematisation. Here is an overview of the fields that are filled automatically:</p>
 <ul class="simple">
 <li><p>The cross-section location fetches the corresponding channel-id automatically</p></li>
 <li><p>Channels and culverts automatically fill connection node ids when drawing between nodes with <a class="reference external" href="https://docs.qgis.org/3.4/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#setting-the-snapping-tolerance-and-search-radius">snapping</a>.</p></li>
@@ -967,7 +968,7 @@
 <td><p>new</p></td>
 </tr>
 <tr class="row-even"><td><p>type</p></td>
-<td><p>1: pump behaviour is based on water levels on the suction side</p></td>
+<td><p>1: pump behavior is based on water levels on the suction side</p></td>
 </tr>
 <tr class="row-odd"><td><p>zoom_category</p></td>
 <td><p>3</p></td>
@@ -1250,7 +1251,7 @@ calculation points.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="i_loading_schematisations.html" class="btn btn-neutral float-left" title="Loading a schematisation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="i_checking_schematisations.html" class="btn btn-neutral float-right" title="Checking the model schematisation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="i_checking_schematisations.html" class="btn btn-neutral float-right" title="Checking the schematisation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

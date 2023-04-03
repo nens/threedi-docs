@@ -33,7 +33,7 @@ The newest Modeller Interface also includes the newest versions of the 3Di plugi
 .. _setting_up_models_and_simulations:
 
 Setting up the 3Di Models and Simulations Plugin
-----------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. note::
    This step needs to be done just once.
 
@@ -62,6 +62,17 @@ You can now use all online functionalities of the 3Di Models & Simulations plugi
     :scale: 90%
 .. |Copy_button| image:: /image/e_copy_button.png
     :scale: 90%
+
+.. _updating_plugin_schem_editor:
+
+Updating the 3Di Schematisation Editor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+To **update** to a newer version of the Schematisation Editor:
+
+    #) Make sure that in Plugins > Manage and Install Plugins > Settings, the '*Show also experimental plugins*' box is checked
+
+    #) Go to Installed plugins, click on 3Di Schematisation Editor and then '*Upgrade plugin*'
+
 
 
 
@@ -101,7 +112,7 @@ The plugins work for:
 - On Linux/OSX: install the following system dependencies: `python3-h5py python3-scipy python3-pyqt5.qtwebsockets`
 - 3Di v2 results
 
-To install the 3Di-Toolbox plugin follow the steps below: 
+To install the **3Di-Toolbox** plugin follow the steps below: 
 
 1) Open QGIS and via the menu bar go to 'Plugins > Manage And Install Plugins'. 
 2) Go to 'Settings'. 
@@ -119,9 +130,8 @@ To install the 3Di-Toolbox plugin follow the steps below:
 .. figure:: image/d_qgispluging_pluginmanager_install_toolbox.png
     :alt: Install 3Di Toolbox
 
-.. _plugin_overview:
 
-To install the "3Di Models and Simulations" plugin follow the steps below: 
+To install the **3Di Models and Simulations** plugin follow the steps below: 
 
 1) Open QGIS and via the menu bar go to 'Plugins > Manage And Install Plugins'. 
 2) Go to 'Settings'. 
@@ -130,6 +140,14 @@ To install the "3Di Models and Simulations" plugin follow the steps below:
 5) Go to 'All' and choose '"3Di Models and Simulations"' from the list
 6) Install the plugin.
 7) To active the panel of the"3Di Models and Simulations", choose plugins --> "3Di Models and Simulations" --> "3Di Models and Simulations". Now the panel will be available.
+
+
+To install the **Schematisation Editor** plugin, follow the steps below:
+
+1) Making sure that in the Plugins > Manage and Install Plugins > Settings the '*Show also experimental plugins*' box is checked;
+2) Searching '*3Di Schematisation Editor*' in the Plugin Management Screen, and pressing the *Install Plugin* button.
+3) Make sure that '*Enable macros*' is set to '*Always*' in Settings > Options > General > Project files. 
+
 
 .. _plugin_settings:
 
@@ -140,7 +158,7 @@ To set the Base API URL:
 1) Open QGIS and via the menu bar go to 'Plugins > "3Di Models and Simulations" > Settings'
 2) Fill in a Base API URL. The Base API URL is in most cases https://api.3di.live. If you want to connect to our second calculation center in Taiwan, the base API URL is https://api.3di.tw/
 
-
+.. deze links komen als dode links naar boven in de check, maar deze kloppen wel voor het invullen van de plugin instellingen :)
 
 
 
@@ -152,9 +170,11 @@ General information
 
 All applications make use of https traffic over port 443 with public signed SSL/TLS certificates.
 If certificate errors show, please check any security software.
-One way of testing this is by visiting https://api.3di.live/v3 in a browser and check the certificate.
+One way of testing this is by visiting https://api.3di.live/ in a browser and check the certificate.
 If it is issued by R3, this is the certificate configured by us.
 Any other name will point towards the security software in use.
+
+.. VRAAG: deze website klopt niet. wat moet het zijn? -> aan wolf vragen. of het stukje tekst hierboven nog klopt.
 
 .. _setup_modeller_interface:
 

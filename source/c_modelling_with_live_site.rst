@@ -124,7 +124,7 @@ When you press the **Play** button the intervention will become active.
 Pumping point
 ^^^^^^^^^^^^^^^^^^^^
 
-With the **Pump tool** a constant sink of water can be added to the model. Select the icon and change the amount of water you want to pump out of the model. In the dropdown menu you can change the unit. You can also change the duration of the pumping. Click **PLACE ON MAP** and click a location on the map that should be the pump. The water will be pumped out from the 2D domain from this location (1D pumps should be added in the model schematisation). The water that is taken out of the model will not flow back into the model and is considered a loss.
+With the **Pump tool** a constant sink of water can be added to the model. Select the icon and change the amount of water you want to pump out of the model. In the dropdown menu you can change the unit. You can also change the duration of the pumping. Click **PLACE ON MAP** and click a location on the map that should be the pump. The water will be pumped out from the 2D domain from this location (1D pumps should be added in the schematisation). The water that is taken out of the model will not flow back into the model and is considered a loss.
 When you press the **Play** button the intervention will become active.
 
 
@@ -253,7 +253,7 @@ Results can be stored by clicking **User menu**, then clicking **Quit Simulation
 - Download results directly via the browser
 - Store them to the Lizard platform (see https://docs.lizard.net/a_lizard.html) 
 
-Stored (raw) results can also be downloaded using the"3Di Models and Simulations" in the 3Di Modeller Interface, see: :ref:`view_model_results_with_modeller_interface`. Note that these raw results are only available for 7 days.
+Stored (raw) results can also be downloaded using the"3Di Models and Simulations" in the 3Di Modeller Interface, see: :ref:`mi_download_res`. Note that these raw results are only available for 7 days.
 
 The options in Lizard storage are as follows:
 

@@ -5,11 +5,6 @@ What is the Modeller Interface
 
 The Modeller Interface is a customized version of QGIS with dedicated :ref:`plugins <overview_plugins>` for the use of 3Di. This interface is used to build schematisations, edit schematisations, start simulations and analyze results.
 
-.. figure:: image/a_modeller_interface.png
-   :alt: 3Di Modeller Interface
-
-   An example of a schematisation in the Modeller Interface.
-
 
 In this video we present the workflow from start to finish of the modelling process:
 
@@ -19,7 +14,7 @@ In this video we present the workflow from start to finish of the modelling proc
 	
 *Demo of the modelling process* 
 
-For more detailed information, visit the :ref:`mi_workflow` page. There are also multiple tutorials available on how to work with the Modeller Interface. The basics of the Modeller Interface are explained in the :ref:`Workflow <tutorial1_workflow>` Tutorial.
+For an overview of the interface visit the :ref:`mi_overview` page. For more detailed information on the modelling workflow, visit the :ref:`mi_workflow` page. There are also multiple tutorials available on how to work with the Modeller Interface. The basics of the Modeller Interface are explained in the :ref:`Workflow <tutorial1_workflow>` Tutorial.
 
  
 Functionality of the Modeller Interface 
@@ -36,6 +31,7 @@ The Modeller Interface makes it easy to:
 * Download results
 * Analyze results
 
+.. TODO: Checken dat dit lijstje correct en compleet is. 
 
 
 Technical setup
@@ -52,7 +48,7 @@ The Modeller Interface is a customized version of QGIS designed for building 3Di
 We have chosen QGIS as our supporting platform because of the following reasons:
 
 - QGIS comes with hundreds of powerful GIS processing tools;
-- It enables the combination of web maps (aerial, topo, osm and may others) and model schematisations;
+- It enables the combination of web maps (aerial, topo, osm and may others) and schematisations;
 - It offers an extensive amount of styling options;
 - It has a highly customizable interface
 - The option of building your own plugins to interact with the model;

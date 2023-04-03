@@ -21,4 +21,3 @@ Here, laterals, surface sources and sinks and leakage will be discussed. They al
    g_leakage
    g_inflow
 
-.. TODO: file not found: b_boundary_conditions

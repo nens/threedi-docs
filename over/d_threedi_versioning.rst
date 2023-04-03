@@ -13,7 +13,7 @@ The model databank consists of the model database (`https://models.lizard.net <h
 
 The 3Di models are all located in a secure model database. The model database is a *repository* that tracks *revisions* of the uploaded models. Through a model page, the models from the model database can be made available in the 3Di portal (see :ref:`showing_model_in_portal`). 
 
-In order to be able to extract the data from the model database, to adjust models and to upload the models again, TortoiseHG Workbench and QGIS are needed (see :ref:`before_you_begin`). TortoiseHG Workbench is used to retrieve the files from the 3Di models from the repository and place them locally on a computer. The model can be adjusted with the QGIS model schematisation and again uploaded to the repository using TortoiseHG. 
+In order to be able to extract the data from the model database, to adjust models and to upload the models again, TortoiseHG Workbench and QGIS are needed (see :ref:`before_you_begin`). TortoiseHG Workbench is used to retrieve the files from the 3Di models from the repository and place them locally on a computer. The model can be adjusted with the QGIS schematisation and again uploaded to the repository using TortoiseHG. 
 
 The model database can be accessed via the Internet address `https://models.lizard.net <https://models.lizard.net>`_. After starting the model database website you can log in with the 3Di username and password. You will see the following page with a list of models that can be downloaded.
 
@@ -158,7 +158,7 @@ By clicking the name of the repository it shows an overview of the model scenari
 * The **Display name** is the name under which the model can be found in the 3Di portal.
 * Adjust the **Visible for** criteria to select who has the right to see the model in the live site. Most end users have the *Viewer* level.By default the level will be *Admin*.
 * The **Model description** can contain additional information which is visible on the portal.
-* The **Status** of the model indicates whether the revision has been successfully converted into a 3Di model. The generation of input files can fail when the model schematisation is incorrect. Click on the status (Success/Fail) to view the log of the conversion.
+* The **Status** of the model indicates whether the revision has been successfully converted into a 3Di model. The generation of input files can fail when the schematisation is incorrect. Click on the status (Success/Fail) to view the log of the conversion.
 * **Sqlite Version** indicates which version of the sqlite is present.
 * **Last update** indicates when the input files were generated from the revision.
 * **Committed** indicates who was the last to push changes for the model.

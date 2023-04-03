@@ -8,7 +8,7 @@ In this instruction we will set up a relatively simple model that can simulate f
 Spatialite database
 -------------------
 
-Once all your raster-files meet the requirements (as outlined in :ref:`rasters`) we can set up the model through the spatialite database. The spatialite database contains all the information that goes into your model except the raster-files. To see what is inside the database, you have to connect to the spatialite database using the :ref:`qgisplugin`. This way, all relevant 3Di-layers are loaded.
+Once all your raster-files meet the requirements (as outlined in :ref:`rasters`) we can set up the model through the spatialite database. The spatialite database contains all the information that goes into your model except the raster-files. To see what is inside the database, you have to connect to the spatialite database using the :ref:`load_model_results`. This way, all relevant 3Di-layers are loaded.
 
 
 Global settings
@@ -81,7 +81,7 @@ Breach locations
 There are two ways to add breach locations to a model, manually for each breach or automatically for selected channels. In both cases the table ``v2_connected_pnt`` and ``v2_calculation_points`` must be filled completely and correctly. The calculation points are points on which 3Di will place water level calculation points. The connected points refer to these calculation points by a unique id. The location of the connected points marks the location where the 1D2D connection is made to the 2D computational grid. If a straight line between the calculation point and the connected point crosses a 1D-levee, a breach location is generated.
 
 To add a breach location next to a levee you have to have a model that has a connected channel and at least one levee. 
-The :ref:`qgisplugin` can be used to add breach locations to your model.
+The :ref:`Modeller Interface <addleveebreaches>` can be used to add breach locations to your model.
     
 No actual breach points will become visible for either of these options in QGIS. These will only become visible on the 3Di web portal.
 

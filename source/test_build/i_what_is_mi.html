@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>What is the Modeller Interface &mdash; 3Di  (dev doc 2023-03-20) documentation</title>
+  <title>What is the Modeller Interface &mdash; 3Di  (dev doc 2023-04-03) documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -35,7 +35,7 @@
             3Di
           </a>
               <div class="version">
-                 (dev doc 2023-03-20)
+                 (dev doc 2023-04-03)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -67,19 +67,20 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html">Overview of the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html#overview-plugins">Overview plugins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the 3Di Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the 3Di Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the Live Site</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Guide to the management portal</span></p>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Management Portal</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the 3Di Management Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the Management Portal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="d_management.html#overview-management-portal">Overview management portal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the management portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the Management Portal</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">3Di for developers</span></p>
 <ul>
@@ -158,15 +159,9 @@
   <section id="what-is-the-modeller-interface">
 <span id="mi-what-is"></span><h1>What is the Modeller Interface<a class="headerlink" href="#what-is-the-modeller-interface" title="Permalink to this heading"></a></h1>
 <p>The Modeller Interface is a customized version of QGIS with dedicated <a class="reference internal" href="i_overview_user_interface.html#overview-plugins"><span class="std std-ref">plugins</span></a> for the use of 3Di. This interface is used to build schematisations, edit schematisations, start simulations and analyze results.</p>
-<figure class="align-default" id="id1">
-<img alt="3Di Modeller Interface" src="_images/a_modeller_interface.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text">An example of a schematisation in the Modeller Interface.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
 <p>In this video we present the workflow from start to finish of the modelling process:</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Uvjf4s77vr0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p><em>Demo of the modelling process</em></p>
-<p>For more detailed information, visit the <a class="reference internal" href="i_modelling_with_mi.html#mi-workflow"><span class="std std-ref">Modelling with the Modeller Interface</span></a> page. There are also multiple tutorials available on how to work with the Modeller Interface. The basics of the Modeller Interface are explained in the <a class="reference internal" href="e_klondike_workflow.html#tutorial1-workflow"><span class="std std-ref">Workflow</span></a> Tutorial.</p>
+<p>For an overview of the interface visit the <a class="reference internal" href="i_overview_user_interface.html#mi-overview"><span class="std std-ref">Overview of the Modeller Interface</span></a> page. For more detailed information on the modelling workflow, visit the <a class="reference internal" href="i_modelling_with_mi.html#mi-workflow"><span class="std std-ref">Modelling with the Modeller Interface</span></a> page. There are also multiple tutorials available on how to work with the Modeller Interface. The basics of the Modeller Interface are explained in the <a class="reference internal" href="e_klondike_workflow.html#tutorial1-workflow"><span class="std std-ref">Workflow</span></a> Tutorial.</p>
 <section id="functionality-of-the-modeller-interface">
 <h2>Functionality of the Modeller Interface<a class="headerlink" href="#functionality-of-the-modeller-interface" title="Permalink to this heading"></a></h2>
 <p>The Modeller Interface makes it easy to:</p>
@@ -191,7 +186,7 @@
 <p>We have chosen QGIS as our supporting platform because of the following reasons:</p>
 <ul class="simple">
 <li><p>QGIS comes with hundreds of powerful GIS processing tools;</p></li>
-<li><p>It enables the combination of web maps (aerial, topo, osm and may others) and model schematisations;</p></li>
+<li><p>It enables the combination of web maps (aerial, topo, osm and may others) and schematisations;</p></li>
 <li><p>It offers an extensive amount of styling options;</p></li>
 <li><p>It has a highly customizable interface</p></li>
 <li><p>The option of building your own plugins to interact with the model;</p></li>

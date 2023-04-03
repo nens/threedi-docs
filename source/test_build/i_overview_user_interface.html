@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Overview of the Modeller Interface &mdash; 3Di  (dev doc 2023-03-20) documentation</title>
+  <title>Overview of the Modeller Interface &mdash; 3Di  (dev doc 2023-04-03) documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,7 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="3Di Models and Simulations Plugin" href="i_plugin_models_simulation.html" />
+    <link rel="next" title="3Di Toolbox plugin" href="i_plugin_toolbox.html" />
     <link rel="prev" title="What is the Modeller Interface" href="i_what_is_mi.html" /> 
 </head>
 
@@ -35,7 +35,7 @@
             3Di
           </a>
               <div class="version">
-                 (dev doc 2023-03-20)
+                 (dev doc 2023-04-03)
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -61,29 +61,27 @@
 <p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Modeller Interface</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="i_what_is_mi.html">What is the Modeller Interface</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview of the Modeller Interface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#overview-plugins">Overview plugins</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="i_plugin_models_simulation.html">3Di Models and Simulations Plugin</a></li>
-<li class="toctree-l3"><a class="reference internal" href="i_plugin_schematisation_editor.html">3Di Schematisation Editor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="i_plugin_toolbox.html">3Di Toolbox plugin</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#updating">Updating</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview of the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#overview-plugins">Overview plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="i_plugin_toolbox.html">3Di Toolbox plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i_plugin_models_simulation.html">3Di Models and Simulations Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i_plugin_schematisation_editor.html">3Di Schematisation Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#updating">Updating</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the 3Di Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the 3Di Live Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the 3Di Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the Live Site</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Guide to the management portal</span></p>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Management Portal</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the 3Di Management Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the Management Portal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="d_management.html#overview-management-portal">Overview management portal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the management portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the Management Portal</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">3Di for developers</span></p>
 <ul>
@@ -161,18 +159,33 @@
              
   <section id="overview-of-the-modeller-interface">
 <span id="mi-overview"></span><h1>Overview of the Modeller Interface<a class="headerlink" href="#overview-of-the-modeller-interface" title="Permalink to this heading"></a></h1>
+<p>The main GUI consist of five components:</p>
+<ol class="arabic simple">
+<li><p><strong>Menu Bar</strong>: provides access to functions using standard hierarchical menus.</p></li>
+<li><p><strong>Toolbar</strong>: provides access to most of the functions in the menu, plus additional tools for interacting with the map. Every toolbar can be moved around according to your needs. Some of the 3Di <a class="reference internal" href="#overview-plugins"><span class="std std-ref">plugins</span></a> are already added to the toolbar.</p></li>
+<li><p><strong>Panels</strong>: special widgets that you can interact with to perform more complex tasks. A couple of the 3Di <a class="reference internal" href="#overview-plugins"><span class="std std-ref">plugins</span></a> are in these panels.</p></li>
+<li><p><strong>Map View</strong></p></li>
+<li><p><strong>Status Bar</strong>: provides you with general information about the map view and processed or available actions, and offers you tools to manage the map view.</p></li>
+</ol>
+<figure class="align-default" id="id2">
+<img alt="3Di Modeller Interface" src="_images/i_overview_modeller_interface.png" />
+<figcaption>
+<p><span class="caption-text">An overview of the Modeller Interface.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
 <section id="overview-plugins">
-<span id="id1"></span><h2>Overview plugins<a class="headerlink" href="#overview-plugins" title="Permalink to this heading"></a></h2>
+<span id="id1"></span><h1>Overview plugins<a class="headerlink" href="#overview-plugins" title="Permalink to this heading"></a></h1>
 <p>The Modeller interface has 3 pre-installed plugins:</p>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="i_plugin_toolbox.html">3Di Toolbox plugin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="i_plugin_models_simulation.html">3Di Models and Simulations Plugin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="i_plugin_schematisation_editor.html">3Di Schematisation Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="i_plugin_toolbox.html">3Di Toolbox plugin</a></li>
 </ul>
 </div>
 <section id="updating">
-<h3>Updating<a class="headerlink" href="#updating" title="Permalink to this heading"></a></h3>
+<h2>Updating<a class="headerlink" href="#updating" title="Permalink to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul class="simple">
@@ -185,14 +198,13 @@
 <p>You can Show Experimental Plugins by clicking: ‘Plugins’ in the menubar &gt; ‘Manage and Install Plugins..’ &gt; ‘Settings’ &gt; check the box ‘Show also experimental plugins’.</p>
 </section>
 </section>
-</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="i_what_is_mi.html" class="btn btn-neutral float-left" title="What is the Modeller Interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="i_plugin_models_simulation.html" class="btn btn-neutral float-right" title="3Di Models and Simulations Plugin" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="i_plugin_toolbox.html" class="btn btn-neutral float-right" title="3Di Toolbox plugin" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

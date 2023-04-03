@@ -140,7 +140,7 @@ To set the Base API URL:
 1) Open QGIS and via the menu bar go to 'Plugins > "3Di Models and Simulations" > Settings'
 2) Fill in a Base API URL. The Base API URL is in most cases https://api.3di.live. If you want to connect to our second calculation center in Taiwan, the base API URL is https://api.3di.tw/
 
-
+.. deze links komen als dode links naar boven in de check, maar deze kloppen wel voor het invullen van de plugin instellingen :)
 
 
 
@@ -155,6 +155,8 @@ If certificate errors show, please check any security software.
 One way of testing this is by visiting https://api.3di.live/v3 in a browser and check the certificate.
 If it is issued by R3, this is the certificate configured by us.
 Any other name will point towards the security software in use.
+
+.. VRAAG: deze website klopt niet. wat moet het zijn?
 
 .. _setup_modeller_interface:
 

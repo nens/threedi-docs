@@ -15,7 +15,7 @@ Documentation Overview
 
 * Navigate to the **Guide to the 3Di Livesite** section to read more on :ref:`how to use the 3Di Livesite <guide_to_portal>`.
 
-* For more specified information on :ref:`how to build a schematisation in the Modeller Interface <qgisplugin>`, please consult the **How to work with 3Di** page.
+* For more specified information on :ref:`how to build a schematisation in the Modeller Interface <mi_workflow>`, please consult the **How to work with 3Di** page.
 
 * In the **Tutorials** section you will find :ref:`tutorials <tutorial1_workflow>` on how to use 3Di.
 
@@ -160,7 +160,7 @@ If you are interested in a **product demo**, a **live** or **online training**, 
 .. toctree::
    :hidden:
    :maxdepth: 2
-   :caption: Overig
-   :name: Overig
+   :caption: Scenario Archive
+   :name: Scenario Archive
    
    d_scenario_archive

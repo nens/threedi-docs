@@ -46,7 +46,7 @@ Using GDAL to check and edit your rasters
 
 There are several packages available that allow you to meet the requirements stated above. Below are some examples using GDAL. 
 
-*If you are using Windows, GDAL should be installed together with QGIS and available through the OSGeo4W Shell. Try finding it through your start menu. A full list of GDAL functionalities and help can be found under the* `gdal documentation <http://www.gdal.org/gdal_utilities.html>`_.
+*If you are using Windows, GDAL should be installed together with QGIS and available through the OSGeo4W Shell. Try finding it through your start menu. A full list of GDAL functionalities and help can be found under the* `gdal documentation <http://www.gdal.org>`_.
 
 **Retrieve raster information using gdalinfo**
 
@@ -74,7 +74,7 @@ The next example sets all raster-information in one command for rasters that use
 
 Tip: Always use the ``-tap`` option to make sure all your rasters are properly aligned. 
     
-The example uses an extra shape-file of the study area. This is convenient when you are using several raster-files. It ensures that all raster-files you make have the same extent and NODATA pixels. You should make sure however that the shape-file’s projection matches that of your raster information. If you are not sure what any of the commands do exactly, you can check the `gdal documentation <http://www.gdal.org/gdal_utilities.html>`_ or try options separately to generate several output files and checking them with gdalinfo to see which option generates the result you want.
+The example uses an extra shape-file of the study area. This is convenient when you are using several raster-files. It ensures that all raster-files you make have the same extent and NODATA pixels. You should make sure however that the shape-file’s projection matches that of your raster information. If you are not sure what any of the commands do exactly, you can check the `gdal documentation <http://www.gdal.org>`_ or try options separately to generate several output files and checking them with gdalinfo to see which option generates the result you want.
 
 **Compress rasters using gdal_translate**
 

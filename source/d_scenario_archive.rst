@@ -118,6 +118,8 @@ To view post-processed results from your 3Di scenario in the 3Di Modeller Interf
 | For example: 
 | https://demo.lizard.net/wms/scenario_c30ef7f2-c871-4d70-a087-8f078f9ebafd/?request=GetCapabilities
 
+.. TODO: dit moet helemaal anders, kan eigenlijk allemaal weg. In lizard docs pull request: https://docs.lizard.net/e_lizardwms.html#di-scenarios. aanpassen. uitleggen scenario>dan kun je het gewoon kopieeren. en dan hier naar lizard docs verwijzen. 
+
 | 3. In the 3Di Modeller Interface connect to the Lizard WMS server using the Data Source Manager. 
 | a) Choose WMS/WMTS as data source.
 | b) Create a new connection.
@@ -129,7 +131,7 @@ To view post-processed results from your 3Di scenario in the 3Di Modeller Interf
 .. figure:: image/d_wms_connection.png
     :alt: Create WMS connection in QGIS
 
-4. When the connection is created, several layers appear (expand the *Title*-section to view full names of the layers). The layers can be added to the project by selecting them and clicking *Add*. 
+1. When the connection is created, several layers appear (expand the *Title*-section to view full names of the layers). The layers can be added to the project by selecting them and clicking *Add*. 
 
 .. figure:: image/d_wms_layers_3di.png
     :alt: 3Di WMS layers
