@@ -23,9 +23,9 @@ Installing the 3Di Modeller Interface
 
 You can install the modeller interface simply with the download link below.
 
-- Install the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.22.16-1-2-Setup-x86_64.exe>`_
+- Install the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.28.4-2-1-Setup-x86_64.exe>`_
 
-*last update: 9 February 2023*
+*last update: 10 March 2023*
 
 The newest Modeller Interface also includes the newest versions of the 3Di plugins. If you would like, you could also upgrade the 3Di plugins from within the Modeller Interface manually. Follow the instructions of this movie to do so: `How to upgrade 3Di plugins in the Modeller Interface <https://www.youtube.com/watch?v=9XeVuZo28jw>`_.
 
