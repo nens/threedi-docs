@@ -5,11 +5,11 @@ Let's try to do it with restructuredtext/sphinx!
 
 The released documentation is at https://docs.3di.live/ .
 
-The latest version of master is at https://docs.staging.3di.live/, you can use
+The latest version of master is at https://docs.staging.3di.live/; you can use
 this for checking if the documentation is OK to be released.
 
 Commits are automatically tested on "travis":
-https://travis-ci.com/nens/threedi-docs/, this makes sure all images are there
+https://travis-ci.com/nens/threedi-docs/; this makes sure all images are there
 and that there are no missing files. Travis also uploads the
 documentation. You can check the upload status at
 https://artifacts.lizard.net/ if you want to make sure a release happened
@@ -36,7 +36,7 @@ Special commands
 ----------------
 
 If the sphinx documentation tells you about a makefile: you can run those
-commands from within docker, too. For example to build the pdf version::
+commands from within docker, too. For example, to build the pdf version::
 
   $ docker-compose run builder make latexpdf
 
@@ -98,7 +98,7 @@ From the git directory run the following commands::
     pip install sphinx
     sphinx-build threedi-docs\source build
 
-You will recieve some warnings, check them. You are not able to evaluate LateX
+You will receive some warnings; check them. You are not able to evaluate LateX
 formulas this way.
 
 
