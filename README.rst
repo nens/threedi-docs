@@ -86,8 +86,8 @@ and run::
     threedi_modelchecker export-checks --format rst --file current_schematisation_checks_table.rst
 
 This will create a new file in the directory in which you run the command called
-`current_schematisation_checks_table.rst`, with which you replace the existing `current_schematisation_checks_table.rst`
-in the docs `source` directory.
+``current_schematisation_checks_table.rst``, with which you replace the existing ``current_schematisation_checks_table.rst``
+file in the ``source`` directory in this repository.
 
 
 Some commands needed for the OSGEO4W Shell with sphinx
