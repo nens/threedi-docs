@@ -8,12 +8,12 @@ The released documentation is at https://docs.3di.live/ .
 The latest version of master is at https://docs.staging.3di.live/; you can use
 this for checking if the documentation is OK to be released.
 
-Commits are automatically tested on "travis":
-https://travis-ci.com/nens/threedi-docs/; this makes sure all images are there
-and that there are no missing files. Travis also uploads the
+Commits are automatically tested on "github actions":
+https://github.com/nens/threedi-docs/actions; this makes sure all images are there
+and that there are no missing files. Github Actions also uploads the
 documentation. You can check the upload status at
 https://artifacts.lizard.net/ if you want to make sure a release happened
-(note: a full travis build can take up to three minutes).
+(note: a full documentation build can take up to three minutes).
 
 
 Local setup
