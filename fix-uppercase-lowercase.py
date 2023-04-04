@@ -64,7 +64,7 @@ def main():
     if did_something1 or did_something2:
         print(
             "ERROR: All image filenames must be lowercase, or the build will fail!" +
-            "Please locally make all your image filenames lowercase, and then commit and push again."
+            "Please make all your image filenames lowercase, and then try again."
         )
         # Exit with an error code.
         sys.exit(1)
