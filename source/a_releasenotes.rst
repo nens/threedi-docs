@@ -8,6 +8,35 @@ Release notes
 3Di general releases
 --------------------
 
+April 11th 2023
+^^^^^^^^^^^^^^^^^^
+
+We have released the following features:
+
+**Authorisation**
+
+- The former sso configuration has been removed. Username/passwords are now only accepted if they have a PersonalAPIKey that was migrated earlier.
+
+**Live site**
+
+- Breaches in live site are lines and with flowing dots
+- 1D-2D links that cross an obstacle will take the exchange level from the obstacle 
+
+**API**
+
+- Added support for uploading and downloading (exported gridadmin.h5) Geopackage files on threedimodels.
+- Drop 'relative' option for obstacle-edits in serializer. 
+
+**Grid builder**
+
+- Connect nodes outside the DEM will produce an error 
+
+**Schematisation checker**
+
+.. - Version included in release
+
+
+
 February 24th 2023
 ^^^^^^^^^^^^^^^^^^
 
