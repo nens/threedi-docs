@@ -19,8 +19,7 @@ We have released the following features:
 
 **Live site**
 
-- Breaches in live site are lines and with flowing dots
-- 1D-2D links that cross an obstacle will take the exchange level from the obstacle 
+- Breaches: a line has been added to the visualisation of breaches in the live site. Discharge and flow velocity are visualized on these lines by moving dots.
 
 **API**
 
@@ -29,9 +28,43 @@ We have released the following features:
 
 **Grid builder**
 
-- Connect nodes outside the DEM will produce an error 
+- 'Connected' calculation nodes outside the DEM will produce an error if they connect to a location where no computational cell is present. If a 'potential breach' or 'exchange line' is used to set the location to which the calculation node connects, the location of those features determines whether an error is raised. If a channel with calculation type connected is outside of the DEM, but the closest point on its exchange_line is on the DEM, the computional grid can be built and the 3Di model is valid.
+
+- 1D-2D links that cross an obstacle will take the exchange level from the obstacle
+
 
 **Schematisation checker**
+
+*New checks*
+
+Several checks have been added.
+
+- Add INFO 109 and 110: the bottom level of a manhole cannot be higher than the reference level of the closest cross-section of any channel it is connected to. threedigrid-builder automatically fixes this, hence info instead of warning.
+
+- Add WARNING 108: the crest_level of a weir or orifice cannot be lower than the bottom_level of any manhole it is connected to.
+
+- Add ERROR 326: this gives an info message if a record exists in the simple_infiltration table, but is not referenced from the global settings.
+
+- Add ERROR 66: this raises a warning if a pumpstation empties its storage area in less than one timestep.
+
+- Add ERROR 1205 to make sure that a timeseries is not an empty string.
+
+- Add ERROR 1206 to confirm that the timesteps in all boundary condition timesteps are the same.
+
+*Beta features*
+
+The 3Di spatialite now supports _beta_ tables, fields, and values. These are used for test purposes, and will become available to all users once testing has been completed.
+
+- Added ERROR 1300: If a user puts a non-null value in a column marked as beta in threedi-schema, this will be reported by the schematisation checker.
+
+- Added ERROR 73: groundwater boundaries are allowed only when there is groundwater hydraulic conductivity.
+
+- Added ERROR 74: groundwater boundary types are not allowed on 1D boundary conditions.
+
+- Added groundwater 1D2D range checks for manholes, channels, and pipes for exchange_thickness, hydraulic_conductivity_in, and hydraulic_conductivity_out.
+
+- Add ERRORs and WARNINGs for vegetation_drag input. Both rasters and global values.
+
 
 .. - Version included in release
 
