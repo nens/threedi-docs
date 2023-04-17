@@ -7,13 +7,15 @@ Here you can find everything you need to know about the **hydrodynamic modelling
 Documentation Overview
 ======================
 
-* To read more about the 3Di :ref:`Background <a_background>`, :ref:`Ecosystem <a_ecosystem>`, :ref:`Basic Modelling Concepts <a_basic_modelling_concepts>`, and the :ref:`Release Notes <a_release_notes>`, check out the **Introduction** section.
+* To read more about the 3Di :ref:`Background <a_background>`, :ref:`Ecosystems <a_ecosystem>`, and the :ref:`Release Notes <a_release_notes>`, check out the **Introduction** section.
+
+* In the **How to work with 3DI**, :ref:`Basic Modelling Concepts <a_basic_modelling_concepts>`, 
 
 * Check out the **3Di Connectors** section for a guide on how to :ref:`integrate FEWS with 3Di <b_fews-integration>`. More connectors will follow.
 
 * Navigate to the **Guide to the 3Di Livesite** section to read more on :ref:`how to use the 3Di Livesite <guide_to_portal>`.
 
-* For more specified information on :ref:`how to build a schematisation in the Modeller Interface <qgisplugin>`, please consult the **How to work with 3Di** page.
+* For more specified information on :ref:`how to build a schematisation in the Modeller Interface <mi_workflow>`, please consult the **How to work with 3Di** page.
 
 * In the **Tutorials** section you will find :ref:`tutorials <tutorial1_workflow>` on how to use 3Di.
 
@@ -46,18 +48,29 @@ If you are interested in a **product demo**, a **live** or **online training**, 
 
    a_background
    a_ecosystem
-   a_modelling_concepts
    a_releasenotes
    a_contact
-
 
 .. toctree::
    :hidden:
    :maxdepth: 1
-   :caption: 3Di Connectors
-   :name: 3Di Connectors
+   :caption: Modelling Guidelines
+   :name: Modelling Guidelines
 
-   b_fews_3di_integrations
+   a_modelling_concepts
+   b_modeling_components
+   b_modelling_workflow
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: Guide to the 3Di Modeller Interface
+   :name: Guide to the 3Di Modeller Interface
+
+   i_what_is_mi
+   i_overview_user_interface
+   i_modelling_with_mi
+
 
 .. toctree::
    :hidden:
@@ -65,29 +78,36 @@ If you are interested in a **product demo**, a **live** or **online training**, 
    :caption: Guide to the 3Di Live Site
    :name: Guide to the 3Di Live Site
 
-   c_threedi_portal
+   c_what_is_the_live_site
+   c_livesite_overview
+   c_modelling_with_live_site
 
 .. toctree::
    :hidden:
    :maxdepth: 1
-   :caption: How to work with 3Di
-   :name: How to work with 3Di
+   :caption: Guide to the 3Di Management Portal
+   :name: Guide to the 3Di Management Portal
 
-
-
-   d_building_a_model
-   d_checking_model_schematisation
-   d_adding_running_scenario
-   d_viewing_analysing_results
    d_management
+   d_overview_management_portal
 
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: 3Di for developers
+   :name: 3Di for developers
+
+   j_api
+   j_threedigrid
+   j_fews_3di_integrations
+   j_lizard_api
 
 .. toctree::
    :hidden:
    :maxdepth: 1
    :caption: Tutorials
    :name: tutorials
-
 
    e_klondike_workflow
    e_2d_tutorial
@@ -102,6 +122,7 @@ If you are interested in a **product demo**, a **live** or **online training**, 
    :name: instalation_manual
 
    f_3di_instruments_and_downloads
+   f_authentication_user_management
    f_problem_solving
    f_servicedesk
 
@@ -134,3 +155,12 @@ If you are interested in a **product demo**, a **live** or **online training**, 
    h_results
    h_aggregate_results
    h_state_files
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+   :caption: Scenario Archive
+   :name: Scenario Archive
+   
+   d_scenario_archive

@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorial 5: Building a 1D model &mdash; 3Di  (dev doc 2023-04-03) documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/matomo.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation manual" href="f_3di_instruments_and_downloads.html" />
+    <link rel="prev" title="Tutorial 4 Building a 2D flow model with levees, channels and breaches" href="e_2d_levees_tutorial.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            3Di
+          </a>
+              <div class="version">
+                 (dev doc 2023-04-03)
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="a_background.html">Background of 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_ecosystem.html">3Di Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_releasenotes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_contact.html">Contact</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modelling Guidelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="a_modelling_concepts.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b_modeling_components.html">Modeling components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b_modelling_workflow.html">Modelling Workflow</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Modeller Interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="i_what_is_mi.html">What is the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html">Overview of the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html#overview-plugins">Overview plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the Live Site</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Management Portal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the Management Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html#overview-management-portal">Overview management portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the Management Portal</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">3Di for developers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="j_api.html">3Di API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="j_threedigrid.html">3Di Results API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="j_fews_3di_integrations.html">FEWS-3Di integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="j_lizard_api.html">Lizard API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="e_klondike_workflow.html">Tutorial 1: Workflow of creating a 3Di Schematisation and a 3Di Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_tutorial.html">Tutorial 2: Building a Basic 2D Flow Schematisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_slope_tutorial.html">Tutorial 3: 2D flow model over sloped terrain with multiple rasters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_levees_tutorial.html">Tutorial 4 Building a 2D flow model with levees, channels and breaches</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial 5: Building a 1D model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#model-initialisation">Model initialisation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#model-preparation">Model preparation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loading-the-model-in-the-3di-modeller-interface">Loading the model in the 3Di Modeller Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#model-building">Model building</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#compile-the-global-settings">Compile the global settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#complete-the-aggregation-settings">Complete the aggregation settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#complete-the-numerical-settings">Complete the numerical settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#complete-the-v2-pipe-settings">Complete the v2_pipe settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#complete-the-v2-manhole-settings">Complete the v2_manhole settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#complete-the-v2-weir-settings">Complete the v2_weir settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#complete-the-v2-pumpstation-settings">Complete the v2_pumpstation settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#complete-the-v2-boundary-conditions-settings">Complete the v2_boundary_conditions settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#complete-the-v2-impervious-surface-settings">Complete the v2_impervious_surface settings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#model-validation">Model validation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#verify-the-schematisation-using-the-schematisation-checker">Verify the schematisation using the schematisation checker</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#model-activation">Model activation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#upload-your-model">Upload your model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-your-model">Run your model</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Problem solving and support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="f_3di_instruments_and_downloads.html">Installation manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_authentication_user_management.html">Authentication and User Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_problem_solving.html">FAQ and Problem Solving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_servicedesk.html">Servicedesk</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Physics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="g_massconservation.html">Conservation of mass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_flow.html">Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_sources_sinks.html">Source and Sink terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_levees_obstacles_breaches.html">Obstacles, Levees and Breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_wind.html">Wind effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_interception.html">Interception</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Model concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="h_basic_modelling_concepts_threedi.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_grid.html">The grid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_numerics.html">Numerics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_control.html">Control Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_calculation_grid_data.html">Tabulated data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_results.html">Results 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_aggregate_results.html">Aggregated output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_state_files.html">State files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Overig</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html">Scenario Archive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html#view-stored-results">View stored results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html#damage-estimation">Damage Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html#load-rasters-in-3di-modeller-interface-using-wms">Load rasters in 3Di Modeller Interface using WMS</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">3Di</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Tutorial 5: Building a 1D model</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/e_1d_tutorial.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tutorial-5-building-a-1d-model">
+<h1>Tutorial 5: Building a 1D model<a class="headerlink" href="#tutorial-5-building-a-1d-model" title="Permalink to this heading"></a></h1>
+<p>Welcome to the tutorial for building a 1D model in 3Di. In this tutorial, you will learn to work with a 1D flow model in 3Di. We will start with a database file (.sqlite) that is already partly filled in. The sqlite is not yet complete, so we will add information to the model to get a basic working model that you can run on the 3Di live site.
+The system in the .sqlite is a non-existent combined sewerage system. The model does not represent a real-world system, but is meant to get acquainted with the different components of a 1D combined sewerage system.</p>
+<p>You will learn the following skills in this tutorial:</p>
+<ul class="simple">
+<li><p>Edit an existing .sqlite model database</p></li>
+<li><p>Get acquainted with the different elements of a 1D combined sewerage system</p></li>
+<li><p>Configure the settings of a 1D model</p></li>
+<li><p>Validate your model schematization using the schematization checker</p></li>
+<li><p>Compile your model on the 3Di live site</p></li>
+</ul>
+<p>Before you start, please make sure to:</p>
+<ul class="simple">
+<li><p>Install the 3Di Modeller Interface. Please see <a class="reference internal" href="f_3di_instruments_and_downloads.html#di-instruments-and-downloads"><span class="std std-ref">Installation manual</span></a> for instructions.</p></li>
+<li><p>Install the 3Di toolbox in the Modeller Interface. Please see <a class="reference internal" href="f_3di_instruments_and_downloads.html#plugin-installation"><span class="std std-ref">Plugin Installation</span></a> for instructions.</p></li>
+<li><p>Gain access to the 3Di web portal. Please see the <a class="reference internal" href="c_what_is_the_live_site.html#guide-to-portal"><span class="std std-ref">Technical setup</span></a> for instructions.</p></li>
+<li><p>Download the dataset for this tutorial <a class="reference external" href="https://nens.lizard.net/media/3di-tutorials/Tutorial_1D_gemengd.zip">here</a>.</p></li>
+</ul>
+<section id="model-initialisation">
+<h2>Model initialisation<a class="headerlink" href="#model-initialisation" title="Permalink to this heading"></a></h2>
+<section id="model-preparation">
+<h3>Model preparation<a class="headerlink" href="#model-preparation" title="Permalink to this heading"></a></h3>
+<p>Unpack the starter package and save the contents into a folder. The dataset that you downloaded for this tutorial contains an partially configured .sqlite database.</p>
+</section>
+<section id="loading-the-model-in-the-3di-modeller-interface">
+<h3>Loading the model in the 3Di Modeller Interface<a class="headerlink" href="#loading-the-model-in-the-3di-modeller-interface" title="Permalink to this heading"></a></h3>
+<p>Our model must be imported in the 3Di Modeller Interface to view and modify its contents.
+The model can be loaded via the 3Di toolbar (part of the 3Di toolbox plug in) by following these steps:</p>
+<ol class="upperalpha simple">
+<li><p>Open the 3Di Modeller Interface.</p></li>
+<li><p>Create a new project.</p></li>
+<li><p>Select the <strong>select 3Di results</strong> button on the 3Di Toolbar (white database icon). [1]</p></li>
+<li><p>Select the <strong>load</strong> button in the window that pops up, and select the 1D_tutorial.sqlite database in your model folder. [2]</p></li>
+<li><p>You should now see the 3Di model as part of your Modeller Interface layers. [3]</p></li>
+</ol>
+<figure class="align-default">
+<img alt="Load model" src="_images/t_04_load_model_tut_1d.png" />
+</figure>
+<p>The outlook of the model is depicted in the figure below. Depending on the coordinate system of your screen, it is possible that the model looks a bit ‘distorted’. You can solve this by changing the coordinate system in the lower right corner to EPSG:28992.</p>
+<figure class="align-default">
+<img alt="Overview model" src="_images/t_05_overview_model.png" />
+</figure>
+</section>
+</section>
+<section id="model-building">
+<h2>Model building<a class="headerlink" href="#model-building" title="Permalink to this heading"></a></h2>
+<section id="compile-the-global-settings">
+<h3>Compile the global settings<a class="headerlink" href="#compile-the-global-settings" title="Permalink to this heading"></a></h3>
+<p>The global settings are contained in the v2_global_settings table. For every 3Di model, the v2_global_settings table must be filled in. Follow these steps:</p>
+<ol class="upperalpha simple">
+<li><p><strong>Open</strong> the attribute table v2_global_settings. [1]</p></li>
+<li><p>Select <strong>Toggle editing mode</strong> in the top right corner. [2]</p></li>
+<li><p>Select <strong>Add feature</strong>. [3]</p></li>
+<li><p>Select <strong>Switch to form view</strong> in the bottom right corner. [4]</p></li>
+</ol>
+<figure class="align-default">
+<img alt="Opening the Global Settings" src="_images/t_05_global_settings.png" />
+</figure>
+<p>Now we can start to configure all settings.
+3Di requires you to complete all mandatory settings before changes can be saved.
+Attempts to save the settings before all mandatory field have been completed will result in an error message.
+A list of mandatory settings and detailed descriptions can be found <a class="reference download internal" download="" href="_downloads/84a660f75b3e8f891f1cd6c5f0b550f8/database-overview.pdf"><code class="xref download docutils literal notranslate"><span class="pre">in</span> <span class="pre">the</span> <span class="pre">database</span> <span class="pre">overview</span></code></a>.
+Finally, please note that the following settings have been selected specifically for this tutorial.</p>
+<p>Let us now fill in the settings of each tab in the global settings table.</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-number">Table 18 </span><span class="caption-text">General</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Value for this tutorial</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>1D_tutorial</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>use_0d_inflow</p></td>
+<td><p>Use_0d_inflow     1: use v2_impervious_surface</p></td>
+<td><p>In contrast to the 2D models in the previous tutorials, we use 0D inflow (using the NWRW  model) for the 1D model</p></td>
+</tr>
+<tr class="row-odd"><td><p>use_1d_flow</p></td>
+<td><p>Yes</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>use_2d_rain</p></td>
+<td><p>No</p></td>
+<td><p>In this tutorial, we look at a 1D model, without a 2D component</p></td>
+</tr>
+<tr class="row-odd"><td><p>use_2d_flow</p></td>
+<td><p>No</p></td>
+<td><p>In this tutorial, we look at a 1D model, without a 2D component</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-number">Table 19 </span><span class="caption-text">Grid</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Value for this tutorial</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>grid_space</p></td>
+<td><p>2</p></td>
+<td><p>In a 1D model the grid space is not used, but in order to upload the model this value needs to be filled in.</p></td>
+</tr>
+<tr class="row-odd"><td><p>kmax</p></td>
+<td><p>1</p></td>
+<td><p>In a 1D model the grid space is not used, but in order to upload the model this value needs to be filled in.</p></td>
+</tr>
+<tr class="row-even"><td><p>table_step_size</p></td>
+<td><p>0.01</p></td>
+<td><p>See <a class="reference internal" href="d_flood_model.html#computational-grid"><span class="std std-ref">Computational grid</span></a></p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-number">Table 20 </span><span class="caption-text">Terrain information</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Value for this tutorial</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>dem_file</p></td>
+<td><p>NULL</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>epsg_code</p></td>
+<td><p>NULL</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>frict_coef_file</p></td>
+<td><p>NULL</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>frict_coef</p></td>
+<td><p>0.026</p></td>
+<td><p>The friction value is not used, but must be filled in in order to upload the model</p></td>
+</tr>
+<tr class="row-even"><td><p>frict_type</p></td>
+<td><p>2: Manning</p></td>
+<td><p>The friction type is not used, but must be filled in in order to upload the model</p></td>
+</tr>
+<tr class="row-odd"><td><p>frict_avg</p></td>
+<td><p>NULL</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>initial_groundwater_level_file</p></td>
+<td><p>NULL</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>initial_groundwater_level</p></td>
+<td><p>NULL</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>initial_groundwater_level_type</p></td>
+<td><p>(NULL)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>initial_waterlevel_file</p></td>
+<td><p>NULL</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>initial_waterlevel</p></td>
+<td><p>-99</p></td>
+<td><p>The initial water level is not used, but must be filled in in order to upload the model</p></td>
+</tr>
+<tr class="row-odd"><td><p>water_level_ini_type</p></td>
+<td><p>max</p></td>
+<td><p>The initial water level type is not used, but must be filled in in order to upload the model</p></td>
+</tr>
+<tr class="row-even"><td><p>interception_file</p></td>
+<td><p>NULL</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>interception_global</p></td>
+<td><p>NULL</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>wind_shielding_file</p></td>
+<td><p>NULL</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The terrain information is not relevant for a 1D model, but some information must be filled in, in order to upload the model.</p>
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-number">Table 21 </span><span class="caption-text">Time</span><a class="headerlink" href="#id4" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Value for this tutorial</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>start_date</p></td>
+<td><p>2020-01-01</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>start_time</p></td>
+<td><p>2020-01-01 00:00:00</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>sim_time_step</p></td>
+<td><p>30</p></td>
+<td><p>in seconds</p></td>
+</tr>
+<tr class="row-odd"><td><p>timestep_plus</p></td>
+<td><p>No</p></td>
+<td><p>Only when extra control over the timestep is required</p></td>
+</tr>
+<tr class="row-even"><td><p>minimum_sim_time_step</p></td>
+<td><p>NULL</p></td>
+<td><p>This can be relevant for a 1D model</p></td>
+</tr>
+<tr class="row-odd"><td><p>maximum_sim_time_step</p></td>
+<td><p>NULL</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>nr_timesteps</p></td>
+<td><p>240</p></td>
+<td><p>for a 2 hour simulation</p></td>
+</tr>
+<tr class="row-odd"><td><p>output_time_step</p></td>
+<td><p>60</p></td>
+<td><p>in seconds</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id5">
+<caption><span class="caption-number">Table 22 </span><span class="caption-text">Setting id’s</span><a class="headerlink" href="#id5" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Value for this tutorial</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>interflow_settings_id</p></td>
+<td><p>NULL</p></td>
+<td><p>No interflow</p></td>
+</tr>
+<tr class="row-odd"><td><p>groundwater_settings_id</p></td>
+<td><p>NULL</p></td>
+<td><p>No groundwater</p></td>
+</tr>
+<tr class="row-even"><td><p>numerical_settings_id</p></td>
+<td><p>1</p></td>
+<td><p>Reference to the model specific numerical settings</p></td>
+</tr>
+<tr class="row-odd"><td><p>simple_infiltration_settings_id</p></td>
+<td><p>NULL</p></td>
+<td><p>No infiltration</p></td>
+</tr>
+<tr class="row-even"><td><p>control_group_id</p></td>
+<td><p>NULL</p></td>
+<td><p>No control groups</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id6">
+<caption><span class="caption-number">Table 23 </span><span class="caption-text">Extra options 1D (not relevant as this tutorial does not contain 1D elements)</span><a class="headerlink" href="#id6" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Value for this tutorial</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>advection_1d</p></td>
+<td><p>1: Use advection 1d</p></td>
+<td><p>There are 1D elements</p></td>
+</tr>
+<tr class="row-odd"><td><p>dist_calc_points</p></td>
+<td><p>10000</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>manhole_storage_area</p></td>
+<td><p>NULL</p></td>
+<td><p>With this setting, you create a storage area with a specified area connected to every manhole</p></td>
+</tr>
+<tr class="row-odd"><td><p>max_angle_1d_advection</p></td>
+<td><p>NULL</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>table_step_size_1d</p></td>
+<td><p>NULL</p></td>
+<td><p>Only if you want to overwrite the value given under ‘grid’</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id7">
+<caption><span class="caption-number">Table 24 </span><span class="caption-text">Extra options 2D</span><a class="headerlink" href="#id7" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Value for this tutorial</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>advection_2d</p></td>
+<td><p>0: Do not use advection 2d</p></td>
+<td><p>There are no 2D components</p></td>
+</tr>
+<tr class="row-odd"><td><p>dem_obstacle_detection</p></td>
+<td><p>NULL</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>guess_dams</p></td>
+<td><p>NULL</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>dem_obstacle_height</p></td>
+<td><p>NULL</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>embedded_cutoff_threshold</p></td>
+<td><p>NULL</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>flooding_threshold</p></td>
+<td><p>0.001</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>table_step_size_volume_2d</p></td>
+<td><p>NULL</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The extra options 2D is not relevant for a 1D model.</p>
+<p>Don’t forget to save your changes after completing all settings, by clicking on <strong>save edits</strong> in the top left corner.</p>
+</section>
+<section id="complete-the-aggregation-settings">
+<h3>Complete the aggregation settings<a class="headerlink" href="#complete-the-aggregation-settings" title="Permalink to this heading"></a></h3>
+<p>The aggregation settings control the aggregation of model results.
+They are contained in the v2_aggregation_settings table.</p>
+<p>As with the previous settings, open the attribute table [1] and toggle the editing mode [2]. However, select <strong>switch to table view</strong> this time [3].</p>
+<p>The different rows of the table refer to different model output categories. For each category, set the global_settings_id to 1. You can either do this manually by filling in 1’s in the column [4], or by:</p>
+<ol class="upperalpha simple">
+<li><p>Selecting the column global_settings_id in the drop down menu</p></li>
+<li><p>Typing a 1 in the bar</p></li>
+<li><p>Clicking <strong>update All</strong></p></li>
+<li><p>And pressing <strong>save edits</strong></p></li>
+</ol>
+<p>Retain the default values for all other settings.</p>
+<img alt="Aggregation Settings update" src="_images/t_05_aggregation.png" />
+</section>
+<section id="complete-the-numerical-settings">
+<h3>Complete the numerical settings<a class="headerlink" href="#complete-the-numerical-settings" title="Permalink to this heading"></a></h3>
+<p>The numerical settings are contained in the v2_numerical_settings table which can be found under advanced numerics. As with the previous settings, open the attribute table, toggle the editing mode, switch to form view and add a feature.
+Complete the following settings:</p>
+<table class="docutils align-default" id="id8">
+<caption><span class="caption-number">Table 25 </span><span class="caption-text">General</span><a class="headerlink" href="#id8" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Value for this tutorial</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>1</p></td>
+<td><p>Must match the numerical_settings_id in the v2_global_settings_table</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id9">
+<caption><span class="caption-number">Table 26 </span><span class="caption-text">Limiters (not used in this tutorial, only for sloping areas)</span><a class="headerlink" href="#id9" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Value for this tutorial</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>limiter_grad_1d</p></td>
+<td><p>1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>limiter_grad_2d</p></td>
+<td><p>0</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>limiter_slope_crossectional_area_2d</p></td>
+<td><p>0</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>limiter_slope_friction_2d</p></td>
+<td><p>0</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id10">
+<caption><span class="caption-number">Table 27 </span><span class="caption-text">Matrix</span><a class="headerlink" href="#id10" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Value for this tutorial</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>convergence_cg</p></td>
+<td><p>1e-09</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>convergence_eps</p></td>
+<td><p>1e-05</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>use_of_cg</p></td>
+<td><p>20</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>use_of_nested_newton</p></td>
+<td><p>1: When the schematization includes 1D-elements with closed-profiles</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>max_degree</p></td>
+<td><p>700: for 1D flow</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>max_nonlin_iterations</p></td>
+<td><p>20</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>precon_cg</p></td>
+<td><p>1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>integration_method</p></td>
+<td><p>0</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id11">
+<caption><span class="caption-number">Table 28 </span><span class="caption-text">Thresholds</span><a class="headerlink" href="#id11" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Value for this tutorial</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>flow_direction_threshold</p></td>
+<td><p>1e-06</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>general_numerical_threshold</p></td>
+<td><p>1e-08</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>thin_water_layer_definition</p></td>
+<td><p>0.05</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>minimum_friction_velocity</p></td>
+<td><p>0.05</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>minimum_surface_area</p></td>
+<td><p>1e-08</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id12">
+<caption><span class="caption-number">Table 29 </span><span class="caption-text">Miscellaneous</span><a class="headerlink" href="#id12" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Value for this tutorial</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>cfl_strictness_factor_1d</p></td>
+<td><p>1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>cfl_strictness_factor_2d</p></td>
+<td><p>1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>frict_shallow_water_correction</p></td>
+<td><p>0</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pump_implicit_ratio</p></td>
+<td><p>1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>preissmann_slot</p></td>
+<td><p>0</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The overview of all settings for this tutorial can be referenced <a class="reference external" href="https://docs.google.com/spreadsheets/d/1qHTS0TdwnYaCYRaohDAVvkaGW2sJ1pt8IX31HZ7OcBY/edit?usp=sharing">here</a>.
+.. Deze link nog aanpassen naar de pdf als die er is</p>
+</section>
+<section id="complete-the-v2-pipe-settings">
+<h3>Complete the v2_pipe settings<a class="headerlink" href="#complete-the-v2-pipe-settings" title="Permalink to this heading"></a></h3>
+<p>We will zoom in on the different components of the model. The model in the .sqlite contains a network of pipes. The different parameters of these pipes can be set in the table v2_pipe. The values and a short explanation of the parameters is given in the tables below.
+To save time, it is recommended to adjust the parameters for the different pipes at the same time. This can be done by following these steps:</p>
+<ol class="upperalpha simple">
+<li><p><strong>Open</strong> the attribute table v2_pipe. [1]</p></li>
+<li><p>Select <strong>Toggle editing mode</strong> and in the top right corner. [2]</p></li>
+<li><p>Select <strong>Switch to table view</strong> with the button in the lower right corner. [3]</p></li>
+<li><p><strong>Select</strong> the parameter that needs to be adjusted in the box above the table. [4]</p></li>
+<li><p>Fill in the value that needs to be inputted. [5]</p></li>
+<li><p>and choose <strong>Adjust all</strong>. [6]</p></li>
+</ol>
+<figure class="align-default">
+<img alt="Complete the v2_pipe table" src="_images/t_05_v2_pipe.png" />
+</figure>
+<table class="docutils align-default" id="id13">
+<caption><span class="caption-number">Table 30 </span><span class="caption-text">General</span><a class="headerlink" href="#id13" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Value for this tutorial</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Id</p></td>
+<td><p>N/A</p></td>
+<td><p>The id’s are already filled in</p></td>
+</tr>
+<tr class="row-odd"><td><p>display_name:</p></td>
+<td><p>N/A</p></td>
+<td><p>The display names are already filled in</p></td>
+</tr>
+<tr class="row-even"><td><p>Code</p></td>
+<td><p>N/A</p></td>
+<td><p>The codes are already filled in</p></td>
+</tr>
+<tr class="row-odd"><td><p>Calculation_type</p></td>
+<td><p>1: Isolated</p></td>
+<td><p>See below</p></td>
+</tr>
+<tr class="row-even"><td><p>Dist_calc_points</p></td>
+<td><p>1000</p></td>
+<td><p>See below</p></td>
+</tr>
+</tbody>
+</table>
+<p>Calculation type: You have different choices for the calculation type. You can choose between embedded, isolated, connected, broad crest en short crest. An elaborated explanation of these calculation types can be found in the 3Di documentation: <a class="reference internal" href="g_1dtypes.html#calculation-types"><span class="std std-ref">Types of 1D elements (calculation types)</span></a>. In this model, we set the calculation_type for all pipes to ‘isolated’. This means that the 1D pipe cannot exchange water.</p>
+<p>Dist_calc_points: This parameter controls the distance between the calculation points on the pipe. In this tutorial, set this parameter to 1000. Since all pipes are shorter than 1000 m, this means that there are no calculation points on the pipes; the water levels, velocities and discharges are calculated on the connection nodes.</p>
+<table class="docutils align-default" id="id14">
+<caption><span class="caption-number">Table 31 </span><span class="caption-text">Characteristics</span><a class="headerlink" href="#id14" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Value for this tutorial</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Invert_level_start_point</p></td>
+<td><p>N/A</p></td>
+<td><p>The start invert level is the level of the pipe at the start of the pipe; these are already filled in</p></td>
+</tr>
+<tr class="row-odd"><td><p>Invert_level_end_point</p></td>
+<td><p>N/A</p></td>
+<td><p>The end invert level is the level of the pipe at the end of the pipe; these are already filled in</p></td>
+</tr>
+<tr class="row-even"><td><p>Friction_value</p></td>
+<td><p>0.0145</p></td>
+<td><p>Default Manning friction value for concrete pipes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Calculation_type</p></td>
+<td><p>2: Manning</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Cross_section_definition_id</p></td>
+<td><p>N/A</p></td>
+<td><p>Link to the v2_cross_section_definition table, where the cross sections of the pipes are defined. These are already filled in.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Material</p></td>
+<td><p>N/A</p></td>
+<td><p>Already filled in</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id15">
+<caption><span class="caption-number">Table 32 </span><span class="caption-text">Visualization</span><a class="headerlink" href="#id15" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Value for this tutorial</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Sewerage_type</p></td>
+<td><p>N/A</p></td>
+<td><p>Already filled in. ‘0:mixed’, since we are modelling a mixed sewerage system.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Zoom_level</p></td>
+<td><p>N/A</p></td>
+<td><p>Already filled in. This parameter determines the visibility in the 3Di live site.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id16">
+<caption><span class="caption-number">Table 33 </span><span class="caption-text">Characteristics</span><a class="headerlink" href="#id16" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Value for this tutorial</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Connection_node_start_id</p></td>
+<td><p>N/A</p></td>
+<td><p>Already filled in; the connection node that is connected to the start of the pipe.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Connection_node_end_id</p></td>
+<td><p>N/A</p></td>
+<td><p>Already filled in; the connection node that is connected to the end of the pipe.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="complete-the-v2-manhole-settings">
+<h3>Complete the v2_manhole settings<a class="headerlink" href="#complete-the-v2-manhole-settings" title="Permalink to this heading"></a></h3>
+<p>The different pipes in the model are connected via connection nodes. Open de v2_connection_nodes attribute table. As you can see in this table, each connection node has an id, code and a storage area. For a 1D sewerage model, you do not have to fill in the initial water levels for the connection nodes. The model will then be empty at the start of each model run. All parameters in the v2_connection_nodes table are already filled in, so you can close the table again.</p>
+<p>Next, open the v2_manhole attribute table. Each connection node is connected to a manhole. The different parameters for these manholes can be set in the v2_manhole table. The values and a short explanation of the parameters are given in the tables below. To save time, it is recommended to adjust the parameters for the different manholes simultaneously. This can be done in the same manner as was described for the v2_pipe table.</p>
+<table class="docutils align-default" id="id17">
+<caption><span class="caption-number">Table 34 </span><span class="caption-text">General</span><a class="headerlink" href="#id17" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Value for this tutorial</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Id</p></td>
+<td><p>N/A</p></td>
+<td><p>The id’s are already filled in</p></td>
+</tr>
+<tr class="row-odd"><td><p>display_name</p></td>
+<td><p>N/A</p></td>
+<td><p>The display names are already filled in</p></td>
+</tr>
+<tr class="row-even"><td><p>Code</p></td>
+<td><p>N/A</p></td>
+<td><p>The codes are already filled in</p></td>
+</tr>
+<tr class="row-odd"><td><p>Connection_node_id</p></td>
+<td><p>N/A</p></td>
+<td><p>The id of the connection node that is connected to the manhole. These are already filled in.</p></td>
+</tr>
+<tr class="row-even"><td><p>Calculation_type</p></td>
+<td><p>1: isolated or 2: connected</p></td>
+<td><p>See below</p></td>
+</tr>
+</tbody>
+</table>
+<p>Calculation_type: You can choose here between embedded, isolated and connected. An elaborated explanation of these calculation types can be found in the 3Di documentation: <a class="reference internal" href="g_1dtypes.html#calculation-types"><span class="std std-ref">Types of 1D elements (calculation types)</span></a>. As was described above, the calculation type depends on the manhole type. Set the calculation type to ‘connected’ for inspection manholes, by following these steps:</p>
+<ol class="upperalpha simple">
+<li><p><strong>Open</strong> the attribute table v2_manhole. [1]</p></li>
+<li><p>Select <strong>Toggle editing mode</strong> and in the top right corner. [2]</p></li>
+<li><p>Select <strong>Switch to table view</strong> with the button in the lower right corner. [3]</p></li>
+<li><p><strong>Select</strong> the parameter that needs to be adjusted in the box above the table. [4]</p></li>
+<li><p>Fill in the value that needs to be inputted. [5]</p></li>
+<li><p>and choose <strong>Adjust all</strong>. [6]</p></li>
+</ol>
+<p>By setting the calculation type of the inspection manholes to ‘connected’, these manholes can exchange with a storage area that was defined in the global settings with the parameter manhole_storage_area (under Options_1D ). As soon as the water level in the manhole exceeds the drain level, the water in the manhole can exchange with a storage area that has a surface area of 100 m2.</p>
+<p>In the same manner, set the calculation type of the manhole features that are either outlets or pump station to ‘1: isolated’. By setting the calculation type of these manholes to isolated, these manholes cannot exchange water with the surface.</p>
+<figure class="align-default">
+<img alt="Complete the v2_manhole table" src="_images/t_05_v2_manhole.png" />
+</figure>
+<table class="docutils align-default" id="id18">
+<caption><span class="caption-number">Table 35 </span><span class="caption-text">Characteristics</span><a class="headerlink" href="#id18" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Value for this tutorial</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Shape</p></td>
+<td><p>00: square</p></td>
+<td><p>Are already filled in</p></td>
+</tr>
+<tr class="row-odd"><td><p>Width</p></td>
+<td><p>N/A</p></td>
+<td><p>Are already filled in</p></td>
+</tr>
+<tr class="row-even"><td><p>Length</p></td>
+<td><p>N/A</p></td>
+<td><p>Are already filled in, usually 0.8 is chosen.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Surface_level</p></td>
+<td><p>N/A</p></td>
+<td><p>Are already filled in. See below</p></td>
+</tr>
+<tr class="row-even"><td><p>Drain_level</p></td>
+<td><p>Surface_level – 0.15</p></td>
+<td><p>See below</p></td>
+</tr>
+<tr class="row-odd"><td><p>Bottom_level</p></td>
+<td><p>N/A</p></td>
+<td><p>Are already filled in. See below</p></td>
+</tr>
+</tbody>
+</table>
+<p>Bottom level, drain level and surface level: For each manhole, you have to enter 3 levels, that are visualized in the figure below.</p>
+<ul class="simple">
+<li><p>The bottom level represents the bottom of the manhole</p></li>
+<li><p>The surface level represents the top of the manhole</p></li>
+<li><p>The drain level is a level that is introduced in 3Di to indicate the water exchange level. In reality, the drain level and the surface level are the same. However, a model is a simplification of a real-world situation. This is visualized in the figure below, which depicts a road with a manhole in the middle and two road gullies at either side of the road, where the top of the two road gullies lies somewhat lower than the top of the manhole. In this tutorial, this is schematized as a single manhole with a sewerage pipe. In reality, the water in the sewerage system will start exchanging with the surface when the water level in the system exceeds the top of the road gullies. These gullies are not schematized in this model and therefore an extra level, the drain level, is introduced.</p></li>
+</ul>
+<figure class="align-default">
+<img alt="Schematisation road" src="_images/t_05_schematisation.png" />
+</figure>
+<p>In the .sqlite, the surface levels are already entered, but the drain levels are not yet filled in. We want to set these drain levels 15 cm below the surface level. This can be done by following these steps:</p>
+<ol class="upperalpha simple">
+<li><p><strong>Open</strong> the attribute table v2_manhole. [1]</p></li>
+<li><p>Select <strong>Toggle editing mode</strong> and in the top right corner. [2]</p></li>
+<li><p>Select <strong>Switch to table view</strong> with the button in the lower right corner. [3]</p></li>
+<li><p><strong>Open</strong> the field calculator. [4]</p></li>
+</ol>
+<figure class="align-default">
+<img alt="Adjusting v2_manhole" src="_images/t_05_adjusting_manholes.png" />
+</figure>
+<ol class="upperalpha simple" start="5">
+<li><p><strong>Select</strong> <strong>Bestanden velden verniewen</strong>. [5]</p></li>
+<li><p><strong>select</strong> the parameter “drain_level”. [6]</p></li>
+<li><p>Type the following expression in the box: “surface_level” -0.15. [7]</p></li>
+<li><p>Press <strong>OK</strong>. [8]</p></li>
+</ol>
+<figure class="align-default">
+<img alt="Creating an expression for manholes" src="_images/t_05_expression_manholes.png" />
+</figure>
+<table class="docutils align-default" id="id19">
+<caption><span class="caption-number">Table 36 </span><span class="caption-text">Visualization</span><a class="headerlink" href="#id19" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Value for this tutorial</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Zoom_category</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Manhole_indicator</p></td>
+<td><p>0: inspection, 1: outlet or 2: pumpstation</p></td>
+<td><p>See below</p></td>
+</tr>
+</tbody>
+</table>
+<p>Manhole_indicator: This parameter indicates the type of manhole. Although this parameter does not influence the 3Di calculations, it is still recommended to use it since it will make the visual overview of the model in the Modeller Interface better understandable. You can distinguish between inspection, outlet and pumpstation. In the .sqlite, the manhole_indicator for the different manholes is already set.</p>
+</section>
+<section id="complete-the-v2-weir-settings">
+<h3>Complete the v2_weir settings<a class="headerlink" href="#complete-the-v2-weir-settings" title="Permalink to this heading"></a></h3>
+<p>Since the model in the .sqlite is a mixed sewerage system, the outlets in the model are all connected to a weir. Only if the water level exceeds the crest level of the weir, water can flow out of the sewerage system. Also, there are 6 internal weirs included in the model. The different parameters for these weirs can be set in the v2_weir table. The values and a short explanation of the parameters are given in the tables below. To save time, it is recommended to adjust the parameters for the different pipes at the same time. This can be done in the same manner as was described for the v2_pipe table.</p>
+<table class="docutils align-default" id="id20">
+<caption><span class="caption-number">Table 37 </span><span class="caption-text">General</span><a class="headerlink" href="#id20" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Value for this tutorial</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Id</p></td>
+<td><p>N/A</p></td>
+<td><p>The id’s are already filled in</p></td>
+</tr>
+<tr class="row-odd"><td><p>display_name</p></td>
+<td><p>N/A</p></td>
+<td><p>The display names are already filled in</p></td>
+</tr>
+<tr class="row-even"><td><p>Code</p></td>
+<td><p>N/A</p></td>
+<td><p>The codes are already filled in</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id21">
+<caption><span class="caption-number">Table 38 </span><span class="caption-text">Characteristics</span><a class="headerlink" href="#id21" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Value for this tutorial</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Crest_level</p></td>
+<td><p>N/A</p></td>
+<td><p>The crest levels are already filled in</p></td>
+</tr>
+<tr class="row-odd"><td><p>Crest_type</p></td>
+<td><p>N/A</p></td>
+<td><p>The crest types are already filled in</p></td>
+</tr>
+<tr class="row-even"><td><p>Discharge_coefficient_positive</p></td>
+<td><p>0,8</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Discharge_coefficient_negative</p></td>
+<td><p>0,8</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Friction_value</p></td>
+<td><p>0,02</p></td>
+<td><p>Default Manning friction value for a short crested weir.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Friction_typ</p></td>
+<td><p>Manning</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Cross_section_definition_id</p></td>
+<td><p>N/A</p></td>
+<td><p>Link to the v2_cross_section_definition table, where the cross sections of the weirs are defined. These are already filled in.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id22">
+<caption><span class="caption-number">Table 39 </span><span class="caption-text">Visualization</span><a class="headerlink" href="#id22" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Value for this tutorial</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Zoom_category</p></td>
+<td><p>N/A</p></td>
+<td><p>Determines the visibility in the 3Di live site; already filled in</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sewerage</p></td>
+<td><p>Yes</p></td>
+<td><p>Already filled in</p></td>
+</tr>
+<tr class="row-even"><td><p>External</p></td>
+<td><p>No</p></td>
+<td><p>Already filled in</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id23">
+<caption><span class="caption-number">Table 40 </span><span class="caption-text">Connection nodes</span><a class="headerlink" href="#id23" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Value for this tutorial</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Connection_node_start_id</p></td>
+<td><p>N/A</p></td>
+<td><p>Already filled in</p></td>
+</tr>
+<tr class="row-odd"><td><p>Connection_node_end_id</p></td>
+<td><p>N/A</p></td>
+<td><p>Already filled in</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="complete-the-v2-pumpstation-settings">
+<h3>Complete the v2_pumpstation settings<a class="headerlink" href="#complete-the-v2-pumpstation-settings" title="Permalink to this heading"></a></h3>
+<p>At some locations in the 1D sewerage system, pumpstations schematized in the model. The different parameters for these pumpstations can be set in the attribute table v2_pumpstation. Open the attribute table to see these parameters. In this tutorial, the different parameters for the pumpstations are already schematized in the model, so we don’t have to change anything. More details on the parameters in the v2_pumpstation table can be found in this general overview: <a class="reference internal" href="g_structures.html#pump"><span class="std std-ref">Pumps</span></a>.</p>
+</section>
+<section id="complete-the-v2-boundary-conditions-settings">
+<h3>Complete the v2_boundary_conditions settings<a class="headerlink" href="#complete-the-v2-boundary-conditions-settings" title="Permalink to this heading"></a></h3>
+<p>Each outlet of the 1D model consists of a weir connected to a 1D boundary condition. These boundary conditions can be found in the attribute table v2_1d_boundary_conditions. Open the attribute table to see these conditions. In this tutorial, the boundary conditions for the different outlets are already inputted in the model, so we don’t have to change anything.
+Note that the boundary conditions are all water level boundaries, where the water level is set to -10 m for the entire computation time of the model. Since the level of the sewerage pipes and manholes is much higher than -10 m, this means that water can always flow out of the model, once it reaches a level higher than the crest level of the weirs.</p>
+</section>
+<section id="complete-the-v2-impervious-surface-settings">
+<h3>Complete the v2_impervious_surface settings<a class="headerlink" href="#complete-the-v2-impervious-surface-settings" title="Permalink to this heading"></a></h3>
+<p>The input for the 1D model in this tutorial comes from the 0D inflow module in 3Di. In this module, the rainfall volume is calculated for each time step and each 0D surface individually (area x rainfall intensity x time step). Based on the formulation of the impervious area, the discharge hydro-graph (discharge over time) is calculated as a lateral discharge on its downstream 1D connection node. More information on the 0D inflow module can be found in the 3Di documentation: <a class="reference internal" href="g_rainfall.html#rain"><span class="std std-ref">Rainfall</span></a>.</p>
+<p>In order to add impervious surfaces for 0D inflow to the model, we need the v2_impervious_surface table and the v2_impervious_surface_map table. In the v2_impervious_surface table, the different surfaces are defined. Subsequently, these surfaces are linked to a connection node in the v2_impervious_surface_map table. We are now going to add a surface for 0D inflow to the model:</p>
+<ol class="upperalpha simple">
+<li><p><strong>Open</strong> the attribute table v2_impervious_surface. [1]</p></li>
+<li><p>Select <strong>Toggle editing mode</strong> in the top right corner. [2]</p></li>
+<li><p>Select <strong>Object polygoon toevoegen</strong>. [3]</p></li>
+<li><p>Draw a new polygon in the model and right-click when the surface is ready.</p></li>
+<li><p>A pop-up screen appears where different parameters need to be filled in.</p></li>
+<li><p>Fill in the surface_class. You can choose which class you want to add. [4]</p></li>
+<li><p>Fill in the surface_inclination. You can choose which inclination you want to add. [5]</p></li>
+<li><p>click on <strong>OK</strong> and save your changes. [6]</p></li>
+<li><p>Remember the id of the surface that you just added.</p></li>
+</ol>
+<figure class="align-default">
+<img alt="Adding an impervious surface" src="_images/t_05_adding_imperv_surf.png" />
+</figure>
+<ol class="upperalpha simple" start="10">
+<li><p><strong>Select</strong> the v2_impervious_surface_map attribute table. [1]</p></li>
+<li><p>Select <strong>Toggle editing mode</strong> in the top right corner. [2]</p></li>
+<li><p>Select <strong>Add feature</strong>. [3]</p></li>
+<li><p>Enter the id of the surface that you just added as ‘impervious_surface_id’. [4]</p></li>
+<li><p>Enter the id of the connection node that you want to link to the surface as the ‘connection_node_id’. [5]</p></li>
+<li><p>Set the percentage to 100. This means that 100% of the rainfall that falls on the surface is discharged to the connection node. [6]</p></li>
+<li><p>Choose <strong>OK</strong> and save your changes.</p></li>
+</ol>
+<figure class="align-default">
+<img alt="Adding an impervious surface" src="_images/t_05_adding_imperv_surf_2.png" />
+</figure>
+</section>
+</section>
+<section id="model-validation">
+<h2>Model validation<a class="headerlink" href="#model-validation" title="Permalink to this heading"></a></h2>
+<p>A short description of the model validation is given here.
+A comprehensive guide with visual support is provided in Tutorial 1 (<span class="xref std std-ref">post_processing</span>) and for a general guide see <a class="reference internal" href="i_checking_schematisations.html#checking-model"><span class="std std-ref">Checking the schematisation</span></a>.</p>
+<section id="verify-the-schematisation-using-the-schematisation-checker">
+<h3>Verify the schematisation using the schematisation checker<a class="headerlink" href="#verify-the-schematisation-using-the-schematisation-checker" title="Permalink to this heading"></a></h3>
+<p>Before sending the model to the web portal we want to check the schematization. We can use the schematization checker for this. It checks the model tables for many possible errors that cause the model to crash when you want to compile the model. In order to check your model schematization, follow these steps:</p>
+<ol class="upperalpha simple">
+<li><p>Select the <strong>commands for working with 3Di models</strong> button. On the right of your screen, a tab “3Di” will open. [1]</p></li>
+<li><p>Expand the “Step 1 – Check data” line and click on the <strong>raster checker</strong>. [2]</p></li>
+<li><p>In the pop-up screen, select ‘spatialite: 1D_gemengd’ and click <strong>OK</strong>.</p></li>
+</ol>
+<p>The following screen will appear:</p>
+<figure class="align-default">
+<img alt="Raster checker" src="_images/t_04_raster_checker.png" />
+</figure>
+<p>The output file is an excel file in which all warnings and errors that were found are listed. You may get a few errors that are known errors in the schematization checker. These errors will be removed in the future and may be ignored for now. These errors include:</p>
+<ul class="simple">
+<li><p>“Value in v2_aggregation_settings.aggregation_in_space should be of the type integer”</p></li>
+<li><p>“Invalid timeseries”</p></li>
+<li><p>“Pumpstation.lower_stop_level should be higher than Manhole.bottom_level”</p></li>
+</ul>
+<p>If you do not get any further warnings or errors, your model is successfully validated and is ready to upload to the web portal.</p>
+</section>
+</section>
+<section id="model-activation">
+<h2>Model activation<a class="headerlink" href="#model-activation" title="Permalink to this heading"></a></h2>
+<p>A short description of the model activation is given here. A comprehensive guidance with visual support is provided in Tutorial 2 (<a class="reference internal" href="e_2d_tutorial.html#tutorial2-2dflatmodel"><span class="std std-ref">Tutorial 2: Building a Basic 2D Flow Schematisation</span></a>).</p>
+<section id="upload-your-model">
+<h3>Upload your model<a class="headerlink" href="#upload-your-model" title="Permalink to this heading"></a></h3>
+<p>See <a class="reference internal" href="e_klondike_workflow.html#uploading-schematisation"><span class="std std-ref">Uploading the Schematisation</span></a> for how to upload your model.</p>
+<p>The model is now also available on the <a class="reference external" href="https://www.3di.live/">3Di Livesite</a> and the <a class="reference external" href="https://management.3di.live">management screens</a>.</p>
+</section>
+<section id="run-your-model">
+<h3>Run your model<a class="headerlink" href="#run-your-model" title="Permalink to this heading"></a></h3>
+<p>You have now build a 1D flow model for a mixed sewerage system! You can now run your model via the 3Di Live Site (<a class="reference internal" href="c_what_is_the_live_site.html#guide-to-portal"><span class="std std-ref">Technical setup</span></a>) or via the 3Di Modeller Interface (<a class="reference internal" href="i_running_a_simulation.html#simulate-api-qgis"><span class="std std-ref">Running a simulation</span></a>).
+It will be available under the name you gave it.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="e_2d_levees_tutorial.html" class="btn btn-neutral float-left" title="Tutorial 4 Building a 2D flow model with levees, channels and breaches" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="f_3di_instruments_and_downloads.html" class="btn btn-neutral float-right" title="Installation manual" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nelen &amp; Schuurmans.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

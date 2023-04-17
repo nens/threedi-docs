@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scenario Archive &mdash; 3Di  (dev doc 2023-04-03) documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/matomo.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="State files" href="h_state_files.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            3Di
+          </a>
+              <div class="version">
+                 (dev doc 2023-04-03)
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="a_background.html">Background of 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_ecosystem.html">3Di Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_releasenotes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_contact.html">Contact</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modelling Guidelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="a_modelling_concepts.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b_modeling_components.html">Modeling components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b_modelling_workflow.html">Modelling Workflow</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Modeller Interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="i_what_is_mi.html">What is the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html">Overview of the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html#overview-plugins">Overview plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the Live Site</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Management Portal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the Management Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html#overview-management-portal">Overview management portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the Management Portal</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">3Di for developers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="j_api.html">3Di API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="j_threedigrid.html">3Di Results API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="j_fews_3di_integrations.html">FEWS-3Di integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="j_lizard_api.html">Lizard API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="e_klondike_workflow.html">Tutorial 1: Workflow of creating a 3Di Schematisation and a 3Di Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_tutorial.html">Tutorial 2: Building a Basic 2D Flow Schematisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_slope_tutorial.html">Tutorial 3: 2D flow model over sloped terrain with multiple rasters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_levees_tutorial.html">Tutorial 4 Building a 2D flow model with levees, channels and breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_1d_tutorial.html">Tutorial 5: Building a 1D model</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Problem solving and support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="f_3di_instruments_and_downloads.html">Installation manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_authentication_user_management.html">Authentication and User Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_problem_solving.html">FAQ and Problem Solving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_servicedesk.html">Servicedesk</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Physics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="g_massconservation.html">Conservation of mass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_flow.html">Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_sources_sinks.html">Source and Sink terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_levees_obstacles_breaches.html">Obstacles, Levees and Breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_wind.html">Wind effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_interception.html">Interception</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Model concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="h_basic_modelling_concepts_threedi.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_grid.html">The grid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_numerics.html">Numerics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_control.html">Control Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_calculation_grid_data.html">Tabulated data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_results.html">Results 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_aggregate_results.html">Aggregated output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_state_files.html">State files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Overig</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Scenario Archive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#view-stored-results">View stored results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#damage-estimation">Damage Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#load-rasters-in-3di-modeller-interface-using-wms">Load rasters in 3Di Modeller Interface using WMS</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">3Di</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Scenario Archive</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/d_scenario_archive.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="scenario-archive">
+<span id="id1"></span><h1>Scenario Archive<a class="headerlink" href="#scenario-archive" title="Permalink to this heading"></a></h1>
+<p>3Di users that have access to Lizard can view and playback stored scenarios. Depending on your contract and location you may be able to view estimates of damage caused by inundation or flooding (waterschadeschatter).
+For Lizard users, you can view your scenanrio’s here: <a class="reference external" href="https://demo.lizard.net/viewer/">https://demo.lizard.net/viewer/</a>
+If scenario’s are set to public, you do not need an account to view them.
+If you also have Lizard management rights, you can manage your scenario’s here: <a class="reference external" href="https://demo.lizard.net/management/data_management/scenarios">https://demo.lizard.net/management/data_management/scenarios</a>
+For more information, please visit the Lizard documentation page: <a class="reference external" href="https://docs.lizard.net/c_scenarios.html">https://docs.lizard.net/c_scenarios.html</a></p>
+<p>After simulating with 3Di, the scenario can be processed to several rasters to visualise your results. These rasters can be viewed using the Lizard portal and in the 3Di Modeller Interface using WMS. <em>Note: these post-processed results are only available for Lizard subscription holders.</em></p>
+<p>The following results are available:</p>
+<p><strong>Water levels:</strong>
+Water level relative to mean sea level (m) at a certain time step or maximum water level per calculation cell.</p>
+<p><strong>Water depth:</strong>
+Water depth (m) relative to surface level (water level minus surface level). Surface level is defined by the DEM used by the model.</p>
+<p><strong>Rainfall:</strong>
+Rain intensity per calculation cell (mm/h).</p>
+<p><strong>Maximum flow velocity:</strong>
+Maximum flow velocity per calculation cell (m/s). Can for example be used for flood damage estimations.</p>
+<p><strong>Rise velocity:</strong>
+Rate of rise (m/s), defined by the difference in water level per second. Can for example be used for flood damage estimations.</p>
+<p><strong>Flood hazard rating:</strong>
+Rating used to indicate the degree of danger caused by flooding.
+The flood hazard rating is calculated as follows:</p>
+<p>HR = d * (v + 0.5) + DF</p>
+<div class="line-block">
+<div class="line">Where:</div>
+<div class="line">HR = (flood) Hazard Rating</div>
+<div class="line">d = depth of flooding (m)</div>
+<div class="line">v = flow velocity (m/s)</div>
+<div class="line">DF = debris factor</div>
+</div>
+<p>When water depth is smaller than or equal to 0.25 than DF = 0.5, else DF = 1.</p>
+</section>
+<section id="view-stored-results">
+<h1>View stored results<a class="headerlink" href="#view-stored-results" title="Permalink to this heading"></a></h1>
+<p>To view results in Lizard, follow these steps</p>
+<p>#.. Go to Lizard (e.g. demo.lizard.net) and Log on.</p>
+<p>#.. Expand the layer view and scroll down to add another layer</p>
+<figure class="align-default">
+<img alt="Lizard add layer" src="_images/d_lizard_add_layer.png" />
+</figure>
+<p>#.. Search for your scenario name and select it, then go back</p>
+<figure class="align-default">
+<img alt="Lizard add layer 2" src="_images/d_lizard_add_layer2.png" />
+</figure>
+<ol class="arabic simple">
+<li><p>Select your scenario in the layers panel. Here you can view several processed results and download raw results. Select the layer ‘waterdiepte’ (or waterdepth).</p></li>
+</ol>
+<figure class="align-default">
+<img alt="Lizard select layer" src="_images/d_lizard_select_layer.png" />
+</figure>
+<ol class="arabic simple">
+<li><p>Then click the small vizier on the selected layer. This will zoom your view to your model extent and the correct period in time in which your scenario was stored (see time frame at the bottom of your screen).</p></li>
+<li><p>To playback your scenario click the play button. To pause click it again. You will notice that the image will sharpen as soon as you pause playback. You may also click on a point on the map to view a graph of the water depth at that location.</p></li>
+<li><p>Raw results can be downloaded from the menu directly. To download a raster select the export button and select the result you would like. You must choose a spatial projection and resolution. All data within your current view is exported. When the export is ready for download you receive a message in your inbox.</p></li>
+</ol>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/d_export_button.png"><img alt="Lizard export button" src="_images/d_export_button.png" style="width: 62.1px; height: 27.900000000000002px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 88 </span><span class="caption-text">Lizard export button</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Stored results can be managed using the following URL: &lt;your-organisation&gt;.lizard.net/management/scenarios</p>
+</section>
+<section id="damage-estimation">
+<h1>Damage Estimation<a class="headerlink" href="#damage-estimation" title="Permalink to this heading"></a></h1>
+<p>Depending on your location Lizard provides estimates of damage caused by inundation or flooding. To use the damage estimation your study or model area must be within the Netherlands.</p>
+<p>The damages are estimated based on the land-use type, depth of the inundation, year of the month and repair time and are closely linked to the dutch waterschadeschatter.nl. The damage can be used by selecting the ‘damage estimation’ option and providing the parameters. The land-use map can be viewed in lizard and is fixed. The water depth is derived using the maximum water level and the most recent AHN elevation. The damage estimation does not use the DEM provided in the model.</p>
+<figure class="align-default">
+<img alt="Store results" src="_images/d_store_results.png" />
+</figure>
+<figure class="align-default">
+<img alt="Store results 2" src="_images/d_store_results2.png" />
+</figure>
+<p>The estimated damages are available on a 0.5 m x 0.5 m resolution. Direct, indirect and total damages are available in separate raster layers. In addition, a CSV formatted file with total damages can be downloaded from Lizard.</p>
+<p>Further documentation (only in Dutch) can be downloaded from <a class="reference download internal" download="" href="_downloads/fba297a62df3e8a2d4e30094d3a2839f/nabewerking-3di-resultaten-in-lizard.pdf"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>. The used damage table are available in <a class="reference download internal" download="" href="_downloads/7a06c142d3a6e89a3ff67bcb8cc03952/3di-v2.2018-05-15.xlsx"><code class="xref download docutils literal notranslate"><span class="pre">Excel</span></code></a> and <a class="reference download internal" download="" href="_downloads/020533280f436fccc738a21e25caa526/3di-v2.2018-05-15.cfg"><code class="xref download docutils literal notranslate"><span class="pre">CFG</span></code></a> (for use on <a class="reference external" href="https://www.waterschadeschatter.nl">waterschadeschatter.nl</a>. The damage estimation in Lizard was developed together with Hoogheemraadschap Hollands Noorderkwartier.</p>
+</section>
+<section id="load-rasters-in-3di-modeller-interface-using-wms">
+<h1>Load rasters in 3Di Modeller Interface using WMS<a class="headerlink" href="#load-rasters-in-3di-modeller-interface-using-wms" title="Permalink to this heading"></a></h1>
+<p>To view post-processed results from your 3Di scenario in the 3Di Modeller Interface follow the following steps:</p>
+<div class="line-block">
+<div class="line">1. Find the scenario UUID in the scenario management screen of your Lizard portal. Go to <code class="docutils literal notranslate"><span class="pre">{yourportal}.lizard.net</span></code>, click on <strong>Management &gt; Data &gt; 3Di Scenarios</strong> and search for your scenario. After opening, you can copy the UUID from the URL.</div>
+</div>
+<div class="line-block">
+<div class="line">2. Compose WMS url. Fill out the name of the Lizard portal you are using and the UUID of your scenario in the following URL:</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">https://{yourportal}.lizard.net/wms/scenario_{UUID</span> <span class="pre">of</span> <span class="pre">scenario}/?request=getcapabilities</span></code></div>
+</div>
+<div class="line-block">
+<div class="line">For example:</div>
+<div class="line"><a class="reference external" href="https://demo.lizard.net/wms/scenario_c30ef7f2-c871-4d70-a087-8f078f9ebafd/?request=GetCapabilities">https://demo.lizard.net/wms/scenario_c30ef7f2-c871-4d70-a087-8f078f9ebafd/?request=GetCapabilities</a></div>
+</div>
+<div class="line-block">
+<div class="line">3. In the 3Di Modeller Interface connect to the Lizard WMS server using the Data Source Manager.</div>
+<div class="line">a) Choose WMS/WMTS as data source.</div>
+<div class="line">b) Create a new connection.</div>
+<div class="line">c) Give your scenario a name and copy the URL composed in the previous step.</div>
+<div class="line">d) Under <em>Authentication</em> choose <em>Basic</em>.</div>
+<div class="line">e) You need to use a personal API key. If you do not have one yet, you can create one in the Lizard management portal. Go to yourportal.lizard.net, go to <strong>Management &gt; Personal API keys &gt; +New Item.</strong> Use <em>__key__</em> as username and the personal API key you created as password. See the <a class="reference external" href="https://docs.lizard.net/d_apitechnical.html#apiauthenticationanchor">Lizard documentation</a> for more information.</div>
+<div class="line">f) Click <em>OK</em> to save the connection.</div>
+</div>
+<figure class="align-default">
+<img alt="Create WMS connection in QGIS" src="_images/d_wms_connection.png" />
+</figure>
+<ol class="arabic simple">
+<li><p>When the connection is created, several layers appear (expand the <em>Title</em>-section to view full names of the layers). The layers can be added to the project by selecting them and clicking <em>Add</em>.</p></li>
+</ol>
+<figure class="align-default">
+<img alt="3Di WMS layers" src="_images/d_wms_layers_3di.png" />
+</figure>
+<div class="line-block">
+<div class="line">5. The water depth, water level and rain rasters can also be viewed as timeseries.</div>
+<div class="line">a) A temporal raster is indicated by a small clock icon in the layer panel.</div>
+<div class="line">b) Activate the <em>Temporal Controller</em> by clicking the clock sign on the toolbar.</div>
+<div class="line">c) Turn on <em>Fixed range temporal navigation</em> or <em>Animated temporal navigation</em>.</div>
+<div class="line">d) Choose for which time step of your simulation you want to see the water level or depth.</div>
+</div>
+<figure class="align-default">
+<img alt="Temporal Controller WMS layers" src="_images/d_wms_temporal_controller_rasters.png" />
+</figure>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="h_state_files.html" class="btn btn-neutral float-left" title="State files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nelen &amp; Schuurmans.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

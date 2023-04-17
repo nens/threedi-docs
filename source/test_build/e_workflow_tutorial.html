@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorial 1: Workflow of building a 3Di model - Old route (pre-klondike) &mdash; 3Di  (dev doc 2023-04-03) documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/matomo.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            3Di
+          </a>
+              <div class="version">
+                 (dev doc 2023-04-03)
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="a_background.html">Background of 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_ecosystem.html">3Di Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_releasenotes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a_contact.html">Contact</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modelling Guidelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="a_modelling_concepts.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b_modeling_components.html">Modeling components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b_modelling_workflow.html">Modelling Workflow</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Modeller Interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="i_what_is_mi.html">What is the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_overview_user_interface.html">Overview of the Modeller Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_modelling_with_mi.html">Modelling with the Modeller Interface</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Live Site</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="c_what_is_the_live_site.html">What is the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_livesite_overview.html">Overview of the Live Site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_modelling_with_live_site.html">Modelling with the Live Site</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guide to the 3Di Management Portal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html">What is the Management Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_management.html#overview-management-portal">Overview management portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_overview_management_portal.html">How to use the Management Portal</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">3Di for developers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="j_api.html">3Di API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="j_threedigrid.html">3Di Results API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="j_fews_3di_integrations.html">FEWS-3Di integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="j_lizard_api.html">Lizard API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="e_klondike_workflow.html">Tutorial 1: Workflow of creating a 3Di Schematisation and a 3Di Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_tutorial.html">Tutorial 2: Building a Basic 2D Flow Schematisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_slope_tutorial.html">Tutorial 3: 2D flow model over sloped terrain with multiple rasters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_2d_levees_tutorial.html">Tutorial 4 Building a 2D flow model with levees, channels and breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="e_1d_tutorial.html">Tutorial 5: Building a 1D model</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Problem solving and support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="f_3di_instruments_and_downloads.html">Installation manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_authentication_user_management.html">Authentication and User Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_problem_solving.html">FAQ and Problem Solving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_servicedesk.html">Servicedesk</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Physics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="g_massconservation.html">Conservation of mass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_flow.html">Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_sources_sinks.html">Source and Sink terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_levees_obstacles_breaches.html">Obstacles, Levees and Breaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_wind.html">Wind effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="g_interception.html">Interception</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Model concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="h_basic_modelling_concepts_threedi.html">Basic Modelling Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_grid.html">The grid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_numerics.html">Numerics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_control.html">Control Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_calculation_grid_data.html">Tabulated data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_results.html">Results 3Di</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_aggregate_results.html">Aggregated output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="h_state_files.html">State files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Overig</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html">Scenario Archive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html#view-stored-results">View stored results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html#damage-estimation">Damage Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="d_scenario_archive.html#load-rasters-in-3di-modeller-interface-using-wms">Load rasters in 3Di Modeller Interface using WMS</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">3Di</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Tutorial 1: Workflow of building a 3Di model - Old route (pre-klondike)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/e_workflow_tutorial.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tutorial-1-workflow-of-building-a-3di-model-old-route-pre-klondike">
+<span id="tutorial1-workflow-old"></span><h1>Tutorial 1: Workflow of building a 3Di model - Old route (pre-klondike)<a class="headerlink" href="#tutorial-1-workflow-of-building-a-3di-model-old-route-pre-klondike" title="Permalink to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This tutorial described the old route of building a 3Di model.
+After the Klondike release, you do not need Tortoise and Inpy anymore. This tutorial will be updated.</p>
+</div>
+<p>Welcome to 3Di and your first tutorial. In this tutorial, we will go through the basic steps of building a 3Di model.
+These are the pre-processing steps before you can start building your model and the post-processing steps after you
+have built your model. These basic steps will return in every 3Di model that you will build. We will work with a
+pre-build model. Upon completion of this tutorial, you will have an understanding of the workflow surrounding building
+a 3Di model and you will be ready to start building models yourself in the next tutorials.</p>
+<p>We will use a simple model of the Laugharne and Pendine Burrows in the United Kingdom. The burrows enclose a
+flat area of reclaimed salt marshes that are currently used as farmland. Whilst this tutorial represents a
+real-world area, it is important to keep in mind that the model is greatly simplified for the purpose of this
+tutorial.</p>
+<p>You will learn the following skills in this tutorial:</p>
+<ul class="simple">
+<li><p>Load an existing model into the 3Di modeller interface,</p></li>
+<li><p>Upload your model to the 3Di model repository,</p></li>
+<li><p>Initialise your model in the 3Di model repository,</p></li>
+<li><p>View your model on the 3Di live site,</p></li>
+<li><p>Update your model using TortoiseHG.</p></li>
+</ul>
+<p>Before you start, please make sure to:</p>
+<ul class="simple">
+<li><p>Install the 3Di modeller interface. Please see <a class="reference internal" href="f_3di_instruments_and_downloads.html#di-instruments-and-downloads"><span class="std std-ref">Installation manual</span></a> for instructions.</p></li>
+<li><p>Install TortoiseHG. Please see <a class="reference external" href="https://tortoisehg.bitbucket.io/download/index.html">TortoiseHG</a> for instructions.</p></li>
+<li><p>Gain access to the 3Di web portal. Please see <a class="reference internal" href="c_what_is_the_live_site.html#guide-to-portal"><span class="std std-ref">Technical setup</span></a> for instructions.</p></li>
+<li><p>Click <a class="reference external" href="https://nens.lizard.net/media/3di-tutorials/3di-tutorial-01.zip">here</a> to download the Laugharne and Pendine Burrows model for this tutorial.</p></li>
+</ul>
+<section id="pre-processing-loading-a-model-into-the-3di-modeller-interface">
+<h2>Pre-processing: loading a model into the 3Di modeller interface<a class="headerlink" href="#pre-processing-loading-a-model-into-the-3di-modeller-interface" title="Permalink to this heading"></a></h2>
+<p>3Di models are built from a spatialite database plus a set of supporting data rasters. The spatialite database is the file with the .sqlite extension. The spatialite database contains the model settings and features like channels, weirs, and levees. The supporting data rasters contain geospatial information like elevation, friction and infiltration. They must be prepared in a GeoTIFF format with extension .tif. The minimum requirement for any 3Di model is a spatialite database with model settings and an elevation raster. The latter is commonly referred to as a digital elevation model (DEM).</p>
+<p>The Laugharne and Pendine Burrows model folder contains two models. Open model 1. It contains a spatialite database and one elevation raster in the folder “rasters”. This folder contains a DEM of the study area.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/00_model_folder.png"><img alt="_images/00_model_folder.png" src="_images/00_model_folder.png" style="width: 494.4px; height: 62.4px;" /></a>
+</figure>
+<p>To start working on a model, the spatialite database must be loaded into the 3Di modeller interface. Load the LP_Burrows.sqlite model via the following steps:</p>
+<ol class="loweralpha simple">
+<li><p>Open the 3Di modeller interface on your computer.</p></li>
+<li><p>Create a new project.</p></li>
+<li><p>Select the “select 3Di results” button on the 3Di Toolbar (white database icon). [1]</p></li>
+<li><p>Select “load” in the model section, and select the LP_Burrows.sqlite from the Model 1. The “load” button may not be visible on all screens and zoom settings. It can help to enlarge the pop-up window. [2]</p></li>
+<li><p>You should now see the 3Di model as part of your project layers. [3]</p></li>
+<li><p>Set the project coordinate system in accordance with your model. This model is created in the British national grid with code EPSG:27700. [4]</p></li>
+<li><p>Add the DEM to your project by dragging it from your file explorer to the layers panel. [3]</p></li>
+</ol>
+<figure class="align-default">
+<img alt="_images/01_load_model.png" src="_images/01_load_model.png" />
+</figure>
+<p>It is recommended to use a background map to get a feeling for the area that you are modelling. A good option would be the Google Satellite background map:</p>
+<ol class="loweralpha simple">
+<li><p>In your browser panel, right-click on “XYZ Tiles” and select “new connection”. If the browser panel is not visible in your 3Di modeller interface, select “view” &gt; “panels” &gt; “browser panel” from the top menu bar. [1]</p></li>
+<li><p>Fill in Name as “Google Satellite” and URL as <code class="docutils literal notranslate"><span class="pre">https://mt1.google.com/vt/lyrs=s&amp;x={x}&amp;y={y}&amp;z={z}</span></code>. [2]</p></li>
+<li><p>Select “OK”. The Google Satellite layer should now be visible in your browser panel. You may need to click the small triangle to the left of “XYZ tiles” if the layer does not become immediately visible. [3]</p></li>
+<li><p>Double-click the Google Satellite layer to load it into your project. [4]</p></li>
+<li><p>Reorder the layers such that the Google Satellite layer is below the 3Di model. This will ensure the visibility of the model components at later stages. [5]</p></li>
+</ol>
+<figure class="align-default">
+<img alt="_images/02_satellite.png" src="_images/02_satellite.png" />
+</figure>
+<p>Your screen should now look like the image below. The model is successfully loaded and ready to be worked on. As you will add more features to your model, you will see more elements in the 3Di modeller interface. These options will be extensively covered in the following tutorials. Here we will make no changes to the model, but focus on uploading our model to the repository.</p>
+<figure class="align-default">
+<img alt="_images/03_loaded_model.png" src="_images/03_loaded_model.png" />
+</figure>
+</section>
+<section id="post-processing">
+<span id="id1"></span><h2>Post-processing<a class="headerlink" href="#post-processing" title="Permalink to this heading"></a></h2>
+<p>Five steps are required for running your completed 3Di model successfully on the 3Di live site or via the API. These steps included checking your model for errors and activating your model in the 3Di repository. This procedure is referred to as post-processing.</p>
+<section id="raster-checker">
+<h3>Raster checker<a class="headerlink" href="#raster-checker" title="Permalink to this heading"></a></h3>
+<p>It is important to validate that our model contains no errors. The <a class="reference internal" href="i_checking_schematisations.html#rasterchecker"><span class="std std-ref">Raster checker</span></a> is part of the 3Di toolbox and performs 18 checks to verify the DEM and other rasters.</p>
+<ol class="loweralpha simple">
+<li><p>Open the 3Di toolbox. The toolbox will appear as an extra panel in your QGIS window. [1]</p></li>
+<li><p>Select the raster checker under the check data tab. [2]</p></li>
+<li><p>Select the ‘Spatialite: LP_Burrows” in the pop-up window, and press “ok”. [3]</p></li>
+</ol>
+<figure class="align-default">
+<img alt="_images/04_rasterchecker_.png" src="_images/04_rasterchecker_.png" />
+</figure>
+<ol class="loweralpha simple" start="4">
+<li><p>A pop-up window with the result appears. There should be 0 errors and 0 warnings. If any warnings appear, please see the <a class="reference internal" href="i_checking_schematisations.html#rasterchecker"><span class="std std-ref">Raster checker</span></a> tutorial on how to read the log file. [4]</p></li>
+</ol>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/05_rasterchecker_2.png"><img alt="_images/05_rasterchecker_2.png" src="_images/05_rasterchecker_2.png" style="width: 467.7px; height: 212.7px;" /></a>
+</figure>
+<p>A log of the performed test is written to the log file in the location as denoted in the result prompt. This location is typically the location of your spatialite database. The log file can be opened to view additional details of the checks performed.</p>
+</section>
+<section id="schematisation-checker">
+<h3>Schematisation checker<a class="headerlink" href="#schematisation-checker" title="Permalink to this heading"></a></h3>
+<p>The second validation is that of the model schematisation. This is checked with the <a class="reference internal" href="i_checking_schematisations.html#schematisationchecker"><span class="std std-ref">Schematisation checker</span></a> in the 3Di toolbox. It checks the model tables for many possible errors that could lead to crashes when the model is compiled.</p>
+<ol class="loweralpha simple">
+<li><p>Open the 3Di toolbox. The toolbox will appear as an extra panel in your QGIS window. [1]</p></li>
+<li><p>Select the raster checker under the check data tab. [2]</p></li>
+<li><p>Select the ‘Spatialite: LP_Burrows” in the pop-up window. [3]</p></li>
+<li><p>Specify the path for saving the log file. Set the path to the same folder as the LP_Burrows.sqlite. [4]</p></li>
+</ol>
+<figure class="align-default">
+<img alt="_images/06_schemachecker_.png" src="_images/06_schemachecker_.png" />
+</figure>
+<p>Now open the log file. You may find the error “Value in v2_aggregation_settings.aggregation_in_space should to be of type integer”. This is a known bug in the schematisation checker, which will be removed in a future update. You should not find any other warnings.</p>
+<figure class="align-default" id="id3">
+<img alt="log_checker" src="_images/07_modelerrors.png" />
+<figcaption>
+<p><span class="caption-text">Log of the schematisation checker</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>If you do not get any further warnings or errors, your model is successfully validated and is ready for activation.</p>
+</section>
+<section id="uploading-your-model-to-the-repository">
+<h3>Uploading your model to the repository<a class="headerlink" href="#uploading-your-model-to-the-repository" title="Permalink to this heading"></a></h3>
+<p>The first stage towards running your model is to upload you model to the 3Di model databank. Take the following actions:</p>
+<ol class="loweralpha simple">
+<li><p>Create a new .zip file with your new LP_Burrows.sqlite database and your DEM rasters folder. Here we name it Tutorial_workflow.zip. Be mindful that the folder structure in the .zip file must match that of your schematisation. This will be discussed further in the next tutorial.</p></li>
+</ol>
+<figure class="align-default">
+<img alt="_images/08_zipfolder.png" src="_images/08_zipfolder.png" />
+</figure>
+<ol class="loweralpha simple" start="2">
+<li><p>Go to <a class="reference external" href="https://models.lizard.net/model_databank/">https://models.lizard.net/model_databank/</a>.</p></li>
+<li><p>Select “Upload new model”. Make sure that you are logged in for this step.</p></li>
+</ol>
+<figure class="align-default">
+<img alt="_images/09_model_databank.png" src="_images/09_model_databank.png" />
+</figure>
+<ol class="loweralpha simple" start="4">
+<li><p>Fill in the details of your models as in the figure below. Be sure to select 3Di-v2 as your model type. Select “Submit” when you have completed the form.</p></li>
+</ol>
+<figure class="align-default" id="id4">
+<img alt="ini_model" src="_images/10_model_upload.png" />
+<figcaption>
+<p><span class="caption-text">Initialising your model</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Now that your model is stored in the model databank, it is ready to be initialised:</p>
+<ol class="loweralpha simple">
+<li><p>Go to <a class="reference external" href="https://3di.lizard.net/models/">https://3di.lizard.net/models/</a>.</p></li>
+<li><p>Use to search function to retrieve your model. Search on the model name: Tutorial_workflow. [1]</p></li>
+<li><p>Select “also show repositories that do not have inp files yet”. [2]</p></li>
+<li><p>Select “initialize inp generation” for your model. [3]</p></li>
+</ol>
+<figure class="align-default">
+<img alt="_images/11_repositories.png" src="_images/11_repositories.png" />
+</figure>
+<p>Your model will now be initialised. The blue status bar “no models” will turn to a green bar with the text “success” when the model is successfully initialised. You may have to wait a few minutes and refresh the page. If the model is not successfully initialised, it will show a red bar with the text “failed”. This message indicates that the model contained an error. The log file can be viewed by clicking on the status bar. If you have followed the instructions correctly, your model will initialise successfully.</p>
+</section>
+<section id="running-your-model">
+<h3>Running your model<a class="headerlink" href="#running-your-model" title="Permalink to this heading"></a></h3>
+<p>You can now run your model via the 3Di live site <a class="reference external" href="http://3di.live#">3Di livesite</a> . It will be available under the name “LP_Burrows_Workflow”.</p>
+<figure class="align-default">
+<img alt="_images/12_livesite.png" src="_images/12_livesite.png" />
+</figure>
+</section>
+</section>
+<section id="model-updating-via-tortoisehg">
+<h2>Model updating via TortoiseHG<a class="headerlink" href="#model-updating-via-tortoisehg" title="Permalink to this heading"></a></h2>
+<p>Models are often updated, for example by adding new features, changing settings, or bugfixes. Instead of having to go through the full post-processing routine again, models can simply be updated through an SVN client such as TortoiseHG. We will set up a connection between the 3Di model repository and your local connection. This enables you to exchange information with the model repository without having to upload a new model database every time. This saves time and ensures that your model versions are grouped in the model repository. The model repository also allows for multiple people to work alongside each other on the same model.</p>
+<section id="clone-the-base-model">
+<h3>Clone the base model<a class="headerlink" href="#clone-the-base-model" title="Permalink to this heading"></a></h3>
+<p>A connection is set up by cloning a model from the repository to your local computer through TortoiseHG. Cloning means that a model from the repository is copied to a local folder on your computer.  Follow these steps:</p>
+<ol class="loweralpha simple">
+<li><p>Go to 3Di Model repository at <a class="reference external" href="https://models.lizard.net/model_databank/">https://models.lizard.net/model_databank/</a>.</p></li>
+<li><p>Select the model that you built. It is important that you select your own model, as it is a shared repository in which you will modify and update the original model. [1]</p></li>
+<li><p>Copy the model link. This is the part after “$ hg clone”.  [2]</p></li>
+</ol>
+<figure class="align-default">
+<img alt="_images/13_databank.png" src="_images/13_databank.png" />
+</figure>
+<ol class="loweralpha simple" start="4">
+<li><p>Open the application TortoiseHG Workbench on your computer.</p></li>
+</ol>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/14_tortoise_.png"><img alt="_images/14_tortoise_.png" src="_images/14_tortoise_.png" style="width: 341.6px; height: 62.400000000000006px;" /></a>
+</figure>
+<ol class="loweralpha simple" start="5">
+<li><p>Select “File &gt; Clone repository”. [1]</p></li>
+<li><p>Paste the link from step 3 in the box “source:”. [2]</p></li>
+<li><p>For the destination, create a new empty folder on your computer named “Model_repo” via “browse…”. [3]</p></li>
+<li><p>Select “Clone”. You will be prompted for your 3Di username and password. When completed, the model will be copied from the repository to your computer. [4]</p></li>
+</ol>
+<figure class="align-default">
+<img alt="_images/15_cloning.png" src="_images/15_cloning.png" />
+</figure>
+<p>When the model has been copied, TortoiseHG will shows several panels with information on your model. We will highlight the most important panels.</p>
+<ol class="loweralpha simple">
+<li><p>The repository registry shows the model connections that have been set up, including the clone we just made. [1]</p></li>
+<li><p>The revision history provides a log of the modifications made to the model. Each model update to the 3Di repository is referred to as a revision. [2]</p></li>
+<li><p>The change log lists the files that have been changed since the last revision. [3]</p></li>
+<li><p>The change set can be used to comment on new revisions. [4]</p></li>
+</ol>
+<figure class="align-default" id="id5">
+<img alt="reupload_updated_model" src="_images/16_tortoise_panels.png" />
+<figcaption>
+<p><span class="caption-text">Reupload updated model to the repository</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Let us suppose that we want to replace model 1 by model 2 from the Basefiles.zip-file provided at the start of this tutorial. This is referred to as pushing a new model revision. Follow the following steps:</p>
+<ol class="loweralpha simple">
+<li><p>Locate the LP_Burrows.sqlite in the folder “Model 2” in “Basefiles.zip”provided at the start of the tutorial.</p></li>
+<li><p>Copy LP_Burrows.sqlite from the folder “Model 2” to the folder “Model_repo”. Replace the existing .sqlite database.</p></li>
+<li><p>In TortoiseHG select your working directory. [1]</p></li>
+<li><p>Select the renew button. [2]</p></li>
+<li><p>“M LP_Burrows.sqlite” should appear in the change log. The adjective “M” indicates that the file has been modified in your local directory. [3]</p></li>
+<li><p>Type “1D channels added” in the change set. This message will be published in the 3Di model repository. It helps others to track changes made to the model. [4]</p></li>
+<li><p>Select “Commit”. A new revision (“1”) will now be added to the revision history. [5]</p></li>
+</ol>
+<figure class="align-default">
+<img alt="_images/17_commit.png" src="_images/17_commit.png" />
+</figure>
+<ol class="loweralpha simple" start="8">
+<li><p>Select Revision 1. [1]</p></li>
+<li><p>Select “Push outgoing changes”. [2]</p></li>
+<li><p>A confirmation prompt will appear. Select “Yes”.</p></li>
+<li><p>You will be prompted for your 3Di username and password. Complete these.</p></li>
+</ol>
+<figure class="align-default">
+<img alt="_images/18_push.png" src="_images/18_push.png" />
+</figure>
+<p>You have now pushed an updated model to the 3Di model repository in the form of a new revision. The model repository will be updated with the new spatialite database. The new revision can be downloaded by everyone within your organisation. To “pull” someone else’s revision to your local computer, select the “pull incoming changes” button in TortoiseHG ([3] in the figure above).</p>
+<p>Rasters with model data can be updated in the same way as spatialite databases. A model push can contain multiple changes to the spatialite database and rasters.</p>
+</section>
+<section id="update-visibility">
+<h3>Update visibility<a class="headerlink" href="#update-visibility" title="Permalink to this heading"></a></h3>
+<p>Models that are pushed to the repository through TortoiseHG will be initialised automatically. It is not required to “initialize inp generation” as is the case for new models. However, updated models are not visible by default on the live site. Change this as follows:</p>
+<ol class="loweralpha simple">
+<li><p>Go to <a class="reference external" href="https://3di.lizard.net/models/">https://3di.lizard.net/models/</a>.</p></li>
+<li><p>Use to search function to retrieve your model, i.e. “Tutorial_workflow”.</p></li>
+<li><p>Wait until the inp generation is completed. The status bar will turn green when this process is completed. [1]</p></li>
+<li><p>Click on the name of your model. [2]</p></li>
+</ol>
+<figure class="align-default">
+<img alt="_images/19_repository_2.png" src="_images/19_repository_2.png" />
+</figure>
+<ol class="loweralpha simple" start="5">
+<li><p>An overview of all revisions now appears. Select the pencil icon, [1]</p></li>
+<li><p>tick the marker in the column “visible”, [2]</p></li>
+<li><p>save the edit by selecting the save icon (same location as the pencil icon). [3]</p></li>
+</ol>
+<figure class="align-default">
+<img alt="_images/20_visibility.png" src="_images/20_visibility.png" />
+</figure>
+<p>The updated model is now available on the <a class="reference external" href="http://3di.live#">3Di livesite</a>  or via an API. The model will again be available under the name “LP_Burrows_Workflow”.</p>
+<p>Congratulations on completing this first tutorial on the 3Diworkflow! You are now ready to build your own models in the next tutorials.</p>
+<figure class="align-default" id="id6">
+<img alt="Final_model" src="_images/21_live_site_2.png" />
+<figcaption>
+<p><span class="caption-text">Final model on the livesite</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nelen &amp; Schuurmans.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
