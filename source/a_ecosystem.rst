@@ -1,30 +1,23 @@
 .. _a_ecosystem:
 
-3Di Ecosystem
-^^^^^^^^^^^^^
+User interfaces
+^^^^^^^^^^^^^^^
 
-.. TODO: nog een andere naam bedenken. Ecosystem is een beetje onduidelijk.
+You can work with 3Di both in the browser and locally. We offer three user interfaces, each with their own specific strengths.
 
-The 3Di Ecosystem consists of the following five components:
+* :ref:`The 3Di Live Site <what_is_the_live_site>`: run interactive simulations in the browser and follow them while they are running.
 
-* :ref:`The Modeller Interface <mi_what_is>`: a QGIS based environment where you can build, edit and start schematisations. The interface can also be used to analyze results.
+* :ref:`The 3Di Modeller Interface <mi_what_is>`: a desktop application for modelling experts and hydrologists, based on QGIS. Here you can build and edit schematisations, start simulations, and analyze results.
 
+* :ref:`The Management screens <management_screens_what_is>`: manage online 3Di resources such as schematisations, models, simulation templates and simulations.
 
-* :ref:`The Live Site <what_is_the_live_site>`: a web application to start, pause and adjust simulations.
+These three interfaces all interact with the 3Di server through the same :ref:`a_api`, a comprehensive *application programming interface*. You can use this API to interact with 3Di from a Python script or your own software product.
 
-* :ref:`The Management screens <management_screens_what_is>`: an online overview of your schematisations, models and simulations.
-
-* The Computational Core: a Fortran software package which handles the hydrodynamic calculations. These calculations run on specialized servers to ensure computational power. Please visit the :ref:`Physics <cons_volume>` and :ref:`Modelling Concepts <basic_modelling_concepts>` pages to read more about the science that underlies the Computational Core.
-
-.. TODO: stukje hierboven aanpassen.
-
-* :ref:`a_api`: an *application programming interface*, which enables other applications and user interfaces to interact with the computational core.
-
-All components are secured by an **Authentication** and **Authorization** system. This will be discussed in the :ref:`f_authentication_user_management` section.
+All components are secured by an **Authentication** and **Authorization** system, see :ref:`f_authentication_user_management`.
 
 
 
 .. figure:: image/a_3di_ecosystem.png
-   :alt: 3Di Ecosystem
+   :alt: Interaction with 3Di through its API
    
-   The 3Di Ecosystem.
+   Interaction with 3Di through its API.

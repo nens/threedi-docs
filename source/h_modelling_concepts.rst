@@ -5,7 +5,7 @@ Modelling concepts
    :maxdepth: 1
 
    a_modelling_concepts
-   h_modeling_objects
+   h_schematisation_objects
    h_grid
    h_numerics
    h_control

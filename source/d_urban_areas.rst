@@ -1,7 +1,7 @@
-Hybrid Models
-=============
+Combining direct rainfall and sewerage inflow
+=============================================
 
-Generally, rain falls directly on the surface, before it finds its way into the sewer system. However in urban areas, a significant part of the rain falls on buildings. There, it can flow to the sewer system through rain pipes or it can be stored. 3Di can be used to model any sanitary, storm and combined sewer system, with water entering the model using the 0D inflow in combination with 2D rainfall. In The Netherlands, there is a system called NWRW, which formed the basis for the 0D inflow model. This is described in more detail in section :ref:`inflow`.
+Generally, rain falls directly on the surface, before it finds its way into the sewer system. In urban areas however, a significant part of the rain falls on buildings. There, it can flow to the sewer system through rain pipes or it can be stored. 3Di can be used to model any sanitary, storm and combined sewer system, with water entering the model using the 0D inflow in combination with 2D rainfall. In The Netherlands, there is a system called NWRW, which formed the basis for the 0D inflow model. This is described in more detail in section :ref:`inflow`.
 
 
 0D inflow
