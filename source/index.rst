@@ -40,8 +40,8 @@ Index
 
 .. toctree::
    :maxdepth: 2
-   :caption: Tutorials & Getting Started
-   :name: Tutorials & Getting Started
+   :caption: Tutorials and Getting Started
+   :name: Tutorials and Getting Started
    
    a_background
    a_ecosystem
