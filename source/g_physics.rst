@@ -1,9 +1,7 @@
-Computational Core of 3Di
-==========================
+Computational Core
+==================
 
-This is an overview of how 3Di makes calculations.
-
-.. TODO: tekst verbeteren. Misschien niet de meest duidelijke titel.
+This section explains the methods and equations used by the 3Di computational core during a simulation.
 
 .. toctree::
    :maxdepth: 2

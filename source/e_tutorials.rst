@@ -1,5 +1,5 @@
-3Di Tutorials
-==============
+Tutorials
+=========
 
 These are all the tutorials available on 3Di. The tutorials build on each other.
 
