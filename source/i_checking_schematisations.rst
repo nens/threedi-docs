@@ -150,7 +150,7 @@ The output is a comma seperated value file, which can be opened in, for example,
 
 **What is checked?**
 
-For a table of all the checks run on the schematisation, and their respective error codes, see :doc:`the list of schematisation checks <current_schematisation_checks_page>`.
+For a table of all the checks run on the schematisation, and their respective error codes, see the :ref:`current_schematisation_checks`.
 
 There are currently different general checks applied on all tables and columns of the model database. These checks are:
 
