@@ -30,94 +30,47 @@ Documentation Overview
 .. * To get a more profound knowledge about 3Di, follow our **Tutorials**. These include an enhanced :ref:`API tutorial <e_api>` and multiple :ref:`Tutorials <e_tutorial1>`.
 
 
-
+.. TODO: Dit stukje opnieuw schrijven als de indeling af is.
 
 If you are interested in a **product demo**, a **live** or **online training**, or **becoming a partner**, please visit the `3Di website <https://3diwatermanagement.com/>`_. Also, do not forget to check out our `Youtube Channel <https://www.youtube.com/channel/UCecYX88MyFeP-1mpx7HOoJw>`_ for more information and detailed tutorials!
 
-.. figure:: image/a_3di-logo.png
-   :alt: 3Di Logo
-   :width: 240px
-   :align: center
 
+Index
+======
 
 .. toctree::
-   :hidden:
-   :maxdepth: 1
-   :caption: Introduction
-   :name: Introduction
-
+   :maxdepth: 2
+   :caption: Tutorials & Getting Started
+   :name: Tutorials & Getting Started
+   
    a_background
    a_ecosystem
-   a_releasenotes
-   a_contact
-
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-   :caption: Modelling Guidelines
-   :name: Modelling Guidelines
-
-   a_modelling_concepts
-   b_modeling_components
    b_modelling_workflow
+   e_tutorials
 
 .. toctree::
-   :hidden:
-   :maxdepth: 1
-   :caption: Guide to the 3Di Modeller Interface
-   :name: Guide to the 3Di Modeller Interface
+   :maxdepth: 3
+   :caption: User Manuals
+   :name: User Manuals
 
-   i_what_is_mi
-   i_overview_user_interface
-   i_modelling_with_mi
-
-
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-   :caption: Guide to the 3Di Live Site
-   :name: Guide to the 3Di Live Site
-
-   c_what_is_the_live_site
-   c_livesite_overview
-   c_modelling_with_live_site
+   i_guide_modeller_interface
+   c_guide_live_site
+   d_guide_management_portal
+   d_scenario_archive
+   j_3di_developers
+   
 
 .. toctree::
-   :hidden:
-   :maxdepth: 1
-   :caption: Guide to the 3Di Management Portal
-   :name: Guide to the 3Di Management Portal
-
-   d_management
-   d_overview_management_portal
-
-
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-   :caption: 3Di for developers
-   :name: 3Di for developers
-
-   j_api
-   j_threedigrid
-   j_fews_3di_integrations
-   j_lizard_api
+   :maxdepth: 3
+   :caption: Technical Reference
+   :name: Technical Reference
+   
+   h_modelling_concepts
+   g_physics
+   
 
 .. toctree::
-   :hidden:
-   :maxdepth: 1
-   :caption: Tutorials
-   :name: tutorials
-
-   e_klondike_workflow
-   e_2d_tutorial
-   e_2d_slope_tutorial
-   e_2d_levees_tutorial
-   e_1d_tutorial
-
-.. toctree::
-   :hidden:
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Problem solving and support
    :name: instalation_manual
 
@@ -125,42 +78,13 @@ If you are interested in a **product demo**, a **live** or **online training**, 
    f_authentication_user_management
    f_problem_solving
    f_servicedesk
-
-.. toctree::
-   :hidden:
-   :maxdepth: 2
-   :caption: Physics
-   :name: basic_principles
-
-
-   g_massconservation
-   g_flow
-   g_sources_sinks
-   g_levees_obstacles_breaches
-   g_wind
-   g_interception
-
-.. toctree::
-   :hidden:
-   :maxdepth: 2
-   :caption: Model concepts
-   :name: Model_concepts
-
-
-   h_basic_modelling_concepts_threedi
-   h_grid
-   h_numerics
-   h_control
-   h_calculation_grid_data
-   h_results
-   h_aggregate_results
-   h_state_files
+   f_contact
 
 
 .. toctree::
-   :hidden:
-   :maxdepth: 2
-   :caption: Scenario Archive
-   :name: Scenario Archive
-   
-   d_scenario_archive
+   :maxdepth: 1
+   :caption: Release Notes
+   :name: Release Notes
+
+   a_releasenotes
+

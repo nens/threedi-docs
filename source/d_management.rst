@@ -31,10 +31,14 @@ The Management Portal can be used to:
 Technical setup
 ----------------
 
+*Under construction*
+
 .. TODO: nog schrijven.
 
 
 Overview management portal
 ===========================
+
+*Under construction*
 
 .. TODO: nog schrijven. gewoon de knoppen even uitleggen.

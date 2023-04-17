@@ -83,10 +83,10 @@ As new checks are added to the modelchecker, this table should be updated. To ge
 install the `threedi-modelchecker <https://github.com/nens/threedi-modelchecker/>`_ (preferably in
 a virtual environment), and run::
 
-    threedi_modelchecker export-checks --format rst --file current_schematisation_checks_table.rst
+    threedi_modelchecker export-checks --format rst --file i_current_schematisation_checks_table.rst
 
-This will create a new file called ``current_schematisation_checks_table.rst`` in the directory in which
-you run the command, with which you replace the existing ``current_schematisation_checks_table.rst``
+This will create a new file called ``i_current_schematisation_checks_table.rst`` in the directory in which
+you run the command, with which you replace the existing ``i_current_schematisation_checks_table.rst``
 file in the ``source`` directory in this repository.
 
 
