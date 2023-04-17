@@ -2,14 +2,14 @@
    pdf output.
 
 
-
+=================================
 Welcome to the 3Di Documentation!
 =================================
 
 Here you can find everything you need to know about the **hydrodynamic modelling software 3Di**.
 
 Introduction
-^^^^^^^^^^^^
+============
 3Di is a state-of-the-art hydrodynamic simulation software, which can be used as modelling tool in water management studies, in both urban as rural areas.
 It allows the user to simulate real-world scenarios and make adjustments to them.
 This way, water experts can predict and mitigate the impact of pluvial, fluvial and coastal floods, perform climate impact studies and make hydraulic designs of open channel and sewer networks.
@@ -34,7 +34,7 @@ The computational core is developed by Prof. dr. ir. G. S. Stelling, who worked 
 Most of the techniques used within the 3Di computational core are published in scientific papers. The rest of the software is maintained and developed by Nelen & Schuurmans Technology.
 
 Table of contents
-^^^^^^^^^^^^^^^^^
+=================
 
 .. toctree::
    :maxdepth: 2
@@ -65,7 +65,8 @@ Table of contents
    
    h_modelling_concepts
    g_physics
-   
+   h_outputs
+
 
 .. toctree::
    :maxdepth: 3
