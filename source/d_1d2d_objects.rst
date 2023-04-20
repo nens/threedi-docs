@@ -1,7 +1,7 @@
 .. _1d2d_objects:
 
 1D2D Objects
-==========
+============
 
 Exchange line
 -------------
