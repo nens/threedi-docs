@@ -3,8 +3,8 @@
 1D flow over structures
 =======================
 
-Structures control the behaviour of water systems, therefore it is crucial to take these into account. 3Di recognises various types of structures, pumps, weirs, orifices and culverts. To guarantee the structures are implemented in your 3Di model, structures are defined as connections between two computational nodes, similar to channels and pipes. The sections below give an overview of the structures available in 3Di. Moreover, structures can be controled. This means that characteristics can be adjusted based on simulation results. 
-This can be done using the, in 3Di implemented, control functions (:ref:`control`) or by controls designed by the user via the 3Di API (:ref:`apicalculations`).
+Structures control the behaviour of water systems, therefore it is crucial to take these into account. 3Di recognizes various types of structures, pumps, weirs, orifices and culverts. To guarantee the structures are implemented in your 3Di model, structures are defined as connections between two computational nodes, similar to channels and pipes. The sections below give an overview of the structures available in 3Di. Moreover, structures can be controlled. This means that characteristics can be adjusted based on simulation results. 
+This can be done using the, in 3Di implemented, control functions (:ref:`control`) or by controls designed by the user via the :ref:`a_api`.
 
 .. _pump:
 
@@ -71,11 +71,11 @@ where :math:`h` is the local water depth, :math:`u` the local cross-sectionally 
 .. figure:: image/b_structure_weir_orifice.png
    :alt: structures_weir_short
      
-   Illustration of short crested weir and orifice under sub- and (super-)critical conditions; a simplified view of the 1D network and a sketch of the available discretised information. 
+   Illustration of short crested weir and orifice under sub- and (super-)critical conditions; a simplified view of the 1D network and a sketch of the available discretized information. 
 
 In case of structures with closed profiles, in the equation of the energy balance :math:`h` is not the water depth, but the energy height. For structures having closed profiles, the transition of water depth to energy height is automatically taken care of in case the area fills with water.
 
-For robustness, 3Di schematises structures as connections between two nodes, as can be seen in the third panel of the figure. This assumption implies that the water level on the location of the structure is unknown. To compute accurately the discharge over the structure, a difference is made between long crested and short crested structures. Both resulting formulations are based on Bernoulli's principle, but for long crested structures, frictional losses are computed separately.
+For robustness, 3Di schematizes structures as connections between two nodes, as can be seen in the third panel of the figure. This assumption implies that the water level on the location of the structure is unknown. To compute accurately the discharge over the structure, a difference is made between long crested and short crested structures. Both resulting formulations are based on Bernoulli's principle, but for long crested structures, frictional losses are computed separately.
 
 
 Short crested
@@ -83,7 +83,7 @@ Short crested
 
 The discharge over the structure is computed based on the effective cross-sectional area :math:`A_{eff}` and the velocity over the structure :math:`u_{II}`. Two states of the flow can occur over the structure: sub- and (super)-critical flow. For both states, different assumptions are valid. However, for both states it is assumed that :math:`u_I` is negligible compared to :math:`u_{II}`.
 
-In case of (super-)critical flow, the downstream waterlevel does not affect the flow over the structure, as is the case under sub-critical conditions. The fourth panel of the figure shows the information known in a discretised world. In case the flow is critical, the water depth at the crest can be determined using the upstream waterlevel and the definition for critical flow: 
+In case of (super-)critical flow, the downstream waterlevel does not affect the flow over the structure, as is the case under sub-critical conditions. The fourth panel of the figure shows the information known in a discretized world. In case the flow is critical, the water depth at the crest can be determined using the upstream waterlevel and the definition for critical flow: 
 
 .. math::
    h_{cr}= \frac{2}{3}(h_I-a) = h_{II}
@@ -101,7 +101,7 @@ The critical velocity over the structure is given by:
 In which :math:`C_2` is a loss coefficient due to contraction of the flow. For the total discharge in 3Di, the discharge under free flowing conditions is computed as:
 
 .. math::
-   Q_{cr} = C_1 \sqrt{\frac{2}{3} g (h_I-a)} C_2 W \frac{2}{3}(h_I-a) = C \frac{2}{3}\sqrt{\frac{2}{3}g} (h_I-a)^{\frac{3}{2}}
+   Q_{cr} = C_1 \sqrt{\frac{2}{3} g (h_I-a)} C_2 W \frac{2}{3}(h_I-a) = C W g^{\frac{1}{2}} \left(\frac{2}{3}(h_I-a)\right)^{\frac{3}{2}}
 
 Note, that the coefficients :math:`C_1` and :math:`C_2` are combined is the general discharge coefficient :math:`C`, which can be set by the user.
 
@@ -150,6 +150,6 @@ Culvert
 
 Culverts can connect parts of 1D networks and allow flow under roads or other obstacles. In contrast to orifices, the flow behaviour in a culvert is assumed to be determined by shape and much less dominated by entrance losses. The flow in culverts is assumed to be a pipe flow with possible changes in cross-section. Culverts can be used for longer sections of pipe-like structures and do not have to be straight. Shorter, straight culverts are best modelled as an orifice. 
 
-For culverts and orifices, the energy loss caused by the change in flow velocity at the entrance and exite are accounted for by 3Di. The discharge coefficients for culverts can be used to account for any additional energy loss. 
+For culverts and orifices, the energy loss caused by the change in flow velocity at the entrance and exit are accounted for by 3Di. The discharge coefficients for culverts can be used to account for any additional energy loss. 
 
 The input parameters for culverts are similar to those for orifices, specified in the section above. Culverts use invert levels at the start and end instead of the crest level in weirs and orifices. The input parameters are all described in the spatialite database :download:`here <pdf/database-overview.pdf>`.

@@ -68,6 +68,9 @@ html_static_path = ['_static']
 html_js_files = [
     'matomo.js',
 ]
+html_css_files = [
+    'css/custom.css',
+]
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = "sphinx"

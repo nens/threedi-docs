@@ -1,66 +1,44 @@
+.. _management_screens_what_is:
+
+What is the Management Portal
+===================================
+
+When using the Modeller Interface, schematizations are stored locally on your computer. However, if you use the Model and Simulations plugin to upload a schematization, it will be saved to our private cloud. These uploaded schematizations can be accessed and viewed in the `Management Screens <https://management.3di.live/>`_. In addition, all relevant information about revisions, 3Di models, and simulations related to the schematizations can be found in the Management Screens. This allows colleagues to sync their models on their own laptops and continue working with the updated version, enabling the use of version control on your schematizations.
+
+The Management Portal can also be used to manage 3Di models, start simulations from simulation templates, monitor running simulations, and download results. This web-based portal is designed to provide users with the tools and information needed to perform day-to-day tasks efficiently.
+
+.. TODO: deze tekst nog verbeteren
+
+A more enhanced use of the Management screens is described in the :ref:`Management Screens manual <management_screens_manual>`. 
+
+.. figure:: image/a_managementscreen.png
+   :alt: The management screen homepage
+
+   The homepage of the Management Screens.
 
 
-Manage your schematisations and models
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Functionality of the Management Portal
+---------------------------------------
 
-https://management.3di.live/
+The Management Portal can be used to:
+* monitor running simulations
+* download results
+* manage 3Di models, schematisations and simulation templates. 
 
-.. figure:: image/b_managementportal.png
-   :alt: Management portal
-
-
-The Modeller Interface is used to build and edit you model schematisation on your own computer. However, the 3Di models are stored in the cloud, to enable version control. When uploading a model it is stored in the so-called *3Di Model Database*. Users upload their model with a description of the adjustment being made.
-Colleagues can synchronise their models on their own laptop and continue working with the improved version.
-
-The Management Portal can be used to monitor running simulations, download results, manage 3Di models, schematisations and simulation templates. 
-
-In the top right, you can change organisations if you have access to mulitple organisations. 
+.. TODO: nog wat uitbreiden en links toevoegen naar de management schermen en de andere documenten waar dingen worden uitgelegd :)
 
 
-Management - Schematisations
-------------------------------
+Technical setup
+----------------
 
- If you click on the 'Schematisations' tile in the overview, you see a list of all schematisations of your organisation. 
+*Under construction*
 
-
-.. figure:: image/b_managementportal_schematisations.png
-
-   
-After you find the schematisation your looking for (you can search by Name, Tag and Created by), you can click on the name to open the detail view.   
-
-   
-.. figure:: image/b_managementportal_schematisations_detail.png
-
-   
-In this detail view, you can do the following things:
-
-- Generate or re-generate a 3Di model and see the progress
-- After that, see all 3Di model info
-- Delete schematisation, revision or model (first all revisions have to be deleted) and simulation template
-- Download the sqlite and rasters
-- Check the id's  
-- See what simulalatons have been run with this schematisation
-- See what simulation templates are connected to the schematisation
+.. TODO: nog schrijven.
 
 
+Overview management portal
+===========================
 
+*Under construction*
 
-Management - Models
----------------------
-
- If you click on the 'Schematisations' tile in the overview, you see a list of all models of your organisation. 
-
-.. figure:: image/b_managementportal_models.png
-   :alt: Management portal - Model management
-   
-This list can be exported to an Excel file, which can be handy if you want to clean up your 3di models.
-
-You can also see the models on the map in the map view.
-
-.. figure:: image/b_managementportal_models2.png
-   :alt: Management portal - Model management - map view
-   
-
-
-
-
+.. TODO: nog schrijven. gewoon de knoppen even uitleggen.

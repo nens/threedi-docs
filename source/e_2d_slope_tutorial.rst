@@ -264,13 +264,13 @@ The following screen will appear:
 .. image:: image/12_raster_result.png
     :alt: Raster checker result
 
-Verify the model schematisation using the schematisation checker
+Verify the schematisation using the schematisation checker
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The second validation that we have to perform before sending the model to the web portal is that of the model schematisation.
+The second validation that we have to perform before sending the model to the web portal is that of the schematisation.
 For this, we use the schematisation checker.
 It checks the model tables for many possible errors that cause the model to crash when you want to compile the model.
-In order to check your model schematisation, follow steps a and b from the previous step, but now select **schematisation checker**.
+In order to check your schematisation, follow steps a and b from the previous step, but now select **schematisation checker**.
 Again, select ‘spatialite:Lake_Mead’ and select the destination for the output file.
 Select **Run**.
 
@@ -283,7 +283,7 @@ If you do not get any further warnings or errors, your model is successfully val
 
 Model activation
 ----------------
-A short description of the model activation is given here. A comprehensive guidance with visual support is provided in Tutorial 2 (:ref:`model_activation`).
+A short description of the model activation is given here. A comprehensive guidance with visual support is provided in Tutorial 2 (:ref:`tutorial2_2dflatmodel`).
 
 
 Upload your model

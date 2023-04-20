@@ -1,0 +1,7 @@
+/*
+This is necessary to prevent table with large cells from overflowing the page.
+See https://stackoverflow.com/a/69373882.
+*/
+.wy-table-responsive table td, .wy-table-responsive table th {
+    white-space: inherit;
+}

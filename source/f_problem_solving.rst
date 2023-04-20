@@ -26,7 +26,7 @@ Frequently Asked Questions
 
 -	How do I edit a simulation template?
 
-*You can’t. But you can clone it into a new simulation and edit that.*
+*You can't. But you can clone it into a new simulation and edit that.*
 
 -	Can I change infiltration in a simulation template?
 
@@ -90,12 +90,12 @@ General
 
 - When applying 2D boundary conditions, it is not allowed to have more than one grid resolution on the edge. However, there is no clear error message for this. To solve this, add a grid refinement line on the boundary. This will force a uniform grid on the 2D boundary line.
 
-- Note, that in v2_control tables (v2_control_table, v2_control_memory, v2_control_pid, v2_control_timed) the unit for adjusting the pump discharge capacity via the API is actually *m3/s*, even though the unit used normally is *l/s*. 
-NB: This is only the case via the API. In the Modeller Interface (sqlite) the unit is in l/s. 
+- Note, that in v2_control tables (v2_control_table, v2_control_memory, v2_control_pid, v2_control_timed) the unit for adjusting the pump discharge capacity via the API is actually *m3/s*, even though the unit used normally is *l/s*. NB: This is only the case via the API. In the Modeller Interface (sqlite) the unit is in l/s. 
 
 - For simulations including interflow or embedded elements, not all results can be viewed. Moreover, the water balance ignores part of the flow, therefore it will seem to be inconsistent.
 
 - There are some issues related to projections. We are encountered this for our UK-based models (.sqlite). These models will show a shift in the  geometries in QGIS. The reprojection from EPGS:27700 (British National Grid) to WGS84 is based on an outdated reprojection in the spatialite. There is a solution for this:
+
 
 1. In QGIS open the (table without geometry) table "spatial_ref_sys"
 2. go to row srid 27700
@@ -180,13 +180,13 @@ Running a simulation
 
 
 "exit_code": "4161 [health_check_premature_container_error]"
-++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Please run the simulation again. There was a temporary disruption.
 
 
 "exit_code": "4265 [health_check_postprocessing_error]"
-++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Please run the simulation again. There was a temporary disruption.
 
@@ -253,10 +253,9 @@ Finding a model
 Can't find the model you are looking for?
 Please check the following:
 
-- If you have access to the organisation to which the model belongs
+- If you have access to the organization to which the model belongs
 
-- If the model is available on API v3 (https://docs.3di.live/d_api.html#api-v3)
-Please contact the :ref:`servicedesk` if you need assistance.
+- If the model is available on API v3. Please contact the :ref:`servicedesk` if you need assistance.
 
 - If the schematisation has a 3Di model. Go to `management.3di.live <https://management.3di.live>`_, search for your schematisation and check out the details page. 
 

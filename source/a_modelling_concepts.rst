@@ -1,7 +1,7 @@
 .. _a_basic_modelling_concepts:
 
-Basic Modelling Concepts
-^^^^^^^^^^^^^^^^^^^^^^^
+Schematisation, Models & Simulations 
+=====================================
 
 .. figure:: image/a_modelling_concepts_schema.png
    :alt: A schematic overview of the 3Di Workflow modelling concepts
@@ -9,7 +9,7 @@ Basic Modelling Concepts
    A schematic overview of the 3Di Workflow modelling concepts.
 
 
-During the :ref:`workflow <b_workflow>` from real-world data to simulation results, one encounters various modelling concepts.
+During the workflow from real-world data to simulation results, one encounters various modelling concepts.
 The first important concept is the **Schematisation**. A schematisation consists of all the required information to create a calculation grid and subgrid tables: one or more rasters and a single SQLite.
 The latter contains vector based information and the schematisation settings, such as grid and table settings. 
 
@@ -33,7 +33,7 @@ The power of a simulation template is that it can be used to start another simul
 This enables the option to clone and change past simulations, instead of having to start from scratch all over again.
 Therefore, simulation templates comes in very handy in, for example, batch calculations.
 
-More information on how to download and analyse the **Results** can be found in the :ref:`Analysing Results <viewing_and_analyzing_results>` section.
+
 
 
 .. figure:: image/a_modelling_concepts_visual.png

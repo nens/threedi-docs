@@ -136,4 +136,4 @@ Surface
 
 To offer more flexibility it is also possible to define your own set of parameters that characterize the inflow of a surface. This can be achieved by using surface parameters. In this case the surface can be modelled by a v2_surface instance that then is linked to connection nodes just the same way as described above but with its own mapping table called v2_surface_map. 
 
-The parametrisation of your specific surface-type can be set in the v2_surface_parameters table. For an overview of the available parameters check out the :ref:`database-overview`.
+The parametrisation of your specific surface-type can be set in the v2_surface_parameters table. For an overview of the available parameters check out the :download:`database-overview <pdf/database-overview.pdf>`.

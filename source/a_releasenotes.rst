@@ -1,7 +1,7 @@
 .. _a_release_notes:
 
 Release notes
-=============
+==============
 
 .. _general_3di_releases:
 
@@ -163,7 +163,7 @@ The most important change in this release is the new login page.
 
 .. image:: /image/login.png
 
-For information about accounts and logging in, please visit this section in the documentation: :ref:`authorisation_authentication`.
+For information about accounts and logging in, please visit this section in the documentation: :ref:`f_authentication_user_management`.
 
 We also added or changed the following:
 
@@ -474,7 +474,7 @@ August 2022
     - ICON-D2 forecast of precipitation with hourly timestamp
 
 
-- Icon forecast gives you a global forecast of rainfall for the next 24 hours. More information can be found `here  <https://www.dwd.de/EN/research/weatherforecasting/num_modelling/01_num_weather_prediction_modells/icon_description.html>`_:
+- Icon forecast gives you a global forecast of rainfall for the next 24 hours. More information can be found `here  <https://www.dwd.de/EN/research/weatherforecasting/num_modelling/01_num_weather_prediction_modells/icon_description.html>`__:
 
 - Added a rainbarchart to show the amount of precipitation during the simulation time
 
@@ -931,7 +931,7 @@ We have released threeditoolbox 1.31 and 3Di Models & simulations 3.0.2.
 Please note: If you continue to use the old route, you still need the previous version of the plugin as well.
 
 We have also released a new version of the Modeller Interface:
-Download here the latest version: `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.22.7-1-3-Setup-x86_64.exe>`_
+Download here the latest version: `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.22.7-1-3-Setup-x86_64.exe>`__
 
 
 
@@ -945,9 +945,9 @@ We have released a new version of the Modeller Interface with the following:
 - Water depth maps for multiple timesteps
 - Bugfix Sideview Tool
 
-Download here the latest version: `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.7-1-Setup-x86_64.exe>`_
+Download here the latest version: `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.7-1-Setup-x86_64.exe>`__
 
-Also we have included a comprehensive table on our docs showing the current status of implementation of features of API v3: :ref:`simulate_api_qgis_overview`
+Also we have included a comprehensive table on our docs showing the current status of implementation of features of API v3: :ref:`schematisation_basic_modelling_concepts`
 
 *Important note for QGIS Users*
 
@@ -992,7 +992,7 @@ The SideView tool no longer worked since QGIS 3.16.6. This has now been fixed
 May 21st 2021 - 3Di API QGIS Client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We have released a new version of the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.7-1-Setup-x86_64.exe>`_ and an update of our 3Di API QGIS Client to version 2.4.1. The following has been fixed:
+We have released a new version of the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.7-1-Setup-x86_64.exe>`__ and an update of our 3Di API QGIS Client to version 2.4.1. The following has been fixed:
 
 - Users no longer get a throttling warning when trying to start a simulation.
 - Results download only shows results for the model that is selected in the panel.
@@ -1002,7 +1002,7 @@ The location of plugins has changed from https://plugins.lizard.net/plugins.xml 
 April 22nd 2021 - 3Di Toolbox
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We have released a new version of the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.4-1-Setup-x86_64.exe>`_ and the `ThreediToolbox 1.18 <https://plugins.lizard.net/ThreeDiToolbox.1.18.zip>`_ .
+We have released a new version of the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.4-1-Setup-x86_64.exe>`__ and the `ThreediToolbox 1.18 <https://plugins.lizard.net/ThreeDiToolbox.1.18.zip>`_ .
 This is a fix for the error *"Couldn't load plugin 'ThreeDiToolbox' due to an error when calling its classFactory() method
 ModuleNotFoundError: No module named 'alembic' "*
 
@@ -1014,7 +1014,7 @@ March 8th 2021
 ^^^^^^^^^^^^^^^^
 
 Download the latest version of the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.4-1-Setup-x86_64.exe>`_ , which at the time of writing uses QGIS 3.16.4.
-For QGIS users: upgrade the plugin using the plugin panel. In case this doesn't work, it is possible to install the plugins as zip file. The latest versions are `ThreediToolbox 1.16 <https://plugins.lizard.net/ThreeDiToolbox.1.16.1.zip>`_  and `Threedi-API-QGIS client is 2.4.0 <https://plugins.lizard.net/threedi_api_qgis_client.2.4.0.zip>`_.
+For QGIS users: upgrade the plugin using the plugin panel. In case this doesn't work, it is possible to install the plugins as zip file. The latest versions are `ThreediToolbox 1.16 <https://plugins.lizard.net/ThreeDiToolbox.1.16.1.zip>`_  and Threedi-API-QGIS client is 2.4.0.
 
 
 *Local calculation of water depth & water level maps*
@@ -1054,7 +1054,7 @@ February 22nd 2021
 
 - We now support QGIS 3.16 for our toolbox
 
-Download the latest version of the :ref:`qgisplugin`
+Download the latest version of the :ref:`3di_toolbox_plugin`
 
 Please not that the Modeller Interface is not yet upgraded to QGIS 3.16, we will do so when the QGIS repo's are updated.
 
