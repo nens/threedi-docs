@@ -8,30 +8,12 @@ Release notes
 3Di general releases
 --------------------
 
-April 11th 2023
+April 25th 2023
 ^^^^^^^^^^^^^^^^^^
-
-We have released the following features:
-
-**Authorisation**
-
-- The former sso configuration has been removed. Username/passwords are now only accepted if they have a PersonalAPIKey that was migrated earlier.
 
 **Live site**
 
 - Breaches: a line has been added to the visualisation of breaches in the live site. Discharge and flow velocity are visualized on these lines by moving dots.
-
-**API**
-
-- Added support for uploading and downloading (exported gridadmin.h5) Geopackage files on threedimodels.
-- Drop 'relative' option for obstacle-edits in serializer. 
-
-**Grid builder**
-
-- 'Connected' calculation nodes outside the DEM will produce an error if they connect to a location where no computational cell is present. If a 'potential breach' or 'exchange line' is used to set the location to which the calculation node connects, the location of those features determines whether an error is raised. If a channel with calculation type connected is outside of the DEM, but the closest point on its exchange_line is on the DEM, the computional grid can be built and the 3Di model is valid.
-
-- 1D-2D links that cross an obstacle will take the exchange level from the obstacle
-
 
 **Schematisation checker**
 
@@ -65,6 +47,28 @@ The 3Di spatialite now supports _beta_ tables, fields, and values. These are use
 
 - Add ERRORs and WARNINGs for vegetation_drag input. Both rasters and global values.
 
+**Models & Simulations REST API**
+
+- Added support for uploading additional initial water levels to an existing 3Di models. Both 1D and 2D are supported.
+
+- Added support for uploading and downloading computational grid Geopackage files for 3Di models.
+
+- Bugfix: Lizard raster rain backoff did not work correctly due because a custom exception was not included in backoff configuration.
+
+- Bugfix: patching duration on constant wind event now works correctly.
+
+- A new log file (scheduler.log) is generated when a simulation is run.
+
+
+**Computational grid**
+
+'Connected' channels can now be placed outside the DEM, as long as they connect to a location where a 2D cell is present. If a 'potential breach' or 'exchange line' is used to set the location to which the calculation node connects, the location of those features determines whether an error is raised. If a channel with calculation type connected is outside of the DEM, but the closest point on its exchange_line is on the DEM, the computional grid can be built and the 3Di model is valid.
+
+- 1D-2D links that cross an obstacle will take the exchange level from the obstacle
+
+**Authorisation**
+
+- The former SSO configuration has been removed. Username/passwords are now only accepted if they have a Personal API Key that was migrated earlier.
 
 .. - Version included in release
 
