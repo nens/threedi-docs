@@ -12,7 +12,7 @@ Results can be viewed in the Modeller Interface with the use of the 3Di Toolbox.
 .. TODO: into aanpassen en verwijzing toevoegen.
 
 Results
-^^^^^^^^^^
+^^^^^^^
 
 After a simulation is finished the results will be stored on our servers for 7 days. The files can be download via the **RESULTS** button in the "3Di Models and Simulations". 
 These files are a gridadmin.h5, results_3di.nc (the NetCDF) and log files. For information on the results, see :ref:`3dinetcdf`.
@@ -392,15 +392,13 @@ Double click on 'type' and click 'Sample' to see which types are available. In t
 .. figure:: image/d_qgisplugin_2d_flow.png
     :alt: Filter
 
-
-
 .. _watershed_tool:
 
 Watershed tool
 ^^^^^^^^^^^^^^
 
 Introduction
-############
+""""""""""""
 
 The Watershed Tool (from :ref:`3di_toolbox_plugin`) allows you to find what is upstream and downstream of any point or area in a 3Di simulation result. Upstream or downstream elements include surface areas (2D cells), sewerage and open
 water system flow (1D flowlines) and impervious surfaces (0D inflow). If
