@@ -6,7 +6,7 @@ What is the Modeller Interface
 The Modeller Interface is a customized version of QGIS with dedicated :ref:`plugins <overview_plugins>` for the use of 3Di. This interface is used to build schematisations, edit schematisations, start simulations and analyze results.
 
 
-In this video we present the workflow from start to finish of the modelling process:
+This video shows the workflow from start to finish of the modelling process:
 
 .. raw:: html
 
@@ -37,8 +37,6 @@ The Modeller Interface makes it easy to:
 Technical setup
 ----------------
 For instructions on how to install and set up the 3Di Modeller Interface, please refer to the :ref:`installation manual <MI_installation>`. This guide provides step-by-step procedures for installing and configuring the software, ensuring a smooth and trouble-free setup process.
-
-
 
 
 Difference between 3Di Modeller Interface and QGIS
