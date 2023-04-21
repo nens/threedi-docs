@@ -44,7 +44,7 @@ Table of contents
    a_ecosystem
    b_modelling_workflow
    e_tutorials
-   d_urban_areas
+   a_how_to
 
 .. toctree::
    :maxdepth: 3

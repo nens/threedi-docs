@@ -1,8 +1,5 @@
 .. _simulate_w_live_site:
 
-Modelling with the Live Site
-=================================
-
 
 Start or follow a session
 ---------------------------
@@ -19,9 +16,9 @@ Start a new session
 A new session will be started. During the start up of the model tips for use of the site will be shown. It may take several minutes to load the model. Actual loading time is dependent on model size, calculation grid and table step size.
 
 .. figure:: image/d2.4_start_session.png 
-	:alt: Start new session
+    :alt: Start new session
 
-	Loading screen.
+    Loading screen.
 
 *For each organization, the number of simultaneous sessions is limited according to the agreement (contract). If the limit is reached, the message "Your organization is already running X sessions" will show. The amount of server time used is subtracted from the time available within the agreement.*
 
@@ -36,8 +33,8 @@ Through the tab **Follow session** an active session of your organization can be
 
 .. _editing_with_live_site:
 
-Editing a schematisation
----------------------------
+Making edits
+------------
 
 In the live site, you can temporarily adjust values. For example, you can change the pump capacity and weir height, and you can close 1D elements such as channels, pipes, weirs, culverts and orifices.
 You can also perform a DEM edit via the raster edit tool. 
@@ -63,8 +60,6 @@ With the pump tool a constant sink will be added to your model.
 Select the icon and change the rate (in m3/s) to what you want to apply, then click at a location on the map to point the location. 
 This can only be done when your simulation is paused. The water that is taken out of the model will not flow back into the model and is considered a loss. 
 
-
-
 DEM edit/ Raster edit
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -88,8 +83,6 @@ After finalising the polygon by clicking again on the first point, click on conf
 The result can be checked using the 'Side view' tool.
 
 Please note that if there is water on the 2D while editing, and the edit lowers the surface the calculation core needs a few time steps to get to a new water level in the DEM edit location. 
-
-
 
 
 .. _simulation_interventions:
@@ -117,7 +110,7 @@ With the **Discharge tool** a constant source of water can be added to the model
 When you press the **Play** button the intervention will become active.
 
 .. figure:: image/d3.6_discharge.png
-	:alt: Discharge tool
+    :alt: Discharge tool
 
 .. _pump_tool:
 
@@ -152,7 +145,7 @@ For a more detailed description on rainfall, see: :ref:`rain`.
 When the rainfall is active a cloud icon appears on the top right of the screen. Information about the rainfall event can be accessed by keeping the rainfall tab open. Active and past (inactive) events are shown in this tab 
 
 .. figure:: image/d3.2_rainfall.png
-	:alt: Rainfall event
+    :alt: Rainfall event
 
 
 .. _wind_tool:
@@ -163,7 +156,7 @@ Wind
 A compass card appears after clicking on the **Wind tool** icon. By clicking in the compass card a homogeneous wind field with a specific direction and speed can be set up for the whole model (v2). This direction can also be filled in numerically. The strength and duration of the wind can be changed. Because the wind is constant for the whole model you only need to press **CREATE**. When the wind is active a wind icon appears on the top right of the screen.
 
 .. figure:: image/d3.6_wind.png
-	:alt: Wind speed, direction and duration
+    :alt: Wind speed, direction and duration
 
 Breaches 
 ^^^^^^^^^^^^^^^^^^^^
@@ -176,7 +169,7 @@ If breach locations are predefined in the model, these can be activated as follo
 
 
 .. figure:: image/d3.8_breach_location.png
-	:alt: Breach location
+    :alt: Breach location
 
 To show the flow rate over time, select a breach location using the point information tool. 
 
@@ -196,40 +189,40 @@ By default, the **selection tool** (top left) is switched on. With it you can cl
 The time series can all be downloaded in CSV format. The points over time that are shown are the points calculated by the 3Di calculation core and are independent from the output time step that the modeller has set.
 
 .. figure:: image/d3.1_point_location.png
-	:alt: Point selection
+    :alt: Point selection
 
 Also the height of a cross section can be displayed with the **Line-selection tool**, together with the water level in that transect. Click the start and end point in any place on the map for the cross section (within the 2D model domain).
 
 .. figure:: image/d3.1_side_view.png
-	:alt: Cross section selection
-	
+    :alt: Cross section selection
+
 The side view shows the elevation in green and the water in blue. By hovering over the graph with the mouse, exact values can be seen. Keeping this graph open during a flood event will show you how the water level is slowly rising. Note that in the example also groundwater is available in the model indicating an extra blue line. 
 
 
 1D network
-^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^
 
 Channels and structures can be included as 1D elements in the model. The channels show the direction of flow with the help of moving points. The direction and speed are based on the flow velocity in the channel. The different sizes of the points are based on thhe discharge. The results (discharge, water level, waterdepth and flow velocity) are available at the structures by selecting them.
 
 Discharge and velocity are in the lines:
 
 .. figure:: image/d3.7_1d_network.png
-	:alt: 1D network
-	
+    :alt: 1D network
+
 
 And water level and water depth are in the nodes:
 
 .. figure:: image/d3.8_1d_network.png
-	:alt: 1D network
-	
-	
+    :alt: 1D network
+
+
 It is also possible to adapt some properties of structures during the calculation. This includes among others the closing of a culvert or increasing the pumping capacity.
 
 
 .. _timeoutlivesite:
 
 Quitting the simulation
----------------------------
+-----------------------
 
 In the **menu menu** you can select **quitting the simulation**, this ends the use of calculation time. If this option is not used the session remains active. One of the following scenario's might apply:
 
@@ -265,7 +258,7 @@ The options in Lizard storage are as follows:
 The **Basic processed results** option includes the following derivations from simulation results for Lizard users:
 
 .. figure:: image/d3.9_store_results.png
-	:alt: Storing results
+    :alt: Storing results
 
 - Water level - temporal
 - Water depth - temporal
@@ -279,6 +272,3 @@ which provides two products derived from the maximum water depth.
 
 - Damage estimation map
 - Damage estimation table
-
-
-
