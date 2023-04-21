@@ -1,5 +1,5 @@
 Tutorial 5: Building a 1D model
-===============================
+=================================
 
 Welcome to the tutorial for building a 1D model in 3Di. In this tutorial, you will learn to work with a 1D flow model in 3Di. We will start with a database file (.sqlite) that is already partly filled in. The sqlite is not yet complete, so we will add information to the model to get a basic working model that you can run on the 3Di live site.
 The system in the .sqlite is a non-existent combined sewerage system. The model does not represent a real-world system, but is meant to get acquainted with the different components of a 1D combined sewerage system.
@@ -17,7 +17,7 @@ Before you start, please make sure to:
 * Install the 3Di Modeller Interface. Please see :ref:`3di_instruments_and_downloads` for instructions.
 * Install the 3Di toolbox in the Modeller Interface. Please see :ref:`plugin_installation` for instructions.
 * Gain access to the 3Di web portal. Please see the :ref:`guide_to_portal` for instructions.
-* Download the dataset for this tutorial `here <https://nens.lizard.net/media/3di-tutorials/Tutorial_1D_gemengd.zip>`_.
+* Download the dataset for this tutorial `here <https://nens.lizard.net/media/3di-tutorials/Tutorial_1D_gemengd.zip>`__.
 
 
 Model initialisation
@@ -471,7 +471,9 @@ Model validation
 A short description of the model validation is given here.
 A comprehensive guide with visual support is provided in Tutorial 1 (:ref:`post_processing`) and for a general guide see :ref:`checking_model`.
 
-Verify the model schematisation using the schematisation checker
+.. TODO: post_processing is een kopje in de oude tutorial (e_workflow_tutorial). Is dit niet meer accuraat? of moet dit aan de nieuwe tutorial 1 nog worden toegevoegd. geen raster checker meer. Nieuwe revisie uploaden, dan gebeurt checken schematisatie al. dan verwijzen naar kopje "uploading schematisation", onder de Modeller Interface. 
+
+Verify the schematisation using the schematisation checker
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Before sending the model to the web portal we want to check the schematization. We can use the schematization checker for this. It checks the model tables for many possible errors that cause the model to crash when you want to compile the model. In order to check your model schematization, follow these steps:
@@ -497,7 +499,7 @@ If you do not get any further warnings or errors, your model is successfully val
 
 Model activation
 ----------------
-A short description of the model activation is given here. A comprehensive guidance with visual support is provided in Tutorial 2 (:ref:`model_activation`).
+A short description of the model activation is given here. A comprehensive guidance with visual support is provided in Tutorial 2 (:ref:`tutorial2_2dflatmodel`).
 
 
 Upload your model

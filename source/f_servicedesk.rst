@@ -42,7 +42,7 @@ The levels are:
 Model specific questions
 -----------------------------
 
-Beyond the scope are questions about model schematisations or questions about the validity of 3Di results,
+Beyond the scope are questions about schematisations or questions about the validity of 3Di results,
 for which the customer can purchase an additional service.
 For more info the customer can contact the local 3Di consultant or email to info@nelen-schuurmans.nl.
 

@@ -5,15 +5,15 @@ Let's try to do it with restructuredtext/sphinx!
 
 The released documentation is at https://docs.3di.live/ .
 
-The latest version of master is at https://docs.staging.3di.live/, you can use
+The latest version of master is at https://docs.staging.3di.live/; you can use
 this for checking if the documentation is OK to be released.
 
-Commits are automatically tested on "travis":
-https://travis-ci.com/nens/threedi-docs/, this makes sure all images are there
-and that there are no missing files. Travis also uploads the
+Commits are automatically tested on "github actions":
+https://github.com/nens/threedi-docs/actions; this makes sure all images are there
+and that there are no missing files. Github Actions also uploads the
 documentation. You can check the upload status at
 https://artifacts.lizard.net/ if you want to make sure a release happened
-(note: a full travis build can take up to three minutes).
+(note: a full documentation build can take up to three minutes).
 
 
 Local setup
@@ -36,7 +36,7 @@ Special commands
 ----------------
 
 If the sphinx documentation tells you about a makefile: you can run those
-commands from within docker, too. For example to build the pdf version::
+commands from within docker, too. For example, to build the pdf version::
 
   $ docker-compose run builder make latexpdf
 
@@ -76,6 +76,18 @@ documentation. In the staging documentation, they're visible.
 Any questions: ask Reinout.
 
 
+Schematisation checks list
+--------------------------
+A list of checks currently executed by the modelchecker is in current_schematisation_checks_table.
+As new checks are added to the modelchecker, this table should be updated. To generate a new list,
+install the `threedi-modelchecker <https://github.com/nens/threedi-modelchecker/>`_ (preferably in
+a virtual environment), and run::
+
+    threedi_modelchecker export-checks --format rst --file i_current_schematisation_checks_table.rst
+
+This will create a new file called ``i_current_schematisation_checks_table.rst`` in the directory in which
+you run the command, with which you replace the existing ``i_current_schematisation_checks_table.rst``
+file in the ``source`` directory in this repository.
 
 
 Some commands needed for the OSGEO4W Shell with sphinx
@@ -86,7 +98,7 @@ From the git directory run the following commands::
     pip install sphinx
     sphinx-build threedi-docs\source build
 
-You will recieve some warnings, check them. You are not able to evaluate LateX
+You will receive some warnings; check them. You are not able to evaluate LateX
 formulas this way.
 
 

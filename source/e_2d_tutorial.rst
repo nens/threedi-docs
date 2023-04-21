@@ -1,7 +1,7 @@
 .. _tutorial2_2dflatmodel:
 
 Tutorial 2: Building a Basic 2D Flow Schematisation
-==========================================
+=======================================================
 
 Introduction
 ------------
@@ -302,7 +302,7 @@ All the settings should now be up to date, which means you are good to go valida
 
 
 Validate and upload your Schematisation & Generate a 3Di Model
------------------------------------------------------------
+------------------------------------------------------------------
 Following the basic workflow (explained in :ref:`Tutorial 1 <tutorial1_workflow>`), we are now checking the Schematisation, uploading it to the 3Di Management screens and generate a 3Di model by:
 
 #) Pressing the Upload button in the Models & Simulations plugin.
@@ -328,4 +328,4 @@ You can now find your 3Di Model via the `3Di Live Site <https://www.3di.live/>`_
 .. image:: image/17_livesite2.png
     :alt: Live calculation in the live site
 
-You have now succesfully build a 2D flow model Schematisation from scratch!
+You have now successfully build a 2D flow model Schematisation from scratch!

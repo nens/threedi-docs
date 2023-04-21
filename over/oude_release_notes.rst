@@ -685,8 +685,8 @@ On Monday the 23th of April 2018 the latest version of 3Di will be released. The
 Application Programming Interface
 =================================
 
-When you want to run batches of scenario’s or set up operational scenario’s the best route is using the API. An explaination for using the API can be found in the manual
-:https://docs.3di.lizard.net/en/stable/d_api.html
+When you want to run batches of scenario’s or set up operational scenario’s the best route is using the API. An explanation for using the API can be found in the manual:
+https://docs.lizard.net/
 
 - The computational times are greatly improved with this Release. Times can be up to ten times as fast.
 

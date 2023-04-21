@@ -5,7 +5,9 @@ import sphinx_rtd_theme
 # The 3Di release name that's shown at the top of the sidebar.
 # Note: non-production documentation builds are marked as such, you don't need
 # to change the release name for that.
-THREEDI_RELEASE = "2022-02 Klondike Release"
+# Removed version to prevent release from being outdated.
+# Last THREEDI_RELEASE value was 2022-02 Klondike Release.
+THREEDI_RELEASE = ""
 
 
 # -- General configuration ------------------------------------------------
@@ -33,7 +35,8 @@ master_doc = "index"
 
 # General information about the project.
 project = "3Di"
-copyright = "2022, Nelen & Schuurmans"
+current_year = datetime.date.today().year
+copyright = str(current_year) + ", Nelen & Schuurmans"
 author = "Nelen & Schuurmans"
 
 documentation_version = open("../version.txt").readlines()[0].strip()
@@ -59,6 +62,15 @@ release = version
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
 exclude_patterns = []
+
+# These folders are copied to the documentation's HTML output
+html_static_path = ['_static']
+html_js_files = [
+    'matomo.js',
+]
+html_css_files = [
+    'css/custom.css',
+]
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = "sphinx"

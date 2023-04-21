@@ -30,12 +30,14 @@ Currently, state files can only be saved when the simulation is run via the API.
 Finding and removing state files
 --------------------------------
 
-A simulation is initialized with a state file, by refering to the unique id of the state file. The *save_state_id* can be found via the user interface or the API.
+A simulation is initialized with a state file, by referring to the unique id of the state file. The *save_state_id* can be found via the user interface or the API.
 
 The save_state_id can be found in the repository of the specific model via the user interface at `user interface <http://www.3Di.lizard.net/models>`_ . There is a column named “Nr of saved states”. By clicking on that number, the resulting page lists the state files that are available to use for that specific model. It also shows the description if it was provided. Note the column “available”. It indicates whether the file can be used. It might take some time before it becomes available. From this page saved states can also be removed.
 
 To find the saved states via the API you can navigate to: `API <https://3di.lizard.net/api/v1/threedimodelsavedstates/>`_
 This page lists all the state files and it also contains instructions on how to use and remove them via API.
+
+.. TODO: Deze websites bestaan niet! waar staan nu de saved states? (3di.lizard.net bestaat niet)
 
 Using state files
 -----------------
