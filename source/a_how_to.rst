@@ -12,4 +12,5 @@ If want to become familiar with the basics of working with 3Di and its common wo
    :caption: How to
    :name: How to
 
-   d_urban_areas
+    d_urban_areas
+    d_vegetation_howto
