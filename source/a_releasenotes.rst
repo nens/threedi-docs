@@ -53,11 +53,11 @@ The 3Di spatialite now supports _beta_ tables, fields, and values. These are use
 
 - Added support for uploading and downloading computational grid Geopackage files for 3Di models.
 
-- Bugfix: Lizard raster rain backoff did not work correctly due because a custom exception was not included in backoff configuration.
+- Bugfix: We have made the use of Lizard raster rain in a simulation more robust by using longer retries getting data from Lizard.
 
-- Bugfix: patching duration on constant wind event now works correctly.
+- The duration of a constant wind event can now be patched while the simulation is paused.
 
-- A new log file (scheduler.log) is generated when a simulation is run.
+- In the near future an extra log file (scheduler.log) will be added to log files in the downloadable ZIP file. The scheduler log file is intended for 3Di developers to identify problems when simulations have crashed.
 
 
 **Computational grid**
