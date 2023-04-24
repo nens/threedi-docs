@@ -623,6 +623,67 @@ For schematisations users can:
 3Di Modeller Interface
 ----------------------
 
+April 25th 2023
+^^^^^^^^^^^^^^^
+**3Di Toolbox 2.5.2**
+
+- Compatibility with schema 216
+
+
+**3Di Models & Simulations v3.4.3**
+
+- If your organisation has a large number of models or (finished) simulations, you will notice major performance improvements when loading the list of results available for download, or when loading the overview of running simulations. Both now load instanteneously, while this previously took seconds to minutes for some organisations. This improvement also prevents API requests to be throttled (#408)
+
+- Compatibility with schema 216 (#451).
+
+
+**3Di Schematisation Editor v1.4**
+
+*Cross sections*
+
+- Tabular cross-sections can now be edited in a table instead of in a text field. This applies to cross-section shapes Tabulated Rectangle, Tabulated Trapezium, and YZ (#90)
+
+- The 3Di Schematisation Editor now fully supports cross-section shapes "YZ" and "Inverted egg" (#89, #91)
+
+- The 'cross-section' stylings for Culvert, Cross-section location, Orifice, Pipe, and Weir have been re-implemented. Some bugs were fixed and support for recently introduced cross-section shapes was added. The stylings are now based on custom expressions, that can also be used for other purposes in any QGIS expression (#96)
+
+
+*1D2D exchange*
+
+- Add processing algorithm 'Generate exchange lines' (#93, #131)
+
+
+*Database schema*
+
+- Compatibility with schema 216 (#451).
+
+
+*Bugfixes*
+
+- Setting the reference level cross-section locations on newly digitized channel to 0 is now committed as 0 instead of NULL (#129)
+
+- Clicking on layer Potential breach in QGIS 3.28 no longer gives an error (#126)
+
+- Adding a cross-section location to a Channel between two cross-section locations with bank_level NULL no longer gives an error (#102)
+
+- Allow negative values for bank level and reference level in Cross section locations tab of Channel layer (#95)
+
+- Multipolygons in a *v2_surface* or *v2_impervious_surface* layers no longer raise a KeyError when loading from spatialite. If possible, they will be converted to Polygons (singlepart) (#134)
+
+April 11th 2023
+^^^^^^^^^^^^^^^
+
+**3Di Models & Simulations v3.4.4**
+
+- Bugfix: after installing the 3Di Modeller Interface with installer version 3.28.5-1-3 or higher, installing the 3Di Models & Simulations plugin in a new user profile would fail. This was fixed (#454)
+
+- Bugfix: Simulation template is now created if this option is checked in the simulation wizard; this was broken since version 3.4 (#447)
+
+**3Di Modeller Interface installer 3.28.4-2-1**
+
+- Add option to install for all users. Especially useful for system administrators.
+
+- New user profiles use the 3Di default settings.
 
 March 10th 2023
 ^^^^^^^^^^^^^^^
