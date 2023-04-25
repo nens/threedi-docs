@@ -1,5 +1,5 @@
 
-Modelling Workflow
+Modelling workflow
 ====================
 
 Creating a new schematisation

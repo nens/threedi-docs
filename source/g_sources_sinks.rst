@@ -1,7 +1,7 @@
 .. _sources_sinks:
 
-Source and Sink terms
-========================
+Source and sink terms
+=====================
 
 Mass conservation is one of the two fundamental laws to which a 3Di simulation is bounded. This is locally, per computational cell valid and globally in the simulation domain. There are various scenarios possible to add and extract water to a simulations. Some of these are linked in 3Di to specific physical processes, others are more generic in order to give some freedom to the users.
 

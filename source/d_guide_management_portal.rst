@@ -1,5 +1,5 @@
-3Di Management Portal
-===================================
+3Di Management
+==============
 
 .. toctree::
    :maxdepth: 1
