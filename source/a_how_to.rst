@@ -9,7 +9,5 @@ If want to become familiar with the basics of working with 3Di and its common wo
 
 .. toctree::
    :maxdepth: 2
-   :caption: How to
-   :name: How to
 
    d_urban_areas
