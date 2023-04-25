@@ -17,7 +17,7 @@ If the (square root of the) storage area is much larger than the width of the ch
 Storage area at channel junctions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The loss of advective force also occurs at channel junctions, because of the turbulence and still waters present at these locations. Adding a storage area corresponding to the size of the junction will lead to more accurate calculation of the advective forces on the flow.
+The loss of advective momentum also occurs at channel junctions, because of the turbulence and still waters present at these locations. Adding a storage area corresponding to the size of the junction will lead to more accurate computation of the advective losses of the flow.
 
 Pumping stations
 ^^^^^^^^^^^^^^^^
