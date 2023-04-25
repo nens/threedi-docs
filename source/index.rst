@@ -73,7 +73,6 @@ Table of contents
    :caption: Problem solving and support
    :name: instalation_manual
 
-   f_3di_instruments_and_downloads
    f_authentication_user_management
    f_problem_solving
    f_servicedesk

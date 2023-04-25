@@ -1,7 +1,7 @@
 .. _3di_instruments_and_downloads:
 
-Installation manual
-======================
+Install and update manual
+=========================
 
 3Di Software requirements
 ---------------------------------
