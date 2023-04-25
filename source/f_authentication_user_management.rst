@@ -1,7 +1,7 @@
 .. _f_authentication_user_management:
 
-Authentication and User Management
-===================================
+Authentication and user management
+==================================
 
 .. _a_singing_up:
 

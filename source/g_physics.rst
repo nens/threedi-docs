@@ -1,4 +1,4 @@
-Computational Core
+Computational core
 ==================
 
 This section explains the methods and equations used by the 3Di computational core during a simulation.

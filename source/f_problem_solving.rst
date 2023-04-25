@@ -1,7 +1,7 @@
 .. _f_problem_solving:
 
-FAQ and Problem Solving
-============================
+FAQ and problem solving
+=======================
 
 This section will help you solve some problems or errors that may occur when using 3Di.
 Some issues are due to the software, these will be summarised in the section Known Issues, including a temporary solution.
@@ -14,7 +14,7 @@ Errors, due to input data or other user settings are usually covered by the sche
 .. _faq:
 
 Frequently Asked Questions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -	My script doesn't work anymore, what do I need to do? 
 
@@ -82,11 +82,11 @@ First of all, instability is not common within 3Di, but certain settings or mode
 
 .. _known_issues:
 
-Known Issues
-^^^^^^^^^^^^^^
+Known issues
+^^^^^^^^^^^^
 
 General
---------
+-------
 
 - When applying 2D boundary conditions, it is not allowed to have more than one grid resolution on the edge. However, there is no clear error message for this. To solve this, add a grid refinement line on the boundary. This will force a uniform grid on the 2D boundary line.
 
@@ -116,8 +116,8 @@ This might also be the case for other projections.
 
 
 
-Modeller Interface
----------------------
+3Di Modeller Interface
+----------------------
 
 - "TypeError: setValue(self, float): argument 1 has unexpected type 'NoneType' ". Maximum time step requires a value and cannot be NULL
 
@@ -138,24 +138,24 @@ Modeller Interface
 - Leakage does not work in the Modeller Interface. Please use the API for now if you want to use leakage. 
 
 
-Live site
------------
+3Di Live Site
+-------------
 
 - If a raster has both NaN and Nodata values the live site DEM will color yellow (showing color scale for -9999)
 
 - If a raster has a nodatavalue of 3.4028234663852886e+38 will not be visible in the live site. Setting it to -9999 will solve the issue. This can be done using QGIS tooling or the following GDAL command: gdalwarp -of GTiff -srcnodata 3.4028234663852886e+38 -dstnodata -9999 -co "COMPRESS=DEFLATE" dem1.tif dem2.tif
 
-Management pages
------------------
+3Di Management
+--------------
 
 - A schematisation that is uploaded via the MI without processing will appear falsely in the management pages as 'not valid'. If you upload the schematisation again with processing, the model will be generated. 
 
 
 Uploading a new revision/migrating a model
---------------------------------------------
+------------------------------------------
 
 Error: (400)
-++++++++++++++
+++++++++++++
 
 *Error: (400)
 Reason: Bad Request
@@ -166,7 +166,7 @@ You have reached the max number of active 3Di models for this schematisation. Pl
 
 
 sqlite3.IntegrityError: CHECK constraint failed: _alembic_tmp_v2_aggregation_settings
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 This can be fixed by the following 2 adjustments.
 
@@ -176,17 +176,17 @@ This can be fixed by the following 2 adjustments.
 
 
 Running a simulation
-----------------------
+--------------------
 
 
 "exit_code": "4161 [health_check_premature_container_error]"
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Please run the simulation again. There was a temporary disruption.
 
 
 "exit_code": "4265 [health_check_postprocessing_error]"
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Please run the simulation again. There was a temporary disruption.
 
@@ -212,8 +212,8 @@ The error is followed by a reference to the node without any storage or link wit
 
 The first number (14614 in this example) refers to the calculation node on which the error occurs. This number can be found using the QGIS plugin when a result of this model is available. The number can be located using the *node_results*. The id's in this table match the one given here. The second number is a link id and can be found using the *line_result* layer.
 
-ERROR : The combination of cross-section types is invalid for input channel number:
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ERROR : The combination of cross-section types is invalid for input channel number
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Not all cross-section definition types can be combined for a single channel. Only type 1 (rectangle) and type 2 (circle) or type 5 and 6 (both tabulated) can be combined. If you have multiple cross-section types on one channel change these or split the channel.
 
@@ -248,7 +248,7 @@ Please contact our :ref:`servicedesk` and let us know your login name or mail ad
 
 
 Finding a model
------------------
+---------------
 
 Can't find the model you are looking for?
 Please check the following:
@@ -295,14 +295,4 @@ The below errors and bugs should not be experienced anymore. Please let us know 
 
 - The toolbox does currently not work properly for QGIS 3.22. You cannot edit your schematisations. Please use QGIS 3.16 for now if you have this issue or use the Modeller Interface.
 
-- Calculations that had both rain radar and laterals crashed somewhere during the simulation. 
-
-
-ThreeDiGrid
------------
-
-The python package that can assist in analysing and making your own tools based on the 3Di results can be found at this `location <https://github.com/nens/threedigrid>`_. The full threedigrid documentation can be found via the following link: `Threedigrid documentation <https://threedigrid.readthedocs.io/en/latest/readme.html>`_.
-
-
-
-
+- Calculations that had both rain radar and laterals crashed somewhere during the simulation.
