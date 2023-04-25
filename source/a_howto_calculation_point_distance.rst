@@ -1,12 +1,12 @@
-Chosing the 1D resolution by setting the distance calculation points
+Choosing the 1D resolution by setting the calculation point distance 
 --------------------------------------------------------------------
 
-When 3Di generates a computational grid from the schematisation, a computational node is created for every connection node. Depending on the 1D resolution, extra computational nodes are added at a regular interval along the channel, pipe or culvert. This A more detailed explanation about this can be found in the section :ref:`techref_calculation_point_distance`. When choosing the 1D resolution, keep the following in mind.
+When 3Di generates a computational grid from the schematisation, a computational node is created for every connection node. Depending on the 1D resolution, extra computational nodes are added at a regular interval along the channel, pipe or culvert. A more detailed explanation about this can be found in the section :ref:`techref_calculation_point_distance`. When choosing the 1D resolution, keep the following in mind.
 
 Scale of flow dynamics
 ^^^^^^^^^^^^^^^^^^^^^^
 
-The 1D resolution, calculation point distance, relates to the scale at which you can capture the dynamics of flow. If there are relevant length scales of the dynamics, accelarations or there are other reasons to expect changes in the flow, you will need to have sufficient computational points on 1D element. The distance between  computational points should be smaller than the scale at which you expect such variations to play a role.
+The 1D resolution (calculation point distance) relates to the scale at which you can capture the dynamics of flow. If there are relevant length scales of the dynamics, accelarations or there are other reasons to expect changes in the flow, you will need to have sufficient computational points on a 1D element. The distance between  computational points should be smaller than the scale at which you expect such variations to play a role.
 
 Exchange between 1D and 2D
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
