@@ -35,7 +35,7 @@ Several checks have been added.
 
 *Beta features*
 
-The 3Di spatialite now supports _beta_ tables, fields, and values. These are used for test purposes, and will become available to all users once testing has been completed.
+The 3Di spatialite now supports *beta* tables, fields, and values. These are used for test purposes, and will become available to all users once testing has been completed.
 
 - Added ERROR 1300: If a user puts a non-null value in a column marked as beta in threedi-schema, this will be reported by the schematisation checker.
 
@@ -47,7 +47,7 @@ The 3Di spatialite now supports _beta_ tables, fields, and values. These are use
 
 - Add ERRORs and WARNINGs for vegetation_drag input. Both rasters and global values.
 
-**Models & Simulations REST API**
+**Models & Simulations API**
 
 - Added support for uploading additional initial water levels to an existing 3Di models. Both 1D and 2D are supported.
 
@@ -62,7 +62,7 @@ The 3Di spatialite now supports _beta_ tables, fields, and values. These are use
 
 **Computational grid**
 
-'Connected' channels can now be placed outside the DEM, as long as they connect to a location where a 2D cell is present. If a 'potential breach' or 'exchange line' is used to set the location to which the calculation node connects, the location of those features determines whether an error is raised. If a channel with calculation type connected is outside of the DEM, but the closest point on its exchange_line is on the DEM, the computional grid can be built and the 3Di model is valid.
+- Channels with calculation type *connected* or *double connected* can now be placed outside the DEM, as long as they connect to a location where a 2D cell is present. If a 'potential breach' or 'exchange line' is used to set the location to which the calculation node connects, the location of those features determines whether an error is raised. If a channel with calculation type connected is outside of the DEM, but the closest point on its exchange_line is on the DEM, the computional grid can be built and the 3Di model is valid.
 
 - 1D-2D links that cross an obstacle will take the exchange level from the obstacle
 
@@ -440,8 +440,14 @@ The map can be viewed here: stowa.lizard.net
 3Di Live Site
 --------------
 
+April 25th 2023
+^^^^^^^^^^^^^^^
+
+- Breaches: a line has been added to the visualisation of breaches in the live site. Discharge and flow velocity are visualized on these lines by moving dots.
+
+
 March 20th 2023
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 - Now gives a message when max number of licenses is reached
 
@@ -1158,7 +1164,20 @@ We are constantly working on improving the 3Di experience. Based on user experie
 3Di API
 ----------
 
-February 6h 2023
+April 25th 2023
+^^^^^^^^^^^^^^^
+
+- Added support for uploading additional initial water levels to an existing 3Di models. Both 1D and 2D are supported.
+
+- Added support for uploading and downloading computational grid Geopackage files for 3Di models.
+
+- Bugfix: We have made the use of Lizard raster rain in a simulation more robust by using longer retries getting data from Lizard.
+
+- The duration of a constant wind event can now be patched while the simulation is paused.
+
+- In the near future an extra log file (scheduler.log) will be added to log files in the downloadable ZIP file. The scheduler log file is intended for 3Di developers to identify problems when simulations have crashed.
+
+February 6th 2023
 ^^^^^^^^^^^^^^^^^^
 
 - Added support for uploading and downloading (exported gridadmin.h5) Geopackage files on threedimodels.
@@ -1577,6 +1596,14 @@ Extended API v3 with boundary conditions & bug fixing
 
 3Di computational core releases
 -------------------------------
+
+April 2023
+^^^^^^^^^^
+
+- Channels with calculation type *connected* or *double connected* can now be placed outside the DEM, as long as they connect to a location where a 2D cell is present. If a 'potential breach' or 'exchange line' is used to set the location to which the calculation node connects, the location of those features determines whether an error is raised. If a channel with calculation type connected is outside of the DEM, but the closest point on its exchange_line is on the DEM, the computional grid can be built and the 3Di model is valid.
+
+- 1D-2D links that cross an obstacle will take the exchange level from the obstacle
+
 
 August 2022 (Hotfix)
 ^^^^^^^^^^^^^^^^^^^^
