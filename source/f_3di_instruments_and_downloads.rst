@@ -23,7 +23,7 @@ Installing the 3Di Modeller Interface
 
 You can install the modeller interface simply with the download link below.
 
-- Install the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.28.5-1-3-Setup-x86_64.exe>`_
+- Install the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.28.5-1-4-Setup-x86_64.exe>`_
 
 *last update: 10 March 2023*
 
