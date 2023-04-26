@@ -65,12 +65,11 @@ exclude_patterns = []
 
 # These folders are copied to the documentation's HTML output
 html_static_path = ['_static']
-html_css_files = ['stylesheet.css',]
 html_js_files = [
     'matomo.js',
 ]
 html_css_files = [
-    'css/custom.css',
+    'stylesheet.css'
 ]
 
 # The name of the Pygments (syntax highlighting) style to use.
