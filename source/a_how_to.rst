@@ -10,4 +10,6 @@ If want to become familiar with the basics of working with 3Di and its common wo
 .. toctree::
    :maxdepth: 2
 
+   a_howto_calculation_point_distance
+   a_howto_connection_node_storage
    d_urban_areas

@@ -636,7 +636,7 @@ April 25th 2023
 - Compatibility with schema 216
 
 
-**3Di Models & Simulations v3.4.3**
+**3Di Models & Simulations v3.4.5**
 
 - If your organisation has a large number of models or (finished) simulations, you will notice major performance improvements when loading the list of results available for download, or when loading the overview of running simulations. Both now load instanteneously, while this previously took seconds to minutes for some organisations. This improvement also prevents API requests to be throttled (#408)
 
