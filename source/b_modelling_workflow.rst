@@ -1,3 +1,4 @@
+.. _workflow:
 
 Modelling workflow
 ====================

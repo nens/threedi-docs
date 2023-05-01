@@ -13,23 +13,22 @@ This video shows the workflow from start to finish of the modelling process:
 
 *Demo of the modelling process* 
 
-For an overview of the interface and its components visit the :ref:`mi_overview` page. For more detailed information on the modelling workflow, visit the :ref:`mi_workflow` page. There are also multiple tutorials available on how to work with the 3Di Modeller Interface. A good starting point is the :ref:`Workflow <tutorial1_workflow>` Tutorial.
+For an overview of the interface and its components visit the :ref:`mi_overview` page. For more detailed information on the modelling workflow, visit the :ref:`workflow` page. There are also multiple tutorials available on how to work with the 3Di Modeller Interface. A good starting point is the :ref:`Workflow Tutorial <tutorial1_workflow>`.
+
+
 
 This user manual is structured along the common workflow:
 
-.. toctree::
-   :maxdepth: 1
-
-   f_3di_instruments_and_downloads
-   i_overview_user_interface
-   i_create_new_schematisation
-   i_loading_schematisations
-   i_editing_schematisations
-   i_checking_schematisations
-   i_uploading_and_downloading_schematisations
-   i_running_a_simulation
-   i_downloading_results
-   i_analyzing_results
+* :doc:`f_3di_instruments_and_downloads`
+* :doc:`i_overview_user_interface`
+* :doc:`i_create_new_schematisation`
+* :doc:`i_loading_schematisations`
+* :doc:`i_editing_schematisations`
+* :doc:`i_checking_schematisations`
+* :doc:`i_uploading_and_downloading_schematisations`
+* :doc:`i_running_a_simulation`
+* :doc:`i_downloading_results`
+* :doc:`i_analyzing_results`
 
 Technical setup
 ----------------
@@ -63,7 +62,7 @@ All these plugins are installed in a QGIS user profile folder that also contains
 
 
 Difference between 3Di Modeller Interface and QGIS
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------------------------------
 There is no difference between the 3Di Modeller Interface and the Long Term Release version of QGIS. It is simply QGIS, but expanded with extra functionalities.
 
 We have chosen QGIS as our supporting platform because of the following reasons:
