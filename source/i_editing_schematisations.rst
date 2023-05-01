@@ -409,7 +409,7 @@ Some fields are automatically filled to assist in making your schematisation. He
 
 On top of that, some default values for some of the mandatory fields are set. This helps you build models faster. The following default values will be set, in case they are left blank. The listed values are defaults, so please change them if required for your specific application.
 
-You need to set your QGIS locale to 'English UnitedStates' in order for this functionality to work properly. See the :ref:`Before you begin > Software <software>` section for instructions.
+You need to set your QGIS locale to 'English UnitedStates' in order for this functionality to work properly.
 
 **v2_global_settings:**
 
