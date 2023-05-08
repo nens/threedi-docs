@@ -17,7 +17,7 @@ Basic Principles of Interflow
 
    Applications of the interflow layer
 
-The interflow layer is defined by setting the thickness of the interflow layer, the porosity and the hydraulic conductivity. Together, these variables determine the storage capacity and the flow of the interflow layer. When the ground level is uniform, the thickness of the interflow layer has a unique interpretation, but when the ground level varies within a computational cell, there are multiple interpretation possible. This interpretation can be chosen by the user by setting the interflow type. Before explaning the differences due to the subgrid approach, first, the interflow concept will be explained for a uniform ground level.
+The interflow layer is defined by setting the thickness of the interflow layer, the porosity and the hydraulic conductivity. Together, these variables determine the storage capacity and the flow of the interflow layer. When the ground level is uniform, the thickness of the interflow layer has a unique interpretation, but when the ground level varies within a computational cell, there are multiple interpretation possible. This interpretation can be chosen by the user by setting the interflow type. Before explaining the differences due to the subgrid approach, first, the interflow concept will be explained for a uniform ground level.
 
 
 Computation of Volume in 2D domain
@@ -61,7 +61,7 @@ The flow through the interflow layer is calculated by the 2D implementation of D
 
 | In which:
 | :math:`Q_I^x` and :math:`Q_I^y` = the horizontal discharges in the interflow layer.
-| :math:`\kappa` = the hydraulic condutivity
+| :math:`\kappa` = the hydraulic conductivity
 | :math:`A_I^x` and :math:`A_I^y` = the cross-sectional area.
 
 Note: The Darcy’s velocity does not take into account that medium is a grain-aggregate. In reality water flows through pore-paths (inter-connected pores) only. The interflow velocity computed in 3Di is related to the discharge through the concept of effective porosity.
@@ -93,17 +93,17 @@ The interflow layer is completely dry (V=0 m\ :sup:`3`\) if the water level in a
    Relation between water level and volume
 
 
-The user defines the thickness of the interflow layer. As the surface level varies, the level of the impermeable layer would vary too. Nummerically, it has advantages to choose within a computational cell a uniform reference level. So the defined thickness of the interflow layer is always relative to the lowest pixel. The lowest pixel is either defined in the computational cell or in the modelling domain. This is up to the user. To be able to control the storage capacity, the porosity within a subgrid cell can be rescaled, to guarentee for an unchanged storage capacity. Whether, this rescaling is performed depends also on the user settings. In the next paragraph, the four option are explained in detail.
+The user defines the thickness of the interflow layer. As the surface level varies, the level of the impermeable layer would vary too. Numerically, it has advantages to choose within a computational cell a uniform reference level. So the defined thickness of the interflow layer is always relative to the lowest pixel. The lowest pixel is either defined in the computational cell or in the modelling domain. This is up to the user. To be able to control the storage capacity, the porosity within a subgrid cell can be rescaled, to guarantee for an unchanged storage capacity. Whether, this rescaling is performed depends also on the user settings. In the next paragraph, the four option are explained in detail.
 
-Using the automatic rescaling of the porosity, the storage volume in the interflow layer is according to the expected volume based on the defined porosity and defined depth of the interflow layer. If rescaling is used, then the user also has to define a reference level for the impervious layer. This extra reference level has no physical meaning and has been added for advanced numerical purposes, such as stability. The porosity is rescaled to this extra permeable reference level. In case the porosity is kept constant, the storage capacity in areas with higher surfae levels is larger than in lower lying areas. However, in this case the relation between the water level and the volume remains linear (except at the transsition of surface level).
+Using the automatic rescaling of the porosity, the storage volume in the interflow layer is according to the expected volume based on the defined porosity and defined depth of the interflow layer. If rescaling is used, then the user also has to define a reference level for the impervious layer. This extra reference level has no physical meaning and has been added for advanced numerical purposes, such as stability. The porosity is rescaled to this extra permeable reference level. In case the porosity is kept constant, the storage capacity in areas with higher surface levels is larger than in lower lying areas. However, in this case the relation between the water level and the volume remains linear (except at the transition of surface level).
 
 Technical explanation of the four interflow types
 ---------------------------------------------------
 
-There are 4 types or settings of interflow that determine the  relation between porosity, water level and volume. For types 1 and 2 the user explicitly defines the thickness of the porosity layer and the depth of the impervious (the reference) layer. In theory both should have the same value. But early practice showed that using a very deep impervious layer, results in a more stable simulation. When choosing interflow type 1 or 2, the porosity is rescaled in order to preserve the storage capacity as would be based on the thickness and the porosity. For interflow type 3 and four the porosity remains constant.
+There are 4 types or settings of interflow that determine the relation between porosity, water level and volume. For types 1 and 2 the user explicitly defines the thickness of the porosity layer and the depth of the impervious (the reference) layer. In theory both should have the same value. But early practice showed that using a very deep impervious layer, results in a more stable simulation. When choosing interflow type 1 or 2, the porosity is rescaled in order to preserve the storage capacity as would be based on the thickness and the porosity. For interflow type 3 and four the porosity remains constant.
 
 **Type 1**
-For type 1 the user defines a fixed thickness of the interflow layer throuhout the model domain and am uniform impervious layer elevation, which is determined relative per computational cell. One is also to define a porosity, which can be defined globally or with a raster. The porosity and the thickness of the interflow layer determine the storage capacity in the calculation cell. De elevation of the impervious layer determines whether the cell is dry or wet. To guarentee the storage capacity defined by the thickness of the layer and the porosity, the  porosity in the interflow layer is rescaled (:math:`\hat{\alpha}`) to the elevation of the impervious layer, according to:
+For type 1 the user defines a fixed thickness of the interflow layer throughout the model domain and am uniform impervious layer elevation, which is determined relative per computational cell. One is also to define a porosity, which can be defined globally or with a raster. The porosity and the thickness of the interflow layer determine the storage capacity in the calculation cell. De elevation of the impervious layer determines whether the cell is dry or wet. To guarantee the storage capacity defined by the thickness of the layer and the porosity, the  porosity in the interflow layer is rescaled (:math:`\hat{\alpha}`) to the elevation of the impervious layer, according to:
 
 .. math::
    :label: porosity_scaled
@@ -119,7 +119,7 @@ For type 1 the user defines a fixed thickness of the interflow layer throuhout t
 | :math:`D_{sur}` = surface level elevation and
 | :math:`D_{inp}`  = elevation of the impervious layer.
 
-The rescaled porosity is than used to compute the volumes and the water levels.
+The rescaled porosity is then used to compute the volumes and the water levels.
 
 **Type 2** This interflow type resembles type 1. The porosity is determined according to the method described under type 1. The only difference is that the elevation of the impervious layer is not determined relative to the lowest surface level within one computational cel, but relative to the lowest pixel in the entire model domain.
 
@@ -181,7 +181,7 @@ Below two tables are included with a summary of the possible settings for interf
    * - Rescale
      - Type 1
      - Type 2
-     - Storage is known apriori
+     - Storage is known a priori
    * - Constant
      - Type 3
      - Type 4
@@ -193,7 +193,7 @@ Good to know
 ------------
 
 
-**Infiltration** Infiltration from the interflow layer is only active when the water level is above the surface level (lowest point of the DEM in that computational cell). Infiltration is not a process that allows water from the surface to the interflow layer, it is from the total cell volume out of the model. When the water level drops below the lowest surface level of the cell, the infiltration stops. In case, you would like to allow the infiltration to contiunu and allow water to exit interflow layer, one can use the surface sources and sinks functionality.
+**Infiltration** Infiltration from the interflow layer is only active when the water level is above the surface level (lowest point of the DEM in that computational cell). Infiltration is not a process that allows water from the surface to the interflow layer, it is from the total cell volume out of the model. When the water level drops below the lowest surface level of the cell, the infiltration stops. In case, you would like to allow the infiltration to continue and allow water to exit interflow layer, one can use the surface sources and sinks functionality.
 
 **Laterals** Nothing actually changes for the laterals. The extraction of water continues until the total volume is zero. This means that the water level can be lower than the DEM.
 
