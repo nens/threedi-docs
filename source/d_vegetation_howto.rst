@@ -5,24 +5,26 @@ Vegetation
 
 Local flow velocities are strongly affected by vegetation. In case of flooding applications, dense vegetation can alter routes for flooding and affect the arrival times of floods. Vegetation slows down the flow, allowing more time for infiltration and water buffering. In fluvial or in estuarine flow modelling, vegetation affects the flow route and it determines the shear stresses, which affects sedimentation and erosion patterns. Correct flow patterns are vital to preserve, improve and ensure the conditions for various animal and plant species.
 
-Trade-offs may exist between the ecological value of vegetation and the discharge capacities of waterways and floodplains. In other cases (e.g. mangrove forests) vegetation may be used as protection measures, by strongly reducing flow.
+Some model objectives for which modelling vegetation can be important include:
 
-3Di offers various methods for taking the effects of vegetation into account.
+* Assessing the effect of mangrove forest for flood protection
+
+* Balancing the ecological value of vegetation and the discharge capacities of waterways and floodplains.
+
+* Studying the discharge through stream that are lined with shrubs or other vegetation that inundates when water levels rise
+
+* Flood risk assessments in areas that are (partially) forested
 
 .. todo::
     @Nici maakt het nog uit wat voor vegetatie en wat voor stroming? Maakt het bijvoorbeeld uit of het planten zijn die meegetrokken worden door de stroming (grasachtig) vs. houtachtige vegetatie? Is het bijvoorbeeld ook toepasbaar (op een zinnige manier) op hele ondiepe stromingen door een bos?
-    - groeit vanaf de grond (geen drijvende vegetatie etc.)
-    - baptist is een van de weinigen die submerged en emerged
-    - baptist gaat er vanuit dat vegetatie niet beinvloed wordt door de stroming; je kan dat soort dingen wel soort van verwerken in de drag coefficient
-    - hele dunne waterlagen: vegetatie niet relevant
-    - watergang met daarlangs struiken e.d., waterstand varieert: wel heel interessant
-    - voor stroming door bos ka het ook prima worden toegepast
 
 
 Choosing the right method for schematising vegetation
 -----------------------------------------------------
 
-Choosing the right method for schematising vegetation depends on the application, the model objective and data availability. Each use case is different and asks for some expert judgement. We can however provide some general guidelines.
+3Di offers various methods for taking the effects of vegetation into account. Choosing the right method for schematising vegetation depends on the application, the model objective and data availability. Each use case is different and asks for some expert judgement. We can however provide some general guidelines.
+
+* **Sheet flow** If the flow depth is only a few millimeters to centimeters (e.g. sheet flow from hills), modelling vegetation will not have additional benefits. Using only bottom roughness (Manning or Chezy) will be sufficient.
 
 * **Low vegetation** Low vegetation is vegetation that has the height of the underlying bottom roughness. Generally, as soon as such an area gets wet, it is submerged and the height of the vegetation is in the same order of magnitude as the vertical accuracy of the DEM. Under these conditions it is advantageous to model the vegetation as a bottom roughness, using Manning or Chézy values. This method is available for 1D and 2D flow.
 
