@@ -1,31 +1,55 @@
+.. _a_how_to_vegetation:
+
 Vegetation
 ==========
 
-When is it relevant to include vegetation in your schematisation?
------------------------------------------------------------------
+Local flow velocities are strongly affected by vegetation. In case of flooding applications, dense vegetation can alter routes for flooding and affect the arrival times of floods. Vegetation slows down the flow, allowing more time for infiltration and water buffering. In fluvial or in estuarine flow modelling, vegetation affects the flow route and it determines the shear stresses, which affects sedimentation and erosion patterns. Correct flow patterns are vital to preserve, improve and ensure the conditions for various animal and plant species.
 
-.. TODO: @Nici can we provide some general guidance about this to users? Can we give some examples of model objectives for which modelling vegetation correctly is crucial/helpful?
+Trade-offs may exist between the ecological value of vegetation and the discharge capacities of waterways and floodplains. In other cases (e.g. mangrove forests) vegetation may be used as protection measures, by strongly reducing flow.
+
+3Di offers various methods for taking the effects of vegetation into account.
+
+.. todo::
+    @Nici maakt het nog uit wat voor vegetatie en wat voor stroming? Maakt het bijvoorbeeld uit of het planten zijn die meegetrokken worden door de stroming (grasachtig) vs. houtachtige vegetatie? Is het bijvoorbeeld ook toepasbaar (op een zinnige manier) op hele ondiepe stromingen door een bos?
+    - groeit vanaf de grond (geen drijvende vegetatie etc.)
+    - baptist is een van de weinigen die submerged en emerged
+    - baptist gaat er vanuit dat vegetatie niet beinvloed wordt door de stroming; je kan dat soort dingen wel soort van verwerken in de drag coefficient
+    - hele dunne waterlagen: vegetatie niet relevant
+    - watergang met daarlangs struiken e.d., waterstand varieert: wel heel interessant
+    - voor stroming door bos ka het ook prima worden toegepast
+
 
 Choosing the right method for schematising vegetation
 -----------------------------------------------------
 
-- Very short vegetation: choosing the right friction values will suffice
+Choosing the right method for schematising vegetation depends on the application, the model objective and data availability. Each use case is different and asks for some expert judgement. We can however provide some general guidelines.
 
-- Very dense vegetation, such as the lowest bits of a mangrove forest or very dense reeds: if the vegetation is very dense, the vegetation can be regarded as a porous medium. This type of flow can be described by Darcy's law. In 3Di this can be implemented by using *interflow*.
+* **Low vegetation** Low vegetation is vegetation that has the height of the underlying bottom roughness. Generally, as soon as such an area gets wet, it is submerged and the height of the vegetation is in the same order of magnitude as the vertical accuracy of the DEM. Under these conditions it is advantageous to model the vegetation as a bottom roughness, using Manning or Chézy values. This method is available for 1D and 2D flow.
 
-- Medium or low density vegetation: use vegetation drag
+* **Medium to high vegetation** In case the vegetation height is higher than the roughness layer at the bed, it can be advantageous to use vegetation drag. With this formulation, 3Di automatically takes into account the spatial variability and the changing water level conditions. This is especially important when measurement data is limited, and the system can only be calibrated under very specific conditions. This method captures the physics of flow through (partially) submerged vegetation, so the prediction capability improves. This method is available for 2D flow only.
 
-Vegetation drag parameter values for vegetation types
------------------------------------------------------
+* **Dense vegetation** In case the vegetation is very dense, the vegetation drag formulation may not be the best representation of vegetation effects on flow. It may be more accurate to regard dense vegetation as a porous medium and use a porosity layer (interflow, available for 2D flow only). This is under investigation and the results will be published. More information can be found at Volp et al 2023, NCK Days and the paper that will be submitted in the Journal of Hydraulic Engineering.
 
-.. TODO: @Nici where can users find typical values of stem diameter, stem density, or drag coefficients for different types of vegetation?
+Vegetation drag parameter values
+--------------------------------
 
-Vegetation type and height data
--------------------------------
+If you want to use vegetation drag, you need to supply three input parameters to 3Di: *vegetation height*, *vegetation stem count*, *vegetation stem diameter*, and *vegetation drag coefficient*; see :ref:`vegetation_drag` for details. It can be a challenge to choose the correct values for these parameters. Even in acadamic research, the incorporation of vegetational effects in large scale hydrodynamic models is still a quite new, so there is not yet a large body of literature to draw from when setting these parameters.
 
-.. TODO: @Nici where can users find data on vegetation type and vegetation height? Even if we have only some example datasets we can point to this would be helpful
+The correct values for the vegetation parameters depend on the plant species, its growth stage and the season. The stem diameter, the height and the number of stems can be measured relatively easy, at least, compared to the drag coefficient. In the last decade, more and more measurements have been performed to define these values. Unfortunately, there is not a general overview of these values per species. The paper of Vargas-Luna 2015 can give a nice starting point. In the formulation in 3Di, it is generally OK to start with a drag coefficient set to 1. Depending on the data you have of the area, it allows a more detailed calibration and tuning to the local conditions. The other parameters can be derived from land use maps and ecological maps.
 
-Calibration of flow with vegetation drag
-----------------------------------------
+.. todo::
+    @Nici dat paper waar je naar verwijst ( Vargas-Luna 2015 ) zal voor de meeste gebruikers niet toegankelijk zijn. Kunnen we de belangrijkste zaken uit dit paper hier overnemen of samenvatten?
+    Hebben we een voorbeeld van een "ecological map" en hoe daar de benodigde parameters uit af te leiden zijn?
 
-.. TODO: @Nici can we provide some basic guidance on this specific to modelling with vegetation drag?
+Vegetation drag can only be used with friction type 'Chezy', because the vegetation formulation (initially introduced by Baptist 2005) uses Chezy.
+
+Calibrating flow through vegetation
+-----------------------------------
+.. todo::
+    @Nici valt hier iets zinnigs over te zeggen in algemene termen? Lijkt me nl. wel lastiger dan calibreren met frictie in de zin dat je meerdere parameters hebt om aan te draaien. Is het idee dat je alleen de vegetation drag coefficient gebruikt om mee te kalibreren?
+    - de verschillende parameters worden met elkaar vermenigvuldigd, dus drag coefficient kan je gebruiken om te calibreren
+    - bodemwrijving is over het algemeen klein ten opzichte van vegetatie drag, dus draaien aan drag coefficient is logischer (geldt vooral als vegetatie hoog (en dicht) is t.o.v. waterdiepte).
+
+
+
+
