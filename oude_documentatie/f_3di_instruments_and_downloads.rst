@@ -3,6 +3,14 @@
 Install and update manual
 =========================
 
+.. _software:
+
+3Di Software requirements
+---------------------------------
+
+•	To be able to build, edit and run schematisations you need to install the Modeller Interface 
+•	Our Live Site and Management Portal are optimized for chrome browser
+
 .. note::
 
     Are you running into problems when downloading or updating the software? Please consult the 'problem solving' section and if the error and/or solution is not mentioned, please contact our support office (servicedesk@nelen-schuurmans.nl)
@@ -13,21 +21,22 @@ Install and update manual
 Installing the 3Di Modeller Interface
 ---------------------------------------
 
-To be able to build, edit and run schematisations you need to install the Modeller Interface. You can install the modeller interface simply with the download link below.
+You can install the modeller interface simply with the download link below.
 
-- Install the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.28.5-1-5-Setup-x86_64.exe>`_
+- Install the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.28.5-1-4-Setup-x86_64.exe>`_
 
-
-*last update: 28 April 2023*
+*last update: 10 March 2023*
 
 The newest Modeller Interface also includes the newest versions of the 3Di plugins. If you would like, you could also upgrade the 3Di plugins from within the Modeller Interface manually. Follow the instructions of this movie to do so: `How to upgrade 3Di plugins in the Modeller Interface <https://www.youtube.com/watch?v=9XeVuZo28jw>`_.
-
 
 
 .. _setting_up_models_and_simulations:
 
 Setting up the 3Di Models and Simulations Plugin
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. note::
+   This step needs to be done just once.
+
 
 When you start the 3Di Models & Simulations plugin for the first time, you are required to set a :ref:`personal_api_key` that will be used to log in. 
 The QGIS Password Manager stores this Personal API Key securely (encrypted). 

@@ -69,7 +69,7 @@ html_js_files = [
     'matomo.js',
 ]
 html_css_files = [
-    'css/custom.css',
+    'stylesheet.css'
 ]
 
 # The name of the Pygments (syntax highlighting) style to use.

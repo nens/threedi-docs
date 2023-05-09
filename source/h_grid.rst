@@ -1,6 +1,6 @@
 .. _grid:
 
-The grid
+Computational grid
 -----------
 
 To allow flow to be computed numerically, space and time need to be discretised. For time are time-steps defined, and for space is a grid defined. In the sections below we elaborate on the grid specified for computations in the 1D and in the 2D surface water and groundwater domains.
@@ -28,7 +28,7 @@ In 3Di we make use of a so-called structured, staggered grid. This implies for t
 
 The hydrodynamic computations are based on the conservation of volume and momentum. In the next sections (:ref:`cons_volume`,  :ref:`onedee_flow`, :ref:`surface_flow`, and :ref:`groundwater`), the methods concerned for the computations are discussed. However, in order to solve the equations, the domains in which they are valid, need to be defined. In the Figure above, the volume and momentum domains are shown.
 
-Grid Refinement in 2D
+Grid refinement in 2D
 ++++++++++++++++++++++++
 
 The computational cost of a simulation is strongly related to the number of computational cells. One always needs to find a balance between grid resolution and computational time. There are often regions where the flow is more complex or where one requires results with a finer resolution. To optimise the computational cost and grid resolution, users can refine the grid locally. 3Di uses a method called quad-tree refinement. This means, that in space, refinements are placed by dividing neighboring cells by a factor 4 (Figures below and above). This is a simple refinement method that forces smooth grid variations, which enhances an accurate solution of the equation.
@@ -79,15 +79,15 @@ Input
 
 Users define for the grid generation a cell size (of the finest grid resolution) and the number of refinement layers. A computational cell consists always of an even number of subgrid cells. In addition, the user needs to define where and if refinements should be defined. One can define polygons or lines to indicate these areas and the refinement level. For a detailed example, see :ref:`flood_model`.
 
-Some facts and figures:
-++++++++++++++++++++++++++++
+Some facts and figures
+++++++++++++++++++++++
 
 -	The use of high resolution information goes hand in hand with large amounts of data. To compress this data, it is stored during the computations in tables. More information about this can be found in :ref:`tables`.
 -	There are more variables defined at the high resolution grid; such as roughness, infiltration capacity and hydraulic connectivity. These will be introduced later in the documentation.
 
 
 Input
-++++++++++
++++++
 
 The numerical grid is generated based on some the following settings:
 - Grid space
@@ -100,7 +100,7 @@ The grid space is the measure of the dimension of a computational cell. It is im
 .. _1dgrid:
 
 Computational grid for 1D domain
-====================================
+================================
 
 For studying the flow of narrow features in the landscape or sewer systems, it is advantageous to use one dimensional models. This allows for an extensive description of the system, without actually computing cross-flow phenomena. These are in those cases limited and the use of a 1D representation will reduce the computational cost. In 3Di 1D networks can be defined, representing open channels, manholes, weirs, orifices, culverts and closed pipes. There are several options to couple the 1D and the 2D domain (see Section :ref:`onedee_flow`). All options for the coupling allow for a fully integrated computation, this means that the full 1D and 2D systems are solved as one.
 
@@ -119,6 +119,7 @@ Input
 
 1D networks can consist of open channels, closed pipes and various structures. More about the various options can be found in the Sections :ref:`structures` and :ref:`channels`. The resolution of the 1D domain can be defined per 1D element.
 
+.. _techref_calculation_point_distance:
 Calculation point distance
 +++++++++++++++++++++++++++
 

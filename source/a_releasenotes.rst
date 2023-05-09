@@ -8,6 +8,72 @@ Release notes
 3Di general releases
 --------------------
 
+April 25th 2023
+^^^^^^^^^^^^^^^^^^
+
+**Live site**
+
+- Breaches: a line has been added to the visualisation of breaches in the live site. Discharge and flow velocity are visualized on these lines by moving dots.
+
+**Schematisation checker**
+
+*New checks*
+
+Several checks have been added.
+
+- Add INFO 109 and 110: the bottom level of a manhole cannot be higher than the reference level of the closest cross-section of any channel it is connected to. threedigrid-builder automatically fixes this, hence info instead of warning.
+
+- Add WARNING 108: the crest_level of a weir or orifice cannot be lower than the bottom_level of any manhole it is connected to.
+
+- Add ERROR 326: this gives an info message if a record exists in the simple_infiltration table, but is not referenced from the global settings.
+
+- Add ERROR 66: this raises a warning if a pumpstation empties its storage area in less than one timestep.
+
+- Add ERROR 1205 to make sure that a timeseries is not an empty string.
+
+- Add ERROR 1206 to confirm that the timesteps in all boundary condition timesteps are the same.
+
+*Beta features*
+
+The 3Di spatialite now supports *beta* tables, fields, and values. These are used for test purposes, and will become available to all users once testing has been completed.
+
+- Added ERROR 1300: If a user puts a non-null value in a column marked as beta in threedi-schema, this will be reported by the schematisation checker.
+
+- Added ERROR 73: groundwater boundaries are allowed only when there is groundwater hydraulic conductivity.
+
+- Added ERROR 74: groundwater boundary types are not allowed on 1D boundary conditions.
+
+- Added groundwater 1D2D range checks for manholes, channels, and pipes for exchange_thickness, hydraulic_conductivity_in, and hydraulic_conductivity_out.
+
+- Add ERRORs and WARNINGs for vegetation_drag input. Both rasters and global values.
+
+**Models & Simulations API**
+
+- Added support for uploading additional initial water levels to an existing 3Di models. Both 1D and 2D are supported.
+
+- Added support for uploading and downloading computational grid Geopackage files for 3Di models.
+
+- Bugfix: We have made the use of Lizard raster rain in a simulation more robust by using longer retries getting data from Lizard.
+
+- The duration of a constant wind event can now be patched while the simulation is paused.
+
+- In the near future an extra log file (scheduler.log) will be added to log files in the downloadable ZIP file. The scheduler log file is intended for 3Di developers to identify problems when simulations have crashed.
+
+
+**Computational grid**
+
+- Channels with calculation type *connected* or *double connected* can now be placed outside the DEM, as long as they connect to a location where a 2D cell is present. If a 'potential breach' or 'exchange line' is used to set the location to which the calculation node connects, the location of those features determines whether an error is raised. If a channel with calculation type connected is outside of the DEM, but the closest point on its exchange_line is on the DEM, the computional grid can be built and the 3Di model is valid.
+
+- 1D-2D links that cross an obstacle will take the exchange level from the obstacle
+
+**Authorisation**
+
+- The former SSO configuration has been removed. Username/passwords are now only accepted if they have a Personal API Key that was migrated earlier.
+
+.. - Version included in release
+
+
+
 February 24th 2023
 ^^^^^^^^^^^^^^^^^^
 
@@ -374,8 +440,14 @@ The map can be viewed here: stowa.lizard.net
 3Di Live Site
 --------------
 
+April 25th 2023
+^^^^^^^^^^^^^^^
+
+- Breaches: a line has been added to the visualisation of breaches in the live site. Discharge and flow velocity are visualized on these lines by moving dots.
+
+
 March 20th 2023
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 - Now gives a message when max number of licenses is reached
 
@@ -557,6 +629,67 @@ For schematisations users can:
 3Di Modeller Interface
 ----------------------
 
+April 25th 2023
+^^^^^^^^^^^^^^^
+**3Di Toolbox 2.5.2**
+
+- Compatibility with schema 216
+
+
+**3Di Models & Simulations v3.4.5**
+
+- If your organisation has a large number of models or (finished) simulations, you will notice major performance improvements when loading the list of results available for download, or when loading the overview of running simulations. Both now load instanteneously, while this previously took seconds to minutes for some organisations. This improvement also prevents API requests to be throttled (#408)
+
+- Compatibility with schema 216 (#451).
+
+
+**3Di Schematisation Editor v1.4**
+
+*Cross sections*
+
+- Tabular cross-sections can now be edited in a table instead of in a text field. This applies to cross-section shapes Tabulated Rectangle, Tabulated Trapezium, and YZ (#90)
+
+- The 3Di Schematisation Editor now fully supports cross-section shapes "YZ" and "Inverted egg" (#89, #91)
+
+- The 'cross-section' stylings for Culvert, Cross-section location, Orifice, Pipe, and Weir have been re-implemented. Some bugs were fixed and support for recently introduced cross-section shapes was added. The stylings are now based on custom expressions, that can also be used for other purposes in any QGIS expression (#96)
+
+
+*1D2D exchange*
+
+- Add processing algorithm 'Generate exchange lines' (#93, #131)
+
+
+*Database schema*
+
+- Compatibility with schema 216 (#451).
+
+
+*Bugfixes*
+
+- Setting the reference level cross-section locations on newly digitized channel to 0 is now committed as 0 instead of NULL (#129)
+
+- Clicking on layer Potential breach in QGIS 3.28 no longer gives an error (#126)
+
+- Adding a cross-section location to a Channel between two cross-section locations with bank_level NULL no longer gives an error (#102)
+
+- Allow negative values for bank level and reference level in Cross section locations tab of Channel layer (#95)
+
+- Multipolygons in a *v2_surface* or *v2_impervious_surface* layers no longer raise a KeyError when loading from spatialite. If possible, they will be converted to Polygons (singlepart) (#134)
+
+April 11th 2023
+^^^^^^^^^^^^^^^
+
+**3Di Models & Simulations v3.4.4**
+
+- Bugfix: after installing the 3Di Modeller Interface with installer version 3.28.5-1-3 or higher, installing the 3Di Models & Simulations plugin in a new user profile would fail. This was fixed (#454)
+
+- Bugfix: Simulation template is now created if this option is checked in the simulation wizard; this was broken since version 3.4 (#447)
+
+**3Di Modeller Interface installer 3.28.4-2-1**
+
+- Add option to install for all users. Especially useful for system administrators.
+
+- New user profiles use the 3Di default settings.
 
 March 10th 2023
 ^^^^^^^^^^^^^^^
@@ -1031,7 +1164,20 @@ We are constantly working on improving the 3Di experience. Based on user experie
 3Di API
 ----------
 
-February 6h 2023
+April 25th 2023
+^^^^^^^^^^^^^^^
+
+- Added support for uploading additional initial water levels to an existing 3Di models. Both 1D and 2D are supported.
+
+- Added support for uploading and downloading computational grid Geopackage files for 3Di models.
+
+- Bugfix: We have made the use of Lizard raster rain in a simulation more robust by using longer retries getting data from Lizard.
+
+- The duration of a constant wind event can now be patched while the simulation is paused.
+
+- In the near future an extra log file (scheduler.log) will be added to log files in the downloadable ZIP file. The scheduler log file is intended for 3Di developers to identify problems when simulations have crashed.
+
+February 6th 2023
 ^^^^^^^^^^^^^^^^^^
 
 - Added support for uploading and downloading (exported gridadmin.h5) Geopackage files on threedimodels.
@@ -1451,6 +1597,14 @@ Extended API v3 with boundary conditions & bug fixing
 3Di computational core releases
 -------------------------------
 
+April 2023
+^^^^^^^^^^
+
+- Channels with calculation type *connected* or *double connected* can now be placed outside the DEM, as long as they connect to a location where a 2D cell is present. If a 'potential breach' or 'exchange line' is used to set the location to which the calculation node connects, the location of those features determines whether an error is raised. If a channel with calculation type connected is outside of the DEM, but the closest point on its exchange_line is on the DEM, the computional grid can be built and the 3Di model is valid.
+
+- 1D-2D links that cross an obstacle will take the exchange level from the obstacle
+
+
 August 2022 (Hotfix)
 ^^^^^^^^^^^^^^^^^^^^
 - Fixed the initialisation of the calculation core.
@@ -1605,3 +1759,4 @@ In short the following fixes are included in the calculation core:
 Long crested weirs: The formulation of the long crested weir has been replaced by a new one. This new version is based on the law of Bernouilli instead of an alternative implementation of the advective terms for a regular 1D element. The flow over the weir is an accurate computation of the flow under ideal circumstances, but the new formulation does not require an extra computational node and has proven to be more stable under varying flow conditions.
 
 Short crested weirs: Flow over a weir knows three different stages: sub-, supercritical and critical flow.  Under super-critical flow conditions, the formulation remains the same. We fixed the formulation under sub-critical flow conditions and in strong varying flow conditions.  The biggest change in discharge behaviour is expected for weirs that flow in negative direction. Moreover, the time dependency of the flow over the weir has been adjusted. This has no effect on stationary flow, but has a slightly improved stabilizing effect on the flow under changing flow conditions.
+ecko

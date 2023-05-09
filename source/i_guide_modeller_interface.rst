@@ -5,6 +5,7 @@
    :maxdepth: 1
 
    i_what_is_mi
+   f_3di_instruments_and_downloads
    i_overview_user_interface
    i_create_new_schematisation
    i_loading_schematisations
