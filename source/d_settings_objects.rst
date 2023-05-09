@@ -87,11 +87,11 @@ Numerical settings (advanced users)
 
 .. _vegetation_drag:
 Vegetation drag settings
--------------------
+------------------------
 
-.. TODO: @Nici please review this whole section
+The *vegetation drag* table contains the input parameters that are used for 2D flow with vegetation. For an in-depth explanation of how 2D flow with vegetation is calculated by 3Di, see :ref:`flow_with_vegetation`. For more information on using vegetation in your 3Di model and choosing the right parameter values, :ref:`a_how_to_vegetation`.
 
-The *vegation drag* table contains the input parameters that are used for 2D flow with vegetation. For an in-depth explanation of how 2D flow with vegetation is calculated by 3Di, see :ref:`flow_with_vegetation`
+Vegetation drag can only be used with friction type 'Chezy', because the vegetation formulation (initially introduced by Baptist 2005) uses Chezy.
 
 Columns
 ^^^^^^^
@@ -103,11 +103,11 @@ Unique identifier
 
 height
 """"""
-Height of the vegetation (m relative to surface level).  Global value that is used in the entire model domain, used by 3Di if no raster (*height_file*) is supplied.
+Height of the vegetation (m), i.e. the length of the plant stems.  Global value that is used in the entire model domain, used by 3Di if no raster (*height_file*) is supplied.
 
 height_file
 """""""""""
-A raster file containing the height of the vegetation (m relative to surface level). Values can be varied on the pixel level and will also be used as such by the 3Di computational core. If a raster file is supplied, any global value given in *height* will be ignored.
+Reference to a raster file containing the *height of the vegetation (m), i.e. the length of the plant stems*. Values can be varied on the pixel level and will also be used as such by the 3Di computational core. If a raster file is supplied, any global value given in *height* will be ignored.
 
 stem_count
 """"""""""
@@ -115,7 +115,7 @@ Density of plant stems (number of stems per m:sup:`2`). Global value that is use
 
 stem_count_file
 """""""""""""""
-Density of plant stems (number of stems per m:sup:`2`). Values can be varied on the pixel level and will also be used as such by the 3Di computational core. If a raster file is supplied, any global value given in *stem_count* will be ignored.
+Reference to a raster file containing the *density of plant stems (number of stems per m:sup:`2`)* for each pixel. Values can be varied on the pixel level and will also be used as such by the 3Di computational core. If a raster file is supplied, any global value given in *stem_count* will be ignored.
 
 stem_diameter
 """""""""""""
@@ -123,16 +123,16 @@ Mean diameter of plant stems (m). Global value that is used in the entire model 
 
 stem_diameter_file
 """"""""""""""""""
-Mean diameter of plant stems (m). Values can be varied on the pixel level and will also be used as such by the 3Di computational core. If a raster file is supplied, any global value given in *stem_diameter* will be ignored.
+Reference to a raster file containing a *mean diameter of plant stems (m)* for each pixel. Values can be varied on the pixel level and will also be used as such by the 3Di computational core. If a raster file is supplied, any global value given in *stem_diameter* will be ignored.
 
 drag_coefficient
 """"""""""""""""
-.. TODO: @Nici please explain
+
+Dimensionless coefficient to linearly scale the drag that vegetation exerts on the water. The drag resulting from vegetation is different for each situation. A large share of this variation is captured by choosing the correct values for stem count, stem diameter and vegetation height. The drag coefficient can be used to account for the other factors that affect the drag. The drag coefficient can also be used as a calibration parameter.
 
 Global value that is used in the entire model domain, used by 3Di if no raster (*drag_coefficient_file*) is supplied.
 
 drag_coefficient_file
 """""""""""""""""""""
-.. TODO: @Nici please explain
 
-Values can be varied on the pixel level and will also be used as such by the 3Di computational core. If a raster file is supplied, any global value given in *drag_coefficient* will be ignored.
+Reference to a raster file containing a *drag_coefficient* for each pixel. Values can be varied on the pixel level and will also be used as such by the 3Di computational core. If a raster file is supplied, any global value given in *drag_coefficient* will be ignored.
