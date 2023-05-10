@@ -47,11 +47,11 @@ Vegetation drag can only be used with friction type 'Chezy', because the vegetat
 
 Calibrating flow through vegetation
 -----------------------------------
-.. todo::
-    @Nici valt hier iets zinnigs over te zeggen in algemene termen? Lijkt me nl. wel lastiger dan calibreren met frictie in de zin dat je meerdere parameters hebt om aan te draaien. Is het idee dat je alleen de vegetation drag coefficient gebruikt om mee te kalibreren?
-    - de verschillende parameters worden met elkaar vermenigvuldigd, dus drag coefficient kan je gebruiken om te calibreren
-    - bodemwrijving is over het algemeen klein ten opzichte van vegetatie drag, dus draaien aan drag coefficient is logischer (geldt vooral als vegetatie hoog (en dicht) is t.o.v. waterdiepte).
+Calibrating a model that includes vegetation drag is not fundamentally different from calibrating models that only include bottom friction. However, several things are helpful when starting the calibration process.
 
+Vegetation height, stem count, and stem diameter should describe the vegetation as accurately as possible, based on what you know about the vegetation. The *drag coefficient* is the parameter that is specifically meant to account for all uncertainty that is not captured by the other parameters; i.e. this is the parameter to tune when calibrating the model. In the calculation of the vegetation drag, all vegetation parameters are multiplied, so tuning the drag coefficient will have the exact same effect as tuning any other vegetation parameter. For example, doubling the stem count will have the same effect as doubling the drag coefficient. You generally start with a drag coefficient of 1, and then increase it if the discharge is too high or decrease it if the discharge is too low.
+
+Vegetation will usually have a much larger effect on the flow than bottom friction, unless the vegetation very short or sparse. Calibrating the friction coefficient will usually not make a lot of sense in such situations, as a large change in the friction coefficient will only have a small effect on velocity and discharge, while a small change in the drag coefficient will have a large effect.
 
 
 
