@@ -31,7 +31,7 @@ Channel lines between connection nodes. All channels must have at least one cros
 
     * Make sure the embedded channel profile always partially lays below the surface level in you DEM (you can't have floating embedded channels).
 
-    * Make sure no more than one channel vertice falls inside a single raster-file pixel.
+    * Make sure no more than one channel vertex falls inside a single raster-file pixel.
 
     * Embedded channels only function when they connect several 2D grid cells, so make sure no embedded channel falls completely inside one 2D grid cell
 

@@ -36,12 +36,12 @@ Create simulation
 ++++++++++++++++++
 
 To start a simulation, a simulation resource has to be created first. This simulation resource is created by sending simulation metadata through the API. The data consists of, among others, the unique identifier for the 3Di model that should be used, the organisation the simulation is requested for, the timespan of the simulation et cetera. 
-After creating a simulation, an unique identifier is obtained. This identifier is used to add initial conditions and/or forcings to the model simulation.
+After creating a simulation, a unique identifier is obtained. This identifier is used to add initial conditions and/or forcings to the model simulation.
 
 Add initial conditions (optional)
 ++++++++++++++++++++++++++++++++++
 
-After a simulation has been created, initial conditions, like water levels or a saved flow state of a previous simulation can be added. The API provides a list of previous saved flow states for a 3Di model. These saved states all have an unique identifier which can be used to add them to the simulation. The simulation unique identifier needs to be submitted for every initial condition.
+After a simulation has been created, initial conditions, like water levels or a saved flow state of a previous simulation can be added. The API provides a list of previous saved flow states for a 3Di model. These saved states all have a unique identifier which can be used to add them to the simulation. The simulation unique identifier needs to be submitted for every initial condition.
 
 Add forcings (mandatory)
 ++++++++++++++++++++++++
@@ -74,7 +74,7 @@ After (and during) the simulation, the latest state of the simulation can be ret
 Get results
 ++++++++++++
 
-Results can be retrieved via the /simulations/{id}/results/timeseries/ endpoint. This endpoint allows to provide filtering parameters for getting time series of a simulation. Under the hood it is going to provide a subset of the filtering/subset options provided by Threedigrid (https://threedigrid.readthedocs.io/en/latest/api.html#filtering). Threedigrid is a Python package created and maintained by Nelen & schuurmans for interacting with 3Di model administration and 3Di model simulation results. The timeseries endpoint will provide access to time series of threedicore entities like calculation points, lines, grid cells et cetera.
+Results can be retrieved via the /simulations/{id}/results/timeseries/ endpoint. This endpoint allows passing in filtering parameters for getting time series of a simulation. Under the hood it is going to provide a subset of the filtering/subset options provided by Threedigrid (https://threedigrid.readthedocs.io/en/latest/api.html#filtering). Threedigrid is a Python package created and maintained by Nelen & schuurmans for interacting with 3Di model administration and 3Di model simulation results. The timeseries endpoint will provide access to time series of threedicore entities like calculation points, lines, grid cells et cetera.
 The adapter makes it possible to easily retrieve the 1D or 2D results.
 
 Get saved states identifiers

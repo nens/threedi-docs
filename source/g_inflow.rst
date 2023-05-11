@@ -5,7 +5,7 @@ Inflow
 
 In 3Di water that flows into the water body via a surface is calculated by the inflow module. Each model with an active inflow setting will calculate the inflow into the water body of the model area when being run as a headless calculation or in the GUI. All occurring rain events will also be applied to the defined surfaces. Local rain events can overlay each other. Global rain events can occur in succession.
 
-A model must have have an use_0d_inflow parameter specified in its global_settings column. This setting allows for three different choices. When set to 0, inflow is turned off. When set to 1 it will use the data from the v2_impervious_surface instances. When set to 2, it will use the entries for the v2_surface instances. 
+A model must have an use_0d_inflow parameter specified in its global_settings column. This setting allows for three different choices. When set to 0, inflow is turned off. When set to 1 it will use the data from the v2_impervious_surface instances. When set to 2, it will use the entries for the v2_surface instances. 
 
 Impervious surface
 ------------------
