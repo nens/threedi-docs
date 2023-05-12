@@ -1,7 +1,7 @@
 .. _mi_what_is:
 
-Introduction
-============
+What is the Modeller Interface
+================================
 
 The 3Di Modeller Interface is the 3Di desktop application. It makes it easy for expert modellers and hydrologists to build and edit 3Di models, run simulations and analyse simulation results to understand water systems and assess flood risks or other hydrological phenomena.
 
@@ -16,7 +16,6 @@ This video shows the workflow from start to finish of the modelling process:
 For an overview of the interface and its components visit the :ref:`mi_overview` page. For more detailed information on the modelling workflow, visit the :ref:`workflow` page. There are also multiple tutorials available on how to work with the 3Di Modeller Interface. A good starting point is the :ref:`Workflow Tutorial <tutorial1_workflow>`.
 
 
-
 This user manual is structured along the common workflow:
 
 * :doc:`f_3di_instruments_and_downloads`
@@ -29,6 +28,7 @@ This user manual is structured along the common workflow:
 * :doc:`i_running_a_simulation`
 * :doc:`i_downloading_results`
 * :doc:`i_analyzing_results`
+
 
 Technical setup
 ----------------

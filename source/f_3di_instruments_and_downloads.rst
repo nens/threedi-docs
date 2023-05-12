@@ -24,6 +24,9 @@ The newest Modeller Interface also includes the newest versions of the 3Di plugi
 
 
 
+The Modeller interface has 3 pre-installed plugins: :doc:`i_plugin_toolbox`, :doc:`i_plugin_models_simulation`, :doc:`i_plugin_schematisation_editor`.
+
+
 .. _setting_up_models_and_simulations:
 
 Setting up the 3Di Models and Simulations Plugin
@@ -54,17 +57,19 @@ You can now use all online functionalities of the 3Di Models & Simulations plugi
 .. |Copy_button| image:: /image/e_copy_button.png
     :scale: 90%
 
+
 .. _updating_plugin_schem_editor:
 
-Updating the 3Di Schematisation Editor
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-To **update** to a newer version of the Schematisation Editor:
+Updating the Plugins
+^^^^^^^^^^^^^^^^^^^^^
 
-    #) Make sure that in Plugins > Manage and Install Plugins > Settings, the '*Show also experimental plugins*' box is checked
+.. note:: 
+   * Reinstall plugins every year in March.
+   * Update plugins after each release
+   * Always update all plugins.
+   * If you use the **3Di Schematisation Editor**, make sure you Show Experimental Plugins
 
-    #) Go to Installed plugins, click on 3Di Schematisation Editor and then '*Upgrade plugin*'
-
-
+You can Show Experimental Plugins by clicking: 'Plugins' in the menubar > 'Manage and Install Plugins..' > 'Settings' > check the box 'Show also experimental plugins'. 
 
 
 Advanced: separate installation of QGIS and appropriate plugins

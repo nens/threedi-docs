@@ -74,7 +74,7 @@ A water system consists often of small channels, ditches and pipes. These are di
 In the sections below, these options are further discussed. In this figure, three channels are drawn within a 2D domain. It shows a connected channel (orange), a double connected channel (purple) and an embedded channel (green). The squares indicate the computational points of the water level and the circles the locations of the velocity points. Their connections with the 2D domain are indicated with curved, dashed lines.
 
 
-In a 1D network all these types of 1D elements can be used together. The sections :ref:`sewerage`, :ref:`structures` and :ref:`channels` describe how these elements can be defined in a schematisation.
+In a 1D network all these types of :ref:`1d_objects` can be used together. The sections :ref:`sewerage` and :ref:`structures` describe how these elements can be defined in a schematisation.
 
 Isolated 1D network elements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^

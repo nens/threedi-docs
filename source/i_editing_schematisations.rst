@@ -1,405 +1,42 @@
-.. _view_and_edit_model:
-    
-View and edit a 3Di model schematisation
-=========================================
+.. _edit_schematisation:
 
-After loading your schematisation, there are several ways to inspect your model. We have added the following features to assist you in viewing and editing the schematisation:
+Editing your schematisation
+============================
 
-- Multiple styles per layer
-- Drop down menus
-- Immediate validation
-- Automated field fill
-- Multi-line fields for time series 
+The following edits are possible:
 
+* :ref:`edit_feature_attributes`
+* :ref:`edit_feature_geometries`
+* :ref:`creating_new_feature`
+* :ref:`deleting_features`
+* :ref:`pasting_features_external_data`
 
-.. _multiplestyles:
 
-Multiple styles per layer
-^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+The following features have been added to assist you in editing your schematisation:
 
-The multiple styles per layer can help you when analyzing your model. The different styles depict aspects of the layer you might be interested in, without cluttering your schematisation with too much information at once. 
 
-To switch between stylings: 1) Right click the layer you are interested in. 2) Hold your mouse over styles and the multiple styles will be shown. 3) Click on the style you want to use. The style with the dot next to it is the active style. The figure below shows an example for selecting a style. 
+* **Drop down menus**: To assist you in selecting the proper values, we have added drop down menus for multiple value attributes in tables. This could help for example in selecting a shape for a cross section definition. 
 
-.. figure:: image/d_qgisplugin_multiple_stylings_drop_down_menu.png
-    :alt: Selecting the drop down menu for multiple styles
-	
-Some styles add a label to the object. Keep in mind when using these stylings that the labels only become visible when a certain zoom level is applied. 
+.. CHECK: Ik zou dit kopje weghalen. Spreekt voor zichzelf als je de interface gebruikt.
 
-The default style depicts the locations of the objects in the layer. The other stylings are explained briefly below:
 
+* **Highlighting obligatory fields**: Fields that are mandatory to fill with be highlighted in orange when you add a new feature.
 
-**1D and 2D Boundary conditions:**
+.. CHECK: Dit is niet meer zo! (de oude tekst) de velden zijn nog wel oranje. Maar heb een cross section location toegevoegd met bijna geen info en daarna met 'Save to Spatialite' opgeslagen en toen klapte hij daar niet op.
 
-=================  =====================================================================================
-Style              Description  
-=================  =====================================================================================
-Timeseries label   The ‘timeseries label’ style adds a label to the default style, depicting the boundary
 
-                   type, and the smallest (min:) and largest (max:) value in the time series.
-=================  =====================================================================================
+* **Multi-line fields for time series**: Multi-line fields are designed for editing time series. In the example of the Figure, the time series of a discharge boundary condition is edited.
 
+    .. figure:: image/d_qgisplugin_vm_timeseries.png
+        :scale: 75%
+        :alt: Timeseries example
 
 
-**1D and 2D Lateral:**
-
-=================  =====================================================================================
-Style              Description  
-=================  =====================================================================================
-Timeseries label   The ‘timeseries label’ style adds a label to the default style, depicting the smallest
-
-                   (min:) and largest (max:) value in the time series.
-=================  =====================================================================================
-
-When looking at these timeseries keep in mind that the values get rounded off to 2 decimal places, which can make it seem like the values are zero (0.00) when in fact they were not.
-
-**Connection Nodes:**
-
-===================  ===================================================================================
-Style                Description  
-===================  ===================================================================================
-Id                   The ‘id’ style adds a label to the default style, depicting the id of the connection
-
-                     node. This can be useful when connecting other elements to existing connection 
-
-                     nodes.
-Initial water level  The ‘initial water level’ style is a categorised styling that represents the connection
-
-                     nodes without an initial water level in the default style and the connection nodes
-
-                     with an initial water level as blue outlined dots with labels that depict the initial 
-
-                     water levels (in m MSL).
-Storage area         The ‘storage area’ style depict the storage area of the connection nodes as a ratio 
-
-                     style with a label. The extent of the schematisation corresponds to the size of the 
-
-                     storage area of the connection node. The label depicts the storage area. 
-===================  ===================================================================================
-
- 
-**Manholes:**
-
-===================  ===================================================================================
-Style                Description  
-===================  ===================================================================================
-Default              The ‘default’ style is a categorised styling depicting the locations and indicators of
-
-                     the manholes. The different manhole indicators have different zoom levels in order
-
-                     to avoid clutter. When zooming into a certain area the local manholes will appear.
-Levels               The ‘levels’ style adds a label to the default style, depicting the surface level (s:),
-
-                     the drain level (d:) and the bottom level (b:).
-Calculation type     The `’calculation type’ <calculation_types>` style is a categorised styling that depicts the way 3Di calculated the interaction between the manhole and the 2D computational domain.
-
-                     calculated the interaction between a manhole and the 2D computation domain.
-Code                 The ‘code’ style adds a label to the default style, depicting the code of the manhole.
-===================  =================================================================================== 
-
-
-**Cross section location (view):**
-
-===================  ===================================================================================
-Style                Description  
-===================  ===================================================================================
-Levels               The ‘levels’ style adds a label to the default style, depicting the bank level (bank:),
-
-                     the reference level (ref:) and the difference between the two (diff:).
-Cross section        The ‘cross-section’ style adds a label depicting the shape, the maximum width (w:) and  
-
-                     the maximum height (h:) of the cross-section definition. The width (in m) is the 
-
-                     diameter in the case of a circle and the max width in the case of a tabulated profile.
-===================  =================================================================================== 
-
-
-**Pumpstation view:**
-
-===================  ===================================================================================
-Style                Description  
-===================  ===================================================================================
-Default              The ‘default’ style depicts the locations of the pumpstation view and the drawing direction
-
-                     of this view with arrows pointing toward the end node. 
-Capacity             The icon size corresponds with the pump capacity. The label depicts the capacity of the
-
-                     pumpstation (in L/s).
-Levels               The ‘levels’ style adds a label to the default style, depicting the upper stop level (up:),  
-
-                     the start level (st:) and the lower stop level (lo:).
-===================  =================================================================================== 
-
-
-**Pumpstation point view:**
-
-===================  ===================================================================================
-Style                Description  
-===================  ===================================================================================
-Capacity             The extent of the schematisation corresponds to the capacity of the pump. The label
-
-                     depicts the capacity of the pumpstation (in L/s).
-Levels               The ‘levels’ style adds a label to the default style, depicting the upper stop level (up:),  
-
-                     the start level (st:) and the lower stop level (lo:).
-===================  =================================================================================== 
-
-**Channel:**
-
-===========================  ============================================================================
-Style                        Description  
-===========================  ============================================================================
-Calculation type             The `’calculation type’ <calculation_types>` style is a categorized styling that depicts the way    
-
-                             3Di calculated  the interaction between a channel and the 2D  
-
-                             computation domain.
-Drawing direction            The ‘drawing direction’ styling depicts the drawing direction of the 
-
-                             channel, with the arrows pointing toward the end connection node. Flow    
-
-                             in the drawing direction has  positive values, flow in the opposite  
-
-                             direction has negative values.
-Code                         The ‘code’ style adds a label to the default style, depicting the code of  
-
-                             the channel.   
-Calculation point distance   The ‘calculation point distance’ styling depicts the approximate location   
-
-                             of the calculation points. These calculation points are where the 
-
-                             interaction with the 2D domain can take place. 
-===========================  ============================================================================
-
-**Weir:**
-
-===================  ===================================================================================
-Style                Description  
-===================  ===================================================================================
-Default              The 'default' style depicts the locations of the weirs. When a weir is closed in 
-
-                     one direction a perpendicular dash and arrow are added to the line.
-Levels               The ‘levels’ style adds a label to the default style, depicting the crest level   
-
-                     of a weir (in m MSL).
-Drawing direction    The ‘drawing direction’ styling depicts the drawing direction of the weir,  
-
-                     with the arrows  pointing toward the end connection node. Flow in the drawing   
-
-                     direction has positive values, flow in the opposite direction has negative values.
-Width                The line width corresponds to the (minimum) width of the weir. The label shows  
-
-                     the shape and (minimum) width of the cross section in meters. 
-===================  =================================================================================== 
-
-**Culvert view:**
-
-===========================  ============================================================================
-Style                        Description  
-===========================  ============================================================================
-Levels and flow direction    The ‘levels and flow direction’ style adds arrows and a label to the default
-
-                             style. The  arrows point in the expected flow direction (high to low 
-
-                             invert level) and the label shows the invert level for the start point (s:)  
- 
-                             and end point (e:) of the culvert.
-Calculation type             The `’calculation type’ <calculation_types>` style is a categorized styling that depicts the way  
-
-                             3Di calculated the interaction between a culvert and the 2D computation 
-
-                             domain.
-Drawing direction            The ‘drawing direction’ styling depicts the drawing direction of the culvert, 
-
-                             with the arrows pointing toward the end connection node. Flow in the  
-
-                             drawing direction has positive values, flow in the opposite direction 
-
-                             has negative values.
-Diameter                     The line width is based on the average of the (max.) width and (max.) height  
-
-                             of the cross section. The label shows the cross section shape and the 
-
-                             (max.) width and (max.) height (in mm). 
-===========================  ============================================================================
-
-**Orifice:**
-
-===================  ===================================================================================
-Style                Description  
-===================  ===================================================================================
-Default              The 'default' style depicts the locations of the orifices. When a orifice is closed  
-
-                     in one direction a perpendicular dash and arrow are added to the line.
-Levels               The ‘levels’ style adds a label to the default style, depicting the crest level of an  
-
-                     orifice (in m MSL).
-Drawing direction    The ‘drawing direction’ styling depicts the drawing direction of the orifice, with  
-
-                     the arrows pointing toward the end connection node. Flow in the drawing  
-
-                     direction has positive values, flow in the opposite direction has negative values.
-Diameter             The line width is based on the average of the (max.) width and (max.) height of  
-
-                     the cross section. The label shows the cross section shape and the (max.) width 
-
-                     and (max.) height (in mm). 
-===================  =================================================================================== 
-
-
-**Pipe:**
-
-===========================  ============================================================================
-Style                        Description  
-===========================  ============================================================================
-Default                      The ‘default’ style is a categorized styling depicting the locations and  
-
-                             sewerage types of the pipes.
-Levels and flow direction    The ‘levels and flow direction’ style adds arrows and a label to the default 
-
-                             style. The arrows point in the expected flow direction (high to low   
-
-                             invert level) and the label shows the invert level for the start point (s:) 
-
-                             and end point (e:)  of the pipe.
-Calculation type             The `’calculation type’ <calculation_types>` style is a categorized styling that depicts the way 3Di   
-
-                             calculated the interaction between a pipe and the 2D computation domain.
-Drawing direction            The ‘drawing direction’ styling depicts the drawing direction of the pipe,
-
-                             with the arrows pointing toward the end connection node. Flow in the  
-
-                             drawing direction has positive values, flow in the opposite direction 
-
-                             has negative values.
-Diameter                     The line width is based on the average of the (max.) width and (max.) height   
-
-                             of the cross section. The label shows the cross section shape and  
-
-                             the (max.) width and (max.) height (in mm). 
-Code                         The ‘code’ style adds a label to the default style, depicting the code of
-
-                             the pipe. This code is bases on the two manhole codes which enclose 
-
-                             the pipe.
-===========================  ============================================================================
-
-**Obstacle:**
-
-===================  ===================================================================================
-Style                Description  
-===================  ===================================================================================
-Levels               The ‘levels’ style adds a label to the default style, depicting the crest level of an obstacle. 
-
-                     (in m MSL).
-===================  =================================================================================== 
-
-**Levee:**
-
-===================  ===================================================================================
-Style                Description  
-===================  ===================================================================================
-Levels               The ‘levels’ style adds a label to the default style, depicting the crest level of an Levee. 
-
-                     (in m MSL).
-===================  =================================================================================== 
-
-**Grid refinement:**
-
-===================  ===================================================================================
-Style                Description  
-===================  ===================================================================================
-Default              The ‘default’ style depicts the locations of the grid refinements. The dashed   
-
-                     pattern is based on the refinement level. The number of dots represents the 
-
-                     refinement level.
-Refinement levels    The ‘refinement level’ style adds a label to the default style, depicting 
-
-                     the refinement level.
-===================  =================================================================================== 
-
-
-**Grid refinement area:**
-
-===================  ===================================================================================
-Style                Description  
-===================  ===================================================================================
-Default              The ‘default’ style depicts the locations of the grid refinement areas. The hash  
-
-                     spacing and the dashed pattern of outline are based on the refinement level. The  
-
-                     hash spacing represents the size of the calculation cells based on the refinement 
-
-                     level and the number of dots in the polygon outline represents the refinement 
-
-                     level. 
-Refinement levels    The ‘refinement level’ style adds a label to the default style, depicting 
-
-                     the refinement level.
-===================  =================================================================================== 
-
-**Impervious surface:**
-
-===========================  ============================================================================
-Style                        Description  
-===========================  ============================================================================
-Surface inclination          The ‘surface inclination’ style is a categorized styling depicting the  
-
-                             locations and the surface inclinations of the impervious surfaces.  
-Area and dry weather flow    The ‘area dry weather flow’ style depicts the amount of dry weather flow 
-
-                             in L/d for each impervious surface, calculated 
-
-                             as dry_weather_flow * nr_inhabitants. 
-===========================  ============================================================================
-
-**Surface:**
-
-===========================  ============================================================================
-Style                        Description  
-===========================  ============================================================================
-Area and dry weather flow    The ‘area dry weather flow’ style depicts the amount of dry weather flow  
-
-                             in L/d for each surface, calculated as dry_weather_flow * nr_inhabitants.
-===========================  ============================================================================
-
-
-Drop down menus
-^^^^^^^^^^^^^^^
-
-We have added drop down menus for multiple value attributes in tables. This to assist you in selecting the proper values. The figure below shows an example for selecting a shape for a cross section definition. 
-
-.. figure:: image/d_qgisplugin_vm_dropdown.png
-    :width: 25pc
-    :height: 25pc
-    :alt: Drop down menu example
-
-
-Immediate validation
-^^^^^^^^^^^^^^^^^^^^^
-
-For obligatory fields, we have added non-binding constraints. In fields that are correctly, green checks will appear next to the fields after there are filled. An orange cross will appear in case, the field is mandatory, but not filled. 
-
-.. figure:: image/d_qgisplugin_vm_validation.png
-    :width: 25pc
-    :height: 25pc
-    :alt: Validation example
-
-
-Multi-line fields for time series
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Multi-line fields are designed for editing time series. In the example of the Figure, the time serie of a discharge boundary condition is edited.
-
-.. figure:: image/d_qgisplugin_vm_timeseries.png
-    :width: 50pc
-    :height: 25pc
-    :alt: Timeseries example
+.. _automated_fill:
 
 Automated field fill 
-^^^^^^^^^^^^^^^^^^^^
+----------------------
 
 Some fields are automatically filled to assist in making your schematisation. Here is an overview of the fields that are filled automatically:
 
@@ -410,6 +47,8 @@ Some fields are automatically filled to assist in making your schematisation. He
 On top of that, some default values for some of the mandatory fields are set. This helps you build models faster. The following default values will be set, in case they are left blank. The listed values are defaults, so please change them if required for your specific application.
 
 You need to set your QGIS locale to 'English UnitedStates' in order for this functionality to work properly.
+
+.. CHECK: Klopt deze lijst nog? alles heet nog v2.
 
 **v2_global_settings:**
 
@@ -676,25 +315,13 @@ zoom_category					0
 ============================= =========================
 
 
-**Notables:**
-The 3Di database has some fields that are not in use. To clean the view, we have hidden them in the form view. They are still available in the database. Moreover, we have made some field names easier to read: for example, prefixes are excluded (e.g. \pipe_).
-
-
-.. _import_sewerage_data:
-
-Importers for Dutch sewerage data formats
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-3Di has importers for two sewerage data formats: SUF-Hyd and GWSW-HydX. Instructions can be found here: 
-
-* :ref:`import_sufhyd`
-* :ref:`import_gwsw_hydx`
-
 
 .. _addleveebreaches:
 
 Add levee breaches
-^^^^^^^^^^^^^^^^^^
+--------------------
+
+.. VRAAG: is dit een logische plek hiervoor?
 
 Levee breaches can be created in 3Di-models that contain a connected *v2_channel* 
 (*calculation_type* = 102) and a *v2_levee*-structure. For more information on the 
@@ -718,7 +345,7 @@ calculation points.
 
 To add levee breaches to your model using the 3Di toolbox, please follow the steps below:
 
-1. Set up a connection with the SQLite or PostgreSQL database of your model (see: :ref:`rasterchecker`).
+1. Set up a connection with the SQLite or PostgreSQL database of your model.
 2. Click on the 3Di toolbox and select *Step 3 - Modify schematisation*.
 3. Choose *Predict calc points* and select your SQLite or PostgreSQL model from the list. Two virtual layers will then be added called *v2_connected_pnt* and *v2_calculation_point*.
 

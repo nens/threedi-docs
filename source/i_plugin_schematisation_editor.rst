@@ -1,7 +1,7 @@
 .. _schematisation_editor:
 
-3Di Schematisation Editor
-==========================
+3Di Schematisation Editor plugin
+=================================
 
 The 3Di Schematisation Editor is a powerful tool that simplifies the process of building and editing schematisations. It automates certain tasks of the regular workflow, which enables the user to build schematisations faster while reducing the chance of making errors. 
 
@@ -34,7 +34,8 @@ Currently, the Schematisation Editor is released as 'experimental' plugin. In a 
 
 Overview of the Schematisation editor
 --------------------------------------
-The plugins option menu is 
+
+.. Todo: nog afmaken!
 
 
 Loading & Saving
@@ -61,10 +62,10 @@ Schematisations can also be opened directly from the geopackage, using the **Ope
 The **Remove 3Di Model** button removes the schematisation layers from your project. 
 
 
-Creating new features (digitizing)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-General
---------
+.. _creating_new_feature:
+
+Creating new features 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To add a feature:
 
@@ -88,7 +89,7 @@ Please check out the :ref:`3di_feature_notes` below for information to correctly
 .. _3di_feature_notes:
 
 Notes on the 3Di Features
--------------------------
+""""""""""""""""""""""""""
 
 * **Channel** - A channel can exist of 2 or more vertices. The *connection nodes* and the *Cross Section Location* are added automatically. Do not forget to fill in the required Feature Attributes for the Cross Section Location.
 
@@ -112,6 +113,7 @@ Notes on the 3Di Features
     The pipes that are generated will use the manhole's bottom levels as invert levels and the *connection nodes* and *manholes* will be added automatically.
 
 
+.. _pasting_features_external_data:
 
 Pasting features from external data sources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -123,14 +125,21 @@ Check out the `QGIS Documentation <https://docs.qgis.org/3.22/en/docs/user_manua
     Please note that when pasting features from external sources, the above mentioned perks of the Schematisation Editor will not be applied to the features. 
 
 
+.. _edit_feature_attributes:
 
 Editing feature attributes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 There are two options to edit feature attributes:
 
-    #) Via the attribute table.
+    #) Via the **attribute table**: Right click the layer in the Layers panel > Press 'Open Attribute Table' > Press the 'Toggle Editing' in the top left corner > Make any necessary edits in the table > Click 'Save Edits' in the top left corner.
+
 
     #) Select the desired feature layer, enable the 'Identify Feature' option (|idendifyFeature|), and select a feature on the map. This will open a window with not only all feature attributes of the feature, but also the feature attributes of all related features. These can be found in the other tabs within the window.
+
+.. TODO: nu onduidelijk verhaal, verbeteren.
+
+
+.. _edit_feature_geometries:
 
 Editing feature geometries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -142,7 +151,7 @@ On top of the standard QGIS functionalty, the Schematisation Editor provides ext
     - Changing the start/end vertex of a line feature (e.g. pipe, channel, culvert, orifice, weir, pump (impervious) surface map) allows you to connect the line to another connection node.
 
 
-
+.. _deleting_features:
 
 Deleting features
 ^^^^^^^^^^^^^^^^^

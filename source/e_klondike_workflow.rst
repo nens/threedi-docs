@@ -78,7 +78,7 @@ This can be done by:
     Now that your sqlite has been imported to your modeller interface, your schematisation can be extended. This, however, falls outside the scope of this tutorial.
 
 
-.. _uploading_schematisation:
+.. _uploading_schematisation_management_screens:
 
 Uploading the Schematisation
 ----------------------------

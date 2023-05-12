@@ -1,3 +1,5 @@
+.. _models_simulation_plugin:
+
 3Di Models and Simulations Plugin
 ==================================
 

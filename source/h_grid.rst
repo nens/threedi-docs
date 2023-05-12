@@ -1,7 +1,7 @@
 .. _grid:
 
 Computational grid
------------
+----------------------
 
 To allow flow to be computed numerically, space and time need to be discretised. For time are time-steps defined, and for space is a grid defined. In the sections below we elaborate on the grid specified for computations in the 1D and in the 2D surface water and groundwater domains.
 
@@ -117,9 +117,10 @@ To compute the flow in a 1D network a grid is to be defined as well. Consistent 
 Input
 ++++++
 
-1D networks can consist of open channels, closed pipes and various structures. More about the various options can be found in the Sections :ref:`structures` and :ref:`channels`. The resolution of the 1D domain can be defined per 1D element.
+1D networks can consist of open channels, closed pipes and various structures. More about the various options can be found in the Sections :ref:`structures` and :ref:`1d_objects`. The resolution of the 1D domain can be defined per 1D element.
 
 .. _techref_calculation_point_distance:
+
 Calculation point distance
 +++++++++++++++++++++++++++
 

@@ -13,6 +13,7 @@ Boundary condition for 1D connection nodes. Boundaries can only be placed on nod
 
 Lateral for 1D connection nodes
 
+
 Channel
 -------
 

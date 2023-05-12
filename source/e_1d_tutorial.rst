@@ -90,7 +90,7 @@ Let us now fill in the settings of each tab in the global settings table.
 
     "grid_space", "2", "In a 1D model the grid space is not used, but in order to upload the model this value needs to be filled in."
     "kmax", "1", "In a 1D model the grid space is not used, but in order to upload the model this value needs to be filled in."
-    "table_step_size", "0.01", "See :ref:`computational_grid`"
+    "table_step_size", "0.01", "See :ref:`grid`"
 
 .. csv-table:: Terrain information
     :header: "Setting", "Value for this tutorial", "Comments"
@@ -468,10 +468,9 @@ J. **Select** the v2_impervious_surface_map attribute table. [1]
 Model validation
 ----------------
 
-A short description of the model validation is given here.
-A comprehensive guide with visual support is provided in Tutorial 1 (:ref:`post_processing`) and for a general guide see :ref:`checking_model`.
+A short description of the model validation is given here. For a general guide see :ref:`checking_model`.
 
-.. TODO: post_processing is een kopje in de oude tutorial (e_workflow_tutorial). Is dit niet meer accuraat? of moet dit aan de nieuwe tutorial 1 nog worden toegevoegd. geen raster checker meer. Nieuwe revisie uploaden, dan gebeurt checken schematisatie al. dan verwijzen naar kopje "uploading schematisation", onder de Modeller Interface. 
+
 
 Verify the schematisation using the schematisation checker
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -481,6 +480,8 @@ Before sending the model to the web portal we want to check the schematization. 
 A.	Select the **commands for working with 3Di models** button. On the right of your screen, a tab "3Di" will open. [1]
 B.	Expand the "Step 1 – Check data" line and click on the **raster checker**. [2]
 C.	In the pop-up screen, select ‘spatialite: 1D_gemengd' and click **OK**.
+
+.. TODO: raster checker hier aanpassen! deze tutorail is verouderd. geen raster checker meer. Nieuwe revisie uploaden, dan gebeurt checken schematisatie al. dan verwijzen naar kopje "uploading schematisation", onder de Modeller Interface. 
 
 The following screen will appear:
 

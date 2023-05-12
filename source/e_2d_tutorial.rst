@@ -23,6 +23,8 @@ Although the schematisation represents a real-world area, some processes will be
 * Validate your model schematization with the schematization checker.
 * Generate a 3Di Model and play with it on the 3Di Livesite. 
 
+.. TODO: Raster checker aanpassen, die bestaat niet meer, nu schematization checker
+
 **Before you start, please make sure to**:
 
 * Install the 3Di Modeller Interface. Please see :ref:`3di_instruments_and_downloads` for instructions. 
@@ -131,8 +133,8 @@ The settings that we will use for the 2D flow simulations in the Laugharne and P
     :header: "Setting", "Value for this tutorial", "Comments"
 
     "grid_space", "64", "Minimum grid cell size in metres"
-    "kmax", "1", "See :ref:`computational_grid`"
-    "table_step_size", "0.10", "See :ref:`computational_grid`"
+    "kmax", "1", "See :ref:`grid`"
+    "table_step_size", "0.10", "See :ref:`grid`"
 
 .. csv-table:: Terrain information
     :header: "Setting", "Value for this tutorial", "Comments"

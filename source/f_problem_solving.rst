@@ -7,6 +7,9 @@ This section will help you solve some problems or errors that may occur when usi
 Some issues are due to the software, these will be summarised in the section Known Issues, including a temporary solution.
 Errors, due to input data or other user settings are usually covered by the schematisation and raster checker. In rare cases however they might not catch a potential issue. On this page we cover the FAQ & Known Issues with 3Di.
 
+.. TODO: Raster checker aanpassen, die bestaat niet meer, nu schematization checker
+
+
 - :ref:`faq`
 - :ref:`known_issues`
 
@@ -109,10 +112,10 @@ This might also be the case for other projections.
 
 - In rare cases the waterdepth interpolation in the livesite may show unexpected behaviour; it shows triangular patterns. These deviations are only visual, so the results are still correctly. 
 
-- The following checks don’t work in case there is no index in the spatialite:
+- The following checks don't work in case there is no index in the spatialite:
 
-   * It doesn’t check for stand alone connection nodes
-   * It doesn’t check for connection nodes that are too close or on top of each other
+   * It doesn't check for stand alone connection nodes
+   * It doesn't check for connection nodes that are too close or on top of each other
 
 
 
