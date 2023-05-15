@@ -50,7 +50,7 @@ Subgrid method
 
 Flow is strongly affected by the bathymetry. Therefore, to simulate flow accurately, information of the bathymetry is crucial. To illustrate the importance of a well described bathymetry, consider the three flows in a flume shown shown in the Figure below. While the bathymetry differs only slightly, the flow behaves  completely different.
 
-Nowadays, detailed bathymetry information becomes more and more available.  However, it is difficult to take detailed grid information into account, without a strong increase in computational cost. In search of an optimal balance between computational cost and accuracy, the so-called subgrid method (Casulli 2009, Casulli&Stelling 2011, Stelling 2012, Volp & Stelling 2013) is developed and implemented in 3Di.
+Nowadays, detailed bathymetry information becomes more and more available.  However, it is difficult to take detailed grid information into account, without a strong increase in computational cost. In search of an optimal balance between computational cost and accuracy, the so-called subgrid method (:cite:t:`Casulli2009`, :cite:t:`Casulli2011`, :cite:t:`Stelling2015`, :cite:t:`Volp2013`) is developed and implemented in 3Di.
 
 .. figure:: image/b1_3.png
    :figwidth: 600 px
