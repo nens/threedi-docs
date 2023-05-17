@@ -30,7 +30,15 @@ Only few formulations describe the vegetation drag under both emerged and submer
 
 The formulation assumes that the interaction between water and plants works one way only, i.e. the vegetation affects the flow, but the flow does not bend or otherwise affect the vegetation. This helps to limit the number of required input parameters; these types of effects may be accounted for in the drag coefficient.
 
-Vegetation often has high spatial variability and it is important to capture this variability at a high level of detail, for various reasons. First of all, flow finds the route of least resistance. The patchiness of vegetation allows the water to find specific routes, allowing to fill up or drain certain areas much quicker than would be expected by uniform vegetation fields. Moreover, the variability in vegetation combined with the high variability of bottom elevation should be taken into account as well. Drag is determined by the vegetation height relative to the water level, not by the absolute vegetation height. This is illustrated in the figure below.
+Vegetation often has high spatial variability and it is important to capture this variability at a high level of detail, for various reasons. First of all, flow finds the route of least resistance. The patchiness of vegetation allows the water to find specific routes, allowing to fill up or drain certain areas much quicker than would be expected by uniform vegetation fields.
+
+Secondly, vegetation drag is larger when the representative vertical plane is larger (i.e., vegetation is present in a larger part of the vertical profile). This is illustrated in the figure below; while the water level can be assumed to be constant within the cell, the bathymetry and the plant height vary on a much smaller scale. Some pixels have high plants, but are dry and so do not contribute to the drag; other pixels have low bottom levels and low plants, and also have a small contribution to the drag. Pixels with a large water depth and high plants (covering the entire water depth) contribute a lot to the total drag in the computational cell. To accurately calculate this vertical plane, the bottom elevation, plant characteristics and water level all need to be taken into account at a high resolution.
+
+.. figure:: image/b_rekencel_veggie.png
+    :scale: 80%
+
+    A 3Di computational cell, including the subgrid bathymetry and the vegetation patches.
+
 
 .. todo:: @Nici ik begrijp de laatste paar zinnen niet
 
@@ -49,13 +57,8 @@ Baptist 2005 describes the effect of the vegetated area on the flow as a shear s
 | :math:`C_{DV}` The vegetation drag coefficient 
 
 
-.. figure:: image/b_rekencel_veggie.png
-    :scale: 80%
-
-    A 3Di computational cell, including the subgrid bathymetry and the vegetation patches.
-
 The final four parameters of the equation are all input parameters that are used for 2D flow with vegetation. These are described in detail in :ref:`vegetation_drag`. They can be defined as raster values and as global values. The parameters that describe the vegetation characteristics are defined at the subgrid resolution. The high resolution information is used in the computation of the drag in several ways. In the first place, to determine the correct vertical plane that enforces the drag, the vegetation height is combined with high resolution bathymetry information. This ensures that only the vegetation in the wet domain contributes to the force balance and that the correct vertical plane is defined. Moreover, knowing that the bathymetry and the drag significantly changes within a momentum domain, means that the velocity within such a domain varies as well. Based on this, an estimate is made of the high resolution velocity variation (similar to how this is implemented for bottom friction, see Volp et al. 2013. This formulation uses the vegetation characteristics, the bottom roughness and the bathymetry variations. This results in very accurate results, even when using coarse computational cells.
 
-This formulation was deliberately chosen to be generally applicable to a large range of plant species, using a limited number of input parameters. It can be used for woody species (shrubs and trees) as well as herbaceous species (grasses, grains, reeds). The equation is applicable to both submerged and emergent vegetation, and transitions between these situations during the simulation. It does not apply not to free-floating plants.
+This formulation was deliberately chosen to be generally applicable to a large range of plant species, using a limited number of input parameters. It can be used for aquatic species, herbaceous species (grasses, grains, reeds), and woody species (shrubs and trees). The equation is applicable to both submerged and emergent vegetation, and transitions between these situations during the simulation. It does not apply not to free-floating plants.
 
 Further details of the way 3Di calculates flow through vegetation will be described in a paper to be sumbitted to the Journal of Hydraulic Engineering.

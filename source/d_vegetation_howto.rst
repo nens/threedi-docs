@@ -15,9 +15,6 @@ Some model objectives for which modelling vegetation can be important include:
 
 * Flood risk assessments in areas that are (partially) forested
 
-.. todo::
-    @Nici maakt het nog uit wat voor vegetatie en wat voor stroming? Maakt het bijvoorbeeld uit of het planten zijn die meegetrokken worden door de stroming (grasachtig) vs. houtachtige vegetatie? Is het bijvoorbeeld ook toepasbaar (op een zinnige manier) op hele ondiepe stromingen door een bos?
-
 
 Choosing the right method for schematising vegetation
 -----------------------------------------------------
@@ -44,6 +41,28 @@ The correct values for the vegetation parameters depend on the plant species, it
     Hebben we een voorbeeld van een "ecological map" en hoe daar de benodigde parameters uit af te leiden zijn?
 
 Vegetation drag can only be used with friction type 'Chezy', because the vegetation formulation (initially introduced by Baptist 2005) uses Chezy.
+
+Example: Biesbosch
+------------------
+To illustrate how vegetation drag parameters can be chosen for your use case, we will take the Biesbosch as an example. The Biesbosch is an estuary in the west of the Netherlands, near Rotterdam. A vegetation map is available from the Dutch national water management authority Rijkswaterstaat, see their `viewer < https://maps.rijkswaterstaat.nl/geoweb55/index.html?viewer=Vegetatielegger>`. This data can be added to your 3Di Modeller Interface project as an ArcGIS REST service, using this link: https://geo.rijkswaterstaat.nl/arcgis/rest/services/GDR/rws_vegetatielegger/FeatureServer .
+
+.. figure:: image/a_vegetation_data_example_biesbosch.png
+    :scale: 80%
+
+    Vegation map of the Biesbosch (Rijkswaterstaat vegetatielegger viewer).
+
+The vegetation dataset has nine classes. An explanation of these classes is given in the `Beeldenboek vegetatiebeheer grote rivieren <https://open.rws.nl/overige-publicaties/2020/beeldenboek-vegetatiebeheer-grote/>`. Based in this information, we can make an educated guess for the vegetation parameters for these classes, summarized in this table:
+
+- Water
+- Verhard oppervlak (impervious area)
+- Gras en akker (grass and agricultural fields)
+- Riet en ruigte (reeds and thickets)
+- Bos (forest)
+- Struweel (shrubs and bushes)
+- Mengklasse 90/10 (mixed class 90/10)
+- Mengklasse 70/30 (mixed class 70/30)
+- Mengklasse 50/50 (mixed class 50/50)
+
 
 Calibrating flow through vegetation
 -----------------------------------
