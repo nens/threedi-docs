@@ -64,6 +64,10 @@ An explainer on schematisations and simulation templates can be found here* :ref
 *What matters is that the numbers notation is set to English. There is a bug in QGIS with scientific notations and Dutch number notations which can cause weird behaviour of the plugin. 
 Please set your QGIS or Modeller Interface to English (settings --> options --> locale --> en_GB).*
 
+- What happens when I use a (local) temporal raster (for example NRR) with a simulation? Are the timezones the same?
+
+*Simulation time is always in UTC. When you set the time for a (local) temporal raster, for example the NRR, you set the time in the live site or the Modeller Interface in your local time. This is turned to UTC within the live site/ Modeller Interface.*
+
 **General**
 
 - My model shows unstable behaviour, what can I do to avoid this? 

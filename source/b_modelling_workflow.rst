@@ -27,7 +27,8 @@ Checking the quality of a schematisation can only be done with toolboxes in the 
 Uploading and downloading schematisations
 ------------------------------------------
 Schematisations can be uploaded and downloaded in the Modeller Interface.
-Schematisations can also be downloaded from??
+
+.. Schematisations can also be downloaded from??
 
 
 Running a simulation
