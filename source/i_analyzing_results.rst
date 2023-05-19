@@ -191,7 +191,7 @@ Settings to use the water balance tool
 
 To be able to use the water balance tool, aggregated results are required for a range of variables. This to ensure, that the shown water balance is consistent and complete. 
     
-The aggregation settings can be found and configured in the spatialite-table *v2_aggregation_settings*. For more information on the aggregation settings, see :ref:`aggregationnetcdf`. The default settings for the water balance tool are listed below.
+The aggregation settings can be found and configured in the spatialite-table *Aggregation settings*. For more information on the aggregation settings, see :ref:`aggregationnetcdf`. The default settings for the water balance tool are listed below.
 
 .. csv-table:: Aggregation settings for water balance tool
    :file: other/water_balance_aggregation_settings.csv

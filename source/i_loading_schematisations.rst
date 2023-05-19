@@ -3,7 +3,7 @@ Loading a schematisation
 
 You can load a schematisation with the the :ref:`schematisation_editor` in the Toolbar:
 
-#. Open the Modeller Interface
+#. Open the 3Di Modeller Interface
 #. Click on the 'Open 3Di Geopackage' or the 'Load from Spatialite' icon 
 #. Select the schematisation you want to load from you local files
 #. Click on 'Open'

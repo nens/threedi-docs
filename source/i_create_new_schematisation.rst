@@ -3,7 +3,7 @@
 Create a new schematisation
 ============================
 
-#. Open the Modeller Interface
+#. Open the 3Di Modeller Interface
 #. Activate the :doc:`i_plugin_models_simulation` (|modelsSimulations|). You should now see the Models and Simulations plugin panel.
 #. Choose your local working directory.
 #. Click on the 'New' button (|newschematisation|).
