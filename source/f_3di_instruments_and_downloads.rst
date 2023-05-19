@@ -3,6 +3,8 @@
 Install and update manual
 =========================
 
+.. TODO: checken of dit nog allemaal up to date is
+
 .. note::
 
     Are you running into problems when downloading or updating the software? Please consult the 'problem solving' section and if the error and/or solution is not mentioned, please contact our support office (servicedesk@nelen-schuurmans.nl)
@@ -116,16 +118,6 @@ To install the **3Di-Toolbox** plugin follow the steps below:
 4) Fill in a name and copy the URL: https://plugins.3di.live/plugins.xml into the URL box. 
 5) Go to 'All' and choose '3Di toolbox' from the list
 6) Install the plugin.
-
-.. figure:: image/d_qgispluging_pluginmanager.png
-    :alt: QGIS Plugin Manager
-    
-.. figure:: image/d_qgispluging_pluginmanager_addlizard_repo.png
-    :alt: Add Lizard repo Plugin
-
-.. figure:: image/d_qgispluging_pluginmanager_install_toolbox.png
-    :alt: Install 3Di Toolbox
-
 
 To install the **3Di Models and Simulations** plugin follow the steps below: 
 

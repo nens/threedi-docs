@@ -18,12 +18,6 @@ Create a new schematisation
 Congratulations, you have your first commit!
 
 
-   .. figure:: image/d_newschematisation2.png
-      :alt: Choose Schematisation setttings - tab 2  
-      :scale: 70%
-
-      Example filled-in settings.
-
 
 .. toctree::
    :maxdepth: 1
