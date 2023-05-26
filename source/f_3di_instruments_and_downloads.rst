@@ -24,6 +24,8 @@ To be able to build, edit and run schematisations you need to install the Modell
 
 The newest Modeller Interface also includes the newest versions of the 3Di plugins. If you would like, you could also upgrade the 3Di plugins from within the Modeller Interface manually. Follow the instructions of this movie to do so: `How to upgrade 3Di plugins in the Modeller Interface <https://www.youtube.com/watch?v=9XeVuZo28jw>`_.
 
+.. click the .exe file in downloads, follow steps. Make sure all the available plugins are checked: Plugins in the menu bar > manage plugings > check everything starting with 3Di.
+
 
 
 The Modeller interface has 3 pre-installed plugins: :doc:`i_plugin_toolbox`, :doc:`i_plugin_models_simulation`, :doc:`i_plugin_schematisation_editor`.
@@ -46,7 +48,7 @@ The QGIS Password Manager stores this Personal API Key securely (encrypted).
 #) Click 'Obtain…' to obtain your :ref:`personal_api_key`. You will be redirected to the management page where you can `create a new Personal API Key <https://management.3di.live/personal_api_keys>`_. 
 #) Create a new Personal API Key by pressing the '+NEW ITEM' button in the upper right corner.
 #) Add a name for the new Personal API Key. Click on 'Submit' to the right.
-#) You now have your own Personal API Key. Copy it (|Copy_button|).
+#) You now have your own Personal API Key. Copy it.
 #) Return to the Modeller Interface.
 #) Click 'Set…' and paste your Personal API Key. Then press 'Save'.
 #) You are now logged in and your name should appear after User. You can now easily **log out** by clicking on the cross.
@@ -55,8 +57,6 @@ The QGIS Password Manager stores this Personal API Key securely (encrypted).
 You can now use all online functionalities of the 3Di Models & Simulations plugin. When logging in is required, the Personal API Key will be read from the QGIS Password manager and be used for logging in. 
 
 .. |modelsSimulations| image:: /image/e_modelsandsimulations.png
-    :scale: 90%
-.. |Copy_button| image:: /image/e_copy_button.png
     :scale: 90%
 
 

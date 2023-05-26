@@ -8,8 +8,8 @@ Overview of the Modeller Interface
 The main GUI consist of five components:
 
 1. **Menu Bar**: the 3di Plugins can be reached by using the Plugin menu.
-2. **Toolbar**: the :ref:`models_simulation_plugin`, the :ref:`schematisation_editor` and the :ref:`3di_toolbox_plugin` are already added to the toolbar.
-3. **Panels**: the :ref:`3di_toolbox_plugin` and the :ref:`schematisation_editor` can be reaches via the Processing Toolbox. The :ref:`models_simulation_plugin` can also be activated as a panel.
+2. **Toolbar**: the :ref:`3di_toolbox_plugin`, the :ref:`models_simulation_plugin` and the :ref:`schematisation_editor` are already added to the toolbar.
+3. **Panels**: the :ref:`3di_toolbox_plugin` and the :ref:`schematisation_editor` can be reached via the Processing Toolbox. The :ref:`models_simulation_plugin` can also be activated as a panel.
 4. **Map View**
 5. **Status Bar**
 
@@ -18,8 +18,6 @@ The main GUI consist of five components:
    :alt: 3Di Modeller Interface
 
    An overview of the Modeller Interface.
-
-.. TODO: dit plaatje nog aanpassen als ik voorbeeld model van Leendert heb! Dan ook even alle andere toolboxen uitzetten, zodat de dingen van 3di heel erg opvallen!
 
 .. _overview_plugins:
 

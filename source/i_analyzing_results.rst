@@ -1,3 +1,5 @@
+.. TODO: Update this page when the toolbox plugin is gone
+
 .. _view_analyze_mi:
 
 Viewing and analyzing results 
