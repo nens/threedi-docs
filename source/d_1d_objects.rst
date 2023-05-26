@@ -69,7 +69,7 @@ Attributes
      - decimal number
      - No
      - m above datum
-     - Initial water level for the 1D domain. For calculation nodes that are added along the length of a channel, pipe, or culvert, initial water levels are linearly interpolated between connection nodes.
+     - Initial water level for the 1D domain
    * - Code
      - text
      - No
@@ -79,8 +79,35 @@ Attributes
      - decimal number
      - No
      - m²
-     - Adds additional storage capacity to a 1D network. In sewerage models, this is usually combined with a manhole. If a manhole is present on the connection node, the storage area must be larger than zero. Note that the storage area defined in the manhole is used in the calculation, whereas the manhole's shape, width, and length are for administration only and do not influence the storage area used during simulation. Storage area can also be added to a connection node without the use of a manhole. Connection nodes that are not connected to channels (for instance when between two culverts) require a storage area larger than zero. Connection nodes with large storage areas (i.e. the square root of the storage area is much larger than the width of the incoming channel) lead to loss of momentum and advective force.
+     - Adds additional storage capacity to a 1D network
 
+Notes for modellers
+^^^^^^^^^^^^^^^^^^^
+
+Connection nodes and calculation nodes
+""""""""""""""""""""""""""""""""""""""
+
+Connection nodes are not the same as calculation nodes. When 3Di generates the computational grid from the schematisation, a calculation node is created for each connection nodes, but additional 1D calculation nodes may also be created in between. See the :ref:`grid` section for further details.
+
+
+Initial water level
+"""""""""""""""""""
+
+- For calculation nodes that are added along the length of a channel, pipe, or culvert, initial water levels are linearly interpolated between connection nodes. See the :ref:`grid` section for further details.
+
+- The intial water level is stored in the simulation template and is not part of the 3Di model itself. It can be overridden when starting a new simulation, without the need to create a new revision of the schematisation.
+
+Storage area
+""""""""""""
+- Storage area on connection nodes is additional to the storage that is defined by the dimensions of channels, culverts and pipes. See :ref:`techref_storage_in_1d_domain` for more details.
+
+- To calculate storage volume from the storage area, the height of the water column (water level minus bottom level) needs to be known. If a manhole is defined at the connection node, the manhole's bottom level is used. Otherwise, the lowest bottom (reference level or invert level) of the channels, culverts or pipes that connect to the connection node is used.
+
+- For connection nodes that are not connected to channels, a storage area larger than zero is recommended.
+
+- If a manhole is defined on the connection node, the storage area must be larger than zero. Note that the manhole dimensions (shape, width, and length) are for administrative purposes only and are not used to calculate the storage during the simulation.
+
+- Connection nodes with large storage (i.e. the square root of the storage area is much larger than the width of the incoming channel) lead to loss of flow velocity and advective force.
 
 .. _cross_section_location:
 Cross-section location

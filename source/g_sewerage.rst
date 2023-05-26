@@ -31,6 +31,7 @@ Basically, a sewer network is built of manholes and sewer pipes. Each manhole is
 
    Sewerage system schematization
 
+.. _fig_sewerage_volume_flow:
 .. figure:: image/b_sewerage_volume_flow.png
    :alt: b_sewerage_volume_flow
 
