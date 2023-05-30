@@ -45,11 +45,13 @@ Attributes
      - \-
      - Sets the type to water level (1), velocity (2), discharge (3) or Sommerfeld (5). See :ref:`1d_boundary_condition_notes_for_modellers` for details.
    * - Time series
+     - timeseries
      - text
      - Yes
      - [minutes since start of simulation],[m | m/s | m³/s]. See :ref:`1d_boundary_condition_notes_for_modellers` for details.
      - Timeseries of water levels, flow velocities, discharges or water level gradients to be forced on the model boundary
 
+.. _1d_boundary_condition_notes_for_modellers:
 Notes for modellers
 ^^^^^^^^^^^^^^^^^^^
 
@@ -119,13 +121,13 @@ Attributes
      - \-
      - ID of the connection node on which the 1D lateral should be placed
    * - Time series
+     - timeseries
      - text
      - Yes
      - [minutes since start of simulation],[m³/s]. See :ref:`1d_lateral_notes_for_modellers` for details.
      - Timeseries of lateral discharges to be added to the specified location
 
 .. _1d_lateral_notes_for_modellers:
-
 Notes for modellers
 ^^^^^^^^^^^^^^^^^^^
 1D laterals placed on a connection node with a 1D boundary condition will be ignored.
@@ -167,7 +169,7 @@ Attributes
 ^^^^^^^^^^
 
 .. list-table:: Channel attributes
-   :widths: 6 4 2 4 30
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
    * - Attribute alias
@@ -258,7 +260,7 @@ Attributes
 ^^^^^^^^^^
 
 .. list-table:: Connection node attributes
-   :widths: 6 4 2 4 30
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
    * - Attribute alias
@@ -333,7 +335,7 @@ Point
 Attributes
 ^^^^^^^^^^
 .. list-table:: Cross-section location attributes
-   :widths: 6 4 2 4 30
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
    * - Attribute alias
@@ -479,7 +481,7 @@ Attributes
 ^^^^^^^^^^
 
 .. list-table:: Manhole attributes
-   :widths: 6 4 2 4 30
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
    * - Attribute alias
@@ -596,7 +598,7 @@ This value is used for administrative purposes only. It does not affect the calc
 Pumpstation (without end node)
 -------------------------------
 
-Pumpstation that pumps water out of the model domain. This can be used, for example, to simulate a final pumpstation that pumps the water to a sewage treatment plant that is outside of the model domain. See :ref:`pumps` details on how pumping stations work in 3Di.
+Pumpstation that pumps water out of the model domain. This can be used, for example, to simulate a final pumpstation that pumps the water to a sewage treatment plant that is outside of the model domain. See :ref:`pump` for details on how pumping stations work in 3Di.
 
 If you want the pumpstation to pump the water to another location *within* the model, use :ref:`pumpstation_with_end_node`
 
@@ -608,7 +610,7 @@ Attributes
 ^^^^^^^^^^
 
 .. list-table:: Pumpstation (without end node) attributes
-   :widths: 6 4 2 4 30
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
    * - Attribute alias
@@ -694,7 +696,7 @@ Notes for modellers
 Pumpstation (with end node)
 ----------------------------
 
-Pumpstation that transports water from one connection node to another. See :ref:`pumps` details on how pumping stations work in 3Di. If you want the pumpstation to pump the water out of the model, use :ref:`pumpstation_without_end_node`. You do *not* need to use a 1D boundary condition for this.
+Pumpstation that transports water from one connection node to another. See :ref:`pump` for details on how pumping stations work in 3Di. If you want the pumpstation to pump the water out of the model, use :ref:`pumpstation_without_end_node`. You do *not* need to use a 1D boundary condition for this.
 
 Geometry
 ^^^^^^^^
@@ -705,7 +707,7 @@ Attributes
 ^^^^^^^^^^
 
 .. list-table:: Pumpstation (with end node) attributes
-   :widths: 6 4 2 4 30
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
    * - Attribute alias
@@ -808,7 +810,7 @@ Attributes
 ^^^^^^^^
 
 .. list-table:: Orifice attributes
-   :widths: 6 4 2 4 30
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
    * - Attribute alias
@@ -948,7 +950,7 @@ Attributes
 ^^^^^^^^^^
 
 .. list-table:: Pipe attributes
-   :widths: 6 4 2 4 30
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
    * - Attribute alias
@@ -1141,7 +1143,7 @@ Attributes
 ^^^^^^^^^^
 
 .. list-table:: Weir attributes
-   :widths: 6 4 2 4 30
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
    * - Attribute alias
