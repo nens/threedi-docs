@@ -266,6 +266,8 @@ If this option is checked, the value between time steps will be linearly interpo
 
 If *interpolate* is checked, the discharge after half an hour will be 8 m\ :sup:`3`/s. If it is not checked, the discharge after half an hour will be 0 m\ :sup:`3`/s.
 
+.. _simulate_api_qgis_boundary_conditions_export:
+
 Editing a time series for a single boundary condition
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

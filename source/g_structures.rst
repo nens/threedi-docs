@@ -53,7 +53,7 @@ Given a controlled pump at location X with a stop and start level of 0.0 mNAP an
 
 
 
-.. _weir:
+.. _weirs_and_orifices:
 
 Weirs and Orifices
 ------------------
