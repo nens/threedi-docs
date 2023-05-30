@@ -67,7 +67,7 @@ Overview GUI
 * **New:** Create a new schematisation.
 * **Simulate:** Simulate a 3DI model.
 * **Results:** Download results of simulations run by your organization in the past 7 days.
-* **Manage:** Redirects you the the Management Portal.
+* **Manage:** Redirects you to the Management Portal.
 
 
 .. |modelsSimulations| image:: /image/e_modelsandsimulations.png

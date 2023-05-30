@@ -156,7 +156,7 @@ The flow in the subsurface is computed under the assumption of hydrostatic press
 
    Q_y=-K_y A_y \frac{\partial \phi}{\partial y}
 
-with :math:`Q_x, Q_y` the x- and y- component of the discharges, :math:`A_x, A_y` the corresponding cross-sectional areas and the gradients of the preatic surface (:math:`\phi`). Even though, the Dupuit assumption can be invalid locally, it is very applicable on the larger scale. A famous analytical case, based on these assumptions is the Hooghoudt equation. It describes the groundwater level in between two open water channels, see *Figure (5)*.
+with :math:`Q_x, Q_y` the x- and y- component of the discharges, :math:`A_x, A_y` the corresponding cross-sectional areas and the gradients of the phreatic surface (:math:`\phi`). Even though, the Dupuit assumption can be invalid locally, it is very applicable on the larger scale. A famous analytical case, based on these assumptions is the Hooghoudt equation. It describes the groundwater level in between two open water channels, see *Figure (5)*.
 
 .. figure:: image/b_grw_hooghoudt.png
    :figwidth: 400 px
