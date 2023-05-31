@@ -34,7 +34,7 @@ Vegetation drag parameter values
 
 If you want to use vegetation drag, you need to supply three input parameters to 3Di: *vegetation height*, *vegetation stem count*, *vegetation stem diameter*, and *vegetation drag coefficient*; see :ref:`vegetation_drag` for details. It can be a challenge to choose the correct values for these parameters. Even in acadamic research, the incorporation of vegetational effects in large scale hydrodynamic models is still a quite new, so there is not yet a large body of literature to draw from when setting these parameters.
 
-The correct values for the vegetation parameters depend on the plant species, its growth stage and the season. The stem diameter, the height and the number of stems can be measured relatively easy, at least, compared to the drag coefficient. In the last decade, more and more measurements have been performed to define these values. Unfortunately, there is not a general overview of these values per species. :cite:p:`VargasLuna2015` can serve as a starting point. In the formulation in 3Di, it is generally OK to start with a drag coefficient set to 1. Depending on the data you have of the area, it allows a more detailed calibration and tuning to the local conditions. The other parameters can be derived from land use maps and ecological maps.
+The correct values for the vegetation parameters depend on the plant species, its growth stage and the season. The stem diameter, the height and the number of stems can be measured relatively easy, at least, compared to the drag coefficient. In the last decade, more and more measurements have been performed to define these values. Unfortunately, there is not a general overview of these values per species. :cite:t:`VargasLuna2015` can serve as a starting point. In the formulation in 3Di, it is generally OK to start with a drag coefficient set to 1. Depending on the data you have of the area, it allows a more detailed calibration and tuning to the local conditions. The other parameters can be derived from land use maps and ecological maps.
 
 Vegetation drag can only be used with friction type 'Chezy', because the vegetation formulation (initially introduced by Baptist 2005) uses Chezy.
 
@@ -76,13 +76,13 @@ The vegetation dataset has nine classes. An explanation of these classes is give
      - 0.3
      - 500
      - 0.0025
-     - :cite:p:`Jin2019`
+     - :cite:t:`Jin2019`
    * - Riet en ruigte
      - reeds and thickets
      - 1.5
      - 100
      - 0.08
-     - :cite:p:`Ritterbusch2007`
+     - :cite:t:`Ritterbusch2007`
    * - Bos
      - forest
      - 10
@@ -116,6 +116,3 @@ Calibrating a model that includes vegetation drag is not fundamentally different
 Vegetation height, stem count, and stem diameter should describe the vegetation as accurately as possible, based on what you know about the vegetation. The *drag coefficient* is the parameter that is specifically meant to account for all uncertainty that is not captured by the other parameters; i.e. this is the parameter to tune when calibrating the model. In the calculation of the vegetation drag, all vegetation parameters are multiplied, so tuning the drag coefficient will have the exact same effect as tuning any other vegetation parameter. For example, doubling the stem count will have the same effect as doubling the drag coefficient. You generally start with a drag coefficient of 1, and then increase it if the discharge is too high or decrease it if the discharge is too low.
 
 Vegetation will usually have a much larger effect on the flow than bottom friction, unless the vegetation very short or sparse. Calibrating the friction coefficient will usually not make a lot of sense in such situations, as a large change in the friction coefficient will only have a small effect on velocity and discharge, while a small change in the drag coefficient will have a large effect.
-
-
-
