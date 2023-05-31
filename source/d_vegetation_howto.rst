@@ -34,11 +34,7 @@ Vegetation drag parameter values
 
 If you want to use vegetation drag, you need to supply three input parameters to 3Di: *vegetation height*, *vegetation stem count*, *vegetation stem diameter*, and *vegetation drag coefficient*; see :ref:`vegetation_drag` for details. It can be a challenge to choose the correct values for these parameters. Even in acadamic research, the incorporation of vegetational effects in large scale hydrodynamic models is still a quite new, so there is not yet a large body of literature to draw from when setting these parameters.
 
-The correct values for the vegetation parameters depend on the plant species, its growth stage and the season. The stem diameter, the height and the number of stems can be measured relatively easy, at least, compared to the drag coefficient. In the last decade, more and more measurements have been performed to define these values. Unfortunately, there is not a general overview of these values per species. The paper of Vargas-Luna 2015 can give a nice starting point. In the formulation in 3Di, it is generally OK to start with a drag coefficient set to 1. Depending on the data you have of the area, it allows a more detailed calibration and tuning to the local conditions. The other parameters can be derived from land use maps and ecological maps.
-
-.. todo::
-    @Nici dat paper waar je naar verwijst ( Vargas-Luna 2015 ) zal voor de meeste gebruikers niet toegankelijk zijn. Kunnen we de belangrijkste zaken uit dit paper hier overnemen of samenvatten?
-    Hebben we een voorbeeld van een "ecological map" en hoe daar de benodigde parameters uit af te leiden zijn?
+The correct values for the vegetation parameters depend on the plant species, its growth stage and the season. The stem diameter, the height and the number of stems can be measured relatively easy, at least, compared to the drag coefficient. In the last decade, more and more measurements have been performed to define these values. Unfortunately, there is not a general overview of these values per species. :cite:p:`VargasLuna2015` can serve as a starting point. In the formulation in 3Di, it is generally OK to start with a drag coefficient set to 1. Depending on the data you have of the area, it allows a more detailed calibration and tuning to the local conditions. The other parameters can be derived from land use maps and ecological maps.
 
 Vegetation drag can only be used with friction type 'Chezy', because the vegetation formulation (initially introduced by Baptist 2005) uses Chezy.
 
@@ -53,15 +49,64 @@ To illustrate how vegetation drag parameters can be chosen for your use case, we
 
 The vegetation dataset has nine classes. An explanation of these classes is given in the `Beeldenboek vegetatiebeheer grote rivieren <https://open.rws.nl/overige-publicaties/2020/beeldenboek-vegetatiebeheer-grote/>`. Based in this information, we can make an educated guess for the vegetation parameters for these classes, summarized in this table:
 
-- Water
-- Verhard oppervlak (impervious area)
-- Gras en akker (grass and agricultural fields)
-- Riet en ruigte (reeds and thickets)
-- Bos (forest)
-- Struweel (shrubs and bushes)
-- Mengklasse 90/10 (mixed class 90/10)
-- Mengklasse 70/30 (mixed class 70/30)
-- Mengklasse 50/50 (mixed class 50/50)
+.. list-table:: Educated guesses for vegetation parameters for the vegetation classes in the Biesbosch example dataset
+   :widths: 20 30 10 10 15 20
+   :header-rows: 1
+
+   * - Class in data
+     - English translation
+     - height
+     - stem count
+     - stem diameter
+     - Source
+   * - Water
+     - water
+     - 0
+     - 0
+     - 0
+     - \-
+   * - Verhard oppervlak
+     - impervious area
+     - 0
+     - 0
+     - 0
+     - \-
+   * - Gras en akker
+     - grass and agricultural fields
+     - 0.3
+     - 500
+     - 0.0025
+     - :cite:p:`Jin2019`
+   * - Riet en ruigte
+     - reeds and thickets
+     - 1.5
+     - 100
+     - 0.08
+     - :cite:p:`Ritterbusch2007`
+   * - Bos
+     - forest
+     - 10
+     - 0.1
+     - 1
+     - \-
+   * - Struweel
+     - shrubs and bushes
+     - 3.5
+     - 50
+     - 0.02
+     - \-
+   * - Mengklasse 90/10
+     - mixed class 90/10
+     - 0.4
+     - 450
+     - 0.005
+     - \-
+   * - Mengklasse 70/30
+     - mixed class 70/30
+     - 0.7
+     - 380
+     - 0.01
+     - \-
 
 
 Calibrating flow through vegetation
