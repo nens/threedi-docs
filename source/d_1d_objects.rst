@@ -460,11 +460,134 @@ The following shapes are supported:
 Culvert
 -------
 
-Culvert, a connection between connection nodes
+Culverts are used to schematise pipes in open water systems.
+
+In contrast to an :ref:`orifice`, the flow behaviour in a culvert is assumed to be determined by shape and much less dominated by entrance losses. Culverts can be used for longer sections of pipe-like structures and do not have to be straight. Shorter, straight culverts are best schematised as an :ref:`orifice`.
+
 
 Geometry
 ^^^^^^^^
 Linestring (two or more vertices)
+
+Attributes
+^^^^^^^^^^
+
+.. list-table:: Culvert attributes
+   :widths: 6 4 4 2 4 30
+   :header-rows: 1
+
+   * - Attribute alias
+     - Field name
+     - Type
+     - Mandatory
+     - Units
+     - Description
+   * - ID
+     - id
+     - integer
+     - Yes
+     - \-
+     - Unique identifier
+   * - Calculation type
+     - calculation_type
+     - integer
+     - Yes
+     - \-
+     - Sets the 1D2D exchange type: embedded (100), isolated (101), connected (102), or double connected (105). See :ref:`1Dtypes`.
+   * - Code
+     - code
+     - text
+     - No
+     - \-
+     - Name field, no constraints
+   * - Cross-section height
+     - cross_section_height
+     - decimal number
+     - see :ref:`cross-section_shape`
+     - m
+     - Height of the cross-section (only used for Closed rectangle cross-sections)
+   * - Cross-section shape
+     - cross_section_shape
+     - decimal number
+     - Yes
+     - integer
+     - Sets the cross-section shape, :ref:`cross-section_shape`
+   * - Cross-section table
+     - cross_section_table
+     - text
+     - see :ref:`cross-section_shape`
+     - m
+     - CSV-style table of [height, width] or [Y, Z] pairs, see :ref:`cross-section_shape`
+   * - Cross-section width
+     - cross_section_width
+     - decimal number
+     - see :ref:`cross-section_shape`
+     - integer
+     - Width or diameter of the cross-section, see :ref:`cross-section_shape`
+   * - Display name
+     - display_name
+     - text
+     - No
+     - \-
+     - Name field, no constraints
+   * - Distance between calculation points
+     - dist_calc_points
+     - decimal number
+     - No
+     - m
+     - Maximum distance between calculation points, see :ref:`techref_calculation_point_distance`
+   * - End connection node ID
+     - connection_node_end_id
+     - integer
+     - Yes
+     - \-
+     - ID of end connection node
+   * - End invert level
+     - invert_level_end_point
+     - decimal number
+     - Yes
+     - m MSL
+     - Level of lowest point on the inside at the end of the culvert
+   * - Friction type
+     - friction_type
+     - decimal number
+     - Yes
+     - \-
+     - Sets the friction type to Chézy (1) or Manning (2)
+   * - Friction value
+     - friction_value
+     - decimal number
+     - Yes
+     - m:sup:`1/2`/s or s/m:sup:`1/3`
+     - Friction or roughness value
+   * - Start connection node ID
+     - connection_node_start_id
+     - integer
+     - Yes
+     - \-
+     - ID of start connection node
+   * - Start invert level
+     - invert_level_start_point
+     - decimal number
+     - Yes
+     - m MSL
+     - Level of lowest point on the inside at the start of the pipe
+   * - Zoom category
+     - zoom_category
+     - integer
+     - No
+     - \-
+     - *Deprecated*
+
+Notes for modellers
+^^^^^^^^^^^^^^^^^^^
+
+The cross-section describes the inside of the culvert. If you only know the outer dimensions, you have to discount the wall thickness.
+
+Discharge coefficients
+""""""""""""""""""""""
+The discharge is multiplied by this value. The energy loss caused by the change in flow velocity at the entrance and exit are accounted for by 3Di. The discharge coefficients can be used to account for any additional energy loss. 'Positive' applies to flow in the drawing direction of the structure (from start node to end node); 'negative' applies to flow in the opposite direction.
+
 
 
 .. _manhole:
@@ -934,7 +1057,7 @@ This is the reference level for the cross-section. For example, if the crest lev
 
 Discharge coefficients
 """"""""""""""""""""""
-The discharge is multiplied by this value. This can be used to finetune the weir formula to the specifics properties of the structure, accounting for energy losses, et cetera. 'Positive' applies to flow in the drawing direction of the structure (from start node to end node); 'negative' applies to flow in the opposite direction.
+The discharge is multiplied by this value. The energy loss caused by the change in flow velocity at the entrance and exit are accounted for by 3Di. The discharge coefficients can be used to account for any additional energy loss. 'Positive' applies to flow in the drawing direction of the structure (from start node to end node); 'negative' applies to flow in the opposite direction.
 
 .. _pipe:
 Pipe
@@ -1037,30 +1160,6 @@ Attributes
      - Yes
      - m:sup:`1/2`/s or s/m:sup:`1/3`
      - Friction or roughness value
-   * - Cross-section height
-     - cross_section_height
-     - decimal number
-     - see :ref:`cross-section_shape`
-     - m
-     - Height of the cross-section (only used for Closed rectangle cross-sections)
-   * - Cross-section shape
-     - cross_section_shape
-     - decimal number
-     - Yes
-     - \-
-     - Sets the cross-section shape, :ref:`cross-section_shape`
-   * - Cross-section table
-     - cross_section_table
-     - text
-     - see :ref:`cross-section_shape`
-     - m
-     - CSV-style table of [height, width] or [Y, Z] pairs, see :ref:`cross-section_shape`
-   * - Cross-section width
-     - cross_section_width
-     - decimal number
-     - see :ref:`cross-section_shape`
-     - m
-     - Width or diameter of the cross-section, see :ref:`cross-section_shape`
    * - Sewerage
      - sewerage
      - boolean
@@ -1267,4 +1366,4 @@ This is the reference level for the cross-section. For example, if the crest lev
 
 Discharge coefficients
 """"""""""""""""""""""
-The discharge is multiplied by this value. This can be used to finetune the weir formula to the specifics properties of the structure, accounting for energy losses, et cetera. 'Positive' applies to flow in the drawing direction of the structure (from start node to end node); 'negative' applies to flow in the opposite direction.
+The discharge is multiplied by this value. The energy loss caused by the change in flow velocity at the entrance and exit are accounted for by 3Di. The discharge coefficients can be used to account for any additional energy loss. 'Positive' applies to flow in the drawing direction of the structure (from start node to end node); 'negative' applies to flow in the opposite direction.
