@@ -33,6 +33,8 @@ If you are interested in a **product demo**, a **live** or **online training**, 
 The computational core is developed by Prof. dr. ir. G. S. Stelling, who worked on the subgrid technique in close collaboration with Prof. dr. ir. V. Casulli.
 Most of the techniques used within the 3Di computational core are published in scientific papers. The rest of the software is maintained and developed by Nelen & Schuurmans Technology.
 
+:cite:t:`Volp2013`
+
 Table of contents
 =================
 
@@ -86,3 +88,9 @@ Table of contents
 
    a_releasenotes
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Literature
+   :name: Literature
+
+   l_literature

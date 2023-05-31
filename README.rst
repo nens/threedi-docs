@@ -52,6 +52,16 @@ to be sure::
   $ docker-compose run builder python3 fix-uppercase-lowercase.py
 
 
+Literature & citations
+----------------------
+
+The bibliography is stored in a BibTeX file (source\literature.bib). You can edit this file with citation manager software such as Mendeley. Make sure each entry has a *citation key*. We use the first author name + year, e.g. `Volp2013` as citation key.
+
+When the citation has been added to the .bib file, cite it in the text like this::
+
+  For further details, see :cite:p:`Volp2013`
+
+
 Some sphinx/restructuredtext notes
 ----------------------------------
 
