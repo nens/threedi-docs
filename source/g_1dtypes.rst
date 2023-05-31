@@ -40,7 +40,7 @@ In the most abstract form, a 1D network can be viewed as a combination of nodes 
 Cross-sections of 1D elements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-There are various options to define cross-sectional areas in 3Di. There are ready made shapes; circular, egg-shape and squares. The other two options allow the user to customize the cross-sectional area. One can define a table with any height width combination. Moreover, the values can be interpreted as discrete values or linearized. Some examples are shown in the figure. These tabelised options are very suited to deal with measured profiles in open water channels.
+There are various options to define cross-sectional areas in 3Di. There are ready made shapes; circular, egg-shape and squares. The other two options allow the user to customize the cross-sectional area. One can define a table with any height width combination. Moreover, the values can be interpreted as discrete values or linearized. Some examples are shown in the figure. These tabulated options are very suited to deal with measured profiles in open water channels.
 
 The top width of cross-sections can be defined open or closed. When the cross-section is defined open, the water level can rise above the defined height of the cross-section, the width of the cross-section remains the same. This is shown in the figure with the red dashed lines. In case the cross-section is closed at the top level, the water level cannot rise higher. The flow becomes pressurized.
 
@@ -181,8 +181,8 @@ Some considerations for 1D elements
 
 Every method has advantages and disadvantages. This is also true for choices considering the 1D types. It depends on the application, where the balance lies:
 
-- considering *connected* types, the seperate dealing of the 1D and 2D domain in the same geographic area results in an overlapping volume domain. This means that the volume above a 1D channel, is counted twice.
+- considering *connected* types, the separate dealing of the 1D and 2D domain in the same geographic area results in an overlapping volume domain. This means that the volume above a 1D channel, is counted twice.
 
 - For embedded 1D elements yield that the tools for dealing with this are still very limited. Moreover, the specific handling of the 1D information is strongly related to the 2D resolution. However, there is no double counting of volume and no increase in computational cost.
 
-- In general, use 1D models for applications that are truely 1D with respect the rest of the domain. Use it for elements that are narrow with respect to the 2D resolution and all will be fine. In those cases the advantages are great, and the disadvantges will remain small.
+- In general, use 1D models for applications that are truly 1D with respect the rest of the domain. Use it for elements that are narrow with respect to the 2D resolution and all will be fine. In those cases the advantages are great, and the disadvantges will remain small.

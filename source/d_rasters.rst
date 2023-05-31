@@ -43,7 +43,7 @@ Interflow settings:
 DEM
 ---
 
-For the Digital Elevation Model (DEM) satellite or LIDAR-based information is often used. When working with crude SRTM-data for instance, it is important to derive the genuine surface level and remove any artefacts. Also, adding bathymetry information to your raster could be useful, since the satellite and LIDAR techniques are unable to *see* under water.
+For the Digital Elevation Model (DEM) satellite or LIDAR-based information is often used. When working with crude SRTM-data for instance, it is important to derive the genuine surface level and remove any artifacts. Also, adding bathymetry information to your raster could be useful, since the satellite and LIDAR techniques are unable to *see* under water.
 
 Raster requirements
 -------------------
