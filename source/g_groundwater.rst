@@ -6,9 +6,11 @@
 Introduction
 ---------------------
 
-Surface water is not only affected by rain and in and outflow of water originating from other regions. In reality, surface water is fully coupled to and interacts with groundwater. This implies that the behaviour and the quantity of water at the surface is affected by groundwater too. The flow in the subsurface is influenced strongly by processes on both very large and small scales in time and space. In order to take all processes into account, models with significant computational times are required, even when surface flow, sewer systems and other processes are neglected.
+Surface water is not only affected by rain and the inflow and outflow of water originating from other regions. In reality, surface water interacts with groundwater. This implies that the behaviour and the quantity of water at the surface are affected by groundwater too. The flow in the subsurface is strongly influenced by processes on both very large and small scales in time and space. To consider all processes, models with significant computational times are required, even when surface flow, sewer systems, and other processes are neglected.
 
-3Di aims at a modelling method that can handle short term effects of heavy precipitation and inundation, including the interaction with groundwater. For the computation of surface flow detailed information about the topography and the land use is often available. However, the information about the soil is often much less accurate and detailed. This lack of data and the complexity of the processes involved, favor a scenario-approach when dealing with groundwater flow. Especially, when investigating the sensitivity of areas to flooding and hindrance originating from groundwater. This approach requires a fast numerical model that can integrate the effects of the sewer system, surface water and overland flow. Therefore, processes need to be simplified. First, a short summary of the concepts implemented in 3Di is presented. In the sections that follow, some more detail and context is given about large scale groundwater flow, the implementation and the choices made in the model.
+3Di allows you to include these surface water-groundwater interactions in your model. For the computation of surface flow, detailed information about topography and land use is often available. However, information about the soil is often much less accurate and detailed. This lack of data and the complexity of the processes involved favour a scenario-based approach when dealing with groundwater flow. Especially when investigating the sensitivity of areas to flooding and hindrance originating from groundwater. This approach requires a fast numerical model that can integrate the effects of the sewer system, surface water, and overland flow. Therefore, processes need to be simplified.
+
+First, a short summary of the concepts implemented in 3Di is presented. In the sections that follow, some more detail and context is given about large-scale groundwater flow, the implementation, and the choices made in 3Di.
 
 
 Summary of groundwater concepts in 3Di
@@ -19,7 +21,7 @@ Summary of groundwater concepts in 3Di
 
    Overview of groundwater concepts in 3Di (1)
 
-The Figure above shows a cross-section of a region with surface and sub-surface water. The Letters in the Figure refer to the following description of the main assumptions made for the computation of groundwater flow:
+The figure above shows a cross-section of a region with surface and sub-surface water. The letters in the figure refer to the following description of the main assumptions made for the computation of groundwater flow:
 
 A. The phreatic surface is assumed equal to the water table. The soil below is assumed fully saturated and the soil above assumed completely dry.
 

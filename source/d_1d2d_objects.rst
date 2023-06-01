@@ -3,10 +3,14 @@
 1D2D Objects
 ============
 
+.. _exchange_line:
+
 Exchange line
 -------------
 
 Line that determines with which 2D cells a Channel connects to. A 1D2D connection is created from each calculation point on the Channel to the closest point on the Exchange line. Applies only to channels with calculation type 'connected' or 'double connected'.
+
+.. _potential_breach:
 
 Potential breach
 ----------------
