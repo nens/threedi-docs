@@ -86,6 +86,7 @@ Numerical settings (advanced users)
 
 
 .. _vegetation_drag:
+
 Vegetation drag settings
 ------------------------
 
