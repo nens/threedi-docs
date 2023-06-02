@@ -98,84 +98,55 @@ Some examples are shown in the figures below.
 
    Examples of cross-section shape 'Egg' in 1D networks. The 'Inverted egg' shape is the same, but upside-down.
 
+.. _1Dpressurized:
+
+Pressurized flow
+---------------------
+
+In 1D elements with closed cross-sections flow may become pressurized. The way 3Di deals with this is similar to how 3Di deals with the non-lineair relations in 2D cells (e.g. between volume and water level). :ref:`subgridmethod` allows 2D cells to be  be dry, wet or *partly wet*, creating a non-lineair volume-water level relation. This was solved with a highly efficient method. However, there are some requirements for such system to be solved. one of these requirements is violated when the surface area decreases for increasing water levels, as in pipes that are more than half full (see the Figure below). Therefore, a new method had to be introduced to solve such a non-linear system of equations. This method is based on the so-called nested Newton method (`cite:t:`Casulli2013`).
+
+.. figure:: image/b1_5.png
+   :scale: 50%
+   :alt: open_closed_crosssections
+
+   Examples of cross-sectional areas. An open and closed cross-sectional area
+
+Because 3Di uses this method, not only flooding and drying is automatically accounted for, but also pressurized flow can be taken into account. One of the advantages is that from the moment the pipe is full (and the volume can no longer increase), the water level can still rise and the same flow equations are still valid. From this point forward, the 'water level' in the pipe represents a pressure. This makes 3Di calculations very stable in transitions between pressurized and non-pressurized flow, without the need for Preissmann slots or other workarounds.
+
 .. _channelflow:
 
 Channels
 ---------
 
-Some model elements of the water system can be modelled better in 1D. This mainly involves specific characteristics of these elements which are very important for the model (like the discharge equation of a weir). Currently available within 3Di are the following 1D elements; channels, structures, like weirs, orifices and culverts, and levees or obstacles. This section is limited to channels.
-Simulating the 1D water courses is possible in three ways. This includes three types of 1D elements; Isolated, (Double) Connected and Embedded.  The difference between these 1D elements is their interaction with 2D flow.
-
-
-While modelling think of the type of 1D channel type that fits the watercourses in the study area best. For small ditches in an area without elevation, where the flow velocity is low it is sometimes useful not to use 1D channels. Digging ditches in the elevation map will probably lead to sufficient drainage and will make it possible to use bigger calculation cells. The size of the calculation cells is also important. If you expect water differences, make sure that there are small calculation cells in that area. If there is an unsuspected flooding somewhere then reduce the size of the cells in that area or choose a connected channel. Remember that a calculation cell can only have one water level. The volume will then be distributed over the calculation cell whereby as a result the lowest part are inundated first. Therefore it may look like the watercourses are leaking like the example below.
-
-.. figure:: image/b_channel_leak.png
-   :scale: 90%
-   :align: center
-
-   Example of channel leaking
 
 Sections
 ^^^^^^^^
 
-All channel sections are defined by polylines. The polyline accurately defines the geography of a channel. It does not define it’s width or depth. On several locations along the polyline characteristics can be define in a cross section definition. For channels of the (Double) Connected type, a bank level can also be specified at these locations. Every polyline needs at least one point on which these characteristics are described.
+All channel sections are defined by polylines. The polyline accurately defines the geography of a channel. It does not define its width or depth. On several locations along the polyline characteristics can be define in a cross section definition. For channels of the (Double) Connected type, a bank level can also be specified at these locations. Every polyline needs at least one point on which these characteristics are described.
 
 A flow area needs to be described with a table, or by means of a diameter (for a circular flow area) and a width (for a rectangular flow area). When a closed section is defined, the channel is seen as a pipe. In reality, cross-sections are rarely symmetrical. In the 3Di calculation core, the information of the cross-section is stored in tables, which means that part of the geometry information is lost. This loss of information does not affect the accuracy of the 1D calculations.
 
-A Channel is divided into several sections. The length of each section depends on the specified grid distance, but can sometimes be smaller due to the presence of structures. The properties are assigned to each section by means of interpolation or projection. The width and shape of the cross section determine the dimensions of the section and thus determine the storage in the channel. If the water level rises above the 'end' of the given section, the water rises upwards as a column within the dimensions of that section. This means that above the highest point of the section the wet cross section increases linearly and with it the volume.
+A channel is divided into several sections. The length of each section depends on the specified grid distance, but can sometimes be smaller due to the presence of structures. The properties are assigned to each section by means of interpolation or projection. The width and shape of the cross section determine the dimensions of the section and thus determine the storage in the channel. If the water level rises above the 'end' of the given section, the water rises upwards as a column within the dimensions of that section. This means that above the highest point of the section the wet cross section increases linearly and with it the volume.
 
 Every channel section has a water level point on which volume and water level are computed. For connected channels there is an exchange taking place between the surface water between this node and 2D calculation cell. This determines that the 1D network is more or less detached from the 2D calculation grid. Channel sections are linked by velocity points, on which discharge and velocity are computed.
 
-For all sections, the 1D shallow water equations are solved. The basis for the calculation of flow is solving the continuity and momentum equations of Saint-Venant.  The terms included in the momentum equation are inertia, advection and friction. We assume hydrostatic pressure thus pressure loss is rewritten as a water level gradient.
+For all sections, the 1D shallow water equations are solved. The basis for the calculation of flow is solving the continuity and momentum equations of Saint-Venant. The terms included in the momentum equation are inertia, advection and friction. We assume hydrostatic pressure thus pressure loss is rewritten as a water level gradient.
 
 .. figure:: image/b_channel_network.png
    :align: center
 
    Example network of connected channel sections and 2D quadtree with channel sections in blue, 1D2D connections in orange and the 2D quadtree in gray
 
-.. _pump:
-Pumps
-------
+.. _culvert:
 
-Pumps in 3Di drain water from one location to another location, within or outside the model domain. The behaviour of a pump is specified by defining the start and stop levels of the pump and the pump capacity. Naturally, water cannot be drained by a pump when it is not there. In real life, pump capacities are often larger than its supply. This behaviour will be seen in your model results. However, this behaviour causes alternating water levels and discharges. This happens in real life and also in your simulations on short time scales, but will effectively not affect the behaviour of your system.
-In the computational core, we can adjust the pump capacity to ensure a more balanced of the pump.
-This functionality is called the pump_implicit_ratio and can be switched off or on. In default it is switched on. More about this functionality can be found in this section in the documentation: :ref:`matrixsolvers` --> pump_implicit_ratio.
+Culvert
+-------
 
-.. figure:: image/b_structures_pump.png
-   :alt: structures_pump
+Culverts can connect parts of 1D networks and allow flow under roads or other obstacles. In contrast to orifices, the flow behaviour in a culvert is assumed to be determined by shape and much less dominated by entrance losses. The flow in culverts is assumed to be a pipe flow with possible changes in cross-section. Culverts can be used for longer sections of pipe-like structures and do not have to be straight. Shorter, straight culverts are best modelled as an orifice.
 
-   Schematic display of a pump function
+For culverts and orifices, the energy loss caused by the change in flow velocity at the entrance and exit are accounted for by 3Di. The discharge coefficients for culverts can be used to account for any additional energy loss.
 
-In 3Di, users can add pumps to a schematisation via a connection node. Characteristics for pumps can be set by configuring the attributes:
-
-.. TODO:  Eenheden van attributen toevoegen
-
-* Capacity: Maximum discharge for which the pump is able to displace water from the suction node to the delivery node.
-
-* Start level: in case of water levels higher than the start level, the pump is switched on.
-
-* Lower stop level: in case of water level below the stop level, the pump is switched off. This level should be below the start level.
-
-* Upper stop level: in case of water levels above this level the pump is switched off as well. This is an optional value, but if it is used, it is always higher that the start level.
-
-* Type: Parameter to set whether the start and stop levels are defined at suction side or delivery side of the pump. [See Figure]
-
-
-There are two methods to define a pump in a 3Di schematisation:
-
-1. *Pump between two nodes*: A pump between two nodes drains water from the  node at suction side to the node at delivery side with the specified pump capacity. Depending on the type of pump the suction side or delivery side water levels determine the activity of the pump.
-
-2. *End pump*:  For an end pump only the suction side node needs to be specified. With no node defined for the delivery side, all water being drained by this pump. All water pumped from the model is specified in the flow_summary.log as contribution to the global water balance. The pump characteristics to be specified are the same as for a pump type with start/stop levels at suction side. Since no delivery side node is present, it is not possible to specify a pump type with start stop level at delivery side.
-
-
-**Pumps in combination with structure controls**
-
-Pumps can be used in combination with controls. You can design a control that allows the water level at different or multiple locations determine the pumps behaviour, instead of purely local water levels. However, the local availability of water will always affect the pump capacity as well. As water that is not locally at the pump cannot be drained away. This is ensured by stopping the pump when the local water level is below the stop level. Your control affects the pumps’ behaviour, within the range of conditions for which the pump is designed.
-
-*Example*
-
-Given a controlled pump at location X with a stop and start level of 0.0 mNAP and 2 mNAP, respectively. The trigger for the control is the water level from location A. For higher waterlevels the pump capacity is increased. However, in case the water level at X is below 0.0 mNAP, but at A in a active range, the pump will stop. The pump can only become active again for waterlevels at X above 2.0 mNAP.
-
+The input parameters for culverts are similar to those for orifices, specified in the section above. Culverts use invert levels at the start and end instead of the crest level in weirs and orifices. The input parameters are all described in the spatialite database :download:`here <pdf/database-overview.pdf>`.
 
 .. _weirs_and_orifices:
 Weirs and Orifices
@@ -243,10 +214,10 @@ Combining these equations, results in the discharge formulation.
 .. math::
    Q_{sub} = C_1 \sqrt{2 g (h_I-h_{II})} C_2 W h_{II}= C W \sqrt{2 g (h_I-h_{II})} h_{II}
 
-Long crested
-^^^^^^^^^^^^
+Broad crested
+^^^^^^^^^^^^^
 
-For longer structures, frictional effects can become important. For the so-called broad-crested weirs and orifices an extra loss-term is added to Bernoulli's equation. The frictional losses :math:`\Delta h_F` are computed as:
+For longer structures, frictional effects can become important. For the so-called broad-crested weirs and orifices an extra loss term is added to Bernoulli's equation. The frictional losses :math:`\Delta h_F` are computed as:
 
 .. math::
    \Delta h_F= \frac{c_f L u_{II}^2}{2 g R}
@@ -264,34 +235,6 @@ The attributes that define these structures are:
 * Discharge coefficient positive/negative: The coefficient used in the discharge formulation. Depending on the flow direction the coefficients could be different.
 
 * Cross-section definition: This defines the cross-section of the structure.
-
-
-.. _culvert:
-
-Culvert
--------
-
-Culverts can connect parts of 1D networks and allow flow under roads or other obstacles. In contrast to orifices, the flow behaviour in a culvert is assumed to be determined by shape and much less dominated by entrance losses. The flow in culverts is assumed to be a pipe flow with possible changes in cross-section. Culverts can be used for longer sections of pipe-like structures and do not have to be straight. Shorter, straight culverts are best modelled as an orifice.
-
-For culverts and orifices, the energy loss caused by the change in flow velocity at the entrance and exit are accounted for by 3Di. The discharge coefficients for culverts can be used to account for any additional energy loss.
-
-The input parameters for culverts are similar to those for orifices, specified in the section above. Culverts use invert levels at the start and end instead of the crest level in weirs and orifices. The input parameters are all described in the spatialite database :download:`here <pdf/database-overview.pdf>`.
-
-
-.. _1Dpressurized:
-
-Pressurized flow
----------------------
-
-A typical characteristic of some 1D elements is that they can have closed cross-sections (Figure b1.5). Thereby, it is possible that the flow becomes pressurized. By introducing the subgrid method :ref:`subgridmethod`, it was explained that cells could be dry, wet and partly wet. By allowing the bed height to vary within a computational cell, the system of equation became non-linear. This was solved with a highly efficient method. However, there are some requirements for such system to be solved. In case the surface area decreases for increasing water levels, one of these requirements is violated.  Therefore, a new method had to be introduced to solve such a non-linear system of equations. This method is based on the so-called nested Newton method (Casulli & Stelling 2013).
-
-.. figure:: image/b1_5.png
-   :scale: 50%
-   :alt: open_closed_crosssections
-
-   Examples of cross-sectional areas. An open and closed cross-sectional area
-
-By this not only flooding and drying is automatically accounted for, but also pressurized flow can be taken into account. One of the advantages is that the volume in an element, like a pipe can be limited, while the water level can still rise. At some point, when the pipe is full, the water level than represents a pressure (Figure b1-6).
 
 .. _sewerage:
 
@@ -343,3 +286,45 @@ A more refined approach is to link the manholes with a 2d terrain model. In that
 
 Another possibility is to model the streets only by defining an open sewer pipe which represents the street profile. In that case a 1d model is used to represent street flow between manholes. Although this possibility exists, a 2d model terrain model is preferred for its accuracy.
 
+.. _pump:
+Pumps
+------
+
+Pumps in 3Di drain water from one location to another location, within or outside the model domain. The behaviour of a pump is specified by defining the start and stop levels of the pump and the pump capacity. Naturally, water cannot be drained by a pump when it is not there. In real life, pump capacities are often larger than its supply. This behaviour will be seen in your model results. However, this behaviour causes alternating water levels and discharges. This happens in real life and also in your simulations on short time scales, but will effectively not affect the behaviour of your system.
+In the computational core, we can adjust the pump capacity to ensure a more balanced of the pump.
+This functionality is called the pump_implicit_ratio and can be switched off or on. In default it is switched on. More about this functionality can be found in this section in the documentation: :ref:`matrixsolvers` --> pump_implicit_ratio.
+
+.. figure:: image/b_structures_pump.png
+   :alt: structures_pump
+
+   Schematic display of a pump function
+
+In 3Di, users can add pumps to a schematisation via a connection node. Characteristics for pumps can be set by configuring the attributes:
+
+.. TODO:  Eenheden van attributen toevoegen
+
+* Capacity: Maximum discharge for which the pump is able to displace water from the suction node to the delivery node.
+
+* Start level: in case of water levels higher than the start level, the pump is switched on.
+
+* Lower stop level: in case of water level below the stop level, the pump is switched off. This level should be below the start level.
+
+* Upper stop level: in case of water levels above this level the pump is switched off as well. This is an optional value, but if it is used, it is always higher that the start level.
+
+* Type: Parameter to set whether the start and stop levels are defined at suction side or delivery side of the pump. [See Figure]
+
+
+There are two methods to define a pump in a 3Di schematisation:
+
+1. *Pump between two nodes*: A pump between two nodes drains water from the  node at suction side to the node at delivery side with the specified pump capacity. Depending on the type of pump the suction side or delivery side water levels determine the activity of the pump.
+
+2. *End pump*:  For an end pump only the suction side node needs to be specified. With no node defined for the delivery side, all water being drained by this pump. All water pumped from the model is specified in the flow_summary.log as contribution to the global water balance. The pump characteristics to be specified are the same as for a pump type with start/stop levels at suction side. Since no delivery side node is present, it is not possible to specify a pump type with start stop level at delivery side.
+
+
+**Pumps in combination with structure controls**
+
+Pumps can be used in combination with controls. You can design a control that allows the water level at different or multiple locations determine the pumps behaviour, instead of purely local water levels. However, the local availability of water will always affect the pump capacity as well. As water that is not locally at the pump cannot be drained away. This is ensured by stopping the pump when the local water level is below the stop level. Your control affects the pumps’ behaviour, within the range of conditions for which the pump is designed.
+
+*Example*
+
+Given a controlled pump at location X with a stop and start level of 0.0 mNAP and 2 mNAP, respectively. The trigger for the control is the water level from location A. For higher waterlevels the pump capacity is increased. However, in case the water level at X is below 0.0 mNAP, but at A in a active range, the pump will stop. The pump can only become active again for waterlevels at X above 2.0 mNAP.
