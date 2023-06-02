@@ -9,9 +9,9 @@ Surface source and sink
 Input
 ^^^^^^^^^^
 
-The *Surface sources and sinks* is part of the scenario forcings, it forces the system to react to the input and it can differ per simulation. Therefor, the input is is not part of your schematisation, but is set in the API call. A more elaborate explanation about API calls and the specified input can be found here: :ref:`a_api`.
+The *Surface sources and sinks* is part of the scenario forcings, it forces the system to react to the input and it can differ per simulation. Therefore, the input is not part of your schematisation, but is set in the API call. A more elaborate explanation about API calls and the specified input can be found here: :ref:`a_api`.
 
-In this first release, one can only use the option to add a time-series containing uniform values. In the near future, options to add temporally and spatially variating raster values will be released. In addition to those option, also an option for interpolation of these rates will become available. The input rates are defined in *m/s*, and will automatically scaled with the grid size.
+In this first release, one can only use the option to add a time-series containing uniform values. In the near future, options to add temporally and spatially varying raster values will be released. In addition to those option, also an option for interpolation of these rates will become available. The input rates are defined in *m/s*, and will automatically scaled with the grid size.
 
 Output
 ^^^^^^^^^^
