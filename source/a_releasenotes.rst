@@ -219,7 +219,7 @@ In this hotfix release, we fixed the following issues:
 - Refinement errors
 - Sporadically filled DEM
 - Initial ground water rasters 2D
-- Cloning with initial saved stae
+- Cloning with initial saved state
 
 
 .. _klondike_release:
@@ -227,7 +227,7 @@ In this hotfix release, we fixed the following issues:
 January 31st 2022 (Klondike)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-On Januari 31st we have released the backend for the Klondike release. In this release we introduce a brand new route to process schematisations into 3Di models. This will replace the process known as 'inpy'.
+On January 31st we have released the backend for the Klondike release. In this release we introduce a brand new route to process schematisations into 3Di models. This will replace the process known as 'inpy'.
 For users that have not been migrated yet, this will not have effect on their work process. 3Di Models will simulate as before.
 
 The migration will be rolled out gradually, users will be contacted for this. The management screens are available for all users right away, but keep in mind that the new features mostly work on migrated schematisations and 3Di Models.
@@ -373,7 +373,7 @@ TableSettings
 
 **3Di Model**
 
-A 3Di Model is generated from a schematisation. The generation takes the grid & table settings from the spatialite and processess the schematisation into a 3Di Model.
+A 3Di Model is generated from a schematisation. The generation takes the grid & table settings from the spatialite and processes the schematisation into a 3Di Model.
 
 
 **3Di Management Screens**
@@ -638,7 +638,7 @@ April 25th 2023
 
 **3Di Models & Simulations v3.4.5**
 
-- If your organisation has a large number of models or (finished) simulations, you will notice major performance improvements when loading the list of results available for download, or when loading the overview of running simulations. Both now load instanteneously, while this previously took seconds to minutes for some organisations. This improvement also prevents API requests to be throttled (#408)
+- If your organisation has a large number of models or (finished) simulations, you will notice major performance improvements when loading the list of results available for download, or when loading the overview of running simulations. Both now load instantaneously, while this previously took seconds to minutes for some organisations. This improvement also prevents API requests to be throttled (#408)
 
 - Compatibility with schema 216 (#451).
 
@@ -766,7 +766,7 @@ Other changes and bugfixes:
 
 - The minimum friction velocity in new schematisations now defaults to 0.005 instead of 0.05 (#411)
 - A newer version (4.1.1) of the python package threedi-api-client is now used (#417)
-- If the maximum number of 3Di models for your organisation has has been reached, a popup will allow you to delete one or more of them before uploading a new revision (#367)
+- If the maximum number of 3Di models for your organisation has been reached, a popup will allow you to delete one or more of them before uploading a new revision (#367)
 - Bugfix: in some cases, schematisation revisions could not be downloaded if "Generate 3Di model" had failed for that revision (#428)
 - Bugfix: prevent python error when attempting to start the simulation wizard with a template that has NULL as maximum_time_step value #418
 
@@ -777,7 +777,7 @@ December 8th 2022
 **3Di Toolbox v2.4.1**
 
 Due to changes introduced in v2.4, threedi-modelchecker would re-install on every startup. This has been fixed now. (#729)
-Fixed 'Import sufhyd': this routine expected a the table v2_pipe to have a column 'pipe_quality', which was removed recently (#728)
+Fixed 'Import sufhyd': this routine expected the table v2_pipe to have a column 'pipe_quality', which was removed recently (#728)
 A schema version check was added to 'Import sufhyd'. If the target spatialite has a too low schema version, you will be instructed to migrate it and try again (#726)
 
 
@@ -820,7 +820,7 @@ November 21th 2022
 
 - New project > New simulation no longer fails (#400)
 
-- Fix issues with Models & Simulations Panel when other dock widget on the right are also opened. The status bar at the bottom no longer dissapears when opening the Models & Simulations Panel. (#153)
+- Fix issues with Models & Simulations Panel when other dock widget on the right are also opened. The status bar at the bottom no longer disappears when opening the Models & Simulations Panel. (#153)
 
 - New schematisation: spatialite is migrated to most recent version (#359)
 
@@ -840,9 +840,9 @@ November 21th 2022
 
 *Checker*
 
-- Warning for double cumultative cumulative discharges in the aggregation NetCDF - https://app.zenhub.com/workspaces/team-3di-5ef60eff1973dd0024268b90/issues/nens/threedi-api/1766 ?
+- Warning for double cumulative cumulative discharges in the aggregation NetCDF - https://app.zenhub.com/workspaces/team-3di-5ef60eff1973dd0024268b90/issues/nens/threedi-api/1766 ?
 
-- Check on flooding treshold is now more strict
+- Check on flooding threshold is now more strict
 
 *Postprocessing Lizard*
 
@@ -861,8 +861,8 @@ August 2022
 **3Di Toolbox v2.3**
 
 
-- Visualise any computatial grid (gridadmin.h5 file), using the new Processing Algorithm "Computational grid from gridadmin.h5". This works for gridadmin.h5 files that were generated on the server as well as those generated locally.
-- Generate the computational grid for your schematisation in the 3Di Modeller Interface. The routine that is used on the server to generate the computational grid, has now also been made available locally, so that you can continously check how your schematisation is translated to a computational grid. Use the new Processing Algorithm "Computational grid from schematisation".
+- Visualise any computational grid (gridadmin.h5 file), using the new Processing Algorithm "Computational grid from gridadmin.h5". This works for gridadmin.h5 files that were generated on the server as well as those generated locally.
+- Generate the computational grid for your schematisation in the 3Di Modeller Interface. The routine that is used on the server to generate the computational grid, has now also been made available locally, so that you can continuously check how your schematisation is translated to a computational grid. Use the new Processing Algorithm "Computational grid from schematisation".
 - Bugfix: pumped volume for pumps without end note is now also included in the water balance
 - Bugfix: total balance in water balance tool now also works in QGIS 3.22
 - Bugfix: water balance tool now handles aggregation netcdf's that have different timesteps for different variables
@@ -892,7 +892,7 @@ June 2022
 - Added 3Di logo in the Plugin Manager (#606)
 - Installation and update procedure has been improved. Black command prompt windows are no longer shown on startup. (#621, #625)
 
-Documentation on the Watershed Tood can be found `here <https://github.com/nens/threedi-network-analyst#user-manual>`_.
+Documentation on the Watershed Tool can be found `here <https://github.com/nens/threedi-network-analyst#user-manual>`_.
 
 
 *3Di Schematisation Editor v1.1.1 - EXPERIMENTAL*
@@ -907,10 +907,10 @@ This is a new plugin that will make editing schematisations much easier than bef
 What does this plugin have to offer for modellers?
 
 - Directly edit all layers of your schematisation, using all native QGIS functionality for editing vector features
-- Quickly add features to your schematision with the "magic" editing functionality for 1D layers. For example: existing connection nodes are used when drawing a pipe between them, new connection nodes and manholes are created when a new pipe is digitized, etc.
+- Quickly add features to your schematisation with the "magic" editing functionality for 1D layers. For example: existing connection nodes are used when drawing a pipe between them, new connection nodes and manholes are created when a new pipe is digitized, etc.
 - Easily move nodes and all connected lines using the smartly pre-configured snapping and topological editing settings
 - Easily move the start or end of pipes, channels, culverts, orifices, weirs, pumps, and the connection node id's will be automatically updated for you
-- Get a complete overview of your schematistion: all rasters that are part of your schematisation are added to the QGIS project when the schematisation is loaded
+- Get a complete overview of your schematisation: all rasters that are part of your schematisation are added to the QGIS project when the schematisation is loaded
 - Spot the tiniest local variation in elevation with the hillshade layer is automatically added on top of your DEM
 - Visualise the mapping of (impervious) surfaces to connection nodes and change them by updating the geometries
 - Easily navigate through your schematisation: layers in the layer panel are neatly grouped together in collapsed groups
@@ -926,7 +926,7 @@ New in version 1.1 (for those users who already tried out version 1.0):
 - Set scale dependent visibility for manholes
 - Fix export to spatialite in QGIS 3.22 (was fixed by adding a schema migration in threedi-modelchecker)
 - Fix drawing of pipe trajectory over existing manholes
-- Consistent handling of geomtry edits
+- Consistent handling of geometry edits
 - Check write permissions for Geopackage target location
 - Support spatialite schema_version 206 + updated the popup message if schema is not up to date
 - Remove field cross_section_code
@@ -1190,14 +1190,14 @@ February 6th 2023
 - Fixed model checker (v0.33), included raster checks via rasterio.
 - Invalidate boundary files without any boundaries.
 - Upgrade threedi-tables to 3.0, raster reading is now done through a VRT, so that any projection / sampling is allowed.
-- Upgraded threedi-modelchecker to 0.34 and threedigrid-buidler to 1.6, allowing TABULATED_YZ profiles, and adding rudimentary support for exchange lines and new potential breach input.
+- Upgraded threedi-modelchecker to 0.34 and threedigrid-builder to 1.6, allowing TABULATED_YZ profiles, and adding rudimentary support for exchange lines and new potential breach input.
 - Disable inpy model mounts
 
 
 November 21th 2022
 ^^^^^^^^^^^^^^^^^^
 
-When using an .env fileyou need to change the content of this file to:
+When using an .env file you need to change the content of this file to:
 
 THREEDI_API_HOST=https://api.3di.live
 THREEDI_API_PERSONAL_API_TOKEN= supersecret API key
@@ -1244,7 +1244,7 @@ Note: this is not backwards compatible, but without duration it does not work...
 
 - Bugfix: Aggregation of uploaded initial waterlevel rasters on threedimodels was not triggered.
 
-- Allow an user to create multiple initial waterlevel rasters on a threedimodel.
+- Allow a user to create multiple initial waterlevel rasters on a threedimodel.
 
 - Support bigger geotiffs by enabling temporary compression for Cloud Optimize Geotiff creation.
 
@@ -1269,9 +1269,9 @@ July 2022
 - Increased total Lizard radar rain (multiple requests) timeout to 5 minutes.
 - Upgraded pypi packages in services.
 - Api-workers: Added Celery readiness/liveness file probes.
-- Changed order in ThreediModelTask so Simululation Template worker is started after aggregations are done.
+- Changed order in ThreediModelTask so Simulation Template worker is started after aggregations are done.
 - Fixed bug in simulation template processing.
-- Fix bug where threedimodel resources were not incorperated in simulation copy using the from-template endpoint.
+- Fix bug where threedimodel resources were not incorporated in simulation copy using the from-template endpoint.
 - Allow to dynamically enable/disable tasks in api-worker.
 - Prevent simulation deletion which is simulation-template
 - Frontends have moved to ghcr.io.
@@ -1512,7 +1512,7 @@ After this release, we stop to support API v1. Do you still need access to API v
 
 - Decreased SQL query count of files and threedimodels endpoints.
 - Simulation can only be created by an organisation with a valid contract.
-- API version v3.0 renamed from to v3. Version v3.0 still works for backwards compatibilty.
+- API version v3.0 renamed from to v3. Version v3.0 still works for backwards compatibility.
 
 *Bugfixes*
 
@@ -1600,7 +1600,7 @@ Extended API v3 with boundary conditions & bug fixing
 April 2023
 ^^^^^^^^^^
 
-- Channels with calculation type *connected* or *double connected* can now be placed outside the DEM, as long as they connect to a location where a 2D cell is present. If a 'potential breach' or 'exchange line' is used to set the location to which the calculation node connects, the location of those features determines whether an error is raised. If a channel with calculation type connected is outside of the DEM, but the closest point on its exchange_line is on the DEM, the computional grid can be built and the 3Di model is valid.
+- Channels with calculation type *connected* or *double connected* can now be placed outside the DEM, as long as they connect to a location where a 2D cell is present. If a 'potential breach' or 'exchange line' is used to set the location to which the calculation node connects, the location of those features determines whether an error is raised. If a channel with calculation type connected is outside of the DEM, but the closest point on its exchange_line is on the DEM, the computational grid can be built and the 3Di model is valid.
 
 - 1D-2D links that cross an obstacle will take the exchange level from the obstacle
 
@@ -1743,7 +1743,7 @@ We have released a new version of the computational core.
 Bugfixes:
 
 - Fixed the computation of the breach width. Especially, the initial growth was underestimated in case the time to reach the maximum breach depth was large.
-- Fixed a small bug in the raster edits. This fixed also the option to perform rsater edits in computational cells having only 4 subgrid cells.
+- Fixed a small bug in the raster edits. This fixed also the option to perform raster edits in computational cells having only 4 subgrid cells.
 - Fix for broad weir formulation for the critical conditions
 
 March 8th 2021
@@ -1756,7 +1756,7 @@ In short the following fixes are included in the calculation core:
 - Fix for 1D coordinates in netcdf file: The z-coordinates of the boundary points, are now set correctly in the netcdf
 - Fix for initial conditions in netcdf file: In case of 1D-2D models, some variables, like the wet-surface areas of a computational node, the wrong value was written in the results netcdf at the start of the simulation.
 
-Long crested weirs: The formulation of the long crested weir has been replaced by a new one. This new version is based on the law of Bernouilli instead of an alternative implementation of the advective terms for a regular 1D element. The flow over the weir is an accurate computation of the flow under ideal circumstances, but the new formulation does not require an extra computational node and has proven to be more stable under varying flow conditions.
+Long crested weirs: The formulation of the long crested weir has been replaced by a new one. This new version is based on the law of Bernoulli instead of an alternative implementation of the advective terms for a regular 1D element. The flow over the weir is an accurate computation of the flow under ideal circumstances, but the new formulation does not require an extra computational node and has proven to be more stable under varying flow conditions.
 
 Short crested weirs: Flow over a weir knows three different stages: sub-, supercritical and critical flow.  Under super-critical flow conditions, the formulation remains the same. We fixed the formulation under sub-critical flow conditions and in strong varying flow conditions.  The biggest change in discharge behaviour is expected for weirs that flow in negative direction. Moreover, the time dependency of the flow over the weir has been adjusted. This has no effect on stationary flow, but has a slightly improved stabilizing effect on the flow under changing flow conditions.
 ecko

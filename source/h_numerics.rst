@@ -20,9 +20,9 @@ A preissmann slot is often used to model flows in pipes. When the pipes are not 
 .. figure:: image/preissmanslots_schematisch.png
    :alt: Preissman slot
 
-   Upper Panel) Flow through a half emtpty pipe. 
+   Upper Panel) Flow through a half empty pipe. 
    Middle Panel) Pressurised flow through a pipe with a preissman slot. 
-   Lower Panel) Pressurised flow trhough a pipe with a virtual water level (red).
+   Lower Panel) Pressurised flow through a pipe with a virtual water level (red).
 
 
 Integration method
@@ -43,7 +43,7 @@ There are several methods available to solve the matrix consisting of the unknow
 
 [max_nonlin_iterations] (default = 20), [convergence_eps] (default = 1.0^-5), [use_of_nested_newton] (no default) 
 
-Maximum number of non lineair iterations (max_nonlin_iterations) is the number the computational core will try to reach the convergence value of the Newton iteration. In cases where is extensive flooding and drying of areas, this number can be raised as it might need more iterations to find the correct solution. The Newton iteration needs a value that defines convergence. Initially, 3Di requires a much lower value, but in case the system has difficulties with finding a solution, it will loosen this requirement with a maximum of the by the user set convergence_eps. 
+Maximum number of non linear iterations (max_nonlin_iterations) is the number the computational core will try to reach the convergence value of the Newton iteration. In cases where is extensive flooding and drying of areas, this number can be raised as it might need more iterations to find the correct solution. The Newton iteration needs a value that defines convergence. Initially, 3Di requires a much lower value, but in case the system has difficulties with finding a solution, it will loosen this requirement with a maximum of the by the user set convergence_eps. 
 
 Nested newton iterations are needed in case profiles in 1D are narrowing with height. Mathematically, in case d^2V/d\zeta^2<0. This occurs, for example, a lot in sewer systems. For these cases, the Newton iteration method does not guarantee a solution, so the system is split in two systems that do guarantee a solution. In case 3Di cannot find a solution it will always try, whether it can find a solution using the nested Newton method. However, in case one has an application that consists of many of these profiles it is faster to tel the system that it should always used the nested Newton method (use_of_nested_newton).
 

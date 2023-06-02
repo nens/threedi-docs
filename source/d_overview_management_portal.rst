@@ -42,7 +42,7 @@ In this detail view, you can do the following things:
 - Delete schematisation, revision or model (first all revisions have to be deleted) and simulation template
 - Download the sqlite and rasters
 - Check the id's  
-- See what simulalatons have been run with this schematisation
+- See what simulations have been run with this schematisation
 - See what simulation templates are connected to the schematisation
 
 
