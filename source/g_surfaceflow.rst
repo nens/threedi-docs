@@ -6,7 +6,7 @@
 
 The 2D surface flow is based on the 2D depth-averaged shallow water equations. These equations are based on the conservation of momentum. 3Di considers the various processes; inertia, advection, pressure and friction for computing the horizontal flow.
 
-The methods that 3Di uses to deal with the flow in the 2D domain are thoroughly described and published in Stelling 2012 and in Volp et al. 2013.
+The methods that 3Di uses to deal with the flow in the 2D domain are thoroughly described and published in :cite:t:`Casulli2009`, :cite:t:`Casulli2011`, :cite:t:`Stelling2015`, and :cite:t:`Volp2013`.
 
  .. TODO: Extend
 
@@ -40,7 +40,7 @@ Two key aspects of the vegetation formulation used in 3Di are important to under
 
 The 3Di computational core solves a force balance for the momentum domains. Different types of forces act differently on a fluid. For example, gravity is a body force, whereas bottom friction is due to a shear stress acting on a surface. Bottom friction alters the vertical velocity profile to a profile that can be described by a logarithmic function. Vegetation exerts a drag force on the water throughout the vertical profile. This drag scales with a representative vertical plane. The drag applies to the whole vertical profile if the vegetation is emerging, or, to a part of the vertical profile if the vegetation is submerged.
 
-Only few formulations describe the vegetation drag under both emerged and submerged conditions (Vargas-Luna 2015). However, for flooding conditions, high water forecast or tidal applications, it is crucial to be able to deal with these transitions. This is why 3Di uses the formulation of Baptist 2005, which uses the plant characteristics plant height, stem diameter, and stem density to determine the representative vertical plane.
+Only few formulations describe the vegetation drag under both emerged and submerged conditions (:cite:t:`VargasLuna2015`). However, for flooding conditions, high water forecast or tidal applications, it is crucial to be able to deal with these transitions. This is why 3Di uses the formulation of :cite:t:`Baptist2007`, which uses the plant characteristics plant height, stem diameter, and stem density to determine the representative vertical plane.
 
 The formulation assumes that the interaction between water and plants works one way only, i.e. the vegetation affects the flow, but the flow does not bend or otherwise affect the vegetation. This helps to limit the number of required input parameters; these types of effects may be accounted for in the drag coefficient.
 
@@ -53,10 +53,7 @@ Secondly, vegetation drag is larger when the representative vertical plane is la
 
     A 3Di computational cell, including the subgrid bathymetry and the vegetation patches.
 
-
-.. todo:: @Nici ik begrijp de laatste paar zinnen niet
-
-Baptist 2005 describes the effect of the vegetated area on the flow as a shear stress that scales with the vertical plane (instead of with the horizontal plane as in bottom friction or wind shear). It is a function of the flow velocity and vegetation characteristics:
+:cite:t:`Baptist2007` describes the effect of the vegetated area on the flow as a shear stress that scales with the vertical plane (instead of with the horizontal plane as in bottom friction or wind shear). It is a function of the flow velocity and vegetation characteristics:
 
 .. math::
 

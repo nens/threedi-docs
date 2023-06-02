@@ -52,7 +52,7 @@ The subsurface is a general term for the whole domain below the surface, where m
 
    Overview of large scale groundwater concepts (2)
 
-Most of the groundwater concepts on which the groundwater method in 3Di is based, are thoroughly described in the book of *Jacob Bear and Arnold Verruijt, Modeling Groundwater Flow and Pollution*. However, here a short overview is given of the key concepts and assumptions made for the groundwater method used in 3Di. These concepts are illustrated in the Figures 1 and 3 and indicated with Letters and Numbers. The general aim is to simplify the processes involved in the top aquifer, but to preserve enough accuracy for reliable simulations of the surface-subsurface interaction. The numbers below refer to those in Figure 3 and the letters refer to those in Figure 1.
+Most of the groundwater concepts on which the groundwater method in 3Di is based, are thoroughly described in :cite:p:`Bear1987`. However, here a short overview is given of the key concepts and assumptions made for the groundwater method used in 3Di. These concepts are illustrated in the Figures 1 and 3 and indicated with Letters and Numbers. The general aim is to simplify the processes involved in the top aquifer, but to preserve enough accuracy for reliable simulations of the surface-subsurface interaction. The numbers below refer to those in Figure 3 and the letters refer to those in Figure 1.
 
 1. When only looking at the top aquifer in a system, only one phreatic surface can be defined. This is the level at which the pressure is atmospheric (assumed zero). Below the phreatic surface is the soil fully saturated.
 
@@ -66,7 +66,7 @@ Most of the groundwater concepts on which the groundwater method in 3Di is based
 
 |
 
-4. The main flow in an aquifer follows the phreatic surface, therefore the phreatic surface is considered to be a stream-line. Within an aquifer the slope of the phreatic surface (:math:`i`) is generally small. It is often much smaller than 1 ( :math:`i<<1` ) *[Dupuit (1863)]*. In such case, one can assume the stream-lines to be horizontal, and use only the horizontal Darcy equations to compute the flow. The groundwater level gradients are than defined by the height of the phreatic surface. This is consistent with assuming a hydrostatic pressure within the aquifer. This assumption is called the Dupuit approximation (*Letter B* ).
+4. The main flow in an aquifer follows the phreatic surface, therefore the phreatic surface is considered to be a stream-line. Within an aquifer the slope of the phreatic surface (:math:`i`) is generally small. It is often much smaller than 1 ( :math:`i<<1` ) :cite:p:`Dupuit1863`. In such case, one can assume the stream-lines to be horizontal, and use only the horizontal Darcy equations to compute the flow. The groundwater level gradients are than defined by the height of the phreatic surface. This is consistent with assuming a hydrostatic pressure within the aquifer. This assumption is called the Dupuit approximation (*Letter B* ).
 
 .. figure:: image/b_grw_overview.png
    :alt: master_figure
@@ -158,7 +158,7 @@ The flow in the subsurface is computed under the assumption of hydrostatic press
 
    Q_y=-K_y A_y \frac{\partial \phi}{\partial y}
 
-with :math:`Q_x, Q_y` the x- and y- component of the discharges, :math:`A_x, A_y` the corresponding cross-sectional areas and the gradients of the preatic surface (:math:`\phi`). Even though, the Dupuit assumption can be invalid locally, it is very applicable on the larger scale. A famous analytical case, based on these assumptions is the Hooghoudt equation. It describes the groundwater level in between two open water channels, see *Figure (5)*.
+with :math:`Q_x, Q_y` the x- and y- component of the discharges, :math:`A_x, A_y` the corresponding cross-sectional areas and the gradients of the phreatic surface (:math:`\phi`). Even though, the Dupuit assumption can be invalid locally, it is very applicable on the larger scale. A famous analytical case, based on these assumptions is the Hooghoudt equation. It describes the groundwater level in between two open water channels, see *Figure (5)*.
 
 .. figure:: image/b_grw_hooghoudt.png
    :figwidth: 400 px

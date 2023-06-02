@@ -61,7 +61,7 @@ The different aggregation methods that can be used on a flow variable are:
 time_step
 """""""""
 
-Time step is the interval in seconds for writing and determining the aggregated flow results. In the example above, the maximum water level is determined over every 600 seconds. The minimum water level is determined over a period ov 500 seconds.
+Time step is the interval in seconds for writing and determining the aggregated flow results. In the example above, the maximum water level is determined over every 600 seconds. The minimum water level is determined over a period of 500 seconds.
 
 
 Simple infiltration settings
@@ -86,6 +86,7 @@ Numerical settings (advanced users)
 
 
 .. _vegetation_drag:
+
 Vegetation drag settings
 ------------------------
 

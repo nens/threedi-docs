@@ -40,7 +40,7 @@ Apart from rainfall on the 2D domain, 3Di uses a 0D :ref:`inflow` module (imperv
    
    Rainfall is translated to a lateral discharge on a 1D node.
    
-The so-called surfaces that represent the areas capturing the rain always contain a geometry. This allows to use the 0D module in combination with spatially varying rain.
+The so-called surfaces that represent the areas capturing the rain always contain a geometry. This allows the use of the 0D module in combination with spatially varying rain.
 
 Rainfall on 0D and 2D
 ----------------------------

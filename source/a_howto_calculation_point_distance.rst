@@ -6,7 +6,7 @@ When 3Di generates a computational grid from the schematisation, a computational
 Scale of flow dynamics
 ^^^^^^^^^^^^^^^^^^^^^^
 
-The 1D resolution (calculation point distance) relates to the scale at which you can capture the dynamics of flow. If there are relevant length scales of the dynamics, accelarations or there are other reasons to expect changes in the flow, you will need to have sufficient computational points on a 1D element. The distance between  computational points should be smaller than the scale at which you expect such variations to play a role.
+The 1D resolution (calculation point distance) relates to the scale at which you can capture the dynamics of flow. If there are relevant length scales of the dynamics, accelerations or there are other reasons to expect changes in the flow, you will need to have sufficient computational points on a 1D element. The distance between  computational points should be smaller than the scale at which you expect such variations to play a role.
 
 Exchange between 1D and 2D
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
