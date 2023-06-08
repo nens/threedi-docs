@@ -318,7 +318,7 @@ Following the basic workflow (explained in :ref:`Tutorial 1 <tutorial1_workflow>
 After waiting for about 2 minutes, you should see the following window:
 
 .. figure:: image/e_schem_upload_success.png
-    :alt: successfull schematisation upload.
+    :alt: successful schematisation upload.
 
 
 
@@ -330,4 +330,4 @@ You can now find your 3Di Model via the `3Di Live Site <https://www.3di.live/>`_
 .. image:: image/17_livesite2.png
     :alt: Live calculation in the live site
 
-You have now successfully build a 2D flow model Schematisation from scratch!
+You have now successfully built a 2D flow model Schematisation from scratch!

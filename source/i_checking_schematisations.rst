@@ -20,7 +20,7 @@ In order to use the *schematisation checker* follow these steps:
 3. Open the *schematization checker* by opening the *Toolbox* in the 3Di Plugin, select *Step 1: check data*, select *schematisation_checker.py*
 4. Select the SpatiaLite connection of the model database and the location where to store the output of the schematisation checker. Click *run* to run the schematisation checker. Click *open* to open the output.
 
-The output is a comma seperated value file, which can be opened in, for example, Excel. It contains 6 columns: *id, table, column, value, description and check*:
+The output is a comma-separated value file, which can be opened in, for example, Excel. It contains 6 columns: *id, table, column, value, description and check*:
 
 - **id**: identification number of the row where a check encounters an error.
 - **table**: the table in which the error occurs.

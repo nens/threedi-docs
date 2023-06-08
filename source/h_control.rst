@@ -79,17 +79,17 @@ Different structures can be used when using a control on a structure. The list o
 
 - Crest level
 
-- Discharge coeffients (to cutoff flow at 0.0)
+- Discharge coefficients (to cutoff flow at 0.0)
 
 **Orifices**
 
 - Crest level
 
-- Discharge coeffients (to cutoff flow at 0.0)
+- Discharge coefficients (to cutoff flow at 0.0)
 
 **Culverts**
 
-- Discharge coeffients (to cutoff flow at 0.0)
+- Discharge coefficients (to cutoff flow at 0.0)
 
 **Pumps**
 

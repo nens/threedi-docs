@@ -1,7 +1,7 @@
 .. _grid:
 
 Computational grid
-----------------------
+------------------
 
 To allow flow to be computed numerically, space and time need to be discretised. For time are time-steps defined, and for space is a grid defined. In the sections below we elaborate on the grid specified for computations in the 1D and in the 2D surface water and groundwater domains.
 
@@ -15,14 +15,12 @@ In 3Di we make use of a so-called structured, staggered grid. This implies for t
 .. figure:: image/b1_1.png
    :figwidth: 400 px
    :alt: grid 2d
-   :align: right
 
    Example of a staggered 2D grid including a refinement; water levels/ pressures are defined in the cell centres (blue dots) and velocities at the cell edges (blue bars). Water level domains are indicated by blue areas, and the momentum domains by green and orange areas.
 
 .. figure:: image/b1_2dv.png
    :figwidth: 300 px
    :alt: grid 2dv
-   :align: left
 
    Example of a vertical staggered grid
 
@@ -36,8 +34,6 @@ The computational cost of a simulation is strongly related to the number of comp
 .. figure:: image/b1_6_quadtree_grid.png
    :figwidth: 400 px
    :alt: quadtree_refinement
-   :align: right
-
 
    An example of a computational grid with quad-tree refinements.
 
@@ -48,17 +44,15 @@ In case groundwater is taken into account, the grid refinement is present in bot
 Subgrid method
 ++++++++++++++++
 
-Flow is strongly affected by the bathymetry. Therefore, to simulate flow accurately, information of the bathymetry is crucial. To illustrate the importance of a well described bathymetry, consider the three flows in a flume shown shown in the Figure below. While the bathymetry differs only slightly, the flow behaves  completely different.
+Flow is strongly affected by the bathymetry. Therefore, to simulate flow accurately, information of the bathymetry is crucial. To illustrate the importance of a well described bathymetry, consider the three flows in a flume shown in the Figure below. While the bathymetry differs only slightly, the flow behaves completely different.
 
-Nowadays, detailed bathymetry information becomes more and more available.  However, it is difficult to take detailed grid information into account, without a strong increase in computational cost. In search of an optimal balance between computational cost and accuracy, the so-called subgrid method (Casulli 2009, Casulli&Stelling 2011, Stelling 2012, Volp & Stelling 2013) is developed and implemented in 3Di.
+Nowadays, detailed bathymetry information becomes more and more available.  However, it is difficult to take detailed grid information into account, without a strong increase in computational cost. In search of an optimal balance between computational cost and accuracy, the so-called subgrid method (:cite:t:`Casulli2009`, :cite:t:`Casulli2011`, :cite:t:`Stelling2015`, :cite:t:`Volp2013`) is developed and implemented in 3Di.
 
 .. figure:: image/b1_3.png
    :figwidth: 600 px
    :alt: bathymetry variations example
-   :align: center
 
-
-   Examples of flow in a flume, where a slight change in bathymetry, strongly affects the flow.
+   Examples of flow in a flume, where a slight change in bathymetry strongly affects the flow.
 
 The basic idea behind the subgrid method, is that water levels vary much more gradually than the bathymetry. In hydrodynamic computations, water levels are assumed to be uniform within a computational cell. Traditionally, this is also assumed for the bathymetry within such a cell. The subgrid-based approach allows the bathymetry to vary within one computational cell, while the water level remains uniform. In 3Di two grids are to be defined; a high resolution subgrid and a coarse(r) computational grid. All input data, such as the bathymetry, roughness and infiltration rates can be defined on the high resolution grid, while the computations are performed on the coarse computational grid. Volumes and cross-sectional areas are based using the high resolution bathymetry information. The variation of the bathymetry within a computational cell means that a cell can be dry, wet or partly wet. This approach has two implications:
 
@@ -70,14 +64,13 @@ The basic idea behind the subgrid method, is that water levels vary much more gr
 .. figure:: image/b1_4.png
    :figwidth: 400 px
    :alt: subgrid_bathymety_cell
-   :align: left
 
    An example of a computational cell with a bathymetry defined on the subgrid.
 
 Input
 ++++++
 
-Users define for the grid generation a cell size (of the finest grid resolution) and the number of refinement layers. A computational cell consists always of an even number of subgrid cells. In addition, the user needs to define where and if refinements should be defined. One can define polygons or lines to indicate these areas and the refinement level. For a detailed example, see :ref:`flood_model`.
+Users define for the grid generation a cell size (of the finest grid resolution) and the number of refinement layers. A computational cell consists always of an even number of subgrid cells. In addition, the user needs to define where and if refinements should be defined. One can define polygons or lines to indicate these areas and the refinement level.
 
 Some facts and figures
 ++++++++++++++++++++++
@@ -102,22 +95,29 @@ The grid space is the measure of the dimension of a computational cell. It is im
 Computational grid for 1D domain
 ================================
 
-For studying the flow of narrow features in the landscape or sewer systems, it is advantageous to use one dimensional models. This allows for an extensive description of the system, without actually computing cross-flow phenomena. These are in those cases limited and the use of a 1D representation will reduce the computational cost. In 3Di 1D networks can be defined, representing open channels, manholes, weirs, orifices, culverts and closed pipes. There are several options to couple the 1D and the 2D domain (see Section :ref:`onedee_flow`). All options for the coupling allow for a fully integrated computation, this means that the full 1D and 2D systems are solved as one.
+In 3Di, 1D networks can be defined, representing open channels, manholes, weirs, orifices, culverts and closed pipes. This allows for an extensive description of the system, without actually computing cross-flow phenomena, reducing the computational cost.
 
-To compute the flow in a 1D network a grid is to be defined as well. Consistent with the grid defined for the 2D domain, a staggered grid is used again. Pressure/ water level points are allocated with a velocity point. An example can be seen in the Figure below.
+There are several options to couple the 1D and the 2D domain (see Section :ref:`onedee_flow`). All options for the coupling allow for a fully integrated computation, this means that the full 1D and 2D systems are solved as one.
 
+The 1D domain of the computational grid uses a staggered grid, just as the 2D domain (see the figure below). Volumes and water levels (or pressures) are defined at calculation points. Discharges and velocities are defined at velocity points in between.
 
 .. figure:: image/b1_1d.png
    :figwidth: 400 px
    :alt: 1D structure of the grid.
-   :align: right
 
-   An example of the grid of a 1D Network. Water levels/ pressures are defined in the cell centres (blue dots) and velocities at the cell edges (blue bars). Water level domains are indicated by blue areas, and the momentum domains by green and orange areas.
+   An example of the grid of a 1D Network. Water levels (or pressures) are defined at the nodes (dark blue dots) and velocities at center of the flowline that connects the nodes (dark blue bars). Water level domains are indicated by the light blue areas, and the momentum domains by the light green areas.
 
-Input
-++++++
+.. _techref_storage_in_1d_domain:
 
-1D networks can consist of open channels, closed pipes and various structures. More about the various options can be found in the Sections :ref:`structures` and :ref:`1d_objects`. The resolution of the 1D domain can be defined per 1D element.
+Storage in the 1D domain
+++++++++++++++++++++++++
+The available storage for a 1D node consists of the storage of the node (if the node is created at the location of a connection node that has a storage area > 0) plus the storage available in the halves of the channels, pipes, or culverts that connect to the node. This follows logically from the staggered grid approach. An example is given in the figure below.
+
+.. figure:: image/h_grid_storage_in_1d_domain.png
+   :figwidth: 600 px
+   :alt: Example of how volume is calculated in the 1D network
+
+   Example of how storage is calculated in the 1D network: the volume in the node plus the half the volume of the culvert and channel that are connected to it.
 
 .. _techref_calculation_point_distance:
 
@@ -130,7 +130,6 @@ If the specified calculation point distance is larger than the length of the fea
 .. figure:: image/h_calculation_point_distance_intro.png
    :figwidth: 600 px
    :alt: calculation point distance intro
-   :align: center
 
 The cross-section of channel segments at a (new) velocity point is determined by linearly interpolating the wet cross-sectional area from the cross-section locations during the simulation. If a velocity point is not in between two cross-section locations, the cross-section from the nearest cross-section location is used.
 If more than two cross-section locations exist between two velocity points, the ones in the middle are ignored.
@@ -138,7 +137,6 @@ If more than two cross-section locations exist between two velocity points, the 
 .. figure:: image/h_calculation_point_distance_cross_section.png
    :figwidth: 600 px
    :alt: calculation point distance cross-section
-   :align: center
 
 These additional computational nodes can be isolated, (double) connected or embedded. This depends on the type that was attributed to the original pipe, cannel or culvert. In case of (double) connected elements the exchange levels are set automatically. The exchange levels for for (double-) connected elements are determined similarly as the cross-sections. For channels, the bank levels for the additional computational nodes are determined by linear interpolation between the bank levels that are specified by the user at  the cross-section locations on the channel. If the computational node is not in between two cross-section locations, the bank level of the nearest cross-section location is used. This is illustrated in the figure below.
 In case more than two cross-section locations are defined between two (new) computational nodes, the ones in the middle are ignored.
@@ -146,7 +144,6 @@ In case more than two cross-section locations are defined between two (new) comp
 .. figure:: image/h_calculation_point_distance_bank_level.png
    :figwidth: 600 px
    :alt: calculation point distance bank level
-   :align: center
 
 For pipes and culverts, the drain level of the generated computational nodes is determined by linear interpolation between the drain levels at the start and end of the pipe or culvert. This is relevant only for pipes and culverts with calculation type ‘connected’. In the case of pipes, this can be way to schematise gullies. Pipes and culverts always have a single cross-section over their entire length, so interpolation of the cross-section is not necessary.
 If drain levels are not set, the height of the DEM at that location is used as exchange height.

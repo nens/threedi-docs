@@ -7,6 +7,7 @@ In 3Di water that flows into the water body via a surface is calculated by the i
 
 A model must have have an use_0d_inflow parameter specified in its global_settings column. This setting allows for three different choices. When set to 0, inflow is turned off. When set to 1 it will use the data from the Impervious surface instances. When set to 2, it will use the entries for the Surface instances. 
 
+
 Impervious surface
 ------------------
 
