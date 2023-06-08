@@ -65,13 +65,6 @@ To add a feature:
 
 Please check out the :ref:`3di_feature_notes` below for information to correctly add 3Di features to the schematisation.
 
-.. figure:: image/d_feature_attributes.png
-   :alt: Feature attributes window
-   :scale: 80%
-
-   An example of the Feature Attribute window when adding a pipe.
-
-
 
 .. _3di_feature_notes:
 
