@@ -120,6 +120,8 @@ There are two options to edit feature attributes:
 
     #) Select the desired feature layer, enable the 'Identify Feature' option (|identifyFeature|), and select a feature on the map. This will open a window with not only all feature attributes of the feature, but also the feature attributes of all related features. These can be found in the other tabs within the window.
 
+.. |identifyFeature| image:: /image/d_identify_features.png
+
 Editing feature geometries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 For editing the geometries of features, the 'Vertex tool' can be used, see the `QGIS documentation <https://docs.qgis.org/3.22/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html?highlight=vertex%20tool#vertex-tool>`__.
