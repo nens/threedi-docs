@@ -118,7 +118,7 @@ There are two options to edit feature attributes:
 
     #) Via the attribute table.
 
-    #) Select the desired feature layer, enable the 'Identify Feature' option (|idendifyFeature|), and select a feature on the map. This will open a window with not only all feature attributes of the feature, but also the feature attributes of all related features. These can be found in the other tabs within the window.
+    #) Select the desired feature layer, enable the 'Identify Feature' option (|identifyFeature|), and select a feature on the map. This will open a window with not only all feature attributes of the feature, but also the feature attributes of all related features. These can be found in the other tabs within the window.
 
 Editing feature geometries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
