@@ -190,7 +190,7 @@ Attributes
      - integer
      - Yes
      - \-
-     - Sets the 1D2D exchange type: embedded (100), isolated (101), connected (102), or double connected (105). See :ref:`1Dtypes`.
+     - Sets the 1D2D exchange type: embedded (100), isolated (101), connected (102), or double connected (105). See :ref:`calculation_types`.
    * - Code
      - code
      - text
@@ -235,7 +235,7 @@ Notes for modellers
 .. todo::
    Refer to "how to schematise open water systems" when that section is finished
 
-- Use 1D channels wisely. In many applications, schematising waterways in 2D is preferable. See :ref:`channelflow` and :ref:`1Dtypes`.
+- Use 1D channels wisely. In many applications, schematising waterways in 2D is preferable. See :ref:`channelflow` and :ref:`calculation_types`.
 - All channels must have at least one :ref:`cross_section_location`.
 
 Calculation type 'embedded'
@@ -494,7 +494,7 @@ Attributes
      - integer
      - Yes
      - \-
-     - Sets the 1D2D exchange type: embedded (100), isolated (101), connected (102), or double connected (105). See :ref:`1Dtypes`.
+     - Sets the 1D2D exchange type: embedded (100), isolated (101), connected (102), or double connected (105). See :ref:`calculation_types`.
    * - Code
      - code
      - text
@@ -637,7 +637,7 @@ Attributes
      - integer
      - Yes
      - \-
-     - Sets the type of 1D2D exchange: embedded (0), isolated (1), or connected (2). See :ref:`1Dtypes`.
+     - Sets the type of 1D2D exchange: embedded (0), isolated (1), or connected (2). See :ref:`calculation_types`.
    * - Code
      - code
      - text
@@ -1094,7 +1094,7 @@ Attributes
      - integer
      - Yes
      - \-
-     - Sets the 1D2D exchange type: embedded (0), isolated (1), or connected (2). See :ref:`1Dtypes`.
+     - Sets the 1D2D exchange type: embedded (0), isolated (1), or connected (2). See :ref:`calculation_types`.
    * - Code
      - code
      - text

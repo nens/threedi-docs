@@ -1,12 +1,12 @@
 .. _numerics:
 
 Numerics
-==================
+========
 
 There are various numerical settings that can either improve the solution under certain conditions, and some can speed up the computations and others will improve the stability. The various options are here explained.
 
 Numerical Settings
--------------------
+------------------
 
 Preissman slot
 ^^^^^^^^^^^^^^
@@ -35,11 +35,12 @@ There are various ways to discretise equation. At the moment only first order se
 .. _matrixsolvers:
 
 Settings for Matrix solvers 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 There are several methods available to solve the matrix consisting of the unknown water levels. Depending on the application, these settings can speed up the simulation or make the solutions more accurate. As 3Di uses the so-called subgrid method, the system of equations becomes a weakly non-linear system. Therefore, we need the use of a Newton iteration method in combination with matrix solvers in order to actually solve this system of equations. The so-called nested-Newton method is needed when the application consists of closed profiles.
 
-**The settings that belong to the Newton iteration are:**
+Newton iteration settings
+"""""""""""""""""""""""""
 
 [max_nonlin_iterations] (default = 20), [convergence_eps] (default = 1.0^-5), [use_of_nested_newton] (no default) 
 
@@ -47,20 +48,20 @@ Maximum number of non linear iterations (max_nonlin_iterations) is the number th
 
 Nested newton iterations are needed in case profiles in 1D are narrowing with height. Mathematically, in case d^2V/d\zeta^2<0. This occurs, for example, a lot in sewer systems. For these cases, the Newton iteration method does not guarantee a solution, so the system is split in two systems that do guarantee a solution. In case 3Di cannot find a solution it will always try, whether it can find a solution using the nested Newton method. However, in case one has an application that consists of many of these profiles it is faster to tel the system that it should always used the nested Newton method (use_of_nested_newton).
 
-**Maximum Degree**
-
+Maximum Degree
+""""""""""""""
 [max_degree](no default)
 
 One of the methods to solve a matrix is by Gauss-Jordan elimination, substitution. Depending on the type of network, either 1D, 2D or 1D with many bifurcations or combination of those, this method is very efficient or not. It is also possible to solve parts of the system using this method and others with the other method. The efficiency of the solver depends on the network. For 1D simulations this is a very efficient solver, for 2D simulations it is less so.
 
-**Conjugate gradient Method**
-
+Conjugate gradient method
+"""""""""""""""""""""""""
 [use_of_cg] (default =20) [convergence_cg] (default = 1.0^-9) [precon_cg] (default =1) [convergence_cg] (default=1.0^-9)
 
 This is an iterative method to solve matrices. Therefore, also a convergence definition (convergence_cg) is required. It is possible to prepare this method to make it more efficient during the simulation. The system will then be preconditioned (precon_cg), this will take time in the initializing phase, but will safe time during the simulation itself. To limit the possible amount of iterations in order to guarantee swiftness of the solver, there can be put a maximum of iterations before the convergence threshold is loosened.
 
-**CFL condition**
-
+CFL condition
+"""""""""""""
 [cfl_strictness_factor_1d] (default=1.0) [cfl_strictness_factor_2d] (default=1.0)
 
 There is a limit to the time step, called the CFL condition. This condition is due to the chosen discretization of the equations. It defined as cdt/dx<1. C is the velocity, defined as 
@@ -73,8 +74,10 @@ There is a limit to the time step, called the CFL condition. This condition is d
 Often it is not necessary to be so strict, so sometimes the user can set this parameter which loosens the strictness of it. Consequently, stability can decrease.
 
 
-**Pump implicit ratio**
+.. _pump_implicit_ratio:
 
+Pump implicit ratio
+"""""""""""""""""""
 [pump_implicit_ratio] (default=1, between 0 and 1)
 
 :ref:`pump` will be switched on or off depending on the characteristics of the pump and the local water level. For water levels between the start and stop levels of the pump, the pump will drain at maximum capacity. For an optimal pump operation, the supply of water is in balance with or larger than the pump capacity. However, in real-life applications, the pump capacity is larger than the supply. This results in a pump that switches repetitively on and off during an event. Even though, this is a real-life issue and is known from observations, one does not always want to mimic this behaviour in a simulation. This behaviour can make the analysis of your results on water levels and discharges more difficult and as this triggers wave-like phenomenon in the water levels and flow, it can cause time step reductions.   
@@ -83,8 +86,8 @@ The computational core of 3Di can make estimates of the available water to the p
 
 A pump_implicit_ratio of 0 means the computational core does not take the supply information into account. By setting it higher than zero, this information is taken into account more strongly according to the value. So, the pump capacity is adjusted based on the (expected) available water.  
 
-**Thresholds**
-
+Thresholds
+""""""""""
 For numerical computation several tresholds are needed in the code, to avoid deficiencies due to a limited numerical accuracy. Generally this is to keep the behaviour consistent: 
 
 In order to determine the upwind method the direction of the flow is considered. To avoid the exact 0.0 m/s point we use a threshold given by flow_direction_threshold (default=1.0^-5). 
