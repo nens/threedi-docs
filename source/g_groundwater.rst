@@ -135,7 +135,7 @@ Input
 
 For the use of Horton infiltration, one chooses indirectly to take a groundwater level into account. This to ensure a limit to the infiltration; when the groundwater level reaches the surface. To take the storage capacity of the soil into account, one needs to define the impervious surface layer and the phreatic storage capacity, as well. The three Horton parameters (in *[mm/day]*), the impervious surface layer ([m] relative to a reference level)  and the phreatic storage capacity (*[-]* between 0-1) can be defined globally and spatially varying. In case one uses the spatially varying option, a user needs to define a method for analyzing the rasters (taking the minimum, maximum or the average in a computational domain).
 
-The initial conditions for the groundwater level can be added to the *v2_global_settings*  table using a global value or a raster for spatially varying values.
+The initial conditions for the groundwater level can be added to the *Global settings*  table using a global value or a raster for spatially varying values.
 
 You can download the complete overview of tables that 3Di uses in the spatialite database :download:`here <pdf/database-overview.pdf>`.
 

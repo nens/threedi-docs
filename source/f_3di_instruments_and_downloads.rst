@@ -3,6 +3,8 @@
 Install and update manual
 =========================
 
+.. TODO: checken of dit nog allemaal up to date is
+
 .. note::
 
     Are you running into problems when downloading or updating the software? Please consult the 'problem solving' section and if the error and/or solution is not mentioned, please contact our support office (servicedesk@nelen-schuurmans.nl)
@@ -22,6 +24,11 @@ To be able to build, edit and run schematisations you need to install the Modell
 
 The newest Modeller Interface also includes the newest versions of the 3Di plugins. If you would like, you could also upgrade the 3Di plugins from within the Modeller Interface manually. Follow the instructions of this movie to do so: `How to upgrade 3Di plugins in the Modeller Interface <https://www.youtube.com/watch?v=9XeVuZo28jw>`_.
 
+.. click the .exe file in downloads, follow steps. Make sure all the available plugins are checked: Plugins in the menu bar > manage plugings > check everything starting with 3Di.
+
+
+
+The Modeller interface has 3 pre-installed plugins: :doc:`i_plugin_toolbox`, :doc:`i_plugin_models_simulation`, :doc:`i_plugin_schematisation_editor`.
 
 
 .. _setting_up_models_and_simulations:
@@ -41,7 +48,7 @@ The QGIS Password Manager stores this Personal API Key securely (encrypted).
 #) Click 'Obtain…' to obtain your :ref:`personal_api_key`. You will be redirected to the management page where you can `create a new Personal API Key <https://management.3di.live/personal_api_keys>`_. 
 #) Create a new Personal API Key by pressing the '+NEW ITEM' button in the upper right corner.
 #) Add a name for the new Personal API Key. Click on 'Submit' to the right.
-#) You now have your own Personal API Key. Copy it (|Copy_button|).
+#) You now have your own Personal API Key. Copy it.
 #) Return to the Modeller Interface.
 #) Click 'Set…' and paste your Personal API Key. Then press 'Save'.
 #) You are now logged in and your name should appear after User. You can now easily **log out** by clicking on the cross.
@@ -51,20 +58,20 @@ You can now use all online functionalities of the 3Di Models & Simulations plugi
 
 .. |modelsSimulations| image:: /image/e_modelsandsimulations.png
     :scale: 90%
-.. |Copy_button| image:: /image/e_copy_button.png
-    :scale: 90%
+
 
 .. _updating_plugin_schem_editor:
 
-Updating the 3Di Schematisation Editor
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-To **update** to a newer version of the Schematisation Editor:
+Updating the Plugins
+^^^^^^^^^^^^^^^^^^^^^
 
-    #) Make sure that in Plugins > Manage and Install Plugins > Settings, the '*Show also experimental plugins*' box is checked
+.. note:: 
+   * Reinstall plugins every year in March.
+   * Update plugins after each release
+   * Always update all plugins.
+   * If you use the **3Di Schematisation Editor**, make sure you Show Experimental Plugins
 
-    #) Go to Installed plugins, click on 3Di Schematisation Editor and then '*Upgrade plugin*'
-
-
+You can Show Experimental Plugins by clicking: 'Plugins' in the menubar > 'Manage and Install Plugins..' > 'Settings' > check the box 'Show also experimental plugins'. 
 
 
 Advanced: separate installation of QGIS and appropriate plugins
@@ -111,16 +118,6 @@ To install the **3Di-Toolbox** plugin follow the steps below:
 4) Fill in a name and copy the URL: https://plugins.3di.live/plugins.xml into the URL box. 
 5) Go to 'All' and choose '3Di toolbox' from the list
 6) Install the plugin.
-
-.. figure:: image/d_qgispluging_pluginmanager.png
-    :alt: QGIS Plugin Manager
-    
-.. figure:: image/d_qgispluging_pluginmanager_addlizard_repo.png
-    :alt: Add Lizard repo Plugin
-
-.. figure:: image/d_qgispluging_pluginmanager_install_toolbox.png
-    :alt: Install 3Di Toolbox
-
 
 To install the **3Di Models and Simulations** plugin follow the steps below: 
 

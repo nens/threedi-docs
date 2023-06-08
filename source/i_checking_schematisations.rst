@@ -33,6 +33,8 @@ The output is a comma-separated value file, which can be opened in, for example,
 
 For a table of all the checks run on the schematisation, and their respective error codes, see the :ref:`current_schematisation_checks`.
 
+.. TODO: kopje hieronder aanpassen als 3di toolbox plugin af is en zorgen dat deze uitleg dan daar staat.
+
 
 Visualising computational grids
 --------------------------------

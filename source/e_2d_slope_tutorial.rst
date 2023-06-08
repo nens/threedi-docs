@@ -240,8 +240,7 @@ With the completion of the location-specific settings, we have built a basic wor
 Model validation
 -----------------
 
-A short description of the model validation is given here.
-A comprehensive guide with visual support is provided in Tutorial 1 (:ref:`post_processing`) and for a general guide see :ref:`checking_model`.
+A short description of the model validation is given here. For a general guide see :ref:`checking_model`.
 
 Verify the model rasters using the raster checker
 ++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -255,6 +254,9 @@ In order to use the raster checker, follow these steps:
 A.	Select the **commands for working with 3Di models** button. On the right of your screen, a tab "3Di" will open. [1] 
 B.	Expand the "Step 1 – Check data" line and click on the **raster checker**. [2] 
 C.	In the pop-up screen, select ‘spatialite: Lake_Mead’ and click **OK**. [3] 
+
+.. TODO: aanpassen, raster checker is niet meer. model wordt nu gecheckt tijdens het uploaden. 1 keer aanpassen voor alle tutorials
+
 
 .. image:: image/11_raster_checker.png
     :alt: Raster checker in action

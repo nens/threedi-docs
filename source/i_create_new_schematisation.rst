@@ -3,36 +3,21 @@
 Create a new schematisation
 ============================
 
-
-#. Open the Modeller Interface
-#. Activate the plugin
-
-   .. figure:: image/d_openplugin.png
-      :alt: Open the 3Di Models and Simulations plugin
-
-#. Choose your default folder
-#. Click on the 'New' button
-
-   .. figure:: image/d_modelsandsimulations.png
-      :alt: Choose New
-
-#. Fill in your credentials to login
-#. Choose a name (obligatory) and tags (optional)
-#. If you have rights to more than one organisation, choose the desired organisation
-#. Click 'Next'
-
-   .. figure:: image/d_newschematisation1.png
-      :alt: Choose Schematisation setttings - tab 1
-
-#. Fill in other settings, such as the projection and friction type and simulation timestep
-#. Click 'Create Schematisation'
-
-   .. figure:: image/d_newschematisation2.png
-      :alt: Choose Schematisation setttings - tab 2  
-
-#. If you get errors, please solve them, otherwise you will get a "SUCCESS" message
+#. Open the 3Di Modeller Interface
+#. Activate the :doc:`i_plugin_models_simulation` (|modelsSimulations|). You should now see the Models and Simulations plugin panel.
+#. Choose your local working directory.
+#. Click on the 'New' button (|newschematisation|).
+#. Fill in your credentials to login.
+#. Choose a name (obligatory) and tags (optional).
+#. If you have rights to more than one organisation, choose the desired organisation.
+#. Click 'Next'.
+#. Fill in other settings, such as the projection and friction type and simulation timestep.
+#. Click 'Create Schematisation'.
+#. If you get errors, please solve them, otherwise you will get a "SUCCESS" message.
 
 Congratulations, you have your first commit!
+
+
 
 .. toctree::
    :maxdepth: 1
@@ -42,3 +27,13 @@ Congratulations, you have your first commit!
    d_import_gwsw_hydx
    d_import_sufhyd
 
+
+.. VRAAG: Is dit een logische plek voor de importing data? Moet er niet nog wat uitleg bij. zoals you can also create a new schemation by importing data from a gwsw hydx or sufhyd.
+
+
+
+.. |newschematisation| image:: /image/e_newschematisation.png
+    :scale: 80%
+
+.. |modelsSimulations| image:: /image/e_modelsandsimulations.png
+    :scale: 90%

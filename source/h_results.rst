@@ -9,7 +9,6 @@ The file size is determined by the output time step, the size of the model (numb
 
 In addition to these snap shots, 3Di can generate aggregated results. More about this can be found in :ref:`aggregationnetcdf`.
 
-When using Python to access the results, use the :ref:`j_threedigrid`.
 
 Flow results are split between node and line variables. Node variables include volumes, water levels and all the source and sink terms. Flowline variables include velocities, discharges and wet cross-section areas. A full overview is given below.
 

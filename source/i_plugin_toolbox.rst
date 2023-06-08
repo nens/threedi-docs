@@ -1,3 +1,5 @@
+.. TODO: update this page when the toolbox plugin is gone.
+
 .. _3di_toolbox_plugin:
 
 3Di Toolbox plugin

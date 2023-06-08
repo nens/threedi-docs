@@ -13,7 +13,7 @@ For an in depth explanation on how to create a schematisation, refer to this :re
 
 Editing a schematisation
 --------------------------
-A schematisation can be edited in the Modeller Interface. This is explained in this :ref:`section <view_and_edit_model>`.
+A schematisation can be edited in the Modeller Interface. This is explained in this :ref:`section <edit_schematisation>`.
 
 
 You cannot edit your schematisation with the Live Site, but it is possible to temporarily adjust values of your model components. This is explained in this :ref:`section <editing_with_live_site>`.

@@ -154,6 +154,7 @@ Format the time series as Comma Separated Values (CSV), with the time (in minute
 
 
 .. _channel:
+
 Channel
 -------
 

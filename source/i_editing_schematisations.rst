@@ -1,415 +1,221 @@
-.. _view_and_edit_model:
+.. _edit_schematisation:
+
+Editing your schematisation
+============================
+
+The following edits of your schematisation are possible in the Modeller Interface:
+
+* :ref:`creating_new_feature`
+* :ref:`pasting_features_external_data`
+* :ref:`edit_feature_attributes`
+* :ref:`edit_feature_geometries`
+* :ref:`deleting_features`
+
+The following features have been added to assist you in editing your schematisation:
+
+* **Drop-down menus**: To facilitate the selection of appropriate values, we have introduced drop-down menus for attributes with multiple value options in tables. This feature proves useful, for instance, when choosing a shape for a cross-section definition.
+* :ref:`automated_fill`: Certain fields are automatically filled-in to streamline the schematisation process, providing helpful assistance.
+* **Highlighting mandatory fields**: When adding a new feature, mandatory fields that require input will be highlighted in orange, ensuring they are easily identifiable.
+* **Multi-line fields for time series**: Multi-line fields are specifically designed for editing time series data. You can edit the time series for :ref:`simulate_api_qgis_boundary_conditions`, :ref:`simulate_api_qgis_laterals`, :ref:`simulate_api_qgis_precipitation` and :ref:`wind_apiclient`.
+
+|
+
+**Activate the plugin**
+
+Make sure you activate the plugin by clicking on 'Plugins' in the menu bar > 'Manage and Install Plugins...' > Check the box of the 3Di Schematisation Editor.
+
+.. _creating_new_feature:
+
+Creating new Features 
+-----------------------
+
+To create a new feature:
+
+#) Select the layer in the Layers panel.
+#) Press the 'Toggle Editing' button (|toggleEditing|).
+#) Click on 'Add Point-' (|addPoint|), 'Add Line-' (|addLine|) or 'Add Polygon Feature' (|addPoly|), depending on what kind of feature you want to add.
+#) Left click on the map to add a Point feature. When adding Line or Polygon features, add multiple locations by left clicking and finish by right clicking.
+#) Fill in the Attribute Form. The orange fields are required to fill in. The other fields are optional. Press 'OK' to finish the process.
+#) When you are finished with adding the features, disable 'Toggle Editing' and save your schematisation to Spatialite.
+
+.. _3di_feature_notes:
+
+Notes on the 3Di Features
+""""""""""""""""""""""""""
+Please check out these notes to correctly add 3Di features to the schematisation.
+
+* **Channel**: A channel can exist of 2 or more vertices. The *connection nodes* and the *Cross Section Location* are added automatically. Do not forget to fill in the required Feature Attributes for the Cross Section Location.
+
+* **Cross Section Location**: Should be placed on top of a channel vertex, (not on the start or end vertex).
+
+* **Culvert**: The culvert can also exist of 2 or more vertices and the *connection nodes* are added automatically.
+
+* **Orifice**: An orifice can only consist of 2 vertices. The *connection nodes* are added automatically.
+
+* **Pipe**: To draw a single pipe, the geometry must have exactly 2 vertices. A line with more than 2 vertices will be split into several pipes. Check out the tip below to add a trajectory of multiple pipes.
+
+* **Pump**: The geometry of a pump must have exactly 2 vertices. The *connection nodes* are added automatically. For external pumps, which pump water out of the model domain, the *Pumpstation (without end node)* should be used. For internal pumps, which pump water between two nodes within the model domain, the *Pumpstation (with end node)* should be used.
+
+* **Weir**: The weir consists of exactly 2 vertices, and the *connection nodes* are added automatically.
+
+* **(Impervisous) Surfaces**: First draw the (impervious) surface polygon(s), then add (impervious) surface map lines. These should start on the impervious surface polygon and end at the connection node to which it is mapped.
+
+
+.. tip::
+    In order to digitize **a trajectory of multiple pipes**, first digitize the manholes, fill in the bottom levels, and then draw the pipe trajectory over these manholes by adding a vertex at each of the manholes. 
+    The pipes that are generated will use the manhole's bottom levels as invert levels and the *connection nodes* and *manholes* will be added automatically.
+
+.. _addleveebreaches:
+
+Add levee breaches
+^^^^^^^^^^^^^^^^^^^
+
+.. VRAAG: is dit een logische plek hiervoor? Zou dit niet meer een tutorial zijn?
+.. Ik heb deze tekst zelf niet geschreven, maar heb het idee dat hij nu al veroudert is met v2_ en referenties naar de 3Di toolbox.
+
+Levee breaches can be created in 3Di-models that contain a connected *v2_channel* 
+(*calculation_type* = 102) and a *v2_levee*-structure. For more information on the 
+theory behind levee breaches in 3Di, see :ref:`breaches`.
+
+Before adding levee breaches, please make sure that the data in *v2_levee*-table is 
+correctly filled out. For simulating breaches, 3Di requires the *crest_level* of the 
+levee in m MSL **(a)**, the *material* of the levee **(b)** and the *max_breach_depth* 
+relative to the crest level in meters **(c)**.
+
+.. image:: image/d_qgisplugin_breach_info_v2_levee_table.png
+
+.. NOTE:: 
+    adding levee breaches should generally be the last step in the modelling process. When connected points belonging to a channel are moved across a levee in order to simulate a breach, they are assigned a *calculation_pnt_id* that refers to the id number of the old calculation point. Any changes that affect the amount of calculation/connected points or the location of calculation points (like adding a new *v2_channel*) will lead to changes in the id numbers of the calculation points, and hence, to moved connected points referring to the wrong calculation points.
+
+To add levee breaches to your model using the 3Di toolbox, please follow the steps below:
+
+1. Set up a connection with the SQLite or PostgreSQL database of your model.
+2. Click on the 3Di toolbox and select *Step 3 - Modify schematisation*.
+3. Choose *Predict calc points* and select your SQLite or PostgreSQL model from the list. Two virtual layers will then be added called *v2_connected_pnt* and *v2_calculation_point*.
+
+.. image:: image/d_qgisplugin_leveebreaches_predict_calc_points.png
+
+4. Select the *v2_connected_pnt*-layer in the QGIS *Layers Panel* **(a)** and click on *Select Feature(s)* in the QGIS *Attributes Toolbar* **(b)**. 
+
+.. image:: image/d_qgisplugin_select_cnn_pnt_layer.png
+
+5. Now select the connected points of the channel on which you want to force a levee breach. Selected points will turn yellow.
+
+.. image:: image/d_qgisplugin_select_levee_points.png
+
+6. Next, double-click on *Create breach locations* and a new window will pop-up.
+
+.. image:: image/d_qgisplugin_create_breach_locs.png
+
+7. In the first box **(a)** the *v2_connected_pnt*-layer that was created in Step 3 is auto-selected from a drop-down menu. If it isn't in the list something went wrong in the previous steps.
+
+.. image:: image/d_qgisplugin_create_breach_locs_window.png
+
+8. In the second box **(b)** you enter a search distance in meters. This is the distance perpendicular to the channel that is searched for a *v2_levee*.
+9. In the third box **(c)** you enter a number that controls at what distance away from the *v2_levee* the new calculation point is created. **IMPORTANT:** The levee breach will only work if the new calculation point is located in a different calculation cell from that of the original calculation point. Hence, is advised to select a *distance_to_levee* that is larger than the size of the calculation cells in which the levee breach occurs.
+10. The *use only selected features* tick box **(d)** should be checked if you want the tool to create breach locations only for the points you selected in the *v2_connected_pnt*-table.
+11. The *dry-run* tick box **(e)** can be checked if you first want to create a temporary layer of the moved connected points. This can be useful to compare the original locations with the new locations.
+12. When the *auto commit changes* tick box **(f)** is checked, all changes made in the *v2_connected_pnt*-layer are immediately saved. Since these changes can't be reverted and they can be easily saved with the click of one button, we recommended leaving this box unchecked.
+13. Click on the *OK*-button **(g)** to create the breach locations. Note that you will still need to save the *v2_connected_pnt*-layer before changes are committed to the model. An example of (not yet committed) connected points that have been moved across a levee to simulate a levee breach, can be seen in the figure below.
+
+.. image:: image/d_qgisplugin_moved_cnn_points.png
+
+
+|
+
+.. _pasting_features_external_data:
+
+Pasting Features from external data sources
+---------------------------------------------
+
+Features can be copy-pasted from external data sources into the :ref:`Schematisation Editor <schematisation_editor>`. 
+Check out the `QGIS Documentation <https://docs.qgis.org/3.28/en/docs/user_manual/working_with_vector/attribute_table.html>`__ for how to work with the attribute table.
+
+.. Note::
+    Please note that when pasting features from external sources, the perks of the Schematisation Editor will not be applied to the features. 
+
+|
+
+.. _edit_feature_attributes:
+
+Editing Feature Attributes
+----------------------------
+
+There are two options available for editing feature attributes:
+
+1. Via the **Attribute Table**:
+   
+   - Right-click the layer in the Layers panel.
+   - Select 'Open Attribute Table'.
+   - Click the 'Toggle Editing' button located in the top left corner.
+   - Make the necessary edits within the table.
+   - Click 'Save Edits' in the top left corner to save your changes.
+
+
+2. Using the **Identify Feature** option:
+   
+   - Select the desired feature layer.
+   - Enable the 'Identify Feature' (|idendifyFeature|) option.
+   - Click on a feature on the map.
+   - A window will open displaying the attributes of the selected feature, along with the attributes of all related features.
+   - Explore the different tabs within the window to access the related feature attributes.
+
+|
+
+.. _edit_feature_geometries:
+
+Editing Feature Geometries
+----------------------------
+
+For editing the geometries of features, the 'Vertex tool' can be used, see the `QGIS documentation <https://docs.qgis.org/3.28/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#vertex-tool>`__. On top of the standard QGIS functionalty, the :ref:`Schematisation Editor <schematisation_editor>` provides extra functionalities:
+
+    - When moving a node, all connected features will move along.
     
-View and edit a 3Di model schematisation
-=========================================
+    - Changing the start/end vertex of a line feature (e.g. pipe, channel, culvert, orifice, weir, pump (impervious) surface map) allows you to connect the line to another connection node.
 
-After loading your schematisation, there are several ways to inspect your model. We have added the following features to assist you in viewing and editing the schematisation:
+|
 
-- Multiple styles per layer
-- Drop down menus
-- Immediate validation
-- Automated field fill
-- Multi-line fields for time series 
+.. _deleting_features:
 
+Deleting Features
+-------------------
 
-.. _multiplestyles:
+To learn more about deleting features, refer to the `QGIS documentation <https://docs.qgis.org/3.28/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#deleting-selected-features>`_ for general instructions. When using the Schematisation Editor, you will encounter the following options:
 
-Multiple styles per layer
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+* 'Delete this feature only': This option deletes only the selected features. It may result in an invalid schematisation, but can be useful when removing a specific part of the model.
+* 'Delete all referenced features': Choosing this option will delete all connected features along with the selected ones. Your schematisation is likely to remain valid when using this option.
+* 'Cancel': Selecting this option will cancel the deletion process and leave the features unchanged.
 
 
-The multiple styles per layer can help you when analyzing your model. The different styles depict aspects of the layer you might be interested in, without cluttering your schematisation with too much information at once. 
+.. |toggleEditing| image:: /image/d_toggle_editing.png
+    :scale: 90%
 
-To switch between stylings: 1) Right click the layer you are interested in. 2) Hold your mouse over styles and the multiple styles will be shown. 3) Click on the style you want to use. The style with the dot next to it is the active style. The figure below shows an example for selecting a style. 
+.. |addPoint| image:: /image/d_addpoint.png
 
-.. figure:: image/d_qgisplugin_multiple_stylings_drop_down_menu.png
-    :alt: Selecting the drop down menu for multiple styles
-	
-Some styles add a label to the object. Keep in mind when using these stylings that the labels only become visible when a certain zoom level is applied. 
+.. |addLine| image:: /image/d_addline.png
 
-The default style depicts the locations of the objects in the layer. The other stylings are explained briefly below:
+.. |addPoly| image:: /image/d_addpolygon.png
 
+.. |idendifyFeature| image:: /image/d_identify_features.png
 
-**1D and 2D Boundary conditions:**
+|
 
-=================  =====================================================================================
-Style              Description  
-=================  =====================================================================================
-Timeseries label   The ‘timeseries label’ style adds a label to the default style, depicting the boundary
-
-                   type, and the smallest (min:) and largest (max:) value in the time series.
-=================  =====================================================================================
-
-
-
-**1D and 2D Lateral:**
-
-=================  =====================================================================================
-Style              Description  
-=================  =====================================================================================
-Timeseries label   The ‘timeseries label’ style adds a label to the default style, depicting the smallest
-
-                   (min:) and largest (max:) value in the time series.
-=================  =====================================================================================
-
-When looking at these timeseries keep in mind that the values get rounded off to 2 decimal places, which can make it seem like the values are zero (0.00) when in fact they were not.
-
-**Connection Nodes:**
-
-===================  ===================================================================================
-Style                Description  
-===================  ===================================================================================
-Id                   The ‘id’ style adds a label to the default style, depicting the id of the connection
-
-                     node. This can be useful when connecting other elements to existing connection 
-
-                     nodes.
-Initial water level  The ‘initial water level’ style is a categorised styling that represents the connection
-
-                     nodes without an initial water level in the default style and the connection nodes
-
-                     with an initial water level as blue outlined dots with labels that depict the initial 
-
-                     water levels (in m MSL).
-Storage area         The ‘storage area’ style depict the storage area of the connection nodes as a ratio 
-
-                     style with a label. The extent of the schematisation corresponds to the size of the 
-
-                     storage area of the connection node. The label depicts the storage area. 
-===================  ===================================================================================
-
- 
-**Manholes:**
-
-===================  ===================================================================================
-Style                Description  
-===================  ===================================================================================
-Default              The ‘default’ style is a categorised styling depicting the locations and indicators of
-
-                     the manholes. The different manhole indicators have different zoom levels in order
-
-                     to avoid clutter. When zooming into a certain area the local manholes will appear.
-Levels               The ‘levels’ style adds a label to the default style, depicting the surface level (s:),
-
-                     the drain level (d:) and the bottom level (b:).
-Calculation type     The `’calculation type’ <calculation_types>` style is a categorised styling that depicts the way 3Di calculated the interaction between the manhole and the 2D computational domain.
-
-                     calculated the interaction between a manhole and the 2D computation domain.
-Code                 The ‘code’ style adds a label to the default style, depicting the code of the manhole.
-===================  =================================================================================== 
-
-
-**Cross section location (view):**
-
-===================  ===================================================================================
-Style                Description  
-===================  ===================================================================================
-Levels               The ‘levels’ style adds a label to the default style, depicting the bank level (bank:),
-
-                     the reference level (ref:) and the difference between the two (diff:).
-Cross section        The ‘cross-section’ style adds a label depicting the shape, the maximum width (w:) and  
-
-                     the maximum height (h:) of the cross-section definition. The width (in m) is the 
-
-                     diameter in the case of a circle and the max width in the case of a tabulated profile.
-===================  =================================================================================== 
-
-
-**Pumpstation view:**
-
-===================  ===================================================================================
-Style                Description  
-===================  ===================================================================================
-Default              The ‘default’ style depicts the locations of the pumpstation view and the drawing direction
-
-                     of this view with arrows pointing toward the end node. 
-Capacity             The icon size corresponds with the pump capacity. The label depicts the capacity of the
-
-                     pumpstation (in L/s).
-Levels               The ‘levels’ style adds a label to the default style, depicting the upper stop level (up:),  
-
-                     the start level (st:) and the lower stop level (lo:).
-===================  =================================================================================== 
-
-
-**Pumpstation point view:**
-
-===================  ===================================================================================
-Style                Description  
-===================  ===================================================================================
-Capacity             The extent of the schematisation corresponds to the capacity of the pump. The label
-
-                     depicts the capacity of the pumpstation (in L/s).
-Levels               The ‘levels’ style adds a label to the default style, depicting the upper stop level (up:),  
-
-                     the start level (st:) and the lower stop level (lo:).
-===================  =================================================================================== 
-
-**Channel:**
-
-===========================  ============================================================================
-Style                        Description  
-===========================  ============================================================================
-Calculation type             The `’calculation type’ <calculation_types>` style is a categorized styling that depicts the way    
-
-                             3Di calculated  the interaction between a channel and the 2D  
-
-                             computation domain.
-Drawing direction            The ‘drawing direction’ styling depicts the drawing direction of the 
-
-                             channel, with the arrows pointing toward the end connection node. Flow    
-
-                             in the drawing direction has  positive values, flow in the opposite  
-
-                             direction has negative values.
-Code                         The ‘code’ style adds a label to the default style, depicting the code of  
-
-                             the channel.   
-Calculation point distance   The ‘calculation point distance’ styling depicts the approximate location   
-
-                             of the calculation points. These calculation points are where the 
-
-                             interaction with the 2D domain can take place. 
-===========================  ============================================================================
-
-**Weir:**
-
-===================  ===================================================================================
-Style                Description  
-===================  ===================================================================================
-Default              The 'default' style depicts the locations of the weirs. When a weir is closed in 
-
-                     one direction a perpendicular dash and arrow are added to the line.
-Levels               The ‘levels’ style adds a label to the default style, depicting the crest level   
-
-                     of a weir (in m MSL).
-Drawing direction    The ‘drawing direction’ styling depicts the drawing direction of the weir,  
-
-                     with the arrows  pointing toward the end connection node. Flow in the drawing   
-
-                     direction has positive values, flow in the opposite direction has negative values.
-Width                The line width corresponds to the (minimum) width of the weir. The label shows  
-
-                     the shape and (minimum) width of the cross section in meters. 
-===================  =================================================================================== 
-
-**Culvert view:**
-
-===========================  ============================================================================
-Style                        Description  
-===========================  ============================================================================
-Levels and flow direction    The ‘levels and flow direction’ style adds arrows and a label to the default
-
-                             style. The  arrows point in the expected flow direction (high to low 
-
-                             invert level) and the label shows the invert level for the start point (s:)  
- 
-                             and end point (e:) of the culvert.
-Calculation type             The `’calculation type’ <calculation_types>` style is a categorized styling that depicts the way  
-
-                             3Di calculated the interaction between a culvert and the 2D computation 
-
-                             domain.
-Drawing direction            The ‘drawing direction’ styling depicts the drawing direction of the culvert, 
-
-                             with the arrows pointing toward the end connection node. Flow in the  
-
-                             drawing direction has positive values, flow in the opposite direction 
-
-                             has negative values.
-Diameter                     The line width is based on the average of the (max.) width and (max.) height  
-
-                             of the cross section. The label shows the cross section shape and the 
-
-                             (max.) width and (max.) height (in mm). 
-===========================  ============================================================================
-
-**Orifice:**
-
-===================  ===================================================================================
-Style                Description  
-===================  ===================================================================================
-Default              The 'default' style depicts the locations of the orifices. When a orifice is closed  
-
-                     in one direction a perpendicular dash and arrow are added to the line.
-Levels               The ‘levels’ style adds a label to the default style, depicting the crest level of an  
-
-                     orifice (in m MSL).
-Drawing direction    The ‘drawing direction’ styling depicts the drawing direction of the orifice, with  
-
-                     the arrows pointing toward the end connection node. Flow in the drawing  
-
-                     direction has positive values, flow in the opposite direction has negative values.
-Diameter             The line width is based on the average of the (max.) width and (max.) height of  
-
-                     the cross section. The label shows the cross section shape and the (max.) width 
-
-                     and (max.) height (in mm). 
-===================  =================================================================================== 
-
-
-**Pipe:**
-
-===========================  ============================================================================
-Style                        Description  
-===========================  ============================================================================
-Default                      The ‘default’ style is a categorized styling depicting the locations and  
-
-                             sewerage types of the pipes.
-Levels and flow direction    The ‘levels and flow direction’ style adds arrows and a label to the default 
-
-                             style. The arrows point in the expected flow direction (high to low   
-
-                             invert level) and the label shows the invert level for the start point (s:) 
-
-                             and end point (e:)  of the pipe.
-Calculation type             The `’calculation type’ <calculation_types>` style is a categorized styling that depicts the way 3Di   
-
-                             calculated the interaction between a pipe and the 2D computation domain.
-Drawing direction            The ‘drawing direction’ styling depicts the drawing direction of the pipe,
-
-                             with the arrows pointing toward the end connection node. Flow in the  
-
-                             drawing direction has positive values, flow in the opposite direction 
-
-                             has negative values.
-Diameter                     The line width is based on the average of the (max.) width and (max.) height   
-
-                             of the cross section. The label shows the cross section shape and  
-
-                             the (max.) width and (max.) height (in mm). 
-Code                         The ‘code’ style adds a label to the default style, depicting the code of
-
-                             the pipe. This code is bases on the two manhole codes which enclose 
-
-                             the pipe.
-===========================  ============================================================================
-
-**Obstacle:**
-
-===================  ===================================================================================
-Style                Description  
-===================  ===================================================================================
-Levels               The ‘levels’ style adds a label to the default style, depicting the crest level of an obstacle. 
-
-                     (in m MSL).
-===================  =================================================================================== 
-
-**Levee:**
-
-===================  ===================================================================================
-Style                Description  
-===================  ===================================================================================
-Levels               The ‘levels’ style adds a label to the default style, depicting the crest level of an Levee. 
-
-                     (in m MSL).
-===================  =================================================================================== 
-
-**Grid refinement:**
-
-===================  ===================================================================================
-Style                Description  
-===================  ===================================================================================
-Default              The ‘default’ style depicts the locations of the grid refinements. The dashed   
-
-                     pattern is based on the refinement level. The number of dots represents the 
-
-                     refinement level.
-Refinement levels    The ‘refinement level’ style adds a label to the default style, depicting 
-
-                     the refinement level.
-===================  =================================================================================== 
-
-
-**Grid refinement area:**
-
-===================  ===================================================================================
-Style                Description  
-===================  ===================================================================================
-Default              The ‘default’ style depicts the locations of the grid refinement areas. The hash  
-
-                     spacing and the dashed pattern of outline are based on the refinement level. The  
-
-                     hash spacing represents the size of the calculation cells based on the refinement 
-
-                     level and the number of dots in the polygon outline represents the refinement 
-
-                     level. 
-Refinement levels    The ‘refinement level’ style adds a label to the default style, depicting 
-
-                     the refinement level.
-===================  =================================================================================== 
-
-**Impervious surface:**
-
-===========================  ============================================================================
-Style                        Description  
-===========================  ============================================================================
-Surface inclination          The ‘surface inclination’ style is a categorized styling depicting the  
-
-                             locations and the surface inclinations of the impervious surfaces.  
-Area and dry weather flow    The ‘area dry weather flow’ style depicts the amount of dry weather flow 
-
-                             in L/d for each impervious surface, calculated 
-
-                             as dry_weather_flow * nr_inhabitants. 
-===========================  ============================================================================
-
-**Surface:**
-
-===========================  ============================================================================
-Style                        Description  
-===========================  ============================================================================
-Area and dry weather flow    The ‘area dry weather flow’ style depicts the amount of dry weather flow  
-
-                             in L/d for each surface, calculated as dry_weather_flow * nr_inhabitants.
-===========================  ============================================================================
-
-
-Drop down menus
-^^^^^^^^^^^^^^^
-
-We have added drop down menus for multiple value attributes in tables. This to assist you in selecting the proper values. The figure below shows an example for selecting a shape for a cross section definition. 
-
-.. figure:: image/d_qgisplugin_vm_dropdown.png
-    :width: 25pc
-    :height: 25pc
-    :alt: Drop down menu example
-
-
-Immediate validation
-^^^^^^^^^^^^^^^^^^^^^
-
-For obligatory fields, we have added non-binding constraints. In fields that are correctly, green checks will appear next to the fields after there are filled. An orange cross will appear in case, the field is mandatory, but not filled. 
-
-.. figure:: image/d_qgisplugin_vm_validation.png
-    :width: 25pc
-    :height: 25pc
-    :alt: Validation example
-
-
-Multi-line fields for time series
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Multi-line fields are designed for editing time series. In the example of the Figure, the time serie of a discharge boundary condition is edited.
-
-.. figure:: image/d_qgisplugin_vm_timeseries.png
-    :width: 50pc
-    :height: 25pc
-    :alt: Timeseries example
+.. _automated_fill:
 
 Automated field fill 
-^^^^^^^^^^^^^^^^^^^^
+----------------------
 
 Some fields are automatically filled to assist in making your schematisation. Here is an overview of the fields that are filled automatically:
 
 - The cross-section location fetches the corresponding channel-id automatically
-- Channels and culverts automatically fill connection node ids when drawing between nodes with `snapping <https://docs.qgis.org/3.4/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#setting-the-snapping-tolerance-and-search-radius>`_.
+- Channels and culverts automatically fill connection node ids when drawing between nodes with `snapping <https://docs.qgis.org/3.28/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#snapping-on-custom-grid>`_.
 - Invert level from culverts. If invert level is empty culverts assumes the invert level based on manhole bottom_level 
 
 On top of that, some default values for some of the mandatory fields are set. This helps you build models faster. The following default values will be set, in case they are left blank. The listed values are defaults, so please change them if required for your specific application.
 
 You need to set your QGIS locale to 'English UnitedStates' in order for this functionality to work properly.
+
+.. CHECK: Klopt deze lijst nog? alles heet nog v2.
 
 **v2_global_settings:**
 
@@ -674,77 +480,3 @@ code							new
 area							area based on geometry
 zoom_category					0
 ============================= =========================
-
-
-**Notables:**
-The 3Di database has some fields that are not in use. To clean the view, we have hidden them in the form view. They are still available in the database. Moreover, we have made some field names easier to read: for example, prefixes are excluded (e.g. \pipe_).
-
-
-.. _import_sewerage_data:
-
-Importers for Dutch sewerage data formats
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-3Di has importers for two sewerage data formats: SUF-Hyd and GWSW-HydX. Instructions can be found here: 
-
-* :ref:`import_sufhyd`
-* :ref:`import_gwsw_hydx`
-
-
-.. _addleveebreaches:
-
-Add levee breaches
-^^^^^^^^^^^^^^^^^^
-
-Levee breaches can be created in 3Di-models that contain a connected *v2_channel* 
-(*calculation_type* = 102) and a *v2_levee*-structure. For more information on the 
-theory behind levee breaches in 3Di, see :ref:`breaches`.
-
-Before adding levee breaches, please make sure that the data in *v2_levee*-table is 
-correctly filled out. For simulating breaches, 3Di requires the *crest_level* of the 
-levee in m MSL **(a)**, the *material* of the levee **(b)** and the *max_breach_depth* 
-relative to the crest level in meters **(c)**.
-
-.. image:: image/d_qgisplugin_breach_info_v2_levee_table.png
-
-**IMPORTANT WARNING:** adding levee breaches should generally be the last step in 
-the modelling process. When connected points belonging to a channel are moved 
-across a levee in order to simulate a breach, they are assigned a *calculation_pnt_id*
-that refers to the id number of the old calculation point. Any changes that affect 
-the amount of calculation/connected points or the location of calculation points 
-(like adding a new *v2_channel*) will lead to changes in the id numbers of the 
-calculation points, and hence, to moved connected points referring to the wrong 
-calculation points.
-
-To add levee breaches to your model using the 3Di toolbox, please follow the steps below:
-
-1. Set up a connection with the SQLite or PostgreSQL database of your model (see: :ref:`rasterchecker`).
-2. Click on the 3Di toolbox and select *Step 3 - Modify schematisation*.
-3. Choose *Predict calc points* and select your SQLite or PostgreSQL model from the list. Two virtual layers will then be added called *v2_connected_pnt* and *v2_calculation_point*.
-
-.. image:: image/d_qgisplugin_leveebreaches_predict_calc_points.png
-
-4. Select the *v2_connected_pnt*-layer in the QGIS *Layers Panel* **(a)** and click on *Select Feature(s)* in the QGIS *Attributes Toolbar* **(b)**. 
-
-.. image:: image/d_qgisplugin_select_cnn_pnt_layer.png
-
-5. Now select the connected points of the channel on which you want to force a levee breach. Selected points will turn yellow.
-
-.. image:: image/d_qgisplugin_select_levee_points.png
-
-6. Next, double-click on *Create breach locations* and a new window will pop-up.
-
-.. image:: image/d_qgisplugin_create_breach_locs.png
-
-7. In the first box **(a)** the *v2_connected_pnt*-layer that was created in Step 3 is auto-selected from a drop-down menu. If it isn't in the list something went wrong in the previous steps.
-
-.. image:: image/d_qgisplugin_create_breach_locs_window.png
-
-8. In the second box **(b)** you enter a search distance in meters. This is the distance perpendicular to the channel that is searched for a *v2_levee*.
-9. In the third box **(c)** you enter a number that controls at what distance away from the *v2_levee* the new calculation point is created. **IMPORTANT:** The levee breach will only work if the new calculation point is located in a different calculation cell from that of the original calculation point. Hence, is advised to select a *distance_to_levee* that is larger than the size of the calculation cells in which the levee breach occurs.
-10. The *use only selected features* tick box **(d)** should be checked if you want the tool to create breach locations only for the points you selected in the *v2_connected_pnt*-table.
-11. The *dry-run* tick box **(e)** can be checked if you first want to create a temporary layer of the moved connected points. This can be useful to compare the original locations with the new locations.
-12. When the *auto commit changes* tick box **(f)** is checked, all changes made in the *v2_connected_pnt*-layer are immediately saved. Since these changes can't be reverted and they can be easily saved with the click of one button, we recommended leaving this box unchecked.
-13. Click on the *OK*-button **(g)** to create the breach locations. Note that you will still need to save the *v2_connected_pnt*-layer before changes are committed to the model. An example of (not yet committed) connected points that have been moved across a levee to simulate a levee breach, can be seen in the figure below.
-
-.. image:: image/d_qgisplugin_moved_cnn_points.png

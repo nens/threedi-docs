@@ -1018,7 +1018,6 @@ We have released a new version of the Modeller Interface with the following:
 
 Download here the latest version: `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.7-1-Setup-x86_64.exe>`__
 
-Also we have included a comprehensive table on our docs showing the current status of implementation of features of API v3: :ref:`schematisation_basic_modelling_concepts`
 
 *Important note for QGIS Users*
 

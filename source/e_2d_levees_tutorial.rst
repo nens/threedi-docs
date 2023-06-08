@@ -1,3 +1,5 @@
+..  _flood_model:
+
 Tutorial 4: Building a 2D flow model with levees, channels and breaches
 =======================================================================
 
@@ -94,13 +96,13 @@ Your levee should look something like this:
 Channel
 +++++++
 
-Now that we have added the levees to the model, we are going to add a channel to the model. For more information on channels, see: :ref:`channels` and see :ref:`channelflow`.
+Now that we have added the levees to the model, we are going to add a channel to the model. For more information on channels, see: :ref:`1d_objects` and see :ref:`channelflow`.
 
 Channels are drawn in between connection nodes which act as the start and endpoint of the channel. If you want to make a more elaborate model and include structures in the channel (for example a weir), you have to add extra connection nodes to link these structures to a channel (they cannot be placed on top of a channel). For now, we just want to add one channel, so we need to add two connection nodes to the v2_connection_nodes table.
 
 After a channel is added to a model, a channel geometry needs to be assigned to the channel. This is done in two steps. First, we have to define a cross section profile in the v2_cross_section_definition table, and second, we have to link this profile to the channel via the v2_cross_section_location table.
 
-Lastly, we have to add boundary conditions to the channel. These boundary conditions have to be linked to the connection nodes. Boundary conditions are used to describe the behavior of the system outside the domain of interest. For more information, see: :ref:`boundary_conditons`.
+Lastly, we have to add boundary conditions to the channel. These boundary conditions have to be linked to the connection nodes. Boundary conditions are used to describe the behavior of the system outside the domain of interest.
 
 So to add a channel or network of channels we will alter the following tables:
 
@@ -274,8 +276,7 @@ The displaced connected point is now the link between the 2D grid cell in which 
 Model validation
 ----------------
 
-A short description of the model validation is given here.
-A comprehensive guide with visual support is provided in Tutorial 1 (:ref:`post_processing`) and for a general guide see :ref:`checking_model`.
+A short description of the model validation is given here. For a general guide see :ref:`checking_model`.
 
 Verify the model rasters using the raster checker
 ++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -287,6 +288,8 @@ In order to use the raster checker, follow these steps:
 A. Select the **commands for working with 3Di models** button. On the right of your screen, a tab "3Di" will open. [1]
 B. Expand the "Step 1 – Check data" line and click on the **raster checker**. [2]
 C. In the pop-up screen, select ‘spatialite: Nissewaard' and click **OK**. [3]
+
+.. TODO: aanpassen, raster checker is niet meer. model wordt nu gecheckt tijdens het uploaden. 1 keer aanpassen voor alle tutorials
 
 The following screen will appear:
 

@@ -23,6 +23,8 @@ Although the schematisation represents a real-world area, some processes will be
 * Validate your model schematization with the schematization checker.
 * Generate a 3Di Model and play with it on the 3Di Livesite. 
 
+.. TODO: Raster checker aanpassen, die bestaat niet meer, nu schematization checker
+
 **Before you start, please make sure to**:
 
 * Install the 3Di Modeller Interface. Please see :ref:`3di_instruments_and_downloads` for instructions. 
@@ -44,12 +46,12 @@ As we are building a schematisation from scratch, the workflow explained in :ref
 If you haven't followed this tutorial yet, please do so before continuing this tutorial.
 
 Name your newly created schematisation **'Tutorial2_<your_name>'**, select the correct organisation and check the 'Create new Spatialite' box. 
-Press the 'Next' button twice and fill in the data as provided in :numref:`schem-settings`. Select your downloaded DEM .tif file for the Digital elevation model field. 
+Press the 'Next' button twice and fill in the data as provided in :numref:`figure_schematisation_settings`. Select your downloaded DEM .tif file for the Digital elevation model field.
 
+.. _figure_schematisation_settings:
 
 .. figure:: image/e_schematisation_settings.png
     :alt: Initial Schematisation settings.
-    :name: schem-settings
 
     Initial Schematisation settings
 
@@ -131,8 +133,8 @@ The settings that we will use for the 2D flow simulations in the Laugharne and P
     :header: "Setting", "Value for this tutorial", "Comments"
 
     "grid_space", "64", "Minimum grid cell size in metres"
-    "kmax", "1", "See :ref:`computational_grid`"
-    "table_step_size", "0.10", "See :ref:`computational_grid`"
+    "kmax", "1", "See :ref:`grid`"
+    "table_step_size", "0.10", "See :ref:`grid`"
 
 .. csv-table:: Terrain information
     :header: "Setting", "Value for this tutorial", "Comments"
@@ -201,7 +203,9 @@ Complete the infiltration settings
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The settings for the infiltration mechanism are contained in the v2_simple_infiltration table, which can be found just above the global settings.
-Right-click again to open the Attribute Table [1], toggle editing [2], add a new feature [3] and start editing the settings to the provided values in :numref:`inf_settings`.
+Right-click again to open the Attribute Table [1], toggle editing [2], add a new feature [3] and start editing the settings to the provided values in :numref:`figure_infiltration_settings`.
+
+.. _figure_infiltration_settings:
 
 .. image:: image/05_infiltration.png
     :alt: infiltration

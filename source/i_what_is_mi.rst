@@ -1,7 +1,7 @@
 .. _mi_what_is:
 
-Introduction
-============
+What is the Modeller Interface
+================================
 
 The 3Di Modeller Interface is the 3Di desktop application. It makes it easy for expert modellers and hydrologists to build and edit 3Di models, run simulations and analyse simulation results to understand water systems and assess flood risks or other hydrological phenomena.
 
@@ -14,7 +14,6 @@ This video shows the workflow from start to finish of the modelling process:
 *Demo of the modelling process* 
 
 For an overview of the interface and its components visit the :ref:`mi_overview` page. For more detailed information on the modelling workflow, visit the :ref:`workflow` page. There are also multiple tutorials available on how to work with the 3Di Modeller Interface. A good starting point is the :ref:`Workflow Tutorial <tutorial1_workflow>`.
-
 
 
 This user manual is structured along the common workflow:
@@ -30,6 +29,7 @@ This user manual is structured along the common workflow:
 * :doc:`i_downloading_results`
 * :doc:`i_analyzing_results`
 
+
 Technical setup
 ----------------
 The Modeller Interface is a customized version of QGIS, shipped with several pre-installed plugins and settings. It uses the latest Long Term Release version of QGIS. All components of the 3Di Modeller Interface are installed when running the installer (.exe file). It includes the following:
@@ -37,13 +37,14 @@ The Modeller Interface is a customized version of QGIS, shipped with several pre
 3Di plugins
 ^^^^^^^^^^^
 
-- *3Di Schematisation Editor* for editing schematisations
+- :doc:`i_plugin_schematisation_editor`: for editing schematisations
 
-- *3Di Models and Simulations* for interaction with the 3Di API: uploading and downloading schematisations, starting and stopping simulations, downloading results.
+- :doc:`i_plugin_models_simulation`: for interaction with the 3Di API: uploading and downloading schematisations, starting and stopping simulations, downloading results.
 
-- *3Di Toolbox* for analysing simulation results
+- :doc:`i_plugin_toolbox`: for analysing simulation results
 
 - *3Di Customisations* takes care of the user interface customization: the user interface is simplified, some colors are different and the application name, logo and splash screen are changed.
+   
 
 Third party plugins
 ^^^^^^^^^^^^^^^^^^^
