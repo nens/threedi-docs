@@ -10,6 +10,20 @@ The methods that 3Di uses to deal with the flow in the 2D domain are thoroughly 
 
  .. TODO: Extend
 
+Cross-sections and exchange levels
+----------------------------------
+
+The cross-sectional area and exchange levels for 2D flow are based on the subgrid data. The rows of pixels on either side of the cell boundary are used for this. For each pixel pair, the maximum value is used to describe the 2D cross-section.
+
+Note that if a narrow obstacle in the landscape does not coincide with the cell boundary, it will not affect the cross-section and exchange level. This means that water flows 'through' the obstacle, because there is always only one water level in the whole cell. This is illustrated in the figure below.
+
+.. figure:: image/b_channel_leak.png
+   :scale: 90%
+   :align: center
+
+   Example of channel leaking
+
+
 .. _flow_with_vegetation:
 
 2D Surface flow with vegetation
