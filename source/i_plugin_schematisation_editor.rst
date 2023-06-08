@@ -65,6 +65,11 @@ To add a feature:
 
 Please check out the :ref:`3di_feature_notes` below for information to correctly add 3Di features to the schematisation.
 
+.. figure:: image/d_feature_attributes.png
+   :alt: Feature attributes window
+   :scale: 80%
+
+   An example of the Feature Attribute window when adding a pipe.
 
 .. _3di_feature_notes:
 
@@ -132,11 +137,10 @@ Deleting features
 For the general documentation on deleting features, check out the `QGIS documentation <https://docs.qgis.org/3.22/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html?highlight=vertex%20tool#deleting-selected-features>`_.
 When following those steps in the Schematisation Editor, one will be prompted the following screen:
 
-.. 
-    .. figure:: image/d_deleting_features.png
-       :alt: Deleting features options
+.. figure:: image/d_deleting_features.png
+   :alt: Deleting features options
 
-       Deleting features options
+   Deleting features options
 
 When selecting 'Delete this feature only', only the selected features will be deleted. This will result in an invalid schematisation, but can come in handy if a part of the model has to be deleted.
 
