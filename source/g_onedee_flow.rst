@@ -55,7 +55,7 @@ YZ cross-sections can be asymmetrical. Note that because 1D flow is width-averag
 The table below gives an overview of the types of cross-section shapes available in 3Di.
 
 .. list-table:: Cross-section shapes
-   :widths: 1 1 4
+   :widths: 1 1 4 1
    :header-rows: 1
 
    * - Shape
