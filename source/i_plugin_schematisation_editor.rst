@@ -132,11 +132,11 @@ Deleting features
 For the general documentation on deleting features, check out the `QGIS documentation <https://docs.qgis.org/3.22/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html?highlight=vertex%20tool#deleting-selected-features>`_.
 When following those steps in the Schematisation Editor, one will be prompted the following screen:
 
-.. figure:: image/d_deleting_features.png
-   :alt: Deleting features options
+.. 
+    .. figure:: image/d_deleting_features.png
+       :alt: Deleting features options
 
-   Deleting features options
-
+       Deleting features options
 
 When selecting 'Delete this feature only', only the selected features will be deleted. This will result in an invalid schematisation, but can come in handy if a part of the model has to be deleted.
 
