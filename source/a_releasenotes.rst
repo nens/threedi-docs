@@ -8,8 +8,215 @@ Release notes
 3Di general releases
 --------------------
 
+June 14th 2023
+^^^^^^^^^^^^^^
+
+**Computational core**
+
+- Vegetation drag can now be included in the calculation of 2D flow
+
+- Exchange between 1D and Groundwater is now possible
+
+- 2D Groundwater boundaries can now be used
+
+
+**Schematisation checker**
+
+- Tables and columns related to vegetation and groundwater are no longer marked as beta features.
+
+- The following checks were added:
+
+.. list-table:: New or changed checks, June 14th 2023
+   :widths: 10 20 40
+   :header-rows: 1
+
+   * - Check number
+     - Check level
+     - Check message
+   * - 0008
+     - Error
+     - id must be a positive signed 32-bit integer.
+   * - 0045
+     - Warning
+     - v2_channel.dist_calc_points should preferably be at least 5.0 metres to prevent simulation timestep reduction.
+   * - 0045
+     - Warning
+     - v2_pipe.dist_calc_points should preferably be at least 5.0 metres to prevent simulation timestep reduction.
+   * - 0045
+     - Warning
+     - v2_culvert.dist_calc_points should preferably be at least 5.0 metres to prevent simulation timestep reduction.
+   * - 0056
+     - Error
+     - v2_channel.id has both open and closed cross-sections along its length. All cross-sections on a v2_channel.id object must be either open or closed.
+   * - 0063
+     - Warning
+     - v2_connection_nodes.storage_area * 1000 for each pumpstation's end connection node must be greater than v2_pumpstation.capacity; water level should not rise >= 1 m in one second
+   * - 0098
+     - Warning
+     - v2_cross_section_definition.width and/or height should probably be at least 0.1m
+   * - 0202
+     - Warning
+     - The length of v2_channel is very short (< 5 m). A length of at least 5.0 m is recommended to avoid timestep reduction.
+   * - 0202
+     - Warning
+     - The length of v2_culvert is very short (< 5 m). A length of at least 5.0 m is recommended to avoid timestep reduction.
+   * - 0202
+     - Warning
+     - The length of v2_pipe is very short (< 5 m). A length of at least 5.0 m is recommended to avoid timestep reduction.
+   * - 0360
+     - Warning
+     - v2_global_settings.dist_calc_points should preferably be at least 5.0 metres to prevent simulation timestep reduction.
+   * - 0501
+     - Error
+     - v2_vegetation_drag.vegetation_height is <=0
+    * - 0503
+     - Warning
+     - v2_vegetation_drag.height is recommended as fallback value when using a vegetation_height_file.
+    * - 0504
+     - Error
+     - v2_vegetation_drag.vegetation_stem_count is <=0
+   * - 0505
+     - Error
+     - v2_vegetation_drag.vegetation_stem_count must be defined.
+   * - 0506
+     - Warning
+     - v2_vegetation_drag.vegetation_stem_count is recommended as fallback value when using a vegetation_stem_count_file.
+   * - 0507
+     - Error
+     - v2_vegetation_drag.vegetation_stem_diameter is <=0
+   * - 0508
+     - Error
+     - v2_vegetation_drag.vegetation_stem_diameter must be defined.
+   * - 0509
+     - Warning
+     - v2_vegetation_drag.vegetation_stem_diameter is recommended as fallback value when using a vegetation_stem_diameter_file.
+   * - 0510
+     - Error
+     - v2_vegetation_drag.vegetation_drag_coefficient is <=0
+   * - 0511
+     - Error
+     - v2_vegetation_drag.vegetation_drag_coefficient must be defined.
+   * - 0512
+     - Warning
+     - v2_vegetation_drag.vegetation_drag_coefficient is recommended as fallback value when using a vegetation_drag_coefficient_file.
+   * - 0613
+     - Warning
+     - v2_connection_nodes.id has a an associated inflow area larger than 10000 m2; this might be an error.
+   * - 0614
+     - Warning
+     - v2_connection_nodes.id has more than 50 surface areas mapped to it; this might be an error.
+    * - 0717
+     - Error
+     - The file in v2_vegetation_drag.vegetation_height_file is not present
+   * - 0718
+     - Error
+     - The file in v2_vegetation_drag.vegetation_stem_count_file is not present
+   * - 0719
+     - Error
+     - The file in v2_vegetation_drag.vegetation_stem_diameter_file is not present
+   * - 0720
+     - Error
+     - The file in v2_vegetation_drag.vegetation_drag_coefficient_file is not present
+    * - 0737
+     - Error
+     - The file in v2_vegetation_drag.vegetation_height_file is not a valid GeoTIFF file
+   * - 0738
+     - Error
+     - The file in v2_vegetation_drag.vegetation_stem_count_file is not a valid GeoTIFF file
+   * - 0739
+     - Error
+     - The file in v2_vegetation_drag.vegetation_stem_diameter_file is not a valid GeoTIFF file
+   * - 0740
+     - Error
+     - The file in v2_vegetation_drag.vegetation_drag_coefficient_file is not a valid GeoTIFF file
+    * - 0757
+     - Warning
+     - The file in v2_vegetation_drag.vegetation_height_file has multiple or no bands.
+   * - 0758
+     - Warning
+     - The file in v2_vegetation_drag.vegetation_stem_count_file has multiple or no bands.
+   * - 0759
+     - Warning
+     - The file in v2_vegetation_drag.vegetation_stem_diameter_file has multiple or no bands.
+   * - 0760
+     - Warning
+     - The file in v2_vegetation_drag.vegetation_drag_coefficient_file has multiple or no bands.
+   * - 0777
+     - Error
+     - The file in v2_vegetation_drag.vegetation_height_file has no CRS.
+   * - 0778
+     - Error
+     - The file in v2_vegetation_drag.vegetation_stem_count_file has no CRS.
+   * - 0779
+     - Error
+     - The file in v2_vegetation_drag.vegetation_stem_diameter_file has no CRS.
+   * - 0780
+     - Error
+     - The file in v2_vegetation_drag.vegetation_drag_coefficient_file has no CRS.
+   * - 1401
+     - Error
+     - v2_vegetation_drag.vegetation_height_file has values <0 or is empty
+   * - 1402
+     - Error
+     - v2_vegetation_drag.vegetation_stem_count_file has values <0 or is empty
+   * - 1403
+     - Error
+     - v2_vegetation_drag.vegetation_stem_diameter_file has values <0 or is empty
+   * - 1404
+     - Error
+     - v2_vegetation_drag.vegetation_drag_coefficient_file has values <0 or is empty
+   * - 1151
+     - Warning
+     - columns ['flow_variable', 'aggregation_method'] in table v2_aggregation_settings should be unique together
+   * - 1152
+     - Warning
+     - v2_aggregation_settings.timestep is different and is ignored if it is not in the first record
+   * - 1153
+     - Warning
+     - v2_aggregation_settings.timestep is smaller than v2_global_settings.output_time_step
+   * - 1154
+     - Warning
+     - To use the water balance tool, v2_aggregation_settings should have a row where aggregation_method is cum and flow_variable is pump_discharge.
+   * - 1154
+     - Warning
+     - To use the water balance tool, v2_aggregation_settings should have a row where aggregation_method is cum and flow_variable is lateral_discharge.
+   * - 1154
+     - Warning
+     - To use the water balance tool, v2_aggregation_settings should have a row where aggregation_method is cum and flow_variable is simple_infiltration.
+   * - 1154
+     - Warning
+     - To use the water balance tool, v2_aggregation_settings should have a row where aggregation_method is cum and flow_variable is rain.
+   * - 1154
+     - Warning
+     - To use the water balance tool, v2_aggregation_settings should have a row where aggregation_method is cum and flow_variable is leakage.
+   * - 1154
+     - Warning
+     - To use the water balance tool, v2_aggregation_settings should have a row where aggregation_method is current and flow_variable is interception.
+   * - 1154
+     - Warning
+     - To use the water balance tool, v2_aggregation_settings should have a row where aggregation_method is cum and flow_variable is discharge.
+   * - 1154
+     - Warning
+     - To use the water balance tool, v2_aggregation_settings should have a row where aggregation_method is cum_negative and flow_variable is discharge.
+   * - 1154
+     - Warning
+     - To use the water balance tool, v2_aggregation_settings should have a row where aggregation_method is cum_positive and flow_variable is discharge.
+   * - 1154
+     - Warning
+     - To use the water balance tool, v2_aggregation_settings should have a row where aggregation_method is current and flow_variable is volume.
+   * - 1154
+     - Warning
+     - To use the water balance tool, v2_aggregation_settings should have a row where aggregation_method is cum_negative and flow_variable is surface_source_sink_discharge.
+   * - 1154
+     - Warning
+     - To use the water balance tool, v2_aggregation_settings should have a row where aggregation_method is cum_positive and flow_variable is surface_source_sink_discharge.
+   * - 1227
+     - Error
+	 - v2_control.control_id references an id in v2_control_memory or v2_control_table, but the table it references does not contain an entry with that id. 
+	 
+	 
 April 25th 2023
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 **Live site**
 
@@ -88,7 +295,7 @@ February 10th 2023
 Hotfix:
 
 - Fixed CRS comparison in table generation (threedi-tables 3.0.5).
-- Sources & sinks Lizard raster source did dot work due to problem with internal `LizardRasterSourcesSinks` serialization/deserialization.
+- Sources & sinks Lizard raster source did dot work due to problem with internal *LizardRasterSourcesSinks* serialization/deserialization.
 - Max time step set to NULL is allowed 
 
 
@@ -1163,6 +1370,14 @@ We are constantly working on improving the 3Di experience. Based on user experie
 3Di API
 ----------
 
+June 14th 2023
+^^^^^^^^^^^^^^
+
+- Added *first_name* and *last_name* to SimulationStatus API listing resources.
+
+- Added support for setting a *start_date* on a contract. If set, the contract *hours_used* are calculated either based
+  on a period of 1 year before or after the *start_date* based if the current date (month & day) are before or after start_date (month & day).
+
 April 25th 2023
 ^^^^^^^^^^^^^^^
 
@@ -1593,8 +1808,19 @@ Extended API v3 with boundary conditions & bug fixing
 
 .. _computational_core_3di_releases:
 
-3Di computational core releases
--------------------------------
+3Di Computational core
+----------------------
+
+June 2023
+^^^^^^^^^
+
+- Vegetation drag
+- Groundwater 1D2D exchange
+- Groundwater 2D boundary conditions
+- Added has_vegetation attribute to model meta data
+- Bugfix: DEM edit for a model with interflow would set wrong waterlevel.
+- Bugfix: 1D boundary nodes are now included in the definition of the 1D extent of the model
+- Output NetCDF files now contain the attributes *simulation_id*, *schematisation_id*, *revision_id*, and *model_id*
 
 April 2023
 ^^^^^^^^^^
@@ -1612,7 +1838,7 @@ August 2022 (Hotfix)
 
 
 March 2022
-^^^^^^^^^^^^
+^^^^^^^^^^
 
 **General**
 
