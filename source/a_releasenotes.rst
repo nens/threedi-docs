@@ -836,10 +836,16 @@ For schematisations users can:
 3Di Modeller Interface
 ----------------------
 
-June 15 2023
+June 16 2023
 ^^^^^^^^^^^^
 
-**3Di Models & Simulations**
+**3Di Toolbox 2.5.3**
+
+- Compatibility with schema 217
+
+- New version of 3Di Schematisation Editor (threedi-modelchecker 2.2.4)
+
+**3Di Models & Simulations 3.5.0**
 
 - Compatibility with schema 217 (#462)
 
