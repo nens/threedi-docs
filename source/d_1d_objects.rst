@@ -4,6 +4,7 @@
 ==========
 
 .. _1d_boundary_condition:
+
 1D Boundary Condition
 ---------------------
 
@@ -52,6 +53,7 @@ Attributes
      - Timeseries of water levels, flow velocities, discharges or water level gradients to be forced on the model boundary
 
 .. _1d_boundary_condition_notes_for_modellers:
+
 Notes for modellers
 ^^^^^^^^^^^^^^^^^^^
 
@@ -86,6 +88,7 @@ Format the time series as Comma Separated Values (CSV), with the time (in minute
     "0,145.20"||char(10)||"15,145.23"||char(10)||"30,145.35"||char(10)||"45,145.38"||char(10)||"60,145.15"
 
 .. _1d_lateral:
+
 1D Lateral
 ----------
 
@@ -128,6 +131,7 @@ Attributes
      - Timeseries of lateral discharges to be added to the specified location
 
 .. _1d_lateral_notes_for_modellers:
+
 Notes for modellers
 ^^^^^^^^^^^^^^^^^^^
 1D laterals placed on a connection node with a 1D boundary condition will be ignored.
@@ -247,6 +251,7 @@ Calculation type 'embedded'
 
 
 .. _connection_node:
+
 Connection node
 ---------------
 
@@ -324,6 +329,7 @@ Storage area
 - Connection nodes with large storage (i.e. the square root of the storage area is much larger than the width of the incoming channel) reduce the flow velocity and advective force.
 
 .. _cross_section_location:
+
 Cross-section location
 ----------------------
 
@@ -419,7 +425,8 @@ Reference level
 """""""""""""""
 This is the bed level of the channel and the reference level for the cross-section. For example, if the reference level is 12.0 m MSL and the cross-section a tabulated rectangle with a width of 5 m at height 0, this means that the channel is 5 m wide at 12.0 m MSL.
 
-.. _cross-section_shape: 
+.. _cross-section_shape:
+
 Cross-section shape
 """""""""""""""""""
 The following shapes are supported:
@@ -458,6 +465,7 @@ The following shapes are supported:
 
 
 .. _culvert:
+
 Culvert
 -------
 
@@ -592,6 +600,7 @@ The discharge is multiplied by this value. The energy loss caused by the change 
 
 
 .. _manhole:
+
 Manhole
 -------
 
@@ -694,6 +703,7 @@ Attributes
      - *Deprecated*
 
 .. _manhole_notes_for_modellers:
+
 Notes for modellers
 ^^^^^^^^^^^^^^^^^^^
 - Connection nodes for which a manhole is defined, must have a storage area larger than zero.
@@ -719,6 +729,7 @@ Surface level
 This value is used for administrative purposes only. It does not affect the calculation
 
 .. _pumpstation_without_end_node:
+
 Pumpstation (without end node)
 -------------------------------
 
@@ -817,6 +828,7 @@ Notes for modellers
 
 
 .. _pumpstation_with_end_node:
+
 Pumpstation (with end node)
 ----------------------------
 
@@ -919,6 +931,7 @@ Notes for modellers
 - Multiple pumpstations may be defined for the same connection node. If their active ranges (start/stop level) overlap, they may pump at the same time.
 
 .. _orifice:
+
 Orifice
 -------
 
@@ -931,7 +944,7 @@ Geometry
 Linestring (exactly two vertices)
 
 Attributes
-^^^^^^^^
+^^^^^^^^^^
 
 .. list-table:: Orifice attributes
    :widths: 6 4 4 2 4 30
@@ -1061,6 +1074,7 @@ Discharge coefficients
 The discharge is multiplied by this value. The energy loss caused by the change in flow velocity at the entrance and exit are accounted for by 3Di. The discharge coefficients can be used to account for any additional energy loss. 'Positive' applies to flow in the drawing direction of the structure (from start node to end node); 'negative' applies to flow in the opposite direction.
 
 .. _pipe:
+
 Pipe
 ----
 
@@ -1228,6 +1242,7 @@ The following types are supported:
 
 
 .. _weir:
+
 Weir
 ----
 
