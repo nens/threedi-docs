@@ -836,6 +836,40 @@ For schematisations users can:
 3Di Modeller Interface
 ----------------------
 
+June 16 2023
+^^^^^^^^^^^^
+
+**3Di Toolbox 2.5.3**
+
+- Compatibility with schema 217
+
+- New version of 3Di Schematisation Editor (threedi-modelchecker 2.2.4)
+
+**3Di Models & Simulations 3.5.0**
+
+- Compatibility with schema 217 (#462)
+
+- Added handling of the Vegetation drag settings rasters. (#460)
+
+- Expose attributes for vegetation and groundwater exchange in attribute forms and attribute tables (#151)
+
+- Improve the use of saved states in the simulation wizard (#461)
+
+- Bugfix: uploading CSV files for both 1D and 2D boundary conditions would fail if there are 1D boundary conditions with the same ID as a 2D boundary condition
+
+**3Di Schematisation Editor 1.5.0**
+
+- Compatibility with schema 217 (#148)
+
+- Copy friction value from nearest cross-section location (if exists) when digitizing a new cross section location (#141)
+
+- Bugfix: Error when adding new cross section location > empty bank level field > commit (#142)
+
+- Added Vegetation drag settings table with associated raster layers (#145)
+
+- "Import culverts" processing algorithm (#127)
+
+
 April 25th 2023
 ^^^^^^^^^^^^^^^
 **3Di Toolbox 2.5.2**
