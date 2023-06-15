@@ -24,9 +24,9 @@ June 14th 2023
 
 - Tables and columns related to vegetation and groundwater are no longer marked as beta features.
 
-- The following checks were added:
+- The following checks were added or updated:
 
-.. list-table:: New or changed checks, June 14th 2023
+.. list-table:: New or changed checks June 14th 2023
    :widths: 10 20 40
    :header-rows: 1
 
@@ -69,10 +69,10 @@ June 14th 2023
    * - 0501
      - Error
      - v2_vegetation_drag.vegetation_height is <=0
-    * - 0503
+   * - 0503
      - Warning
      - v2_vegetation_drag.height is recommended as fallback value when using a vegetation_height_file.
-    * - 0504
+   * - 0504
      - Error
      - v2_vegetation_drag.vegetation_stem_count is <=0
    * - 0505
@@ -105,7 +105,7 @@ June 14th 2023
    * - 0614
      - Warning
      - v2_connection_nodes.id has more than 50 surface areas mapped to it; this might be an error.
-    * - 0717
+   * - 0717
      - Error
      - The file in v2_vegetation_drag.vegetation_height_file is not present
    * - 0718
@@ -117,7 +117,7 @@ June 14th 2023
    * - 0720
      - Error
      - The file in v2_vegetation_drag.vegetation_drag_coefficient_file is not present
-    * - 0737
+   * - 0737
      - Error
      - The file in v2_vegetation_drag.vegetation_height_file is not a valid GeoTIFF file
    * - 0738
@@ -129,7 +129,7 @@ June 14th 2023
    * - 0740
      - Error
      - The file in v2_vegetation_drag.vegetation_drag_coefficient_file is not a valid GeoTIFF file
-    * - 0757
+   * - 0757
      - Warning
      - The file in v2_vegetation_drag.vegetation_height_file has multiple or no bands.
    * - 0758
@@ -212,9 +212,9 @@ June 14th 2023
      - To use the water balance tool, v2_aggregation_settings should have a row where aggregation_method is cum_positive and flow_variable is surface_source_sink_discharge.
    * - 1227
      - Error
-	 - v2_control.control_id references an id in v2_control_memory or v2_control_table, but the table it references does not contain an entry with that id. 
-	 
-	 
+     - v2_control.control_id references an id in v2_control_memory or v2_control_table, but the table it references does not contain an entry with that id. 
+
+
 April 25th 2023
 ^^^^^^^^^^^^^^^
 
