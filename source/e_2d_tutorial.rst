@@ -77,7 +77,7 @@ You will now add the schematisation in your 3Di Modeller Interface project and a
 
 #) In the Layers panel, reorder the layers such that the OpenStreetMap layer is below the 3Di schematisation.
 
-You should now see the DEM, located in southern England.
+You should now see the DEM, located in southern Wales.
 
 .. _tut_uploading:
 

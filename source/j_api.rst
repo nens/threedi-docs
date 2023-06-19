@@ -13,9 +13,9 @@ This gives you a lot of flexibility to your modelling applications and can save 
 - Use Jupyter Notebooks to run, download and analyze your 3Di simulations.
 - Design your own control for weirs or other structures.
 
-See the separate 3Di API `documentation https://api.3di.live/v3.0/docs/` for more details. 
+See the separate 3Di API `documentation <https://api.3di.live/v3.0/docs/>` for more details. 
 
-Using the 3Di API from Python is easy using `threedi-api-client https://pypi.org/project/threedi-api-client/`.
+Using the 3Di API from Python is easy using `threedi-api-client <https://pypi.org/project/threedi-api-client/>`.
 
 An overview of the endpoints (and their documentation) can be found on the `Swagger page <https://api.3di.live/v3/swagger/>`.
 
