@@ -191,13 +191,13 @@ Note that the models you have created are stored online. You can use them in 3Di
 
 To use the model in 3Di Live:
 
-#) Go to `www.3di.live <www.3di.live>`, log in and type the name of your schematisation in the search bar.
+#) Go to `www.3di.live <www.3di.live>`_, log in and type the name of your schematisation in the search bar.
 
 #) Select the model you want to use; #1 is the first revision (without infiltration) and #2 is the second revision (with infiltration). Click *Start*
 
 To view the model on 3Di Management:
 
-#) Go to `management.3di.live <management.3di.live>`, and log in (if needed) 
+#) Go to `management.3di.live <management.3di.live>`_, and log in (if needed) 
 
 #) Click on *Schematisations*
 
