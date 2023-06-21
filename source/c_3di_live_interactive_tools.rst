@@ -1,115 +1,20 @@
-Overview of the Live Site
-==============================
+.. _3di_live_interactive_tools:
 
-.. _overview_screen_ls:
+Interactive tools
+=================
 
-Overview session screen and tooling
--------------------------------------
-
-When starting or following a session, the screen in :numref:`fig_main_ses` will be loaded. The loaded model will be shown in the complete extent. At the top left you can see the name of the loaded model.
+In the live site, you can temporarily adjust values. For example, you can change the pump capacity and weir height, and you can close 1D elements such as channels, pipes, weirs, culverts and orifices.
+You can also perform a DEM edit via the raster edit tool. 
 
 
-.. _fig_main_ses:
+The buttons at the mid left of the screen are used to interactively adjust the forcing of the model. Two of these buttons can be used to alter the model:
+- Discharge tool
+- Pump tool
+- The raster edit tool
 
-.. figure:: image/d2.6_main.png 
-	:alt: Main session
-
-	Interface main session.
-
-
-1. With the **Start simulation** button, the simulation can be started and paused once started. 
-2. The simulation run time will be indicated in [hours:minutes].
-3. Indicates the load of the model on the server in %.
-4. The :ref:`user_menu`.
-5. The :ref:`search_bar_ls`.
-6. This bar contains the following tools from top to bottom: 
-
-- :ref:`selection_tool_guide`
-- :ref:`line_selection_tool`
-- :ref:`discharge_tool_guide` (2D)
-- :ref:`pump_tool_guide` (2D)
-- :ref:`rain_tool_guide`
-- :ref:`wind_tool_guide`
-- :ref:`raster_edit_tool`
-- :ref:`flood_barrier_tool`
-- :ref:`Layer tool <layers_menu_guide>`
-
-.. _user_menu:
-
-User menu
-^^^^^^^^^^
-
-Click the user icon at the top right of the screen to show the **User menu**. The user menu has the following options:
-
-Preferences
-"""""""""""
-
-.. figure:: image/d2.8_user_menu.png 
-	:alt: User menu
-
-**Calculation speed** 
-The Calculation speed is the rate at which the calculations are shown on screen. The Calculation speed is slowed down (**capped speed**) by default. This is done because the Live Site is meant to give a live insights in what is happening. If the model is too fast, it can be hard to understand the flows. 
-
-If you want to calculate on full speed, choose the **Real-time speed** option. The model most likely will speed up in case the % on the top right of the screen was not indicating 100% already. In case the server load is at 100%, no gain will be seen in calculation speed on the Live Site.
-
-
-Help
-""""
-Currently sends you :ref:`here <guide_to_portal>`.
-For support from the help desk, visit https://nelen-schuurmans.topdesk.net/.
-
-
-Quit simulations
-""""""""""""""""
-:ref:`timeoutlivesite` ends the use of calculation time. And let's you save your results.
-
-You can:
-
-- **Quit, don't store results**
-- **Quit, store results**, for more information, see: :ref:`store_results_live_site`.
-
-
-Restart simulations
-"""""""""""""""""""
-Restarting the simulation resets all the calculations that have been made and reloads the simulation. If you want to save your results you will get sent back to the start screen afterwards.
-
-
-.. _search_bar_ls:
-
-Search Bar
-^^^^^^^^^^^^
-The Search Bar enables you to locate assets of your schematisation. You can search for asset type (e.g. pipe), name, code or id.
-
-
-
-.. _selection_tool_guide:
-
-Selection tool
-^^^^^^^^^^^^^^^^
-By default, the **selection tool** is switched on. With it you can click anywhere on the map to visualise the time series at that location. By default water depth and water level will be shown. If the model contains ground water, that graph is also shown. 
-
-The time series can be downloaded in CSV format. The points in the graphs in :numref:`fig_point_select_tool` are the points calculated by the 3Di calculation core and are independent from the output time step that the modeller has set while following a location. If a location is clicked later during the simulation, the historic values on the graph are the values shown according to the output time step. 
-
-.. _fig_point_select_tool:
-
-.. figure:: image/d3.1_point_location.png
-	:alt: Point selection
-
-	Point selection tool.
-
-.. _line_selection_tool:
-
-Line-selection tool
-^^^^^^^^^^^^^^^^^^^^
-
-The **Line-selection tool** shows the height of a cross section, together with the water level in that transect. Click the start and end point in any place on the map for the cross section (within the 2D model domain).
-
-.. figure:: image/d3.1_side_view.png
-	:alt: Cross section selection
-
-	Line-selection tool.
+.. note::
 	
-The side view shows the elevation in green and the water in blue. By hovering over the graph with the mouse, exact values can be seen. Keeping this graph open during a flood event will show you how the water level is slowly rising. Note that in the example also groundwater is available in the model indicating an extra blue line (only in those cases where ground water is set up in the schematisation). 
+	Editing of structures or DEM can only be done after *pausing* a simulation.
 
 .. _discharge_tool_guide:
 
@@ -249,62 +154,129 @@ Confirm the flood barrier by pressing the |flood_barrier_confirm_flood_barrier| 
 
 	Flood barrier created.
 
+Adding a discharge point
+------------------------
+With the discharge tool a constant source of water will be added to your model.
+Select the icon and change the rate (in m3/s) to what you want to apply, then click at a location on the map to point the location. 
+This can only be done when your simulation is paused. 
+The water that is added to the 2D surface of your model and will flow in constantly from that point.
 
 
-.. _layers_menu_guide:
+Adding a pump station
+---------------------
+With the pump tool a constant sink will be added to your model. 
+Select the icon and change the rate (in m3/s) to what you want to apply, then click at a location on the map to point the location. 
+This can only be done when your simulation is paused. The water that is taken out of the model will not flow back into the model and is considered a loss. 
 
-Layers tool
-^^^^^^^^^^^^
+DEM edit/ Raster edit
+---------------------
 
-Click on the **Layer tool** at the bottom left of the screen. The **Map layers** appear: 
+A DEM edit is a tool in the live site, it allows to adjust the height of the bathymetry. This can be done at any time during the simulation. 
 
-.. figure:: image/d3.6_layer_tool.png
-	:alt: Layer tool.
+.. figure:: image/d_dem_edits.png
+   :alt: Dem edits
 
-	Layer tool.
+To edit the bathymetry of the model, make sure the DEM-layer is activated. This can be done via the maplayers menu and clicking on the 'Digital Elevation Model' layer. The elevation edit is in absolute numbers in m MSL. If you are not sure about the elevation to use, use the side view tool to check the height in the model. In some cases it might be useful to also turn on the model grid layer.
 
-In the **Map layers** menu the background map can be chosen under **Basemaps**:
+After entering a value, click 'Draw on map' and start clicking. 
 
-- **Topographic**
-- **Satellite** (Default)
-- **Dark**
+.. figure:: image/d_draw_dem_polygon.png
+   :alt: Performing a dem edit
+   
+After finalising the polygon by clicking again on the first point, click on confirm. The Edit then shows in the applied items section
 
-In the **Calculation** section all layers are shown that indicate (a visualisation of) results of the simulation on the map:
+.. figure:: image/d_confirm_dem_polygon.png
+   :alt: Confirming a dem edit
 
-- **Waterdepth** shows you the proportional depth of the water on the 2D domain.
-- **Flow velocity** shows the velocity of the flow in the 1D elements, with the movement of white dots.
-- **Model grid** depicts the (sub)grids of your model.
+The result can be checked using the 'Side view' tool.
 
-In the **2D Model Rasters** you can activate a slightly transparent **Digital Elevation Map**.
-
-If the model contains 1D-elements, they are set to visible by default. Depending on which 1D elements are present in the model (and turned on in the **Map layers** menu), you will see:
-
-- **Breaches** (shown after zooming in)
-- **Channels**
-- **Culverts**
-- **Levees**
-- **Manholes** (shown after zooming in)
-- **Nodes**
-- **Sewers**
-- **Pump stations** 
-- **Weirs**
-
-Colors for all these layers can be changed to reflect user preferences by clicking on the small paint pallet next to the element.
+Please note that if there is water on the 2D while editing, and the edit lowers the surface the calculation core needs a few time steps to get to a new water level in the DEM edit location. 
 
 
+.. _simulation_interventions:
 
-.. _notables:
+Simulation interventions
+---------------------------
 
-Notables
----------
+The buttons at the mid left of the screen are used to interactively adjust the forcing of the model:
 
-- When paused and inactive for too long, the session will close and say: 'This simulations is no longer active. You may start a new simulation.'
-- Editing of structures or DEM can only be done after *pausing* a simulation.
-- In the current setup special attention to models with initial water levels in 2D and laterals. 
-- Initial water level in 2D is taken into account, but only with the 'max' parameter.
-- Laterals in a model are at the moment not used in the Live Site.
-- Structure controls are at the moment not used in the Live Site.
-- The color scheme of the water depth can not be changed in the Live Site.
-- The language of the site will change depending on the language settings of your browser. Currently mandarin, english and dutch are supported. Please keep in mind that model elements are never translated. 
-- Manholes are turned off by default. Turning them on and zooming out might cause the Live Site  to slow down.
-- Water depth is not shown in the channel nodes.
+- add a :ref:`discharge_tool` (2D)
+- add a :ref:`pump_tool` (2D)
+- add :ref:`rain_tool`
+- add :ref:`wind_tool`
+
+The functioning of these buttons is described in the following sections.
+
+NOTE: The result of forcing water is not visible until the simulation is running.
+
+.. _discharge_tool:
+
+Discharge point
+^^^^^^^^^^^^^^^^^^^^
+
+With the **Discharge tool** a constant source of water can be added to the model. Select the icon and change the amount of water you want to apply. In the dropdown menu you can change the unit. You can also change the duration of the discharge. Click **PLACE ON MAP** and click a location on the map that should be the source. The water will start flowing from this location over the 2D domain.
+When you press the **Play** button the intervention will become active.
+
+.. figure:: image/d3.6_discharge.png
+    :alt: Discharge tool
+
+.. _pump_tool:
+
+Pumping point
+^^^^^^^^^^^^^^^^^^^^
+
+With the **Pump tool** a constant sink of water can be added to the model. Select the icon and change the amount of water you want to pump out of the model. In the dropdown menu you can change the unit. You can also change the duration of the pumping. Click **PLACE ON MAP** and click a location on the map that should be the pump. The water will be pumped out from the 2D domain from this location (1D pumps should be added in the schematisation). The water that is taken out of the model will not flow back into the model and is considered a loss.
+When you press the **Play** button the intervention will become active.
+
+
+.. _rain_tool:
+
+Rainfall
+^^^^^^^^^^^^^^^^^^^^
+
+Through the **Rain tool** icon, rainfall can be added to the model. The following Type's are available:
+
+* **Constant**: a homogeneous event in both space and time across the entire model range.
+* **Radar**: use historical rainfall data (only available in the Netherlands).
+* **Design**: use a design event. This event is homogeneous over the entire model area and heterogeneous in time.
+
+These three options for adding rainfall all cover the entire model area.
+
+When choosing a **Constant** type of precipitation, the rain intensity (in mm/h) and duration of the rain must be defined. The rain intensity is uniform and constant in the given time frame.
+
+The option **Radar** is only available in the Netherlands and uses historical rainfall data that is based on radar rain images. Providing temporally and spatially varying rain information. The Dutch Nationale Regenradar is available for all Dutch organisations that have the NRR module. On request, the information from other radars can be made available to 3Di as well. In order to apply this type of rain a historical time frame needs to be set. 
+
+When choosing the option **Design**, a number between 3 and 16 must be selected. These numbers correlate to predetermined rain events, with differing return periods, that fall homogeneous over the entire model. Numbers 3 to 10 originate from `RIONED <https://www.riool.net/bui01-bui10>`_ and are heterogeneous in time. Numbers 11 to 16 have a constant rain intensity. When selecting a design rain the total rainfall and duration information will change in the tab.
+
+For a more detailed description on rainfall, see: :ref:`rain`.
+
+When the rainfall is active a cloud icon appears on the top right of the screen. Information about the rainfall event can be accessed by keeping the rainfall tab open. Active and past (inactive) events are shown in this tab 
+
+.. figure:: image/d3.2_rainfall.png
+    :alt: Rainfall event
+
+
+.. _wind_tool:
+
+Wind
+^^^^^^^^^^^^^^^^^^^^
+
+A compass card appears after clicking on the **Wind tool** icon. By clicking in the compass card a homogeneous wind field with a specific direction and speed can be set up for the whole model (v2). This direction can also be filled in numerically. The strength and duration of the wind can be changed. Because the wind is constant for the whole model you only need to press **CREATE**. When the wind is active a wind icon appears on the top right of the screen.
+
+.. figure:: image/d3.6_wind.png
+    :alt: Wind speed, direction and duration
+
+Breaches 
+^^^^^^^^^^^^^^^^^^^^
+
+If breach locations are predefined in the model, these can be activated as follows:
+
+#. Check whether breaches are turned on in the map layer menu. 
+#. Zoom in to a breach location
+#. By clicking a breach location a pop-up screen with settings for this breach appears.
+
+
+.. figure:: image/d3.8_breach_location.png
+    :alt: Breach location
+
+To show the flow rate over time, select a breach location using the point information tool. 

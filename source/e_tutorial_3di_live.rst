@@ -60,20 +60,19 @@ Starting the simulation
 
 #) Zoom in to the areas that are starting to flood. 
 
+#) Use the *Point selection tool* to click on the flooded area. Graphs appear that show how the situation is developing in this location: the water level (in m MSL), water depth (relative to the DEM) and rain intensity are shown.
 
-H.	How can you see the water level at a given location?
-………………………………………………………………………………………………………..
-I.	What are your options to analyse the water depth on the streets?
-………………………………………………………………………………………………………..
-J.	How can you increase the discharge through a canal/ stream?
-………………………………………………………………………………………………………..
-K.	Change the computational speed from Capped speed to Real-time speed. What do you see?  Hint: Look in the upper right corner.
-………………………………………………………………………………………………………..
-Adding events
-L.	Change the weather conditions (wind tool and rain tool). Analyse how this affects the water level on streams and on the streets.   
-………………………………………………………………………………………………………..
-DEM edits
-M.	In the User menu  , click Restart simulation 
-N.	Now edit the DEM and simulate how this affects the water depth on the streets and water level in canals. 
+#) Now use the *Line selection tool* to draw a sideview of the flooded area. Notice how the water level changes as the simulation progresses.
+
+If your model also contains 1D elements (such as channels, pipes, or weirs) you see flow through these visualized with moving dots. The size of the dots represents the discharge, the speed at which they move represents the velocity.
+
+#) Use the *Point selection tool* and click on a 1D element to see its properties. You can stop the flow through this 1D element by setting it to *Closed* when the simulation is paused. 
+
+#) Pause the simulation. In the panel at the right side, click *Edit*. Set the status to *Closed*. Click *Confirm*. Click the *Play* button to resume the simulation.
+
+#) Observe the effect of closing this 1D element in the discharge and velocity graphs.
+
+
+
 O.	Stop the session via the User menu   >  Quit simulation  
 
