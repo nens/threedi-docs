@@ -807,7 +807,7 @@ February 2022 (Klondike) v2
 
 
 February 2022 (Klondike)
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 The management screens have been extended with a Models section. In this Models section users can:
 
