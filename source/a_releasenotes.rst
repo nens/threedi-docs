@@ -792,7 +792,7 @@ November 21th 2022
 
 
 February 2022 (Klondike) v2
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -	Fixed a bug where the models map page stayed empty if there were no models
 -	Fixed a bug where a schematisation that has no revisions yet showed an empty page
