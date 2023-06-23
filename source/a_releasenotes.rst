@@ -836,6 +836,14 @@ For schematisations users can:
 3Di Modeller Interface
 ----------------------
 
+June 23 2023
+^^^^^^^^^^^^
+
+**3Di Models & Simulations 3.5.1**
+
+- Bugfix: Making a copy of a schematisation failed if sqlite did not contain *v2_vegetation_drag* table. The sqlite is not migrated to the latest schema version on the fly so this type of issue will no longer arise. (#470)
+
+
 June 16 2023
 ^^^^^^^^^^^^
 
@@ -1236,7 +1244,7 @@ March 2022
 
 
 February 2022 (Klondike)
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 We have released threeditoolbox 1.31 and 3Di Models & simulations 3.0.2.
 "3Di Models & simulations" is the new name for what was previously called "API client".
@@ -1248,7 +1256,7 @@ Download here the latest version: `Modeller Interface <https://docs.3di.live/mod
 
 
 August 2021
-^^^^^^^^^^^^^
+^^^^^^^^^^^
 
 We have released a new version of the Modeller Interface with the following:
 
