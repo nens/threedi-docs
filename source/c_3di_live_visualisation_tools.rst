@@ -26,6 +26,8 @@ In the *Map layers* menu the background map can be chosen under *Base maps*
 - Dark
 
 
+.. _visualisation_calculation_layers_3di_live:
+
 Calculation layers
 ------------------
 
@@ -36,6 +38,8 @@ In the *Calculation* section, you can toggle the visibility of layers that give 
 - *Model grid* shows the 2D cells on the map. Note that you need to zoom in sufficiently for the cells to be shown.
 - *Model grid flow* shows the 2D flowlines and 1D2D exchange flowlines of your model. Note that you need to zoom in sufficiently for the cells to be shown.
 
+
+.. _visualisation_model_rasters_3di_live:
 
 Model rasters
 -------------

@@ -28,6 +28,8 @@ The time series can all be downloaded in CSV format. The points in the graphs in
 	Point selection tool.
 
 
+.. _line_selection_tool:
+
 Line selection tool
 -------------------
 
