@@ -33,19 +33,20 @@ When a :ref:`session<3di_live_sessions>` has started, the screen in :numref:`fig
 
 1. With the **Start simulation** button, the simulation can be started and paused once started. 
 2. The simulation run time will be indicated in [hours:minutes].
-3. Indicates the load of the model on the server in %.
+3. If using *Capped speed*, shows the ratio between the used computionational speed and the full computational speed in %.
 4. The :ref:`user_menu`.
 5. The :ref:`search_bar_ls`.
 6. This bar contains the following tools from top to bottom: 
 
-- :ref:`selection_tool_guide`
+- :ref:`point_selection_tool`
 - :ref:`line_selection_tool`
-- :ref:`discharge_tool_guide` (2D)
-- :ref:`pump_tool_guide` (2D)
-- :ref:`rain_tool_guide`
-- :ref:`wind_tool_guide`
-- :ref:`raster_edit_tool`
-- :ref:`flood_barrier_tool`
+- :ref:`discharge_tool_3di_live`
+- :ref:`pump_tool_3di_live`
+- :ref:`rain_tool_3di_live`
+- :ref:`wind_tool_3di_live`
+- :ref:`dem_edits_3di_live`
+- :ref:`flood_barrier_tool_3di_live`
 - :ref:`Layer tool <layers_menu_guide>`
+
 
 

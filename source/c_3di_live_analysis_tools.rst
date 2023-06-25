@@ -10,6 +10,8 @@ Search bar
 The Search Bar enables you to locate assets of your schematisation. You can search for asset type (e.g. pipe), name, code or id.
 
 
+.. _point_selection_tool:
+
 Point selection tool
 --------------------
 

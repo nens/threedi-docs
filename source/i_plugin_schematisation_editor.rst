@@ -1,14 +1,14 @@
 .. _schematisation_editor:
 
 3Di Schematisation Editor plugin
-=================================
+================================
 
 The 3Di Schematisation Editor is a powerful tool that simplifies the process of building and :ref:`editing schematisations <edit_schematisation>`. It automates certain tasks of the regular workflow, which enables the user to build schematisations faster while reducing the chance of making errors. 
 
 The plugin comes pre-installed with the Modeller Interface and may need to be :ref:`updated <updating_plugin_schem_editor>`.
 
 Functionality
---------------
+-------------
 
 The Schematisation Editor offers several key advantages:
 
@@ -23,7 +23,7 @@ The Schematisation Editor offers several key advantages:
     * Currently, the Schematisation Editor is released as 'experimental' plugin. In a future release, we expect to replace the spatialite by the geopackage entirely (for editing as well as uploading), so that this loading and saving will no longer be necessary. Functionality for viewing and editing schematisations will be removed from the 3Di Toolbox plugin. The Schematisation Editor will remain 'experimental' until this has been completed.
 
 Overview of the Schematisation editor toolbar
------------------------------------------------
+---------------------------------------------
 
 .. figure:: image/d_schematisation_editor_options.png
    :alt: Menu of the schematisation editor
@@ -63,40 +63,13 @@ To add a feature:
 #) Fill in the Attribute Form. The orange fields are required to fill in. The other fields are optional. Press OK to finish the process.
 #) When you are finished with adding the features, disable 'Toggle Editing' and save your schematisation to spatialite.
 
-Please check out the :ref:`3di_feature_notes` below for information to correctly add 3Di features to the schematisation.
+Please check out the :ref:`3di_feature_notes` for information to correctly add 3Di features to the schematisation.
 
 .. figure:: image/d_feature_attributes.png
    :alt: Feature attributes window
    :scale: 80%
 
    An example of the Feature Attribute window when adding a pipe.
-
-.. _3di_feature_notes:
-
-Notes on the 3Di Features
--------------------------
-
-* **Channel** - A channel can exist of 2 or more vertices. The *connection nodes* and the *Cross Section Location* are added automatically. Do not forget to fill in the required Feature Attributes for the Cross Section Location.
-
-* **Cross Section Location** - Should be placed on top of a channel vertex, (not on the start or end vertex).
-
-* **Culvert** - The culvert can also exist of 2 or more vertices and the *connection nodes* are added automatically.
-
-* **Orifice** - An orifice can only consist of 2 vertices. The *connection nodes* are added automatically.
-
-* **Pipe** - To draw a single pipe, the geometry must have exactly 2 vertices. A line with more than 2 vertices will be split into several pipes. Check out the tip below to add a trajectory of multiple pipes.
-
-* **Pump** - The geometry of a pump must have exactly 2 vertices. The *connection nodes* are added automatically. For external pumps, which pump water out of the model domain, the *Pumpstation (without end node)* should be used. For internal pumps, which pump water between two nodes within the model domain, the *Pumpstation (with end node)* should be used.
-
-* **Weir** - The weir consists of exactly 2 vertices, and the *connection nodes* are added automatically.
-
-* **(Impervious) Surfaces** - First draw the (impervious) surface polygon(s), then add (impervious) surface map lines. These should start on the impervious surface polygon and end at the connection node to which it is mapped.
-
-
-.. tip::
-    In order to digitize **a trajectory of multiple pipes**, first digitize the manholes, fill in the bottom levels, and then draw the pipe trajectory over these manholes by adding a vertex at each of the manholes. 
-    The pipes that are generated will use the manhole's bottom levels as invert levels and the *connection nodes* and *manholes* will be added automatically.
-
 
 
 Pasting features from external data sources
@@ -145,8 +118,6 @@ When following those steps in the Schematisation Editor, one will be prompted th
 When selecting 'Delete this feature only', only the selected features will be deleted. This will result in an invalid schematisation, but can come in handy if a part of the model has to be deleted.
 
 When selecting 'Delete all referenced features', all connected features will also be deleted. Your schematisation will most likely still be valid when using this option.
-
-
 
 
 .. |toggleEditing| image:: /image/d_toggle_editing.png

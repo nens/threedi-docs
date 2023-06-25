@@ -1,4 +1,4 @@
-.. _3di_live_visualisation_tools::
+.. _3di_live_visualisation_tools:
 
 Visualisation tools
 ===================
