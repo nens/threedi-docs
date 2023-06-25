@@ -1,10 +1,9 @@
 .. _1d2d_exchange:
 
-Introduction
-++++++++++++
+1D2D Exchange
++++++++++++++
 
-In other cases, 3Di offers the possibility to make connection to the 2D domain. 3Di has various options to integrate 1D elements in the 2D domain.
-This offers the possibility to preserve the complexity of the modelling domain, but to make use of the extra resolution and speed of 1D computations. In such case, the 1D elements are generally narrow compared to the dimensions of the 2D resolution.
+3Di offers the possibility to make connections between the 1D and the 2D domain. This offers the possibility to preserve the complexity of the modelling domain, but to make use of the extra resolution and speed of 1D computations. In such case, the 1D elements are generally narrow compared to the dimensions of the 2D resolution.
 
 .. _calculation_types:
 

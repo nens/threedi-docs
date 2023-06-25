@@ -1,5 +1,7 @@
+.. _guide_modeller_interface:
+
 3Di Modeller Interface
-====================================
+======================
 
 .. toctree::
    :maxdepth: 1

@@ -144,6 +144,7 @@ Channels will generally have open cross-sections, but 3Di allows to assign close
 Culverts can connect parts of 1D networks and allow flow under roads or other obstacles. In contrast to :ref:`weirs_and_orifices`, the flow behaviour in a culvert is assumed to be determined by shape and much less dominated by entrance losses. Culverts can be used for longer sections of pipe-like structures and do not have to be straight. Shorter, straight culverts are best modelled as an orifice. The energy loss caused by the change in flow velocity at the entrance and exit of culverts are accounted for in the :ref:`1d_momentum_equation`. Any additional energy loss can be accounted for using the discharge coefficients, see :ref:`culvert`.
 
 .. _weirs_and_orifices:
+
 Weirs and Orifices
 ------------------
 
@@ -232,6 +233,7 @@ The attributes that define these structures are:
 * Cross-section definition: This defines the cross-section of the structure.
 
 .. _pump:
+
 Pumps
 ------
 

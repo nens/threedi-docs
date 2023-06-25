@@ -841,7 +841,7 @@ June 23 2023
 
 **3Di Models & Simulations 3.5.1**
 
-- Bugfix: Making a copy of a schematisation failed if sqlite did not contain *v2_vegetation_drag* table. The sqlite is not migrated to the latest schema version on the fly so this type of issue will no longer arise. (#470)
+- Bugfix: Making a copy of a schematisation failed if sqlite did not contain *v2_vegetation_drag* table. The sqlite is now migrated to the latest schema version on the fly so this type of issue will no longer arise. (#470)
 
 
 June 16 2023
