@@ -33,7 +33,6 @@ Before you get started:
 * Download the `Digital Elevation Model (DEM) for the Burrows area <https://demo.lizard.net/media/3di-tutorials/3di-tutorial-01.zip>`_ [#dem_attribution]_. 
 
 
-
 Creating a new schematisation
 -----------------------------
 
@@ -142,9 +141,9 @@ To do this, you need to create a *Simple infiltration settings* record and refer
 
 Follow these steps:
 
-#) In the *Layers* panel, under *Settings*, click on the *Simple infiltration settings* layer > *Open attribute table*
+#) In the *Layers* panel, under *Settings*, click on the *Simple infiltration settings* layer
 
-#) Click the *Toggle editing mode* button in the toolbar, and then the *Add record* button. Fill in the following values and click *OK*:
+#) Click the *Toggle editing mode* button in the *Digitizing toolbar*, then click the *Add record* button. Fill in the following values and click *OK*:
 
 .. csv-table:: General
     :name: inf_settings
@@ -154,6 +153,7 @@ Follow these steps:
     "display_name", "infiltration"
     "infiltration_rate", "360", "in mm/day; uniform silty sand is assumed in this tutorial"
     "infiltration_rate_file", "NULL", "Only used for spatially varying infiltration rates"
+    "max_infiltration_capacity", "NULL", "infinite infiltration capacity is assumed in this tutorial"
     "max_infiltration_capacity_file", "NULL", "infinite infiltration capacity is assumed in this tutorial"
     "infiltration_surface_option", "Rain", "See :ref:`infiltration`"
 
