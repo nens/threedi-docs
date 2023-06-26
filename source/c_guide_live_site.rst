@@ -2,7 +2,7 @@
 ===============
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    c_3di_live_introduction
    c_3di_live_sessions
