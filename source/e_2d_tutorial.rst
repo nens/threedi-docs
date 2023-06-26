@@ -18,7 +18,7 @@ In this tutorial you will:
 * Become familiar with the modelling workflow in 3Di
 * Learn how to create a new schematisation
 * Learn how to use the schematisation checker
-* Learn how to upload a new revision and creating a 3Di model
+* Learn how to upload a new revision and create a 3Di model
 * Learn how to start simulations in the 3Di Modeller Interface
 
 Preparation
@@ -42,24 +42,35 @@ The first step is to create a new :ref:`schematisation`
 #) Open the 3Di Modeller Interface and click on the 3Di Models and Simulations icon (|modelsSimulations|). You should now see the 3Di Models and Simulations panel.
 
     .. note::
-        If this is the first time you use 3Di Models and Simulation panel, you will need to go through `some steps to set it up <setting_up_models_and_simulations>`.
+        If this is the first time you use 3Di Models and Simulation panel, you will need to go through :ref:`some steps to set it up<setting_up_models_and_simulations>`.
 
-#) Click the New button (|newschematisation|) and fill in a **unique** schematisation name, such as 'Tutorial 2 <your_name>' and select your organisation. The schematisation will be saved in the online model database of this selected organisation. Tags are optional. Since we are creating a schematisation from scratch, the *Create new Spatialite* option should be selected for the Spatialite option. Click *Next*.
+#) In the *Schematisation* section of the 3Di Models and Simulations panel, click the *New* button (|newschematisation|). The *New schematisation* wizard is shown.
+
+#) Fill in a  schematisation name, such as 'Tutorial 2 <your_name>'. Select the organisation you want to be the owner of the new schematisation (most users have rights for only one organisation). Tags are optional, you can leave this field empty for now. Since we are creating a schematisation from scratch, select the *Create new Spatialite* option. Click *Next*.
 
 #) Read the explanation on the second page of the *New schematisation* wizard. Click *Next*.
 
 #) In the section *2D Flow*, browse to the DEM (.tif) file you have downloaded. The coordinate reference system (EPSG:27700) is read from the DEM file and filled in automatically.
 
 #) Fill in the following settings:
-- Computational cell size: 64
-- The model area is predominantly: Flat
-- No 1D flow
-- No 0D flow
-- Friction type: Manning
-- No friction file
-- Global 2D friction coefficient: 0.06
-- Simulation timestep: 30 s
-- Typical simulation duration: 0-3 hours
+
+* Computational cell size: 64
+
+* The model area is predominantly: Flat
+
+* No 1D flow
+
+* No 0D flow
+
+* Friction type: Manning
+
+* No friction file
+
+* Global 2D friction coefficient: 0.06
+
+* Simulation timestep: 30 s
+
+* Typical simulation duration: 0-3 hours
 
 #) Click *Create schematisation*. A popup message will tell you that the the schematisation was created. Copy the path that is shown in the popup message.
 
@@ -69,13 +80,13 @@ Viewing the schematisation
 
 You will now add the schematisation in your 3Di Modeller Interface project and add a background map for reference. This will allow you to check if the schematisation looks as you expect.
 
-#) If you have not copied the path to the spatialite in the previous step, take the following steps. At the top of the 3Di Models & Simulations panel, click on the name of your schematisation. Windows Explorer will open; browse to *work in progress/schematisation* and copy the path from the Windows Explorer address bar.
+#) You will need the path to the spatialite file (.sqlite) for this schematisation. If you have not copied the path to the spatialite in the previous step, do the following to find it: At the top of the 3Di Models & Simulations panel, click on the (blue, underlined) name of your schematisation. Windows Explorer will open; browse to *work in progress\schematisation* and copy the path from the Windows Explorer address bar.
 
 #) In the 3Di Schematisation Editor toolbar, click the *Load from Spatialite* button. Paste the path to the spatialite and click *Open*.
 
-#) Add a background map from OpenStreetMap by clicking Main Menu > Web > Quick Map Services > OSM > OSM Standard.
+#) Add a background map from OpenStreetMap by clicking Main Menu > *Web* > *Quick Map Services* > *OSM* > *OSM Standard*.
 
-#) In the Layers panel, reorder the layers such that the OpenStreetMap layer is below the 3Di schematisation.
+#) In the *Layers* panel, reorder the layers such that the OpenStreetMap layer is below the 3Di schematisation.
 
 You should now see the DEM, located in southern Wales.
 
@@ -90,9 +101,12 @@ The next step is to check the schematisation, upload its as a first :ref:`revisi
 
 #) In the dialog that has appeared, click *New upload* and click *Next*.
 
-#) Click *Check schematisation*. This will check your schematisations for any errors that make it impossible to generate a valid 3Di model and simulation template. It will also provide guidance in the form of warnings or info messages, to help you improve the schematisation. If you have followed the instructions in this tutorial, the schematisation checker should not produce any errors, warnings or info level messages.
+#) Click *Check schematisation*. This will check your schematisations for any errors. A schematisation that contains errors cannot be processed into a 3Di model and simulation template. The schematisation checker may also produce warnings or info level messages. These help you to improve the schematisation. If you have followed the instructions in this tutorial, the schematisation checker should not produce any errors, warnings or info level messages.
 
-#) Continue to the next screen. Here you have to fill in a commit message that describes the changes your have made relative to the previous revision. As this is the first revision of this schematisation, you can instead give provide a short description of what you upload. For example: "Default settings, DEM only".
+.. note::
+   Please do not ignore warnings. These are given for schematisation choices that are usually wrong and negatively impact the performance of you model. It will still be possible generate a model from a schematisation with warnings, and there may also be special cases where your schematisation choice is intentional and you deliberately ignore the warning. If the performance of you model is sub-par, please fix any warnings before reaching out to the servicedesk.
+
+#) Continue to the next screen. Here you have to fill in a commit message that describes the changes your have made relative to the previous revision. As this is the first revision of this schematisation, you can instead provide a short description of what you upload. For example: "Default settings, DEM only".
 
 #) Click *Start upload*. Check if it is the upload is successful and if the uploaded data is successfully processed into a 3Di model.  
 
@@ -110,11 +124,11 @@ You will now start a simulation with the 3Di model you have created.
 
 #) In the 3Di Models and Simulations panel, click *Simulate* > *New simulation*.  
 
-#) Select your model and simulation template and click *Load model*. A new dialog opens with several options for your simulation.  
+#) Select your model and the simulation template and click *Next*. A new dialog opens with several options for your simulation.  
 
 #) Check the box for *Include precipitation*
 
-#) Give your simulation a name and click next
+#) Give your simulation a name. Click *Next*.
 
 #) Set the duration of your simulation to 4 hours. 
 
@@ -126,7 +140,7 @@ Define a Constant rain event of 40 mm/h during the first two hours. Click *Next*
 
 Accept the simulation settings as they are by clicking *Next*. 
 
-Check the summary of your simulation and click Add to queue.  
+Check the summary of your simulation and click *Add to queue*.  
 
 Your simulation will start as soon as a calculation node is available for your organisation. Note: the number of available calculation nodes depends on your 3Di subscription. 
 
@@ -136,9 +150,12 @@ In the 3Di Models and Simulations panel, click *Simulate*. An overview is given 
 Adding infiltration
 -------------------
 
-We will now add infiltration to the model you have just created. In this tutoriaul, you will set a global infiltration rate, that applies to the entire model domain. It is also possible to use a spatially variable infiltration rate by providing a infiltration rate raster file. 
+We will now add infiltration to the model you have just created. In this tutorial, you will set a global infiltration rate, that applies to the entire model domain. 
 
-To do this, you need to create a *Simple infiltration settings* record and reference it from the *Global settings*.
+.. note::
+   It is also possible to use a spatially variable infiltration rate by providing an infiltration rate raster file. This will be shown in :ref:`tutorial3_2dflowmodel`.
+
+To add infiltration to the model, you need to create a *Simple infiltration settings* record and reference it from the *Global settings*.
 
 Follow these steps:
 
@@ -184,8 +201,8 @@ Running a simulation with infiltration
 With the model that includes infiltration, run the same simulation as before (see :ref:`tut_run_simulation`).
 
 
-Using the same model in the browser
------------------------------------
+Online access
+-------------
 
 Note that the models you have created are stored online. You can use them in 3Di Live and view them in the 3Di Management pages. 
 

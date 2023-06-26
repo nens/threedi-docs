@@ -15,8 +15,8 @@ After logging in to the 3Di Live Site , the *Welcome screen* will be shown. In t
 Starting a new session
 ----------------------
 
-* Select the **New session** tab. 
-* If you have simulation rights for multiple organisations, use the **Billing goes to** dropdown menu to select the 
+* Click *New session*. 
+* If you have simulation rights for multiple organisations, use the *Billing goes to* dropdown menu to select the 
 * Select the model you want to use to start a simulation with. You may type the model name in the search bar to find it.
 
 A new session will be started. During the start up of the model tips for use of the site will be shown. It may take some time to load the model. Actual loading time dependens on the model size; for large models, this may take several minutes.
@@ -46,7 +46,7 @@ In the *Follow session* tab, Select an active session and click *Follow*. The nu
 User menu
 ^^^^^^^^^^
 
-Click the user icon at the top right of the screen to show the **User menu**. The user menu has the following options:
+You can access the *User menu* by click the user icon at the top right of the screen. The user menu has the following options:
 
 Preferences
 """""""""""
