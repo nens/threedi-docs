@@ -7,8 +7,6 @@ Interactive tools
 
 The following options are available:
 
-- 
-
 - :ref:`discharge_tool_3di_live`: add a point discharge anywhere
 - :ref:`pump_tool_3di_live`: add an (emergency) pump anywhere
 - :ref:`rain_tool_3di_live`: add a rain event
@@ -23,7 +21,7 @@ The following options are available:
 
 .. note::
 	
-	To use these interactive tools, you need to *pause* the simulation, make your edits, and then clicking *Play* to continue the simulation.
+	To use these interactive tools, you need to *Pause* the simulation, make your edits, and then clicking *Play* to continue the simulation.
 
 
 
@@ -192,18 +190,51 @@ Confirm the flood barrier by pressing the |flood_barrier_confirm_flood_barrier| 
 
 .. _closing_structures_3di_live:
 
-Blocking specific flow routes
------------------------------
+Blocking specific flow routes (1D)
+----------------------------------
+
+Weirs, orifices, culverts, pipes and channels can be closed during the simulation. Take the following steps:
+
+#) Pause the simulation. 
+
+#) Activate the :ref:`point_selection_tool`. Click on the object you want to close. 
+
+#) In the panel at the right side, click *Edit*. Set the status to *Closed*. Click *Confirm*. 
+
+#) Click the *Play* button to resume the simulation.
+
 
 .. _changing_crest_levels_3di_live:
 
-Changing crest levels
----------------------
+Changing structure crest levels
+-------------------------------
+
+The crest level of weirs and orifices can be changed during the simulation. Take the following steps:
+
+#) Pause the simulation. 
+
+#) Activate the :ref:`point_selection_tool`. Click on the weir or orifice of which you want to change the crest level. 
+
+#) In the panel at the right side, click *Edit*. Fill in the desired crest level. Click *Confirm*. 
+
+#) Click the *Play* button to resume the simulation.
+
 
 .. _changing_pump_capacities_3di_live:
 
 Changing pump capacities
 ------------------------
+
+The pump capacity of pumps can be changed during the simulation. You can switch pumps of by setting the capacity to 0. Take the following steps:
+
+#) Pause the simulation. 
+
+#) Activate the :ref:`point_selection_tool`. Click on the pump of which you want to change the capacity. 
+
+#) In the panel at the right side, click *Edit*. Fill in the desired pump capacity. Click *Confirm*. 
+
+#) Click the *Play* button to resume the simulation.
+
 
 .. _breaches_3di_live:
 

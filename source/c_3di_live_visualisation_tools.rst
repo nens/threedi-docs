@@ -13,7 +13,7 @@ Click on the *Layer tool* at the bottom left of the screen. The *Map layers* pan
 .. figure:: image/d3.6_layer_tool.png
 	:alt: Layer tool.
 
-	Layer tool.
+	Map layers panel.
 
 
 Base maps

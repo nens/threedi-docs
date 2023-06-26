@@ -6,7 +6,7 @@ Tutorial 1: Using 3Di Live
 Introduction
 ------------
 
-3Di Live is an intuitive online interface to run 3Di simulations. You can see the simulation results as it progresses, and interact with the simulation in many ways. 3Di Live can be used to quickly and interactively assess the behaviour of the water system and communicate with stakeholders effectively. Simple edits can also be performed in 3Di Live, such as shutting down a pump, digging a hole for extra storage, or placing a flood barrier to prevent further flooding. 
+3Di Live is an intuitive online interface to run 3Di simulations. You can see the simulation's results as it progresses, and interact with the simulation in many ways. 3Di Live can be used to quickly and interactively assess the behaviour of the water system and communicate with stakeholders effectively. Simple edits can also be performed in 3Di Live, such as shutting down a pump, digging a hole for extra storage, or placing a flood barrier to prevent further flooding. 
 
 
 Learning objectives
@@ -26,7 +26,7 @@ Before you get started:
 
 * Make sure you have a 3Di account. Please contact the :ref:`servicedesk` if you need help with this.
 
-* At least one 3Di model should be available for your organisation. If this is not the case, you do :ref:`tutorial2_2dflatmodel` first.
+* At least one 3Di model should be available for your organisation. If this is not the case, you may do :ref:`tutorial2_2dflatmodel` first.
 
 Loading a model
 ---------------
@@ -35,7 +35,7 @@ Loading a model
 
 #) Choose a model from the list, or, if you know the name of your model, type the name in the search bar to find it. There may be more than 1 :ref:`revision` available, numbered with #1, #2, etc. Usually, you will want to use the one with the highest revision number, which is the most recent version of that 3Di model.
 
-#) Click *Start*. If multiple simulation templates are available for this 3Di model, choose one. See :ref:`simulation_and_simulation_templates` for more information.
+#) Click *Start*. If multiple simulation templates are available for this 3Di model, a list of available simulation templates will be shown for you to choose one. See :ref:`simulation_and_simulation_templates` for more information.
 
 Exploring the model
 -------------------
@@ -46,12 +46,12 @@ On the left side of the screen, you find a toolbar. The tools here are used to i
 
 #)	Toggle the Digital Elevation Model (DEM) to visible. Find out what the lowest elevation in the DEM is. Hint: Use :ref:`line_selection_tool`.
 
-#)	What is the size of the 2D computational cells in m:sup:`2`? Hint: :ref:`Toggle ‘Model grid’ to visible<visualisation_calculation_layers_3di_live>` and zoom in. Use the line selection tool to measure the length of the cells.
+#)	Task: find out what the size of the 2D computational cells is (in m²)? Hint: :ref:`toggle ‘Model grid’ to visible<visualisation_calculation_layers_3di_live>` and zoom in. Use the :ref:`line_selection_tool` to measure the length of the cells.
 
 Starting the simulation
 -----------------------
 
-#) Click the :ref:`rain_tool_3di_live`. In the *Rain* panel, set the settings to a *Constant* rain event with an *Intensity* of 40 mm/h and a *Duration* of 2 hours. 
+#) Click the :ref:`rain_tool_3di_live` button. In the *Rain* panel, set the settings to a *Constant* rain event with an *Intensity* of 40 mm/h and a *Duration* of 2 hours. 
 
 
 #) Click *Create*. Below the rain event options, you will now see that your rain event has been added. If you made a mistake, you may still delete this rain event. This is only possible as long as the simulation is still paused.
@@ -70,7 +70,7 @@ If your model also contains 1D elements (such as channels, pipes, or weirs) you 
 
 #) Pause the simulation. In the panel at the right side, click *Edit*. Set the status to *Closed*. Click *Confirm*. Click the *Play* button to resume the simulation.
 
-#) Observe the effect of closing this 1D element in the discharge and velocity graphs.
+#) Observe the effect of closing this 1D element in the discharge and velocity graphs on the right-hand side.
 
 Many more tools are available for interacting with the simulation. The best way to become familiar with them is to try them out! The user manual section :ref:`3di_live_interactive_tools` gives further explanation about these tools.
 
