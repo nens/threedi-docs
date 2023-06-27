@@ -17,7 +17,7 @@ Installing the 3Di Modeller Interface
 
 To be able to build, edit and run schematisations you need to install the Modeller Interface. You can install the modeller interface simply with the download link below.
 
-- Install the `Modeller Interface <https://docs.3di.live>`_
+- Install the `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.28.5-1-4-Setup-x86_64.exe>`_
 
 
 *last update: 28 April 2023*
