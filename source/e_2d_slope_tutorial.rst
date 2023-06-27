@@ -28,8 +28,6 @@ Before you get started:
 * Install the 3Di Modeller Interface installed, see :ref:`3di_instruments_and_downloads`.
 * Download the dataset for this tutorial `here <https://nens.lizard.net/media/3di-tutorials/3di-tutorial-02.zip>`_.
 
--------------------------------------------------------
-
 Creating a new schematisation
 -----------------------------
 
@@ -57,6 +55,19 @@ The first step is to create a new :ref:`schematisation`. The first revision of y
 - Simulation timestep: 30 s
 - Typical simulation duration: 12-24 hours
 
+By choosing the option "The model area is predominantly sloping", the relevant numerical settings will be set to values suitable for calculating flow over slopes. The following parameters are set; for more in-depth discussion of these parameters, see :ref:`limiters`.
+
+
+.. csv-table:: Limiters
+    :header: "Setting", "Value", "Comments"
+
+    "limiter_grad_1d", "1"
+    "limiter_grad_2d", "0"
+    "limiter_slope_crossectional_area_2d", "3", "For sloping areas"
+    "limiter_slope_friction_2d", "1", "For sloping areas"
+	"thin_water_layer_definition", "0.3", "Value in meters"
+	"frict_shallow_water_correction", "3", "For sloping areas"
+
 #) Click *Create schematisation*. A popup message will tell you that the the schematisation was created. Copy the path that is shown in the popup message.
 
 
@@ -77,7 +88,7 @@ You should now see the DEM, located just east of Las Vegas. In the Layers panel,
 
 
 
-.. _tut_uploading:
+.. _tut_slope_uploading:
 
 Uploading the schematisation
 ----------------------------
@@ -135,9 +146,12 @@ Filling in the *Simple infiltration* settings
     "infiltration_rate_file", "rasters/Mead_infiltration.tif", "Do not forget to copy the raster to the correct location before uploading."
     "max_infiltration_capacity", "0.1", "100 mm of total infiltration"
 	"max_infiltration_capacity_file", "NULL", "A global value is used for this parameter"
-    "infiltration_surface_option", "Whole surface", "See :ref:`infiltration`"
+    "infiltration_surface_option", "Whole surface", "See the note below"
 
 #) Click the *Toggle editing mode* button in the toolbar and save your edits to this layer.
+
+.. note::
+   The *infiltration_surface_option* determines which pixels within a cell contribute to infiltration. In flat areas, infiltration is typically computed for all pixels when it is raining, and for wet pixels only when it is not raining. In sloping cells, only the pixels at the bottom of the cell would be regarded as wet, even when the water flows over the whole surface as sheet flow. In such cases, it is more appropriate to always compute infiltration for all pixels in the cell. See :ref:`infiltration` for further details.
 
 Reference the *Simple infiltration settings* from the *Global settings* table
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -158,111 +172,36 @@ To make a new revision that includes these edits, you need to save the changes t
 
 #) In the 3Di Schematisation Editor toolbar, click *Save to Spatialite*. Wait for this process to finish.
 
-#) Upload a new revision, in the same way you did before (see :ref:`tut_uploading`).
+#) Upload a new revision, in the same way you did before (see :ref:`tut_slope_uploading`).
 
 
 Setting the initial water level
 -------------------------------
 
-
-----------------------------------------------------------------------------------------------------------------------------------------------
-
-
-You now have a model with a spatially varying elevation, friction, and infiltration, but the model settings are representative for flat areas. 
-
-Modify the settings for mountain environments
-+++++++++++++++++++++++++++++++++++++++++++++
-
-
-We will modify the settings file, which was created for a flat area, such that it can be applied to sloping areas instead.
-Here we will only discuss the settings that must be changed.
-A full overview of all settings can be found at :download:`the database overview <pdf/database-overview.pdf>`
-
-First, we will set the numerical settings. Modify the numerical settings via the v2_numerical_settings table.
-
-A.	Right-click the v2_numerical_settings table.
-B.	Select **Open attribute table**.
-C.	Select **Switch to form view**. [1] 
-D.	Select **Toggle editing mode**. [2] 
-E.	Select the tab “Limiters”. [3] 
-F.	Set the limiter values as in the table below. [4] 
-
-.. csv-table:: Limiters
-    :header: "Setting", "Value", "Comments"
-
-    "limiter_grad_1d", "1"
-    "limiter_grad_2d", "0"
-    "limiter_slope_crossectional_area_2d", "3", "For sloped areas"
-    "limiter_slope_friction_2d", "1", "For sloped areas"
-
-.. image:: image/08_numerical1.png
-    :alt: Setting numerical limiters
-
-G.	Select the tab “Thresholds”
-H.	Set the thin_water_layer_definition to 0.3. This value is in meters.
-I.	Select the tab “Miscellaneous”
-J.	Set the frict_shallow_water_correction to 3.  
-
-Second, we will change how infiltration is computed in the model.
-In flat areas, infiltration is typically computed in the wet subgrid cells only.
-This method does not work in mountainous terrain, where the elevation differences within a cell are large.
-Therefore, the infiltration will be computed over the whole surface.
-This is implemented through the “infiltration_surface_option”.
-Documentation on the infiltration settings can be found at :ref:`infiltration`.
-
-A.	Right-click the v2_simple_infiltration table.
-B.	Select **Open attribute table**.
-C.	Select **Switch to form view**. [1] 
-D.	Select **Toggle editing mode**. [2] 
-E.	Set the infiltration_surface_option to 1. [3] 
-
-.. image:: image/09_infiltration.png
-    :alt: Setting infiltration options
-
-Complete the location-specific settings
-++++++++++++++++++++++++++++++++++++++++
-
-Lake Made is a large lake with an area of 640 km2 at maximum capacity.
-This leads to an extensive model domain of approximately 90 by 110 km.
-The grid and the output settings are adjusted to account for the large model domain.
-The initial water level will also be modified to match the elevation of the lake.
-
-First, we will set the grid cell size and the table step size to improve the calculation speed of the model.
-The grid cell size will be set to 400 m in accordance with the large domain.
-The table step size controls at which vertical resolution properties (other than elevation) are translated from the subgrid domain to the computational domain.
-A table step size of 10 m is selected for this model. This is very coarse for a typical 3Di model, but it is justified here due to the large elevation differences at the subgrid level.
-Both properties are part of the global settings.
-
-A.	Right-click the v2_global_settings table.
-B.	Select **Open attribute table**.
-C.	Select **Switch to form view**. [1] 
-D.	Select **Toggle editing mode**. [2] 
-E.	Select the tab “Grid”. [3] 
-F.	Set the grid_space to 400. This value is in meters. [4] 
-G.	Set the table_step_size to 10.  This value is in meters. [5] 
-H.	Keep the global settings table open.
-
-
-.. image:: image/10_grid_settings.png
-    :alt: Changing grid settings
-
-According to our elevation map, Lake Mead is located at around 340m above sea level.
+According to our elevation map, Lake Mead is located at around 340 m above mean sea level (MSL).
 The deepest point of Lake Mead has a depth of 160 m at full capacity.
-Therefore, we set the initial water level at 500m.
+Therefore, we set the initial water level to a global value of 500 m MSL. This parameter can be set in the *Global settings* table.
 
-A.	Select the tab “Terrain Information”.
-B.	Set the initial_waterlevel to 500. This value is in meters.
-C.	Keep the global settings table open
+.. note:: 
+   It is also possible to set a spatially varying initial water level, by using an initial water level raster. This is very similar to how you set the spatially varying infiltration rate. An important difference is that initial water levels are set on the cell level, rather than on the pixel level. Multiple initial water level pixels can be in the same cell, so you need to instruct 3Di how to aggregate this data. There are 3 options: minimum, maximum, and average. See :ref:`initial_water_levels` for more information.
+   
+#) In the *Layers* panel, under *Settings*, right-click the *Global settings* layer > *Open attribute table*
 
-The discharge of precipitation into Lake Mead takes a long time due to the large model domain.
-The number of time steps and the time between model outputs is increased to reflect the slow time scale.
-More time steps and a larger output time step are selected to account for the slower drainage. 
+#) Click *Switch to form view* in the bottom right corner.
 
-A.	Select the tab “Time”.
-B.	Set the nr_timesteps to 1440. This amounts to a model duration of 12 h, as the time step is 30 s.
-C.	Set the output_time_step to 900.  This value is in seconds.
-D.  Save you changes.
+#) Click *Toggle editing mode* in the top right corner.
 
-The aggregation time step is also set to 900 s. This has already been set correctly in your .sqlite. 
+#) Switch to the tab *Terrain information*.
 
-With the completion of the location-specific settings, we have built a basic working 2D flow model for mountainous terrain. 
+#) Set the *initial_waterlevel* to 500. This value is in m MSL.
+
+#) Click the *Toggle editing mode* button in the toolbar and save your edits to this layer.
+
+To make a new revision that includes these edits, you need to save the changes to the spatialite and upload them.
+
+#) In the 3Di Schematisation Editor toolbar, click *Save to Spatialite*. Wait for this process to finish.
+
+#) Upload a new revision, in the same way you did before (see :ref:`tut_slope_uploading`).
+
+
+Congratulations! You have completed the 2D flow model for sloping area. 
