@@ -1,10 +1,10 @@
 .. _groundwater:
 
 2D Groundwater flow
-=====================
+===================
 
 Introduction
----------------------
+------------
 
 Surface water is not only affected by rain and the inflow and outflow of water originating from other regions. In reality, surface water interacts with groundwater. This implies that the behaviour and the quantity of water at the surface are affected by groundwater too. The flow in the subsurface is strongly influenced by processes on both very large and small scales in time and space. To consider all processes, models with significant computational times are required, even when surface flow, sewer systems, and other processes are neglected.
 
@@ -14,7 +14,7 @@ First, a short summary of the concepts implemented in 3Di is presented. In the s
 
 
 Summary of groundwater concepts in 3Di
-----------------------------------------
+--------------------------------------
 
 .. figure:: image/b_grw_overview_ass.png
    :alt: master_figure2
@@ -42,7 +42,7 @@ In the section below, while using the Letters and Numbers in *Figure 1*  and *3*
 
 
 Groundwater concepts
------------------------
+--------------------
 
 The subsurface is a general term for the whole domain below the surface, where many processes of the hydrological cycle take place. 3Di aims at a fast, but accurate computation of the flow, especially concerning the interaction between groundwater and surface water. Therefore, the domain of computation focuses on the top aquifer. However, before zooming in at this layer, a schematic overview of some of the large scale processes is given in *Figure 1*. The various processes that are discussed here are indicated by Romain numbers. *Number I* indicates surface flow and overland flow. From the surface (*Number II* ) water can infiltrate or exfiltrate to and from the subsurface, where it can flow further in the horizontal or the vertical direction (*Number III* ). From thereon, several aquifers can overlap and interact. As they are separated by (semi-)impervious layers, they can exist under different pressure regimes. The exchange can, therefore, occur in both up- and downward direction (*Numbers IV and V* ).  One aquifer can consist of a zone of saturation and the zone of acration (unsaturated zone). In addition, within one aquifer, the soil characteristics vary over time and space (*Number VI* ). To limit the modelling domain and the number of processes to be taken into account, the current method for modelling groundwater flow in 3Di, is focused on the processes in the top aquifer of the sub-surface layer (the red box of *Number VII* ).
 
@@ -106,7 +106,7 @@ Most of the groundwater concepts on which the groundwater method in 3Di is based
 .. _grwhortoninfiltration:
 
 Horton based infiltration
------------------------------------
+-------------------------
 
 Mentioned above, the infiltration process is rather complex, therefore many models use a parametrization for this process. In 3Di, two types of infiltration formulations are implemented; Horton based infiltration and a constant infiltration. Only the Horton based infiltration is coupled to groundwater. More information about the constant infiltration can be found at :ref:`simpleinfiltration`. Here, only the Horton infiltration is discussed.
 
@@ -147,7 +147,7 @@ Similar to the other variables, the results are saved in the result files, snap-
 .. _grwflow:
 
 Groundwater flow
---------------------
+----------------
 
 The flow in the subsurface is computed under the assumption of hydrostatic pressure. This is also known as the Dupuit assumption. This implies that the flow in the saturated zone is fully horizontal and described by the Darcy equations:
 
@@ -168,13 +168,13 @@ with :math:`Q_x, Q_y` the x- and y- component of the discharges, :math:`A_x, A_y
    Hooghoudt: Typical example of groundwater flow according to the Dupuit assumption. (5)
 
 Input
-~~~~~~~~~~~~
+~~~~~
 
 The input for using groundwater flow is very similar to the input for :ref:`grwhortoninfiltration`. In addition to these parameters, one can define the Darcy or hydraulic connectivity values globally or using a raster for spatially varying values. The dimension of the hydraulic connectivity is in *[m/day]*. You can download the complete overview of settings that 3Di uses in the spatialite database :download:`here <pdf/database-overview.pdf>`.
 
 
 Output
-~~~~~~~~~~~
+~~~~~~
 
 The discharges ([m\ :sup:`3`\ /s]), the velocities *[m/s]* and the groundwater levels *[m]* are all included in the NetCDF and in the aggregated results NetCDF. Also for the groundwater related variables yields that discharges and velocities are defined at flow lines and the water levels at the nodes. Note, that the velocity is the effective velocity, not the velocity of a single water particle.
 
@@ -182,9 +182,9 @@ The discharges ([m\ :sup:`3`\ /s]), the velocities *[m/s]* and the groundwater l
 .. _grwnummericalimplementation:
 
 Numerical implementation [#f1]_
------------------------------------
+-------------------------------
 
-The numerical implementation of the horizontal and vertical flow is based on the concept of staggered grids as explained in :ref:`grid`. This implies that pressure points are defined in the cell centers and flow is defined at the cell edges. The spatial resolution of the 2D surface flow equals that of the groundwater flow. Therefore, the connections between the surface and the subsurface are completely vertical and orthogonal to the surface and subsurface layers.
+The numerical implementation of the horizontal and vertical flow is based on the concept of staggered grids as explained in :ref:`computational_grid`. This implies that pressure points are defined in the cell centers and flow is defined at the cell edges. The spatial resolution of the 2D surface flow equals that of the groundwater flow. Therefore, the connections between the surface and the subsurface are completely vertical and orthogonal to the surface and subsurface layers.
 
 The timescales of groundwater flow compared to those of surface water flow, are generally considerably longer. This would favor an explicit formulation. However, the moment that the groundwater level reaches the surface, the timescales are the same. Therefore, only the horizontal flow is computed explicitly, but the vertical interaction is computed implicitly.
 

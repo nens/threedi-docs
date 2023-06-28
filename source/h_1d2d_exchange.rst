@@ -1,7 +1,7 @@
 .. _1d2d_exchange:
 
 1D2D Exchange
-+++++++++++++
+=============
 
 3Di offers the possibility to make connections between the 1D and the 2D domain. This offers the possibility to preserve the complexity of the modelling domain, but to make use of the extra resolution and speed of 1D computations. In such case, the 1D elements are generally narrow compared to the dimensions of the 2D resolution.
 

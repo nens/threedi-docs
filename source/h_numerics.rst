@@ -101,6 +101,8 @@ Limiters
 
 A limiter is a general term used for certain aspects in numerical schemes that limit the effect of high gradients in flow or forcing. This is to avoid strong oscillations, instabilities in the solution and to increase the stability. 3Di has various limiters implemented, which can be turned on or off.
 
+.. _limiter_gradient:
+
 Limiter for water level gradient
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -120,6 +122,7 @@ Function where the ratio between water depth and water level gradient prescribes
 
    \phi_(m+1) = min[ 1 , H / ( \sigma_(m+1) - \sigma_m ) ]
 
+.. _limiter_slope_cross_sectional_area:
    
 Limiter for cross-sectional area
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -150,7 +153,7 @@ This is decribed in the figure below. Mathematical derivation will follow.
    Grid schematisation in a sloping areas. Two alternatives to determine an effective depth for the cross-sectional area. Lower:   The alternatives for the cross-sectional area in case of limiter option 2.
 
 Limiter for friction depth
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 [limiter_slope_friction_2d] default = 0
 

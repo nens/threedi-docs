@@ -28,7 +28,7 @@ The different types of controls are now explained. The implemented types of cont
 .. _table_control:
 
 Table control
--------------
+^^^^^^^^^^^^^
 
 The table control has a combination of flow values and action values as input. Each increment of the flow value in the input table acts as a threshold for a corresponding structure value which is set on the structure. In combination with a mathematical operators larger than and smaller than (<,>) the action will be executed when the measurement value either falls below the threshold or exceeds it. Example for table control input is:
 
@@ -54,7 +54,7 @@ The measurement value stems from the flow variable that is set to monitor within
 .. _memory_control:
 
 Memory control
---------------
+^^^^^^^^^^^^^^
 
 The memory control has two thresholds which trigger an adjustment on a hydraulic structure. When the measured flow variable exceeds the defined upper threshold the control becomes active and adjusts the property of a structure to a new value. When the value flow variable subsequently (first the upper threshold has been exceeded) drops below the lower threshold the control becomes inactive and the property of the structure defaults back to its original value. This operation is similar to a pump with on and off thresholds.
 

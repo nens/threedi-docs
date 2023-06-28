@@ -1,7 +1,7 @@
 .. _rain:
 
-Rainfall
-========
+Rain
+====
 
 One of the source terms described in  :ref:`cons_volume` is rain. Naturally, rain can fall on the 2D domain. However, 3Di also supports inflow from rain in the 1D domain. The *rain* is determined by the 0D :ref:`inflow` module and adds the outgoing flow directly in the 1D network. 
 
