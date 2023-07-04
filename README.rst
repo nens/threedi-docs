@@ -1,7 +1,7 @@
 3Di documentation
 =================
 
-Let's try to do it with restructuredtext/sphinx!
+This repository contains the source code of the 3Di documentation.
 
 The released documentation is at https://docs.3di.live/ .
 
