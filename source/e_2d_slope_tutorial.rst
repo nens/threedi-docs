@@ -30,43 +30,53 @@ Before you get started:
 
 Creating a new schematisation
 -----------------------------
-
-The first step is to create a new :ref:`schematisation`. The first revision of your schematisation will contain two raster: the digital elevation model (DEM; mandatory for all models that contain 2D) and the friction coefficients raster. The friction raster defines the bottom roughness, i.e. the amount of shear stress that the surface exerts on water flowing over it. The DEM and the friction raster can be added to the schematisation in the *New simulation* wizard.
+The first step is to create a new :ref:`schematisation`
 
 #) Open the 3Di Modeller Interface and click on the 3Di Models and Simulations icon (|modelsSimulations|). You should now see the 3Di Models and Simulations panel.
 
     .. note::
-        If this is the first time you use 3Di Models and Simulation panel, you will need to go through `some steps to set it up <setting_up_models_and_simulations>`.
+        If this is the first time you use 3Di Models and Simulation panel, you will need to go through :ref:`some steps to set it up<setting_up_models_and_simulations>`.
 
-#) Click the New button (|newschematisation|) and fill in a **unique** schematisation name, such as 'Tutorial Lake Mead <your_name>' and select your organisation. The schematisation will be saved in the online model database of this selected organisation. Tags are optional. Since we are creating a schematisation from scratch, the *Create new Spatialite* option should be selected for the Spatialite option. Click *Next*.
+#) In the *Schematisation* section of the 3Di Models and Simulations panel, click the *New* button (|newschematisation|). The *New schematisation* wizard is shown.
+
+#) Fill in a  schematisation name, such as 'Tutorial Lake Mead <your_name>'. Select the organisation you want to be the owner of the new schematisation (most users have rights for only one organisation). Tags are optional, you can leave this field empty for now. Since we are creating a schematisation from scratch, select the *Create new Spatialite* option. Click *Next*.
 
 #) Read the explanation on the second page of the *New schematisation* wizard. Click *Next*.
 
-#) In the section *2D Flow*, browse to the DEM (Mead_DEM.tif) file you have downloaded. The coordinate reference system (EPSG:32612, UTM zone 12N) is read from the DEM file and filled in automatically.
+#) In the section *2D Flow*, browse to the DEM file you have downloaded (Mead_DEM.tif). The coordinate reference system (EPSG:32612, UTM zone 12N) is read from the DEM file and filled in automatically.
 
 #) Fill in the following settings:
-- Computational cell size: 400
-- The model area is predominantly: Sloping
-- No 1D flow
-- No 0D flow
-- Friction type: Manning
-- Friction file: Browse to the fricton file (Mead_friction.tif) file you have downloaded
-- Global 2D friction coefficient: 0.06
-- Simulation timestep: 30 s
-- Typical simulation duration: 12-24 hours
 
-By choosing the option "The model area is predominantly sloping", the relevant numerical settings will be set to values suitable for calculating flow over slopes. The following parameters are set; for more in-depth discussion of these parameters, see :ref:`limiters`.
+	* Computational cell size: 400
+
+	* The model area is predominantly: Sloping
+
+	* No 1D flow
+
+	* No 0D flow
+
+	* Friction type: Manning
+
+	* Friction file: Browse to the fricton file (Mead_friction.tif) file you have downloaded
+
+	* Global 2D friction coefficient: 0.06
+
+	* Simulation timestep: 30 s
+
+	* Typical simulation duration: 12-24 hours
+
+	By choosing the option "The model area is predominantly sloping", the relevant numerical settings will be set to values suitable for calculating flow over slopes. The following parameters are set; for more in-depth discussion of these parameters, see :ref:`limiters`.
 
 
-.. csv-table:: Limiters
-    :header: "Setting", "Value", "Comments"
+	.. csv-table:: Numerical settings with values specific for sloping terrain
+		:header: "Setting", "Value", "Comments"
 
-    "limiter_grad_1d", "1"
-    "limiter_grad_2d", "0"
-    "limiter_slope_crossectional_area_2d", "3", "For sloping areas"
-    "limiter_slope_friction_2d", "1", "For sloping areas"
-	"thin_water_layer_definition", "0.3", "Value in meters"
-	"frict_shallow_water_correction", "3", "For sloping areas"
+		"limiter_grad_1d", "1"
+		"limiter_grad_2d", "0"
+		"limiter_slope_crossectional_area_2d", "3", "For sloping areas"
+		"limiter_slope_friction_2d", "1", "For sloping areas"
+		"thin_water_layer_definition", "0.3", "Value in meters"
+		"frict_shallow_water_correction", "3", "For sloping areas"
 
 #) Click *Create schematisation*. A popup message will tell you that the the schematisation was created. Copy the path that is shown in the popup message.
 
@@ -123,11 +133,11 @@ Infiltration rasters are added to the model in two steps. First, the raster need
 Putting the raster in the right location
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- At the top of the 3Di Models & Simulations panel, click on the name of your schematisation. Windows Explorer will open; browse to *work in progress/schematisation/rasters*. This is the location where the infiltration raster should be copied to.
+#) At the top of the 3Di Models & Simulations panel, click on the name of your schematisation. Windows Explorer will open; browse to *work in progress/schematisation/rasters*. This is the location where the infiltration raster should be copied to.
 
-- Open another Windows Explorer window and browse to the location where you downloaded the data for this tutorial.
+#) Open another Windows Explorer window and browse to the location where you downloaded the data for this tutorial.
 
-- Copy the file *Mead_infiltration.tif* to the *work in progress/schematisation/rasters* folder.
+#) Copy the file *Mead_infiltration.tif* to the *work in progress/schematisation/rasters* folder.
 
 Filling in the *Simple infiltration* settings
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -136,17 +146,17 @@ Filling in the *Simple infiltration* settings
 
 #) Click the *Toggle editing mode* button in the *Digitizing toolbar*, then click the *Add record* button. Fill in the following values and click *OK*:
 
-.. csv-table:: General
-    :name: inf_settings
-    :header: "Setting", "Value for this tutorial", "Comments"
+	.. csv-table:: Simple infiltration settings
+		:name: inf_settings
+		:header: "Setting", "Value for this tutorial", "Comments"
 
-    "id", "1", "Must match the simple_infiltration_settings_id in the v2_global_settings_table"
-    "display_name", "infiltration"
-    "infiltration_rate", "30", "in mm/day; when using an infiltration rate raster, this value will only be used as fallback value for NODATA pixels"
-    "infiltration_rate_file", "rasters/Mead_infiltration.tif", "Do not forget to copy the raster to the correct location before uploading."
-    "max_infiltration_capacity", "0.1", "100 mm of total infiltration"
-	"max_infiltration_capacity_file", "NULL", "A global value is used for this parameter"
-    "infiltration_surface_option", "Whole surface", "See the note below"
+		"id", "1", "Must match the simple_infiltration_settings_id in the v2_global_settings_table"
+		"display_name", "infiltration"
+		"infiltration_rate", "30", "in mm/day; when using an infiltration rate raster, this value will only be used as fallback value for NODATA pixels"
+		"infiltration_rate_file", "rasters/Mead_infiltration.tif", "Do not forget to copy the raster to the correct location before uploading."
+		"max_infiltration_capacity", "0.1", "100 mm of total infiltration"
+		"max_infiltration_capacity_file", "NULL", "A global value is used for this parameter"
+		"infiltration_surface_option", "Whole surface", "See the note below"
 
 #) Click the *Toggle editing mode* button in the toolbar and save your edits to this layer.
 

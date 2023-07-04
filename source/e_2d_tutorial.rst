@@ -53,23 +53,23 @@ The first step is to create a new :ref:`schematisation`
 
 #) Fill in the following settings:
 
-* Computational cell size: 64
+	* Computational cell size: 64
 
-* The model area is predominantly: Flat
+	* The model area is predominantly: Flat
 
-* No 1D flow
+	* No 1D flow
 
-* No 0D flow
+	* No 0D flow
 
-* Friction type: Manning
+	* Friction type: Manning
 
-* No friction file
+	* No friction file
 
-* Global 2D friction coefficient: 0.06
+	* Global 2D friction coefficient: 0.06
 
-* Simulation timestep: 30 s
+	* Simulation timestep: 30 s
 
-* Typical simulation duration: 0-3 hours
+	* Typical simulation duration: 0-3 hours
 
 #) Click *Create schematisation*. A popup message will tell you that the the schematisation was created. Copy the path that is shown in the popup message.
 
@@ -102,8 +102,8 @@ The next step is to check the schematisation, upload its as a first :ref:`revisi
 
 #) Click *Check schematisation*. This will check your schematisations for any errors. A schematisation that contains errors cannot be processed into a 3Di model and simulation template. The schematisation checker may also produce warnings or info level messages. These help you to improve the schematisation. If you have followed the instructions in this tutorial, the schematisation checker should not produce any errors, warnings or info level messages.
 
-.. note::
-   Please do not ignore warnings. These are given for schematisation choices that are usually wrong and negatively impact the performance of you model. It will still be possible generate a model from a schematisation with warnings, and there may also be special cases where your schematisation choice is intentional and you deliberately ignore the warning. If the performance of you model is sub-par, please fix any warnings before reaching out to the servicedesk.
+	.. note::
+	   Please do not ignore warnings. These are given for schematisation choices that are usually wrong and negatively impact the performance of you model. It will still be possible generate a model from a schematisation with warnings, and there may also be special cases where your schematisation choice is intentional and you deliberately ignore the warning. If the performance of you model is sub-par, please fix any warnings before reaching out to the servicedesk.
 
 #) Continue to the next screen. Here you have to fill in a commit message that describes the changes your have made relative to the previous revision. As this is the first revision of this schematisation, you can instead provide a short description of what you upload. For example: "Default settings, DEM only".
 
@@ -135,15 +135,15 @@ You will now start a simulation with the 3Di model you have created.
 
 There are several options to define a precipitation event for your simulation. In the drop-down menu, one can choose Constant, Custom, Design, Radar and Forecast events. 
 
-Define a Constant rain event of 40 mm/h during the first two hours. Click *Next*. 
+#) Define a Constant rain event of 40 mm/h during the first two hours. Click *Next*. 
 
-Accept the simulation settings as they are by clicking *Next*. 
+#) Accept the simulation settings as they are by clicking *Next*. 
 
-Check the summary of your simulation and click *Add to queue*.  
+#) Check the summary of your simulation and click *Add to queue*.  
 
 Your simulation will start as soon as a calculation node is available for your organisation. Note: the number of available calculation nodes depends on your 3Di subscription. 
 
-In the 3Di Models and Simulations panel, click *Simulate*. An overview is given of all running simulations for your organisation(s). Here you can follow the progress of your simulation.
+#) In the 3Di Models and Simulations panel, click *Simulate*. An overview is given of all running simulations for your organisation(s). Here you can follow the progress of your simulation.
 
 
 Adding infiltration
@@ -162,17 +162,17 @@ Follow these steps:
 
 #) Click the *Toggle editing mode* button in the *Digitizing toolbar*, then click the *Add record* button. Fill in the following values and click *OK*:
 
-.. csv-table:: General
-    :name: inf_settings
-    :header: "Setting", "Value for this tutorial", "Comments"
+	.. csv-table:: Simple infiltration settings
+		:name: inf_settings
+		:header: "Setting", "Value for this tutorial", "Comments"
 
-    "id", "1", "Must match the simple_infiltration_settings_id in the v2_global_settings_table"
-    "display_name", "infiltration"
-    "infiltration_rate", "360", "in mm/day; uniform silty sand is assumed in this tutorial"
-    "infiltration_rate_file", "NULL", "Only used for spatially varying infiltration rates"
-    "max_infiltration_capacity", "NULL", "infinite infiltration capacity is assumed in this tutorial"
-    "max_infiltration_capacity_file", "NULL", "infinite infiltration capacity is assumed in this tutorial"
-    "infiltration_surface_option", "Rain", "See :ref:`infiltration`"
+		"id", "1", "Must match the simple_infiltration_settings_id in the v2_global_settings_table"
+		"display_name", "infiltration"
+		"infiltration_rate", "360", "in mm/day; uniform silty sand is assumed in this tutorial"
+		"infiltration_rate_file", "NULL", "Only used for spatially varying infiltration rates"
+		"max_infiltration_capacity", "NULL", "infinite infiltration capacity is assumed in this tutorial"
+		"max_infiltration_capacity_file", "NULL", "infinite infiltration capacity is assumed in this tutorial"
+		"infiltration_surface_option", "Rain", "See :ref:`infiltration`"
 
 #) Click the *Toggle editing mode* button in the toolbar and save your edits to this layer.
 
