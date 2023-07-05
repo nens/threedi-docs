@@ -47,22 +47,25 @@ There are two methods for incorporating inflow in a 3Di schematisation: using 's
 The runoff from each surface as calculated by the 3Di 0D inflow model is Hortonian infiltration excess overland flow, that relates the runoff (:math:`R`) to precipitation (:math:`P`) and infiltration (:math:`I`):
 
 .. math::
-    :label: horton_runoff
-    `R = P - I`
+   :label: horton_runoff
+
+   `R = P - I`
 
 The amount of precipitation is calculated as the rain intensity multiplied by the surface area. When using spatially variable rain, the rain intensity at the centroid of the surface is used for determining the rain intensity.
 
 However, there is a delay between the accumulation of water on the surface (ponding) and the production of runoff. The runoff at time t :math:`Q_t` is a function of the water volume :math:`V` of water stored at the surface and outflow delay constant :math:`k_q`.
 
 .. math::
-    :label: outflow_delay
-    `Q_t = k_q V_t`
+   :label: outflow_delay
+
+   `Q_t = k_q V_t`
 
 The infiltration rate decays over time, and then recovers again after the rainfall event. This is described by the modified Horton infiltration equation:
 
 .. math::
    :label: horton_infiltration
-    `f_t = \frac{f_0}{1+k_d(t-1)} + \frac{f_c}{1+kt} + \frac{f_r}{1+k_r t}`
+
+   `f_t = \frac{f_0}{1+k_d(t-1)} + \frac{f_c}{1+kt} + \frac{f_r}{1+k_r t}`
 
 | In which:
 | :math:`f_t` is the infiltration rate at time :math:`t`
