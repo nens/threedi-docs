@@ -6,3 +6,4 @@ Outputs
 
    h_results
    h_aggregate_results
+   h_logging
