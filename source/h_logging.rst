@@ -17,6 +17,8 @@ Iteration
 
 File name: iteration.log
 
+This file contains logging from the computional core from any moment when it needs more iterations to solve the matrix than expected.
+
 Matrix
 ------
 
@@ -28,6 +30,8 @@ Scheduler
 ---------
 
 File name: scheduler.log
+
+This file contains all the log output of the scheduler, i.e. the component that manages all action, forcings and events during the simulation.
 
 Simulation
 ----------
