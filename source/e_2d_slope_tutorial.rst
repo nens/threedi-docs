@@ -1,21 +1,24 @@
 .. _tutorial3_2dflowmodel:
 
-Tutorial 3: 2D flow model over sloped terrain with multiple rasters
-===================================================================
+Tutorial 3: 2D flow model for sloping terrain
+=============================================
 
 Introduction
 ------------
-In this tutorial, you will build a basic 2D flow model in mountainous terrain. We will edit an existing schematisation, and this tutorial will introduce spatially variable friction and infiltration. These raster files that describe the variation of these parameters have been highly simplified for the purpose of this tutorial. As with any other component of the tutorials, the data and outcomes cannot be used to draw conclusions of the real-world location that was the inspiration for this tutorial. 
-At the end of this tutorial, you will have a basic working model that you can run simulations with.
+In this tutorial, you will build a basic 2D flow model in mountainous terrain. This tutorial will also introduce spatially variable friction and infiltration. At the end of this tutorial, you will have a basic working model that you can run simulations with.
 
 The selected area is that of Lake Mead in the USA, just east of Las Vegas. The lake is enclosed between the mountains of Nevada, Utah, and Arizona. The area is characterized by strong elevation differences and steep slopes. Due to the steep slopes, it can not be assumed that the water level in a cell is uniform, which is a basic assumption in the :ref:`subgrid_method`. Therefore, different settings are required, which will be explored in this tutorial. For further information on how this works in 3Di, see :ref:`limiters`.
+
+.. note::
+	The data and simulation results from this tutorial cannot be used to draw conclusions of the real-world location that was the inspiration for this tutorial. The raster files that describe the variation of friction and infiltration have been highly simplified for the purpose of this tutorial.  
+
 
 Learning objectives
 -------------------
 
 You will learn the following in this tutorial:
 
-* Insight in the relevant settings for sloping terrain.
+* Insight in the relevant settings for sloping terrain
 * Using spatially varying friction
 * Using spatially varying infiltration
 
@@ -65,10 +68,11 @@ The first step is to create a new :ref:`schematisation`
 
 	* Typical simulation duration: 12-24 hours
 
+
 	By choosing the option "The model area is predominantly sloping", the relevant numerical settings will be set to values suitable for calculating flow over slopes. The following parameters are set; for more in-depth discussion of these parameters, see :ref:`limiters`.
 
 
-	.. csv-table:: Numerical settings with values specific for sloping terrain
+	.. csv-table:: Numerical settings values specific for sloping terrain
 		:header: "Setting", "Value", "Comments"
 
 		"limiter_grad_1d", "1"
@@ -215,3 +219,12 @@ To make a new revision that includes these edits, you need to save the changes t
 
 
 Congratulations! You have completed the 2D flow model for sloping area. 
+
+
+.. |modelsSimulations| image:: /image/e_modelsandsimulations.png
+    :scale: 90%
+
+
+.. |upload| image:: /image/e_tut1upload.png
+    :scale: 90%
+
