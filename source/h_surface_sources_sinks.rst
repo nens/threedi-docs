@@ -18,3 +18,9 @@ Output
 
 The actual surface source and sink discharges per computational cell are recorded in the 3di_results.nc file :ref:`3dinetcdf`. Especially, in case of extraction of water, the quantities can differ from the input values in case the cell becomes nearly empty. In addition to these results, one can also generate aggregated results :ref:`aggregationnetcdf`. The positive and negative cumulated results are required in case for using the water balance tool.
 
+
+.. note::
+   Surface *sinks* (i.e. negative values in the time series) extract water from the model. If less water is available in the node or cell then what is to be extracted, 3Di will limit the extraction. Just before the cell becomes dry, the extraction rate will be less than the extraction rate in the user input. This is done to guarantee stability and capture reality better.
+   
+   *A Surface-Subsurface Model; balancing speed, accuracy and reality. Stelling and Volp (to be published)*
+ 
