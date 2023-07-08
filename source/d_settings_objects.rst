@@ -3,6 +3,8 @@
 Settings objects
 ================
 
+.. _global_settings:
+
 Global settings
 ---------------
 
@@ -78,6 +80,8 @@ Interflow settings
 ------------------
 
 Interflow settings
+
+.. _numerical_settings:
 
 Numerical settings
 ------------------
