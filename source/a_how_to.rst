@@ -8,12 +8,13 @@ The 'how to' sections introduce you to specific 3Di capabilities and explain how
 If want to become familiar with the basics of working with 3Di and its common workflows, please check out the :ref:`e_tutorials` section.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: How to
    :name: How to
 
    a_howto_calculation_point_distance
    a_howto_connection_node_storage
+   a_howto_convert_to_1d2d
    a_howto_use_inflow
    d_urban_areas
    d_vegetation_howto
