@@ -1,7 +1,39 @@
+Choose for 1D or 2D
+===================
+
+An important modelling choice is choosing between 1D or 2D flow. This "how to" aims to provide some guidelines when making such choices. While in some situations there is cleare a 'best' option, there are also many situations where the 'best' choice really depends on the specific modelling objectives, performance requirements and data availability.
+
+2D if possible, 1D if needed
+----------------------------
+
+The :ref:`subgrid method<subgrid_method>` makes it possible to describe open water channels at a very high resolution in the 2D domain. If you have experience with hydrodynamic modelling with software that does not use subgrid, you may be used to schematising waterways in 1D as soon as they are narrower than the 2D computational cell size. This is often not necessary in 3Di. Realizing this may save you a lot of time and reduce the complexity of the schematisation, which also makes analysis easier.
+
+Reasons to use 1D
+-----------------
+However, there are still some very good reasons to use 1D elements:
+
+**1D models for very fast simulations.** Models that contain *only* 1D elements usually have much fewer nodes than 2D or 1D-2D models and will therefore run very fast. If your use case requires simulations to be finished within seconds or minutes, or you want to simulate very long periods, or a large number of events, this may be a good option. The trade-off is that you simplify reality much more than in a model with 2D. The routes that the water can take is strongly limited by the schematisation; this is particularly relevant for extreme rain or discharge events, when water will not always follow the man-made or expected routes, take shortcuts or start flowing in opposite directions. 
+
+**Large upstream or downstream areas in 1D.** If the runoff from a large upstream area affects your area of interest, but you are not interested in the exact details of how water flows through that upstream area, 1D may be a good option. You model the area of interest in 2D, but strongly simplify the schematisation of the upstream area, by using a combination of 1D flow and :ref:`0D inflow<0d_rain>`. In a similar way, this can also be relevant downstream. To avoid having a model boundary close to the area of interest, you may extend the 1D schematisation downstream, e.g. to a weir where flow is known to be (super)critical.
+
+**Pipes and other closed structures.** Flow through structures with a closed cross-section can only be schematised using 1D elements. This also allows for the flow to become pressurized once the pipe is full. Examples of this are sewerage systems or culverts.
+
+**Hydraulic structures.** Flow through hydraulic structures, such as weirs or sluice gates, is calculated accurately using weir formulas. When using an :ref:`orifice` or :ref:`weir`, 3Di uses a weir formula to calculate the flow through the structure (see :ref:`weirs_and_orifices`).  
+
+**Channels too narrow for the subgrid resolution**
+
+**Strongly winding or meandering channels**
+
+Connected or embedded
+---------------------
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
 When to use 1D, when to use 2D
 ------------------------------
-Generally, 1D models run very fast, but the schematisation is a strong simplification of the real world. The 1D elements should be used for applications in which only one horizontal dimension (flow direction) is dominant over the other flow directions.
-
 A water system consists often of small channels, ditches and pipes. These are difficult to model in 2D, and therefore they are schematised using the 1D network options in 3Di.
 
 Some considerations for 1D elements

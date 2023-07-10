@@ -116,6 +116,8 @@ Several schematisation objects have attributes to set the exchange level of 1D2D
 5. DEM value at the 1D end of the 1D-2D connection
 
 
+.. _calculation_type_embedded:
+
 Embedded
 ^^^^^^^^
 
