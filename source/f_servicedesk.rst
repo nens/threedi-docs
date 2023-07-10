@@ -1,8 +1,8 @@
 
 .. _servicedesk:
 
-Servicedesk
-============================
+Service desk
+============
 
 Nelen & Schuurmans provide a Service Desk function via https://nelen-schuurmans.topdesk.net/, The Nelen & Schuurmans Self Service Portal shall be available 24/7.
 The Service Desk giving support on all 3Di modules for 3Di customers.
