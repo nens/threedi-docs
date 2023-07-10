@@ -30,9 +30,14 @@ This user manual is structured along the common workflow:
 * :doc:`i_analyzing_results`
 
 
+.. _mi_technical_setup:
+
 Technical setup
 ----------------
-The Modeller Interface is a customized version of QGIS, shipped with several pre-installed plugins and settings. It uses the latest Long Term Release version of QGIS. All components of the 3Di Modeller Interface are installed when running the installer (.exe file). It includes the following:
+The 3Di Modeller Interface is a customized version of QGIS, shipped with several pre-installed plugins and settings. It uses the latest Long Term Release version of QGIS. All components of the 3Di Modeller Interface are installed when running the installer (.exe file). It includes the following:
+
+
+.. _mi_3di_plugins:
 
 3Di plugins
 ^^^^^^^^^^^

@@ -118,6 +118,7 @@ This might also be the case for other projections.
    * It doesn't check for connection nodes that are too close or on top of each other
 
 
+.. _problem_solving_3di_mi:
 
 3Di Modeller Interface
 ----------------------
