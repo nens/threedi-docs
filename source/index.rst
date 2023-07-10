@@ -65,8 +65,12 @@ Table of contents
    :name: Technical Reference
    
    h_modelling_concepts
-   g_physics
+   h_initials_forcings_events
+   h_grid
+   h_flow
+   h_simulation_settings
    h_outputs
+
 
 
 .. toctree::

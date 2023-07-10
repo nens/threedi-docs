@@ -12,7 +12,11 @@ The variable name of the aggregated flow results in the *aggregate_results_3di.n
 Every aggregated results has its own time variable in the aggregated result file at which the aggregated flow results were written. This variable will be named based on the following convention:
 <time>_<aggregation_variable>
 
-The translation between the input flow variable name and the format in the output file is given in the table below:
+.. note::
+	The time variable does not indicate the exact time at which the underlying data points (e.g., maxima or minima) were observed. Rather, it denotes the specific aggregated output timestep chosen by the user.
+
+
+The input flow variable names are mapped to the names in the output file in the following way:
 
 * waterlevel - s1
 * flow_velocity - u1

@@ -62,5 +62,8 @@ The second possibility to add infiltration to a system, is infiltration based on
 .. 
 
 
-
+.. note::
+   Infiltration extract water from the model. If less water is available in the node or cell then what is to be extracted, 3Di will limit the extraction. Just before the cell becomes dry, the infiltration rate will be less than the infiltration rate in the user input. This is done to guarantee stability and capture reality better.
+   
+   *A Surface-Subsurface Model; balancing speed, accuracy and reality. Stelling and Volp (to be published)*
  

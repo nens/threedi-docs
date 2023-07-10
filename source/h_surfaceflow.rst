@@ -1,7 +1,7 @@
 .. _surface_flow:
 
 2D Surface flow
-================
+===============
 
 
 The 2D surface flow is based on the 2D depth-averaged shallow water equations. These equations are based on the conservation of momentum. 3Di considers the various processes; inertia, advection, pressure and friction for computing the horizontal flow.
@@ -23,14 +23,48 @@ Note that if a narrow obstacle in the landscape does not coincide with the cell 
 
    Example of channel leaking
 
+.. _obstacles:
+
+Obstacles
+---------
+The subgrid technique used in 3Di allows for a very detailed description of the elevation. However, the subgrid technique does not recognize all narrow elements within a cell as blocking. Only when these are located at the cell edges they are detected and will block flow. When an element can be defined as narrow depends on the dimensions of the computational cell. Examples of narrow elements can be levees, residential blocks or quay walls. There are several methods for dealing with these elements. One can always refine the computational grid, however, this can be unnecessarily give an increase in the computation cost, but blocking a flow can be essential for a correct result. 3Di offers two different methods to achieve this. It can either be done by general obstacle detection, or by adding an obstacle at a specific location. To elaborate, when using general obstacle detection, the modeler only gives an obstacle height, which the 3Di computational core uses to determine obstacle locations itself. Using the latter method, a modeler can add an obstacle with a specific location and height.
+
+In practice these two methods can have a different outcome. The explicitly defined obstacles are much stricter in closing 2D flow lines. For some situations this is necessary, however it can also result in an ‘angular’ flow domain which might result in additional friction. The ‘general’ obstacle detection is on the other hand, not always strict enough, but it does not require any work of the modeler. Moreover, it is also possible to use both options in one model. In this case, when both methods block a flow line, the explicitly defined obstacle is dominant over the general approach.
+
+If the model wishes to include an obstacle that may not be detected by the computational grid or doesn't exist in the elevation model it can be given explicitly. These obstacles are given by a line segment and an elevation. These lines and elevations are placed over the quadtree. The routine checks which 2D links cross the obstacle line. For those links that are crossed the obstacle height is used instead of the elevation height for Flow computation. The figure below shows an example of an obstacle line in green.
+
+.. figure:: image/b6_gridwithobstacles.png
+   :scale: 50%
+   :alt: virtual_conservation_box
+   :align: right
+
+   Figure 2: A computational grid for 2D flow including local grid refinements. The momentum domains in x- (pink) and y-direction (blue) are indicated by the planes. The obstacle elements are given with a green line and the flow links with a dashed blue line. The flow links closed by the obstacle are marked with a thick red line.
+
+
+Friction
+--------
+
+The friction is calculated using the flow depth at each :ref:`subgrid<subgrid_method>` pixel in the :ref:`momentum domain<computational_grid_2d_domain>`. The formulations of Chézy or Manning can be used for the calculation of friction.
+
+Water level gradients
+---------------------
+
+On flat terrain without steep steps or jumps in elevation, the water level gradient is simply determined by the difference in water level over the x-axis or y-axis distance between the cell centers.
+
+If there are steep steps in the terrain, a :ref:`limiter_gradient` may be used to correctly calculate the water level gradient.
+
+Sloping terrain
+---------------
+
+Calculating 2D flow on sloping terrain requires some special attention. If the default approach is used, the wet cross-sectional area will be overestimated, and the friction will be underestimated. 3Di offers elegant solutions for this, in the form of :ref:`limiters<limiter_slope_cross_sectional_area>`.
+
 
 .. _flow_with_vegetation:
 
-2D Surface flow with vegetation
-===============================
+Vegetation
+----------
 
-Physics of flow through vegetated waterways and floodplains
------------------------------------------------------------
+Vegetation in a water course strongly affects the flow, as the vegetation exerts a *drag force* on the flowing water. In 3Di, this drag force can be calculated from the characteristics of the vegetation that is present in the water course.
 
 Two key aspects of the vegetation formulation used in 3Di are important to understand well. First, how vegetation exerts a drag force on the flowing water and how this differs from shear stresses such as bottom friction. Secondly, the importance of high resolution variations of the flow due to the varying vegetation characteristics.
 

@@ -1,40 +1,32 @@
+.. _simulation_settings:
+
+Simulation settings
+===================
+
+Physical settings
+-----------------
+
+Use advection 1D
+^^^^^^^^^^^^^^^^
+
+Switch the use of advection in the 1D domain on (1) or off (0)
+
+Use advection 2D
+^^^^^^^^^^^^^^^^
+
+Switch the use of advection in the 2D domain on (1) or off (0)
+
+
 .. _numerics:
 
-Numerics
-========
-
-There are various numerical settings that can either improve the solution under certain conditions, and some can speed up the computations and others will improve the stability. The various options are here explained.
-
-Numerical Settings
+Numerical settings
 ------------------
 
-Preissman slot
-^^^^^^^^^^^^^^
-
-[preissmann_slot ] (default= 0.0 m^2)
-
-A preissmann slot is often used to model flows in pipes. When the pipes are not completely filled, such flows can be modelled as free surface flows. However, when the discharges increase, the pipes are filled and the flow can become pressurised. Not all hyrdodynamic models are suited for these kind of flows. Therefore, to mimic the effects of pressurised flows, the water level can be allowed to rise higher than the upper limit of the cross section. In order to allow this, a narrow tube is added on top of the pipe (Figure 2). These tubes are generally quite narrow to allow the water level to rise, at a minimum cost of extra added volume. In 3Di this is not necessary, however it can be added to circular tubes. This can increase the stability at larger time steps. The way flow is computed in pipes is described here.
-
-.. TODO:  (To add, test results flow with and without preissman slot.)
-
-.. figure:: image/preissmanslots_schematisch.png
-   :alt: Preissman slot
-
-   Upper Panel) Flow through a half empty pipe. 
-   Middle Panel) Pressurised flow through a pipe with a preissman slot. 
-   Lower Panel) Pressurised flow through a pipe with a virtual water level (red).
-
-
-Integration method
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-[integration_method] (default=0)
-
-There are various ways to discretise equation. At the moment only first order semi implicit is supported and tested. 
+There are various numerical settings that can either improve the solution under certain conditions, and some can speed up the computations and others will improve the stability. The various options are explained here.
 
 .. _matrixsolvers:
 
-Settings for Matrix solvers 
+Settings for matrix solvers 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 There are several methods available to solve the matrix consisting of the unknown water levels. Depending on the application, these settings can speed up the simulation or make the solutions more accurate. As 3Di uses the so-called subgrid method, the system of equations becomes a weakly non-linear system. Therefore, we need the use of a Newton iteration method in combination with matrix solvers in order to actually solve this system of equations. The so-called nested-Newton method is needed when the application consists of closed profiles.
@@ -97,12 +89,14 @@ We also use for various things a general threshold, this one is defined as gener
 .. _limiters:
 
 Limiters
---------
+^^^^^^^^
 
 A limiter is a general term used for certain aspects in numerical schemes that limit the effect of high gradients in flow or forcing. This is to avoid strong oscillations, instabilities in the solution and to increase the stability. 3Di has various limiters implemented, which can be turned on or off.
 
+.. _limiter_gradient:
+
 Limiter for water level gradient
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""""""""""
 
 [limiter_grad_2d] [limiter_grad_1d]
 
@@ -120,9 +114,10 @@ Function where the ratio between water depth and water level gradient prescribes
 
    \phi_(m+1) = min[ 1 , H / ( \sigma_(m+1) - \sigma_m ) ]
 
+.. _limiter_slope_cross_sectional_area:
    
 Limiter for cross-sectional area
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""""""""""
 
 [limiter_slope_crossectional_area_2d ] default = 0
 
@@ -150,20 +145,20 @@ This is decribed in the figure below. Mathematical derivation will follow.
    Grid schematisation in a sloping areas. Two alternatives to determine an effective depth for the cross-sectional area. Lower:   The alternatives for the cross-sectional area in case of limiter option 2.
 
 Limiter for friction depth
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""""
 
 [limiter_slope_friction_2d] default = 0
 
 In order to take high resolution depth and roughness variations into account to determine the friction, an estimate is made of the effective frictional depth. For this the actual depth is needed. Similar to the limiter for the cross-sectional area, the actual depth in sloping areas is overestimated. In such case not only the depth to determine the cross-sectional area can be adjusted, but also the depth to determine the effective frictional depth. The friction can therefore be underestimated in sloping areas. Therefor the same limiter can be used to determine the effective frictional depth by switching this limiter on. This limiter is obligated in combination with the limiter_slope_crossectional_area_2d.
 
 
-Settings for Friction
-----------------------
+Numerical settings for friction
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 There are several settings that affect the friction.
 
 Friction shallow water correction
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""""""""
 
 [friction_shallow_water_correction]  (default =0) (possible values 0,1,2,3)
 
@@ -178,15 +173,77 @@ It is important to define a depth for which the friction is computed. Choosing t
    Lower Panel) Flow distributed based on continuity.
 
 Friction Average
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 [frict_avg] (default = 0)
 
 The roughness coefficient will be averaged within one cell.
 
-Minimum Friction  velocity
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Minimum friction velocity
+"""""""""""""""""""""""""
 
 minimum_friction_velocity [float], (default = 0.01 m/s)
 
 In case a cell is flooded, there is a moment that initially there is no water, therefore no friction as the velocity is zero. Followed by a moment that there is a velocity. To assure a smooth transition and to avoid extreme accelerations of the flow, we define a sort of minimum amount of friction based on this velocity. Generally this is important only when a cell is flooded. 
+
+Other numerical settings
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Preissman slot
+""""""""""""""
+
+[preissmann_slot ] (default= 0.0 m^2)
+
+A preissmann slot is often used to model flows in pipes. When the pipes are not completely filled, such flows can be modelled as free surface flows. However, when the discharges increase, the pipes are filled and the flow can become pressurised. Not all hyrdodynamic models are suited for these kind of flows. Therefore, to mimic the effects of pressurised flows, the water level can be allowed to rise higher than the upper limit of the cross section. In order to allow this, a narrow tube is added on top of the pipe (Figure 2). These tubes are generally quite narrow to allow the water level to rise, at a minimum cost of extra added volume. In 3Di this is not necessary, however it can be added to circular tubes. This can increase the stability at larger time steps. The way flow is computed in pipes is described here.
+
+.. TODO:  (To add, test results flow with and without preissman slot.)
+
+.. figure:: image/preissmanslots_schematisch.png
+   :alt: Preissman slot
+
+   Upper Panel) Flow through a half empty pipe. 
+   Middle Panel) Pressurised flow through a pipe with a preissman slot. 
+   Lower Panel) Pressurised flow through a pipe with a virtual water level (red).
+
+
+Integration method
+""""""""""""""""""
+
+[integration_method] (default=0)
+
+There are various ways to discretise the equation. At the moment only first order semi implicit is supported and tested. 
+
+
+Timestep settings
+-----------------
+
+Time step
+^^^^^^^^^
+
+The simulation time step that 3Di will use if timestep reduction is not required.
+
+Minimum time step
+^^^^^^^^^^^^^^^^^
+
+The smallest value that 3Di will reduce the time step to when applying timestep reduction. Setting this too high is not recommended.
+
+Maximum time step
+^^^^^^^^^^^^^^^^^
+
+When using time step stretch, the 3Di will use larger time steps when a stationary condition has been reached. The time step will not become larger than maximum time step.
+
+Use time step stretch
+^^^^^^^^^^^^^^^^^^^^^
+
+When switched on (1), once flow conditions are stationary, the time step will become larger (but no larger than *maximum time step*).
+
+Output time step
+^^^^^^^^^^^^^^^^
+
+The time step for writing results to the :ref:`3dinetcdf`.
+
+Aggregation settings
+--------------------
+
+See :ref:`aggregation_settings`.
+

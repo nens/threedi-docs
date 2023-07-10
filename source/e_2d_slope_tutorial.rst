@@ -1,307 +1,230 @@
 .. _tutorial3_2dflowmodel:
 
-Tutorial 3: 2D flow model over sloped terrain with multiple rasters
-===================================================================
+Tutorial 3: 2D flow model for sloping terrain
+=============================================
 
-In this tutorial, we will build a basic 2D flow model in mountainous terrain using 3Di. We will edit an existing sqlite, and this tutorial will introduce friction and infiltration rasters.
-These rasters have been highly simplified for the purpose of this tutorial.
-As with any other component of the tutorials, the data and outcomes cannot be used to draw conclusions of the real-world location that was the inspiration for this tutorial. 
-At the end of this tutorial, you will have a basic working model that you can run on the 3Di live site. 
+Introduction
+------------
+In this tutorial, you will build a basic 2D flow model in mountainous terrain. This tutorial will also introduce spatially variable friction and infiltration. At the end of this tutorial, you will have a basic working model that you can run simulations with.
 
-The selected area is that of Lake Mead in the USA.
-The lake is enclosed between the mountains of Nevada, Utah, and Arizona.
-The area contains strong elevation differences and steep slopes, which changes the hydrodynamics.
-Specifically, the standard assumption that the variation in water level is much smaller than the variation in bed level does not hold in this terrain.
-Therefore, different settings are required, which will be explored in this tutorial. 
+The selected area is that of Lake Mead in the USA, just east of Las Vegas. The lake is enclosed between the mountains of Nevada, Utah, and Arizona. The area is characterized by strong elevation differences and steep slopes. Due to the steep slopes, it can not be assumed that the water level in a cell is uniform, which is a basic assumption in the :ref:`subgrid_method`. Therefore, different settings are required, which will be explored in this tutorial. For further information on how this works in 3Di, see :ref:`limiters`.
+
+.. note::
+	The data and simulation results from this tutorial cannot be used to draw conclusions of the real-world location that was the inspiration for this tutorial. The raster files that describe the variation of friction and infiltration have been highly simplified for the purpose of this tutorial.  
 
 
-You will learn the following skills in this tutorial:
+Learning objectives
+-------------------
 
-* Edit an existing .sqlite from the model database.
-* Insight in the relevant settings for sloping terrain.
-* Couple a friction raster to your 3Di-model. 
-* Couple an infiltration raster to your 3Di-model.
+You will learn the following in this tutorial:
 
-Before you start, please make sure to:
+* Insight in the relevant settings for sloping terrain
+* Using spatially varying friction
+* Using spatially varying infiltration
 
-* Install the 3Di Modeller Interface. Please see :ref:`3di_instruments_and_downloads` for instructions. 
-* Install the 3Di toolbox in the Modeller Interface. Please see :ref:`plugin_installation` for instructions.
-* Gain access to the 3Di web portal. Please see the :ref:`guide_to_portal` for instructions.
-* Download the starter pack for this tutorial, which includes a partially completed .sqlite-database and rasters (DEM, friction, infiltration, infiltration capacity) for Lake Mead `here <https://nens.lizard.net/media/3di-tutorials/3di-tutorial-02.zip>`_.
+Preparation
+-----------
 
-Model initialisation
----------------------
+Before you get started:
 
-Model preparation
-+++++++++++++++++++++
+* Make sure you have a 3Di account. Please contact the :ref:`servicedesk` if you need help with this.
+* Install the 3Di Modeller Interface installed, see :ref:`3di_instruments_and_downloads`.
+* Download the dataset for this tutorial `here <https://nens.lizard.net/media/3di-tutorials/3di-tutorial-02.zip>`_.
 
-Unpack the starter package and save the contents into a folder.
-You should have a partially configured .sqlite, and a folder named “raster”.
-The raster folder contains a DEM, a friction map, an infiltration map, and an infiltration capacity map.
-The partially configured .sqlite already has all the mandatory settings.
+Creating a new schematisation
+-----------------------------
+The first step is to create a new :ref:`schematisation`
 
-.. figure:: image/01_basefiles.png
-    :alt: The base files
+#) Open the 3Di Modeller Interface and click on the 3Di Models and Simulations icon (|modelsSimulations|). You should now see the 3Di Models and Simulations panel.
 
-Loading the model in the 3Di Modeller Interface
-++++++++++++++++++++++++++++++++++++++++++++++++
+    .. note::
+        If this is the first time you use 3Di Models and Simulation panel, you will need to go through :ref:`some steps to set it up<setting_up_models_and_simulations>`.
 
-Our model must be imported in the 3Di Modeller Interface to view and modify its contents.
-The model can be loaded via the 3Di toolbar (part of the 3Di toolbox plug in) by following these steps: 
+#) In the *Schematisation* section of the 3Di Models and Simulations panel, click the *New* button (|newschematisation|). The *New schematisation* wizard is shown.
 
-A.	Open the 3Di Modeller Interface.
-B.	Create a new project.
-C.	In the figure below; Select the **select 3Di results** button on the 3Di Toolbar (white database icon). [1]
-D.	Select **load** in the model section, and select the Lake_Mead.sqlite database provided with this tutorial. The load button may not be visible on all screens and zoom settings. It can help to enlarge the pop-up window. [2]
-E.	You should now see the 3Di model as part of your Modeller Interface layers. [3]
+#) Fill in a  schematisation name, such as 'Tutorial Lake Mead <your_name>'. Select the organisation you want to be the owner of the new schematisation (most users have rights for only one organisation). Tags are optional, you can leave this field empty for now. Since we are creating a schematisation from scratch, select the *Create new Spatialite* option. Click *Next*.
 
-.. figure:: image/02_load_model.png
-    :alt: Load model
+#) Read the explanation on the second page of the *New schematisation* wizard. Click *Next*.
 
-Now load the rasters into Modeller Interface to view your data. 
+#) In the section *2D Flow*, browse to the DEM file you have downloaded (Mead_DEM.tif). The coordinate reference system (EPSG:32612, UTM zone 12N) is read from the DEM file and filled in automatically.
 
-A.	Set the project coordinate system to EPSG:32612 (UTM zone 12N) in the bottom right of your window. If you are asked to choose a conversion, select a conversion that is valid for Utah, USA. [1]
-B.	Add the add the DEM via **Layer** > **Add layer** > **Add raster layer**. Now select Mead_DEM.tif from the “raster” folder. [2]
-C.	Repeat the previous step to add the friction raster named Mead_friction.tif, the infiltration raster named Mead_infiltration.tif, and the infiltration capacity raster Mead_infiltration_capacity.tif.
+#) Fill in the following settings:
 
-You can also do this by dragging the .tif files from their folder into the Modeller Interface screen.
+	* Computational cell size: 400
 
-.. figure:: image/03_load_layers.png
-    :alt: Load layers
+	* The model area is predominantly: Sloping
 
-    Empty LP_burrows.sqlite and DEM loaded into the 3Di Modeller Interface and projected on a google satellite background map.
+	* No 1D flow
 
-Model building
---------------
+	* No 0D flow
 
-Set the model name
-++++++++++++++++++
+	* Friction type: Manning
 
-As a first step, let us set the name for the model. 
-This is contained in the global settings table.
-Rename the model via the following steps
+	* Friction file: Browse to the fricton file (Mead_friction.tif) file you have downloaded
 
-A.	Right-click the v2_global_settings table. [1] 
-B.	Select **Open attribute table**. [2] 
+	* Global 2D friction coefficient: 0.06
 
-.. figure:: image/04_global_settings.png
-    :alt: Global settings attribute table
+	* Simulation timestep: 30 s
 
-C.	Select **Switch to form view** in the bottom right corner. [1] 
-D.	Select **Toggle editing mode** in the top left corner. [2] 
-E.	Set the name to “Tutorial_2D_slope”. [3] 
-
-.. figure:: image/05_global_settings.png
-    :alt: Global settings set name
-
-This name will be displayed in the 3Di Live Site, once you start a simulation. 
-Keep the global settings open on editing mode for the next step. 
-
-Add rasters to the model
-++++++++++++++++++++++++
-
-This tutorial includes four rasters: the digital elevation model (DEM), the friction raster, and the infiltration rasters.
-
-The DEM is mandatory for every model.
-The friction and infiltration rasters are among the most commonly used data sets for 3Di models.
-The friction raster controls the bottom resistance of the bottom to the flow.
-The infiltration raster controls the infiltration rate of surface water into the soil.
-Finally, the infiltration capacity raster sets the capacity of the soil to store water.
-
-The DEM and the friction raster must be added through the global settings, contained in the v2_global_settings table.
-Continue to modify this table.
-
-A.	Select the tab **Terrain information**. [1] 
-B.	Add the DEM file by adding “raster/Mead_DEM.tif” to the field “dem_file”. The part “raster/” is a relative path with respect to the .sqlite. It denotes that the DEM is stored in the raster folder. [2] 
-C.	Set the epsg_code to “32612”. [3] 
-D.	Add the friction file by adding “raster/Mead_friction.tif” to the field “frict_coef_file”. [4] 
-E.	Set the frict_coef to 0. This global value will not be used in the model, as we have defined a spatially varying friction raster for the full domain. [5] 
-F.	The coefficients in the friction raster are Manning coefficients. Check that this matches the field “frict_type”. [6] 
-G.	Unselect **Toggle editing mode** in the top left corner (see [2] in the image above), and **save** changes. You can now close the pop-up window.
-
-.. image:: image/06_terrain_rasters.png
-    :alt: Modify terrain information
-
-The infiltration raster and infiltration capacity raster control the spatially varying infiltration rate in mm/day and the maximum infiltration capacity in mm respectively for each grid cell.
-They are added to the model via the infiltration settings, which are contained in the v2_simple_infiltration table.
-
-A.	Right-click the v2_simple_infiltration table. [1] 
-B.	Select **Open attribute table**.
-C.	Select **Switch to form view**. [2] 
-D.	Select **Toggle editing mode**. [3] 
-E.	Add the infiltration raster by adding “raster/Mead_infiltration.tif” to the field “infiltration_rate_file”. [4] 
-F.	Add the infiltration capacity raster by adding “raster/Mead_infiltration_capacity.tif” to the field “max_infiltration_capacity_file”. [5] 
-G.	Set the infiltration rate to 0. This global infiltration rate is overwritten by the spatially varying infiltration raster. [6] 
-H.	Unselect **Toggle editing mode**, and **save** changes. You can now close the pop-up window.
-
-.. image:: image/07_infiltration_rasters.png
-    :alt: Adding infiltration
-
-You now have a model with a spatially varying elevation, friction, and infiltration, but the model settings are representative for flat areas. 
-
-Modify the settings for mountain environments
-+++++++++++++++++++++++++++++++++++++++++++++
-
-3Di must be configured differently for areas with steep slopes than for flat areas,
-due to the strong variations in water level that may occur within a grid cell (see :ref:`limiters`  for a technical description).
-We will modify the settings file, which was created for a flat area, such that it can be applied to sloping areas instead.
-Here we will only discuss the settings that must be changed.
-A full overview of all settings can be found at :download:`the database overview <pdf/database-overview.pdf>`
-
-First, we will set the numerical settings. Modify the numerical settings via the v2_numerical_settings table.
-
-A.	Right-click the v2_numerical_settings table.
-B.	Select **Open attribute table**.
-C.	Select **Switch to form view**. [1] 
-D.	Select **Toggle editing mode**. [2] 
-E.	Select the tab “Limiters”. [3] 
-F.	Set the limiter values as in the table below. [4] 
-
-.. csv-table:: Limiters
-    :header: "Setting", "Value", "Comments"
-
-    "limiter_grad_1d", "1"
-    "limiter_grad_2d", "0"
-    "limiter_slope_crossectional_area_2d", "3", "For sloped areas"
-    "limiter_slope_friction_2d", "1", "For sloped areas"
-
-.. image:: image/08_numerical1.png
-    :alt: Setting numerical limiters
-
-G.	Select the tab “Thresholds”
-H.	Set the thin_water_layer_definition to 0.3. This value is in meters.
-I.	Select the tab “Miscellaneous”
-J.	Set the frict_shallow_water_correction to 3.  
-
-Second, we will change how infiltration is computed in the model.
-In flat areas, infiltration is typically computed in the wet subgrid cells only.
-This method does not work in mountainous terrain, where the elevation differences within a cell are large.
-Therefore, the infiltration will be computed over the whole surface.
-This is implemented through the “infiltration_surface_option”.
-Documentation on the infiltration settings can be found at :ref:`infiltration`.
-
-A.	Right-click the v2_simple_infiltration table.
-B.	Select **Open attribute table**.
-C.	Select **Switch to form view**. [1] 
-D.	Select **Toggle editing mode**. [2] 
-E.	Set the infiltration_surface_option to 1. [3] 
-
-.. image:: image/09_infiltration.png
-    :alt: Setting infiltration options
-
-Complete the location-specific settings
-++++++++++++++++++++++++++++++++++++++++
-
-Lake Made is a large lake with an area of 640 km2 at maximum capacity.
-This leads to an extensive model domain of approximately 90 by 110 km.
-The grid and the output settings are adjusted to account for the large model domain.
-The initial water level will also be modified to match the elevation of the lake.
-
-First, we will set the grid cell size and the table step size to improve the calculation speed of the model.
-The grid cell size will be set to 400 m in accordance with the large domain.
-The table step size controls at which vertical resolution properties (other than elevation) are translated from the subgrid domain to the computational domain.
-A table step size of 10 m is selected for this model. This is very coarse for a typical 3Di model, but it is justified here due to the large elevation differences at the subgrid level.
-Both properties are part of the global settings.
-
-A.	Right-click the v2_global_settings table.
-B.	Select **Open attribute table**.
-C.	Select **Switch to form view**. [1] 
-D.	Select **Toggle editing mode**. [2] 
-E.	Select the tab “Grid”. [3] 
-F.	Set the grid_space to 400. This value is in meters. [4] 
-G.	Set the table_step_size to 10.  This value is in meters. [5] 
-H.	Keep the global settings table open.
+	* Typical simulation duration: 12-24 hours
 
 
-.. image:: image/10_grid_settings.png
-    :alt: Changing grid settings
+	By choosing the option "The model area is predominantly sloping", the relevant numerical settings will be set to values suitable for calculating flow over slopes. The following parameters are set; for more in-depth discussion of these parameters, see :ref:`limiters`.
 
-According to our elevation map, Lake Mead is located at around 340m above sea level.
+
+	.. csv-table:: Numerical settings values specific for sloping terrain
+		:header: "Setting", "Value", "Comments"
+
+		"limiter_grad_1d", "1"
+		"limiter_grad_2d", "0"
+		"limiter_slope_crossectional_area_2d", "3", "For sloping areas"
+		"limiter_slope_friction_2d", "1", "For sloping areas"
+		"thin_water_layer_definition", "0.3", "Value in meters"
+		"frict_shallow_water_correction", "3", "For sloping areas"
+
+#) Click *Create schematisation*. A popup message will tell you that the the schematisation was created. Copy the path that is shown in the popup message.
+
+
+Viewing the schematisation
+--------------------------
+
+You will now add the schematisation in your 3Di Modeller Interface project and add a background map for reference. This will allow you to check if the schematisation looks as you expect.
+
+#) If you have not copied the path to the spatialite in the previous step, take the following steps. At the top of the 3Di Models & Simulations panel, click on the name of your schematisation. Windows Explorer will open; browse to *work in progress/schematisation* and copy the path from the Windows Explorer address bar.
+
+#) In the 3Di Schematisation Editor toolbar, click the *Load from Spatialite* button. Paste the path to the spatialite and click *Open*.
+
+#) Add a background map from OpenStreetMap by clicking Main Menu > Web > Quick Map Services > OSM > OSM Standard.
+
+#) In the Layers panel, reorder the layers such that the OpenStreetMap layer is below the 3Di schematisation.
+
+You should now see the DEM, located just east of Las Vegas. In the Layers panel, in the group *Model rasters*, the layer *Friction coefficient [-]* should also be present.
+
+
+
+.. _tut_slope_uploading:
+
+Uploading the schematisation
+----------------------------
+
+The next step is to check the schematisation, upload its as a first :ref:`revision` and process it into a :ref:`threedimodel`. All these steps are covered by the upload wizard.
+
+#) Click the upload button (|upload|) in the 3Di Models and Simulations panel.
+
+#) In the dialog that has appeared, click *New upload* and click *Next*.
+
+#) Click *Check schematisation*. This will check your schematisations for any errors that make it impossible to generate a valid 3Di model and simulation template. It will also provide guidance in the form of warnings or info messages, to help you improve the schematisation. If you have followed the instructions in this tutorial, the schematisation checker should not produce any errors, warnings or info level messages.
+
+#) Continue to the next screen. Here you have to fill in a commit message that describes the changes your have made relative to the previous revision. As this is the first revision of this schematisation, you can instead give provide a short description of what you upload. For example: "Default settings, DEM only".
+
+#) Click *Start upload*. Check if it is the upload is successful and if the uploaded data is successfully processed into a 3Di model.  
+
+    .. note::
+        By default, this page of the upload wizard is set to *UPLOAD AND PROCESS*, so that a 3Di model and simulation template will be generated automatically after the upload. When you start using the upload wizard regularly, you may sometimes want to upload data without generating a new 3Di model from it. In that case, choose the *UPLOAD ONLY* option.
+
+Your 3Di model is now ready for simulation!  
+
+
+Adding spatially varying infiltration
+-------------------------------------
+
+You will now create a new revision, that also includes infiltration settings. 3Di offers two ways to use infiltration in the 2D domain: Horton infiltration, in which the infiltration rate changes over time, or *simple infiltration*, in which the infiltration rate is constant over time. To use Horton infiltration, a groundwater layer needs to be present in the model. In this tutorial, we will use *simple infiltration*. 
+
+When using simple infiltration, the process is defined by two parameters: the infiltration rate (in mm/d) and the maximum infiltration (in m). The maximum infiltration is the the soil's capacity to store water before ponding starts. Both parameters can either be defined globally (the same value is used in the entire model domain) or using a raster file (taking spatial variation of these parameters into account by specifying a value for each pixel).
+
+Infiltration rasters are added to the model in two steps. First, the raster needs to be moved or copied to the correct location. Second, the raster needs to be referenced from the *Simple infiltration settings* table.
+
+Putting the raster in the right location
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+#) At the top of the 3Di Models & Simulations panel, click on the name of your schematisation. Windows Explorer will open; browse to *work in progress/schematisation/rasters*. This is the location where the infiltration raster should be copied to.
+
+#) Open another Windows Explorer window and browse to the location where you downloaded the data for this tutorial.
+
+#) Copy the file *Mead_infiltration.tif* to the *work in progress/schematisation/rasters* folder.
+
+Filling in the *Simple infiltration* settings
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+#) In the *Layers* panel, in the *Settings* group, click the *Simple infiltration settings* layer
+
+#) Click the *Toggle editing mode* button in the *Digitizing toolbar*, then click the *Add record* button. Fill in the following values and click *OK*:
+
+	.. csv-table:: Simple infiltration settings
+		:name: inf_settings
+		:header: "Setting", "Value for this tutorial", "Comments"
+
+		"id", "1", "Must match the simple_infiltration_settings_id in the v2_global_settings_table"
+		"display_name", "infiltration"
+		"infiltration_rate", "30", "in mm/day; when using an infiltration rate raster, this value will only be used as fallback value for NODATA pixels"
+		"infiltration_rate_file", "rasters/Mead_infiltration.tif", "Do not forget to copy the raster to the correct location before uploading."
+		"max_infiltration_capacity", "0.1", "100 mm of total infiltration"
+		"max_infiltration_capacity_file", "NULL", "A global value is used for this parameter"
+		"infiltration_surface_option", "Whole surface", "See the note below"
+
+#) Click the *Toggle editing mode* button in the toolbar and save your edits to this layer.
+
+.. note::
+   The *infiltration_surface_option* determines which pixels within a cell contribute to infiltration. In flat areas, infiltration is typically computed for all pixels when it is raining, and for wet pixels only when it is not raining. In sloping cells, only the pixels at the bottom of the cell would be regarded as wet, even when the water flows over the whole surface as sheet flow. In such cases, it is more appropriate to always compute infiltration for all pixels in the cell. See :ref:`infiltration` for further details.
+
+Reference the *Simple infiltration settings* from the *Global settings* table
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Now you need to reference this *Simple infiltration settings* record from the *Global settings* table.
+
+#) In the *Layers* panel, under *Settings*, right-click the *Global settings* layer > *Open attribute table*
+
+#) Click *Switch to form view* in the bottom right corner.
+
+#) Click *Toggle editing mode* in the top right corner.
+
+#) In the tab *Settings IDs*, fill in the ID (1) of the *Simple infiltration settings* record you have just created.
+
+#) Click the *Toggle editing mode* button in the toolbar and save your edits to this layer.
+
+To make a new revision that includes these edits, you need to save the changes to the spatialite and upload them.
+
+#) In the 3Di Schematisation Editor toolbar, click *Save to Spatialite*. Wait for this process to finish.
+
+#) Upload a new revision, in the same way you did before (see :ref:`tut_slope_uploading`).
+
+
+Setting the initial water level
+-------------------------------
+
+According to our elevation map, Lake Mead is located at around 340 m above mean sea level (MSL).
 The deepest point of Lake Mead has a depth of 160 m at full capacity.
-Therefore, we set the initial water level at 500m.
+Therefore, we set the initial water level to a global value of 500 m MSL. This parameter can be set in the *Global settings* table.
 
-A.	Select the tab “Terrain Information”.
-B.	Set the initial_waterlevel to 500. This value is in meters.
-C.	Keep the global settings table open
+.. note:: 
+   It is also possible to set a spatially varying initial water level, by using an initial water level raster. This is very similar to how you set the spatially varying infiltration rate. An important difference is that initial water levels are set on the cell level, rather than on the pixel level. Multiple initial water level pixels can be in the same cell, so you need to instruct 3Di how to aggregate this data. There are 3 options: minimum, maximum, and average. See :ref:`initial_water_levels` for more information.
+   
+#) In the *Layers* panel, under *Settings*, right-click the *Global settings* layer > *Open attribute table*
 
-The discharge of precipitation into Lake Mead takes a long time due to the large model domain.
-The number of time steps and the time between model outputs is increased to reflect the slow time scale.
-More time steps and a larger output time step are selected to account for the slower drainage. 
+#) Click *Switch to form view* in the bottom right corner.
 
-A.	Select the tab “Time”.
-B.	Set the nr_timesteps to 1440. This amounts to a model duration of 12 h, as the time step is 30 s.
-C.	Set the output_time_step to 900.  This value is in seconds.
-D.  Save you changes.
+#) Click *Toggle editing mode* in the top right corner.
 
-The aggregation time step is also set to 900 s. This has already been set correctly in your .sqlite. 
+#) Switch to the tab *Terrain information*.
 
-With the completion of the location-specific settings, we have built a basic working 2D flow model for mountainous terrain. 
+#) Set the *initial_waterlevel* to 500. This value is in m MSL.
 
-Model validation
------------------
+#) Click the *Toggle editing mode* button in the toolbar and save your edits to this layer.
 
-A short description of the model validation is given here. For a general guide see :ref:`checking_model`.
+To make a new revision that includes these edits, you need to save the changes to the spatialite and upload them.
 
-Verify the model rasters using the raster checker
-++++++++++++++++++++++++++++++++++++++++++++++++++
+#) In the 3Di Schematisation Editor toolbar, click *Save to Spatialite*. Wait for this process to finish.
 
-Before sending our model to the web portal, it is important to validate that our model contains no errors.
-The raster checker is part of the 3Di toolbox and performs 18 checks to verify the quality of the DEM.
-The raster checker checks all the rasters that are included in the model.
-These are the DEM, the friction raster, the infiltration raster and the infiltration capacity raster.
-In order to use the raster checker, follow these steps:
-
-A.	Select the **commands for working with 3Di models** button. On the right of your screen, a tab "3Di" will open. [1] 
-B.	Expand the "Step 1 – Check data" line and click on the **raster checker**. [2] 
-C.	In the pop-up screen, select ‘spatialite: Lake_Mead’ and click **OK**. [3] 
-
-.. TODO: aanpassen, raster checker is niet meer. model wordt nu gecheckt tijdens het uploaden. 1 keer aanpassen voor alle tutorials
+#) Upload a new revision, in the same way you did before (see :ref:`tut_slope_uploading`).
 
 
-.. image:: image/11_raster_checker.png
-    :alt: Raster checker in action
-
-The following screen will appear:
-
-.. image:: image/12_raster_result.png
-    :alt: Raster checker result
-
-Verify the schematisation using the schematisation checker
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-The second validation that we have to perform before sending the model to the web portal is that of the schematisation.
-For this, we use the schematisation checker.
-It checks the model tables for many possible errors that cause the model to crash when you want to compile the model.
-In order to check your schematisation, follow steps a and b from the previous step, but now select **schematisation checker**.
-Again, select ‘spatialite:Lake_Mead’ and select the destination for the output file.
-Select **Run**.
-
-The output file is an excel file in which all the warnings and errors that were found are listed.
-You may get the error “Value in v2_aggregation_settings.aggregation_in_space should be of the type integer”.
-This is a known error in the schematisation checker, which will be removed in a future update.
-If you get this error, you can ignore it.
-
-If you do not get any further warnings or errors, your model is successfully validated and is ready to upload to the web portal.
-
-Model activation
-----------------
-A short description of the model activation is given here. A comprehensive guidance with visual support is provided in Tutorial 2 (:ref:`tutorial2_2dflatmodel`).
+Congratulations! You have completed the 2D flow model for sloping area. 
 
 
-Upload your model
-+++++++++++++++++
+.. |modelsSimulations| image:: /image/e_modelsandsimulations.png
+    :scale: 90%
 
-See :ref:`uploading_schematisation` for how to upload your model.
 
-The model is now also available on the `3Di Livesite <https://www.3di.live/>`_ and the `management screens <https://management.3di.live>`_.
+.. |upload| image:: /image/e_tut1upload.png
+    :scale: 90%
 
-Run your model
-++++++++++++++
-
-You have now build a 2D flow model for mountainous terrain from scratch!
-You can now run your model via the 3Di Live Site (:ref:`guide_to_portal`) or via the 3Di Modeller Interface (:ref:`simulate_api_qgis`).
-It will be available under the name you gave it.
-
-.. figure:: image/13_compiled_model.png
-    
-    The final model on the 3Di live site. The initial water level can be seen in dark blue through the grid. 

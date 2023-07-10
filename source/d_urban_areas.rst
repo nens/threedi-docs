@@ -1,5 +1,7 @@
-Combining direct rainfall and sewerage inflow
-=============================================
+.. _combine_0d_2d_rain:
+
+Combine direct rainfall and sewerage inflow
+===========================================
 
 Generally, rain falls directly on the surface, before it finds its way into the sewer system. In urban areas however, a significant part of the rain falls on buildings. There, it can flow to the sewer system through rain pipes or it can be stored. 3Di can be used to model any sanitary, storm and combined sewer system, with water entering the model using the 0D inflow in combination with 2D rainfall. In The Netherlands, there is a system called NWRW, which formed the basis for the 0D inflow model. This is described in more detail in section :ref:`inflow`.
 
@@ -16,12 +18,13 @@ The impervious surfaces table uses the Dutch NWRW model. In this model, a surfac
      
    Impervious surfaces which facilitate the 0D inflow.
 
-2D Rainfall
--------------------------
+2D rain
+-------
+
 Rain which falls in the 2D domain precipitates on every computational cell where a DEM is defined. After the rain has fallen on the surface model it flows freely and interacts with connected 1D elements and therefore might enter the sewer system through manholes. 
 
-Hybrid Modelling
-----------------
+Hybrid models
+-------------
 
 Key to properly representing the precipitation processes in urban areas is the combination of 0D and 2D inflow, so called "hybrid modelling". To account for rain that falls on roofs or other surfaces, that should be coupled to the sewer system (through drain pipes). This is obtained by including these areas in the 0D inflow module. However in that case, it should be excluded from the 2D rainfall. 
 

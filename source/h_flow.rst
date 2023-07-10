@@ -11,8 +11,9 @@ In 3Di four different flow domains are defined. These domains are defined as :re
    :caption: Flow in 3Di
    :name: flow_in_3di
    
-   g_surfaceflow
-   g_interflow
-   g_groundwater
-   g_onedee_flow
-   g_1d2d_exchange
+   h_conservation
+   h_surfaceflow
+   h_interflow
+   h_groundwater
+   h_onedee_flow
+   h_1d2d_exchange

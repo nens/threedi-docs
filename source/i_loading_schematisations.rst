@@ -1,3 +1,5 @@
+.. _load_schematisation:
+
 Loading a schematisation
 =========================
 

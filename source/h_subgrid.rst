@@ -1,16 +1,54 @@
+.. _subgridmethod:
+
+Subgrid method
+==============
+
+Flow is strongly affected by the bathymetry. Therefore, to simulate flow accurately, information of the bathymetry is crucial. To illustrate the importance of a well described bathymetry, consider the three flows in a flume shown in the Figure below. While the bathymetry differs only slightly, the flow behaves completely different.
+
+Nowadays, detailed bathymetry information becomes more and more available.  However, it is difficult to take detailed grid information into account, without a strong increase in computational cost. In search of an optimal balance between computational cost and accuracy, the so-called subgrid method (:cite:t:`Casulli2009`, :cite:t:`Casulli2011`, :cite:t:`Stelling2015`, :cite:t:`Volp2013`) is developed and implemented in 3Di.
+
+.. figure:: image/b1_3.png
+   :figwidth: 600 px
+   :alt: bathymetry variations example
+
+   Examples of flow in a flume, where a slight change in bathymetry strongly affects the flow.
+
+The basic idea behind the subgrid method, is that water levels vary much more gradually than the bathymetry. In hydrodynamic computations, water levels are assumed to be uniform within a computational cell. Traditionally, this is also assumed for the bathymetry within such a cell. The subgrid-based approach allows the bathymetry to vary within one computational cell, while the water level remains uniform. In 3Di two grids are to be defined; a high resolution subgrid and a coarse(r) computational grid. All input data, such as the bathymetry, roughness and infiltration rates can be defined on the high resolution grid, while the computations are performed on the coarse computational grid. Volumes and cross-sectional areas are based using the high resolution bathymetry information. The variation of the bathymetry within a computational cell means that a cell can be dry, wet or partly wet. This approach has two implications:
+
+- The volume has a non-linear relation with the water level, because when the water level rises, the wet surface area increases is well. Such a system can be solved using a newton iteration. To compute the volumes at the next time step.
+
+- As we are allowed to have a non-linear relation between water level and volume, 3Di can deal automatically with flooding and drying. No artificial thresholds are necessary.
+
+
+.. figure:: image/b1_4.png
+   :figwidth: 400 px
+   :alt: subgrid_bathymety_cell
+
+   An example of a computational cell with a bathymetry defined on the subgrid.
+
+Input
+-----
+
+Users define for the grid generation a cell size (of the finest grid resolution) and the number of refinement layers. A computational cell consists always of an even number of subgrid cells. In addition, the user needs to define where and if refinements should be defined. One can define polygons or lines to indicate these areas and the refinement level.
+
+Some facts and figures
+----------------------
+
+-	The use of high resolution information goes hand in hand with large amounts of data. To compress this data, it is stored during the computations in tables. More information about this can be found in :ref:`tables`.
+-	There are more variables defined at the high resolution grid; such as roughness, infiltration capacity and hydraulic connectivity. These will be introduced later in the documentation.
+
+
 .. _tables:
 
-Tabulated data storage
-===================================
-
-
+Subgrid tables
+--------------
 
 In 3Di we make use of detailed data to compute the hydrodynamics via the so-called subgrid technique. For all spatially varying parameters, high resolution raster data is used. For example, we use high resolution raster data for the bathymetry to calculate detailed volumes in our model, but also roughness coefficients to calculate friction are based on high resolution raster data. In 1D elements we use detailed vector attribute data and compress this in the same manner to subsequently calculate for instance 1D volumes or friction. 
 
 For this large amount of data, we execute a data compression by building tables per cell containing the information needed from the raster or vector data. The data is scaled down from the subgrid resolution to the resolution of the computational grid. Thereby, reducing the demand on hardware resources. The detailed information is preserved and can now be accessed fast during the simulations due to the compression. 
 
 Table structure
----------------
+^^^^^^^^^^^^^^^
 
 Information in the tables is stored relative to possible water depths. This is only necessary for the range of water levels where the relation between water level and volume is non-linear as displayed in figure 1-3: In other words, the information is to be tabulated for water levels for which a cell is only partly wet.
 
