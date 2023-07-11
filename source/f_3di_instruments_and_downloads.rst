@@ -93,8 +93,8 @@ You can also install QGIS separately with the appropriate plugins. We only recom
 
 * Add the 3Di plugin repository
     * In the main menu click *Plugins* > *Manage and Install plugins* > *Settings* 
-	* In the section *Plugin repositories*, click *Add*
-	* As details, fill in '3Di' as *Name*, and 'https://plugins.3di.live/plugins.xml' as *URL*
+    * In the section *Plugin repositories*, click *Add*
+    * As details, fill in '3Di' as *Name*, and 'https://plugins.3di.live/plugins.xml' as *URL*
 
 * Install the 3Di plugins: in the tab *All*, install the :ref:`mi_3di_plugins`. Restart QGIS when prompted.
 
