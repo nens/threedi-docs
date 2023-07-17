@@ -1,6 +1,7 @@
 Style guide
 -----------
-
+- Use British English
+- If you make screenshots, make sure there are no real user names and real projects in the screenshots. Create them using a demo account or blur them.
 - Headings use sentence case, i.e. starting with a capital letter, but other words not capitalized
 - The following names are used for our user interfaces:
   - 3Di Live Site
