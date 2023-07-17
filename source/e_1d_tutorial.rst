@@ -28,6 +28,7 @@ Model preparation
 
 Unpack the starter package and save the contents into a folder. The dataset that you downloaded for this tutorial contains an partially configured .sqlite database.
 
+
 Loading the model in the 3Di Modeller Interface
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
