@@ -91,7 +91,7 @@ There are two options to edit feature attributes:
 
     #) Select the desired feature layer, enable the 'Identify Feature' option (|identifyFeature|), and select a feature on the map. This will open a window with not only all feature attributes of the feature, but also the feature attributes of all related features. These can be found in the other tabs within the window.
 
-.. |identifyFeature| image:: /image/d_identify_features.png
+.. |identifyFeature| image:: /image/pictogram_identify_features.png
 
 Editing feature geometries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -120,13 +120,13 @@ When selecting 'Delete this feature only', only the selected features will be de
 When selecting 'Delete all referenced features', all connected features will also be deleted. Your schematisation will most likely still be valid when using this option.
 
 
-.. |toggleEditing| image:: /image/d_toggle_editing.png
+.. |toggleEditing| image:: /image/pictogram_toggle_editing.png
 
-.. |addPoint| image:: /image/d_addpoint.png
+.. |addPoint| image:: /image/pictogram_addpoint.png
 
-.. |addLine| image:: /image/d_addline.png
+.. |addLine| image:: /image/pictogram_addline.png
 
-.. |addPoly| image:: /image/d_addpolygon.png
+.. |addPoly| image:: /image/pictogram_addpolygon.png
 
 The Schematisation editor toolbox can be reached by clicking on 'Processing' in the menubar > 'Toolbox' > '3Di Schematisation Editor'.
 

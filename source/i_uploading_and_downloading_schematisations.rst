@@ -41,5 +41,5 @@ A schematisation can be downloaded with the :ref:`models_simulation_plugin`:
 
 The files will be downloaded to the default location you set on your computer.
 
-.. |modelsSimulations| image:: /image/e_modelsandsimulations.png
+.. |modelsSimulations| image:: /image/pictogram_modelsandsimulations.png
     :scale: 90%

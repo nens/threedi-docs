@@ -54,7 +54,7 @@ In case you are loading your model schematisation for checking and editing your 
     :alt: Load 3Di model and results
 
 
-.. |addresults| image:: /image/e_addresults.png
+.. |addresults| image:: /image/pictogram_addresults.png
 
 
 .. _analyse_model_results_with_modeller_interface:

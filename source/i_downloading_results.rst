@@ -16,6 +16,6 @@ The results will be downloaded in your local working directory.
 
 
 
-.. |modelsSimulations| image:: /image/e_modelsandsimulations.png
+.. |modelsSimulations| image:: /image/pictogram_modelsandsimulations.png
     :scale: 90%
 
