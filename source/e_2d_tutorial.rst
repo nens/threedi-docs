@@ -84,7 +84,7 @@ You will need the path to the spatialite file (.sqlite) for this schematisation.
 
 #) In the 3Di Schematisation Editor toolbar, click the *Load from Spatialite* button (|load_from_spatialite|). Paste the path to the spatialite and click *Open*.
 
-#) Add a background map from OpenStreetMap by clicking Main Menu > *Web* > *Quick Map Services* > *OSM* > *OSM Standard*.
+#) Add a background map from OpenStreetMap by clicking *Web* in the Main Menu > *Quick Map Services* > *OSM* > *OSM Standard*.
 
 #) In the *Layers* panel, reorder the layers such that the OpenStreetMap layer is below the 3Di schematisation.
 

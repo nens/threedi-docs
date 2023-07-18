@@ -8,6 +8,23 @@ Release notes
 3Di general releases
 --------------------
 
+July 18th 2023
+^^^^^^^^^^^^^^
+
+We have released several new features, improvements and bugfixes. Most notably:
+
+- Storage in the groundwater domain is more accurate and less cell size dependent because it uses subgrid
+
+- Simulation templates are inherited from the 3Di Model of the previous revision and persist when the 3Di Model is regenerated.
+
+- User management is now available on management.3di.live (if you have Manager rights)
+
+- If you have run a simulation but forgot to include Lizard postprocessing, you can now start it after the simulation has finished.
+
+
+For more details, see the :ref:`release notes for the 3Di API<3di_api_release_20231807>`, :ref:`release notes for the 3Di computational core<3di_calccore_release_20231807>`, and :ref:`release notes for 3Di Management core<3di_ms_release_20231807>`
+
+
 June 14th 2023
 ^^^^^^^^^^^^^^
 
@@ -756,6 +773,22 @@ Some bugfixes in 3Di live:
 3Di Management Screens
 ----------------------
 
+.. _3di_ms_release_20231807:
+
+June 18th 2023
+^^^^^^^^^^^^^^
+
+- User management is now available on 3Di management if you have Manager rights
+- Vegetation rasters are now included in schematisation revision overview
+- Add time zone (UTC offset) when listing start or end datetime of simulation
+- "Export to Excel file" button on schematisations page now downloads all schematisation names, and shows a modal with a progress bar
+- Schematisation detail page: Disable "run in live site" option if 3Di Live is not part of contract
+- Schematisation list no longer shows schematisations that have no revisions, unless you explicitly choose this option
+- Bugfix: On the schematisation revision detail page, Some raster download links did not work
+- Bugfix: On the schematisation revision detail page, "Predefined simulation data" section had wrong contents
+- Bugfix: On the schematisation revision detail page, rasters where only listed after a 3Di model had been created
+
+
 March 20th 2022
 ^^^^^^^^^^^^^^^^^^
 
@@ -1412,6 +1445,23 @@ We are constantly working on improving the 3Di experience. Based on user experie
 3Di API
 ----------
 
+.. _3di_api_release_20231807:
+
+June 18th 2023
+^^^^^^^^^^^^^^
+
+- Invite email for organisation for users doesn't show which organisation they are invited to
+- Send an email to users when their simulation has crashed
+- Add missing URL in simulation crash e-mail.
+- Allow Lizard postprocessing after simulation has finished. (when not already requested)
+- Simulation templates persist when regenerating 3Di Model
+- Simulation templates are inherited from 3Di Model of the previous revision
+- If simulation results become > 10 GB, simulation crashes with clear error message, instead of taking down the calculation node (and any other simulations that depend on that node)
+- Added dequeue action putting a queued` simulation back in created state.
+- Bugfix: Set max timestep to default timestep when max timestep is undefined
+- Improved speed of /simulations/ endpoint by introducing is_template field.
+
+
 June 14th 2023
 ^^^^^^^^^^^^^^
 
@@ -1852,6 +1902,17 @@ Extended API v3 with boundary conditions & bug fixing
 
 3Di Computational core
 ----------------------
+
+.. _3di_calccore_release_20231807:
+
+June 18th, 2023
+^^^^^^^^^^^^^^^
+
+- Storage in the groundwater domain is more accurate and less cell size dependent because it uses subgrid
+- Improve initialization time by selectively looping over 1D lines
+- Bugfix: Missing headers in matrix.log
+- Bugfix: Embedded wet surface is now calculated *after* merging the volume table.
+- Bugfix: Source geometry for raster and obstacle edit would not be set, leading to incorrect assumption of EPSG:4326
 
 June 2023
 ^^^^^^^^^
