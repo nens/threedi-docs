@@ -1450,9 +1450,8 @@ We are constantly working on improving the 3Di experience. Based on user experie
 June 18th 2023
 ^^^^^^^^^^^^^^
 
-- Invite email for organisation for users doesn't show which organisation they are invited to
-- Send an email to users when their simulation has crashed
-- Add missing URL in simulation crash e-mail.
+- Invite email for organisation for users now shows which organisation they are invited to
+- An e-mail is sent when your simulation has crashed
 - Allow Lizard postprocessing after simulation has finished. (when not already requested)
 - Simulation templates persist when regenerating 3Di Model
 - Simulation templates are inherited from 3Di Model of the previous revision
