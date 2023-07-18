@@ -31,7 +31,7 @@ Before you get started:
 
 * Install the 3Di Modeller Interface installed, see :ref:`3di_instruments_and_downloads`.
 
-* Download the `Digital Elevation Model (DEM) for the Burrows area <https://demo.lizard.net/media/3di-tutorials/3di-tutorial-01.zip>`_ [#dem_attribution]_. 
+* Download the `Digital Elevation Model (DEM) for the Burrows area <https://demo.lizard.net/media/3di-tutorials/3di-tutorial-02.zip>`_ [#dem_attribution]_. 
 
 
 Creating a new schematisation
