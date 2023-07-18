@@ -3,6 +3,8 @@ from dataclasses import dataclass, field
 
 import datetime
 import sphinx_rtd_theme
+import pybtex
+
 
 from pybtex.style.formatting.alpha import Style as AlphaStyle
 from pybtex.style.labels.alpha import LabelStyle as AlphaLabelStyle
