@@ -187,16 +187,16 @@ To learn more about deleting features, refer to the `QGIS documentation <https:/
 * 'Cancel': Selecting this option will cancel the deletion process and leave the features unchanged.
 
 
-.. |toggleEditing| image:: /image/d_toggle_editing.png
+.. |toggleEditing| image:: /image/pictogram_toggle_editing.png
     :scale: 90%
 
-.. |addPoint| image:: /image/d_addpoint.png
+.. |addPoint| image:: /image/pictogram_addpoint.png
 
-.. |addLine| image:: /image/d_addline.png
+.. |addLine| image:: /image/pictogram_addline.png
 
-.. |addPoly| image:: /image/d_addpolygon.png
+.. |addPoly| image:: /image/pictogram_addpolygon.png
 
-.. |idendifyFeature| image:: /image/d_identify_features.png
+.. |idendifyFeature| image:: /image/pictogram_identify_features.png
 
 |
 

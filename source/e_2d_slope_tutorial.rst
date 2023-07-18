@@ -40,7 +40,7 @@ The first step is to create a new :ref:`schematisation`
     .. note::
         If this is the first time you use 3Di Models and Simulation panel, you will need to go through :ref:`some steps to set it up<setting_up_models_and_simulations>`.
 
-#) In the *Schematisation* section of the 3Di Models and Simulations panel, click the *New* button (|newschematisation|). The *New schematisation* wizard is shown.
+#) In the *Schematisation* section of the 3Di Models and Simulations panel, click the *New* button. The *New schematisation* wizard is shown.
 
 #) Fill in a  schematisation name, such as 'Tutorial Lake Mead <your_name>'. Select the organisation you want to be the owner of the new schematisation (most users have rights for only one organisation). Tags are optional, you can leave this field empty for now. Since we are creating a schematisation from scratch, select the *Create new Spatialite* option. Click *Next*.
 
@@ -221,10 +221,10 @@ To make a new revision that includes these edits, you need to save the changes t
 Congratulations! You have completed the 2D flow model for sloping area. 
 
 
-.. |modelsSimulations| image:: /image/e_modelsandsimulations.png
+.. |modelsSimulations| image:: /image/pictogram_modelsandsimulations.png
     :scale: 90%
 
 
-.. |upload| image:: /image/e_tut1upload.png
+.. |upload| image:: /image/pictogram_upload_schematisation.png
     :scale: 90%
 

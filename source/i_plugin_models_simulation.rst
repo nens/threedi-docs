@@ -74,5 +74,5 @@ Overview GUI
 * **Manage:** Redirects you the the :ref:`Management Portal <management_screens_what_is>`, where you can manage your schematisations and revisions.
 
 
-.. |modelsSimulations| image:: /image/e_modelsandsimulations.png
+.. |modelsSimulations| image:: /image/pictogram_modelsandsimulations.png
     :scale: 90%

@@ -34,5 +34,5 @@ The Modeller interface has 3 pre-installed plugins:
    i_plugin_schematisation_editor
 
 
-.. |modelsSimulations| image:: /image/e_modelsandsimulations.png
+.. |modelsSimulations| image:: /image/pictogram_modelsandsimulations.png
     :scale: 90%

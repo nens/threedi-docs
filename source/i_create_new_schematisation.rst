@@ -32,8 +32,8 @@ Congratulations, you have your first commit!
 
 
 
-.. |newschematisation| image:: /image/e_newschematisation.png
+.. |newschematisation| image:: /image/pictogram_newschematisation.png
     :scale: 80%
 
-.. |modelsSimulations| image:: /image/e_modelsandsimulations.png
+.. |modelsSimulations| image:: /image/pictogram_modelsandsimulations.png
     :scale: 90%

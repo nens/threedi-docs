@@ -6,9 +6,10 @@ Tutorial 2: Creating a 2D model
 Introduction
 ------------
 
-In this tutorial, you will build a 2D model of the Laugharne and Pendine Burrows, in Carmarthenshire (Wales). The burrows enclose a flat area of reclaimed salt marshes that are currently used as farmland.
+In this tutorial, you will us the :ref:`3Di Modeller Interface <mi_what_is>` to build a 2D model of the Laugharne and Pendine Burrows, in Carmarthenshire (Wales). The burrows enclose a flat area of reclaimed salt marshes that are currently used as farmland.
 
 Although the model will represent a real-world area, some processes will be simplified for the sake of this tutorial. Please keep this in mind while analysing the results of your simulations.
+
 
 
 Learning objectives
@@ -16,10 +17,10 @@ Learning objectives
 In this tutorial you will:
 
 * Become familiar with the modelling workflow in 3Di
-* Learn how to create a new schematisation
-* Learn how to use the schematisation checker
-* Learn how to upload a new revision and create a 3Di model
-* Learn how to start simulations in the 3Di Modeller Interface
+* Create a new schematisation
+* Use the schematisation checker
+* Upload a new revision and create a 3Di model
+* Start simulations in the 3Di Modeller Interface
 
 Preparation
 -----------
@@ -36,7 +37,7 @@ Before you get started:
 Creating a new schematisation
 -----------------------------
 
-The first step is to create a new :ref:`schematisation`
+Follow these steps to create a new :ref:`schematisation`:
 
 #) Open the 3Di Modeller Interface and click on the 3Di Models and Simulations icon (|modelsSimulations|). You should now see the 3Di Models and Simulations panel.
 
@@ -79,9 +80,9 @@ Viewing the schematisation
 
 You will now add the schematisation in your 3Di Modeller Interface project and add a background map for reference. This will allow you to check if the schematisation looks as you expect.
 
-#) You will need the path to the spatialite file (.sqlite) for this schematisation. If you have not copied the path to the spatialite in the previous step, do the following to find it: At the top of the 3Di Models & Simulations panel, click on the (blue, underlined) name of your schematisation. Windows Explorer will open; browse to *work in progress\schematisation* and copy the path from the Windows Explorer address bar.
+You will need the path to the spatialite file (.sqlite) for this schematisation. If you have not copied the path to the spatialite in the previous step, do the following to find it: At the top of the 3Di Models & Simulations panel, click on the (blue, underlined) name of your schematisation. Windows Explorer will open; browse to *work in progress\schematisation* and copy the path from the Windows Explorer address bar.
 
-#) In the 3Di Schematisation Editor toolbar, click the *Load from Spatialite* button. Paste the path to the spatialite and click *Open*.
+#) In the 3Di Schematisation Editor toolbar, click the *Load from Spatialite* button (|load_from_spatialite|). Paste the path to the spatialite and click *Open*.
 
 #) Add a background map from OpenStreetMap by clicking Main Menu > *Web* > *Quick Map Services* > *OSM* > *OSM Standard*.
 
@@ -94,7 +95,7 @@ You should now see the DEM, located in southern Wales.
 Uploading the schematisation
 ----------------------------
 
-The next step is to check the schematisation, upload its as a first :ref:`revision` and process it into a :ref:`threedimodel`. All these steps are covered by the upload wizard.
+The next step is to check the schematisation, upload it as a first :ref:`revision` and process it into a :ref:`threedimodel`. All these steps are covered by the upload wizard.
 
 #) Click the upload button (|upload|) in the 3Di Models and Simulations panel.
 
@@ -121,21 +122,21 @@ Running a simulation
 
 You will now start a simulation with the 3Di model you have created. 
 
-#) In the 3Di Models and Simulations panel, click *Simulate* > *New simulation*.  
+#) In the 3Di Models and Simulations panel, click *Simulate* (|simulate|) > *New simulation*.  
 
-#) Select your model and the simulation template and click *Next*. A new dialog opens with several options for your simulation.  
+#) Select your model and simulation template and click *Next*. A new dialog opens with several options for your simulation.  
 
-#) Check the box for *Include precipitation*
+#) Check the box for *Include precipitation*. Click *Next*.
 
 #) Give your simulation a name. Click *Next*.
 
-#) Set the duration of your simulation to 4 hours. 
+#) Set the duration of your simulation to 4 hours. Click *Next*.
 
-#) Use the default Initial conditions. Click next.  
+#) Accept the Boundary conditions as they are by clicking *Next*.
 
-There are several options to define a precipitation event for your simulation. In the drop-down menu, one can choose Constant, Custom, Design, Radar and Forecast events. 
+#) Use the default Initial conditions. Click *Next*.
 
-#) Define a Constant rain event of 40 mm/h during the first two hours. Click *Next*. 
+#) Define a Constant rain event during the first two hours with an intensity of 40 mm/h. Click *Next*. 
 
 #) Accept the simulation settings as they are by clicking *Next*. 
 
@@ -143,8 +144,7 @@ There are several options to define a precipitation event for your simulation. I
 
 Your simulation will start as soon as a calculation node is available for your organisation. Note: the number of available calculation nodes depends on your 3Di subscription. 
 
-#) In the 3Di Models and Simulations panel, click *Simulate*. An overview is given of all running simulations for your organisation(s). Here you can follow the progress of your simulation.
-
+In the 3Di Models and Simulations panel, click *Simulate*. An overview is given of all running simulations for your organisation(s). Here you can follow the progress of your simulation.
 
 Adding infiltration
 -------------------
@@ -152,7 +152,7 @@ Adding infiltration
 We will now add infiltration to the model you have just created. In this tutorial, you will set a global infiltration rate, that applies to the entire model domain. 
 
 .. note::
-   It is also possible to use a spatially variable infiltration rate by providing an infiltration rate raster file. This will be shown in :ref:`tutorial3_2dflowmodel`.
+   It is also possible to use a spatially variable infiltration rate by providing an infiltration rate raster file. This will be shown in :ref:`tutorial 3 <tutorial3_2dflowmodel>`.
 
 To add infiltration to the model, you need to create a *Simple infiltration settings* record and reference it from the *Global settings*.
 
@@ -160,7 +160,9 @@ Follow these steps:
 
 #) In the *Layers* panel, under *Settings*, click on the *Simple infiltration settings* layer
 
-#) Click the *Toggle editing mode* button in the *Digitizing toolbar*, then click the *Add record* button. Fill in the following values and click *OK*:
+#) Click the *Toggle editing mode* button (|toggle_editing|) in the top left corner, then click the *Add Feature* button (|add_feature|). Fill in the values from the table below (:ref:`inf_settings`) and click *OK*.
+
+#) Click the *Toggle editing mode* button in the toolbar and save your edits to this layer.
 
 	.. csv-table:: Simple infiltration settings
 		:name: inf_settings
@@ -174,7 +176,7 @@ Follow these steps:
 		"max_infiltration_capacity_file", "NULL", "infinite infiltration capacity is assumed in this tutorial"
 		"infiltration_surface_option", "Rain", "See :ref:`infiltration`"
 
-#) Click the *Toggle editing mode* button in the toolbar and save your edits to this layer.
+
 
 Now you need to reference this *Simple infiltration settings* record from the *Global settings* table.
 
@@ -182,15 +184,16 @@ Now you need to reference this *Simple infiltration settings* record from the *G
 
 #) Click *Switch to form view* in the bottom right corner.
 
-#) Click *Toggle editing mode* in the top right corner.
+#) Click *Toggle editing mode* in the top left corner.
 
 #) In the tab *Settings IDs*, fill in the ID (1) of the *Simple infiltration settings* record you have just created.
 
 #) Click the *Toggle editing mode* button in the toolbar and save your edits to this layer.
 
+
 To make a new revision that includes these edits, you need to save the changes to the spatialite and upload them.
 
-#) In the 3Di Schematisation Editor toolbar, click *Save to Spatialite*. Wait for this process to finish.
+#) In the 3Di Schematisation Editor toolbar, click *Save to Spatialite* (|save_to_spatialite|). Wait for this process to finish.
 
 #) Upload a new revision, in the same way you did before (see :ref:`tut_uploading`).
 
@@ -212,6 +215,7 @@ To use the model in 3Di Live:
 
 #) Select the model you want to use; #1 is the first revision (without infiltration) and #2 is the second revision (with infiltration). Click *Start*
 
+
 To view the model on 3Di Management:
 
 #) Go to `management.3di.live <management.3di.live>`_, and log in (if needed) 
@@ -227,18 +231,38 @@ To view the model on 3Di Management:
 #) Under *3Di Model of this revision* > *Simulation templates*, you can start a 3Di Live simulation with this model, by clicking on the button with three horizontal lines > *Run on live site*
 
 
-.. |modelsSimulations| image:: /image/e_modelsandsimulations.png
-    :scale: 90%
-
-.. |newschematisation| image:: /image/e_newschematisation.png
-    :scale: 90%
-
-.. |addresults| image:: /image/e_addresults.png
-
-.. |upload| image:: /image/e_tut1upload.png
-    :scale: 90%
 
 
 .. rubric:: Footnotes
 
 .. [#dem_attribution] The digital elevation model contains United Kingdom public sector information licensed under the Open Government Licence v2.0.
+
+
+.. images:
+
+.. |modelsSimulations| image:: /image/pictogram_modelsandsimulations.png
+    :scale: 90%
+
+.. |newschematisation| image:: /image/pictogram_newschematisation.png
+    :scale: 80%
+
+.. |addresults| image:: /image/pictogram_addresults.png
+
+.. |upload| image:: /image/pictogram_upload_schematisation.png
+    :scale: 80%
+
+.. |load_from_spatialite| image:: /image/pictogram_load_from_spatialite.png
+	:scale: 80%
+
+.. |simulate| image:: /image/pictogram_simulate.png
+    :scale: 80%
+
+.. |toggle_editing| image:: /image/pictogram_toggle_editing.png
+    :scale: 80%
+
+.. |add_feature| image:: /image/pictogram_addfeature.png
+	:scale: 80%
+
+.. |save_to_spatialite| image:: /image/pictogram_save_to_spatialite.png
+	:scale: 80%
+	

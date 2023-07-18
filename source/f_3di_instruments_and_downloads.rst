@@ -45,7 +45,7 @@ When you start the 3Di Modeller Interface for the first time, you need to set tw
 
 You can now use all online 3Di functionalities of the 3Di Modeller Interface. When logging in is required, the Personal API Key will be read from the QGIS Password manager and be used for logging in. 
 
-.. |modelsSimulations| image:: /image/e_modelsandsimulations.png
+.. |modelsSimulations| image:: /image/pictogram_modelsandsimulations.png
     :scale: 90%
 
 
