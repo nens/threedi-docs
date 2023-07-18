@@ -1908,7 +1908,7 @@ June 18th, 2023
 ^^^^^^^^^^^^^^^
 
 - Storage in the groundwater domain is more accurate and less cell size dependent because it uses subgrid
-- Improve initialization time by selectively looping over 1D lines
+- Initialization time (when starting a simulation) for models with many 1D lines has been reduced
 - Bugfix: Missing headers in matrix.log
 - Bugfix: Embedded wet surface is now calculated *after* merging the volume table.
 - Bugfix: Source geometry for raster and obstacle edit would not be set, leading to incorrect assumption of EPSG:4326
