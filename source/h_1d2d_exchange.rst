@@ -155,3 +155,9 @@ The embedded element modifies the storage of the 2D cell it is embedded in. The 
 Cross-sectional area in embedded flowlines
 """"""""""""""""""""""""""""""""""""""""""
 The cross-sectional area that is used in the 1D flow calculation is determined in a way similar to how the storage is handled. The part of the 1D cross-section that is below the DEM pixels is used, the rest is ignored. The cross-sectional area that is used for the calculation of 2D flow is unaltered by the embedded elements that pass through the cells.
+
+Exchange between 1D and groundwater
+-----------------------------------
+
+.. todo::
+   @Nici kan jij hier uitleggen op welke manier de uitwisseling tussen 1D en grondwater wordt berekend?

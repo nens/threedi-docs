@@ -232,6 +232,9 @@ Attributes
      - \-
      - *Deprecated*
 
+.. todo::
+   Nieuwe grondwater attributen toevoegen
+
 
 Notes for modellers
 ^^^^^^^^^^^^^^^^^^^
@@ -701,6 +704,9 @@ Attributes
      - No
      - \-
      - *Deprecated*
+
+.. todo::
+	Nieuwe grondwater attributen toevoegen
 
 .. _manhole_notes_for_modellers:
 
@@ -1211,6 +1217,9 @@ Attributes
      - No
      - \-
      - *Deprecated*
+
+.. todo::
+	Nieuwe grondwater attributen toevoegen
 
 .. _pipe_notes_for_modeller:
 

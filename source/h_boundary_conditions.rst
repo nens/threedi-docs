@@ -1,3 +1,7 @@
+.. todo::
+   @Nici deze pagina is sowieso heel summier. Kan jij relevante info toevoegen en evt. als er dingen specifiek gelden voor grondwater, deze expliciet noemen?
+
+
 .. _boundary_condtions:
 
 Boundary conditions
