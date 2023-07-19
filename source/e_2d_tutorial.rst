@@ -80,7 +80,7 @@ Viewing the schematisation
 
 You will now add the schematisation in your 3Di Modeller Interface project and add a background map for reference. This will allow you to check if the schematisation looks as you expect.
 
-You will need the path to the spatialite file (.sqlite) for this schematisation. If you have not copied the path to the spatialite in the previous step, do the following to find it: At the top of the 3Di Models & Simulations panel, click on the (blue, underlined) name of your schematisation. Windows Explorer will open; browse to *work in progress\schematisation* and copy the path from the Windows Explorer address bar.
+You will need the path to the spatialite file (.sqlite) for this schematisation. If you have not copied the path to the spatialite in the previous step, do the following to find it: At the top of the 3Di Models & Simulations panel, click on the (blue, underlined) name of your schematisation. Windows Explorer will open; browse to *work in progress/schematisation* and copy the path from the Windows Explorer address bar.
 
 #) In the 3Di Schematisation Editor toolbar, click the *Load from Spatialite* button (|load_from_spatialite|). Paste the path to the spatialite and click *Open*.
 

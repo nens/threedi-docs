@@ -13,5 +13,5 @@ If you are looking for instructions on more advanced topics, please check out th
    e_tutorial_3di_live
    e_2d_tutorial
    e_2d_slope_tutorial
-   e_2d_levees_tutorial
+   e_2d_channel_breach_tutorial
    e_1d_tutorial
