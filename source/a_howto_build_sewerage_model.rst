@@ -6,7 +6,7 @@
 Pipe flow
 =========
 
-The dynamic flow through complex sewer networks can be computed fast, stable and accurately by 3Di. 3Di can be used to model any sanitary, storm and combined sewer system, offering complete hydrology and hydraulic simulation and real-time control (RTC) modeling capabilities. 3Di uses the complete â€œde Saint Venant Equationsâ€, including backwater and transient flow phenomena. The computational core has an automatic drying and pressurized procedure and handles both subcritical and supercritical flow. The computation is 100% mass conservative, machine precision.
+The dynamic flow through complex sewer networks can be computed fast, stable and accurately by 3Di. 3Di can be used to model any sanitary, storm and combined sewerage system, offering complete hydrology and hydraulic simulation and real-time control (RTC) modeling capabilities. 3Di uses the complete â€œde Saint Venant Equationsâ€, including backwater and transient flow phenomena. The computational core has an automatic drying and pressurized procedure and handles both subcritical and supercritical flow. The computation is 100% mass conservative, machine precision.
 
 .. figure:: image/b_sewerage_overview.png
    :alt: b_sewerage_overview

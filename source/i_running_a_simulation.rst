@@ -327,7 +327,7 @@ Design
     | Rain 15 statistically occurs once every 250 years. The duration of this event is 48 hours, with a constant rain intensity of 2.7 mm/h. (T=250.0 year, V=130 mm, Standard rain event (regional) from Delta Programme 2019).
     | Rain 16 statistically occurs once every 1000 years. The duration of this event is 48 hours, with a constant rain intensity of 3.4 mm/h. (T=1000.0 year, V=160 mm, Standard rain event (regional) from Delta Programme 2019).
 
-    These so-called design rain events are time series, which are traditionally used to test the functioning of a sewer system in the Netherlands.
+    These so-called design rain events are time series, which are traditionally used to test the functioning of a sewerage system in the Netherlands.
 
 
 
