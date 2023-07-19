@@ -280,7 +280,7 @@ A short description of the model validation is given here. For a general guide s
 Verify the model rasters using the raster checker
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Before sending our model to the web portal, it is important to validate that our model contains no errors. The raster checker is part of the 3Di toolbox and performs 18 checks to verify the quality of the DEM. The raster checker checks all the rasters that are included in the model. In our case, this is only the DEM for the area of Nissewaard, but in more sophisticated models you can also include other rasters, like friction and infiltration.
+Before sending our model to 3Di Management, it is important to validate that our model contains no errors. The raster checker is part of the 3Di toolbox and performs 18 checks to verify the quality of the DEM. The raster checker checks all the rasters that are included in the model. In our case, this is only the DEM for the area of Nissewaard, but in more sophisticated models you can also include other rasters, like friction and infiltration.
 
 In order to use the raster checker, follow these steps:
 
@@ -298,7 +298,7 @@ The following screen will appear:
 Verify the schematisation using the schematisation checker
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The second validation that we have to perform before sending the model to the web portal is that of the schematisation.
+The second validation that we have to perform before sending the model to 3Di Management is that of the schematisation.
 For this, we use the schematisation checker.
 It checks the model tables for many possible errors that cause the model to crash when you want to compile the model.
 In order to check your schematisation, follow steps a and b from the previous step, but now select **schematisation checker**.
@@ -310,7 +310,7 @@ You may get the error “Value in v2_aggregation_settings.aggregation_in_space s
 This is a known error in the schematisation checker, which will be removed in a future update.
 If you get this error, you can ignore it.
 
-If you do not get any further warnings or errors, your model is successfully validated and is ready to upload to the web portal.
+If you do not get any further warnings or errors, your model is successfully validated and is ready to upload to 3Di Management.
 
 Model activation
 ----------------
@@ -322,7 +322,7 @@ Upload your model
 
 See :ref:`uploading_schematisation` for how to upload your model.
 
-The model is now also available on `3Di Live <https://www.3di.live/>`_ and the `management screens <https://management.3di.live>`_.
+The model is now also available on `3Di Live <https://www.3di.live/>`_ and `3Di Management <https://management.3di.live>`_.
 
 Run your model
 ++++++++++++++

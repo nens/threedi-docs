@@ -454,7 +454,7 @@ January 31st 2022 (Klondike)
 On January 31st we have released the backend for the Klondike release. In this release we introduce a brand new route to process schematisations into 3Di models. This will replace the process known as 'inpy'.
 For users that have not been migrated yet, this will not have effect on their work process. 3Di Models will simulate as before.
 
-The migration will be rolled out gradually, users will be contacted for this. The management screens are available for all users right away, but keep in mind that the new features mostly work on migrated schematisations and 3Di Models.
+The migration will be rolled out gradually, users will be contacted for this. 3Di Management is available for all users right away, but keep in mind that the new features mostly work on migrated schematisations and 3Di Models.
 Contact our servicedesk if you have any questions regarding migration.
 
 We use the following definitions:
@@ -602,7 +602,7 @@ A 3Di Model is generated from a schematisation. The generation takes the grid & 
 
 **3Di Management Screens**
 
-The management screens have been extended with a Models section. In this Models section users can:
+3Di Management has been extended with a Models section. In this Models section users can:
 
 For 3Di Models
 
@@ -842,7 +842,7 @@ February 2022 (Klondike) v2
 February 2022 (Klondike)
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-The management screens have been extended with a Models section. In this Models section users can:
+3Di Management has been extended with a Models section. In this Models section users can:
 
 For 3Di Models
 

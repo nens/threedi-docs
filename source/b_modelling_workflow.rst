@@ -54,4 +54,4 @@ When using 3Di Live you can :ref:`store <store_results>` the results.
 
 Manage your schematisations and models
 ----------------------------------------
-Managing your schematisations and models can be done with :ref:`the Management Portal <management_screens_manual>`.
+Managing your schematisations and models can be done with :ref:`3Di Management <management_screens_manual>`.

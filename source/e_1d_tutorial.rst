@@ -476,7 +476,7 @@ A short description of the model validation is given here. For a general guide s
 Verify the schematisation using the schematisation checker
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Before sending the model to the web portal we want to check the schematization. We can use the schematization checker for this. It checks the model tables for many possible errors that cause the model to crash when you want to compile the model. In order to check your model schematization, follow these steps:
+Before sending the model to 3Di Management we want to check the schematization. We can use the schematization checker for this. It checks the model tables for many possible errors that cause the model to crash when you want to compile the model. In order to check your model schematization, follow these steps:
 
 A.	Select the **commands for working with 3Di models** button. On the right of your screen, a tab "3Di" will open. [1]
 B.	Expand the "Step 1 – Check data" line and click on the **raster checker**. [2]
@@ -495,7 +495,7 @@ The output file is an excel file in which all warnings and errors that were foun
 -	“Invalid timeseries”
 -	“Pumpstation.lower_stop_level should be higher than Manhole.bottom_level”
 
-If you do not get any further warnings or errors, your model is successfully validated and is ready to upload to the web portal.
+If you do not get any further warnings or errors, your model is successfully validated and is ready to upload to 3Di Management.
 
 
 
@@ -509,7 +509,7 @@ Upload your model
 
 See :ref:`uploading_schematisation` for how to upload your model.
 
-The model is now also available on `3Di Live <https://www.3di.live/>`_ and the `management screens <https://management.3di.live>`_.
+The model is now also available on `3Di Live <https://www.3di.live/>`_ and `3Di Management <https://management.3di.live>`_.
 
 Run your model
 ++++++++++++++
