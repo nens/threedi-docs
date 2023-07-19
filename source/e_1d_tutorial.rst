@@ -486,9 +486,6 @@ C.	In the pop-up screen, select ‘spatialite: 1D_gemengd' and click **OK**.
 
 The following screen will appear:
 
-.. figure:: image/t_04_raster_checker.png
-    :alt: Raster checker
-
 The output file is an excel file in which all warnings and errors that were found are listed. You may get a few errors that are known errors in the schematization checker. These errors will be removed in the future and may be ignored for now. These errors include:
 
 -	“Value in v2_aggregation_settings.aggregation_in_space should be of the type integer”
