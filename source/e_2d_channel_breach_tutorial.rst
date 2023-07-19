@@ -14,11 +14,11 @@ Learning objectives
 --------------------
 You will learn the following in this tutorial:
 
+* Create a schematisation from an existing spatialite.
 * Add channels to a 2D model.
 * Add boundary conditions to a channel.
 * Create a potential breach event in a 2D model.
-* Create a schematisation from an existing spatialite.
-* Run the model with the breach event in 3Di Live.
+* Simulate the model with a breach event.
 
 
 Preparation
@@ -195,9 +195,46 @@ The next step is to check the schematisation, upload its as a first :ref:`revisi
 
 Your 3Di model is now ready for simulation! The model is now also available on `3Di Live <https://www.3di.live/>`_ and the `management screens <https://management.3di.live>`_.
 
-Run your model on 3Di Live
------------------------------
-You have now build a 2D flow model with a channel and a potential breach. Follow these steps to run your model on 3Di Live:
+
+Running a simulation 
+--------------------
+
+You will now start a simulation with the 3Di model you have created. 
+
+#) In the 3Di Models and Simulations panel, click *Simulate* (|simulate|) > *New simulation*.  
+
+#) Select your model and simulation template and click *Next*. A new dialog opens with several options for your simulation.  
+
+#) Check the box for *Include breaches*. Click *Next*.
+
+#) Give your simulation a name. Click *Next*.
+
+#) Set the duration of your simulation to 4 hours. Click *Next*.
+
+#) Accept the Boundary conditions as they are by clicking *Next*.
+
+#) Accept the Initial conditions as they are by clicking *Next*.
+
+#) Accept the Breaches as they are by clicking *Next*.
+
+    .. of moet hier wel iets anders ingesteld worden?
+
+#) Accept the simulation settings as they are by clicking *Next*. 
+
+#) Check the summary of your simulation and click *Add to queue*.  
+
+Your simulation will start as soon as a calculation node is available for your organisation. Note: the number of available calculation nodes depends on your 3Di subscription. 
+
+In the 3Di Models and Simulations panel, click *Simulate*. An overview is given of all running simulations for your organisation(s). Here you can follow the progress of your simulation.
+
+.. to acces the results.. (dit nog toevoegen aan deze tutorial?)
+
+.. can remove the section below here if you do not find it necessary. 
+
+Running a simulation with 3Di Live
+""""""""""""""""""""""""""""""""""""
+
+It is also possible to simulate your model with 3Di Live:
 
 #) Go to `3di.live <https://www.3di.live/>`_.
 
@@ -208,6 +245,8 @@ You have now build a 2D flow model with a channel and a potential breach. Follow
 #) Click the Play button at the top centre to start the simulation.
 
 #) You can open a breach by clicking on the breach and clicking on the settings button. You can adjust the breach settings when your simulation is paused.
+
+
 
 .. |load_from_spatialite| image:: /image/pictogram_load_from_spatialite.png
 	:scale: 80%
@@ -232,3 +271,7 @@ You have now build a 2D flow model with a channel and a potential breach. Follow
 
 .. |newschematisation| image:: /image/pictogram_newschematisation.png
     :scale: 80%
+
+.. |Simulate| image:: /image/pictogram_simulate.png
+    :scale: 80%
+    
