@@ -13,7 +13,7 @@ This video shows the workflow from start to finish of the modelling process:
 
 *Demo of the modelling process* 
 
-For an overview of the interface and its components visit the :ref:`mi_overview` page. For more detailed information on the modelling workflow, visit the :ref:`workflow` page. There are also multiple tutorials available on how to work with the 3Di Modeller Interface. A good starting point is the :ref:`Workflow Tutorial <tutorial1_workflow>`.
+For an overview of the interface and its components visit the :ref:`mi_overview` page. For more detailed information on the modelling workflow, visit the :ref:`workflow` page. There are also multiple tutorials available on how to work with the 3Di Modeller Interface. A good starting point is the :ref:`Tutorial 2 <tutorial2_2dflatmodel>`.
 
 
 This user manual is structured along the common workflow:

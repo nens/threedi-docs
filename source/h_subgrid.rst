@@ -34,11 +34,11 @@ Users define for the grid generation a cell size (of the finest grid resolution)
 Some facts and figures
 ----------------------
 
--	The use of high resolution information goes hand in hand with large amounts of data. To compress this data, it is stored during the computations in tables. More information about this can be found in :ref:`tables`.
+-	The use of high resolution information goes hand in hand with large amounts of data. To compress this data, it is stored during the computations in tables. More information about this can be found in :ref:`subgrid_tables`.
 -	There are more variables defined at the high resolution grid; such as roughness, infiltration capacity and hydraulic connectivity. These will be introduced later in the documentation.
 
 
-.. _tables:
+.. _subgrid_tables:
 
 Subgrid tables
 --------------

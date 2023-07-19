@@ -376,7 +376,7 @@ Custom
 Structure controls
 ------------------
 
-Structure controls provide the capability to modify hydraulic structure parameters within a water system by leveraging flow variables. These flow variables serve as triggers for actions on a structure, based on predefined rules specific to the type of control employed. For a comprehensive understanding, visit the :ref:`structures` and the :ref:`control` pages.
+Structure controls provide the capability to modify hydraulic structure parameters within a water system by leveraging flow variables. These flow variables serve as triggers for actions on a structure, based on predefined rules specific to the type of control employed. For a comprehensive understanding, visit the :ref:`control` pages.
 
 
 To incorporate structure controls, there are two methods: utilizing a simulation template or uploading a JSON file. When using a simulation template, you have four options:
@@ -417,7 +417,7 @@ If you choose a model that incorporates breaches for simulation, a breaches file
 Generate saved state after simulation
 -------------------------------------
 
-When you check this option the end result of the simulation will be saved as a saved state. A saved state file can be used as an initial condition. For more information, see: :ref:`state_files`.
+When you check this option the end result of the simulation will be saved as a saved state. A saved state file can be used as an initial condition. For more information, see: :ref:`saved_states`.
 
 |
 

@@ -1,3 +1,6 @@
+
+.. This document is not included anywhere in the documentation. But I don't know where to put it. Pipe flow could be put under 1d flow?
+
 .. _sewerage:
 
 Pipe flow
@@ -19,7 +22,7 @@ A sewer network is a special type of 1D network. Another type of the 1D network 
 
 The 1D sewer network can be linked to a 2D terrain model above that network. The spatial boundaries of the 1D and 2D model can be different. This implies that if desired, only a specific part of the 1D network can be covered by the 2D network, or the other way around.
 
-The 1D sewer network can also be linked to a 0D network of nodes. The 0D nodes can be used for rainfall runoff inflow and dry weather flow. In the rainfall runoff process various types of paved and unpaved areas, such as streets, roofs and parking lots can be simulated (see :ref:`inflow`). Detailed infiltration as a time-dependent process following the HORTON equation is also available.
+The 1D sewer network can also be linked to a 0D network of nodes. The 0D nodes can be used for rainfall runoff inflow and dry weather flow. In the rainfall runoff process various types of paved and unpaved areas, such as streets, roofs and parking lots can be simulated (see :ref:`0d_inflow`). Detailed infiltration as a time-dependent process following the HORTON equation is also available.
 
 Schematization
 --------------

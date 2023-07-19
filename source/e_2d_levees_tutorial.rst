@@ -2,6 +2,7 @@
 
 Tutorial 4: Building a 2D flow model with levees, channels and breaches
 =======================================================================
+.. Deze pagina is al helemaal geupdate!
 
 In this tutorial, you are going to build a basic 2D flood model for an area with levees, with a breach location. We will start with a model for which the basic parameters are already filled in, and expand the model step by step. We will finish this tutorial with a working model that you can play around with on the Live Site. Our area of interest is the municipality of Nissewaard on the island of Voorne-Putten in the Netherlands. The municipality of Nissewaard consists of urban area and farmland. Whilst this tutorial represents a real-world area, it is important to keep in mind that some processes will be simplified for the purpose of this tutorial.
 
@@ -17,8 +18,6 @@ In this tutorial, you will learn the following skills:
 Before you start, please make sure to:
 
 * Install the 3Di Modeller Interface. Please see :ref:`3di_instruments_and_downloads` for instructions.
-* Install the 3Di toolbox in the Modeller Interface. Please see :ref:`plugin_installation` for instructions.
-* Gain access to the 3Di web portal. Please see the :ref:`guide_to_portal` for instructions.
 * Download the dataset for this tutorial `here <https://nens.lizard.net/media/3di-tutorials/3di-tutorial-04.zip>`_.
 
 
@@ -328,9 +327,6 @@ The model is now also available on the `3Di Livesite <https://www.3di.live/>`_ a
 Run your model
 ++++++++++++++
 
-You have now build a 2D flow model for mountainous terrain from scratch!
-You can now run your model via the 3Di Live Site (:ref:`guide_to_portal`) or via the 3Di Modeller Interface (:ref:`simulate_api_qgis`).
-It will be available under the name you gave it.
 
 It is important to note that you have to open your breach in the 3Di Live Site. In the 3Di Live Site, breaches are depicted as a brown dot [1].  You can open a breach by clicking on the breach and clicking on the settings button [2]. Here you can open the breach. Also, you can set the time it takes for the breach location to be fully breached (Time [H]) and the initial breach width.
 

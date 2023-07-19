@@ -300,3 +300,16 @@ The below errors and bugs should not be experienced anymore. Please let us know 
 - The toolbox does currently not work properly for QGIS 3.22. You cannot edit your schematisations. Please use QGIS 3.16 for now if you have this issue or use the Modeller Interface.
 
 - Calculations that had both rain radar and laterals crashed somewhere during the simulation.
+
+.. _current_schematisation_checks:
+
+List of checks run by the schematisation checker on the schematisation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. Moved this section to here so it is easier to find an error.
+
+These are the checks performed by the schematisation checker.
+The checks are listed in the order in which they are run.
+The beta checks (error code 1300) are for testing purposes only, and not performed in normal usage.
+
+.. include:: i_current_schematisation_checks_table.rst

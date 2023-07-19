@@ -36,7 +36,7 @@ A new session will be started. During the start up of the model tips for use of 
 Following a session
 -------------------
 
-Active sessions of your organisation can be followed. This may be a session that you started earlier (e.g. from the :ref:`3Di Modeller Interface<running-a-simulation>`), or a session that someone else in your organisation has started.
+Active sessions of your organisation can be followed. This may be a session that you started earlier (e.g. from the :ref:`3Di Modeller Interface <simulate_api_qgis>`), or a session that someone else in your organisation has started.
 
 In the *Follow session* tab, Select an active session and click *Follow*. The number of followers of a session is unlimited. To leave the session, either close your browser tab, or click the *User* icon (top right) > *Leave session*. 
 
