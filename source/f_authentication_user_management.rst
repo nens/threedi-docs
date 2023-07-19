@@ -28,7 +28,7 @@ If you have received an email from either a manager within the organisation or t
 
 Signing in
 ----------
-Users can login in either the Modeller Interface, the Livesite, the Management Screens and the API.
+Users can login in either the Modeller Interface, 3Di Live, the Management Screens and the API.
 Except for the Modeller Interface, all 3Di components will redirect you to the following login screen:
 
 

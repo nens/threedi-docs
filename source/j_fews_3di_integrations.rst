@@ -8,7 +8,7 @@ Introduction
 
 Since 2019 the 3Di Hydrodynamic Simulation Software contains a new setup of the 3Di API.
 This API version 3 is developed with the goal to fully support interaction with other applications, from setting up a calculation to retrieving the simulation results.
-There are already some applications which interact with 3Di;.e.g. ESRI ArcGIS and the 3Di livesite.
+There are already some applications which interact with 3Di;.e.g. ESRI ArcGIS and 3Di Live.
 
 In the field of operational water management models are widely used to simulate the hydrological and hydrodynamic system.
 Real-time control systems interact autonomously with models and use the simulation results to determine the desired control of structures.

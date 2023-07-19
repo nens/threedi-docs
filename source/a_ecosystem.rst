@@ -5,7 +5,7 @@ User interfaces
 
 You can work with 3Di both in the browser and locally. We offer three user interfaces, each with their own specific strengths.
 
-* :ref:`The 3Di Live Site <3di_live_introduction>`: run interactive simulations in the browser and follow them while they are running.
+* :ref:`3Di Live <3di_live_introduction>`: run interactive simulations in the browser and follow them while they are running.
 
 * :ref:`The 3Di Modeller Interface <mi_what_is>`: a desktop application for modelling experts and hydrologists, based on QGIS. Here you can build and edit schematisations, start simulations, and analyze results.
 

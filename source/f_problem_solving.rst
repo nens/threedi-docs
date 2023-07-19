@@ -110,7 +110,7 @@ This might also be the case for other projections.
 
 - Boundary conditions can only be applied via the model sqlite. Uploading a boundary condition as a json file using the API will result in a failure of the simulation.
 
-- In rare cases the waterdepth interpolation in the livesite may show unexpected behaviour; it shows triangular patterns. These deviations are only visual, so the results are still correctly. 
+- In rare cases the waterdepth interpolation in 3Di Live may show unexpected behaviour; it shows triangular patterns. These deviations are only visual, so the results are still correctly. 
 
 - The following checks don't work in case there is no index in the spatialite:
 
@@ -142,12 +142,12 @@ This might also be the case for other projections.
 - Leakage does not work in the Modeller Interface. Please use the API for now if you want to use leakage. 
 
 
-3Di Live Site
+3Di Live
 -------------
 
-- If a raster has both NaN and Nodata values the live site DEM will color yellow (showing color scale for -9999)
+- If a raster has both NaN and Nodata values 3Di Live DEM will color yellow (showing color scale for -9999)
 
-- If a raster has a nodatavalue of 3.4028234663852886e+38 will not be visible in the live site. Setting it to -9999 will solve the issue. This can be done using QGIS tooling or the following GDAL command: gdalwarp -of GTiff -srcnodata 3.4028234663852886e+38 -dstnodata -9999 -co "COMPRESS=DEFLATE" dem1.tif dem2.tif
+- If a raster has a nodatavalue of 3.4028234663852886e+38 will not be visible in 3Di Live. Setting it to -9999 will solve the issue. This can be done using QGIS tooling or the following GDAL command: gdalwarp -of GTiff -srcnodata 3.4028234663852886e+38 -dstnodata -9999 -co "COMPRESS=DEFLATE" dem1.tif dem2.tif
 
 3Di Management
 --------------

@@ -16,7 +16,7 @@ Editing a schematisation
 A schematisation can be edited in the Modeller Interface. This is explained in this :ref:`section <edit_schematisation>`.
 
 
-You cannot edit your schematisation with the Live Site, but it is possible to temporarily adjust values of your model components. This is explained in this :ref:`section <3di_live_interactive_tools>`.
+You cannot edit your schematisation with 3Di Live, but it is possible to temporarily adjust values of your model components. This is explained in this :ref:`section <3di_live_interactive_tools>`.
 
 
 Checking the schematisation
@@ -36,7 +36,7 @@ Before you can simulate your model you need to add **scenario information**. A s
 
 Adding scenario information and running a simulation can be done in  :ref:`the Modeller Interface <simulate_api_qgis>` with the 3Di Models and Simulations plugin or on :ref:`3Di Live <3di_live_sessions>`. 
 
-You can run an interactive simulation on the Live Site. The Live Site will provide an insight while the scenario is running, when your simulation is finished you can download the results. When you use the Modeller Interface your results will only be provided after the simulation has finished. The Modeller Interface does provide a more detailed overview where you can enter your scenario information.
+You can run an interactive simulation on 3Di Live. 3Di Live will provide an insight while the scenario is running, when your simulation is finished you can download the results. When you use the Modeller Interface your results will only be provided after the simulation has finished. The Modeller Interface does provide a more detailed overview where you can enter your scenario information.
 
 
 Downloading results

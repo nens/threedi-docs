@@ -4,7 +4,7 @@ Tutorial 4: Building a 2D flow model with levees, channels and breaches
 =======================================================================
 .. Deze pagina is al helemaal geupdate!
 
-In this tutorial, you are going to build a basic 2D flood model for an area with levees, with a breach location. We will start with a model for which the basic parameters are already filled in, and expand the model step by step. We will finish this tutorial with a working model that you can play around with on the Live Site. Our area of interest is the municipality of Nissewaard on the island of Voorne-Putten in the Netherlands. The municipality of Nissewaard consists of urban area and farmland. Whilst this tutorial represents a real-world area, it is important to keep in mind that some processes will be simplified for the purpose of this tutorial.
+In this tutorial, you are going to build a basic 2D flood model for an area with levees, with a breach location. We will start with a model for which the basic parameters are already filled in, and expand the model step by step. We will finish this tutorial with a working model that you can play around with on 3Di Live. Our area of interest is the municipality of Nissewaard on the island of Voorne-Putten in the Netherlands. The municipality of Nissewaard consists of urban area and farmland. Whilst this tutorial represents a real-world area, it is important to keep in mind that some processes will be simplified for the purpose of this tutorial.
 
 
 In this tutorial, you will learn the following skills:
@@ -12,7 +12,7 @@ In this tutorial, you will learn the following skills:
 * Add levees to a 2D model.
 * Add channels to a 2D model.
 * Create a breach event in a 2D model.
-* Run the model with the breach event in the 3di Live Site.
+* Run the model with the breach event in 3Di Live.
 
 
 Before you start, please make sure to:
@@ -322,14 +322,14 @@ Upload your model
 
 See :ref:`uploading_schematisation` for how to upload your model.
 
-The model is now also available on the `3Di Livesite <https://www.3di.live/>`_ and the `management screens <https://management.3di.live>`_.
+The model is now also available on `3Di Live <https://www.3di.live/>`_ and the `management screens <https://management.3di.live>`_.
 
 Run your model
 ++++++++++++++
 
 
-It is important to note that you have to open your breach in the 3Di Live Site. In the 3Di Live Site, breaches are depicted as a brown dot [1].  You can open a breach by clicking on the breach and clicking on the settings button [2]. Here you can open the breach. Also, you can set the time it takes for the breach location to be fully breached (Time [H]) and the initial breach width.
+It is important to note that you have to open your breach in 3Di Live. In 3Di Live, breaches are depicted as a brown dot [1].  You can open a breach by clicking on the breach and clicking on the settings button [2]. Here you can open the breach. Also, you can set the time it takes for the breach location to be fully breached (Time [H]) and the initial breach width.
 
 
 .. figure:: image/t_04_breach_live_site.png
-    :alt: Breach on live site
+    :alt: Breach on 3Di Live

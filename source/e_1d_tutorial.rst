@@ -3,7 +3,7 @@ Tutorial 5: Building a 1D model
 
 .. Deze pagina wordt helemaal geupdate
 
-Welcome to the tutorial for building a 1D model in 3Di. In this tutorial, you will learn to work with a 1D flow model in 3Di. We will start with a database file (.sqlite) that is already partly filled in. The sqlite is not yet complete, so we will add information to the model to get a basic working model that you can run on the 3Di live site.
+Welcome to the tutorial for building a 1D model in 3Di. In this tutorial, you will learn to work with a 1D flow model in 3Di. We will start with a database file (.sqlite) that is already partly filled in. The sqlite is not yet complete, so we will add information to the model to get a basic working model that you can run on 3Di Live.
 The system in the .sqlite is a non-existent combined sewerage system. The model does not represent a real-world system, but is meant to get acquainted with the different components of a 1D combined sewerage system.
 
 You will learn the following skills in this tutorial:
@@ -12,7 +12,7 @@ You will learn the following skills in this tutorial:
 *	Get acquainted with the different elements of a 1D combined sewerage system
 *	Configure the settings of a 1D model
 *	Validate your model schematization using the schematization checker
-*	Compile your model on the 3Di live site
+*	Compile your model on 3Di Live
 
 Before you start, please make sure to:
 
@@ -284,7 +284,7 @@ Dist_calc_points: This parameter controls the distance between the calculation p
     :header: "Setting", "Value for this tutorial", "Comments"
 
     "Sewerage_type", "N/A", "Already filled in. '0:mixed', since we are modelling a mixed sewerage system."
-    "Zoom_level", "N/A", "Already filled in. This parameter determines the visibility in the 3Di live site."
+    "Zoom_level", "N/A", "Already filled in. This parameter determines the visibility in 3Di Live."
 
 .. csv-table:: Characteristics
     :header: "Setting", "Value for this tutorial", "Comments"
@@ -405,7 +405,7 @@ Since the model in the .sqlite is a mixed sewerage system, the outlets in the mo
 .. csv-table:: Visualization
     :header: "Setting", "Value for this tutorial", "Comments"
 
-    "Zoom_category", "N/A", "Determines the visibility in the 3Di live site; already filled in"
+    "Zoom_category", "N/A", "Determines the visibility in 3Di Live; already filled in"
     "Sewerage", "Yes", "Already filled in"
     "External", "No", "Already filled in"
 
@@ -509,7 +509,7 @@ Upload your model
 
 See :ref:`uploading_schematisation` for how to upload your model.
 
-The model is now also available on the `3Di Livesite <https://www.3di.live/>`_ and the `management screens <https://management.3di.live>`_.
+The model is now also available on `3Di Live <https://www.3di.live/>`_ and the `management screens <https://management.3di.live>`_.
 
 Run your model
 ++++++++++++++
