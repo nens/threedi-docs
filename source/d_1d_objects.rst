@@ -244,10 +244,16 @@ Notes for modellers
 
 Calculation type 'embedded'
 """""""""""""""""""""""""""
+
 - Embedded channels add extra connections between 2D grid cells, but ignore obstacles and levees.
 - Make sure the embedded channel profile always lays partially below the DEM; embedded channels cannot 'float' above the DEM.
 - Embedded channels only function when they connect several 2D grid cells, so make sure no embedded channel falls completely inside one 2D grid cell
 - Do not place boundary conditions directly on embedded channels.
+
+Calculation types 'connected' and 'double connected'
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+For channels with calculation type 'connected' and 'double connected', 1D2D connections connect each 1D calculation point to the 2D cell it is in. Therefore, channels with these calculation types need to be in a 2D cell. Alternatively, you may use an :ref:`exchangel_line` to customise the 1D2D connections. When using an exchange line, the channel does not need to be in 2D cells, but the exchange line needs to be in 2D cells.
 
 
 .. _connection_node:

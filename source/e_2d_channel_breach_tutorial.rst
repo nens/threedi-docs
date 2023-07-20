@@ -1,13 +1,13 @@
 ..  _flood_model:
 
-Tutorial 4: Building a 2D flow model with channels and breaches
-=======================================================================
+Tutorial 4: Building a dike breach flood model
+==============================================
 
 Introduction
 -------------
-In this tutorial, you are going to build a basic 2D flood model for an area with with a potential breach location in the :ref:`3Di Modeller Interface <mi_what_is>`. We will start with a model for which the basic parameters are already filled in, and expand the model step by step. We will finish this tutorial with a working model that you can play around with on :ref:`3Di Live <3di_live_introduction>`. 
+In this tutorial, you are going to build a basic model for simulation a flood caused by a levee breach. The model will be built using the :ref:`3Di Modeller Interface <mi_what_is>`. We will start with a model for which the basic parameters are already filled in, and expand the model step by step. We will finish this tutorial with a working model that you can play around with on :ref:`3Di Live <3di_live_introduction>`. 
 
-Our area of interest is the municipality of Nissewaard on the island of Voorne-Putten in the Netherlands. The municipality of Nissewaard consists of urban area and farmland. Whilst this tutorial represents a real-world area, it is important to keep in mind that some processes will be simplified for the purpose of this tutorial.
+Our area of interest is the municipality of Nissewaard on the island of Voorne-Putten in the Netherlands. The municipality of Nissewaard consists of urban area and farmland. While this tutorial represents a real-world area, it is important to keep in mind that some processes will be simplified for the purpose of this tutorial.
 
 
 Learning objectives
@@ -30,13 +30,11 @@ Before you get started:
 * Download the dataset for this tutorial `here <https://nens.lizard.net/media/3di-tutorials/3di-tutorial-04.zip>`_.
 
 
-
-
 Creating a new schematisation
 ------------------------------
-Follow these steps to convert the existing Spatialite to a :ref:`schematisation`:
+Follow these steps to create a new :ref:`schematisation` based on an existing Spatialite:
 
-#) Unpack the starter package and save the contents into a folder. The dataset that you downloaded for this tutorial contains an partially configured .sqlite database and a digital elevation model (DEM) for a part of the Nissewaard municipality. This DEM is called dem_Nissewaard.tif and is located in the folder named "rasters". The structured .sqlite database contains all elements that can be included in a 3Di model. The basic settings are already filled in.
+#) Unzip the dataset for this tutorial and save the contents into a folder. The dataset that you downloaded for this tutorial contains an partially configured .sqlite database and a digital elevation model (DEM) for a part of the Nissewaard municipality. This DEM is called dem_Nissewaard.tif and is located in the folder named "rasters". The structured .sqlite database contains all elements that can be included in a 3Di model. The basic settings are already filled in.
 
 #) Open the 3Di Modeller Interface.
 
@@ -44,14 +42,14 @@ Follow these steps to convert the existing Spatialite to a :ref:`schematisation`
 
 #) In the *Schematisation* section of the 3Di Models and Simulations panel, click the *New* button (|newschematisation|). The *New schematisation* wizard is shown.
 
-#) Fill in a schematisation name, such as 'Tutorial 2D flow model <your_name>'. Select the organisation you want to be the owner of the new schematisation (most users have rights for only one organisation). Tags are optional, you can leave this field empty for now.
+#) Fill in a schematisation name, such as 'Tutorial dike breach model <your_name>'. Select the organisation you want to be the owner of the new schematisation (most users have rights for only one organisation). Tags are optional, you can leave this field empty for now.
 
-#) Since we are creating a schematisation from an existing Spatialite, select the *Choose file* option. Select the Nessewaard.sqlite file you downloaded and click *Create schematisation*.
+#) Since we are creating a schematisation from an existing Spatialite, select the *Choose file* option. Select the Nissewaard.sqlite file you downloaded and click *Create schematisation*.
 
 
 Viewing the schematisation
 --------------------------
-The schematisation must be imported in the 3Di Modeller Interface to view and modify its contents. The schematisation can be loaded by following these steps:
+We will load the schematisation in the 3Di Modeller Interface to view and modify its contents. The schematisation can be loaded by following these steps:
 
 #) At the top of the 3Di Models & Simulations panel, click on the (blue, underlined) name of your schematisation. Windows Explorer will open; browse to *work in progress/schematisation* and copy the path from the Windows Explorer address bar.
 
@@ -61,7 +59,7 @@ The schematisation must be imported in the 3Di Modeller Interface to view and mo
 
 #) In the Layers panel, reorder the layers such that the OpenStreetMap layer is below the 3Di schematisation.
 
-You should now see the DEM file located below The Oude Maas.
+You should now see the DEM file located south of the Oude Maas.
 
 
 Adding a channel
@@ -77,23 +75,23 @@ We are going to add a :ref:`channel` to the model. A channel :ref:`flows <channe
 
 #) Begin by clicking on a desired starting location for your channel. Next, click on the location where you want the channel to end. Ensure that the channel remains within the Digital Elevation Model (DEM). 
 
-#) To stop drawing the channel, simply right-click. A popup screen with the Feature Attributes should now appear.
+#) Right-click to stop drawing the channel. A popup screen with the Feature Attributes should now appear.
 
 #) Fill in the following parameters in the *channel* tab:
 
    * ID: filled in automatically
-   * Code: give your channel a code or name so you can later identify it
-   * Display name: give your channel a code or name so you can later identify it
+   * Code: give your channel a code so you can identify it later
+   * Display name: this is the name the channel will be displayed with in 3Di Live 
    * Calculation type: Connected
    * Distance between calculation points [m]: 15
    * Connection nodes: filled in automatically
 
-#) Fill in the following parameters in for both connection nodes the *Connection nodes* tab:
+#) In the *Connection nodes* tab, fill in the following parameters for both connection nodes:
 
    * Connection node ID: filled in automatically
    * Node code: give your connection node a code or name so you can later identify it
    * Node initial water level [m]: 3
-   * Node storage area [m2]: 0.1
+   * Node storage area [m2]: Leave empty (*NULL*)
 
 #) Fill in the following parameters in the *Cross section locations* tab:
 
@@ -103,8 +101,8 @@ We are going to add a :ref:`channel` to the model. A channel :ref:`flows <channe
    * Bank level: 4
    * Friction type: Manning
    * Friction value: 0.0022
-   * shape: Open rectangle
-   * width [m]: 10
+   * Shape: Open rectangle
+   * Width [m]: 10
 
 #) Click *OK*.
 
