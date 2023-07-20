@@ -869,6 +869,16 @@ For schematisations users can:
 3Di Modeller Interface
 ----------------------
 
+July 20th 2023
+^^^^^^^^^^^^^^
+
+**3Di Toolbox 2.5.4**
+
+- Add processing algorithm for generating maximum water depth / water level rasters
+
+- Make the plugin work for both QGIS <= 3.28.5 and QGIS > 3.28.5 by making installed h5py version depend on QGIS version
+
+
 June 23 2023
 ^^^^^^^^^^^^
 
