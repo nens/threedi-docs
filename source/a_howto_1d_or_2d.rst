@@ -9,7 +9,7 @@ A common pitfall is to let the choice between 1D and 2D depend mainly on data av
 2D if possible, 1D if needed
 ----------------------------
 
-The :ref:`subgrid method<subgrid_method>` makes it possible to describe open water channels at a very high resolution in the 2D domain. If you have experience with hydrodynamic modelling with software that does not use subgrid, you may be used to schematising waterways in 1D as soon as they are narrower than the 2D computational cell size. This is often not necessary in 3Di. Realizing this may save you a lot of time and reduce the complexity of the schematisation, which also makes analysis easier.
+The :ref:`subgrid method <subgridmethod>` makes it possible to describe open water channels at a very high resolution in the 2D domain. If you have experience with hydrodynamic modelling with software that does not use subgrid, you may be used to schematising waterways in 1D as soon as they are narrower than the 2D computational cell size. This is often not necessary in 3Di. Realizing this may save you a lot of time and reduce the complexity of the schematisation, which also makes analysis easier.
 
 If you are interested in flow that is not strongly dominated by flow in one direction (i.e. along the length of a watercourse), 2D is definitely the best choice. Examples are broad, meandering natural waterways, coasts and estuaries, or flood plains.
 

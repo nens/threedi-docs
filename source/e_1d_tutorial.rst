@@ -1,7 +1,9 @@
 Tutorial 5: Building a 1D model
 =================================
 
-Welcome to the tutorial for building a 1D model in 3Di. In this tutorial, you will learn to work with a 1D flow model in 3Di. We will start with a database file (.sqlite) that is already partly filled in. The sqlite is not yet complete, so we will add information to the model to get a basic working model that you can run on the 3Di live site.
+.. Deze pagina wordt helemaal geupdate
+
+Welcome to the tutorial for building a 1D model in 3Di. In this tutorial, you will learn to work with a 1D flow model in 3Di. We will start with a database file (.sqlite) that is already partly filled in. The sqlite is not yet complete, so we will add information to the model to get a basic working model that you can run on 3Di Live.
 The system in the .sqlite is a non-existent combined sewerage system. The model does not represent a real-world system, but is meant to get acquainted with the different components of a 1D combined sewerage system.
 
 You will learn the following skills in this tutorial:
@@ -10,13 +12,11 @@ You will learn the following skills in this tutorial:
 *	Get acquainted with the different elements of a 1D combined sewerage system
 *	Configure the settings of a 1D model
 *	Validate your model schematization using the schematization checker
-*	Compile your model on the 3Di live site
+*	Compile your model on 3Di Live
 
 Before you start, please make sure to:
 
 * Install the 3Di Modeller Interface. Please see :ref:`3di_instruments_and_downloads` for instructions.
-* Install the 3Di toolbox in the Modeller Interface. Please see :ref:`plugin_installation` for instructions.
-* Gain access to the 3Di web portal. Please see the :ref:`guide_to_portal` for instructions.
 * Download the dataset for this tutorial `here <https://nens.lizard.net/media/3di-tutorials/Tutorial_1D_gemengd.zip>`__.
 
 
@@ -284,7 +284,7 @@ Dist_calc_points: This parameter controls the distance between the calculation p
     :header: "Setting", "Value for this tutorial", "Comments"
 
     "Sewerage_type", "N/A", "Already filled in. '0:mixed', since we are modelling a mixed sewerage system."
-    "Zoom_level", "N/A", "Already filled in. This parameter determines the visibility in the 3Di live site."
+    "Zoom_level", "N/A", "Already filled in. This parameter determines the visibility in 3Di Live."
 
 .. csv-table:: Characteristics
     :header: "Setting", "Value for this tutorial", "Comments"
@@ -405,7 +405,7 @@ Since the model in the .sqlite is a mixed sewerage system, the outlets in the mo
 .. csv-table:: Visualization
     :header: "Setting", "Value for this tutorial", "Comments"
 
-    "Zoom_category", "N/A", "Determines the visibility in the 3Di live site; already filled in"
+    "Zoom_category", "N/A", "Determines the visibility in 3Di Live; already filled in"
     "Sewerage", "Yes", "Already filled in"
     "External", "No", "Already filled in"
 
@@ -476,7 +476,7 @@ A short description of the model validation is given here. For a general guide s
 Verify the schematisation using the schematisation checker
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Before sending the model to the web portal we want to check the schematization. We can use the schematization checker for this. It checks the model tables for many possible errors that cause the model to crash when you want to compile the model. In order to check your model schematization, follow these steps:
+Before sending the model to 3Di Management we want to check the schematization. We can use the schematization checker for this. It checks the model tables for many possible errors that cause the model to crash when you want to compile the model. In order to check your model schematization, follow these steps:
 
 A.	Select the **commands for working with 3Di models** button. On the right of your screen, a tab "3Di" will open. [1]
 B.	Expand the "Step 1 – Check data" line and click on the **raster checker**. [2]
@@ -495,7 +495,7 @@ The output file is an excel file in which all warnings and errors that were foun
 -	“Invalid timeseries”
 -	“Pumpstation.lower_stop_level should be higher than Manhole.bottom_level”
 
-If you do not get any further warnings or errors, your model is successfully validated and is ready to upload to the web portal.
+If you do not get any further warnings or errors, your model is successfully validated and is ready to upload to 3Di Management.
 
 
 
@@ -509,11 +509,8 @@ Upload your model
 
 See :ref:`uploading_schematisation` for how to upload your model.
 
-The model is now also available on the `3Di Livesite <https://www.3di.live/>`_ and the `management screens <https://management.3di.live>`_.
+The model is now also available on `3Di Live <https://www.3di.live/>`_ and `3Di Management <https://management.3di.live>`_.
 
 Run your model
 ++++++++++++++
 
-
-You have now build a 1D flow model for a mixed sewerage system! You can now run your model via the 3Di Live Site (:ref:`guide_to_portal`) or via the 3Di Modeller Interface (:ref:`simulate_api_qgis`).
-It will be available under the name you gave it.

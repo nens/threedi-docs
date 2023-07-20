@@ -1,9 +1,12 @@
+
+.. This document is not included anywhere in the documentation. But I don't know where to put it. Pipe flow could be put under 1d flow?
+
 .. _sewerage:
 
 Pipe flow
 =========
 
-The dynamic flow through complex sewer networks can be computed fast, stable and accurately by 3Di. 3Di can be used to model any sanitary, storm and combined sewer system, offering complete hydrology and hydraulic simulation and real-time control (RTC) modeling capabilities. 3Di uses the complete â€œde Saint Venant Equationsâ€, including backwater and transient flow phenomena. The computational core has an automatic drying and pressurized procedure and handles both subcritical and supercritical flow. The computation is 100% mass conservative, machine precision.
+The dynamic flow through complex sewer networks can be computed fast, stable and accurately by 3Di. 3Di can be used to model any sanitary, storm and combined sewerage system, offering complete hydrology and hydraulic simulation and real-time control (RTC) modeling capabilities. 3Di uses the complete â€œde Saint Venant Equationsâ€, including backwater and transient flow phenomena. The computational core has an automatic drying and pressurized procedure and handles both subcritical and supercritical flow. The computation is 100% mass conservative, machine precision.
 
 .. figure:: image/b_sewerage_overview.png
    :alt: b_sewerage_overview
@@ -19,7 +22,7 @@ A sewer network is a special type of 1D network. Another type of the 1D network 
 
 The 1D sewer network can be linked to a 2D terrain model above that network. The spatial boundaries of the 1D and 2D model can be different. This implies that if desired, only a specific part of the 1D network can be covered by the 2D network, or the other way around.
 
-The 1D sewer network can also be linked to a 0D network of nodes. The 0D nodes can be used for rainfall runoff inflow and dry weather flow. In the rainfall runoff process various types of paved and unpaved areas, such as streets, roofs and parking lots can be simulated (see :ref:`inflow`). Detailed infiltration as a time-dependent process following the HORTON equation is also available.
+The 1D sewer network can also be linked to a 0D network of nodes. The 0D nodes can be used for rainfall runoff inflow and dry weather flow. In the rainfall runoff process various types of paved and unpaved areas, such as streets, roofs and parking lots can be simulated (see :ref:`0d_inflow`). Detailed infiltration as a time-dependent process following the HORTON equation is also available.
 
 Schematization
 --------------

@@ -327,7 +327,7 @@ Design
     | Rain 15 statistically occurs once every 250 years. The duration of this event is 48 hours, with a constant rain intensity of 2.7 mm/h. (T=250.0 year, V=130 mm, Standard rain event (regional) from Delta Programme 2019).
     | Rain 16 statistically occurs once every 1000 years. The duration of this event is 48 hours, with a constant rain intensity of 3.4 mm/h. (T=1000.0 year, V=160 mm, Standard rain event (regional) from Delta Programme 2019).
 
-    These so-called design rain events are time series, which are traditionally used to test the functioning of a sewer system in the Netherlands.
+    These so-called design rain events are time series, which are traditionally used to test the functioning of a sewerage system in the Netherlands.
 
 
 
@@ -376,7 +376,7 @@ Custom
 Structure controls
 ------------------
 
-Structure controls provide the capability to modify hydraulic structure parameters within a water system by leveraging flow variables. These flow variables serve as triggers for actions on a structure, based on predefined rules specific to the type of control employed. For a comprehensive understanding, visit the :ref:`structures` and the :ref:`control` pages.
+Structure controls provide the capability to modify hydraulic structure parameters within a water system by leveraging flow variables. These flow variables serve as triggers for actions on a structure, based on predefined rules specific to the type of control employed. For a comprehensive understanding, visit the :ref:`control` pages.
 
 
 To incorporate structure controls, there are two methods: utilizing a simulation template or uploading a JSON file. When using a simulation template, you have four options:
@@ -417,7 +417,7 @@ If you choose a model that incorporates breaches for simulation, a breaches file
 Generate saved state after simulation
 -------------------------------------
 
-When you check this option the end result of the simulation will be saved as a saved state. A saved state file can be used as an initial condition. For more information, see: :ref:`state_files`.
+When you check this option the end result of the simulation will be saved as a saved state. A saved state file can be used as an initial condition. For more information, see: :ref:`saved_states`.
 
 |
 
@@ -481,7 +481,7 @@ Old table
 The most used API options are included in the newest version of the plugin. Important consideration is a difference between API v1 and v3 how initial waterzylevels, laterals and boundaries are handled. The current status is as follows:
 
 ============================= =========================== =========================================== ==================================
-Forcings                        Live site                  "3Di Models and Simulations" Wizard         OpenAPI Client
+Forcings                        3Di Live                  "3Di Models and Simulations" Wizard         OpenAPI Client
 ============================= =========================== =========================================== ==================================
 Boundary conditions            SQLite                      SQLite                                      SQLite, can be overwritten (a)
 Initial water level 2D         SQLite, always 'max'        Add raster/global in wizard                 Add raster/global to simulation
@@ -489,8 +489,8 @@ Initial water level 1D         SQLite                      Add predefined/global
 Initial water level GW         SQLite                      Add predefined/global in wizard             Add predefined to simulation
 Laterals  1D and 2D            Not used                    Add in wizard with CSV (b)                  Add CSV
 Breaches                       Open in gui                 Open breach using wizard                    Open breach
-Precipitation                  Add using live site         Add using wizard (c)                        Add to simulation
-Wind                           Add using live site         Add using wizard                            Add to simulation
+Precipitation                  Add using 3Di Live          Add using wizard (c)                        Add to simulation
+Wind                           Add using 3Di Live          Add using wizard                            Add to simulation
 Control Structures             Not used from SQLite        Not used from SQLite                        Add to simulation
 DWF (inflow)                   Not used from SQLite        Add as laterals, use dwf calculator         Add to simulation as lateral CSV
 Settings                       SQLite                      SQLite                                      SQLite, can be overwritten

@@ -15,7 +15,7 @@ To make the required changes to the global settings, :ref:`load your schematisat
 - In the tab *Extra options 1D*, check if the settings have the correct values
 
 	.. csv-table:: Global settings for models with 1D elements
-		:name: inf_settings
+		:name: inf_settings_1d
 		:header: "Setting", "Attribute name", "Suggested value", "Comments"
 
 		"Advection 1D", "advection_1d", "1", "In most cases, you will want to include the effect of advective forces on flow in the 1D domain"

@@ -1,4 +1,4 @@
-3Di Live Site
+3Di Live
 ===============
 
 .. toctree::
