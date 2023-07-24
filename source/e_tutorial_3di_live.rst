@@ -84,15 +84,15 @@ Stop the session via the User menu (|user_menu|) > Quit simulation. You will be 
 
 
 
-.. |map_layer| image:: /image/e_map_layer.png
+.. |map_layer| image:: /image/pictogram_map_layer.png
     :scale: 80%
-.. |rain_tool| image:: /image/e_rain_tool.png
+.. |rain_tool| image:: /image/pictogram_rain_tool.png
     :scale: 80%
-.. |line_selection_tool| image:: /image/e_line_selection_tool.png
+.. |line_selection_tool| image:: /image/pictogram_line_selection_tool.png
     :scale: 75%
-.. |selection_tool| image:: /image/e_selection_tool.png
+.. |selection_tool| image:: /image/pictogram_selection_tool.png
     :scale: 80%
-.. |user_menu| image:: /image/e_user_menu.png
+.. |user_menu| image:: /image/pictogram_user_menu.png
     :scale: 60%
     
 
