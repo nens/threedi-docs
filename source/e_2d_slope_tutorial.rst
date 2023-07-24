@@ -113,7 +113,7 @@ You should now see the DEM, located just east of Las Vegas. In the Layers panel,
 Uploading the schematisation
 ----------------------------
 
-The next step is to check the schematisation, upload its as a first :ref:`revision` and process it into a :ref:`threedimodel`. All these steps are covered by the upload wizard.
+The next step is to check the schematisation, upload it as a first :ref:`revision` and process it into a :ref:`threedimodel`. All these steps are covered by the upload wizard.
 
 #) Click the upload button (|upload|) in the 3Di Models and Simulations panel.
 
