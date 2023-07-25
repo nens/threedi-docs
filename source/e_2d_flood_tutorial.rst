@@ -53,7 +53,7 @@ The first step is to create a new :ref:`schematisation`:
 
 	* Digital elevation model: browse to the DEM file you have downloaded (dem_Nissewaard.tif)
 
-	* Computational cell size: 128
+	* Computational cell size: 20
 
 	* The model area is predominantly: Flat
 
@@ -65,7 +65,7 @@ The first step is to create a new :ref:`schematisation`:
 
 	* Friction file: Leave empty
 
-	* Global 2D friction coefficient: 0.06
+	* Global 2D friction coefficient: 0.03
 
 	* Simulation timestep: 30 s
 
@@ -160,11 +160,13 @@ A channel :ref:`flows <channelflow>` from one connection node to another, has a 
 
 #) Click the *Toggle editing mode* button in the toolbar and save your edits to this layer.
 
+The 'Reference level' corresponds to the bed level of the channel. The 'Bank level' indicates the level at which the channel will :ref:`exchange <1d2d_exchange>` with the 2D field. Initially, it will prioritize this level before considering the elevation of the DEM surrounding the channel or any obstacles. The 'Friction value' for the Manning coefficient, it is derived from the roughness of the grass.
+
 .. _adding_boundary_conditions:
 
 Adding a boundary condition (1D)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-In order for water to flow through the channel a boundary condition must be added. As the channel is a :ref:`1D object <1d_objects>`, a 1D boundary condition will be added with the following steps:
+In order for water to flow through the channel a boundary condition must be added. As the channel is a :ref:`1D object <1d_objects>`, a 1D boundary condition will be added, with the following steps:
 
 #) In the *Layers* panel, in the *1D* group, click the *1D Boundary condition* layer.
 
@@ -179,13 +181,13 @@ In order for water to flow through the channel a boundary condition must be adde
    * Boundary type: Waterlevel
    * Timeseries:
 
-        - 0,3.0
+        - 0,3.5
         - 15,3.5
         - 9999,3.5
 
 #) Do the same for the other end of your channel but fill a different Timeseries:
 
-        - 0,3.5
+        - 0,3.0
         - 15,3.0
         - 9999,3.0
   
@@ -193,13 +195,11 @@ In order for water to flow through the channel a boundary condition must be adde
 
 The use of two distinct time series generates a flow within the channel, carrying water from one end to the other. The direction of this flow is determined by the time series' starting points; water will naturally move from a higher water level (3.5) to a lower water level (3.0).
 
-  .. @OLOF: Zijn deze tijd series een beetje logisch?
-
 
 Drawing the dike (2D)
 ^^^^^^^^^^^^^^^^^^^^^^
 Dikes are automatically read from the DEM. However, if the dike is narrow and the computation cells are large, it might be beneficial to draw the dike using a Linear Obstacle. Follow these steps, and reference the DEM and the :ref:`t4reference-image` and draw the obstacle:
-
+       
 #) In the *Layers* panel, locate the *2D* group, and select the *Linear Obstacle* layer.
 
 #) Enable editing mode by clicking the *Toggle editing mode* button (|toggle_editing|) located in the top left corner.
@@ -214,6 +214,7 @@ Dikes are automatically read from the DEM. However, if the dike is narrow and th
 
 #)  Click the *Toggle editing mode* button in the toolbar to exit editing mode and save your edits to this layer.
 
+.. _adding_potential_breach:
 
 Potential Breach (1D-2D)
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -234,8 +235,8 @@ See the :ref:`t4reference-image` for a reference where to draw the potential bra
    * ID: filled in automatically
    * Code: a name to identify your potential breach
    * Display name: a name to identify your potential breach
-   * Exchange level [m MSL]: 3
-   * Max breach depth [m]: leave empty
+   * Exchange level [m MSL]: 4
+   * Max breach depth [m]: 1
    * Levee material: Sand
    * Channel ID: filled in automatically
 
@@ -243,6 +244,9 @@ See the :ref:`t4reference-image` for a reference where to draw the potential bra
 
 #) Click the *Toggle editing mode* button in the toolbar and save your edits to this layer.
 
+The 'Exchange level' represents the water level that the channel must reach to initiate a breach and exchange water. Additionally, a breach can also be "opened", similar to creating a hole in a dike. The 'Max breach depth' signifies the maximum depth of this opening, measured from the top of the dike.
+
+.. VRAAG: klopt deze uitleg een beetje?
 
 The final result should look something like this, with the location of the channel (blue), the boundary conditions (purple), the dike obstacle (brown), and the potential breach (black) from the channel to the field behind the dike:
 
@@ -285,7 +289,9 @@ A channel can also be added to the schematisation while it is outside of the DEM
 
 #) Click *OK* and click the *Toggle editing mode* button in the toolbar and save your edits to this layer.
 
-.. OLOF: hoe voeg je hier dan een potential breach aan toe?
+#) You can add a potential breach in the same way as you did in :ref:`adding_potential_breach`. Make sure to snap the start of the potential breach to the channel and let it end on the DEM behind the exchange line.
+
+.. VRAAG: klopt dit zo?
 
 Uploading a revision
 ----------------------
@@ -317,7 +323,7 @@ You will now start a simulation with the 3Di model you have created in the 3Di M
 
 #) Select your model and simulation template and click *Next*. A new dialog opens with several options for your simulation.  
 
-#) Check the box for *Include breaches*. Click *Next*.
+#) Check the box for *Include breaches* (keep *Include initial conditions* and * Include boundary conditions* checked). Click *Next*.
 
 #) Give your simulation a name. Click *Next*.
 
@@ -327,13 +333,18 @@ You will now start a simulation with the 3Di model you have created in the 3Di M
 
 #) Accept the Initial conditions as they are by clicking *Next*.
 
-#) Accept the Breaches as they are by clicking *Next*.
+#) Fill in the following parameters for Breaches and then click *Next*.
 
-    .. OLOF: of moet hier wel iets anders ingesteld worden?
+    * ID of breach: 1 (if your model only contains 1 breach)
+    * Duration till max depth: 0.100 hours
+    * Start after: 3600 sec
 
 #) Accept the simulation settings as they are by clicking *Next*. 
 
 #) Check the summary of your simulation and click *Add to queue*.  
+
+
+The 'Duration till max depth' refers to the time it takes for the breach to reach its maximum depth after it starts forming. The speed at which the maximum width of the breach is attained depends on the material properties. As for the 'Start after' parameter, it is set to begin one hour after the start of the simulation.
 
 Your simulation will start as soon as a calculation node is available for your organisation. Note: the number of available calculation nodes depends on your 3Di subscription. 
 
@@ -341,7 +352,6 @@ In the 3Di Models and Simulations panel, click *Simulate*. An overview is given 
 
 .. TODO: to acces the results.. (dit nog toevoegen aan deze tutorial?)
 
-.. can remove the section below here if you do not find it necessary. 
 
 Running a simulation with 3Di Live
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

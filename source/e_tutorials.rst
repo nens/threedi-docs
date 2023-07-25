@@ -14,3 +14,4 @@ If you are looking for instructions on more advanced topics, please check out th
    e_2d_tutorial
    e_2d_slope_tutorial
    e_2d_flood_tutorial
+   e_flood_adaptation_tutorial
