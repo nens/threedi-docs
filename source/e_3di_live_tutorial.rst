@@ -28,6 +28,8 @@ Before you get started:
 
 * At least one 3Di model should be available for your organisation. If this is not the case, you may do :ref:`tutorial 2 <tutorial2_2dflatmodel>` first.
 
+.. _loading_model_3di_live:
+
 Loading a model
 ---------------
 

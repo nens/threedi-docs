@@ -10,8 +10,8 @@ If you are looking for instructions on more advanced topics, please check out th
 .. toctree::
    :maxdepth: 1 
 
-   e_tutorial_3di_live
+   e_3di_live_tutorial
    e_2d_tutorial
    e_2d_slope_tutorial
    e_2d_flood_tutorial
-   e_flood_adaptation_tutorial
+   e_2d_flood_adaptation_tutorial.rst
