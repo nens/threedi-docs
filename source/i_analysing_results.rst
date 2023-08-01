@@ -1,48 +1,46 @@
-.. TODO: Update this page when the toolbox plugin is gone
+.. TODO: - show the new 3Di Results manager panel
+.. TODO: - Temporal Controler instead of animation toolbar 
+.. TODO: - Graph tool is now Time Series plotter 
+.. TODO: - Statistics tool is deprecated. It is replaced by 3Di Results Aggregation (formerly known as the beta tool '3Di Custom Statistics'. Three new processing algorithms are introduced: Cross-sectional discharge, Detect obstacles in DEM (2x). See the built-in documentation for more info.
+.. TODO: - Do not mention that it is 'new' in the docs, because that will require changes once it is no longer new. Explain how things work as if you are explaining it to new users that are not familiar with the 'old' situation. 
 
-.. _view_analyze_mi:
+.. _analysing_results:
 
-Viewing and analyzing results 
+Analysing results 
 ==============================
 
+Once downloaded, the simulation results can be analysed in the 3Di Modeller Interface using the *3Di Results Analysis* plugin. See :ref:`mi_download_res` for information on how to download simulation results. Open the *Results Manager* from the toolbar (|addresultstoolbar|) to load and analyse your results.
 
-Viewing results 
------------------
+.. |addresultstoolbar| image:: /image/i_3di_results_analysis_toolbar.png
+	:scale: 15%
+	
+.. _3di_results_manager:
 
-Results can be viewed in the Modeller Interface with the use of the 3Di Toolbox.
+Results Manager
+-------------------
 
-.. TODO: into aanpassen en verwijzing toevoegen.
+The Results Manager can be used to load or remove the results from the 3Di Modeller Interface.
+It can also be used to show the results through time using the *Temporal Controller*.
 
-Results
-^^^^^^^
+Once you have loaded the results you have a toolbox at your disposal to help you analyse them.
 
-After a simulation is finished the results will be stored on our servers for 7 days. The files can be download via the **RESULTS** button in the "3Di Models and Simulations". 
-These files are a gridadmin.h5, results_3di.nc (the NetCDF) and log files. For information on the results, see :ref:`3dinetcdf`.
-
-.. TODO: ref Models and simulations toevoegen.
-
-
-
-
-.. figure:: image/d_qgisplugin_apiclient_download_panel.png
-    :alt: Example CSV
-
-
-*These same files can be extracted from lizard, including post-processing maps that are created when 'Post-processing in Lizard' is activated in the wizard.*
-*See :ref:`simulate_api_qgis_post_processing`.*
-
-.. TODO: dit opschonen en ref toevoegen.
-
-After download the NetCDF can be loaded together with the spatialite using **the 3Di Toolbox** as described below.
-
-
+- **Time Series Plotter** to plot your results in a clear graph.
+- **Sideview Tool** to analyze the water levels through the simulation in your 1D domain.
+- **3Di Result Aggregation** to quickly aggregate the results over the entire simulation, using preset outputs and styling.
+- **Water Balance Tool** to determine the water balance for a given area that takes all flows in and out of the area into account.
+- **Show logfile** to see the logging of the simulation.
 
 .. _load_model_results:
     
-Load 3Di model and results
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Load results into 3Di Modeller Interface
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-A schematisation can be loaded by clicking the database icon with the blue plus-sign in the 3Di Toolbox in the toolbar (|addresults|). A new window will be opened. 
+The results can be loaded into the 3Di Modeller Interface using *3Di Results Analysis*. By clicking the upperright icon (|addresults|) you can search for the specific results you want to analyse. You see all available results that have been downloaded to your local 3Di working directory. Select the results you want to analyse and click either *Load computational grid* or *Load simulation results*. Both options will load the computational grid into the Layers panel, but the latter will also make sure you can analyse the results.
+
+.. |addresults| image:: /image/i_add_results.png
+	:scale: 90%
+
+
 
 1) Under 'Model' you need to load the Sqlite containing your model 
 In case you are loading your model schematisation for checking and editing your Sqlite, step 2 is not necessary.  
@@ -50,11 +48,6 @@ In case you are loading your model schematisation for checking and editing your 
 3) After the loading finished, click 'Close' to return to the QGIS interface
 
 
-.. figure:: image/d_qgisplugin_select_model_results.png
-    :alt: Load 3Di model and results
-
-
-.. |addresults| image:: /image/pictogram_addresults.png
 
 
 .. _analyse_model_results_with_modeller_interface:
