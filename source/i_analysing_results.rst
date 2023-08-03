@@ -9,36 +9,60 @@
 Analysing results 
 ==============================
 
-Once downloaded, the simulation results can be analysed in the 3Di Modeller Interface using the *3Di Results Analysis* plugin. See :ref:`mi_download_res` for information on how to download simulation results. Open the *Results Manager* from the toolbar (|addresultstoolbar|) to load and analyse your results.
+See :ref:`mi_download_res` for information on how to download simulation results.
+Once downloaded, the simulation results can be analysed in the 3Di Modeller Interface with the *Results Analysis* plugin. 
 
-.. |addresultstoolbar| image:: /image/i_3di_results_analysis_toolbar.png
-	:scale: 15%
-	
+.. figure:: /image/i_3di_results_analysis_toolbar.png
+
 .. _3di_results_manager:
 
 Results Manager
 -------------------
 
-The Results Manager can be used to load or remove the results from the 3Di Modeller Interface.
-It can also be used to show the results through time using the *Temporal Controller*.
+Open the *Results Manager* from the toolbar (|addresultstoolbar|) to load and analyse your results. By clicking the upperright icon (|addresults|) you can search for the simulation results you want to analyse. You can choose from all simulation results that have been downloaded to your local 3Di working directory. Select the one you want to analyse and click either *Load computational grid* or *Load simulation results*. Both options will load the computational grid into the Layers panel, but the latter option is required to see the results.
 
-Once you have loaded the results you have a toolbox at your disposal to help you analyse them.
+Once the results have been loaded into the 3Di Modeller Interface, you have a toolbox at your disposal to help you analyse them.
+You can remove a set of results first selecting the one you want to remove and then clicking the upperright icon (|removeresults|).
 
-- **Time Series Plotter** to plot your results in a clear graph.
-- **Sideview Tool** to analyze the water levels through the simulation in your 1D domain.
+*Note: By hoovering over certain parts of the Results Manager helpful tooltips will appear.
+
+.. Ik snap het hele toctree gebeuren niet helemaal..
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Tools to analyse simulation results
+   :name: Tools to analyse simulation results
+   
+   i_temporal_controller
+   i_time_series_plotter
+   i_sideview_tool
+   i_results_aggregation
+   i_water_balance_tool
+   i_simulation_logging
+ 
+- :doc:`i_temporal_controller` to show the results through time.
+- :doc:`i_time_series_plotter` to plot the results in a graph.
+- :doc:`i_sideview_tool` to analyze the water levels through the simulation in your 1D domain.
 - **3Di Result Aggregation** to quickly aggregate the results over the entire simulation, using preset outputs and styling.
 - **Water Balance Tool** to determine the water balance for a given area that takes all flows in and out of the area into account.
 - **Show logfile** to see the logging of the simulation.
 
+
+.. |addresultstoolbar| image:: /image/i_3di_results_analysis_toolbar_results_manager.png
+	:scale: 20%
+
+.. |addresults| image:: /image/i_add_results.png
+	:scale: 90%	
+.. |removeresults| image:: /image/i_remove_results.png
+	:scale: 90%	
+
+.. |temporalcontroller| image:: /image/i_temporal_controller.png
+	:scale: 90%	
+	
 .. _load_model_results:
     
 Load results into 3Di Modeller Interface
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The results can be loaded into the 3Di Modeller Interface using *3Di Results Analysis*. By clicking the upperright icon (|addresults|) you can search for the specific results you want to analyse. You see all available results that have been downloaded to your local 3Di working directory. Select the results you want to analyse and click either *Load computational grid* or *Load simulation results*. Both options will load the computational grid into the Layers panel, but the latter will also make sure you can analyse the results.
-
-.. |addresults| image:: /image/i_add_results.png
-	:scale: 90%
 
 
 
