@@ -3,9 +3,9 @@
 Temporal Controller
 ===================
 
-With the Temporal Controller you can see your results through time. The Temporal Controller is a native features of QGIS. To use this tool, you first need to click the (|closed_eye|) in front of your results in the *Results Manager*. If you have loaded more than one set of results, the |opened_eye| shows the set that is used in the visualisation.
+With the Temporal Controller you can see your results through time. The Temporal Controller is a native features of QGIS and is also usedful with other results tools. To use this tool on the full extent of your model, you first need to click the (|closed_eye|) in front of your results in the *Results Manager*. If you have loaded more than one set of results, the |opened_eye| shows the set that is used in the visualisation.
 
-The results are visualised on the flowlines, 1D nodes and 2D computational cells (see :ref:`3dinetcdf`` for more information on the possible flow-variables).
+The results are visualised on the flowlines, 1D nodes and 2D computational cells (see :ref:`3dinetcdf` for more information on the possible flow-variables).
 
 Temporal Controller panel
 ---------------------------
