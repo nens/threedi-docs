@@ -12,8 +12,6 @@ Analysing results
 See :ref:`mi_download_res` for information on how to download simulation results.
 Once downloaded, the simulation results can be analysed in the 3Di Modeller Interface with the *Results Analysis* plugin. 
 
-.. figure:: /image/i_3di_results_analysis_toolbar.png
-
 .. _3di_results_manager:
 
 Results Manager
