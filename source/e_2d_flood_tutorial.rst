@@ -14,7 +14,7 @@ Learning objectives
 --------------------
 You will learn the following in this tutorial:
 
-* Add channels to a 2D model.
+* Adding 1D channels to a model.
 * Add boundary conditions to a channel.
 * Add a linear obstacle to a 2D model.
 * Create a potential breach event in a 2D model.
