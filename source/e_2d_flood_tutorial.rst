@@ -18,7 +18,7 @@ You will learn the following in this tutorial:
 * Adding boundary conditions to a 1D channel.
 * Add a linear obstacle to a 2D model.
 * Create a potential breach event in a 2D model.
-* Simulate the model with a breach event.
+* Simulating the model with an active breach event.
 
 
 Preparation
