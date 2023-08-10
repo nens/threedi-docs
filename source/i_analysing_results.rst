@@ -1,5 +1,3 @@
-.. TODO: - Statistics tool is deprecated. It is replaced by 3Di Results Aggregation (formerly known as the beta tool '3Di Custom Statistics'. Three new processing algorithms are introduced: Cross-sectional discharge, Detect obstacles in DEM (2x). See the built-in documentation for more info.
-.. TODO: - Do not mention that it is 'new' in the docs, because that will require changes once it is no longer new. Explain how things work as if you are explaining it to new users that are not familiar with the 'old' situation. 
 
 .. _analysing_results:
 
