@@ -46,7 +46,7 @@ The 3Di Modeller Interface is a customized version of QGIS, shipped with several
 
 - :doc:`i_plugin_models_simulation`: for interaction with the 3Di API: uploading and downloading schematisations, starting and stopping simulations, downloading results.
 
-- :doc:`i_plugin_toolbox`: for analysing simulation results
+- :ref:`3di_results_manager`: for analysing simulation results
 
 - *3Di Customisations* takes care of the user interface customization: the user interface is simplified, some colors are different and the application name, logo and splash screen are changed.
    

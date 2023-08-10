@@ -17,6 +17,7 @@ The Sideview Tool also works if you have only loaded the computational grid, wit
 
 .. figure:: image/i_sideview_tool.png
 	:alt: Sideview Tool
+	:scale: 75%
 
 
 .. |sideviewtooltoolbar| image:: image/i_3di_results_analysis_toolbar_sideview.png

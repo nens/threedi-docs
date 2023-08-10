@@ -267,7 +267,7 @@ The dry weather flow that you add to your simulation, will be processed as later
 
 **Follow these steps to generate the dry weather flow CSV file:**
 
-- Click on 'Processing' in Menu bar and then 'Toolbox'
+- Open the Processing Toolbox. You can find it by going to 'Processing' in the menubar and select 'Toolbox'. Alteratively, you can click |processing_toolbox_icon| in the attributes toolbar (or use the keyboard shortcut CTRL + ALT + T).
 - Click on '3Di' > 'Dry weather flow' > 'DWF Calculator'
 - Set the 'Input spatialite'
 - Set a name and location to save the file under 'Output CSV'
@@ -285,6 +285,9 @@ The dry weather flow that you add to your simulation, will be processed as later
       | Defaults to a pattern specified by Rioned.
 
   - 'Output CSV': csv file to which the output 1d laterals are saved. This will be the input used by the API Client.
+
+
+.. |processing_toolbox_icon| image:: /image/processing_toolbox_icon.png
 
 |
 

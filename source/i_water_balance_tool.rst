@@ -11,7 +11,7 @@ This is the only results tool that requires specific aggregation variables. If t
 3) Choose between flow (m\ :sup:`3`/s) (default) or cumulative flow (m\ :sup:`3`). 
 4) Select the temporal units that are shown on the X-axis. Choose between time in hours (default), minutes or seconds.
 5) Activate or deactivate all categories in the graph.
-6) Select or unselect the categories you are interested in. By hovering the cursor over each category, the corresponding plane in the graph lights up and the corresponding flowlines or nodes will be marked on the map. The change in volume per domain (1D or 2D) is shown as a dotted line. The volume change is the result of the total positive and negative flow (inflow and outflow of the area, respectively).
+6) Select or unselect the categories you are interested in. By hovering the cursor over each category, the corresponding plane in the graph lights up and the corresponding flowlines or nodes will be marked on the map. The change in volume per domain (1D or 2D) is shown as a dotted line. The volume change is the result of the total positive and negative flow (i.e. the inflow and outflow of the area, respectively).
 
 \*Note: The different flow categories are 'stacked' in the graph. This means the (cumulative) flows are added to each other when multiple categories are activated. 
 

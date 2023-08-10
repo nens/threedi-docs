@@ -8,8 +8,8 @@ The Watershed Tool (|watershedtoolbar|) allows you to determine the upstream and
 .. @Leendert: Is this still correct?
 .. note::
    -  Pumplines (pumping stations that pump water from one location in the model to another) are not taken into account in the network analysis.
-   -  Interflow is not taken into account in the network analysis
-   -  Groundwater flow is taken into account but has not been tested yet, please check the results
+   -  Interflow is not taken into account in the network analysis.
+   -  Groundwater flow is taken into account but has not been tested yet, please check the results.
 
 .. @Leendert: is it still the case that v2_surfaces are not supported?
 
@@ -17,6 +17,7 @@ The Watershed Tool (|watershedtoolbar|) allows you to determine the upstream and
 .. figure:: image/i_watershed_tool.png
 	:alt: Watershed Tool
 	:align: right
+	:scale: 65%
 
 	
 **Inputs**
@@ -42,7 +43,6 @@ The Watershed Tool (|watershedtoolbar|) allows you to determine the upstream and
 10) If this box is checked a polygon will be drawn to create a smoother polygon of the catchments, instead of the blocky computational cells.
 11) If you have derived multiple catchments at various locations you can browse the result sets.
 12) Click 'Clear results' to remove all results sets from the tool.
-
 
 
 .. |watershedtoolbar| image:: image/i_3di_results_analysis_toolbar_watershed.png
