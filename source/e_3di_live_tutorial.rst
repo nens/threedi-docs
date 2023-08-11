@@ -28,6 +28,8 @@ Before you get started:
 
 * At least one 3Di model should be available for your organisation. If this is not the case, you may do :ref:`tutorial 2 <tutorial2_2dflatmodel>` first.
 
+.. _loading_model_3di_live:
+
 Loading a model
 ---------------
 
@@ -40,7 +42,7 @@ Loading a model
 Exploring the model
 -------------------
 
-On the left side of the screen, you find a toolbar. The tools here are used to inspect the model, add forcings (discharge, pump, rain, or wind), or edit the model during the simulation (editing the DEM or adding a flood barrier). The layers button at the bottom-left opens the *Map Layers* panel, where you can change the visualisation to your liking.
+On the left side of the screen, you find a toolbar. These tools are used to inspect the model, add forcings (discharge, pump, rain, or wind), or edit the model during the simulation (editing the DEM or adding a flood barrier). The layers button at the bottom-left opens the *Map Layers* panel, where you can change the visualisation to your liking.
  
 #)	Open the *Map Layers* (|map_layer|) panel.
 
@@ -64,9 +66,8 @@ Starting the simulation
 #) Now use the :ref:`line_selection_tool` (|line_selection_tool|) to draw a side view of the flooded area. Notice how the water level changes as the simulation progresses.
 
 \
-\
 
-If your model also contains 1D elements (such as channels, pipes, or weirs) you see flow through these, visualized with moving dots. The size of the dots represents the discharge, the speed at which they move represents the velocity.
+If your model also contains 1D elements (such as channels or pipes) you see flow through these, visualized with moving dots. The size of the dots represents the discharge, the speed at which they move represents the flow velocity.
 
 #) Use the :ref:`point_selection_tool` (|selection_tool|) and click on a 1D element to see its properties. You can stop the flow through this 1D element by setting it to *Closed* when the simulation is paused. 
 
@@ -84,15 +85,15 @@ Stop the session via the User menu (|user_menu|) > Quit simulation. You will be 
 
 
 
-.. |map_layer| image:: /image/e_map_layer.png
+.. |map_layer| image:: /image/pictogram_map_layer.png
     :scale: 80%
-.. |rain_tool| image:: /image/e_rain_tool.png
+.. |rain_tool| image:: /image/pictogram_rain_tool.png
     :scale: 80%
-.. |line_selection_tool| image:: /image/e_line_selection_tool.png
+.. |line_selection_tool| image:: /image/pictogram_line_selection_tool.png
     :scale: 75%
-.. |selection_tool| image:: /image/e_selection_tool.png
+.. |selection_tool| image:: /image/pictogram_selection_tool.png
     :scale: 80%
-.. |user_menu| image:: /image/e_user_menu.png
+.. |user_menu| image:: /image/pictogram_user_menu.png
     :scale: 60%
     
 
