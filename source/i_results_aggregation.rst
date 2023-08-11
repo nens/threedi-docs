@@ -9,7 +9,7 @@ Running the tool produces temporary layers. If you want to save the output expor
 .. |resultsaggregationtoolbar| image:: image/i_3di_results_analysis_toolbar_aggregation.png
 	:scale: 25%
 	
-.. |savescratchlayer| image:: image/save_scratch_layer.png
+.. |savescratchlayer| image:: image/pictogram_save_scratch_layer.png
 	
 Options
 ^^^^^^^

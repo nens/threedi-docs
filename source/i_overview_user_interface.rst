@@ -11,7 +11,9 @@ The main GUI consist of five components:
 4. **Map View**
 5. **Status Bar**
 
-.. TODO: This image needs to be updated once the modeller interface is updated with the new results analysis tool!
+.. todo: 
+
+	This image needs to be updated once the modeller interface is updated with the new results analysis tool!
 
 .. figure:: image/i_overview_modeller_interface.png
    :alt: 3Di Modeller Interface
@@ -31,6 +33,7 @@ The Modeller interface has 3 pre-installed plugins:
    i_plugin_models_simulation
    i_plugin_schematisation_editor
    i_analysing_results
+
 
 
 .. |modelsSimulations| image:: /image/pictogram_modelsandsimulations.png

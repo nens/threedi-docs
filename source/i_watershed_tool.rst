@@ -48,4 +48,4 @@ The Watershed Tool (|watershedtoolbar|) allows you to determine the upstream and
 .. |watershedtoolbar| image:: image/i_3di_results_analysis_toolbar_watershed.png
 	:scale: 25%
 	
-.. |qgisselecttool| image:: image/qgis_select_tool_icon.png
+.. |qgisselecttool| image:: image/pictogram_qgis_select_tool.png

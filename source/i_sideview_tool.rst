@@ -23,6 +23,6 @@ The Sideview Tool also works if you have only loaded the computational grid, wit
 .. |sideviewtooltoolbar| image:: image/i_3di_results_analysis_toolbar_sideview.png
 	:scale: 25%
 	
-.. |A-icon| image:: /image/i_time_series_plotter_a_icon.png
+.. |A-icon| image:: /image/pictogram_capital_a_icon.png
 	:scale: 120%
 

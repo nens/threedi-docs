@@ -60,7 +60,7 @@ Starting a simulation
 
 You can follow the progress of your simulation by clicking on the 'Simulate' icon in the '3Di Models and Simulations' panel. You can also terminate your simulation by clicking on 'Stop Simulation'. 
 
-Once the simulation is done the results will be available for 7 days. For information on how to get, view and analyze results, see :ref:`mi_download_res` and :ref:`view_analyze_mi`.
+Once the simulation is done the results will be available for 7 days. For information on how to get, view and analyze results, see :ref:`mi_download_res` and :ref:`analysing_results`.
 
 
 
@@ -287,7 +287,7 @@ The dry weather flow that you add to your simulation, will be processed as later
   - 'Output CSV': csv file to which the output 1d laterals are saved. This will be the input used by the API Client.
 
 
-.. |processing_toolbox_icon| image:: /image/processing_toolbox_icon.png
+.. |processing_toolbox_icon| image:: /image/pictogram_processing_toolbox.png
 
 |
 

@@ -39,10 +39,10 @@ The results are automatically styled based on the ranges of the values.
 	:scale: 30%
 	:alt: Temporal Controller - Layers panel
 
-.. |closed_eye| image:: /image/i_temporal_controller_load_results_closed_eye.png
+.. |closed_eye| image:: /image/pictogram_temporal_controller_load_results_closed_eye.png
 	:scale: 100%
 	
-.. |opened_eye| image:: /image/i_temporal_controller_load_results_opened_eye.png
+.. |opened_eye| image:: /image/pictogram_temporal_controller_load_results_opened_eye.png
 	:scale: 100%
 
 
@@ -96,10 +96,10 @@ Additional tools to analyse simulation results
 .. |addresultstoolbar| image:: /image/i_3di_results_analysis_toolbar_results_manager.png
 	:scale: 25%
 
-.. |addresults| image:: /image/i_add_results.png
+.. |addresults| image:: /image/pictogram_add_results.png
 	:scale: 90%	
 	
-.. |removeresults| image:: /image/i_remove_results.png
+.. |removeresults| image:: /image/pictogram_remove_results.png
 	:scale: 90%	
 
 .. |temporalcontroller| image:: /image/i_temporal_controller.png

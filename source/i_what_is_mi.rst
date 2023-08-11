@@ -27,7 +27,7 @@ This user manual is structured along the common workflow:
 * :doc:`i_uploading_and_downloading_schematisations`
 * :doc:`i_running_a_simulation`
 * :doc:`i_downloading_results`
-* :doc:`i_analyzing_results`
+* :doc:`i_analysing_results`
 
 
 .. _mi_technical_setup:

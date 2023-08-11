@@ -7,7 +7,7 @@
 The 3Di Processing Toolbox is an addition to the Processing Toolbox that is native for QGIS. It is a collection of different 3Di tools that can be used for various purposes. The 3Di Processing Toolbox is pre-installed in the Modeller Interface. You can find it by going to 'Processing' in the menubar and select 'Toolbox'. Alteratively, you can click |processing_toolbox_icon| in the attributes toolbar (or use the keyboard shortcut CTRL + ALT + T).
 
 
-.. |processing_toolbox_icon| image:: /image/processing_toolbox_icon.png
+.. |processing_toolbox_icon| image:: /image/pictogram_processing_toolbox.png
 	
 
 Overview of the 3Di Processing Toolbox

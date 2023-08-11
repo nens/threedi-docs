@@ -26,6 +26,6 @@ The plot-data can be exported as image or csv-file. Right-click the plot and cho
 .. |timeseriesplottertoolbar| image:: image/i_3di_results_analysis_toolbar_plotter.png
 	:scale: 25%
 	
-.. |A-icon| image:: /image/i_time_series_plotter_a_icon.png
+.. |A-icon| image:: /image/pictogram_capital_a_icon.png
 	:scale: 120%
 	

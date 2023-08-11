@@ -18,5 +18,5 @@ The results will be downloaded to your local working directory.
 .. |modelsSimulations| image:: /image/pictogram_modelsandsimulations.png
     :scale: 90%
 	
-.. |download_results| image:: /image/i_download_results.png
+.. |download_results| image:: /image/pictogram_download_results.png
 	:scale: 60%
