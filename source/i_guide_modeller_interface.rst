@@ -17,4 +17,4 @@
    i_uploading_and_downloading_schematisations
    i_running_a_simulation
    i_downloading_results
-   i_analyzing_results
+   i_analysing_results

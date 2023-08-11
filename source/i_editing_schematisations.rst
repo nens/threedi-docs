@@ -58,7 +58,7 @@ Please check out these notes to correctly add 3Di features to the schematisation
 
 * **Weir**: The weir consists of exactly 2 vertices, and the *connection nodes* are added automatically.
 
-* **(Impervisous) Surfaces**: First draw the (impervious) surface polygon(s), then add (impervious) surface map lines. These should start on the impervious surface polygon and end at the connection node to which it is mapped.
+* **(Impervious) Surfaces**: First draw the (impervious) surface polygon(s), then add (impervious) surface map lines. These should start on the impervious surface polygon and end at the connection node to which it is mapped.
 
 
 .. tip::

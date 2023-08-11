@@ -1387,7 +1387,7 @@ A quick guide to generate water depth maps:
 
 Processing ^^> Toolbox ^^> 3Di ^^> post-processed results ^^> water depth
 
-Or check out our documentation: :ref:`waterdepthtool`
+Or check out our documentation: :ref:`3di_processing_toolbox`
 
 
 *Extended support for starting simulations using the Modeller Interface*
@@ -1414,9 +1414,7 @@ The following bugs have been fixed:
 February 22nd 2021
 ^^^^^^^^^^^^^^^^^^^^^^
 
-- We now support QGIS 3.16 for our toolbox
-
-Download the latest version of the :ref:`3di_toolbox_plugin`
+- We now support QGIS 3.16 for our toolbox.
 
 Please not that the Modeller Interface is not yet upgraded to QGIS 3.16, we will do so when the QGIS repo's are updated.
 

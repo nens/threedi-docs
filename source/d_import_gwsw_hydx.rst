@@ -5,7 +5,7 @@ Import GWSW HydX
 
 The Urban Water Data Dictionary ('GegevensWoordenboek Stedelijk Water' or GWSW in Dutch) is an open standard for the unambiguous exchange and disclosure of data in urban water management. More information can be found on the `GWSW website <https://data.gwsw.nl/>`_.
 
-The tool can be accessed by :ref:`activating the processing toolbox <processing_toolbox>` > clicking on '3Di' in the toolbox > 'Schematisation' > 'Import GWSW HydX'. 
+The tool can be accessed by :ref:`activating the 3Di Processing Toolbox <3di_processing_toolbox>` > clicking '3Di' in the toolbox > 'Schematisation' > 'Import GWSW HydX'. 
 
 You can use this processing algorithm to import a previously downloaded local dataset, or download a dataset directly from the server.
 
