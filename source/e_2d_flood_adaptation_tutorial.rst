@@ -3,7 +3,7 @@ Tutorial 5: Flood Adaptation measures
 
 Introduction
 -------------
-In this tutorial we will create a flood and apply flood adaptation measures to a 3Di model during a simulation in :ref:`3Di Live <3di_live_introduction>`.
+In this tutorial we will create a flood and apply flood adaptation measures during a simulation in :ref:`3Di Live <3di_live_introduction>`.
 
 The selected area is the town Strand in Western Cape, South Africa. The river Lourens runs past this city and will be flooded in this tutorial.
 
@@ -11,7 +11,7 @@ Learning objectives
 --------------------
 You will learn the following in this tutorial:
 
-* Creating a template from a schematisation.
+* Creating a simulation template.
 * Adding discharge to a river during a simulation.
 * Adding a flood barrier during a simulation. 
 
@@ -21,7 +21,7 @@ Preparation
 Before you get started:
 
 * Make sure you have a 3Di account. Please contact the :ref:`servicedesk` if you need help with this.
-* Install the 3Di Modeller Interface installed, see :ref:`3di_instruments_and_downloads`.
+* Install the 3Di Modeller Interface, see :ref:`3di_instruments_and_downloads`.
 * Download the dataset for this tutorial `here <https://nens.lizard.net/media/3di-tutorials/3di-tutorial-05.zip>`_.
 
 .. Checken dat Wolf zipje erop heeft gezet.
@@ -31,24 +31,24 @@ Creating a new schematisation
 ------------------------------
 Follow these steps to convert the existing Spatialite to a :ref:`schematisation`:
 
-#) Unpack the starter package and save the contents into a folder. The dataset that you downloaded for this tutorial contains an partially configured .sqlite database, a digital elevation model (DEM) and a initial water level raster.
+#) Unpack the downloaded dataset for this tutorial and save the contents into a folder. The dataset for this tutorial contains a partially configured .sqlite database, a digital elevation model (DEM) and an initial water level raster.
 
 #) Open the 3Di Modeller Interface.
 
-#) Click on the 3Di Models and Simulations icon (|modelsSimulations|). You should now see the 3Di Models and Simulations panel.
+#) Click the 3Di Models and Simulations icon (|modelsSimulations|). You should now see the 3Di Models and Simulations panel.
 
 #) In the *Schematisation* section of the 3Di Models and Simulations panel, click the *New* button (|newschematisation|). The *New schematisation* wizard is shown.
 
-#) Fill in a schematisation name, such as 'Tutorial 2D flow adaptation <your_name>'. Select the organisation you want to be the owner of the new schematisation (most users have rights for only one organisation). Tags are optional, you can leave this field empty for now.
+#) Fill in a schematisation name, such as 'Tutorial 2D flood adaptation <your_name>'. Select the organisation you want to be the owner of the new schematisation (most users have rights for only one organisation). Tags are optional, you can leave this field empty for now.
 
-#) Since we are creating a schematisation from an existing Spatialite, select the *Choose file* option. Select the Strand - Western Cape.sqlite file you downloaded and click *Create schematisation*.
+#) Since we are creating a schematisation from an existing Spatialite, select the *Choose file* option. Select the 'Strand - Western Cape.sqlite' file you downloaded and click *Create schematisation*.
 
 
 Viewing the schematisation
 --------------------------
 The schematisation must be imported in the 3Di Modeller Interface to view and modify its contents. The schematisation can be loaded by following these steps:
 
-#) At the top of the 3Di Models & Simulations panel, click on the (blue, underlined) name of your schematisation. Windows Explorer will open; browse to *work in progress/schematisation* and copy the path from the Windows Explorer address bar.
+#) At the top of the 3Di Models & Simulations panel, click the (blue, underlined) name of your schematisation. This will open Windows Explorer. Browse to *work in progress/schematisation* and copy the path from the Windows Explorer address bar.
 
 #) In the 3Di Schematisation Editor toolbar, click the *Load from Spatialite* button (|load_from_spatialite|). Paste the path to the spatialite and click *Open*.
 
@@ -56,7 +56,7 @@ The schematisation must be imported in the 3Di Modeller Interface to view and mo
 
 #) In the Layers panel, reorder the layers such that the OpenStreetMap layer is below the 3Di schematisation.
 
-You should now see the DEM and schematisation located over the town Strand.
+You should now see the DEM and schematisation of the town Strand with a useful background-layer.
 
 
 Uploading the schematisation
@@ -67,45 +67,45 @@ We will now upload the schematisation as a first :ref:`revision` and process it 
 
 #) In the dialog that has appeared, click *New upload* and click *Next* twice.
 
-#) Fill in a commit message. As this is the first revision of this schematisation, you can give provide a short description of what you upload. For example: "Initial upload".
+#) Fill in a commit message. As this is the first revision of this schematisation, you can give provide a short description of what you upload. For example: "Initial upload". *Tip*: it is good practice to be explicit and clear in your commit messages.
 
-#) Click *Start upload*. Check if it is the upload is successful and if the uploaded data is successfully processed into a 3Di model.  
+#) Click *Start upload*. Check whether the upload is successful and the schematisation is successfully processed into a 3Di model.  
 
-Your 3Di model is now ready for simulation! 
+Your 3Di model is now ready to run simulations! 
 
 
 Starting the simulation with discharge in 3Di Live
 ---------------------------------------------------
 
-Now we have created a model, we need to add a forcing to the model. In this case we are going to add a discharge into the Lourens river:
+Now we have created a model, we need to add a forcing to the model. In this case we are going to add discharge to the Lourens river:
 
-#) :ref:`Load <loading_model_3di_live>` the created model in the 3Di Live.
+#) :ref:`Load <loading_model_3di_live>` the created model in 3Di Live.
 
 #) Add a discharge to the Lourens river.
 
     * Click the :ref:`discharge_tool_3di_live` button (|discharge_tool|).
     * Set the *Amount of water* to 30 m3/s. 
     * Set the *Duration* to 24 hours.  
-    * Click *Place on Map* and place the discharge point on the map in near the Broadway Boulevard bridge.
+    * Click *Place on Map* and place the discharge lateral on the map near the Broadway Boulevard bridge.
 
 #) Click the *Play* button at the top centre.
 
-#) Pause the simulation after 1 hours of simulated time (01:00)
+#) Pause the simulation after 1 hour of simulated time (01:00).
 
-#) Zoom in to the areas that are starting to flood. 
+#) Zoom to the areas that are beginning to flood. 
 
-#) Use the :ref:`point_selection_tool` (|selection_tool|) to click on the flooded area. In the panel at the right, graphs are displayed that show how the situation is developing in this location: the water level (in m MSL), water depth (relative to the DEM) and rain intensity are shown.
+#) Use the :ref:`point_selection_tool` (|selection_tool|) on the flooded area. In the panel at the right, graphs are displayed that show how the situation is developing in this location: the water level (in m MSL), water depth (m) and rainfall intensity (m/s) are shown.
 
-#) Now use the :ref:`line_selection_tool` (|line_selection_tool|) to draw a side view of the flooded area. Notice how the water level changes as the simulation progresses. 
+#) Now use the :ref:`line_selection_tool` (|line_selection_tool|) to draw a side view of the flooded area. As the simulation progresses, the water level is updated automatically every output timestep. 
 
-#) Make a screenshot of the inundation you see on the map after 1 hours (CTRL + Print Screen) and paste this into a new paint or word document.  
+#) Take a screenshot of the inundation you see on the map after 1 hours (CTRL + Print Screen) and paste this into a new paint or word document.  
 
-#) Use the line selection tool to determine the waterlevel of the inundated area and write it down.
+#) Use the line selection tool to determine the water level of the inundated area and write it down.
 
 
-Create a simulation template from your schematisation
-------------------------------------------------------
-To store the schematisation with the discharge you added, the schematisation can be saved as a template. This is very useful if you want to reuse the schematisation with the same particular settings. This is especially useful for comparing a schematisation with and without flood adaptation measures or saving a schematisation with a lot of additional forcings (discharge, rain, wind, etc.) for later use.
+Creating a simulation template from your (modified) simulation
+---------------------------------------------------------------
+The simulation (including the discharge you added) can be saved as a template. This is very useful if you want to reuse the simulation with the same settings. This is especially useful for comparing a simulation with and without flood adaptation measures or saving a simulation with a lot of additional forcings (discharge, rain, wind, etc.) for later use.
 
 #) Click *Restart simulation* in the user menu (|user_menu|). 
 
@@ -113,19 +113,17 @@ To store the schematisation with the discharge you added, the schematisation can
 
 #)	Select *Create simulation template from simulation*
 
-#)	Chose a template name (Like: 'Discharge 30m/s for 24 hours') and make sure the boxes: include events, include initials and include settings are checked. Then click *Store results*
+#)	Chose a template name (Like: 'Discharge 30 m/s for 24 hours') and make sure the boxes: 'include events', 'include initials' and 'include settings' are checked. Then click *Store results*.
 
 
-Adding a barrier to your simulation
-------------------------------------
-Before placing the barrier you should analyse where it should be placed.
+Adding a flood barrier to your simulation
+-------------------------------------------
+First we need to determine where the flood barrier should be placed. To do that we need to analyse the elevation of the inundated area and determine the direction the water comes from.
 
-Analyse where the barrier should be placed
+Analysing where the barrier should be placed
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-If we would like to place a barrier to reduce the inundation, we need to analyse the elevation of the inundated area and need to find an area on the map where the water enters the area and analyse if we could place a barrier on this location. 
-
-In the previous simulation you saw that there was some inundation in the urban area adjacent the Lourens river. In this part of the tutorial, we are going to try to reduce this inundation in the urban area. To do this, in real life we would create a barrier with sandbags or a mobile barrier in the current landscape to increase the hight of the riverbank, so the water can't enter the urban area. In 3Di live we can simulate this using the flood barrier tool.
-In real life, if we want to place barriers, roads are a very useful location due to their even surface and the easy access for the supply of the barrier materials.
+In the previous simulation we saw some inundation in the urban area adjacent to the Lourens river. In this part of the tutorial, we will attempt to reduce this inundation. To do this in real life, we would need to create a barrier (e.g. using sandbags or a mobile barrier). In 3Di Live we can simulate this using the flood barrier tool.
+Roads are a very useful location to place flood barriers due to their even surfaces and easy access.
 
 #) :ref:`Load <loading_model_3di_live>` your model in the 3Di Live.
 
@@ -133,39 +131,37 @@ In real life, if we want to place barriers, roads are a very useful location due
 
 #) Use the :ref:`line_selection_tool` (|line_selection_tool|) to analyse the elevation of the riverbank in the inundated urban area.
 
-#)	Use the Line-selection tool to analyse the elevation of the De Ruyter Street (in the south west of your modelled area).
+#)	Use the Line-selection tool to analyse the elevation of the De Ruyter Street (in the south-west of your modelled area).
 
-    The Line-selection tool shows that there is a low point in the De Ruyter Street around the area where the river started inundating the urban area. If we would place a barrier at this place, we could reduce most of the flooding. Unfortunately, there are some buildings that are outside of the barriers. 
+    The Line-selection tool shows a low point in the De Ruyter Street around the area where the flooding began. Placing a barrier here, would reduce most of the flooding. Unfortunately, some buildings would not be protected by the barrier. 
 
-#) Try using the Line-selection tool to find a location for the barrier that saves more houses than placing the barrier on the De Ruyter Street, but which would also be a realistic location of a barrier.
+#) Use the Line-selection tool to find a more suitable location for the barrier, so it would protect more buildings. Make sure the location would also be suitable in a real life scenario.
 
-    The most logical thing to do to save all the houses, is placing the barrier between the houses and the river, but if we take a closer look at the satellite image, we can see that there are four walls surrounding the different gardens of these houses. In a crisis, it takes too much time to first break down these walls and then place a barrier. The De Beers Road however is a realistic area to place the barrier and can be a fine addition to save the houses between the De Beers Road and the Beach Road could be saved by adding a barrier around the houses.
-
-
+    The ideal location for the flood barrier would be between the buildings and the river. But if we take a closer look at the satellite image, we can see that there are walls around each garden. In a crisis, it might take too long to first break down these walls to be able to properly place the flood barrier. The De Beers Road, however, is a realistic area for the flood barrier and will also protect the buildings on the corner of De Beers Road and Beach Road.
 
 Add a barrier to your simulation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-As you have seen earlier in this tutorial, the inundation without a barrier reaches a level of 2.35 mMsl. To make sure the barrier is high enough, place a barrier with a height of 2.5 mMsl at the designated area. Now that we know where the barrier needs to be placed and how high the barrier needs to be, it is time to add it to our simulation:
-
+As we have seen earlier in this tutorial, the inundation reaches 2.35 m MSL, if there is no flood barrier. Therefore, we need to place a flood barrier with a height of at least 2.5 m MSL at the designated location. Now that we know where the barrier needs to be placed and how high it needs to be, it is time to add it to our simulation:
 
 #) Click the :ref:`flood_barrier_tool_3di_live` button (|barrier_tool|).
 
-#)	Fill in the height of 2.5 mMsl.
+#)	Use an elevation of 2.5 m MSL. This is the flood barrier's crest level.
 
 #)	Click *Draw on map*.
 
-#)	Draw a barrier on the map with the location shown in the figure below. If you are finished drawing, click on *Confirm*. 
+#)	Draw a flood barrier on the map as is shown in the figure below. When you are finished drawing, click *Confirm*.
 
-#)	Select the barrier using the Selection tool to check if the height is correct and see what the length of the placed barrier is.
+#)	Select the barrier using the Selection tool to check whether the height is correct and see the total length of the placed flood barrier.
 
 #)	Start the simulation and let it run for 1 hour.
 
-#)	To make a quick comparison, make a screenshot of the results and past this next to the screenshot of the model without barrier.
+#)	To make a quick comparison, take a screenshot of the results and paste it next to the screenshot of the model without barrier. Did the flood barrier properly protect the urban area?
 
 .. figure:: image/t_05_location_barrier.png
    :alt: Location of the barrier
 
    Location of the barrier.
+
 
 
 .. |modelsSimulations| image:: /image/pictogram_modelsandsimulations.png
