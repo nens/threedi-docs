@@ -23,7 +23,7 @@ A new session will be started. During the start up of the model tips for use of 
 
 .. note::
 
-	The number of sessions that can run simultaneously by your organisation depends on your organisation's 3Di subscription. If this limit is reached, the message "Your organization is already running X sessions" will be shown.
+	The number of sessions that can run simultaneously by your organisation depends on your organisation's 3Di subscription. If this limit is reached, the message "Your organisation is already running X sessions" will be shown.
 	
 	If you organisation has a limited number of simulation hours in its subscription, the time that the session is active is subtracted from the available number of hours for the current year.
 	

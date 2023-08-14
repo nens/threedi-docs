@@ -64,13 +64,13 @@ Overview GUI
    :alt: Overview interface Models and Simulation panel
 
 * **User:** Log in by clicking on the arrow and Log out by clicking on the cross.
-* **Schematisation:** Load an existing schematisation of your organization. 
+* **Schematisation:** Load an existing schematisation of your organisation. 
 * **Revisions:** Shows the revision of the currently loaded schematisation.
-* **Download:** Download schematisations that belong to your organization.
-* **Upload:** Upload your schematisation to your organization.
+* **Download:** Download schematisations that belong to your organisation.
+* **Upload:** Upload your schematisation to your organisation.
 * **New:** Create a new schematisation.
 * **Simulate:** Run a simulation with a 3Di model.
-* **Results:** Download results of simulations run by your organization in the past 7 days.
+* **Results:** Download results of simulations run by your organisation in the past 7 days.
 * **Manage:** Redirects you to the :ref:`3Di Management <management_screens_what_is>`, where you can manage your schematisations, revisions and simulations.
 
 

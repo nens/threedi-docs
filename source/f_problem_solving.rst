@@ -257,7 +257,7 @@ Finding a model
 Can't find the model you are looking for?
 Please check the following:
 
-- If you have access to the organization to which the model belongs
+- If you have access to the organisation to which the model belongs
 
 - If the model is available on API v3. Please contact the :ref:`servicedesk` if you need assistance.
 
