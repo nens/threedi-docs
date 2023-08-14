@@ -78,7 +78,10 @@ Between the deepest and highest pixel values within a computational cell and for
 Table step size
 ^^^^^^^^^^^^^^^
 
-The user has control over the table sizes and compression by setting a table step size (table_step_size) for the tables in the global settings. The table step size defines the height interval between succeeding increments. The increment size determines the amount of increments in a table and thus the amount of compression. In 3Di one general table step size can be set for all of the above mentioned tables. However, there are two extra tables step size parameters that can overrule the table step size for some of the tables. The optional table steps size parameters are:
+The user has control over the table sizes and compression by setting a table step size (table_step_size) for the tables in the global settings. The table step size defines the height interval between successive increments. The increment size determines the amount of increments in a table and thus the amount of compression. In 3Di one general table step size can be set for all of the above mentioned tables. However, there are two extra tables step size parameters that can overrule the table step size for some of the tables. The optional table steps size parameters are:
+
+.. todo::
+	Update (e.g. maximum_table_ste_size is missing).
 
 * table_step_size_1d
 * table_step_size_volume_2d

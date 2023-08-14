@@ -403,7 +403,7 @@ Attributes
      - friction_value
      - decimal number
      - Yes
-     - m:sup:`1/2`/s or s/m:sup:`1/3`
+     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
      - Friction or roughness value
    * - Reference level
      - reference_level
@@ -567,7 +567,7 @@ Attributes
      - friction_value
      - decimal number
      - Yes
-     - m:sup:`1/2`/s or s/m:sup:`1/3`
+     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
      - Friction or roughness value
    * - Start connection node ID
      - connection_node_start_id
@@ -1038,7 +1038,7 @@ Attributes
      - friction_value
      - decimal number
      - Yes
-     - m:sup:`1/2`/s or s/m:sup:`1/3`
+     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
      - Friction or roughness value
    * - Sewerage
      - sewerage
@@ -1173,7 +1173,7 @@ Attributes
      - friction_value
      - decimal number
      - Yes
-     - m:sup:`1/2`/s or s/m:sup:`1/3`
+     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
      - Friction or roughness value
    * - Sewerage
      - sewerage
@@ -1349,7 +1349,7 @@ Attributes
      - friction_value
      - decimal number
      - Yes
-     - m:sup:`1/2`/s or s/m:sup:`1/3`
+     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
      - Friction or roughness value
    * - Sewerage
      - sewerage

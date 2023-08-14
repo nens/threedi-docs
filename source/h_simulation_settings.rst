@@ -152,6 +152,8 @@ Limiter for friction depth
 In order to take high resolution depth and roughness variations into account to determine the friction, an estimate is made of the effective frictional depth. For this the actual depth is needed. Similar to the limiter for the cross-sectional area, the actual depth in sloping areas is overestimated. In such case not only the depth to determine the cross-sectional area can be adjusted, but also the depth to determine the effective frictional depth. The friction can therefore be underestimated in sloping areas. Therefor the same limiter can be used to determine the effective frictional depth by switching this limiter on. This limiter is obligated in combination with the limiter_slope_crossectional_area_2d.
 
 
+.. _friction_settings:
+
 Numerical settings for friction
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
