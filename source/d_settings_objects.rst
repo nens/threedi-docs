@@ -3,14 +3,14 @@
 Settings objects
 ================
 
-On this page an overview is given of all settings objects.
+On this page an overview of all settings objects is provided.
 
 .. _global_settings:
 
 Global settings
 ---------------
 
-The global settings of your schematisation. These are grouped in *General*, *Grid*, *Terrain information*, *Time*, *Settings id's*, *Extra options 1D*, and *Extra options 2D*.
+The global settings of your schematisation. These can be grouped into categories: *General*, *Grid*, *Terrain information*, *Time*, *Settings id's*, *Extra options 1D*, and *Extra options 2D*.
 
 Global settings attributes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -38,7 +38,7 @@ Global settings attributes
      - Mandatory
      - Units
      - Description
-     - Group
+     - Category
    * - ID
      - id
      - Integer
@@ -128,14 +128,14 @@ Global settings attributes
      - Text
      - No
      - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
-     - Location of your friction coeffient file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\friction.tif*
+     - Location of your friction coeffient file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\friction.tif*. This superseeds any global friction coefficient.
      - Terrain information
    * - Friction coefficient
      - frict_coef
      - Decimal number
      - Yes
      - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
-     - Defines a global friction coefficient for your schematisation. This is superseded in case a friction coefficient file is provided.
+     - Defines a friction coefficient for your schematisation. This global value is superseded in case a friction coefficient file is provided.
      - Terrain information
    * - Friction type
      - frict_type
@@ -156,14 +156,14 @@ Global settings attributes
      - Text
      - No
      - m MSL
-     - Location of your initial groundwater level file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\initial_groundwater_level.tif*.  See :ref:`groundwater` for more details.
+     - Location of your initial groundwater level file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\initial_groundwater_level.tif*. This superseeds any global initial groundwater level. See :ref:`groundwater` for more details.
      - Terrain information
    * - Initial groundwater level
      - Initial_groundwater_level
      - Decimal number
      - No
      - m MSL
-     - Initial groundwater level. This is superseded in case an initial groundwater level file is provided. See :ref:`groundwater` for more details.
+     - Initial groundwater level. This global value is superseded in case an initial groundwater level file is provided. See :ref:`groundwater` for more details.
      - Terrain information
    * - Initial groundwater level type
      - initial_groundwater_level_type
@@ -177,14 +177,14 @@ Global settings attributes
      - Text
      - No
      - m MSL
-     - Location of your initial water level file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\initial_water_level.tif*.
+     - Location of your initial water level file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\initial_water_level.tif*. This superseeds any global initial water level.
      - Terrain information
    * - Initial water level
      - initial_waterlevel
      - Decimal number
      - Yes
      - m MSL
-     - Global initial water level. This is superseded in case an initial water level file is provided.
+     - Initial water level. This global value is superseded in case an initial water level file is provided.
      - Terrain information
    * - Initial water level type
      - water_level_ini_type
@@ -198,14 +198,14 @@ Global settings attributes
      - Text
      - No
      - m
-     - Location of your interception file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\interception.tif*. See :ref:`interception` for more details.
+     - Location of your interception file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\interception.tif*. This superseeds any global interception value. See :ref:`interception` for more details.
      - Terrain information
    * - Interception global
      - interception_global
      - Decimal number
      - No
      - m
-     - Global interception value. See :ref:`interception` for more details.
+     - Interception value. This global value is superseded in case an interception file is provided. See :ref:`interception` for more details.
      - Terrain information
    * - Wind shielding file
      - wind_shielding_file
@@ -324,14 +324,14 @@ Global settings attributes
      - Decimal number
      - Yes
      - \-
-     - Global distance between calculation points for line elements. Is superseded in case this  is specified with the specific 1D objects.
+     - Distance between calculation points for line elements. This global value is superseded in case this  is specified with the specific 1D objects.
      - Extra options 1D
    * - Manhole storage area
      - manhole_storage_area
      - Decimal number
      - Only when using only 1D-flow without a specified DEM
      - m\ :sup:`2`
-     - Global manhole storage area. This is the surface area that each manhole is given when water reaches above the drain level. Must be left empty when using only 2D-flow.
+     - Manhole storage area. This global value is the surface area that each manhole is given when water reaches above the drain level. Must be left empty when using only 2D-flow.
      - Extra options 1D
    * - Maximum angle for 1D advection
      - max_angle_1d_advection
@@ -391,25 +391,25 @@ Global settings attributes
      - Extra options 2D
 
 
-
 .. _aggregation_settings:
 
 Aggregation settings
 --------------------
 
-You can set multiple aggregation options for each *flow_variable* as long as the *aggregation_method* is not used twice for the same flow_variable.
+You can set multiple aggregation options for each *flow_variable* as long as the *aggregation_method* is not used twice for the same flow_variable. For more information about aggregation, see :ref:`aggregationnetcdf`.
 
 Aggregation settings attributes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. todo::
-	- There are a few errors in the flow variables in the QGIS-table (: 
+	- There are a few errors in the flow variables in the QGIS-table (Schematisation-editor): 
 		- "Waterlevel" should be "Water level"
 		- "Wet cross section" should be "Wet cross-sectional area"
-		- "Volume" should be "Volume"
+		- "Wet surface" should be "Wet surface area"
+		- "Volum" should be "Volume"
 		- Not sure, but I think "Surface source sink discharge" should be "Surface source & sink discharge"
 
-.. list-table:: Attribute Field Descriptions
+.. list-table:: Aggregation settings attributes
    :widths: 20 20 15 10 15 40
    :header-rows: 1
 
@@ -484,7 +484,7 @@ Aggregation settings attributes
 Simple infiltration settings
 ----------------------------
 
-Settings for 'simple' infiltration in models without groundwater.
+Settings for 'simple' infiltration in models without groundwater. For more information on simple infiltration, see :ref:`simpleinfiltration`.
 
 Simple infiltration attributes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -516,25 +516,25 @@ Simple infiltration attributes
      - Decimal number
      - Yes
      - mm/day
-     - Global infiltration rate.
+     - Infiltration rate.  This global value is superseded in case an infiltration rate file is provided.
    * - Infiltration rate file
      - infiltration_rate_file
      - Text
      - No
      - mm/day
-     - Location of your infiltration rate file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\infiltration.tif*.
+     - Location of your infiltration rate file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\infiltration.tif*. This superseeds any global infiltration rate.
    * - Maximum infiltration capacity
      - max_infiltration_capacity
      - Decimal number
      - No
      - m
-     - Global maximum infiltration capacity, which uses the sum of pixel values per 2D cell. Once this capacity has been reached there will be no more infiltration.
+     - Maximum infiltration capacity, which uses the sum of pixel values per 2D cell. Once this capacity has been reached there will be no more infiltration. This global value is superseded in case a maximum infiltration capacity file is provided.
    * - Maximum infiltration capacity file
      - max_infiltration_capacity_file
      - Text
      - No
      - m
-     - Location of your maximum infiltration capacity file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\max_infiltration.tif*.
+     - Location of your maximum infiltration capacity file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\max_infiltration.tif*. This superseeds any global maximum infiltration capacity.
    * - Infiltration surface option
      - infiltration_surface_option
      - Integer
@@ -546,70 +546,579 @@ Simple infiltration attributes
 Groundwater settings
 --------------------
 
-Groundwater settings
+Settings for groundwater models. For more information on groundwater, see :ref:`groundwater`.
+
+Groundwater settings attributes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. Todo::
+	- Why is the equilibrium_infiltration_rate_type, the only value that is mandatory (at least according tot he Schematisation-editor) other than the global values.
+	- Also the display_name is mandatory. Some settings tables have a mandatory display_name, for others it's not mandatory. This seems rather strange.
+	
+
+.. list-table:: Groundwater settings attributes
+   :widths: 25 25 15 10 10 45 20
+   :header-rows: 1
+
+   * - Attribute
+     - Field name
+     - Type
+     - Mandatory
+     - Units
+     - Description
+     - Category
+   * - ID
+     - id
+     - Integer
+     - Yes
+     - \-
+     - Unique identifier. A schematisation should have only one groundwater settings ID.
+     - General
+   * - Display name
+     - display_name
+     - Text
+     - Yes
+     - \-
+     - For user administration only.
+     - General
+   * - Equilibrium infiltration rate
+     - equilibrium_infiltration_rate
+     - Decimal number
+     - No
+     - mm/day
+     - The equilibrium infiltration rate for Horton-based infiltration. For more information, see :ref:`grwhortoninfiltration`.
+     - Equilibrium infiltration
+   * - Equilibrium infiltration rate file
+     - equilibrium_infiltration_rate_file
+     - Text
+     - No
+     - mm/day
+     - Location of your equilibrium infiltration rate file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\gw_equilibrium_infiltration.tif*. For more information, see :ref:`grwhortoninfiltration`.
+     - Equilibrium infiltration
+   * - Equilibrium infiltration rate type
+     - equilibrium_infiltration_rate_type
+     - Integer
+     - Yes
+     - \-
+     - Choose between: *0: Maximum*, *1: Minimum*, and *2: Average*.
+     - Equilibrium infiltration
+   * - Groundwater hydraulic connectivity
+     - groundwater_hydr_connectivity
+     - Decimal number
+     - Yes
+     - m/day
+     - Darcy coefficient.
+     - Hydro connectivity
+   * - Groundwater hydraulic connectivity file
+     - groundwater_hydr_connectivity_file
+     - Text
+     - No
+     - m/day
+     - Location of your groundwater hydraulic connectivity file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\gw_hydro_conductivity.tif*.
+     - Hydro connectivity
+   * - Groundwater hydraulic connectivity type
+     - groundwater_hydr_connectivity_type
+     - Integer
+     - No
+     - \-
+     - Choose between: *0: Maximum*, *1: Minimum*, and *2: Average*.
+     - Hydro connectivity
+   * - Groundwater impervious layer level
+     - groundwater_impervious_layer_level
+     - Decimal number
+     - Yes
+     - m MSL
+     - Level of the impervious layer that acts as the bottom (and thus boundary) of the groundwater layer.
+     - Impervious layer level
+   * - Groundwater impervious layer level file
+     - groundwater_impervious_layer_level_file
+     - Text
+     - No
+     - m MSL
+     - Location of your groundwater impervious layer level file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\gw_imp_layer_lvl.tif*.
+     - Impervious layer level
+   * - Groundwater impervious layer level type
+     - groundwater_impervious_layer_level_type
+     - Integer
+     - No
+     - \-
+     - Choose between: *0: Maximum*, *1: Minimum*, and *2: Average*.
+     - Impervious layer level
+   * - Initial infiltration rate
+     - initial_infiltration_rate
+     - Decimal number
+     - Yes
+     - mm/day
+     - The initial infiltration rate for Horton-based infiltration. For more information, see :ref:`grwhortoninfiltration`.
+     - Initial infiltration
+   * - Initial infiltration rate file
+     - initial_infiltration_rate_file
+     - Text
+     - No
+     - mm/day
+     - Location of your initial infiltration rate file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\gw_ini_infiltration.tif*.
+     - Initial infiltration
+   * - Initial infiltration rate type
+     - initial_infiltration_rate_type
+     - Integer
+     - No
+     - \-
+     - Choose between: *0: Maximum*, *1: Minimum*, and *2: Average*.
+     - Initial infiltration
+   * - Infiltration decay period
+     - infiltration_decay_period
+     - Decimal number
+     - Yes
+     - days
+     - Period in which the infiltration rate decays to an equilibrium for Horton-based infiltration.
+     - Infiltration decay
+   * - Infiltration decay period file
+     - infiltration_decay_period_file
+     - Text
+     - No
+     - days
+     - Location of your infiltration decay period file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\gw_infil_decay.tif*.
+     - Infiltration decay
+   * - Infiltration decay period type
+     - infiltration_decay_period_type
+     - Integer
+     - No
+     - \-
+     - Choose between: *0: Maximum*, *1: Minimum*, and *2: Average*.
+     - Infiltration decay
+   * - Leakage
+     - leakage
+     - Decimal number
+     - Yes
+     - mm/day
+     - The bottom boundary condition (constant in time) that describes the leakage to deeper ground layers.
+     - Leakage
+   * - Leakage file
+     - leakage_file
+     - Text
+     - No
+     - mm/day
+     - Location of your leakage file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\gw_leakage.tif*.
+     - Leakage
+   * - Phreatic storage capacity
+     - phreatic_storage_capacity
+     - Decimal number
+     - Yes
+     - \-
+     - The potential storage in the saturated zone (= porosity). The phreatic storage capacity is described by a value between 0 and 1.
+     - Phreatic storage capacity
+   * - Phreatic storage capacity file
+     - phreatic_storage_capacity_file
+     - Text
+     - No
+     - \-
+     - Location of your phreatic storage capacity file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\gw_phrea_storage_cap.tif*.
+     - Phreatic storage capacity
+   * - Phreatic storage capacity type
+     - phreatic_storage_capacity_type
+     - Integer
+     - No
+     - \-
+     - Choose between: *0: Maximum*, *1: Minimum*, and *2: Average*.
+     - Phreatic storage capacity
 
 Interflow settings
 ------------------
 
-Interflow settings
+Interflow can be used as an extra layer below the surface. For more information on Interflow, see :ref:`interflow`.
+
+.. Todo::
+	- Feedback: I noticed that order of attributes for the Hydraulic conductivity is first the file, then the global value. This is the same in the global-settings, but different in the simple infiltration settings, where the order is first a global value or a raster-file. It's a small thing, but would be better to have it the same across all tables.
+	- In the interflow types, the correct spelling is "point-scaled" instead of "point scaled".
+
+Interflow settings attributes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table:: Interflow settings attributes
+   :widths: 20 20 15 10 10 40 20
+   :header-rows: 1
+
+   * - Attribute
+     - Field name
+     - Type
+     - Mandatory
+     - Units
+     - Description
+     - Category
+   * - ID
+     - id
+     - Integer
+     - Yes
+     - \-
+     - Unique identifier.
+     - General
+   * - Display name
+     - display_name
+     - Text
+     - No
+     - \-
+     - For user administration only.
+     - General
+   * - Interflow type
+     - interflow_type
+     - Integer
+     - Yes
+     - \-
+     - Choose between: (0) No interflow, (1) Local deepest point scaled porosity, (2) Global deepest point scaled porosity, (3) Local deepest point constant porosity, (4) Global deepest point constant porosity.
+     - General
+   * - Porosity
+     - porosity
+     - Decimal Number
+     - Yes
+     - \-
+     - Porosity value of the interflow layer. It should be a value between 0 and 1. This global value is superseded in case a porosity file is provided.
+     - Porosity
+   * - Porosity file
+     - porosity_file
+     - Text
+     - Yes
+     - \-
+     - Location of your porosity file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\porosity.tif*. This superseeds any global porosity value.
+     - Porosity
+   * - Porosity layer thickness
+     - porosity_layer_thickness
+     - Decimal Number
+     - Only if using interflow type *(1) Local deepest point scaled porosity* or *(2) Global deepest point scaled porosity*.
+     - m
+     - Thickness of the porosity layer relative to the DEM.
+     - Porosity
+   * - Hydraulic conductivity file
+     - hydraulic_conductivity_file
+     - Text
+     - No
+     - m/day
+     - Location of your hydraulic conductivity file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\hydraulic_conductivity.tif*. This superseeds any global hydraulic conductivity value.
+     - Hydraulic conductivity
+   * - Hydraulic conductivity
+     - hydraulic_conductivity
+     - Decimal Number
+     - Yes
+     - m/day
+     - Hydraulic conductivity value. This global value is superseded in case a hydraulic conductivity file is provided.
+     - Hydraulic conductivity
+   * - Impervious layer elevation
+     - impervious_layer_elevation
+     - Decimal Number
+     - Yes
+     - m
+     - Depth of impervious layer below lowest pixel. Value has to be greater than 0.
+     - Impervious layer
+
 
 .. _numerical_settings:
 
 Numerical settings
 ------------------
+ 
+Most users do not need to worry about these settings. More advanced users can change the default settings to improve their models. These can be grouped into categories: *General*, *Limiters*, *Matrix*, *Time*, *Thresholds*, *Miscellaneous*. For more information on the numerical settings, see :ref:`numerics`.
 
-Numerical settings (advanced users)
+Numerical settings attributes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. todo::
+	- check whether the descriptions are actually correct. Some of them were quite difficult to deduce from the documentation (https://docs.3di.live/h_simulation_settings.html).
+	- there are typos in the drop-down menu for use_of_nested_newton in the Schematisation-editor: there is a space too much between "schematisation" and "includes" and "closed profiles" should be without a hyphen.
+	- Minimum surface area is explained nowhere, so I made up my own interpretation of it. This should be checked to make sure it is correct.
+	- The discription in the drop-down menu for use_of_nested_newton is a little confusing. It makes more sense to first describe the model and then the required value. This also prevents the problem with this weird description: "70 for 1D, 2D surface and groundwater flow or higher", which should be "1D, 2D surface and groundwater flow: 70 (or higher)".
+
+.. list-table:: Numerical settings attributes
+   :widths: 20 20 15 10 10 40 15
+   :header-rows: 1
+
+   * - Attribute
+     - Field name
+     - Type
+     - Mandatory
+     - Units
+     - Description
+     - Category
+   * - ID
+     - id
+     - Integer
+     - Yes
+     - \-
+     - Unique identifier. A schematisation should have only one numerical settings ID.
+     - General
+   * - Limiter 1D gradient
+     - limiter_grad_1d
+     - Integer
+     - No
+     - \-
+     - Limiter on the 1D water level gradient to allow the model to deal with unrealistically steep gradients. For more information, see :ref:`limiters`.
+     - Limiters
+   * - Limiter 2D gradient
+     - limiter_grad_2d
+     - Integer
+     - No
+     - \-
+     - Limiter on the 2D water level gradient to allow the model to deal with unrealistically steep gradients. For more information, see :ref:`limiters`.
+     - Limiters
+   * - Limiter 2D slope cross-sectional area
+     - limiter_slope_crosssectional_area_2d
+     - Integer
+     - No
+     - \-
+     - Limiter on the 2D slope cross-sectional area to allow the model to deal with unrealistically large cross-sectional areas resulting from the subgrid method in sloping terrain. Choose between *0*, *1*, *2*, and *3*. A limiter of 3 has to be used in combination with this water layer definition. For more information, see :ref:`limiters`.
+     - Limiters
+   * - Limiter 2D slope friction depth
+     - limiter_slope_friction_2d
+     - Integer
+     - No
+     - \-
+     - Limiter on the 2D slope friction depth to allow the model to deal with unrealistically small friction values resulting from the subgrid method in sloping terrain. For more information, see :ref:`limiters`.
+     - Limiters
+   * - Convergence definition
+     - convergence_cg
+     - Decimal number
+     - No
+     - \-
+     - Convergence definition to iteratively solve matrices. For more information, see :ref:`matrixsolvers`.
+     - Matrix
+   * - Minimum residual for convergence
+     - convergence_eps
+     - Decimal number
+     - Yes
+     - \-
+     - Minimal residual for convergence of Newton iteration. For more information, see :ref:`matrixsolvers`.
+     - Matrix
+   * - Number of conjugate gradient method iterations
+     - use_of_cg
+     - Integer
+     - Yes
+     - \-
+     - Number of iterations of the conjugate gradient method before switching to another method. For more information, see :ref:`matrixsolvers`.
+     - Matrix
+   * - Use of nested Newton
+     - use_of_nested_newton
+     - Integer
+     - Yes
+     - \-
+     - Choose between *0: When the schematisation does not include 1D-elements with closed profiles* and *1: When the schematisation includes 1D-elements with closed profiles*. For more information, see :ref:`matrixsolvers`.
+     - Matrix
+   * - Maximum degree
+     - max_degree
+     - Integer
+     - Yes
+     - \-
+     - Determines the efficiency of the matrix solver. Advised values depend on the type of model:
+	 
+       - Only 1D flow: 700
+       - 1D and 2D flow: 7
+       - Only surface 2D flow: 5
+       - Surface and groundwater flow: 7
+       - 1D, 2D surface and groundwater flow: 70 (or higher). Play around with this value in case of groundwater. This could potentially significantly speed up your model.
+     - Matrix
+   * - Maximum number of nonlinear iterations
+     - max_nonlin_iterations
+     - Integer
+     - Yes
+     - \-
+     - Maximum number of nonlinear iterations in a single time step. For more information, see :ref:`matrixsolvers`.
+     - Matrix
+   * - Gradient method preconditioner
+     - precon_cg
+     - Integer
+     - No
+     - \-
+     - Preconditioner for the matrix solver. Setting this to 1 generally increases simulation speed. For more information, see :ref:`matrixsolvers`.
+     - Matrix
+   * - Time integration method
+     - integration_method
+     - Integer
+     - Yes
+     - \-
+     - For more information, see :ref:`matrixsolvers`.
+     - Matrix
+   * - Flow direction threshold
+     - flow_direction_threshold
+     - Decimal number
+     - No
+     - m/s
+     - Threshold to determine the flow direction, in order to avoid flows of exactly 0.0 m/s.
+     - Thresholds
+   * - General numerical threshold
+     - general_numerical_threshold
+     - Decimal number
+     - No
+     - \-
+     - Generally used numerical threshold to avoid singularities due to limited numerical accuracy.
+     - Thresholds
+   * - Thin water layer definition
+     - thin_water_layer_definition
+     - Decimal number
+     - No
+     - m/s
+     - Has to be used in combination with a Limiter 2D slope cross-sectional area of 3. For more information, see :ref:`limiters`.
+     - Thresholds
+   * - Minimum friction velocity
+     - minimum_friction_velocity
+     - Decimal number
+     - No
+     - m/s
+     - Minimum velocity that is used for the transition of a cell from dry to wet. This is done for model stability.
+     - Thresholds
+   * - Minimum surface area
+     - minimum_surface_area
+     - Decimal number
+     - No
+     - m\ :sup:`2`
+     - Minimum surface area that is used for the transition of a cell from dry to wet. This is done for model stability.
+     - Thresholds
+   * - Strictness of CFL-condition for 1D flow
+     - cfl_strictness_factor_1d
+     - Decimal number
+     - No
+     - \-
+     - Strictness of the Courant-Friedrichs-Lewy ratio for 1D flow.
+     - Miscellaneous
+   * - Strictness of CFL-condition for 2D flow
+     - cfl_strictness_factor_2d
+     - Decimal number
+     - No
+     - \-
+     - Strictness of the Courant-Friedrichs-Lewy ratio for 2D flow.
+     - Miscellaneous
+   * - Shallow water friction correction
+     - frict_shallow_water_correction
+     - Integer
+     - No
+     - \-
+     - Determines how the friction is calculated. Choose between *0*, *1*, *2*, and *3*. For more information, see :ref:`friction_settings`.
+     - Miscellaneous
+   * - Pump implicit ratio
+     - pump_implicit_ratio
+     - Decimal number
+     - No
+     - \-
+     - Determines whether and how 3Di will adjust the pump capacity based on the (expected) available water. Should be between 0 and 1.
+     - Miscellaneous
+   * - Preissmann slot
+     - preissmann_slot
+     - Decimal number
+     - No
+     - m\ :sup:`2`
+     - Mimics the effect of pressurized flows by creating a narrow slot on top of a pipe. Note that this method is not required for 3Di, but it can be used to compare results with other hydrodynamic software.
+     - Miscellaneous
+
+.. _schema_version:
+
+Schema version settings
+-----------------------
+
+.. todo::
+	- Check whether this is correct. I've added this here, because it shows up under Settings in the Schematisation-editor.
+
+The schema version shows the version that is used for the schema. Using out-dated schema versions might cause problems.
+
+Schema version settings attributes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table:: Schema version settings attributes
+   :widths: 20 20 15 10 10 40
+   :header-rows: 1
+
+   * - Attribute
+     - Field name
+     - Type
+     - Mandatory
+     - Units
+     - Description
+   * - Version number
+     - version_num
+     - Text
+     - No
+     - \-
+     - Number determining which schematistion version is used.
 
 .. _vegetation_drag:
 
 Vegetation drag settings
 ------------------------
 
-The *vegetation drag* table contains the input parameters that are used for 2D flow with vegetation. For an in-depth explanation of how 2D flow with vegetation is calculated by 3Di, see :ref:`flow_with_vegetation`. For more information on using vegetation in your 3Di model and choosing the right parameter values, :ref:`a_how_to_vegetation`.
+The *vegetation drag* table contains the input parameters that are used for 2D flow with vegetation. For an in-depth explanation of how 2D flow with vegetation is calculated by 3Di, see :ref:`flow_with_vegetation`. For more information on using vegetation in your 3Di model and choosing the right parameter values, see :ref:`a_how_to_vegetation`.
 
-Vegetation drag can only be used with friction type 'Chezy', because the vegetation formulation (initially introduced by Baptist 2005) uses Chezy.
+Vegetation drag can only be used with friction type 'Chezy', because the vegetation formulation (initially introduced by :cite:p:`Baptist2007`) uses Chezy.
 
-Columns
-^^^^^^^
+.. Todo::
+	- I'm not sure which settings are mandatory. These should be checked first. I've now stated that all global values are mandatory and all rasters as optional (as well as the display_name).
+	- I've properly included a citation and refered to the paper (and changed "Baptist 2005" to "Baptist, 2007" because, judging by the title of the paper "On inducing equations for vegetation resistance", this is the proper paper). However, this should be checked.
+	
 
-id
-""
+Vegetation drag settings attributes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Unique identifier
+.. list-table:: Vegetation drag settings attributes
+   :widths: 20 20 15 10 10 40
+   :header-rows: 1
 
-height
-""""""
-Height of the vegetation (m), i.e. the length of the plant stems.  Global value that is used in the entire model domain, used by 3Di if no raster (*height_file*) is supplied.
-
-height_file
-"""""""""""
-Reference to a raster file containing the *height of the vegetation (m), i.e. the length of the plant stems*. Values can be varied on the pixel level and will also be used as such by the 3Di computational core. If a raster file is supplied, any global value given in *height* will be ignored.
-
-stem_count
-""""""""""
-Density of plant stems (number of stems per m:sup:`2`). Global value that is used in the entire model domain, used by 3Di if no raster (*stem_count_file*) is supplied.
-
-stem_count_file
-"""""""""""""""
-Reference to a raster file containing the *density of plant stems (number of stems per m:sup:`2`)* for each pixel. Values can be varied on the pixel level and will also be used as such by the 3Di computational core. If a raster file is supplied, any global value given in *stem_count* will be ignored.
-
-stem_diameter
-"""""""""""""
-Mean diameter of plant stems (m). Global value that is used in the entire model domain, used by 3Di if no raster (*stem_diameter_file*) is supplied.
-
-stem_diameter_file
-""""""""""""""""""
-Reference to a raster file containing a *mean diameter of plant stems (m)* for each pixel. Values can be varied on the pixel level and will also be used as such by the 3Di computational core. If a raster file is supplied, any global value given in *stem_diameter* will be ignored.
-
-drag_coefficient
-""""""""""""""""
-
-Dimensionless coefficient to linearly scale the drag that vegetation exerts on the water. The drag resulting from vegetation is different for each situation. A large share of this variation is captured by choosing the correct values for stem count, stem diameter and vegetation height. The drag coefficient can be used to account for the other factors that affect the drag. The drag coefficient can also be used as a calibration parameter.
-
-Global value that is used in the entire model domain, used by 3Di if no raster (*drag_coefficient_file*) is supplied.
-
-drag_coefficient_file
-"""""""""""""""""""""
-
-Reference to a raster file containing a *drag_coefficient* for each pixel. Values can be varied on the pixel level and will also be used as such by the 3Di computational core. If a raster file is supplied, any global value given in *drag_coefficient* will be ignored.
+   * - Attribute
+     - Field name
+     - Type
+     - Mandatory
+     - Units
+     - Description
+   * - ID
+     - id
+     - Integer
+     - Yes
+     - \-
+     - Unique identifier. A schematisation should have only one vegetation drag settings ID.
+   * - Display name
+     - display_name
+     - Text
+     - No
+     - \-
+     - For user administration only.
+   * - Vegetation height
+     - vegetation_height
+     - Decimal number
+     - Yes
+     - m
+     - Height of the vegetation, i.e. the length of the plant stems. This global value is superseded in case a vegetation height file is provided.
+   * - Vegetation height file
+     - vegetation_height_file
+     - Text
+     - No
+     - m
+     - Location of your vegetation height file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\veg_height.tif*. This supersedes any global vegetation height.
+   * - Vegetation stem count
+     - vegetation_stem_count
+     - Integer
+     - Yes
+     - #/m\ :sup:`2`
+     - Density of plant stems. This global value is superseded in case a vegetation stem count file is provided.
+   * - Vegetation stem count file
+     - vegetation_stem_count_file
+     - Text
+     - No
+     - #/m\ :sup:`2`
+     - Location of your vegetation stem count file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\veg_stem_count.tif*. This supersedes any global vegetation stem count.
+   * - Vegetation stem diameter
+     - vegetation_stem_diameter
+     - Decimal number
+     - Yes
+     - m
+     - Mean diameter of plant stems. This global value is superseded in case a vegetation stem diameter file is provided.
+   * - Vegetation stem diameter file
+     - vegetation_stem_diameter_file
+     - Text
+     - No
+     - m
+     - Location of your vegetation stem diameter file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\veg_stem_diam.tif*. This supersedes any global vegetation stem diameter value.
+   * - Vegetation drag coefficient
+     - vegetation_drag_coefficient
+     - Decimal number
+     - Yes
+     - \-
+     - Coefficient to linearly scale the drag that vegetation exerts on the water. The drag resulting from vegetation is different for each situation. A large share of this variation is captured by choosing the correct values for vegetation height, stem count, and stem diameter. The drag coefficient can be used to account for the other factors that affect the drag. The drag coefficient can also be used as a calibration parameter. This global value is superseded in case a vegetation drag coefficient file is provided.
+   * - Vegetation drag coefficient file
+     - vegetation_drag_coefficient_file
+     - Text
+     - No
+     - \-
+     - Location of your vegetation drag coefficient file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\veg_drag_coeff.tif*. This supersedes any global drag coefficient.
