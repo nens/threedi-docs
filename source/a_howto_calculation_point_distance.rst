@@ -15,4 +15,4 @@ If the channel is part of a 1D2D schematisation and has a *(double) connected* :
 
 Pipes can also be given a *connected* calculation type, in combination with a calculation point distance that is smaller than the length of the pipe. In this way, the pipe can exchange with 2D cells it crosses. This can be used as a way to schematise gullies.
 
-Visit the link for more information and a visual representation of the exchange between 1D and 2D in the :ref:`channelflow` section.
+See the :ref:`channelflow` section for more information and a visual representation of the exchange between the 1D and 2D domains.
