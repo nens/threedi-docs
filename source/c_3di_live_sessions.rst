@@ -119,3 +119,20 @@ which provides two products derived from the maximum water depth.
 
 - Damage estimation map
 - Damage estimation table
+
+
+.. _live_simulation_template:
+
+Storing and using simulation templates
+--------------------------------------
+A simulation template can be stored by clicking **User menu**, then clicking **Quit Simulation** and then **Create simulation template from simulation**. Set a template name and check the options you want to save:
+
+   - **Include events**: This encompasses all events you've incorporated, such as rain events, breaches, or raster modifications.
+   
+   - **Include initials**: This pertains to initial configurations, including starting water levels in 1D and/or 2D domains, or :ref:`saved_states`.
+   
+   - **Include settings**: This section comprises physical, numerical, timestep, and aggregation settings.
+
+Finally click **Store results**.
+
+Now when starting the same model again, you will be directed to choose a simulation template. The template you previously created will be accessible with the name you assigned to it. If you want to run a new simulation select the simulation template at the bottom of the list.
