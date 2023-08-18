@@ -9,7 +9,7 @@ For example, a weir within a schematisation can reduce its crest level when a ce
 
 
 .. figure:: image/c_control_updated.png
-   :alt: Control structures overview
+   :alt: control structures overview
 
    
 Measurement locations
@@ -124,7 +124,7 @@ Incorporate structure controls
 To incorporate structure controls, there are two methods: utilizing a simulation template or uploading a JSON file via the models and simulations plugin. The figure below shows three examples of JSON-files.
 
 .. figure:: image/c_control_json_tablememorytimed.png
-   :alt: Three exaples of JSON files with control structures
+   :alt: three exaples of json files with control structures
 
 
 
