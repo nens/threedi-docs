@@ -8,7 +8,7 @@ Within schematizations, parameters of hydraulic structures can autonomously adap
 For example, a weir within a schematisation can reduce its crest level when a certain water level is reached at an upstream measurement location. This simulates the behavior of a controllable weir, as shown in the figure below.
 
 
-.. figure:: image/c_control_updated.png
+.. figure:: image/c_control_updated2.png
    :alt: control structures overview
 
    
@@ -123,7 +123,7 @@ Incorporate structure controls
 -------------------------------
 To incorporate structure controls, there are two methods: utilizing a simulation template or uploading a JSON file via the models and simulations plugin. The figure below shows three examples of JSON-files.
 
-.. figure:: image/c_control_json_tablememorytimed.png
+.. figure:: image/c_control_json.png
    :alt: three exaples of json files with control structures
 
 
