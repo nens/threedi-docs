@@ -19,11 +19,7 @@ You will learn the following in this tutorial:
 
 AANPASSEN
 
-* Adding 1D channels to a model.
-* Adding boundary conditions to a 1D channel.
-* Adding a linear obstacle to a model.
-* Creating a potential breach event.
-* Simulating the model with an active breach event.
+* Opening your 3Di simulation results
 
 Preparation
 ------------
@@ -76,7 +72,9 @@ We will load the schematisation in the 3Di Modeller Interface to view (and event
 
     If you have not copied the path to the spatialite, click the (blue, underlined) name of your schematisation at the top of the 3Di Models & Simulations panel. Windows Explorer will open; browse to *work in progress/schematisation* and copy the path from the Windows Explorer address bar.
 
-#) Add a background map from OpenStreetMap by clicking *Web* in the Main Menu > *Quick Map Services* > *OSM* > *OSM Standard*.
+#) Add a background map from OpenStreetMap by clicking *Web* in the Main Menu > *Quick Map Services* > *OSM* > *OSM Standard*. 
+
+.. waarom niet de DEM op de achtergrond?
 
 #) In the Layers panel, reorder the layers such that the OpenStreetMap layer is below the 3Di schematisation.
 
@@ -123,7 +121,6 @@ Downloading the simulation results
 ----------------------
 
 In the 3Di Models and Simulations panel, click *Simulate*. An overview is given of all running simulations for your organisation(s). Here you can follow the progress of your simulation.
-
 
 Opening the simulation results
 ----------------------
