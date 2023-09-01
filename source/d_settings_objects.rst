@@ -17,14 +17,11 @@ Global settings attributes
 
 .. todo::
 	- Check if everything is correct in this table?
-	- Is this still relevant: use_2d_rain
 	- Same for nr_timesteps? This doesn't do anything anymore, correct? It is still mandatory to give a value for this?
 	- I also don't think startdate and starttime still work.. The default is 01/01/2000, 12:00 I think and is used when starting a simulation.
-	- Same for dem_obstacle_detection and dem_obstacle_height.
 	
-	- No idea what guess_dams does and whether it (still) works.
 	- Technical documentation on maximum table step size is missing in h_subgrid.rst.
-	- For the initial groundwater and initial waterlevel types the type is integer, but that is not shown in the QGIS-table. I think it should be as the frict_type. Because then it makes sense that it is an integer type.
+	- For the initial groundwater and initial waterlevel types the type is integer, but that is not shown in the QGIS table. I think it should be as the frict_type. Because then it makes sense that it is an integer type.
 	- Add documentation for the folder structure that 3Di uses.
 
 
