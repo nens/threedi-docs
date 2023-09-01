@@ -44,30 +44,37 @@ The difference between these two methods in friction evaluations of open channel
 .. math::
    :label: Conveyance Factor
 
-   K(Chézy)=ACR^\frac{1}{2}              K(Manning)=\frac{1}{n}AR^\frac{2}{3}
+   K(Chézy) = A C R^\frac{1}{2}              K(Manning) = \frac{1}{n} A R^\frac{2}{3}             (R = \frac{A}{P})
 
 We know that:
 
-(ghesmate we know ro inja benevis)
+.. math::
+
+   Q = A u    ,    Q = K \sqrt(S)
 
 and we assume a uniform friction slope within the 1D domain which is the ratio between the friction term and the water level gradient:
 
-(Formule S ro inja benevis)
+.. math::
+
+   S = \fras{c_f u_p^2}{g H}
 
 Bottom friction in 1D domain can be obtained according to:
 
-(Formule friction ro inja benevis)
+.. math::
+
+   F_fric1d = ds \int c_f u_p^2 dx = \frac{1}{K_tot} A^3 u^2 g
 
 | in which:
 | :math:`A`: wet cross-section               :math:`P`: wet perimeter
 | :math:`R`: hydraulic radius                :math:`u`: flow velocity
 | :math:`Q`: volumetric flow rate            :math:`S`: channel slope
-| :math:`H`: water depth            :math:`C, n`: Chézy, Manning coefficients
+| :math:`H`: water depth                     :math:`C, n`: Chézy, Manning coefficients
 | :math:`K_tot, K, K_i`: total, single section, and subsections conveyance factors
+|
 
-As mentioned above, when the Single Section Method is used, :math:`K_tot` is equal to the conveyance factor of one single section (figure1a). The weakness of this method appears when in a non-uniform channel section (e.g., a main channel and floodplains), the water covers the shallow parts. In this case, the increase in the wet perimeter is higher in comparison with the added wet area. Hence, the calculated conveyance factor (which reflects the transport capacity of the channel), and so the discharge, is less than the actual values. On the other hand, underestimating the conveyance factor results in friction overestimation, which in turn leads to lower flow velocity compared to the measured data. As a final note, in such cases, the second method is recommended.
+As mentioned above, when the Single Section Method is used, :math:`K_tot` is equal to the conveyance factor of one single section (figure1a-will update). The weakness of this method appears when in a non-uniform channel section (e.g., a main channel and floodplains), the water covers the shallow parts. In this case, the increase in the wet perimeter is higher in comparison with the added wet area. Hence, the calculated conveyance factor (which reflects the transport capacity of the channel), and so the discharge, is less than the actual values. On the other hand, underestimating the conveyance factor results in friction overestimation, which in turn leads to lower flow velocity compared to the measured data. As a final note, in such cases, the second method is recommended.
 
-The compound section method divides the channel cross-section into several sub-sections (figure1b). In this method, the total conveyance factor of the section is the sum of each sub-section’s conveyance factor. The separation lines between the sub-sections are considered vertical in 3Di. 
+The compound section method divides the channel cross-section into several sub-sections (figure1b-will update). In this method, the total conveyance factor of the section is the sum of each sub-section’s conveyance factor. The separation lines between the sub-sections are considered vertical in 3Di. 
 
 1D Network
 ----------
