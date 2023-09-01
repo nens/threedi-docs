@@ -46,7 +46,7 @@ Friction
 
 The friction is calculated using the flow depth at each :ref:`subgrid <subgridmethod>` pixel in the :ref:`momentum domain<computational_grid_2d_domain>`. The formulations of Chézy or Manning can be used for the calculation of friction.
 
-Please refer to :ref:`1D friction <>` for more details about the theory behind friction calculations in 1D domain.
+Please refer to :ref:`1d_friction` for more details about the theory behind friction calculations in 1D domain.
 
 Water level gradients
 ---------------------
