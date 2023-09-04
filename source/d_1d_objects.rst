@@ -403,7 +403,7 @@ Attributes
      - friction_value
      - decimal number
      - Yes
-     - m:sup:`1/2`/s or s/m:sup:`1/3`
+     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
      - Friction or roughness value
    * - Reference level
      - reference_level
@@ -567,7 +567,7 @@ Attributes
      - friction_value
      - decimal number
      - Yes
-     - m:sup:`1/2`/s or s/m:sup:`1/3`
+     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
      - Friction or roughness value
    * - Start connection node ID
      - connection_node_start_id
@@ -795,7 +795,7 @@ Attributes
      - boolean
      - Yes
      - \-
-     - Indicates if the pumpstation is part of the sewer system (True) or not (False)
+     - Indicates if the pumpstation is part of the sewerage system (True) or not (False)
    * - Start level
      - start_level
      - decimal number
@@ -893,7 +893,7 @@ Attributes
      - boolean
      - Yes
      - \-
-     - Indicates if the pumpstation is part of the sewer system (True) or not (False)
+     - Indicates if the pumpstation is part of the sewerage system (True) or not (False)
    * - Start connection node ID
      - connection_node_start_id
      - integer
@@ -1038,14 +1038,14 @@ Attributes
      - friction_value
      - decimal number
      - Yes
-     - m:sup:`1/2`/s or s/m:sup:`1/3`
+     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
      - Friction or roughness value
    * - Sewerage
      - sewerage
      - boolean
      - Yes
      - \-
-     - Indicates if the structure is part of the sewer system (True) or not (False)
+     - Indicates if the structure is part of the sewerage system (True) or not (False)
    * - Start connection node ID
      - connection_node_start_id
      - integer
@@ -1078,7 +1078,7 @@ The discharge is multiplied by this value. The energy loss caused by the change 
 Pipe
 ----
 
-Pipe in a sewer system.
+Pipe in a sewerage system.
 
 Geometry
 ^^^^^^^^
@@ -1173,14 +1173,14 @@ Attributes
      - friction_value
      - decimal number
      - Yes
-     - m:sup:`1/2`/s or s/m:sup:`1/3`
+     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
      - Friction or roughness value
    * - Sewerage
      - sewerage
      - boolean
      - Yes
      - \-
-     - Indicates if the pumpstation is part of the sewer system (True) or not (False)
+     - Indicates if the pumpstation is part of the sewerage system (True) or not (False)
    * - Start connection node ID
      - connection_node_start_id
      - integer
@@ -1204,7 +1204,7 @@ Attributes
      - integer
      - Yes
      - \-
-     - Function of the pipe in the sewer system. Used for visualisation and administrative purposes only. See :ref:`pipe_notes_for_modeller`.
+     - Function of the pipe in the sewerage system. Used for visualisation and administrative purposes only. See :ref:`pipe_notes_for_modeller`.
    * - Zoom category
      - zoom_category
      - integer
@@ -1349,14 +1349,14 @@ Attributes
      - friction_value
      - decimal number
      - Yes
-     - m:sup:`1/2`/s or s/m:sup:`1/3`
+     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
      - Friction or roughness value
    * - Sewerage
      - sewerage
      - boolean
      - Yes
      - \-
-     - Indicates if the structure is part of the sewer system (True) or not (False)
+     - Indicates if the structure is part of the sewerage system (True) or not (False)
    * - Start connection node ID
      - connection_node_start_id
      - integer

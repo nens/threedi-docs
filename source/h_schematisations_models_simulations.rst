@@ -56,7 +56,7 @@ When generating a 3Di model, a simulation template is also generated from the sp
 Simulations and simulation templates
 ------------------------------------
 
-In a *simulation* the 3Di model is combined with simulation settings, initials, forcings and/or events. Simulation settings consist of physical, numerical, timestep, and aggregation settings. Initial conditions can be initial water levels in 1D and/or 2D, or saved states :ref:`state_files`. Settings and initials have to be set before starting the simulation.
+In a *simulation* the 3Di model is combined with simulation settings, initials, forcings and/or events. Simulation settings consist of physical, numerical, timestep, and aggregation settings. Initial conditions can be initial water levels in 1D and/or 2D, or :ref:`saved_states`. Settings and initials have to be set before starting the simulation.
 
 Forcings can be boundary conditions, rain, laterals, surface sources and sinks, leakage, or wind. Events include breaches, changing properties of hydraulic structures, breaches, raster edits and obstacle edits. Forcings and events can be added to the simulation before it is started, but can also be added or changed while the simulation is already running.
 

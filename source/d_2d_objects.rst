@@ -13,6 +13,8 @@ Boundary condition for 2D model edge
 
 Lateral discharge for 2D cell
 
+.. _linear_obstacle:
+
 Linear obstacle
 ---------------
 

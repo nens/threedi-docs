@@ -5,7 +5,7 @@ Sessions
 
 To start or follow a 3Di Live session, open your browser and go to https://3di.live and log in with your username and password. If you do not have a 3Di account yet, or do not know your username and password, please contact the :ref:`servicedesk`.
 
-After logging in to the 3Di Live Site , the *Welcome screen* will be shown. In this screen, there are two possibilities:
+After logging in to 3Di Live , the *Welcome screen* will be shown. In this screen, there are two possibilities:
 
 * Start a new session using the :ref:`start_a_new_session` tab.
 * Follow an ongoing session via the :ref:`follow_a_session` tab.
@@ -36,7 +36,7 @@ A new session will be started. During the start up of the model tips for use of 
 Following a session
 -------------------
 
-Active sessions of your organisation can be followed. This may be a session that you started earlier (e.g. from the :ref:`3Di Modeller Interface<running-a-simulation>`), or a session that someone else in your organisation has started.
+Active sessions of your organisation can be followed. This may be a session that you started earlier (e.g. from the :ref:`3Di Modeller Interface <simulate_api_qgis>`), or a session that someone else in your organisation has started.
 
 In the *Follow session* tab, Select an active session and click *Follow*. The number of followers of a session is unlimited. To leave the session, either close your browser tab, or click the *User* icon (top right) > *Leave session*. 
 
@@ -55,9 +55,9 @@ Preferences
 	:alt: User menu
 
 **Calculation speed** 
-The Calculation speed is the rate at which the calculations are shown on screen. The Calculation speed is slowed down (**capped speed**) by default. This is done because the Live Site is meant to give a live insights in what is happening. If the model is too fast, it can be hard to understand the flows. 
+The Calculation speed is the rate at which the calculations are shown on screen. The Calculation speed is slowed down (**capped speed**) by default. This is done because 3Di Live is meant to give a live insights in what is happening. If the model is too fast, it can be hard to understand the flows. 
 
-If you want to calculate on full speed, choose the **Real-time speed** option. The model most likely will speed up in case the % on the top right of the screen was not indicating 100% already. In case the server load is at 100%, no gain will be seen in calculation speed on the Live Site.
+If you want to calculate on full speed, choose the **Real-time speed** option. The model most likely will speed up in case the % on the top right of the screen was not indicating 100% already. In case the server load is at 100%, no gain will be seen in calculation speed on 3Di Live.
 
 .. _restart_session:
 
