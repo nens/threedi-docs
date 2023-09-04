@@ -82,7 +82,7 @@ Thresholds
 """"""""""
 For numerical computation several tresholds are needed in the code, to avoid deficiencies due to a limited numerical accuracy. Generally this is to keep the behaviour consistent: 
 
-In order to determine the upwind method the direction of the flow is considered. To avoid the exact 0.0 m/s point we use a threshold given by flow_direction_threshold (default=1.0^-5). 
+In order to determine the upstream method the direction of the flow is considered. To avoid the exact 0.0 m/s point we use a threshold given by flow_direction_threshold (default=1.0^-5). 
 
 We also use for various things a general threshold, this one is defined as general_numerical_threshold, the default is 1.0d-8. 
 
@@ -119,23 +119,23 @@ Function where the ratio between water depth and water level gradient prescribes
 Limiter for cross-sectional area
 """"""""""""""""""""""""""""""""
 
-[limiter_slope_crossectional_area_2d ] default = 0
+*limiter_slope_crossectional_area_2d = 0 (default)*
 
-In sloping areas we are dealing with a situation where the primary assumption of a subgrid-based method does not yield. The method assumes that the water level variation in space is much smaller than the variation of the bed. This is untrue for larger cells in sloping areas. The consequence is that in that case all the water is concentrated at the lower end of the cell. The depth that defines the cross-sectional area, that determines the discharge within a time step, is overestimated (black boxes Figure 2). 
+In sloping areas, we deal with a situation where the primary assumption of a subgrid-based method is invalid. The method assumes that the water level variation in space is much smaller than the variation of the bed. This is untrue for larger cells in sloping areas. The consequence is that all the water is concentrated at the lower end of the cell. The depth that defines the cross-sectional area, which in turn determines the discharge within a time step, is overestimated (black boxes Figure 2). 
 
 *limiter_slope_crossectional_area_2d = 1*
 
-This limiter starts working in case the depth based on the downstream water level is zero. Then two options are possible, in case of a large difference in waterlevel the volume is spread over the cell domains (Figure 2, alternative situation 1). When the difference is smaller, the average water level of upstream and downstream is used (Figure 2, alternative situation 2). Theoretically this would make the scheme partly second order. This is described mathematically in Figure 3.
+This limiter is activated in case the downstream water depth is zero. Then two options are possible. In case of a large difference in waterlevels, the sum of upstream and downstream volume is spread over the cell domains. When the difference is smaller, the average water level of upstream and downstream is used. Theoretically, this would make the scheme partly second order. This is described mathematically in Figure 3.
 
 *limiter_slope_crossectional_area_2d = 2*
 
-This is a very stable upwind method to redefine the water level depth. It is assumed that the flow behaves as a thin sheet flow. Therefore, the depth is defined as the upwind volume defined by the maximum surface area. 
+This is a very stable upstream method to redefine the water level depth. It is assumed that the flow behaves as a thin sheet flow. Therefore, the depth is defined as the upstream volume devided by the maximum surface area. If the new water depth exceeds the default version (based on high resolution grid), the default version is chosen.
 
 *limiter_slope_crossectional_area_2d = 3, in combination with thin_layer_definition = xx [m]*
 
-In this case the limiter is more or less effective depending of the local depth. In case the depth at the edge base on the down wind water level is larger than the definition that is given of a thin layer, the cross-sectional area is based on the high resolution grid. When this 'down wind' depth is smaller than the thin layer definition, then the limiter described for option 2 is determining the cross-sectional area. In the in between phase the two types of cross-sections are weighed to define a new value.
+In this case, the limiter is more or less effective depending on the local depth. In case the depth at the edge base on the downstream water level is larger than the thin layer definition (given by the user), the cross-sectional area is based on the high resolution grid. When this 'downstream' water level is below the thin layer definition, then limiter 2 determines the cross-sectional area. Finally, if the downstream water level is within the thin layer depth, two types of cross-sections are weighed to define the new value.
 
-This is decribed in the figure below. Mathematical derivation will follow.
+All the cases are illustrated in the figure below. Mathematical derivation will follow.
 
 .. figure:: image/slopelimiter.png
    :alt: Limiter for cross-sectional area
