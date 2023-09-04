@@ -104,7 +104,7 @@ Global settings attributes
      - Decimal number
      - No
      - m
-     - Defines the maximum height interval between successive increments in the subgrid tabulation. See :ref:`subgrid_tables` for more details.
+     - Defines the maximum height interval between successive increments in the subgrid tabulation. Defaults to 100 × mininum table step size. See :ref:`subgrid_tables` for more details.
      - Grid
    * - DEM file
      - dem_file
