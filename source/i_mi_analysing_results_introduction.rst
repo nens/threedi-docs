@@ -1,8 +1,7 @@
+.. _mi_analysing_results_introduction:
 
-.. _analysing_results:
-
-Analysing results 
-=================
+Analysing results in the 3Di Modeller Interface
+===============================================
 
 Once downloaded, the simulation results can be analysed in the 3Di Modeller Interface with the *3Di Results Analysis* plugin. See :ref:`mi_download_res` for information on how to download simulation results.
 
@@ -10,11 +9,11 @@ Additional post-processing tools can be found in the :ref:`3di_processing_toolbo
 
 .. _3di_results_manager:
 
-3Di Results Manager
--------------------
+Loading simulation results
+--------------------------
 
-Open the *Results Manager* from the toolbar (|addresultstoolbar|) to load and analyse your results. By clicking |addresults| in the upperright corner you can search for the simulation results you want to analyse. You can choose from all simulation results that have been downloaded to your local 3Di working directory. Select the desired results-file ('results_3di.nc') and click either *Load computational grid* or *Load simulation results*. Both options will load the computational grid into the Layers panel, but the latter option is required to see the results.
-Once the results have been loaded into the 3Di Modeller Interface, you have a toolbox at your disposal to help you analyse them.
+To add computational grids and simulation results to your project, open the *Results Manager* from the toolbar (|addresultstoolbar|). Click |addresults| in the upper right corner to search for the simulation results you want to analyse. You can choose from all simulation results that have been downloaded to your local 3Di working directory. Select the desired results file ('results_3di.nc') and click either *Load computational grid* or *Load simulation results*. Both options will load the computational grid into the Layers panel, but the latter option is required to see the results.
+Once the results have been loaded into the 3Di Modeller Interface, you have several tools at your disposal to help you analyse them.
 You can remove a set of results by first selecting the one you want to remove and then clicking |removeresults| in the upperright corner.
 
 Under **General settings** you can select whether or not the simulation start times are aligned (based on the simulation with the earliest start time) in case you have loaded multiple sets of results.
@@ -76,22 +75,6 @@ Temporal Controller panel
 Additional tools to analyse simulation results
 ----------------------------------------------
 
-.. toctree::
-   :hidden:
-
-   i_time_series_plotter
-   i_sideview_tool
-   i_results_aggregation
-   i_water_balance_tool
-   i_watershed_tool
-   i_processing_toolbox
-
-- :doc:`i_time_series_plotter` to plot the results at flowlines or nodes in a graph.
-- :doc:`i_sideview_tool` to analyze the water levels through the simulation in your 1D domain.
-- :doc:`i_results_aggregation` to quickly aggregate the results over the entire simulation, using preset outputs and styling.
-- :doc:`i_water_balance_tool` to determine the water balance for a given area that takes all flows in and out of the area into account.
-- :doc:`i_watershed_tool` to determine the inflow and outflow catchments for any given location.
-- :doc:`i_processing_toolbox` provides several post-processing options of the results.
 
 .. |addresultstoolbar| image:: /image/i_3di_results_analysis_toolbar_results_manager.png
 	:scale: 25%
@@ -107,9 +90,10 @@ Additional tools to analyse simulation results
 		
 .. _logfile:
 
-Log-file
--------------------
-Clicking the (|loggingtoolbar|) saves the logging of your results analysis to your computer. By clicking the underlined path to the text-file in the pop-up windows you can open the logging-file. This can provide  helpful information about what went wrong in case of an error.
+Log file
+--------
+
+Clicking the (|loggingtoolbar|) saves the logging of your results analysis to your computer. By clicking the underlined path to the text file in the pop-up windows you can open the log file. This can provide helpful information about what went wrong in case of an error.
 
 Also, it can be send as an attachment to our :ref:`servicedesk` at servicedesk@nelen-schuurmans.nl in case of errors.
 

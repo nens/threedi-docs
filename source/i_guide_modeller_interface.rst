@@ -4,17 +4,10 @@
 ======================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
-   i_what_is_mi
-   f_3di_instruments_and_downloads
-   i_overview_user_interface
-   i_create_new_schematisation
-   i_loading_schematisations
-   i_viewing_schematisation
-   i_editing_schematisations
-   i_checking_schematisations
-   i_uploading_and_downloading_schematisations
+   i_mi_introduction
+   i_mi_modelling
    i_running_a_simulation
-   i_downloading_results
-   i_analysing_results
+   i_mi_analyzing_results
+ 
