@@ -6,8 +6,8 @@
 .. toctree::
    :maxdepth: 2
 
-   i_mi_introduction
-   i_mi_modelling
-   i_running_a_simulation
-   i_mi_analyzing_results
+   Introduction <i_mi_introduction>
+   Modelling <i_mi_modelling>
+   Simulating <i_running_a_simulation>
+   Analysing results <i_mi_analysing_results>
  
