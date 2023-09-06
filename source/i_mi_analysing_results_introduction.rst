@@ -80,16 +80,4 @@ Temporal Controller panel
 	:scale: 90%	
 
 .. |temporalcontroller| image:: /image/i_temporal_controller.png
-	:scale: 90%	
-		
-.. _logfile:
-
-Log file
---------
-
-Clicking the (|loggingtoolbar|) saves the logging of your results analysis to your computer. By clicking the underlined path to the text file in the pop-up windows you can open the log file. This can provide helpful information about what went wrong in case of an error.
-
-Also, it can be send as an attachment to our :ref:`servicedesk` at servicedesk@nelen-schuurmans.nl in case of errors.
-
-.. |loggingtoolbar| image:: image/i_3di_results_analysis_toolbar_logging.png
-	:scale: 25%
+	:scale: 90%
