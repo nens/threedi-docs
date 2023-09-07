@@ -1,23 +1,25 @@
-Tutorial 5: Flood Adaptation measures
+Tutorial 5: Flood mitigation measures
 ======================================
 
 Introduction
 -------------
-In this tutorial we will create a flood and apply flood adaptation measures during a simulation in :ref:`3Di Live <3di_live_introduction>`.
+In this tutorial we will simulate a flood and apply flood mitigation measures during a simulation in :ref:`3Di Live <3di_live_introduction>`.
 
 The selected area is the town Strand in Western Cape, South Africa. The river Lourens runs past this city and will be flooded in this tutorial.
 
 Learning objectives
---------------------
+-------------------
+
 You will learn the following in this tutorial:
 
-* Creating a simulation template.
-* Adding discharge to a river during a simulation.
-* Adding a flood barrier during a simulation. 
+* Creating a simulation template
+* Adding discharge to a river during a simulation
+* Adding a flood barrier during a simulation.
 
 
 Preparation
 -----------
+
 Before you get started:
 
 * Make sure you have a 3Di account. Please contact the :ref:`servicedesk` if you need help with this.
@@ -31,7 +33,7 @@ Creating a new schematisation
 ------------------------------
 Follow these steps to convert the existing Spatialite to a :ref:`schematisation`:
 
-#) Unpack the downloaded dataset for this tutorial and save the contents into a folder. The dataset for this tutorial contains a partially configured .sqlite database, a digital elevation model (DEM) and an initial water level raster.
+#) Unzip the downloaded dataset for this tutorial and save the contents into a folder. The dataset for this tutorial contains a partially configured .sqlite database, a digital elevation model (DEM) and an initial water level raster.
 
 #) Open the 3Di Modeller Interface.
 
@@ -84,7 +86,7 @@ Now we have created a model, we need to add a forcing to the model. In this case
 #) Add a discharge to the Lourens river.
 
     * Click the :ref:`discharge_tool_3di_live` button (|discharge_tool|).
-    * Set the *Amount of water* to 30 m3/s. 
+    * Set the *Amount of water* to 30 m³/s. 
     * Set the *Duration* to 24 hours.  
     * Click *Place on Map* and place the discharge lateral on the map near the Broadway Boulevard bridge.
 
@@ -98,14 +100,14 @@ Now we have created a model, we need to add a forcing to the model. In this case
 
 #) Now use the :ref:`line_selection_tool` (|line_selection_tool|) to draw a side view of the flooded area. As the simulation progresses, the water level is updated automatically every output timestep. 
 
-#) Take a screenshot of the inundation you see on the map after 1 hours (CTRL + Print Screen) and paste this into a new paint or word document.  
+#) Take a screenshot of the inundation you see on the map after 1 hour (Ctrl + Print Screen) save the image.  
 
-#) Use the line selection tool to determine the water level of the inundated area and write it down.
+#) Use the *Line selection tool* to determine the water level of the inundated area and write it down.
 
 
-Creating a simulation template from your (modified) simulation
----------------------------------------------------------------
-The simulation (including the discharge you added) can be saved as a template. This is very useful if you want to reuse the simulation with the same settings. This is especially useful for comparing a simulation with and without flood adaptation measures or saving a simulation with a lot of additional forcings (discharge, rain, wind, etc.) for later use.
+Saving the simulation as a template
+-----------------------------------
+The simulation (including the discharge you added) can be saved as a template. This is very useful if you want to reuse the simulation, including all :ref:`simulation_settings`, :ref:`initials_forcings_events`. This is especially useful for comparing a simulation with and without flood adaptation measures or saving a simulation with a lot of additional forcings (discharge, rain, wind, etc.) for later use.
 
 #) Click *Restart simulation* in the user menu (|user_menu|). 
 
@@ -113,7 +115,7 @@ The simulation (including the discharge you added) can be saved as a template. T
 
 #)	Select *Create simulation template from simulation*
 
-#)	Chose a template name (Like: 'Discharge 30 m/s for 24 hours') and make sure the boxes: 'include events', 'include initials' and 'include settings' are checked. Then click *Store results*.
+#)	Chose a template name (Like: 'Discharge 30 m³/s for 24 hours') and make sure the boxes _Include events_, _Include initials_ and _Include settings_ are checked. Then click *Store results*.
 
 
 Adding a flood barrier to your simulation
@@ -122,25 +124,24 @@ First we need to determine where the flood barrier should be placed. To do that 
 
 Analysing where the barrier should be placed
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-In the previous simulation we saw some inundation in the urban area adjacent to the Lourens river. In this part of the tutorial, we will attempt to reduce this inundation. To do this in real life, we would need to create a barrier (e.g. using sandbags or a mobile barrier). In 3Di Live we can simulate this using the flood barrier tool.
+In the previous simulation we saw some inundation in the urban area adjacent to the Lourens river. In this part of the tutorial, we will attempt to reduce this inundation. To do this in real life, we would need to create a barrier (e.g. using sandbags or a mobile barrier). In 3Di Live we can simulate this using the :ref:`Flood barrier tool<flood_barrier_tool_3di_live>`.
+
 Roads are a very useful location to place flood barriers due to their even surfaces and easy access.
 
-#) :ref:`Load <loading_model_3di_live>` your model in the 3Di Live.
+#) :ref:`Load<loading_model_3di_live>` your model in the 3Di Live.
 
 #) Select the template you just created, and click *Start*.
 
-#) Use the :ref:`line_selection_tool` (|line_selection_tool|) to analyse the elevation of the riverbank in the inundated urban area.
+#) Use the :ref:`line_selection_tool` (|line_selection_tool|) to analyse the elevation of the riverbank in the inundated urban area and the elevation of the De Ruyter Street (in the south-west of your modelled area).
+   
+   The Line selection tool shows a low point in the De Ruyter Street around the area where the flooding began. Placing a barrier here, would reduce most of the flooding. Unfortunately, some buildings would not be protected by the barrier. 
 
-#)	Use the Line-selection tool to analyse the elevation of the De Ruyter Street (in the south-west of your modelled area).
-
-    The Line-selection tool shows a low point in the De Ruyter Street around the area where the flooding began. Placing a barrier here, would reduce most of the flooding. Unfortunately, some buildings would not be protected by the barrier. 
-
-#) Use the Line-selection tool to find a more suitable location for the barrier, so it would protect more buildings. Make sure the location would also be suitable in a real life scenario.
-
-    The ideal location for the flood barrier would be between the buildings and the river. But if we take a closer look at the satellite image, we can see that there are walls around each garden. In a crisis, it might take too long to first break down these walls to be able to properly place the flood barrier. The De Beers Road, however, is a realistic area for the flood barrier and will also protect the buildings on the corner of De Beers Road and Beach Road.
+#) Use the *Line selection tool* to find a more suitable location for the barrier, so it would protect more buildings. Make sure the location would also be suitable in a real life scenario.
+   
+   The ideal location for the flood barrier would be between the buildings and the river. But if we take a closer look at the satellite image, we can see that there are walls around each garden. In a crisis, it might take too long to first break down these walls to be able to properly place the flood barrier. The De Beers Road, however, is a realistic area for the flood barrier and will also protect the buildings on the corner of De Beers Road and Beach Road.
 
 Add a barrier to your simulation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 As we have seen earlier in this tutorial, the inundation reaches 2.35 m MSL, if there is no flood barrier. Therefore, we need to place a flood barrier with a height of at least 2.5 m MSL at the designated location. Now that we know where the barrier needs to be placed and how high it needs to be, it is time to add it to our simulation:
 
 #) Click the :ref:`flood_barrier_tool_3di_live` button (|barrier_tool|).

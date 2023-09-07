@@ -1,30 +1,29 @@
+.. _mi_analysing_results_introduction:
 
-.. _analysing_results:
+Analysing results in the 3Di Modeller Interface
+===============================================
 
-Analysing results 
-=================
+The 3Di Modeller Interface offers a range of tools to visualise and analyse computational grids and simulation results. These tools are available from the *3Di Results Analysis toolbar* and from the 3Di section in the *Processing Toolbox*.
 
-Once downloaded, the simulation results can be analysed in the 3Di Modeller Interface with the *3Di Results Analysis* plugin. See :ref:`mi_download_res` for information on how to download simulation results.
-
-Additional post-processing tools can be found in the :ref:`3di_processing_toolbox`. 
+These tools relate the time series of the flow variables (water levels, volumes, velocities, discharges, etc.) that are stored in the :ref:`output files<outputs>` to the nodes and flowlines in the :ref:`computational_grid`. 
 
 .. _3di_results_manager:
 
 3Di Results Manager
 -------------------
 
-Open the *Results Manager* from the toolbar (|addresultstoolbar|) to load and analyse your results. By clicking |addresults| in the upperright corner you can search for the simulation results you want to analyse. You can choose from all simulation results that have been downloaded to your local 3Di working directory. Select the desired results-file ('results_3di.nc') and click either *Load computational grid* or *Load simulation results*. Both options will load the computational grid into the Layers panel, but the latter option is required to see the results.
-Once the results have been loaded into the 3Di Modeller Interface, you have a toolbox at your disposal to help you analyse them.
-You can remove a set of results by first selecting the one you want to remove and then clicking |removeresults| in the upperright corner.
+To add computational grids and simulation results to your project, open the *Results Manager* from the toolbar (|addresultstoolbar|). Click |addresults| in the upper right corner to search for the simulation results you want to analyse. You can choose from all simulation results that have been downloaded to your local 3Di working directory. Alternatively, switch to the *Browse* tab to browse for gridadmin.h5 or results_3di.nc files in other locations. Select the desired results file and click either *Load computational grid* or *Load simulation results*. Both options will load the computational grid into the Layers panel, but the latter option is required to see the results. You can also double click on a row to add the items to your project.
+
+If multiple simulations have been run with the same 3Di model, the computational grid will be loaded once and both simulation results will be connected to the same computational grid.
+
+To remove a computational grid or simulation result, select the item you want to remove and click |removeresults| in the upperright corner.
 
 Under **General settings** you can select whether or not the simulation start times are aligned (based on the simulation with the earliest start time) in case you have loaded multiple sets of results.
 
 In the **Visualisation settings** you can select the flowline and node variables you want to view. By checking the *Relative* checkbox the node results are visualised as change relative to the initial values (t0). The results are loaded in your computational grid (see :ref:`temporal_controller_layers_panel`). The visualisation through time is handled by the :ref:`temporal_controller`.
 
-\*Note: By hovering the cursor over certain parts of the Results Manager, helpful tooltips will appear.
-
-Results in Layers panel
-^^^^^^^^^^^^^^^^^^^^^^^
+Visualising results on the map canvas
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Once the results are visible (|opened_eye|) they are loaded into the corresponding layers of the computational grid in the Layers panel.
 The results are automatically styled based on the ranges of the values. 
@@ -48,7 +47,7 @@ The results are automatically styled based on the ranges of the values.
 
 .. _temporal_controller:
 
-Temporal Controller
+Temporal controller
 ^^^^^^^^^^^^^^^^^^^
 
 When you load your results the Temporal Controller will automatically appear at the top of your screen (if it was not already visible). With the Temporal Controller you can see and analyse the results through time. The Temporal Controller is a native feature of QGIS and can also be utilised in combination with other results tools. To use this tool, you first need to click the |closed_eye| in front of the desired results in the *Results Manager*. If you have loaded more than one set of results, the |opened_eye| shows the set that is used in the visualisation. Click the |opened_eye| again to stop visualisation of the results.
@@ -71,28 +70,6 @@ Temporal Controller panel
 .. image:: /image/i_temporal_controller.png
 	:alt: Temporal Controller panel
 
-.. _temporal_controller_layers_panel:
-
-Additional tools to analyse simulation results
-----------------------------------------------
-
-.. toctree::
-   :hidden:
-
-   i_time_series_plotter
-   i_sideview_tool
-   i_results_aggregation
-   i_water_balance_tool
-   i_watershed_tool
-   i_processing_toolbox
-
-- :doc:`i_time_series_plotter` to plot the results at flowlines or nodes in a graph.
-- :doc:`i_sideview_tool` to analyze the water levels through the simulation in your 1D domain.
-- :doc:`i_results_aggregation` to quickly aggregate the results over the entire simulation, using preset outputs and styling.
-- :doc:`i_water_balance_tool` to determine the water balance for a given area that takes all flows in and out of the area into account.
-- :doc:`i_watershed_tool` to determine the inflow and outflow catchments for any given location.
-- :doc:`i_processing_toolbox` provides several post-processing options of the results.
-
 .. |addresultstoolbar| image:: /image/i_3di_results_analysis_toolbar_results_manager.png
 	:scale: 25%
 
@@ -103,15 +80,4 @@ Additional tools to analyse simulation results
 	:scale: 90%	
 
 .. |temporalcontroller| image:: /image/i_temporal_controller.png
-	:scale: 90%	
-		
-.. _logfile:
-
-Log-file
--------------------
-Clicking the (|loggingtoolbar|) saves the logging of your results analysis to your computer. By clicking the underlined path to the text-file in the pop-up windows you can open the logging-file. This can provide  helpful information about what went wrong in case of an error.
-
-Also, it can be send as an attachment to our :ref:`servicedesk` at servicedesk@nelen-schuurmans.nl in case of errors.
-
-.. |loggingtoolbar| image:: image/i_3di_results_analysis_toolbar_logging.png
-	:scale: 25%
+	:scale: 90%
