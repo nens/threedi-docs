@@ -127,11 +127,11 @@ Storing and using simulation templates
 --------------------------------------
 A :ref:`simulation template<simulation_and_simulation_templates>` can be stored by clicking **User menu**, then clicking **Quit Simulation** and then **Create simulation template from simulation**. Set a template name and check the options you want to save:
 
-   - **Include events**: This encompasses all events you've incorporated, such as rain events, breaches, or raster modifications.
+   - **Include events**: All :ref:`forcings<toctree_forcings>` and :ref:`events<toctree_events>` you have used in the simulation, such as rain events, breaches, or raster edits.
    
-   - **Include initials**: This pertains to initial configurations, including starting water levels in 1D and/or 2D domains, or :ref:`saved_states`.
+   - **Include initials**: All :ref:`initial conditions<toctree_initials>` that were used in the simulation in the simulation template, including initial water levels in 1D and/or 2D domains, or :ref:`saved_states`.
    
-   - **Include settings**: This section comprises physical, numerical, timestep, and aggregation settings.
+   - **Include settings**: All :ref:`simulation_settings`: physical, numerical, time step, and aggregation settings.
 
 Finally click **Store results**.
 
