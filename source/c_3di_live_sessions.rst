@@ -125,7 +125,7 @@ which provides two products derived from the maximum water depth.
 
 Storing and using simulation templates
 --------------------------------------
-A simulation template can be stored by clicking **User menu**, then clicking **Quit Simulation** and then **Create simulation template from simulation**. Set a template name and check the options you want to save:
+A :ref:`simulation template<simulation_and_simulation_templates>` can be stored by clicking **User menu**, then clicking **Quit Simulation** and then **Create simulation template from simulation**. Set a template name and check the options you want to save:
 
    - **Include events**: This encompasses all events you've incorporated, such as rain events, breaches, or raster modifications.
    
