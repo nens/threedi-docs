@@ -10,7 +10,9 @@ These tools relate the time series of the flow variables (water levels, volumes,
 
 
 .. toctree::
-   :hidden:
+   :maxdepth: 1
+   :caption: Tools for analysing results in the 3Di Modeller Interface
+   :name: toctree_analysing_results
    
    Download results <i_downloading_results>
    Load and visualise results <i_loading_and_visualising_results>
