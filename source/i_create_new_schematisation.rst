@@ -18,20 +18,6 @@ Create a new schematisation
 Congratulations, you have your first commit!
 
 
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Importing data
-   :name: Importing data
-
-   d_import_gwsw_hydx
-   d_import_sufhyd
-
-
-.. VRAAG: Is dit een logische plek voor de importing data? Moet er niet nog wat uitleg bij. zoals you can also create a new schemation by importing data from a gwsw hydx or sufhyd.
-
-
-
 .. |newschematisation| image:: /image/pictogram_newschematisation.png
     :scale: 80%
 

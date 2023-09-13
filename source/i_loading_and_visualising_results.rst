@@ -1,16 +1,12 @@
-.. _mi_analysing_results_introduction:
+.. _loading_visualising_results:
 
-Analysing results in the 3Di Modeller Interface
-===============================================
-
-The 3Di Modeller Interface offers a range of tools to visualise and analyse computational grids and simulation results. These tools are available from the *3Di Results Analysis toolbar* and from the 3Di section in the *Processing Toolbox*.
-
-These tools relate the time series of the flow variables (water levels, volumes, velocities, discharges, etc.) that are stored in the :ref:`output files<outputs>` to the nodes and flowlines in the :ref:`computational_grid`. 
+Loading and visualising results in the 3Di Modeller Interface
+=============================================================
 
 .. _3di_results_manager:
 
-3Di Results Manager
--------------------
+Loading simulation results
+--------------------------
 
 To add computational grids and simulation results to your project, open the *Results Manager* from the toolbar (|addresultstoolbar|). Click |addresults| in the upper right corner to search for the simulation results you want to analyse. You can choose from all simulation results that have been downloaded to your local 3Di working directory. Alternatively, switch to the *Browse* tab to browse for gridadmin.h5 or results_3di.nc files in other locations. Select the desired results file and click either *Load computational grid* or *Load simulation results*. Both options will load the computational grid into the Layers panel, but the latter option is required to see the results. You can also double click on a row to add the items to your project.
 
@@ -23,7 +19,7 @@ Under **General settings** you can select whether or not the simulation start ti
 In the **Visualisation settings** you can select the flowline and node variables you want to view. By checking the *Relative* checkbox the node results are visualised as change relative to the initial values (t0). The results are loaded in your computational grid (see :ref:`temporal_controller_layers_panel`). The visualisation through time is handled by the :ref:`temporal_controller`.
 
 Visualising results on the map canvas
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------
 
 Once the results are visible (|opened_eye|) they are loaded into the corresponding layers of the computational grid in the Layers panel.
 The results are automatically styled based on the ranges of the values. 
@@ -45,39 +41,3 @@ The results are automatically styled based on the ranges of the values.
 	:scale: 100%
 
 
-.. _temporal_controller:
-
-Temporal controller
-^^^^^^^^^^^^^^^^^^^
-
-When you load your results the Temporal Controller will automatically appear at the top of your screen (if it was not already visible). With the Temporal Controller you can see and analyse the results through time. The Temporal Controller is a native feature of QGIS and can also be utilised in combination with other results tools. To use this tool, you first need to click the |closed_eye| in front of the desired results in the *Results Manager*. If you have loaded more than one set of results, the |opened_eye| shows the set that is used in the visualisation. Click the |opened_eye| again to stop visualisation of the results.
-
-The results are visualised on the flowlines, 1D nodes and 2D computational cells (see :ref:`3dinetcdf` for more information on the possible flow-variables).
-
-Temporal Controller panel
-~~~~~~~~~~~~~~~~~~~~~~~~~
-	
-1) Pause or play the animation of the results through time.
-2) Skip to next frame.
-3) Skip to last frame.
-4) Move the slider to visualise the results at different timesteps.
-5) Check to automatically reset and repeat the animation endlessly when running the animation.
-6) The temporal range that is used for the visualisation. Note that the default range that is shown is the range used in the simulation.
-7) The steps per frame. Here the steps frame are shown every 300 seconds. Note that this shouldn't be smaller than the used output timestep in the simulation.
-8) The units that correspond to the number of steps [6].
-9) Export the results as png's for every or any timestep.
-
-.. image:: /image/i_temporal_controller.png
-	:alt: Temporal Controller panel
-
-.. |addresultstoolbar| image:: /image/i_3di_results_analysis_toolbar_results_manager.png
-	:scale: 25%
-
-.. |addresults| image:: /image/pictogram_add_results.png
-	:scale: 90%	
-	
-.. |removeresults| image:: /image/pictogram_remove_results.png
-	:scale: 90%	
-
-.. |temporalcontroller| image:: /image/i_temporal_controller.png
-	:scale: 90%

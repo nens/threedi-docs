@@ -84,6 +84,9 @@ Access the 3Di Models and Simulation settings dialog by clicking *Main menu* > *
 * **API Key:** Set you personal API Key. Click :ref:`here <setting_up_models_and_simulations>` for more information on how to obtain one.
 * **Use defaults:** Sets the default Base API URL, Uploads processing timeout and Working directory
 
+
+3Di Results Analysis toolbar
+----------------------------
 .. todo::
    
    describe the 3Di Results Analysis toolbar, include this thing about log file somewhere in that description:
@@ -94,6 +97,55 @@ Access the 3Di Models and Simulation settings dialog by clicking *Main menu* > *
    Clicking the (|loggingtoolbar|) saves the logging of your results analysis to your computer. By clicking the underlined path to the text file in the pop-up windows you can open the log file. This can provide helpful information about what went wrong in case of an error.
    
    Also, it can be send as an attachment to our :ref:`servicedesk` at servicedesk@nelen-schuurmans.nl in case of errors.
+
+.. _temporal_controller:
+
+Temporal controller
+-------------------
+
+When you load your results the Temporal Controller will automatically appear at the top of your screen (if it was not already visible). With the Temporal Controller you can see and analyse the results through time. The Temporal Controller is a native feature of QGIS and can also be utilised in combination with other results tools. To use this tool, you first need to click the |closed_eye| in front of the desired results in the *Results Manager*. If you have loaded more than one set of results, the |opened_eye| shows the set that is used in the visualisation. Click the |opened_eye| again to stop visualisation of the results.
+
+The results are visualised on the flowlines, 1D nodes and 2D computational cells (see :ref:`3dinetcdf` for more information on the possible flow-variables).
+
+1) Pause or play the animation of the results through time.
+2) Skip to next frame.
+3) Skip to last frame.
+4) Move the slider to visualise the results at different timesteps.
+5) Check to automatically reset and repeat the animation endlessly when running the animation.
+6) The temporal range that is used for the visualisation. Note that the default range that is shown is the range used in the simulation.
+7) The steps per frame. Here the steps frame are shown every 300 seconds. Note that this shouldn't be smaller than the used output timestep in the simulation.
+8) The units that correspond to the number of steps [6].
+9) Export the results as png's for every or any timestep.
+
+.. image:: /image/i_temporal_controller.png
+	:alt: Temporal Controller panel
+
+.. |addresultstoolbar| image:: /image/i_3di_results_analysis_toolbar_results_manager.png
+	:scale: 25%
+
+.. |addresults| image:: /image/pictogram_add_results.png
+	:scale: 90%	
+	
+.. |removeresults| image:: /image/pictogram_remove_results.png
+	:scale: 90%	
+
+.. |temporalcontroller| image:: /image/i_temporal_controller.png
+	:scale: 90%
+
+.. _3di_processing_toolbox:
+
+3Di Processing Algorithms
+-------------------------
+
+Many 3Di related actions can be performed by running a Processing Algorithm. These can be found in the (QGIS native) Processing Toolbox. To open the processing toolbox from the main menu, click *Processing* > *Toolbox*. Alteratively, you can click |processing_toolbox_icon| in the attributes toolbar or use the keyboard shortcut CTRL + ALT + T. Scroll down to the sections *3Di* and *3Di Schematisation Editor* to find the 3Di-specific processing algorithms. 
+
+
+.. |processing_toolbox_icon| image:: /image/pictogram_processing_toolbox.png
+
+.. figure:: image/i_3di_processing_toolbox.png 
+	:alt: Processing Toolbox dock panel
+	:align: right
+	:scale: 30% 
 
 
 .. _mi_technical_setup:
@@ -118,12 +170,6 @@ The following 3Di-specific plugins are included in the 3Di Modeller Interface. I
 *3Di Results Analysis* provides all the tooling required for visualising and analysing computational grids and simulation results. Its features are available through the 3Di Results Analysis toolbar and the processing algorithms in the 3Di section of the Processing Toolbox. 
 
 *3Di Customisations* makes some changes to the look of the user interface.
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
-
-
 
 .. |loggingtoolbar| image:: image/i_3di_results_analysis_toolbar_logging.png
 	:scale: 25%

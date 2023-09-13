@@ -978,7 +978,7 @@ The schema version shows the database schema version. The database schema is the
 
 .. note::
 
-    Do not change the schema version manually!
+    Do not change the schema version manually! Use the processing algorithm :ref:`migrate_spatialite`.
 
 Schema version attributes
 ^^^^^^^^^^^^^^^^^^^^^^^^^

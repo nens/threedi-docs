@@ -127,3 +127,11 @@ This processing algorithm generates exchange lines for (a selection of) channels
 * Input channel layer: Usually this is the Channel layer that is added to the project with the 3Di Schematisation Editor. Technically, any layer with a line geometry and the fields 'id' and 'calculation_type' can be used as input.
 * Distance: Offset distance in meters. A positive value will place the output exchange line to the left of the line, negative values will place it to the right.
 * Exchange lines layer: The layer to which the results are written. Usually this is the 'Exchange line' layer that is added to the project with the 3Di Schematisation Editor. Technically, any layer with a line geometry and the field 'channel_id' can be used.
+
+Auto-fill sewerage properties
+-----------------------------
+
+The :ref:`3Di processing algorithm<3di_processing_toolbox>` *Guess indicators* estimates the correct values for pipe friction, manhole indicator and manhole area (only for NULL fields) with the overall option to only fill NULL fields.
+ 
+This processing algorithm can be found via *Main menu* > *Processing* > *Toolbox* > *3Di* > *Schematisation* > *Guess indicators*.
+
