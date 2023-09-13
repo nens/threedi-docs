@@ -30,57 +30,8 @@ This user manual is structured along the common workflow:
 * :doc:`i_analysing_results`
 
 
-.. _mi_technical_setup:
+.. |loggingtoolbar| image:: image/i_3di_results_analysis_toolbar_logging.png
+	:scale: 25%
 
-Technical setup
-----------------
-The 3Di Modeller Interface is a customized version of QGIS, shipped with several pre-installed plugins and settings. It uses the latest Long Term Release version of QGIS. All components of the 3Di Modeller Interface are installed when running the installer (.exe file). It includes the following:
-
-
-.. _mi_3di_plugins:
-
-3Di plugins
-^^^^^^^^^^^
-
-- :doc:`i_plugin_schematisation_editor`: for editing schematisations
-
-- :doc:`i_plugin_models_simulation`: for interaction with the 3Di API: uploading and downloading schematisations, starting and stopping simulations, downloading results.
-
-- :ref:`3di_results_manager`: for analysing simulation results
-
-- *3Di Customisations* takes care of the user interface customization: the user interface is simplified, some colors are different and the application name, logo and splash screen are changed.
-   
-
-Third party plugins
-^^^^^^^^^^^^^^^^^^^
-
-The 3Di Modeller Interface also includes some plugins that were developed by other companies or individuals. These plugins were not made  specifically for 3Di, but are very useful for 3Di modellers. These are:
-
-- Profile tool
-
-- Value tool
-
-- Serval
-
-- Quick Map Services
-
-All these plugins are installed in a QGIS user profile folder that also contains all QGIS settings. Some of these have been pre-configured for you, such as the user interface language, number notations, and Python macro settings.
-
-
-Difference between 3Di Modeller Interface and QGIS
-------------------------------------------------------
-There is no difference between the 3Di Modeller Interface and the Long Term Release version of QGIS. It is simply QGIS, but expanded with extra functionalities.
-
-We have chosen QGIS as our supporting platform because of the following reasons:
-
-- It enables seamless integration of 3Di-specific tasks with advanced GIS functionality
-
-- QGIS comes with hundreds of powerful GIS processing tools
-
-- It offers an extensive amount of styling options
-
-- It has a highly customizable interface
-
-- The option of building your own scripts, expressions, graphical models and plugins to interact with 3Di
-
-- The fact that it is an open source platform
+.. |modelsSimulations| image:: /image/pictogram_modelsandsimulations.png
+    :scale: 90%

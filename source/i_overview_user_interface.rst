@@ -1,9 +1,9 @@
 .. _mi_overview:
 
-Overview of the Modeller Interface
-===================================
+User interface overview
+=======================
 
-The main GUI consist of five components:
+The 3Di Modeller Interface consists of five components:
 
 1. **Menu Bar**: the 3Di Plugins can be reached from the Plugins menu.
 2. **Toolbar**: the :ref:`models_simulation_plugin`, the :ref:`schematisation_editor` and the :ref:`3di_results_manager` are already added to the toolbar.
@@ -146,34 +146,4 @@ Many 3Di related actions can be performed by running a Processing Algorithm. The
 	:alt: Processing Toolbox dock panel
 	:align: right
 	:scale: 30% 
-
-
-.. _mi_technical_setup:
-
-Technical setup
----------------
-
-The 3Di Modeller Interface is a preconfigured QGIS. It consists of the latest Long-Term Release (LTR) of QGIS, 3Di-specific plugins, third-party plugins, and some preconfigured settings.
-
-Plugins
-^^^^^^^
-
-The following 3Di-specific plugins are included in the 3Di Modeller Interface. If any user interface component that the documentation refers to is missing, you most probably need to activate the plugin that provides the component: *Main menu* > *Plugins* > *Manage and Install Plugins...* > Check the box of the plugin that you need. 
-
-*3Di Models and Simulations* takes care of all communication with the 3Di API, performing tasks like creating new schematisations, uploading and downloading schematisation revisions, starting simulations, and downloading simulation results. It provides two user interface components: the 3Di Models & Simulations panel, and the 3Di Models & Simulations settings dialog.
-
-.. note:: 
-   The first time you use the 3Di Models and Simulations plugin, you need to :ref:`fill in some settings <setting_up_models_and_simulations>`.
-
-*3Di Schematisation Editor* allows you to view and edit schematisations. Its functionalities are provided through two user interface components: the 3Di Schematisation Editor toolbar, and the processing algorithms in the 3Di Schematisation Editor section of the Processing Toolbox. Note that a great deal of what this plugin does is integrated with QGIS features, such as attribute forms with special features, automatically setting snapping options, et cetera. The 3Di Schematisation Editor also provides a number of expressions, available in the expression builder.
-
-*3Di Results Analysis* provides all the tooling required for visualising and analysing computational grids and simulation results. Its features are available through the 3Di Results Analysis toolbar and the processing algorithms in the 3Di section of the Processing Toolbox. 
-
-*3Di Customisations* makes some changes to the look of the user interface.
-
-.. |loggingtoolbar| image:: image/i_3di_results_analysis_toolbar_logging.png
-	:scale: 25%
-
-.. |modelsSimulations| image:: /image/pictogram_modelsandsimulations.png
-    :scale: 90%
-
+	
