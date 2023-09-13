@@ -120,15 +120,6 @@ The results are visualised on the flowlines, 1D nodes and 2D computational cells
 .. image:: /image/i_temporal_controller.png
 	:alt: Temporal Controller panel
 
-.. |addresultstoolbar| image:: /image/i_3di_results_analysis_toolbar_results_manager.png
-	:scale: 25%
-
-.. |addresults| image:: /image/pictogram_add_results.png
-	:scale: 90%	
-	
-.. |removeresults| image:: /image/pictogram_remove_results.png
-	:scale: 90%	
-
 .. |temporalcontroller| image:: /image/i_temporal_controller.png
 	:scale: 90%
 

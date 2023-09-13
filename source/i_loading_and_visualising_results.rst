@@ -40,4 +40,12 @@ The results are automatically styled based on the ranges of the values.
 .. |opened_eye| image:: /image/pictogram_temporal_controller_load_results_opened_eye.png
 	:scale: 100%
 
+.. |addresultstoolbar| image:: /image/i_3di_results_analysis_toolbar_results_manager.png
+	:scale: 25%
+
+.. |addresults| image:: /image/pictogram_add_results.png
+	:scale: 90%	
+	
+.. |removeresults| image:: /image/pictogram_remove_results.png
+	:scale: 90%	
 
