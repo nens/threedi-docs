@@ -16,19 +16,20 @@ To remove a computational grid or simulation result, select the item you want to
 
 Under **General settings** you can select whether or not the simulation start times are aligned (based on the simulation with the earliest start time) in case you have loaded multiple sets of results.
 
-In the **Visualisation settings** you can select the flowline and node variables you want to view. By checking the *Relative* checkbox the node results are visualised as change relative to the initial values (t0). The results are loaded in your computational grid (see :ref:`temporal_controller_layers_panel`). The visualisation through time is handled by the :ref:`temporal_controller`.
+In the **Visualisation settings** you can select the flowline and node variables you want to view. By checking the *Relative* checkbox the node results are visualised as change relative to the initial values (t0).
 
 Visualising results on the map canvas
 -------------------------------------
 
-Once the results are visible (|opened_eye|) they are loaded into the corresponding layers of the computational grid in the Layers panel.
-The results are automatically styled based on the ranges of the values. 
+To visualise the simulation results on the map canvas, click the |closed_eye| icon. This changes the styling of the computational grid layers, to show the flow variables chosen under *Visualisation settings*. The value ranges in the styling are based on the value distributions of these variables over the entire simulation. 
+
+By default, the last time step is visualised. Use the :ref:`temporal_controller` to navigate through time. 
 
 .. TODO: Once the labels/aliases of the flowlines have been 'fixed' the filters under 2) can be added, with a screenshot and example (as was previously done).
 
-1) The 1D-node results that correspond to the selected node variable in the *Visualisation settings* of the Results Manager.
+1) The 1D node results that correspond to the selected node variable in the *Visualisation settings* of the Results Manager.
 2) The flowline results that correspond to the selected flowline variable in the *Visualisation settings* of the Results Manager. The results can by filtered to only show the specific flowlines you are interested in. To do this right click the ‘flowline_results’ layer (whose name corresponds to the chosen variable) and choose ‘Filter...’. The Query Builder will open. Double click ‘line_type’ in the box **Fields** and click ‘Sample’ or 'All' to see which types are available. In the box below you can specify the types of flowlines you want to see.
-3) The 2D-computational cell results that correspond to the selected node variable in the *Visualisation settings* of the Results Manager.
+3) The 2D computational cell results that correspond to the selected node variable in the *Visualisation settings* of the Results Manager.
 
 .. image:: /image/i_temporal_controller_layers.png
 	:scale: 30%
