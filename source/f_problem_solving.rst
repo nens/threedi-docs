@@ -110,7 +110,7 @@ This might also be the case for other projections.
 
 - Boundary conditions can only be applied via the model sqlite. Uploading a boundary condition as a json file using the API will result in a failure of the simulation.
 
-- In rare cases the waterdepth interpolation in the livesite may show unexpected behaviour; it shows triangular patterns. These deviations are only visual, so the results are still correctly. 
+- In rare cases the waterdepth interpolation in 3Di Live may show unexpected behaviour; it shows triangular patterns. These deviations are only visual, so the results are still correctly. 
 
 - The following checks don't work in case there is no index in the spatialite:
 
@@ -142,12 +142,12 @@ This might also be the case for other projections.
 - Leakage does not work in the Modeller Interface. Please use the API for now if you want to use leakage. 
 
 
-3Di Live Site
+3Di Live
 -------------
 
-- If a raster has both NaN and Nodata values the live site DEM will color yellow (showing color scale for -9999)
+- If a raster has both NaN and Nodata values 3Di Live DEM will color yellow (showing color scale for -9999)
 
-- If a raster has a nodatavalue of 3.4028234663852886e+38 will not be visible in the live site. Setting it to -9999 will solve the issue. This can be done using QGIS tooling or the following GDAL command: gdalwarp -of GTiff -srcnodata 3.4028234663852886e+38 -dstnodata -9999 -co "COMPRESS=DEFLATE" dem1.tif dem2.tif
+- If a raster has a nodatavalue of 3.4028234663852886e+38 will not be visible in 3Di Live. Setting it to -9999 will solve the issue. This can be done using QGIS tooling or the following GDAL command: gdalwarp -of GTiff -srcnodata 3.4028234663852886e+38 -dstnodata -9999 -co "COMPRESS=DEFLATE" dem1.tif dem2.tif
 
 3Di Management
 --------------
@@ -300,3 +300,16 @@ The below errors and bugs should not be experienced anymore. Please let us know 
 - The toolbox does currently not work properly for QGIS 3.22. You cannot edit your schematisations. Please use QGIS 3.16 for now if you have this issue or use the Modeller Interface.
 
 - Calculations that had both rain radar and laterals crashed somewhere during the simulation.
+
+.. _current_schematisation_checks:
+
+List of checks run by the schematisation checker on the schematisation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. Moved this section to here so it is easier to find an error.
+
+These are the checks performed by the schematisation checker.
+The checks are listed in the order in which they are run.
+The beta checks (error code 1300) are for testing purposes only, and not performed in normal usage.
+
+.. include:: i_current_schematisation_checks_table.rst

@@ -124,7 +124,7 @@ To view post-processed results from your 3Di scenario in the 3Di Modeller Interf
 | b) Create a new connection.
 | c) Give your scenario a name and copy the URL composed in the previous step. 
 | d) Under *Authentication* choose *Basic*.
-| e) You need to use a personal API key. If you do not have one yet, you can create one in the Lizard management portal. Go to yourportal.lizard.net, go to **Management > Personal API keys > +New Item.** Use *__key__* as username and the personal API key you created as password. See the `Lizard documentation <https://docs.lizard.net/d_apitechnical.html#apiauthenticationanchor>`_ for more information. 
+| e) You need to use a personal API key. If you do not have one yet, you can create one in the Lizard 3Di Management. Go to yourportal.lizard.net, go to **Management > Personal API keys > +New Item.** Use *__key__* as username and the personal API key you created as password. See the `Lizard documentation <https://docs.lizard.net/d_apitechnical.html#apiauthenticationanchor>`_ for more information. 
 | f) Click *OK* to save the connection. 
 
 .. figure:: image/d_wms_connection.png

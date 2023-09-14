@@ -67,7 +67,7 @@ The :ref:`mi_3di_plugins` can be updated in the following way:
 #) At the left side, click *Installed*
 #) Plugins that can be updated are shown in **bold**
 #) Click the plugin name. At the bottom right, click *Upgrade plugin*
-#) Updating the 3Di Toolbox or 3Di Results Analysis plugins requires a restart of the 3Di Modeller Interface. Do this when prompted.
+#) Updating the 3Di Results Analysis plugin requires a restart of the 3Di Modeller Interface. Do this when prompted.
 #) Do **not** use *Open 3Di GeoPackage* the first time you load your schematisation after having upgraded all 3Di plugins. Use *Load from Spatialite* instead.
 
 .. note:
@@ -122,11 +122,9 @@ Any other name will point towards the security software in use.
 3Di Modeller Interface
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-This is a pre-configured version of QGIS (www.qgis.org), with some options switched off, different stylesheets, and some pre-installed plugins.
-Three of these plugins (3Di Toolbox, 3Di Models and Simulations, and 3Di Schematisation Editor) are maintained by Nelen & Schuurmans.
-QGIS itself and the other pre-installed plugins are not made / maintained by Nelen & Schuurmans.
+The 3Di Modeller Interface is a customized version of QGIS, shipped with several pre-installed plugins and settings, see :ref:`mi_technical_setup`. Its :ref:`mi_3di_plugins` are maintained by Nelen & Schuurmans. QGIS itself and the other pre-installed plugins are not made / maintained by Nelen & Schuurmans.
 
-Install instructions for the 3Di Modeller Interface can be found in :ref:`3di_instruments_and_downloads`.
+Install instructions for the 3Di Modeller Interface can be found in :ref:`MI_installation`.
 
 Because the 3Di Modeller Interface is a customized QGIS,
 we refer to the QGIS documentation when you run into any issues that are not specifically related to the 3Di plugins: 

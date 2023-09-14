@@ -38,7 +38,7 @@ Newton iteration settings
 
 Maximum number of non linear iterations (max_nonlin_iterations) is the number the computational core will try to reach the convergence value of the Newton iteration. In cases where is extensive flooding and drying of areas, this number can be raised as it might need more iterations to find the correct solution. The Newton iteration needs a value that defines convergence. Initially, 3Di requires a much lower value, but in case the system has difficulties with finding a solution, it will loosen this requirement with a maximum of the by the user set convergence_eps. 
 
-Nested newton iterations are needed in case profiles in 1D are narrowing with height. Mathematically, in case d^2V/d\zeta^2<0. This occurs, for example, a lot in sewer systems. For these cases, the Newton iteration method does not guarantee a solution, so the system is split in two systems that do guarantee a solution. In case 3Di cannot find a solution it will always try, whether it can find a solution using the nested Newton method. However, in case one has an application that consists of many of these profiles it is faster to tel the system that it should always used the nested Newton method (use_of_nested_newton).
+Nested newton iterations are needed in case profiles in 1D are narrowing with height. Mathematically, in case d^2V/d\zeta^2<0. This occurs, for example, a lot in sewerage systems. For these cases, the Newton iteration method does not guarantee a solution, so the system is split in two systems that do guarantee a solution. In case 3Di cannot find a solution it will always try, whether it can find a solution using the nested Newton method. However, in case one has an application that consists of many of these profiles it is faster to tel the system that it should always used the nested Newton method (use_of_nested_newton).
 
 Maximum Degree
 """"""""""""""
@@ -151,6 +151,8 @@ Limiter for friction depth
 
 In order to take high resolution depth and roughness variations into account to determine the friction, an estimate is made of the effective frictional depth. For this the actual depth is needed. Similar to the limiter for the cross-sectional area, the actual depth in sloping areas is overestimated. In such case not only the depth to determine the cross-sectional area can be adjusted, but also the depth to determine the effective frictional depth. The friction can therefore be underestimated in sloping areas. Therefor the same limiter can be used to determine the effective frictional depth by switching this limiter on. This limiter is obligated in combination with the limiter_slope_crossectional_area_2d.
 
+
+.. _friction_settings:
 
 Numerical settings for friction
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

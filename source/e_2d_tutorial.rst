@@ -31,7 +31,7 @@ Before you get started:
 
 * Install the 3Di Modeller Interface installed, see :ref:`3di_instruments_and_downloads`.
 
-* Download the `Digital Elevation Model (DEM) for the Burrows area <https://demo.lizard.net/media/3di-tutorials/3di-tutorial-01.zip>`_ [#dem_attribution]_. 
+* Download the `Digital Elevation Model (DEM) for the Burrows area <https://demo.lizard.net/media/3di-tutorials/3di-tutorial-02.zip>`_ [#dem_attribution]_. 
 
 
 Creating a new schematisation
@@ -84,7 +84,7 @@ You will need the path to the spatialite file (.sqlite) for this schematisation.
 
 #) In the 3Di Schematisation Editor toolbar, click the *Load from Spatialite* button (|load_from_spatialite|). Paste the path to the spatialite and click *Open*.
 
-#) Add a background map from OpenStreetMap by clicking Main Menu > *Web* > *Quick Map Services* > *OSM* > *OSM Standard*.
+#) Add a background map from OpenStreetMap by clicking *Web* in the Main Menu > *Quick Map Services* > *OSM* > *OSM Standard*.
 
 #) In the *Layers* panel, reorder the layers such that the OpenStreetMap layer is below the 3Di schematisation.
 
@@ -228,7 +228,7 @@ To view the model on 3Di Management:
 
 #) On this page, you see the details of the last revision of your schematisation. You can switch to older revisions by clicking *Choose other revisions*
 
-#) Under *3Di Model of this revision* > *Simulation templates*, you can start a 3Di Live simulation with this model, by clicking on the button with three horizontal lines > *Run on live site*
+#) Under *3Di Model of this revision* > *Simulation templates*, you can start a 3Di Live simulation with this model, by clicking on the button with three horizontal lines > *Run on 3Di Live*
 
 
 

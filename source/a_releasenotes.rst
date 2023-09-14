@@ -8,6 +8,23 @@ Release notes
 3Di general releases
 --------------------
 
+July 18th 2023
+^^^^^^^^^^^^^^
+
+We have released several new features, improvements and bugfixes. Most notably:
+
+- Storage in the groundwater domain is more accurate and less cell size dependent because it uses subgrid
+
+- Simulation templates are inherited from the 3Di Model of the previous revision and persist when the 3Di Model is regenerated.
+
+- User management is now available on management.3di.live (if you have Manager rights)
+
+- If you have run a simulation but forgot to include Lizard postprocessing, you can now start it after the simulation has finished.
+
+
+For more details, see the :ref:`release notes for the 3Di API<3di_api_release_20231807>`, :ref:`release notes for the 3Di computational core<3di_calccore_release_20231807>`, and :ref:`release notes for 3Di Management core<3di_ms_release_20231807>`
+
+
 June 14th 2023
 ^^^^^^^^^^^^^^
 
@@ -218,9 +235,9 @@ June 14th 2023
 April 25th 2023
 ^^^^^^^^^^^^^^^
 
-**Live site**
+**3Di Live**
 
-- Breaches: a line has been added to the visualisation of breaches in the live site. Discharge and flow velocity are visualized on these lines by moving dots.
+- Breaches: a line has been added to the visualisation of breaches in 3Di Live. Discharge and flow velocity are visualized on these lines by moving dots.
 
 **Schematisation checker**
 
@@ -437,7 +454,7 @@ January 31st 2022 (Klondike)
 On January 31st we have released the backend for the Klondike release. In this release we introduce a brand new route to process schematisations into 3Di models. This will replace the process known as 'inpy'.
 For users that have not been migrated yet, this will not have effect on their work process. 3Di Models will simulate as before.
 
-The migration will be rolled out gradually, users will be contacted for this. The management screens are available for all users right away, but keep in mind that the new features mostly work on migrated schematisations and 3Di Models.
+The migration will be rolled out gradually, users will be contacted for this. 3Di Management is available for all users right away, but keep in mind that the new features mostly work on migrated schematisations and 3Di Models.
 Contact our servicedesk if you have any questions regarding migration.
 
 We use the following definitions:
@@ -585,15 +602,15 @@ A 3Di Model is generated from a schematisation. The generation takes the grid & 
 
 **3Di Management Screens**
 
-The management screens have been extended with a Models section. In this Models section users can:
+3Di Management has been extended with a Models section. In this Models section users can:
 
 For 3Di Models
 
 - See an overview of Models in a list
 - See an overview of Models in the map
 - Per Model a detailed page is available including the location on the map, size of the Model.
-- Per Model is an option to run the simulation on the live site
-- On the detailed Model page there is an option to run the simulation on the live site
+- Per Model is an option to run the simulation on 3Di Live
+- On the detailed Model page there is an option to run the simulation on 3Di Live
 - On the detailed Model page there is an option to delete the model
 - On the detailed Model page there is an option to re-generate the model from the schematisation
 - A history of simulations performed with the 3Di Model
@@ -644,13 +661,13 @@ The map can be viewed here: stowa.lizard.net
 
 .. _release_notes_LS:
 
-3Di Live Site
+3Di Live
 --------------
 
 April 25th 2023
 ^^^^^^^^^^^^^^^
 
-- Breaches: a line has been added to the visualisation of breaches in the live site. Discharge and flow velocity are visualized on these lines by moving dots.
+- Breaches: a line has been added to the visualisation of breaches in 3Di Live. Discharge and flow velocity are visualized on these lines by moving dots.
 
 
 March 20th 2023
@@ -712,14 +729,14 @@ August 2022
 February 2022 (Klondike)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We have released new versions of the live site.
+We have released new versions of 3Di Live.
 
 - Simulation templates are used
 
 October 18th 2021
 ^^^^^^^^^^^^^^^^^
 
-We have released new versions of the live site
+We have released new versions of 3Di Live
 
 - Saves the organisation you have selected and your previous search term last
 - Forms reflect the last action from the user. E.g. for rainfall it doesn't reset to the default value anymore
@@ -728,7 +745,7 @@ We have released new versions of the live site
 March 23rd 2021
 ^^^^^^^^^^^^^^^^
 
-We have update the 3Di live site with following features:
+We have update 3Di Live with following features:
 
 - Water depth graph now also shows a graph with water depth - 0
 - Add a clock time hover
@@ -755,6 +772,22 @@ Some bugfixes in 3Di live:
 
 3Di Management Screens
 ----------------------
+
+.. _3di_ms_release_20231807:
+
+June 18th 2023
+^^^^^^^^^^^^^^
+
+- User management is now available on 3Di management if you have Manager rights
+- Vegetation rasters are now included in schematisation revision overview
+- Add time zone (UTC offset) when listing start or end datetime of simulation
+- "Export to Excel file" button on schematisations page now downloads all schematisation names, and shows a modal with a progress bar
+- Schematisation detail page: Disable "run in 3Di Live" option if 3Di Live is not part of contract
+- Schematisation list no longer shows schematisations that have no revisions, unless you explicitly choose this option
+- Bugfix: On the schematisation revision detail page, Some raster download links did not work
+- Bugfix: On the schematisation revision detail page, "Predefined simulation data" section had wrong contents
+- Bugfix: On the schematisation revision detail page, rasters where only listed after a 3Di model had been created
+
 
 March 20th 2022
 ^^^^^^^^^^^^^^^^^^
@@ -809,15 +842,15 @@ February 2022 (Klondike) v2
 February 2022 (Klondike)
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-The management screens have been extended with a Models section. In this Models section users can:
+3Di Management has been extended with a Models section. In this Models section users can:
 
 For 3Di Models
 
 - See an overview of Models in a list
 - See an overview of Models in the map
 - Per Model a detailed page is available including the location on the map, size of the Model.
-- Per Model is an option to run the simulation on the live site
-- On the detailed Model page there is an option to run the simulation on the live site
+- Per Model is an option to run the simulation on 3Di Live
+- On the detailed Model page there is an option to run the simulation on 3Di Live
 - On the detailed Model page there is an option to delete the model
 - On the detailed Model page there is an option to re-generate the model from the schematisation
 - A history of simulations performed with the 3Di Model
@@ -835,6 +868,16 @@ For schematisations users can:
 
 3Di Modeller Interface
 ----------------------
+
+July 20th 2023
+^^^^^^^^^^^^^^
+
+**3Di Toolbox 2.5.4**
+
+- Add processing algorithm for generating maximum water depth / water level rasters
+
+- Make the plugin work for both QGIS <= 3.28.5 and QGIS > 3.28.5 by making installed h5py version depend on QGIS version
+
 
 June 23 2023
 ^^^^^^^^^^^^
@@ -1099,7 +1142,7 @@ November 21th 2022
 
 *Reminder*
 
-- The server known as inpy is no more. If you started using 3Di this year you can ignore this message. For the other users: the 3Di models cannot run anymore on the live site. But the schematisations are all available. The be able to run the 3Di model again, simply look for your schematisation on management.3di.live and press ‘generate model’.
+- The server known as inpy is no more. If you started using 3Di this year you can ignore this message. For the other users: the 3Di models cannot run anymore on 3Di Live. But the schematisations are all available. The be able to run the 3Di model again, simply look for your schematisation on management.3di.live and press ‘generate model’.
 
 - If you’re not sure whether your model is generated using inpy, go to management.3di.live search for your model. If there is no details page available (link is greyed out) then the model is generated via inpy.
 
@@ -1344,7 +1387,7 @@ A quick guide to generate water depth maps:
 
 Processing ^^> Toolbox ^^> 3Di ^^> post-processed results ^^> water depth
 
-Or check out our documentation: :ref:`waterdepthtool`
+Or check out our documentation: :ref:`3di_processing_toolbox`
 
 
 *Extended support for starting simulations using the Modeller Interface*
@@ -1371,9 +1414,7 @@ The following bugs have been fixed:
 February 22nd 2021
 ^^^^^^^^^^^^^^^^^^^^^^
 
-- We now support QGIS 3.16 for our toolbox
-
-Download the latest version of the :ref:`3di_toolbox_plugin`
+- We now support QGIS 3.16 for our toolbox.
 
 Please not that the Modeller Interface is not yet upgraded to QGIS 3.16, we will do so when the QGIS repo's are updated.
 
@@ -1411,6 +1452,22 @@ We are constantly working on improving the 3Di experience. Based on user experie
 
 3Di API
 ----------
+
+.. _3di_api_release_20231807:
+
+June 18th 2023
+^^^^^^^^^^^^^^
+
+- Invite email for organisation for users now shows which organisation they are invited to
+- An e-mail is sent when your simulation has crashed
+- Allow Lizard postprocessing after simulation has finished. (when not already requested)
+- Simulation templates persist when regenerating 3Di Model
+- Simulation templates are inherited from 3Di Model of the previous revision
+- If simulation results become > 10 GB, simulation crashes with clear error message, instead of taking down the calculation node (and any other simulations that depend on that node)
+- Added dequeue action putting a queued` simulation back in created state.
+- Bugfix: Set max timestep to default timestep when max timestep is undefined
+- Improved speed of /simulations/ endpoint by introducing is_template field.
+
 
 June 14th 2023
 ^^^^^^^^^^^^^^
@@ -1852,6 +1909,17 @@ Extended API v3 with boundary conditions & bug fixing
 
 3Di Computational core
 ----------------------
+
+.. _3di_calccore_release_20231807:
+
+June 18th, 2023
+^^^^^^^^^^^^^^^
+
+- Storage in the groundwater domain is more accurate and less cell size dependent because it uses subgrid
+- Initialization time (when starting a simulation) for models with many 1D lines has been reduced
+- Bugfix: Missing headers in matrix.log
+- Bugfix: Embedded wet surface is now calculated *after* merging the volume table.
+- Bugfix: Source geometry for raster and obstacle edit would not be set, leading to incorrect assumption of EPSG:4326
 
 June 2023
 ^^^^^^^^^

@@ -1,4 +1,4 @@
-How to use the Management Portal
+How to use 3Di Management
 =================================
 
 .. _management_screens_manual:
@@ -9,7 +9,7 @@ Manage your schematisations and models
 https://management.3di.live/
 
 .. figure:: image/b_managementportal.png
-   :alt: Management portal
+   :alt: 3Di Management
 
 
 The Modeller Interface is used to build and edit you schematisation on your own computer. However, the 3Di models are stored in the cloud, to enable version control. When uploading a model it is stored in the so-called *3Di Model Database*. Users upload their model with a description of the adjustment being made.
@@ -54,11 +54,11 @@ Management - Models
  If you click on the 'Schematisations' tile in the overview, you see a list of all models of your organization. 
 
 .. figure:: image/b_managementportal_models.png
-   :alt: Management portal - Model management
+   :alt: 3Di Management - Model management
    
 This list can be exported to an Excel file, which can be handy if you want to clean up your 3di models.
 
 You can also see the models on the map in the map view.
 
 .. figure:: image/b_managementportal_models2.png
-   :alt: Management portal - Model management - map view
+   :alt: 3Di Management - Model management - map view

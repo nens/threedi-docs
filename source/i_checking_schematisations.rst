@@ -3,22 +3,22 @@
 Checking the schematisation
 ===================================
 
-It is very useful to check your schematisation before uploading. It can raise errors and let you solve them early on, or it can raise warnings, which you might want to solve.
+It is highly recommended to check your schematisation before uploading. It helps you detect and solve errors or warnings early on.
 
 .. _schematisationchecker:
 
 Schematisation checker
 -------------------------
 
-The *schematisation checker* analyses your 3Di model database (.sqlite file) for completeness and consistency between tables. 
-With the checker you can make sure most database errors are found before uploading schematisation to the 3Di servers for model generation.
+The *schematisation checker* checks your 3Di schematisation (.sqlite file) for completeness and consistency between tables. 
+With the checker you detect most database errors before uploading the schematisation to the 3Di servers for model generation.
 
 In order to use the *schematisation checker* follow these steps:
 
 1. Start the Modeller Interface
-2. Add a connection to the model database (*Layer* -> *Data Source Manager*, Select *SpatiaLite* on the left and create a *'New'* connection or connect to an existing connection)
-3. Open the *schematization checker* by opening the *Toolbox* in the 3Di Plugin, select *Step 1: check data*, select *schematisation_checker.py*
-4. Select the SpatiaLite connection of the model database and the location where to store the output of the schematisation checker. Click *run* to run the schematisation checker. Click *open* to open the output.
+2. Add a connection to the schematisation database (*Layer* -> *Data Source Manager*, Select *SpatiaLite* on the left and create a *'New'* connection or connect to an existing connection)
+3. Open the *schematization checker* by opening the :ref:`3di_processing_toolbox` > 3Di > Schematisation > Check Schematisation.
+4. Select the SpatiaLite connection of the schematisation database and the location where to store the output of the schematisation checker. Click *run* to run the schematisation checker. Click *open* to open the output.
 
 The output is a comma-separated value file, which can be opened in, for example, Excel. It contains 6 columns: *id, table, column, value, description and check*:
 
@@ -60,11 +60,11 @@ You can also generate the computational grid from a schematisation. This is very
 
 Computational grid from gridadmin.h5 file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The processing algorithm "Computational grid from gridadmin.h5" reads the computational grid data from the .h5 file and writes it to GIS-layers in a GeoPackage. You can find it in the Processing Toolbox (Main Menu > Processing > Toolbox), under 3Di > Computational Grid. Choose a folder that contains a gridadmin.h5 file and an output location for the GeoPackage. Once the algorithm has been run, the layers from the GeoPackage will be added to your project. If you do not need this data anymore after closing the 3Di Modeller Interface, you can also save to a temporary file. 
+The processing algorithm "Computational grid from gridadmin.h5" reads the computational grid data from the .h5 file and writes it to GIS-layers in a GeoPackage. You can find it in the :ref:`3di_processing_toolbox` (Main Menu > Processing > Toolbox), under 3Di > Computational Grid. Choose a folder that contains a gridadmin.h5 file and an output location for the GeoPackage. Once the algorithm has run, the layers from the GeoPackage will be added to your project. If you do not need this data anymore after closing the 3Di Modeller Interface, you can also save to a temporary file. 
 
 Computational grid from schematisation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The processing algorithm "Computational grid from schematisation" builds a computational grid from schematisation data (stored in spatialite and rasters). The algorithm writes this to a gridadmin.h5 file and subsequently converts that data to GIS-layers in a GeoPackage. You can find it in the Processing Toolbox (Main Menu > Processing > Toolbox), under 3Di > Computational Grid. Choose your schematisation's spatialite file and an output location for the GeoPackage. Once the algorithm has been run, the layers from the GeoPackage will be added to your project. If you do not need this data anymore after closing the 3Di Modeller Interface, you can also save to a temporary file. 
+The processing algorithm "Computational grid from schematisation" builds a computational grid from schematisation data (stored in spatialite and rasters). The algorithm writes this to a gridadmin.h5 file and subsequently converts that data to GIS-layers in a GeoPackage. You can find it in the :ref:`3di_processing_toolbox` (Main Menu > Processing > Toolbox), under 3Di > Computational Grid. Choose your schematisation's spatialite file and an output location for the GeoPackage. Once the algorithm has run, the layers from the GeoPackage will be added to your project. If you do not need this data anymore after closing the 3Di Modeller Interface, you can also save to a temporary file. 
 
 Differences between locally and server-generated grids
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -77,3 +77,13 @@ Please note that when generating the computational grid locally, some attributes
 - Flowline layer: exchange_level (for 2D en 1D/2D flowlines)
 
 - Obstacles: exchange_level
+
+Detecting leaking obstacles in the DEM
+--------------------------------------
+
+Two processing algorithms are available to help you identify leaking obstacles in the DEM, such as dikes or elevated roads in the dem that are 'missed' by 3Di because they do not cover the entire edge of a calculation cell. Access them via *Main Menu* > *Processing* > *Toolbox* > *3Di* > *Computational Grid*.
+
+	* **Detect leaking obstacles in DEM** analyses all 2D flowlines in the model domain.
+	* **Detect leaking obstacles in DEM (discharge threshold)** analyses only the 2D flowlines in the model domain through which more than a specified volume of water flows during the entire simulation. It also estimates how much effect placing an obstacle would have on this volume.
+
+
