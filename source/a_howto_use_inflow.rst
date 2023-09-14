@@ -1,20 +1,17 @@
 .. _howto_use_inflow:
 
-Use rainfall-runoff in 1D models
-================================
+Use rainfall-runoff (0D inflow) in 1D models
+=============================================
+Rainfall typically descends directly onto surfaces before finding its way into the sewerage system. However, in urban areas, a substantial portion of the rain lands on buildings. This rainwater can either flow into the sewerage system through rain pipes or be retained, a phenomenon known as 0D inflow.
 
-In models with 1D elements, rainfall-runoff processes can be included using '0D inflow', i.e. inflow from a surface with a specified area and hydrological parameters that determine how much runoff flows into the 1D network. 
+For a detailed understanding of how 0D inflow is computed and guidance on choosing between utilizing the :ref:`surface` or :ref:`impervious_surface` references, consult :ref:`0d_inflow`. Additionally, refer to :ref:`inflow_objects` for an overview of the schematization objects employed.
 
-See :ref:`0d_inflow` for an explanation of how 0D inflow is calculated, and for the information you need to choose between using :ref:`surface` or :ref:`impervious_surface`.
- 
-See :ref:`inflow_objects` for an overview of the schematisation objects used.
-
-This section explains how to use 0D inflow in a model.
 
 Schematisation
 --------------
+How to add 0D inflow to a schematisation:
 
-- In the `Global settings` table, the parameter use_0d_inflow must be set to 1 (for 'impervious surface' 0D inflow) or 2 (for using 'surface' 0D inflow). If you do not want to use 0D inflow, set it to 0.
+- In the *Global settings* table, the parameter use_0d_inflow must be set to 1 (for 'impervious surface' 0D inflow) or 2 (for using 'surface' 0D inflow). If you do not want to use 0D inflow, set it to 0.
 
 - If you are using *Surface* inflow, add a record to the :ref:`surface_parameters` table.
 
@@ -38,8 +35,6 @@ Combining 0D inflow with and 2D rain can be useful in several cases, for example
 
 An explanation of how this can be used is given in :ref:`combine_0d_2d_rain`.
 
-
 Simulation
 ----------
-
 After taking the steps described above, a 3Di model can be generated from the schematisation. Any rain that is forced on the model during the simulation will be used to calculate the runoff from the surfaces. It will be added to the volume of the calculation node to which it is mapped as lateral discharge.
