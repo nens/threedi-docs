@@ -3,11 +3,13 @@
 Import from SUF-HYD
 ^^^^^^^^^^^^^^^^^^^
 
-SUF-HYD is a Dutch standardized format for transferring data of sewerage systems for hydraulic analyses. This tool allows an automated import of the sewerage data in the 3Di model database. 
+SUF-HYD is a Dutch standardized format for transferring data of sewerage systems for hydraulic analyses. This tool allows an automated import of the sewerage data in the 3Di model database. It is now succeeded by the newer `GWSW HydX <https://www.riool.net/applicaties/gegevenswoordenboek-stedelijk-water/modulaire-opbouw-van-het-gwsw/gwsw-hyd>`.
 
-Before you can use the tool, make sure you have downloaded an :ref:`empty spatialite <empty_database>`. The SUF-HYD data will be imported to this spatialite.
+Before you can use the tool, make sure you have downloaded an :download:`empty spatialite <other/empty.sqlite>`. The SUF-HYD data will be imported to this spatialite.
 
-The tool can be accessed by :ref:`activating the processing toolbox <processing_toolbox>` > clicking on '3Di' in the toolbox > 'Schematisation' > 'import Sufhyd'. 
+.. VRAAG: klopt dit nog?
+
+The tool can be accessed by the :ref:`3di_processing_toolbox` > clicking '3Di' in the toolbox > 'Schematisation' > 'import Sufhyd'. 
 After opening the tool, select a SUF-HYD file and the database (sqlite) to import the data into and click 'OK'
 
 .. VRAAG: heb je een SUF-HYD zodat ik kan checken dat dit nog klopt?

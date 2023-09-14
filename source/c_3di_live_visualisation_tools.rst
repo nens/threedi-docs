@@ -33,7 +33,7 @@ Calculation layers
 
 In the *Calculation* section, you can toggle the visibility of layers that give insight in the simulation result and the computational grid:
 
-- *Waterdepth* shows you the proportional depth of the water on the 2D domain. The color scheme of the water depth can not be changed in the Live Site.
+- *Waterdepth* shows you the proportional depth of the water on the 2D domain. The color scheme of the water depth can not be changed in 3Di Live.
 - *Flow velocity* shows the flow in the 1D elements, visualized by moving white dots. The size of the dots indicates the discharge, and the speed with which they move indicates the flow velocity.
 - *Model grid* shows the 2D cells on the map. Note that you need to zoom in sufficiently for the cells to be shown.
 - *Model grid flow* shows the 2D flowlines and 1D2D exchange flowlines of your model. Note that you need to zoom in sufficiently for the cells to be shown.

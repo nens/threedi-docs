@@ -26,6 +26,7 @@ The time series can all be downloaded in CSV format. The points in the graphs in
 
 .. figure:: image/d3.1_point_location.png
 	:alt: Point selection
+	:scale: 50%
 
 	Point selection tool.
 
@@ -39,6 +40,7 @@ The *Line-selection tool* allows you to draw a transect on the map, to show the 
 
 .. figure:: image/d3.1_side_view.png
 	:alt: Cross section selection
+	:scale: 50%
 
 	Line selection tool.
 	
@@ -53,11 +55,14 @@ Channels and structures can be included as 1D elements in the model. The channel
 Discharge and velocity are in the lines:
 
 .. figure:: image/d3.7_1d_network.png
-    :alt: 1D network
+	:scale: 50%
+	:alt: 1D network
+	
 
-
+	
 Water level and water depth are in the nodes:
 
 .. figure:: image/d3.8_1d_network.png
-    :alt: 1D network
+	:scale: 50%
+	:alt: 1D network
 

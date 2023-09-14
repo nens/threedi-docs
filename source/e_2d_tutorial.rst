@@ -228,7 +228,7 @@ To view the model on 3Di Management:
 
 #) On this page, you see the details of the last revision of your schematisation. You can switch to older revisions by clicking *Choose other revisions*
 
-#) Under *3Di Model of this revision* > *Simulation templates*, you can start a 3Di Live simulation with this model, by clicking on the button with three horizontal lines > *Run on live site*
+#) Under *3Di Model of this revision* > *Simulation templates*, you can start a 3Di Live simulation with this model, by clicking on the button with three horizontal lines > *Run on 3Di Live*
 
 
 

@@ -13,7 +13,7 @@ This video shows the workflow from start to finish of the modelling process:
 
 *Demo of the modelling process* 
 
-For an overview of the interface and its components visit the :ref:`mi_overview` page. For more detailed information on the modelling workflow, visit the :ref:`workflow` page. There are also multiple tutorials available on how to work with the 3Di Modeller Interface. A good starting point is the :ref:`Workflow Tutorial <tutorial1_workflow>`.
+For an overview of the interface and its components visit the :ref:`mi_overview` page. For more detailed information on the modelling workflow, visit the :ref:`workflow` page. There are also multiple tutorials available on how to work with the 3Di Modeller Interface. A good starting point is the :ref:`Tutorial 2 <tutorial2_2dflatmodel>`.
 
 
 This user manual is structured along the common workflow:
@@ -27,7 +27,7 @@ This user manual is structured along the common workflow:
 * :doc:`i_uploading_and_downloading_schematisations`
 * :doc:`i_running_a_simulation`
 * :doc:`i_downloading_results`
-* :doc:`i_analyzing_results`
+* :doc:`i_analysing_results`
 
 
 .. _mi_technical_setup:
@@ -46,7 +46,7 @@ The 3Di Modeller Interface is a customized version of QGIS, shipped with several
 
 - :doc:`i_plugin_models_simulation`: for interaction with the 3Di API: uploading and downloading schematisations, starting and stopping simulations, downloading results.
 
-- :doc:`i_plugin_toolbox`: for analysing simulation results
+- :ref:`3di_results_manager`: for analysing simulation results
 
 - *3Di Customisations* takes care of the user interface customization: the user interface is simplified, some colors are different and the application name, logo and splash screen are changed.
    

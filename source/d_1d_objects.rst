@@ -236,6 +236,11 @@ Attributes
    Nieuwe grondwater attributen toevoegen
 
 
+When using the 3Di Schematisation Editor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- The *Connection nodes* and a *Cross-section location* are added automatically. 
+- Do not forget to fill in the required feature attributes for the *Cross-section location*.
+
 Notes for modellers
 ^^^^^^^^^^^^^^^^^^^
 
@@ -406,7 +411,7 @@ Attributes
      - friction_value
      - decimal number
      - Yes
-     - m:sup:`1/2`/s or s/m:sup:`1/3`
+     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
      - Friction or roughness value
    * - Reference level
      - reference_level
@@ -421,6 +426,7 @@ Attributes
 Notes for modellers
 ^^^^^^^^^^^^^^^^^^^
 
+- A cross-section location should be placed on top of a channel vertex that is not the start or end vertex
 - If the channel calculation point distance is smaller than the distance between cross section locations, values in the cross section locations along the channel are interpolated, see :ref:`techref_calculation_point_distance`.
 - If there are multiple cross-section locations between two **calculation nodes** (not connection nodes), only the first cross-section location is used.
 
@@ -570,7 +576,7 @@ Attributes
      - friction_value
      - decimal number
      - Yes
-     - m:sup:`1/2`/s or s/m:sup:`1/3`
+     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
      - Friction or roughness value
    * - Start connection node ID
      - connection_node_start_id
@@ -590,6 +596,12 @@ Attributes
      - No
      - \-
      - *Deprecated*
+
+When using the 3Di Schematisation Editor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- The *connection nodes* are added automatically
+
 
 Notes for modellers
 ^^^^^^^^^^^^^^^^^^^
@@ -801,7 +813,7 @@ Attributes
      - boolean
      - Yes
      - \-
-     - Indicates if the pumpstation is part of the sewer system (True) or not (False)
+     - Indicates if the pumpstation is part of the sewerage system (True) or not (False)
    * - Start level
      - start_level
      - decimal number
@@ -899,7 +911,7 @@ Attributes
      - boolean
      - Yes
      - \-
-     - Indicates if the pumpstation is part of the sewer system (True) or not (False)
+     - Indicates if the pumpstation is part of the sewerage system (True) or not (False)
    * - Start connection node ID
      - connection_node_start_id
      - integer
@@ -1044,14 +1056,14 @@ Attributes
      - friction_value
      - decimal number
      - Yes
-     - m:sup:`1/2`/s or s/m:sup:`1/3`
+     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
      - Friction or roughness value
    * - Sewerage
      - sewerage
      - boolean
      - Yes
      - \-
-     - Indicates if the structure is part of the sewer system (True) or not (False)
+     - Indicates if the structure is part of the sewerage system (True) or not (False)
    * - Start connection node ID
      - connection_node_start_id
      - integer
@@ -1065,6 +1077,11 @@ Attributes
      - \-
      - *Deprecated*
 
+
+When using the 3Di Schematisation Editor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- The *connection nodes* are added automatically
 
 Notes for modellers
 ^^^^^^^^^^^^^^^^^^^
@@ -1084,7 +1101,7 @@ The discharge is multiplied by this value. The energy loss caused by the change 
 Pipe
 ----
 
-Pipe in a sewer system.
+Pipe in a sewerage system.
 
 Geometry
 ^^^^^^^^
@@ -1179,14 +1196,14 @@ Attributes
      - friction_value
      - decimal number
      - Yes
-     - m:sup:`1/2`/s or s/m:sup:`1/3`
+     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
      - Friction or roughness value
    * - Sewerage
      - sewerage
      - boolean
      - Yes
      - \-
-     - Indicates if the pumpstation is part of the sewer system (True) or not (False)
+     - Indicates if the pumpstation is part of the sewerage system (True) or not (False)
    * - Start connection node ID
      - connection_node_start_id
      - integer
@@ -1210,7 +1227,7 @@ Attributes
      - integer
      - Yes
      - \-
-     - Function of the pipe in the sewer system. Used for visualisation and administrative purposes only. See :ref:`pipe_notes_for_modeller`.
+     - Function of the pipe in the sewerage system. Used for visualisation and administrative purposes only. See :ref:`pipe_notes_for_modeller`.
    * - Zoom category
      - zoom_category
      - integer
@@ -1218,8 +1235,18 @@ Attributes
      - \-
      - *Deprecated*
 
+<<<<<<< HEAD
 .. todo::
 	Nieuwe grondwater attributen toevoegen
+=======
+When using the 3Di Schematisation Editor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- The *connection nodes* and *manholes* will be added automatically.
+- To draw a single pipe, the geometry must have exactly 2 vertices. A line with more than 2 vertices will be split into several pipes.
+- To digitize a trajectory of multiple pipes, first digitize the manholes, fill in the bottom levels, and then draw the pipe trajectory over these manholes by adding a vertex at each of the manholes. The pipes that are generated will use the manhole's bottom levels as invert levels and the *connection nodes* and *manholes* will be added automatically.
+
+>>>>>>> master
 
 .. _pipe_notes_for_modeller:
 
@@ -1358,14 +1385,14 @@ Attributes
      - friction_value
      - decimal number
      - Yes
-     - m:sup:`1/2`/s or s/m:sup:`1/3`
+     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
      - Friction or roughness value
    * - Sewerage
      - sewerage
      - boolean
      - Yes
      - \-
-     - Indicates if the structure is part of the sewer system (True) or not (False)
+     - Indicates if the structure is part of the sewerage system (True) or not (False)
    * - Start connection node ID
      - connection_node_start_id
      - integer

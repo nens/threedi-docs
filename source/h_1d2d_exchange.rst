@@ -131,13 +131,6 @@ The figure below shows an embedded channel in the computational grid. 3Di fixes 
    :figwidth: 300 px
    :alt: Embedded channel in a computational grid
 
-.. todo::
-
-   @Nici, van onderstaande tekst begrijp ik echt heel weinig. Kan jij dit herschrijven / aan mij uitleggen / weghalen?
-
-   The geometry is simplified based upon the 2D geometry. It also shows, indicated with the coloured, transparent hollows, which domain contribute to the volumes. As they can be shifted with respect to the 2D domain, recalculation by hand can be difficult. There is an option to define the length of interest of an embedded channel.
-   If the channel within a 2D computational cell is shorter than that length, that part of the channel is skipped. This is indicated by the red circle in the same figure.
-
 Storage in embedded nodes
 """""""""""""""""""""""""
 
@@ -154,10 +147,32 @@ The embedded element modifies the storage of the 2D cell it is embedded in. The 
 
 Cross-sectional area in embedded flowlines
 """"""""""""""""""""""""""""""""""""""""""
+
 The cross-sectional area that is used in the 1D flow calculation is determined in a way similar to how the storage is handled. The part of the 1D cross-section that is below the DEM pixels is used, the rest is ignored. The cross-sectional area that is used for the calculation of 2D flow is unaltered by the embedded elements that pass through the cells.
 
 Exchange between 1D and groundwater
 -----------------------------------
 
-.. todo::
-   @Nici kan jij hier uitleggen op welke manier de uitwisseling tussen 1D en grondwater wordt berekend?
+Groundwater interacts with channel and pipes. In 3Di we allow couplings between the 1D and the 2D domain. There are various options that determine the flow, the material of the pipe/channel, the surrounding soil of the groundwater etc. For this 3Di focusses on the large scale effect of the interaction and not on the detailed micro-scale flow. 3Di computes the flux between the two domains based on a diffusive equation, similar to the Darcy equation:
+
+.. math::
+   :label: darcy_1d2d
+
+   Q_{1D2D} = -A_{1D2D} \kappa_{in/out} \frac{\partial \eta}{\partial \delta}
+
+| where:
+| :math:`Q_{1D2D}` is the discharge between the domains, positive direction is from the 1D domain to the 2D domain 
+| :math:`A_{1D2D}` is the wet cross-sectional area 
+| :math:`\kappa_{in/out}` is the hydraulic conductivity
+| :math:`\eta` is the water level gradient
+| :math:`\delta` is the exchange thickness
+
+The wet cross-sectional area is based on the length and the wetted perimeter of the 1D-element. This depends on the upstream water level and the cross-section definition of the 1D element. This is indicated in the figure below for a flux out of the 1D elements.
+
+.. figure:: image/h_1d2d_groundwaterexchange.png
+   :figwidth: 400 px
+   :alt: connected_to_grw
+
+   Sketch of 1D-2D groundwater exchange and the wetted perimeter in red depending on the flow direction.
+
+Each exchange is forced by a water level gradient and scaled by the hydraulic conductivity. Depending on the material, considering pipes or depending on the bed coverage, considering a channel the in and out going flow rates can scale differently. Therefor a in- and a out-going hydraulic conductivity value can be defined. Another scaling factor is the thickness of the pipe or the bed of the channel.
