@@ -46,7 +46,7 @@ If the model wishes to include an obstacle that may not be detected by the compu
 Friction
 --------
 
-The friction is calculated using the flow depth at each :ref:`subgrid <subgridmethod>` pixel in the :ref:`momentum domain<computational_grid_2d_domain>`. The formulations of Chézy or Manning can be used for the calculation of friction.
+In the 2D domain, the friction is calculated using the flow depth at each :ref:`subgrid <subgridmethod>` pixel in the :ref:`momentum domain<computational_grid_2d_domain>`. The formulations of Chézy or Manning can be used for the calculation of friction.
 
 Water level gradients
 ---------------------
