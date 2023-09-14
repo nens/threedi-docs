@@ -10,6 +10,8 @@ The methods that 3Di uses to deal with the flow in the 2D domain are thoroughly 
 
  .. TODO: Extend
 
+.. _surface_flow_cross_sections:
+
 Cross-sections and exchange levels
 ----------------------------------
 

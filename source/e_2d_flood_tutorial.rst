@@ -5,7 +5,7 @@ Tutorial 4: Building a dike breach flood model
 
 Introduction
 -------------
-In this tutorial, you are going to build a model that simulates a flood caused by a potential breach. The model will be built using the :ref:`3Di Modeller Interface <mi_what_is>`. At the end of this tutorial, you will have a basic working model that you can run simulations with.
+In this tutorial, you are going to build a model that simulates a flood caused by a levee breach. The model will be built using the :ref:`3Di Modeller Interface <mi_what_is>`. At the end of this tutorial, you will have a basic working model that you can run simulations with.
 
 Our area of interest is the municipality of Nissewaard on the island of Voorne-Putten in the Netherlands. The municipality of Nissewaard consists of urban area and farmland. While this tutorial represents a real-world area, it is important to note that some processes have been simplified for the purpose of this tutorial.
 
@@ -14,11 +14,11 @@ Learning objectives
 --------------------
 You will learn the following in this tutorial:
 
-* Adding 1D channels to a model.
-* Adding boundary conditions to a 1D channel.
-* Adding a linear obstacle to a model.
-* Creating a potential breach event.
-* Simulating the model with an active breach event.
+* Adding 1D channels to a model
+* Adding boundary conditions to a 1D channel
+* Adding a linear obstacle to a model
+* Creating a potential breach
+* Simulating the model with an active breach event
 
 
 Preparation
@@ -31,7 +31,6 @@ Before you get started:
 
 Unzip the dataset for this tutorial and save the contents into a folder. The dataset that you downloaded for this tutorial contains a digital elevation model (DEM) for a part of the Nissewaard municipality. The DEM is located in the folder named "rasters". 
 
-.. TODO: zip updaten!
 
 Creating a new schematisation
 ------------------------------
@@ -91,8 +90,8 @@ We will now upload the schematisation as a first :ref:`revision` and process it 
 Your 3Di model is now ready to run a simulation!  
 
 
-Viewing the schematisation
---------------------------
+Loading the schematisation in the 3Di Modeller Interface
+--------------------------------------------------------
 We will load the schematisation in the 3Di Modeller Interface to view and modify its contents. The schematisation can be loaded by following these steps:
 
 #) In the 3Di Schematisation Editor toolbar, click the *Load from Spatialite* button (|load_from_spatialite|). Paste the previously copied path to the spatialite and click *Open*.
@@ -109,13 +108,13 @@ You should now see the DEM south of the river "Oude Maas".
 Adding a potential dike breach to the schematisation
 ----------------------------------------------------
 We now have a schematisation with a DEM and the essential settings filled in.
-First, we will incorporate the 1D elements, including a channel and boundary conditions. Next, we will introduce the 2D elements, particularly a linear obstacle to represent the dike. Finally, the crucial connection between the 1D and 2D domains will be established through the implementation of a potential breach.
+First, we will incorporate the 1D elements, including a channel and boundary conditions. Next, we will introduce the 2D elements, particularly a linear obstacle to represent the dike. Finally, we will add a potential breach.
 
 .. _adding_a_channel:
 
 Adding a channel (1D)
 ^^^^^^^^^^^^^^^^^^^^^
-We are going to add a :ref:`channel` at the 'Scheepvaart- en Voedingskanaal' in the North of our model. See the :ref:`t4reference-image` for a reference.
+We are going to add a :ref:`channel` at the 'Scheepvaart- en Voedingskanaal' in the north of our model domain. See the :ref:`t4reference-image` for a reference.
 
 A channel :ref:`flows <channelflow>` from one connection node to another, has a :ref:`calculation type <calculation_types>` and a :ref:`channel geometry <cross_section_of_1d_element>`. Create a channel by following these steps:
 
@@ -179,18 +178,21 @@ In order for water to flow through the channel boundary conditions must be added
    * ID: <filled in automatically>
    * Connection node ID: <filled in automatically> (This is related to the previously added connection nodes)
    * Boundary type: Waterlevel
-   * Timeseries:
+   * Timeseries: copy and paste the following text. 
 
-        - 0,3.5
-        - 15,3.5
-        - 9999,3.5
+Timeseries text::
+
+    0,3.5
+    15,3.5
+    9999,3.5
 
 #) Do the same for the other end of your channel but with different Timeseries:
 
-        - 0,3.0
-        - 15,3.0
-        - 9999,3.0
-  
+Timeseries text::
+    0,3.0
+    15,3.0
+    9999,3.0
+
 #) Click the *Toggle editing mode* button in the toolbar and save your edits to this layer.
 
 The use of two distinct time series generates a flow within the channel, carrying water from one end to the other. The direction of this flow is determined by the time series' starting points; water will naturally move from a higher water level (3.5) to a lower water level (3.0).
@@ -198,7 +200,7 @@ The use of two distinct time series generates a flow within the channel, carryin
 
 Adding a dike (2D)
 ^^^^^^^^^^^^^^^^^^
-Dikes are automatically read from the DEM if they coincide exactly with the borders of the computational cells. Since this is rarely the case, it might be beneficial to draw the dike using a Linear Obstacle. Follow these steps, and reference the DEM and the :ref:`t4reference-image` to draw the obstacle:
+The dike at this location is included in the DEM. However, if the dike is narrower than the 2D cells, it may not affect the exchange between 2D cells. Put more simply, water may flow through the dike in such cases. See :ref:`surface_flow_cross_sections` and :ref:`obstacles` for a more elaborate explanation of this. To prevent leakage of the dike, we will add a :ref:`linear_obstacle`. Follow these steps, and reference the DEM and the :ref:`t4reference-image` to draw the obstacle:
        
 #) In the *Layers* panel, locate the *2D* group and select the *Linear Obstacle* layer.
 
@@ -218,7 +220,7 @@ Dikes are automatically read from the DEM if they coincide exactly with the bord
 
 Potential Breach (1D-2D)
 ^^^^^^^^^^^^^^^^^^^^^^^^
-Now that we have added a connected channel into our model, the next step is to introduce a potential breach location. This breach acts as a link between the 1D and 2D domains of the model. In our scenario, the potential breach will simulate a dike breach, where water can flow through the dike onto the fields behind the dike. For more theoretical information on breaches, see: :ref:`breaches`. 
+Now that we have added a channel with calculation type *connected*, the next step is to introduce a potential breach location. This breach is a link between the 1D and 2D domains of the model. Once the breach is activated and water flows through it, the breach will grow deeper and than wider. In our scenario, the potential breach will simulate a dike breach, where water can flow through the dike onto the fields behind the dike. For more theoretical information on breaches, see: :ref:`breaches`. 
 
 See the :ref:`t4reference-image` for a reference of where to draw the potential breach. To add a potential breach, follow these steps:
 
@@ -244,7 +246,7 @@ See the :ref:`t4reference-image` for a reference of where to draw the potential 
 
 #) Click the *Toggle editing mode* button in the toolbar and save your edits to this layer.
 
-The 'Exchange level' represents the water level that the channel must reach to initiate a breach. Additionally, a breach can also be "opened", similar to creating a hole in a dike. The 'Max breach depth' signifies the maximum depth of the breach, measured from the top of the dike.
+If the water level in the channel rises above the *exchange level*, water will start flowing through the potential breach, i.e. it works as a generic 1D2D connection. The breach can also be activated to simulate an event in which the dike fails for some reason, and water starts flowing the hole in the dike. The *Max breach depth* signifies the maximum depth of the breach, measured in meters below the exchange level. When this depth has been reached, the breach will no longer grow in depth and start widening.
 
 The final result should look similar to this, with the location of the channel (blue), the boundary conditions (purple), the dike obstacle (brown), and the potential breach (black) from the channel to the field behind the dike:
 
@@ -256,7 +258,7 @@ The final result should look similar to this, with the location of the channel (
     :alt: Reference image
     :scale: 50%
     
-    Reference image.
+    Reference image
 
 
 Adding a channel outside of the DEM
@@ -264,7 +266,7 @@ Adding a channel outside of the DEM
 A channel can also be added to the schematisation if it is outside of the DEM. If you want to do this you need to add an :ref:`exchange_line`. This line will link the 1D channel to the 2D domain of the DEM. Follow these steps:
 
 
-#) Add a channel like you did in :ref:`adding_a_channel`, but this time the channel has to be located outside of the DEM.
+#) Add a channel like you did in :ref:`adding_a_channel`, but this time draw the channel in the middle of the Spui (as shown on OpenStreetMap), between the southern edge of the model domain and the town of Nieuw-Beijerland. Note that this channel is located outside of the DEM.
 
 #) Add the boundary conditions like you did in :ref:`adding_boundary_conditions`.
 
@@ -353,7 +355,7 @@ In the 3Di Models and Simulations panel, click *Simulate*. An overview is given 
 Running a simulation with 3Di Live
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-It is also possible to simulate your model with 3Di Live:
+It is also possible to run simulations with this model in 3Di Live:
 
 #) Go to `3di.live <https://www.3di.live/>`_.
 

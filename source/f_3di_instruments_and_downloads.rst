@@ -122,11 +122,9 @@ Any other name will point towards the security software in use.
 3Di Modeller Interface
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-This is a pre-configured version of QGIS (www.qgis.org), with some options switched off, different stylesheets, and some pre-installed plugins.
-Three of these plugins (:ref:`models_simulation_plugin`, :ref:`schematisation_editor`, and :ref:`3di_results_manager`) are maintained by Nelen & Schuurmans.
-QGIS itself and the other pre-installed plugins are not made / maintained by Nelen & Schuurmans.
+The 3Di Modeller Interface is a customized version of QGIS, shipped with several pre-installed plugins and settings, see :ref:`mi_technical_setup`. Its :ref:`mi_3di_plugins` are maintained by Nelen & Schuurmans. QGIS itself and the other pre-installed plugins are not made / maintained by Nelen & Schuurmans.
 
-Install instructions for the 3Di Modeller Interface can be found in :ref:`3di_instruments_and_downloads`.
+Install instructions for the 3Di Modeller Interface can be found in :ref:`MI_installation`.
 
 Because the 3Di Modeller Interface is a customized QGIS,
 we refer to the QGIS documentation when you run into any issues that are not specifically related to the 3Di plugins: 

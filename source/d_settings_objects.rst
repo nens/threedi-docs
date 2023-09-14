@@ -15,19 +15,6 @@ The global settings of your schematisation. These can be grouped into categories
 Global settings attributes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. todo::
-	- Check if everything is correct in this table?
-	- Is this still relevant: use_2d_rain
-	- Same for nr_timesteps? This doesn't do anything anymore, correct? It is still mandatory to give a value for this?
-	- I also don't think startdate and starttime still work.. The default is 01/01/2000, 12:00 I think and is used when starting a simulation.
-	- Same for dem_obstacle_detection and dem_obstacle_height.
-	
-	- No idea what guess_dams does and whether it (still) works.
-	- Technical documentation on maximum table step size is missing in h_subgrid.rst.
-	- For the initial groundwater and initial waterlevel types the type is integer, but that is not shown in the QGIS-table. I think it should be as the frict_type. Because then it makes sense that it is an integer type.
-	- Add documentation for the folder structure that 3Di uses.
-
-
 .. list-table:: Global settings attributes
    :widths: 20 20 15 10 10 25 20
    :header-rows: 1
@@ -53,33 +40,33 @@ Global settings attributes
      - \-
      - Name of simulation template. This is the default simulation name when starting a simulation. Can be changed for any simulation.
      - General
-   * - Use 0D-inflow
+   * - Use 0D inflow
      - use_0d_inflow
      - Integer
      - Yes
      - \-
      - Choose between: *0: do not use 0d inflow*, *1: use v2_impervious_surface*, or *2: use v2_surface*. See :ref:`howto_use_inflow` for more details.
      - General
-   * - Use 1D-flow
+   * - Use 1D flow
      - use_1d_flow
      - Boolean
      - Yes
      - \-
-     - Indicates whether 1D-flow is taken into account in a simulation.
+     - Indicates whether 1D flow is taken into account in a simulation.
      - General
-   * - Use 2D-rain
+   * - Use 2D rain
      - use_2d_rain
      - Boolean
      - Yes
      - \-
      - Indicates whether rain on the 2D domain is taken into account in a simulation.
      - General
-   * - Use 2D-flow
+   * - Use 2D flow
      - use_2d_flow
      - Boolean
      - Yes
      - \-
-     - Indicates whether 2D-flow is taken into account in a simulation.
+     - Indicates whether 2D flow is taken into account in a simulation.
      - General
    * - Grid space
      - grid_space
@@ -88,12 +75,12 @@ Global settings attributes
      - m
      - The width/length of the smallest possible 2D computation cell. See :ref:`computational_grid` for more details.
      - Grid
-   * - Number of grid-refinement levels
+   * - Number of grid refinement levels
      - kmax
      - Integer
      - Yes
      - \-
-     - The maximum number of grid-refinement levels. See :ref:`computational_grid` for more details.
+     - The maximum number of grid refinement levels. See :ref:`computational_grid` for more details.
      - Grid
    * - Table step size
      - table_step_size
@@ -107,28 +94,28 @@ Global settings attributes
      - Decimal number
      - No
      - m
-     - Defines the maximum height interval between successive increments in the subgrid tabulation. See :ref:`subgrid_tables` for more details.
+     - Defines the maximum height interval between successive increments in the subgrid tabulation. Defaults to 100 × minimum table step size. See :ref:`subgrid_tables` for more details.
      - Grid
    * - DEM file
      - dem_file
      - Text
      - No
      - m MSL
-     - Location of your DEM file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\dem.tif*
+     - Location of your DEM file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\dem.tif*
      - Terrain information
    * - EPSG code
      - epsg_code
      - Integer
      - Yes
      - \-
-     - Defines the EPSG Geodetic Parameter Dataset to define the spatial reference system for you schematisation. See `Wikipedia <https://en.wikipedia.org/wiki/EPSG_Geodetic_Parameter_Dataset>`_ for more information.
+     - Defines the coordinate reference system (CRS) to define the spatial reference system for you schematisation.
      - Terrain information
    * - Friction coefficient file
      - frict_coef_file
      - Text
      - No
      - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
-     - Location of your friction coeffient file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\friction.tif*. This superseeds any global friction coefficient.
+     - Location of your friction coeffient file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\friction.tif*. This superseeds any global friction coefficient.
      - Terrain information
    * - Friction coefficient
      - frict_coef
@@ -156,7 +143,7 @@ Global settings attributes
      - Text
      - No
      - m MSL
-     - Location of your initial groundwater level file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\initial_groundwater_level.tif*. This superseeds any global initial groundwater level. See :ref:`groundwater` for more details.
+     - Location of your initial groundwater level file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\initial_groundwater_level.tif*. This superseeds any global initial groundwater level. See :ref:`groundwater` for more details.
      - Terrain information
    * - Initial groundwater level
      - Initial_groundwater_level
@@ -170,14 +157,14 @@ Global settings attributes
      - Integer
      - Only when using an initial groundwater level file
      - \-
-     - Choose between: *Max*, *Min*, or *Average*. See :ref:`groundwater` for more details.
+     - Choose between: *0: Max*, *1: Min*, or *2: Average*. See :ref:`groundwater` for more details.
      - Terrain information
    * - Initial water level file
      - initial_waterlevel_file
      - Text
      - No
      - m MSL
-     - Location of your initial water level file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\initial_water_level.tif*. This superseeds any global initial water level.
+     - Location of your initial water level file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\initial_water_level.tif*. This superseeds any global initial water level.
      - Terrain information
    * - Initial water level
      - initial_waterlevel
@@ -191,14 +178,14 @@ Global settings attributes
      - Integer
      - Yes
      - \-
-     - Choose between: *Max*, *Min*, or *Average*.
+     - Choose between: *0: Max*, *1: Min*, or *2: Average*.
      - Terrain information
    * - Interception file
      - interception_file
      - Text
      - No
      - m
-     - Location of your interception file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\interception.tif*. This superseeds any global interception value. See :ref:`interception` for more details.
+     - Location of your interception file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\interception.tif*. This superseeds any global interception value. See :ref:`interception` for more details.
      - Terrain information
    * - Interception global
      - interception_global
@@ -212,7 +199,7 @@ Global settings attributes
      - Text
      - No
      - \-
-     - Location of your wind shielding factor file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\wind_shielding.tif*. See :ref:`wind_effects` for more details.
+     - Location of your wind shielding factor file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\wind_shielding.tif*. See :ref:`wind_effects` for more details.
      - Terrain information
    * - Start date
      - start_date
@@ -254,7 +241,7 @@ Global settings attributes
      - Decimal number
      - Only when using time step plus
      - s
-     - Maximum time step that is allowed in the simulation. Use in conjunction with Time Step Plus.
+     - Maximum time step that is allowed in the simulation. Use in conjunction with *Time step plus*.
      - Time
    * - Number of time steps
      - nr_timesteps
@@ -275,42 +262,42 @@ Global settings attributes
      - Integer
      - Only when using interflow
      - \-
-     - Referral to the interflow settings ID.
+     - Reference to the interflow settings ID.
      - Settings ID's
    * - Groundwater settings ID
      - groundwater_settings_id
      - Integer
      - Only when using groundwater
      - \-
-     - Referral to the groundwater settings ID.
+     - Reference to the groundwater settings ID.
      - Settings ID's
    * - Numerical settings ID
      - numerical_settings_id
      - Integer
      - Yes
      - \-
-     - Referral to the numerical settings ID.
+     - Reference to the numerical settings ID.
      - Settings ID's
    * - Simple infiltration settings ID
      - simple_infiltration_settings_id
      - Integer
      - Only when using simple infiltration
      - \-
-     - Referral to the simple infiltration settings ID.
+     - Reference to the simple infiltration settings ID.
      - Settings ID's
    * - Control group ID
      - control_group_id
      - Integer
      - Only when using controls
      - \-
-     - Referral to the control group ID.
+     - Reference to the control group ID.
      - Settings ID's
    * - Vegetation drag settings ID
      - vegetation_drag_settings_id
      - Integer
      - Only when using vegetation
      - \-
-     - Referral to the vegetation drag settings ID.
+     - Reference to the vegetation drag settings ID.
      - Settings ID's
    * - Advection 1D
      - advection_1d
@@ -319,7 +306,7 @@ Global settings attributes
      - \-
      - Choose between *0: Do not use advection 1D* or *1: Use advection 1D*. Options 2-6 are in an experimental phase.
      - Extra options 1D
-   * - Calculation points distance
+   * - Calculation point distance
      - dist_calc_points
      - Decimal number
      - Yes
@@ -345,7 +332,7 @@ Global settings attributes
      - Decimal number
      - No
      - m
-     - User-defined table step size/increment (m) for 1d cross-sections and volumes. default value = table_step_size. Supersedes the table step size for 1D domain.
+     - User-defined table step size/increment (m) for 1d cross-sections and volumes; see :ref:`subgrid_tables`. Default value = table_step_size. Supersedes the table step size for 1D domain.
      - Extra options 1D
    * - Advection 2D
      - advection_2d
@@ -387,7 +374,7 @@ Global settings attributes
      - Decimal number
      - Yes
      - m
-     - The water depth threshold for flow between 2D cells. The depth is relative to the lowest bathymetry pixel at the edge between two 2D cells. It should be equal or higher than 0.
+     - The water depth threshold for flow between 2D cells. The depth is relative to the lowest DEM pixel at the edge between two 2D cells. It should be equal or higher than 0.
      - Extra options 2D
 
 
@@ -400,14 +387,6 @@ You can set multiple aggregation options for each *flow_variable* as long as the
 
 Aggregation settings attributes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. todo::
-	- There are a few errors in the flow variables in the QGIS-table (Schematisation-editor): 
-		- "Waterlevel" should be "Water level"
-		- "Wet cross section" should be "Wet cross-sectional area"
-		- "Wet surface" should be "Wet surface area"
-		- "Volum" should be "Volume"
-		- Not sure, but I think "Surface source sink discharge" should be "Surface source & sink discharge"
 
 .. list-table:: Aggregation settings attributes
    :widths: 20 20 15 10 15 40
@@ -430,36 +409,36 @@ Aggregation settings attributes
      - Text
      - Yes
      - \-
-     - The flow variables that can be used to aggregate. Choose between:
+     - Variable that is to be aggregated. Text to fill in vs. how it is displayed in the 3Di Modeller Interface:
      
-       - Discharge
-       - Flow velocity
-       - Pump discharge
-       - Rain
-       - Water level
-       - Wet cross-sectional area
-       - Wet surface
-       - Lateral discharge
-       - Volume
-       - Simple infiltration
-       - Leakage
-       - Interception
-       - Surface source & sink discharge
+       - discharge (Discharge)
+       - flow_velocity (Flow velocity)
+       - pump_discharger (Pump discharge)
+       - rain (Rain)
+       - waterlevel (Water level)
+       - wet_cross-section (Wet cross-sectional area)
+       - wet_surface (Wet surface)
+       - lateral_discharge (Lateral discharge)
+       - volume (Volume)
+       - simple_infiltration (Simple infiltration)
+       - leakage (Leakage)
+       - interception (Interception)
+       - surface_source_sink_discharge (Surface source & sink discharge)
    * - Aggregation method
      - aggregation_method
      - Text
      - Yes
      - \-
-     - The aggregation methods that can be used on a flow variable. Choose between:
+     - The aggregation methods that can be used on a flow variable. Text to fill in vs. how it is displayed in the 3Di Modeller Interface:
      
-       - Average: Calculates the average value of the variable over the aggregation interval.
-       - Minimum: Calculates the minimum value of the variable over the aggregation interval.
-       - Maximum: Calculates the maximum value of the variable over the aggregation interval.
-       - Cumulative: Calculates the cumulative value of the variable over the aggregation interval by integrating over time [dt * variable].
-       - Median: Calculates the median value of the variable over the aggregation interval.
-       - Cumulative negative: Calculates the cumulative negative value of the variable over the aggregation interval by integrating over time [dt * variable].
-       - Cumulative positive: Calculates the cumulative positive value of the variable over the aggregation interval by integrating over time [dt * variable].
-       - Current: Uses the current value of a variable. This is for the Water Balance Tool. This is only valid for volume and intercepted_volume.
+       - avg (Average): Calculates the average value of the variable over the aggregation interval.
+       - min (Minimum): Calculates the minimum value of the variable over the aggregation interval.
+       - max (Maximum): Calculates the maximum value of the variable over the aggregation interval.
+       - cum (Cumulative): Calculates the cumulative value of the variable over the aggregation interval by integrating over time [dt * variable].
+       - med (Median): Calculates the median value of the variable over the aggregation interval.
+       - cum_negative (Cumulative negative): Calculates the cumulative negative value of the variable over the aggregation interval by integrating over time [dt * variable].
+       - cum_positive (Cumulative positive): Calculates the cumulative positive value of the variable over the aggregation interval by integrating over time [dt * variable].
+       - current (Current): Uses the current value of a variable. This is for the Water Balance Tool. This is only valid for volume and intercepted_volume.
    * - Aggregation interval
      - time_step
      - Integer
@@ -469,22 +448,22 @@ Aggregation settings attributes
    * - Aggregation variable name
      - var_name
      - Text
-     - Yes
+     - No
      - \-
-     - A user-defined aggregation variable name to distinguish between aggregated configuration of variables. It should be something like *discharge_cum_pos* or *water_level_max*
+     - This field is no longer used
    * - Global settings id
      - global_settings_id
      - Integer
      - Yes
      - \-
-     - Referral to the global settings ID
+     - Reference to the global settings ID
 
 .. _simple_infiltration_settings:
 
 Simple infiltration settings
 ----------------------------
 
-Settings for 'simple' infiltration in models without groundwater. For more information on simple infiltration, see :ref:`simpleinfiltration`.
+Settings for :ref:`simpleinfiltration`. 
 
 Simple infiltration attributes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -522,7 +501,7 @@ Simple infiltration attributes
      - Text
      - No
      - mm/day
-     - Location of your infiltration rate file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\infiltration.tif*. This superseeds any global infiltration rate.
+     - Location of your infiltration rate file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\infiltration.tif*. This superseeds any global infiltration rate.
    * - Maximum infiltration capacity
      - max_infiltration_capacity
      - Decimal number
@@ -534,7 +513,7 @@ Simple infiltration attributes
      - Text
      - No
      - m
-     - Location of your maximum infiltration capacity file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\max_infiltration.tif*. This superseeds any global maximum infiltration capacity.
+     - Location of your maximum infiltration capacity file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\max_infiltration.tif*. This superseeds any global maximum infiltration capacity.
    * - Infiltration surface option
      - infiltration_surface_option
      - Integer
@@ -550,11 +529,6 @@ Settings for groundwater models. For more information on groundwater, see :ref:`
 
 Groundwater settings attributes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. Todo::
-	- Why is the equilibrium_infiltration_rate_type, the only value that is mandatory (at least according tot he Schematisation-editor) other than the global values.
-	- Also the display_name is mandatory. Some settings tables have a mandatory display_name, for others it's not mandatory. This seems rather strange.
-	
 
 .. list-table:: Groundwater settings attributes
    :widths: 25 25 15 10 10 45 20
@@ -577,7 +551,7 @@ Groundwater settings attributes
    * - Display name
      - display_name
      - Text
-     - Yes
+     - No
      - \-
      - For user administration only.
      - General
@@ -593,7 +567,7 @@ Groundwater settings attributes
      - Text
      - No
      - mm/day
-     - Location of your equilibrium infiltration rate file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\gw_equilibrium_infiltration.tif*. For more information, see :ref:`grwhortoninfiltration`.
+     - Location of your equilibrium infiltration rate file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\gw_equilibrium_infiltration.tif*. For more information, see :ref:`grwhortoninfiltration`.
      - Equilibrium infiltration
    * - Equilibrium infiltration rate type
      - equilibrium_infiltration_rate_type
@@ -614,7 +588,7 @@ Groundwater settings attributes
      - Text
      - No
      - m/day
-     - Location of your groundwater hydraulic connectivity file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\gw_hydro_conductivity.tif*.
+     - Location of your groundwater hydraulic connectivity file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\gw_hydro_conductivity.tif*.
      - Hydro connectivity
    * - Groundwater hydraulic connectivity type
      - groundwater_hydr_connectivity_type
@@ -635,7 +609,7 @@ Groundwater settings attributes
      - Text
      - No
      - m MSL
-     - Location of your groundwater impervious layer level file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\gw_imp_layer_lvl.tif*.
+     - Location of your groundwater impervious layer level file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\gw_imp_layer_lvl.tif*.
      - Impervious layer level
    * - Groundwater impervious layer level type
      - groundwater_impervious_layer_level_type
@@ -656,7 +630,7 @@ Groundwater settings attributes
      - Text
      - No
      - mm/day
-     - Location of your initial infiltration rate file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\gw_ini_infiltration.tif*.
+     - Location of your initial infiltration rate file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\gw_ini_infiltration.tif*.
      - Initial infiltration
    * - Initial infiltration rate type
      - initial_infiltration_rate_type
@@ -677,7 +651,7 @@ Groundwater settings attributes
      - Text
      - No
      - days
-     - Location of your infiltration decay period file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\gw_infil_decay.tif*.
+     - Location of your infiltration decay period file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\gw_infil_decay.tif*.
      - Infiltration decay
    * - Infiltration decay period type
      - infiltration_decay_period_type
@@ -698,7 +672,7 @@ Groundwater settings attributes
      - Text
      - No
      - mm/day
-     - Location of your leakage file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\gw_leakage.tif*.
+     - Location of your leakage file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\gw_leakage.tif*.
      - Leakage
    * - Phreatic storage capacity
      - phreatic_storage_capacity
@@ -712,7 +686,7 @@ Groundwater settings attributes
      - Text
      - No
      - \-
-     - Location of your phreatic storage capacity file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\gw_phrea_storage_cap.tif*.
+     - Location of your phreatic storage capacity file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\gw_phrea_storage_cap.tif*.
      - Phreatic storage capacity
    * - Phreatic storage capacity type
      - phreatic_storage_capacity_type
@@ -726,10 +700,6 @@ Interflow settings
 ------------------
 
 Interflow can be used as an extra layer below the surface. For more information on Interflow, see :ref:`interflow`.
-
-.. Todo::
-	- Feedback: I noticed that order of attributes for the Hydraulic conductivity is first the file, then the global value. This is the same in the global-settings, but different in the simple infiltration settings, where the order is first a global value or a raster-file. It's a small thing, but would be better to have it the same across all tables.
-	- In the interflow types, the correct spelling is "point-scaled" instead of "point scaled".
 
 Interflow settings attributes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -778,7 +748,7 @@ Interflow settings attributes
      - Text
      - Yes
      - \-
-     - Location of your porosity file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\porosity.tif*. This superseeds any global porosity value.
+     - Location of your porosity file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\porosity.tif*. This superseeds any global porosity value.
      - Porosity
    * - Porosity layer thickness
      - porosity_layer_thickness
@@ -792,7 +762,7 @@ Interflow settings attributes
      - Text
      - No
      - m/day
-     - Location of your hydraulic conductivity file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\hydraulic_conductivity.tif*. This superseeds any global hydraulic conductivity value.
+     - Location of your hydraulic conductivity file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\hydraulic_conductivity.tif*. This superseeds any global hydraulic conductivity value.
      - Hydraulic conductivity
    * - Hydraulic conductivity
      - hydraulic_conductivity
@@ -819,12 +789,6 @@ Most users do not need to worry about these settings. More advanced users can ch
 
 Numerical settings attributes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. todo::
-	- check whether the descriptions are actually correct. Some of them were quite difficult to deduce from the documentation (https://docs.3di.live/h_simulation_settings.html).
-	- there are typos in the drop-down menu for use_of_nested_newton in the Schematisation-editor: there is a space too much between "schematisation" and "includes" and "closed profiles" should be without a hyphen.
-	- Minimum surface area is explained nowhere, so I made up my own interpretation of it. This should be checked to make sure it is correct.
-	- The discription in the drop-down menu for use_of_nested_newton is a little confusing. It makes more sense to first describe the model and then the required value. This also prevents the problem with this weird description: "70 for 1D, 2D surface and groundwater flow or higher", which should be "1D, 2D surface and groundwater flow: 70 (or higher)".
 
 .. list-table:: Numerical settings attributes
    :widths: 20 20 15 10 10 40 15
@@ -967,7 +931,7 @@ Numerical settings attributes
      - Decimal number
      - No
      - m\ :sup:`2`
-     - Minimum surface area that is used for the transition of a cell from dry to wet. This is done for model stability.
+     - Numerical setting to guarantee proper matrix characterics
      - Thresholds
    * - Strictness of CFL-condition for 1D flow
      - cfl_strictness_factor_1d
@@ -1007,16 +971,17 @@ Numerical settings attributes
 
 .. _schema_version:
 
-Schema version settings
------------------------
+Schema version
+--------------
 
-.. todo::
-	- Check whether this is correct. I've added this here, because it shows up under Settings in the Schematisation-editor.
+The schema version shows the database schema version. The database schema is the definition of all tables, columns, and data types. If changes to the database schema are made, tools in the 3Di Modeller Interface will ask you to migrate the spatialite to the newer database schema version. This migration will add or delete the tables and columns that have been changed.
 
-The schema version shows the version that is used for the schema. Using out-dated schema versions might cause problems.
+.. note::
 
-Schema version settings attributes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    Do not change the schema version manually! Use the processing algorithm :ref:`migrate_spatialite`.
+
+Schema version attributes
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table:: Schema version settings attributes
    :widths: 20 20 15 10 10 40
@@ -1033,21 +998,17 @@ Schema version settings attributes
      - Text
      - No
      - \-
-     - Number determining which schematistion version is used.
+     - Number determining which schematistion version is used, left-padded with zeroes to four characters.
 
 .. _vegetation_drag:
 
 Vegetation drag settings
 ------------------------
 
-The *vegetation drag* table contains the input parameters that are used for 2D flow with vegetation. For an in-depth explanation of how 2D flow with vegetation is calculated by 3Di, see :ref:`flow_with_vegetation`. For more information on using vegetation in your 3Di model and choosing the right parameter values, see :ref:`a_how_to_vegetation`.
+The *vegetation drag* table contains the input parameters that are used for 2D flow with vegetation. For an in-depth explanation of how 2D flow with vegetation is calculated by 3Di, see :ref:`2D flow with vegetation<flow_with_vegetation>`. For more information on using vegetation in your 3Di model and choosing the right parameter values, see :ref:`How to model vegetation<a_how_to_vegetation>`.
 
 Vegetation drag can only be used with friction type 'Chezy', because the vegetation formulation (initially introduced by :cite:p:`Baptist2007`) uses Chezy.
 
-.. Todo::
-	- I'm not sure which settings are mandatory. These should be checked first. I've now stated that all global values are mandatory and all rasters as optional (as well as the display_name).
-	- I've properly included a citation and refered to the paper (and changed "Baptist 2005" to "Baptist, 2007" because, judging by the title of the paper "On inducing equations for vegetation resistance", this is the proper paper). However, this should be checked.
-	
 
 Vegetation drag settings attributes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1085,7 +1046,7 @@ Vegetation drag settings attributes
      - Text
      - No
      - m
-     - Location of your vegetation height file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\veg_height.tif*. This supersedes any global vegetation height.
+     - Location of your vegetation height file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\veg_height.tif*. This supersedes any global vegetation height.
    * - Vegetation stem count
      - vegetation_stem_count
      - Integer
@@ -1097,7 +1058,7 @@ Vegetation drag settings attributes
      - Text
      - No
      - #/m\ :sup:`2`
-     - Location of your vegetation stem count file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\veg_stem_count.tif*. This supersedes any global vegetation stem count.
+     - Location of your vegetation stem count file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\veg_stem_count.tif*. This supersedes any global vegetation stem count.
    * - Vegetation stem diameter
      - vegetation_stem_diameter
      - Decimal number
@@ -1109,7 +1070,7 @@ Vegetation drag settings attributes
      - Text
      - No
      - m
-     - Location of your vegetation stem diameter file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\veg_stem_diam.tif*. This supersedes any global vegetation stem diameter value.
+     - Location of your vegetation stem diameter file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\veg_stem_diam.tif*. This supersedes any global vegetation stem diameter value.
    * - Vegetation drag coefficient
      - vegetation_drag_coefficient
      - Decimal number
@@ -1121,4 +1082,4 @@ Vegetation drag settings attributes
      - Text
      - No
      - \-
-     - Location of your vegetation drag coefficient file, relative to the location of your sqlite in the folder-structure. It should look something like *rasters\\veg_drag_coeff.tif*. This supersedes any global drag coefficient.
+     - Location of your vegetation drag coefficient file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\veg_drag_coeff.tif*. This supersedes any global drag coefficient.

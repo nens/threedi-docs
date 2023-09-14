@@ -233,6 +233,11 @@ Attributes
      - *Deprecated*
 
 
+When using the 3Di Schematisation Editor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- The *Connection nodes* and a *Cross-section location* are added automatically. 
+- Do not forget to fill in the required feature attributes for the *Cross-section location*.
+
 Notes for modellers
 ^^^^^^^^^^^^^^^^^^^
 
@@ -418,6 +423,7 @@ Attributes
 Notes for modellers
 ^^^^^^^^^^^^^^^^^^^
 
+- A cross-section location should be placed on top of a channel vertex that is not the start or end vertex
 - If the channel calculation point distance is smaller than the distance between cross section locations, values in the cross section locations along the channel are interpolated, see :ref:`techref_calculation_point_distance`.
 - If there are multiple cross-section locations between two **calculation nodes** (not connection nodes), only the first cross-section location is used.
 
@@ -587,6 +593,12 @@ Attributes
      - No
      - \-
      - *Deprecated*
+
+When using the 3Di Schematisation Editor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- The *connection nodes* are added automatically
+
 
 Notes for modellers
 ^^^^^^^^^^^^^^^^^^^
@@ -1060,6 +1072,11 @@ Attributes
      - *Deprecated*
 
 
+When using the 3Di Schematisation Editor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- The *connection nodes* are added automatically
+
 Notes for modellers
 ^^^^^^^^^^^^^^^^^^^
 
@@ -1211,6 +1228,14 @@ Attributes
      - No
      - \-
      - *Deprecated*
+
+When using the 3Di Schematisation Editor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- The *connection nodes* and *manholes* will be added automatically.
+- To draw a single pipe, the geometry must have exactly 2 vertices. A line with more than 2 vertices will be split into several pipes.
+- To digitize a trajectory of multiple pipes, first digitize the manholes, fill in the bottom levels, and then draw the pipe trajectory over these manholes by adding a vertex at each of the manholes. The pipes that are generated will use the manhole's bottom levels as invert levels and the *connection nodes* and *manholes* will be added automatically.
+
 
 .. _pipe_notes_for_modeller:
 
