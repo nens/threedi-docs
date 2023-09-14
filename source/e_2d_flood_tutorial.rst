@@ -222,7 +222,7 @@ Potential Breach (1D-2D)
 ^^^^^^^^^^^^^^^^^^^^^^^^
 Now that we have added a channel with calculation type *connected*, the next step is to introduce a potential breach location. This breach is a link between the 1D and 2D domains of the model. Once the breach is activated and water flows through it, the breach will grow deeper and than wider. In our scenario, the potential breach will simulate a dike breach, where water can flow through the dike onto the fields behind the dike. For more theoretical information on breaches, see: :ref:`breaches`. 
 
-See the :ref:`t4reference-image` for a reference of where to draw the potential breach. To add a potential breach, follow these steps:
+See the :ref:`t4reference` for a reference of where to draw the potential breach. To add a potential breach, follow these steps:
 
 #) In the *Layers* panel, locate the *1D2D* group and select the *Potential breach* layer.
 
@@ -249,6 +249,11 @@ See the :ref:`t4reference-image` for a reference of where to draw the potential 
 If the water level in the channel rises above the *exchange level*, water will start flowing through the potential breach, i.e. it works as a generic 1D2D connection. The breach can also be activated to simulate an event in which the dike fails for some reason, and water starts flowing the hole in the dike. The *Max breach depth* signifies the maximum depth of the breach, measured in meters below the exchange level. When this depth has been reached, the breach will no longer grow in depth and start widening.
 
 The final result should look similar to this, with the location of the channel (blue), the boundary conditions (purple), the dike obstacle (brown), and the potential breach (black) from the channel to the field behind the dike:
+
+.. figure:: image/t_04_result.png
+    :alt: Schematisation tutorial 4.
+    :scale: 70%
+
 
 .. _t4reference:
 
