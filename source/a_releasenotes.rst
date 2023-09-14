@@ -630,7 +630,7 @@ March 23rd 2021
 
 3Di is expanding! We are proud to announce that due to international recognition we are expanding the capacity of 3Di:
 
-- The first stage of setting up our second calculation center in Taiwan is finished. Organizations that prefer this center can connect to 3Di via `3di.tw <https://www.3di.tw>`_.
+- The first stage of setting up our second calculation center in Taiwan is finished. Organisations that prefer this center can connect to 3Di via `3di.tw <https://www.3di.tw>`_.
 - To cope with increasing demand for calculations the capacity of our main calculation center has been upgraded
 
 

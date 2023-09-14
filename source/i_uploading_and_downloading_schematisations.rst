@@ -18,7 +18,7 @@ A :ref:`schematisation revision<revision>` can be uploaded with the :ref:`models
 #) Choose 'Upload Only' or 'Upload and Process'.
 #) Click on 'Start Upload'.
 
-Your revision will now be available for everyone in your organization.
+Your revision will now be available for everyone in your organisation.
 
 .. CHECK: klopt dit allemaal zo? en is het duidelijk zo?
 .. CHECK: Dit werkt nu wel alleen als je je model via de toolbox hebt ingeladen. Dat moet dan nog aangepast worden?
