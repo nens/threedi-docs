@@ -14,7 +14,6 @@ The following edits of your schematisation are possible in the 3Di Modeller Inte
 The following features have been added to assist you in editing your schematisation:
 
 * **Drop-down menus**: To facilitate the selection of appropriate values, we have introduced drop-down menus for attributes with multiple value options in tables. This feature proves useful, for instance, when choosing a shape for a cross-section definition.
-* :ref:`automated_fill`: Certain fields are automatically filled-in to streamline the schematisation process, providing helpful assistance.
 * **Highlighting mandatory fields**: When adding a new feature, mandatory fields that require input will be highlighted in orange, ensuring they are easily identifiable.
 * **Multi-line fields for time series**: Multi-line fields are specifically designed for editing time series data. You can edit the time series for :ref:`simulate_api_qgis_boundary_conditions`, :ref:`simulate_api_qgis_laterals`, :ref:`simulate_api_qgis_precipitation` and :ref:`wind_apiclient`.
 
@@ -49,7 +48,7 @@ For instructions specific to each layer, see :ref:`schematisation_objects`.
 Pasting Features from external data sources
 ---------------------------------------------
 
-Features can be copy-pasted from external data sources into the :ref:`Schematisation Editor <schematisation_editor>`. 
+Features can be copy-pasted from external data sources into the schematisation layers. 
 Check out the `QGIS Documentation <https://docs.qgis.org/3.28/en/docs/user_manual/working_with_vector/attribute_table.html>`__ for how to work with the attribute table.
 
 .. Note::
@@ -86,7 +85,7 @@ There are two options available for editing feature attributes:
 Editing feature geometries
 ----------------------------
 
-For editing the geometries of features, the 'Vertex tool' can be used, see the `QGIS documentation <https://docs.qgis.org/3.28/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#vertex-tool>`__. On top of the standard QGIS functionalty, the :ref:`Schematisation Editor <schematisation_editor>` provides extra functionalities:
+For editing the geometries of features, the 'Vertex tool' can be used, see the `QGIS documentation <https://docs.qgis.org/3.28/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#vertex-tool>`__. On top of the standard QGIS functionalty, the 3Di Schematisation Editor provides extra functionalities:
 
     - When moving a node, all connected features will move along.
     
