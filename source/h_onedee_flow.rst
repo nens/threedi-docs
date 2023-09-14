@@ -109,10 +109,10 @@ In words; in 1D, 3Di takes inertia, advection, pressure gradients, bottom fricti
 
 .. _1d_friction:
 
-Friction in the 1D Domain
+Friction in the 1D domain
 -------------------------
 
-3Di calculates the bottom friction/ or wall friction in the 1D-domain by integrating the shear stress over the cross-sectional area and over the length of the 1D element:
+3Di calculates the bottom friction or wall friction in the 1D-domain by integrating the shear stress over the cross-sectional area and over the length of the 1D element:
 
 .. math::
 
@@ -125,13 +125,15 @@ Friction in the 1D Domain
 | :math:`s`: Along-flow direction
 | :math:`K_{tot}`: Total conveyance factor
 
-The conveyance factor is a measure of the flow capacity of a channel. The factor combines geometry and roughness information. There are two options to determine this factor.  i) assuming the roughness and the velocity uniform over the domain and ii) allowing for variations in the cross-flow direction. These are the so-called i) Single Section Method (for closed, open, and semi-open sections) and ii) Compound Section Method or Conveyance Method (for open sections only). 
+The conveyance factor is a measure of the flow capacity of a channel. The factor combines geometry and roughness information. There are two options to determine this factor. Both methods evaluate the friction based on the geometry and roughness of the section using either Chézy or Manning formulations for the roughness. In 3Di, friction types are distinguished as Chézy, Manning (for the 1st method) and Chézy with conveyance, Manning with conveyance (for the 2nd method).
 
-The Single Section Method considers the cross-section of the 1D element as a whole. The velocity is assumed to be uniform over the whole section. Therefore, this method works best for relatively uniform cross-sections. On the other hand, the Compound Section Method, which is used specifically for open channels, divides the channel cross-section into several sub-sections depending on the channel's depth. This way, the variations in velocity related to the depth and roughness of the channel is properly taken into consideration. 
 
-Both methods evaluate the friction based on the geometry and roughness of the section using either Chézy or Manning formulations for the roughness. In 3Di, friction types are distinguished as Chézy, Manning (for the 1st method) and Chézy with conveyance, Manning with conveyance (for the 2nd method). 
+Single section method
+^^^^^^^^^^^^^^^^^^^^^
 
-In the Single Section method, the conveyance factors are defined as:
+This method is suitable for closed, open, and semi-open sections. It assumes uniform roughness and velocity over the domain and therefore works best for relatively uniform cross-sections. This method considers the cross-section of the 1D element as a whole.  
+
+In the single section method, the conveyance factors are defined as:
 
 .. math::
    :label: Conveyance Factor
@@ -147,7 +149,12 @@ with:
 | :math:`A`: Cross-sectional area
 | :math:`P`: Wetted perimeter
 
-The conveyance factor for the second method, Compound channel (Conveyance) method is slightly altered, as the depth variations in the different depth sections are considered. The conveyance factor reflects the transport capacity of the channel. Assuming uniformity of the ratio between wetted perimeter and cross-sectional area, in applications with strong depth variations over the cross-section, underestimates the flow capacity. The compound section method divides the channel cross-section into several sub-sections. In this method, the total conveyance factor of the section is the sum of each sub-section’s conveyance factor. The separation lines between the sub-sections are considered vertical in 3Di. 
+Conveyance method
+^^^^^^^^^^^^^^^^^
+
+The *conveyance method* (or *compound section method*), suitable for open sections only, allows for variations in the cross-flow direction. This method divides the channel cross-section into several sub-sections depending on the channel's depth. This way, the variations in velocity related to the depth and roughness of the channel is properly taken into consideration. 
+
+The conveyance factor considers the depth variations in the different depth sections. The conveyance factor reflects the transport capacity of the channel. Assuming uniformity of the ratio between wetted perimeter and cross-sectional area, in applications with strong depth variations over the cross-section, underestimates the flow capacity. The compound section method divides the channel cross-section into several sub-sections. In this method, the total conveyance factor of the section is the sum of each sub-section’s conveyance factor. In 3Di, the separation lines between the sub-sections are considered vertical . 
 
 .. figure:: image/1dconveyancefactor.png
    :figwidth: 1000 px
@@ -158,7 +165,7 @@ The conveyance factor for the second method, Compound channel (Conveyance) metho
 .. _1Dpressurized:
 
 Pressurized flow
----------------------
+----------------
 
 In 1D elements with closed cross-sections flow may become pressurized. The way 3Di deals with this is similar to how 3Di deals with the non-lineair relations in 2D cells (e.g. between volume and water level). :ref:`subgridmethod` allows 2D cells to be  be dry, wet or *partly wet*, creating a non-lineair volume-water level relation. This was solved with a highly efficient method. However, there are some requirements for such system to be solved. one of these requirements is violated when the surface area decreases for increasing water levels, as in pipes that are more than half full (see the Figure below). Therefore, a new method had to be introduced to solve such a non-linear system of equations. This method is based on the so-called nested Newton method (`cite:t:`Casulli2013`).
 
