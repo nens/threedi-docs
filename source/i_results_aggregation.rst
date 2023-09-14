@@ -1,7 +1,7 @@
 .. _results_aggregation:
 
-3Di Results Aggregation
-=======================
+Results aggregation tool
+========================
 With the Results Aggregation Tool (|resultsaggregationtoolbar|) you can quickly aggregate the results over the entire simulation (or a part of it), using preset outputs and styling.
 Running the tool produces temporary layers. If you want to save the output export the layers as a GeoPackage by clicking |savescratchlayer|. To save the styling with your GeoPackage right-click the temporary layer > Styles > Copy Style > All Style Categories. Paste the styling by right-clicking the GeoPackage-layer > Styles > Paste Style > All Style Categories. Save the styling to the GeoPackage, by making it the default styling. Go to the Layer Properties by double clicking the layer > Symbology > Style (at the bottom) > Save as Default > Save default styling to Datasource Database). Whenever you add this GeoPackage to your Modeller Interface at a later time it will automatically load with this styling.
 

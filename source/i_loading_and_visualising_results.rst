@@ -18,6 +18,8 @@ Under **General settings** you can select whether or not the simulation start ti
 
 In the **Visualisation settings** you can select the flowline and node variables you want to view. By checking the *Relative* checkbox the node results are visualised as change relative to the initial values (t0).
 
+.. _visualising_results:
+
 Visualising results on the map canvas
 -------------------------------------
 
