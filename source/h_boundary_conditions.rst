@@ -13,7 +13,7 @@ Boundary conditions can be used for 1D flow, 2D surface flow and 2D groundwater 
 Types
 -----
 
-A boundary condition must define one variable, so that the computational core can calculate the flow based on the values of the neighbouring node or flow-line. You can define one of the following variables in a boundary condition:
+A boundary condition must define one variable, so that the computational core can calculate the flow based on the values of the neighbouring node or flowline. You can define one of the following variables in a boundary condition:
 
 * Water level, a user defines a water level (time series). This value is fixed at the boundary cell (1D domain) or for all cells along the boundary (2D surface and groundwater domains).
 
