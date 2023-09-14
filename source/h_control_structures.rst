@@ -1,9 +1,9 @@
 .. _control:
 
-Control Structures
+Control structures
 ==================
 
-Within schematizations, parameters of hydraulic structures can autonomously adapt during simulations, functioning as control structures. Users can establish flow variable thresholds at specific calculation nodes within the schematization. These thresholds, when exceeded, trigger adjustments to corresponding hydraulic structure parameters in accordance with predefined criteria. Alternatively, an alternative method of parameter adjustment involves the implementation of time-based modifications.
+Within schematisations, parameters of hydraulic structures can autonomously adapt during simulations, functioning as control structures. Users can establish flow variable thresholds at specific calculation nodes within the schematisation. These thresholds, when exceeded, trigger adjustments to corresponding hydraulic structure parameters in accordance with predefined criteria. Alternatively, an alternative method of parameter adjustment involves the implementation of time-based modifications.
 
 For example, a weir within a schematisation can reduce its crest level when a certain water level is reached at an upstream measurement location. This simulates the behavior of a controllable weir, as shown in the figure below.
 
@@ -13,22 +13,22 @@ For example, a weir within a schematisation can reduce its crest level when a ce
 
    
 Measurement locations
-------------------
+---------------------
 
 At the assigned measurement locations, a predefined flow variable is monitored throughout the simulation. The value of this flow variable is used to trigger an action within a hydraulic structure. It is important to note that the designated measurement location must be a connection node.
 
-It is possible to use multiple measurement locations for one control structure. These measurement locations form together a measurement group. The user can assign weights to each measurement location. The control of a hydraulic structure is based on the weighted average derived from these measurement locations. The combined weight should add up to 1. In case only one measurement location is used the weight must have a value of 1.  
+It is possible to use multiple measurement locations for one control structure. These measurement locations together form a measurement group. The user can assign weights to each measurement location. The control of a hydraulic structure is based on the weighted average derived from these measurement locations. The combined weight should add up to 1. In case only one measurement location is used the weight must have a value of 1.  
 
 Control types
 -------------
 
 Three different types of control structures are implemented in 3Di:
 
--	Table structure control
+- :ref:`table_control`
 
--	Memory structure control
+- :ref:`memory_control`
 
-- Timed structure control
+- :ref:`timed_control`
 
 .. _table_control:
 
