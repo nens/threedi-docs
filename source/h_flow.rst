@@ -17,4 +17,3 @@ In 3Di four different flow domains are defined. These domains are defined as :re
    h_groundwater
    h_onedee_flow
    h_1d2d_exchange
-   h_0d_inflow

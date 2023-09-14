@@ -24,6 +24,16 @@ How to add 0D inflow to a schematisation:
 .. note::
 	Pay attention to the total storage that is available in the target node in relation to the area of the (impervious) surface. The total storage of the node is the sum of the storage in the connection node (storage area multiplied by the difference between bottom and drain level) and half of the volume of all connected pipes, channels and/or culverts. If the total storage in the node is very small relative to the amount inflow that is expected, the water level in the node will rise very quickly, which may lead to unexpected behaviour.
 
+Combining 0D inflow with 2D rain
+--------------------------------
+
+Combining 0D inflow with and 2D rain can be useful in several cases, for example:
+
+- Detailed urban water management models that use 0D inflow for the flow of water from roofs to the sewerage and 2D surface for rainfall and discharge over roads
+
+- Large open water systems in which a small area is modeled in detail while upstream catchments are lumped in 0D inflow.
+
+An explanation of how this can be used is given in :ref:`combine_0d_2d_rain`.
 
 Simulation
 ----------
