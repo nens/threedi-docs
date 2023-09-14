@@ -19,7 +19,7 @@ For an overview of the interface and its components visit the :ref:`mi_overview`
 This user manual has the following sections:
 
 - :ref:`mi_modelling`
-- :ref:`mi_simulating`
+- :ref:`simulate_api_qgis`
 - :ref:`mi_analysing_results`
 
 If working with the 3Di Modeller Interface is new for you, follow one or more of the :ref:`e_tutorials` first.
