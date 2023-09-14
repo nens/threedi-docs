@@ -15,7 +15,7 @@ The video below gives a brief demo of 3Di Live:
 
 .. _3di_live_ui_overview:
 
-Overview 3Di Live
+3Di Live overview 
 =================
 
 When a :ref:`session<3di_live_sessions>` has started, the screen in :numref:`fig_main_ses` will be loaded. At the top left you can see the name of the loaded model.
