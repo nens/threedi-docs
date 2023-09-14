@@ -17,14 +17,16 @@ This section explains these and related concepts in detail. The figure below pro
 Schematisation
 --------------
 
-A *schematisation* is a simplified representation of a specific area and situation. It is the data you work with locally and the way to make edits to your 3Di model. It contains all data and parameters that 3Di needs to generate a computational grid and subgrid tables. The data format of the schematisation is a spatialite and one or several rasters. If it is a schematisation without 2D, the schematisation will not contain any rasters.
-
-The spatialite contains GIS vector data (points, lines, and polygons) and settings tables. See : ref:`schematisation-objects` for more details.
+A *schematisation* is a simplified representation of a specific area and situation. It is the data you work with locally and the way to make edits to your 3Di model. It contains all data and parameters that 3Di needs to generate a computational grid and subgrid tables. The data format of the schematisation is a spatialite (.sqlite file) and one or several rasters. If it is a schematisation without 2D, the schematisation will not contain any rasters. A spatialite is a sqlite file database, extended with functionality for GIS data. The 3Di spatialite contains the schematisation's GIS vector data (points, lines, and polygons) and settings tables. See :ref:`schematisation-objects` for more details.
 
 The spatialite file also contains data that is not used to generate the 3Di model, but stored in a simulation template (see below for further details). This applies to all data that is not required for the creation of the computational grid and the subgrid tables:
+
 - Physical, numerical, timestep and aggregation settings
+
 - Timeseries of boundary conditions and laterals
+
 - Initial water levels
+
 - The name of the simulation
 
 The initial water level raster (used for initializing the 2D domain) is read into the simulation template and is not part of the 3Di model.

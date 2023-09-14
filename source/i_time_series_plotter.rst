@@ -1,8 +1,9 @@
 .. _time_series_plotter:
 
-Time Series Plotter
+Time series plotter
 ===================
-With the Time Series Plotter (|timeseriesplottertoolbar|) you can visualise simulation results by plotting the variables you are interested in. All the variables that are stored in the NetCDF (and accompanying aggregated NetCDF in case aggregated were used in the simulation) can be plotted. An complete overview of the variables in the NetCDF can be found in the section :ref:`3dinetcdf`. More information about aggregated variables can be found in the section :ref:`aggregationnetcdf`.
+
+With the Time series plotter (|timeseriesplottertoolbar|) you can visualise simulation results by plotting the variables you are interested in. All the variables that are stored in the NetCDF (and accompanying aggregated NetCDF in case aggregated were used in the simulation) can be plotted. An complete overview of the variables in the NetCDF can be found in the section :ref:`3dinetcdf`. More information about aggregated variables can be found in the section :ref:`aggregationnetcdf`.
 
 To analyse your results using the Time Series Plotter:
 

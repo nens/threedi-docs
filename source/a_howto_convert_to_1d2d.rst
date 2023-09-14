@@ -14,6 +14,9 @@ To make the required changes to the global settings, :ref:`load your schematisat
 
 - In the tab *Extra options 1D*, check if the settings have the correct values
 
+.. todo::
+	Why is the suggested value for max_angle_advection_1d 1.570795 when the range is between 0-90 degrees?
+	
 	.. csv-table:: Global settings for models with 1D elements
 		:name: inf_settings_1d
 		:header: "Setting", "Attribute name", "Suggested value", "Comments"
@@ -21,7 +24,7 @@ To make the required changes to the global settings, :ref:`load your schematisat
 		"Advection 1D", "advection_1d", "1", "In most cases, you will want to include the effect of advective forces on flow in the 1D domain"
 		"Calculation point distance", "dist_calc_points", "1000", "Specify the calculation point distance for each individual 1D element; this global value will then be ignored."
 		"Manhole storage area", "manhole_storage_area", "NULL", "Relevant only for sewerage models without 2D"
-		"Max angle advection 1D", "max_angle_advection_1d", "1.570795", "Advection is not relevant when the angle is more then 90 degrees"
+		"Max angle advection 1D", "max_angle_advection_1d", "1.570795", "Advection is not relevant when the angle is more than 90 degrees"
 		"Table step size 1D", "table_step_size_1d", "0.01", "Recommended to make this value much smaller than the smallest 1D cross section in the schematisation"
 
 Numerical settings to be changed
