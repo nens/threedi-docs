@@ -5,11 +5,11 @@ User interface overview
 
 The 3Di Modeller Interface consists of five components:
 
-1. **Menu Bar**: the 3Di Plugins can be reached from the Plugins menu.
-2. **Toolbar**: the :ref:`models_simulation_plugin`, the :ref:`schematisation_editor` and the :ref:`3di_results_manager` are already added to the toolbar.
-3. **Panels**: the :ref:`3di_processing_toolbox` and the :ref:`schematisation_editor` can be reached via the QGIS Processing Toolbox. The :ref:`models_simulation_plugin` and :ref:`3di_results_manager` can also be activated as a panel.
-4. **Map View**
-5. **Status Bar**
+1. **Main menu**
+2. **Toolbar**: the :ref:`schematisation_editor_toolbar`, a button to open the :ref:`models_simulation_panel`, and the :ref:`results_analysis_toolbar` are already added to the toolbar.
+3. **Panels**: the :ref:`3di_processing_toolbox` QGIS Processing Toolbox.
+4. **Map canvas**
+5. **Status bar**
 
 .. todo: 
 
@@ -18,7 +18,7 @@ The 3Di Modeller Interface consists of five components:
 .. figure:: image/i_overview_modeller_interface.png
    :alt: 3Di Modeller Interface
 
-   An overview of the Modeller Interface.
+   Overview of the 3Di Modeller Interface.
 
 .. _schematisation_editor_toolbar:
 
@@ -85,6 +85,8 @@ Access the 3Di Models and Simulation settings dialog by clicking *Main menu* > *
 * **Use defaults:** Sets the default Base API URL, Uploads processing timeout and Working directory
 
 
+.. _results_analysis_toolbar:
+
 3Di Results Analysis toolbar
 ----------------------------
 .. todo::
@@ -137,4 +139,12 @@ Many 3Di related actions can be performed by running a Processing Algorithm. The
 	:alt: Processing Toolbox dock panel
 	:align: right
 	:scale: 30% 
+
+.. |modelsSimulations| image:: /image/pictogram_modelsandsimulations.png
+    :scale: 90%
+
+.. |closed_eye| image:: /image/pictogram_temporal_controller_load_results_closed_eye.png
+	:scale: 100%
 	
+.. |opened_eye| image:: /image/pictogram_temporal_controller_load_results_opened_eye.png
+	:scale: 100%

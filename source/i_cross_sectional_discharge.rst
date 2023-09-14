@@ -15,12 +15,12 @@ Parameters
 Gridadmin file
 """"""""""""""
 
-HDF5 file (*.h5) containing the computational grid of a 3Di model
+HDF5 file (\*.h5) containing the computational grid of a 3Di model
 
 Results 3Di file
 """"""""""""""""
 
-NetCDF (*.nc) containing the results of a 3Di simulation
+NetCDF (\*.nc) containing the results of a 3Di simulation
 
 Cross-section lines
 """""""""""""""""""

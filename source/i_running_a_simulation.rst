@@ -48,17 +48,13 @@ Starting a simulation
 
 #) Name the simulation. Users within your organisation will be able to find this simulation and its results based on the name. Adding 'Tags' can clarify for other users what your simulation calculated or can be used to assign a simulation a certain project name or number.
 #) Set the 'Duration' of the simulation.
-#) The next steps depend on the selection of options from the initial screen of the wizard (step 6). Unchecked options will be omitted by the wizard. All possible options are explained below under :ref:`scenario_info`.
-#) Set the Simulation Settings. Here you can overwrite the settings in the SQLite if that is necessary.
-#) Start the simulation by clicking on 'Add to queue'. 
+#) The next steps depend on the selection of options from the initial screen of the wizard (step 6). Unchecked options will be omitted by the wizard. The different options are explained below.
+#) If you want, change the :ref:`simulation_settings`. The setting values that are shown are the ones you have specified in the schematisation spatialite. This page in the simulation wizard allows you to override specific  settings for this specific simulation. This does not change the values of the simulation settings in the spatialite.
+#) Click *Add to queue* to start the simulation. 
 
-.. VRAAG: wat moet ik nog over de simulations settings uitleggen
+You can follow the progress of your simulation by clicking on the *Simulate* icon in the :ref:`models_simulation_panel`. You can also terminate your simulation by clicking on 'Stop Simulation'. 
 
-
-
-You can follow the progress of your simulation by clicking on the 'Simulate' icon in the '3Di Models and Simulations' panel. You can also terminate your simulation by clicking on 'Stop Simulation'. 
-
-Once the simulation is done the results will be available for 7 days. For information on how to get, view and analyze results, see :ref:`mi_download_res` and :ref:`analysing_results`.
+Once the simulation is done the results will be available for 7 days. For information on how to download, view and analyze results, see :ref:`mi_analysing_results`.
 
 
 .. _simulate_api_qgis_boundary_conditions:

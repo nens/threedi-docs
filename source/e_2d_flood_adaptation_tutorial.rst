@@ -1,5 +1,5 @@
 Tutorial 5: Flood mitigation measures
-======================================
+=====================================
 
 Introduction
 -------------
@@ -115,7 +115,7 @@ The simulation (including the discharge you added) can be saved as a template. T
 
 #)	Select *Create simulation template from simulation*
 
-#)	Chose a template name (Like: 'Discharge 30 m³/s for 24 hours') and make sure the boxes _Include events_, _Include initials_ and _Include settings_ are checked. Then click *Store results*.
+#)	Choose a template name (Like: 'Discharge 30 m³/s for 24 hours') and make sure the boxes *Include events*, *Include initials* and *Include settings* are checked. Then click *Store results*.
 
 
 Adding a flood barrier to your simulation
