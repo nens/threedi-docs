@@ -1,3 +1,5 @@
+.. _schematisation_objects:
+
 Schematisation objects
 ======================
 

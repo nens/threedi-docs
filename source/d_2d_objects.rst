@@ -140,6 +140,8 @@ Format the time series as Comma Separated Values (CSV), with the time (in minute
 
 .. _linear_obstacle:
 
+.. _linear_obstacle:
+
 Linear obstacle
 ---------------
 Line with fixed crest level that overrides DEM values at edges of computational cells when calculating the cross-section between cells.

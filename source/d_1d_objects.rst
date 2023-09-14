@@ -3,105 +3,6 @@
 1D Objects
 ==========
 
-1D objects describe several hydraulic structures for which a :ref:`onedee_flow` is calculated:
-
-* :ref:`connection_node`
-* :ref:`1d_boundary_condition`
-* :ref:`1d_lateral`
-* :ref:`manhole`
-* :ref:`pumpstation_without_end_node`
-* :ref:`pumpstation_with_end_node`
-* :ref:`weir`
-* :ref:`culvert`
-* :ref:`orifice`
-* :ref:`pipe`
-* :ref:`cross_section_location`
-* :ref:`channel`
-
-\
-\
-
-.. _connection_node:
-
-Connection Node
----------------
-
-Location and ID of nodes to connect :ref:`channel`, :ref:`culvert`, :ref:`orifice`, :ref:`weir`, :ref:`pipe`, :ref:`pumpstation_with_end_node`, or :ref:`pumpstation_without_end_node` features. :ref:`manhole`, :ref:`1d_lateral`, and :ref:`1d_boundary_condition` features are also defined at connection nodes. See :ref:`inflow_objects` for more information on how surfaces and impervious surfaces can be mapped to a connection node.
-
-Geometry
-^^^^^^^^
-Point
-
-Attributes
-^^^^^^^^^^
-
-.. list-table:: Connection node attributes
-   :widths: 6 4 4 2 4 30
-   :header-rows: 1
-
-   * - Attribute alias
-     - Field name
-     - Type
-     - Mandatory
-     - Units
-     - Description
-   * - ID
-     - id
-     - integer
-     - Yes
-     - \-
-     - Unique identifier
-   * - Initial water level
-     - initial_waterlevel
-     - decimal number
-     - No
-     - m above datum
-     - Initial water level for the 1D domain
-   * - Code
-     - code
-     - text
-     - No
-     - \-
-     - Name field, no constraints
-   * - Storage area
-     - storage_area
-     - decimal number
-     - No
-     - m²
-     - Adds additional storage capacity to a 1D network
-
-Notes for modellers
-^^^^^^^^^^^^^^^^^^^
-
-Connection nodes and calculation nodes
-""""""""""""""""""""""""""""""""""""""
-
-Connection nodes are not the same as calculation nodes. When 3Di generates the computational grid from the schematisation, a calculation node is created for each connection nodes, but additional 1D calculation nodes may also be created in between. See the :ref:`grid` section for further details.
-
-
-Initial water level
-"""""""""""""""""""
-
-- For calculation nodes that are added along the length of a channel, pipe, or culvert, initial water levels are linearly interpolated between connection nodes. See the :ref:`grid` section for further details.
-
-- The intial water level is stored in the simulation template and is not part of the 3Di model itself. It can be overridden when starting a new simulation, without the need to create a new revision of the schematisation.
-
-Storage area
-""""""""""""
-- Storage area on connection nodes is additional to the storage that is defined by the dimensions of channels, culverts and pipes. See :ref:`techref_storage_in_1d_domain` for more details.
-
-- To calculate storage volume from the storage area, the height of the water column (water level minus bottom level) needs to be known. If a manhole is defined at the connection node, the manhole's bottom level is used. Otherwise, the lowest bottom (reference level or invert level) of the channels, culverts or pipes that connect to the connection node is used.
-
-- For connection nodes that are not connected to channels, a storage area larger than zero is recommended.
-
-- If a manhole is defined on the connection node, the storage area must be larger than zero. Note that the manhole dimensions (shape, width, and length) are for administrative purposes only and are not used to calculate the storage during the simulation.
-
-- Connection nodes with large storage (i.e. the square root of the storage area is much larger than the width of the incoming channel) reduce the flow velocity and advective force.
-
-
-\
-\
-
 .. _1d_boundary_condition:
 
 1D Boundary Condition
@@ -186,9 +87,6 @@ Format the time series as Comma Separated Values (CSV), with the time (in minute
 
     "0,145.20"||char(10)||"15,145.23"||char(10)||"30,145.35"||char(10)||"45,145.38"||char(10)||"60,145.15"
 
-\
-\
-
 .. _1d_lateral:
 
 1D Lateral
@@ -258,8 +156,466 @@ Format the time series as Comma Separated Values (CSV), with the time (in minute
 
     "0,0.2"||char(10)||"15,10.0"||char(10)||"30,20.0"||char(10)||"45,7.5"||char(10)||"60,0.0"
 
-\
-\
+
+.. _channel:
+
+Channel
+-------
+
+A natural or artificial open channel. Channels can have a variable bed level, bed friction and cross section along their length. This information is stored in another object, the :ref:`cross_section_location`. A channel can have one or more cross-section locations, depending on the variability of the channel.
+
+See :ref:`channelflow` for more details.
+
+Geometry
+^^^^^^^^
+Linestring (two or more vertices)
+
+Attributes
+^^^^^^^^^^
+
+.. list-table:: Channel attributes
+   :widths: 6 4 4 2 4 30
+   :header-rows: 1
+
+   * - Attribute alias
+     - Field name
+     - Type
+     - Mandatory
+     - Units
+     - Description
+   * - ID
+     - id
+     - integer
+     - Yes
+     - \-
+     - Unique identifier
+   * - Calculation type
+     - calculation_type
+     - integer
+     - Yes
+     - \-
+     - Sets the 1D2D exchange type: embedded (100), isolated (101), connected (102), or double connected (105). See :ref:`calculation_types`.
+   * - Code
+     - code
+     - text
+     - No
+     - \-
+     - Name field, no constraints
+   * - Display name
+     - display_name
+     - text
+     - No
+     - \-
+     - Name field, no constraints
+   * - Distance between calculation points
+     - dist_calc_points
+     - decimal number
+     - No
+     - m
+     - Maximum distance between calculation points, see :ref:`techref_calculation_point_distance`
+   * - End connection node ID
+     - connection_node_end_id
+     - integer
+     - Yes
+     - \-
+     - ID of end connection node
+   * - Start connection node ID
+     - connection_node_start_id
+     - integer
+     - Yes
+     - \-
+     - ID of start connection node
+   * - Zoom category
+     - zoom_category
+     - integer
+     - No
+     - \-
+     - *Deprecated*
+
+
+When using the 3Di Schematisation Editor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- The *Connection nodes* and a *Cross-section location* are added automatically. 
+- Do not forget to fill in the required feature attributes for the *Cross-section location*.
+
+Notes for modellers
+^^^^^^^^^^^^^^^^^^^
+
+.. todo::
+   Refer to "how to schematise open water systems" when that section is finished
+
+- Use 1D channels wisely. In many applications, schematising waterways in 2D is preferable. See :ref:`channelflow` and :ref:`calculation_types`.
+- All channels must have at least one :ref:`cross_section_location`.
+
+Calculation type 'embedded'
+"""""""""""""""""""""""""""
+
+- Embedded channels add extra connections between 2D grid cells, but ignore obstacles and levees.
+- Make sure the embedded channel profile always lays partially below the DEM; embedded channels cannot 'float' above the DEM.
+- Embedded channels only function when they connect several 2D grid cells, so make sure no embedded channel falls completely inside one 2D grid cell
+- Do not place boundary conditions directly on embedded channels.
+
+Calculation types 'connected' and 'double connected'
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+For channels with calculation type 'connected' and 'double connected', 1D2D connections connect each 1D calculation point to the 2D cell it is in. Therefore, channels with these calculation types need to be in a 2D cell. Alternatively, you may use an :ref:`exchangel_line` to customise the 1D2D connections. When using an exchange line, the channel does not need to be in 2D cells, but the exchange line needs to be in 2D cells.
+
+
+.. _connection_node:
+
+Connection node
+---------------
+
+Location and ID of nodes to connect :ref:`channel`, :ref:`culvert`, :ref:`orifice`, :ref:`weir`, :ref:`pipe`, :ref:`pumpstation_with_end_node`, or :ref:`pumpstation_without_end_node` features. :ref:`manhole`, :ref:`1d_lateral`, and :ref:`1d_boundary_condition` features are also defined at connection nodes. See :ref:`inflow_objects` for more information on how surfaces and impervious surfaces can be mapped to a connection node.
+
+Geometry
+^^^^^^^^
+Point
+
+
+Attributes
+^^^^^^^^^^
+
+.. list-table:: Connection node attributes
+   :widths: 6 4 4 2 4 30
+   :header-rows: 1
+
+   * - Attribute alias
+     - Field name
+     - Type
+     - Mandatory
+     - Units
+     - Description
+   * - ID
+     - id
+     - integer
+     - Yes
+     - \-
+     - Unique identifier
+   * - Initial water level
+     - initial_waterlevel
+     - decimal number
+     - No
+     - m above datum
+     - Initial water level for the 1D domain
+   * - Code
+     - code
+     - text
+     - No
+     - \-
+     - Name field, no constraints
+   * - Storage area
+     - storage_area
+     - decimal number
+     - No
+     - m²
+     - Adds additional storage capacity to a 1D network
+
+Notes for modellers
+^^^^^^^^^^^^^^^^^^^
+
+Connection nodes and calculation nodes
+""""""""""""""""""""""""""""""""""""""
+
+Connection nodes are not the same as calculation nodes. When 3Di generates the computational grid from the schematisation, a calculation node is created for each connection nodes, but additional 1D calculation nodes may also be created in between. See the :ref:`grid` section for further details.
+
+
+Initial water level
+"""""""""""""""""""
+
+- For calculation nodes that are added along the length of a channel, pipe, or culvert, initial water levels are linearly interpolated between connection nodes. See the :ref:`grid` section for further details.
+
+- The intial water level is stored in the simulation template and is not part of the 3Di model itself. It can be overridden when starting a new simulation, without the need to create a new revision of the schematisation.
+
+Storage area
+""""""""""""
+- Storage area on connection nodes is additional to the storage that is defined by the dimensions of channels, culverts and pipes. See :ref:`techref_storage_in_1d_domain` for more details.
+
+- To calculate storage volume from the storage area, the height of the water column (water level minus bottom level) needs to be known. If a manhole is defined at the connection node, the manhole's bottom level is used. Otherwise, the lowest bottom (reference level or invert level) of the channels, culverts or pipes that connect to the connection node is used.
+
+- For connection nodes that are not connected to channels, a storage area larger than zero is recommended.
+
+- If a manhole is defined on the connection node, the storage area must be larger than zero. Note that the manhole dimensions (shape, width, and length) are for administrative purposes only and are not used to calculate the storage during the simulation.
+
+- Connection nodes with large storage (i.e. the square root of the storage area is much larger than the width of the incoming channel) reduce the flow velocity and advective force.
+
+.. _cross_section_location:
+
+Cross-section location
+----------------------
+
+Object to define the dimensions, levels, and friction at a specified point along a :ref:`channel`.
+
+Geometry
+^^^^^^^^
+Point
+
+Attributes
+^^^^^^^^^^
+.. list-table:: Cross-section location attributes
+   :widths: 6 4 4 2 4 30
+   :header-rows: 1
+
+   * - Attribute alias
+     - Field name
+     - Type
+     - Mandatory
+     - Units
+     - Description
+   * - ID
+     - id
+     - integer
+     - Yes
+     - \-
+     - Unique identifier
+   * - Bank level
+     - bank_level
+     - decimal number
+     - Yes
+     - m MSL
+     - Exchange level for the 1D2D connections. Only used when calculation type is 'connected'.
+   * - Code
+     - code
+     - text
+     - No
+     - \-
+     - Name field, no constraints
+   * - Cross-section height
+     - cross_section_height
+     - decimal number
+     - see :ref:`cross-section_shape`
+     - m
+     - Height of the cross-section (only used for Closed rectangle cross-sections)
+   * - Cross-section shape
+     - cross_section_shape
+     - decimal number
+     - Yes
+     - \-
+     - Sets the cross-section shape, :ref:`cross-section_shape`
+   * - Cross-section table
+     - cross_section_table
+     - text
+     - see :ref:`cross-section_shape`
+     - m
+     - CSV-style table of [height, width] or [Y, Z] pairs, see :ref:`cross-section_shape`
+   * - Cross-section width
+     - cross_section_width
+     - decimal number
+     - see :ref:`cross-section_shape`
+     - m
+     - Width or diameter of the cross-section, see :ref:`cross-section_shape`
+   * - Friction type
+     - friction_type
+     - decimal number
+     - Yes
+     - \-
+     - Sets the friction type to Chézy (1) or Manning (2)
+   * - Friction value
+     - friction_value
+     - decimal number
+     - Yes
+     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
+     - Friction or roughness value
+   * - Reference level
+     - reference_level
+     - decimal number
+     - Yes
+     - m MSL
+     - Lowest point of the cross-section
+
+
+.. _cross_section_location_notes_for_modellers:
+
+Notes for modellers
+^^^^^^^^^^^^^^^^^^^
+
+- A cross-section location should be placed on top of a channel vertex that is not the start or end vertex
+- If the channel calculation point distance is smaller than the distance between cross section locations, values in the cross section locations along the channel are interpolated, see :ref:`techref_calculation_point_distance`.
+- If there are multiple cross-section locations between two **calculation nodes** (not connection nodes), only the first cross-section location is used.
+
+Reference level
+"""""""""""""""
+This is the bed level of the channel and the reference level for the cross-section. For example, if the reference level is 12.0 m MSL and the cross-section a tabulated rectangle with a width of 5 m at height 0, this means that the channel is 5 m wide at 12.0 m MSL.
+
+.. _cross-section_shape:
+
+Cross-section shape
+"""""""""""""""""""
+The following shapes are supported:
+
+.. list-table:: Cross-section shapes
+   :widths: 1 1 4
+   :header-rows: 1
+
+   * - Shape
+     - Value
+     - Instructions
+   * - Closed rectangle
+     - 0
+     - Specify cross-section height and cross-section width
+   * - Open rectangle
+     - 1
+     - Specify cross-section width
+   * - Circle
+     - 2
+     - Specify cross-section width (i.e., diameter)
+   * - Egg
+     - 3
+     - Specify cross-section width. Height will be 1.5 * width.
+   * - Tabulated rectangle
+     - 5
+     - Fill cross-section table as CSV-style table of height, width pairs 
+   * - Tabulated trapezium
+     - 6
+     - Fill cross-section table as CSV-style table of height, width pairs
+   * - YZ
+     - 7
+     - Fill cross-section table as CSV-style table of Y, Z pairs
+   * - Inverted egg
+     - 8
+     - Specify cross-section width. Height will be 1.5 * width.
+
+
+.. _culvert:
+
+Culvert
+-------
+
+Culverts are used to schematise pipes in open water systems.
+
+In contrast to an :ref:`orifice`, the flow behaviour in a culvert is assumed to be determined by shape and much less dominated by entrance losses. Culverts can be used for longer sections of pipe-like structures and do not have to be straight. Shorter, straight culverts are best schematised as an :ref:`orifice`.
+
+
+Geometry
+^^^^^^^^
+Linestring (two or more vertices)
+
+Attributes
+^^^^^^^^^^
+
+.. list-table:: Culvert attributes
+   :widths: 6 4 4 2 4 30
+   :header-rows: 1
+
+   * - Attribute alias
+     - Field name
+     - Type
+     - Mandatory
+     - Units
+     - Description
+   * - ID
+     - id
+     - integer
+     - Yes
+     - \-
+     - Unique identifier
+   * - Calculation type
+     - calculation_type
+     - integer
+     - Yes
+     - \-
+     - Sets the 1D2D exchange type: embedded (100), isolated (101), connected (102), or double connected (105). See :ref:`calculation_types`.
+   * - Code
+     - code
+     - text
+     - No
+     - \-
+     - Name field, no constraints
+   * - Cross-section height
+     - cross_section_height
+     - decimal number
+     - see :ref:`cross-section_shape`
+     - m
+     - Height of the cross-section (only used for Closed rectangle cross-sections)
+   * - Cross-section shape
+     - cross_section_shape
+     - decimal number
+     - Yes
+     - integer
+     - Sets the cross-section shape, :ref:`cross-section_shape`
+   * - Cross-section table
+     - cross_section_table
+     - text
+     - see :ref:`cross-section_shape`
+     - m
+     - CSV-style table of [height, width] or [Y, Z] pairs, see :ref:`cross-section_shape`
+   * - Cross-section width
+     - cross_section_width
+     - decimal number
+     - see :ref:`cross-section_shape`
+     - integer
+     - Width or diameter of the cross-section, see :ref:`cross-section_shape`
+   * - Display name
+     - display_name
+     - text
+     - No
+     - \-
+     - Name field, no constraints
+   * - Distance between calculation points
+     - dist_calc_points
+     - decimal number
+     - No
+     - m
+     - Maximum distance between calculation points, see :ref:`techref_calculation_point_distance`
+   * - End connection node ID
+     - connection_node_end_id
+     - integer
+     - Yes
+     - \-
+     - ID of end connection node
+   * - End invert level
+     - invert_level_end_point
+     - decimal number
+     - Yes
+     - m MSL
+     - Level of lowest point on the inside at the end of the culvert
+   * - Friction type
+     - friction_type
+     - decimal number
+     - Yes
+     - \-
+     - Sets the friction type to Chézy (1) or Manning (2)
+   * - Friction value
+     - friction_value
+     - decimal number
+     - Yes
+     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
+     - Friction or roughness value
+   * - Start connection node ID
+     - connection_node_start_id
+     - integer
+     - Yes
+     - \-
+     - ID of start connection node
+   * - Start invert level
+     - invert_level_start_point
+     - decimal number
+     - Yes
+     - m MSL
+     - Level of lowest point on the inside at the start of the pipe
+   * - Zoom category
+     - zoom_category
+     - integer
+     - No
+     - \-
+     - *Deprecated*
+
+When using the 3Di Schematisation Editor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- The *connection nodes* are added automatically
+
+
+Notes for modellers
+^^^^^^^^^^^^^^^^^^^
+
+The cross-section describes the inside of the culvert. If you only know the outer dimensions, you have to discount the wall thickness.
+
+Discharge coefficients
+""""""""""""""""""""""
+The discharge is multiplied by this value. The energy loss caused by the change in flow velocity at the entrance and exit are accounted for by 3Di. The discharge coefficients can be used to account for any additional energy loss. 'Positive' applies to flow in the drawing direction of the structure (from start node to end node); 'negative' applies to flow in the opposite direction.
+
+
 
 .. _manhole:
 
@@ -388,10 +744,7 @@ This value is used for administrative and visualisation purposes only. It does n
 
 Surface level
 """""""""""""
-This value is used for administrative purposes only. It does not affect the calculation.
-
-\
-\
+This value is used for administrative purposes only. It does not affect the calculation
 
 .. _pumpstation_without_end_node:
 
@@ -491,8 +844,6 @@ Notes for modellers
 ^^^^^^^^^^^^^^^^^^^
 - Multiple pumpstations may be defined for the same connection node. If their active ranges (start/stop level) overlap, they may pump at the same time.
 
-\
-\
 
 .. _pumpstation_with_end_node:
 
@@ -596,291 +947,6 @@ Attributes
 Notes for modellers
 ^^^^^^^^^^^^^^^^^^^
 - Multiple pumpstations may be defined for the same connection node. If their active ranges (start/stop level) overlap, they may pump at the same time.
-
-\
-\
-
-.. _weir:
-
-Weir
-----
-
-Overflow structure, used to control the water level. It can be used in open water systems as well as sewerage systems.
-
-A weir is commonly used to schematise structures with open cross sections, whereas the :ref:`orifice` is commonly used for structures that are closed at the top. However, both types of cross-sections can be used for either structure, and 3Di uses them in the calculation in the same way. See :ref:`weirs_and_orifices` for further details.
-
-Geometry
-^^^^^^^^
-Linestring (exactly two vertices)
-
-Attributes
-^^^^^^^^^^
-
-.. list-table:: Weir attributes
-   :widths: 6 4 4 2 4 30
-   :header-rows: 1
-
-   * - Attribute alias
-     - Field name
-     - Type
-     - Mandatory
-     - Units
-     - Description
-   * - ID
-     - id
-     - integer
-     - Yes
-     - \-
-     - Unique identifier
-   * - Code
-     - code
-     - text
-     - No
-     - \-
-     - Name field, no constraints
-   * - Crest level
-     - crest_level
-     - decimal number
-     - Yes
-     - m MSL
-     - Lowest point of the cross-section.
-   * - Crest type
-     - crest_type
-     - integer
-     - Yes
-     - \-
-     - Sets the crest type: broad-crested (3) or short-crested (4)
-   * - Cross-section height
-     - cross_section_height
-     - decimal number
-     - see :ref:`cross-section_shape`
-     - m
-     - Height of the cross-section (only used for Closed rectangle cross-sections)
-   * - Cross-section shape
-     - cross_section_shape
-     - decimal number
-     - Yes
-     - \-
-     - Sets the cross-section shape, :ref:`cross-section_shape`
-   * - Cross-section table
-     - cross_section_table
-     - text
-     - see :ref:`cross-section_shape`
-     - m
-     - CSV-style table of [height, width] or [Y, Z] pairs, see :ref:`cross-section_shape`
-   * - Cross-section width
-     - cross_section_width
-     - decimal number
-     - see :ref:`cross-section_shape`
-     - m
-     - Width or diameter of the cross-section, see :ref:`cross-section_shape`
-   * - Discharge coefficient negative
-     - discharge_coefficient_negative
-     - decimal_number
-     - Yes
-     - \-
-     - Discharge in the negative direction is multiplied by this value
-   * - Discharge coefficient positive
-     - discharge_coefficient_positive
-     - decimal_number
-     - Yes
-     - \-
-     - Discharge in the positive direction is multiplied by this value
-   * - Display name
-     - display_name
-     - text
-     - No
-     - \-
-     - Name field, no constraints
-   * - End connection node ID
-     - connection_node_end_id
-     - integer
-     - Yes
-     - \-
-     - ID of connection node to which the water is pumped
-   * - Friction type
-     - friction_type
-     - decimal number
-     - Yes
-     - \-
-     - Sets the friction type to Chézy (1) or Manning (2)
-   * - Friction value
-     - friction_value
-     - decimal number
-     - Yes
-     - m:sup:`1/2`/s or s/m:sup:`1/3`
-     - Friction or roughness value
-   * - Sewerage
-     - sewerage
-     - boolean
-     - Yes
-     - \-
-     - Indicates if the structure is part of the sewerage system (True) or not (False)
-   * - Start connection node ID
-     - connection_node_start_id
-     - integer
-     - Yes
-     - \-
-     - ID of the start connection node
-   * - Zoom category
-     - zoom_category
-     - integer
-     - No
-     - \-
-     - *Deprecated*
-
-
-Notes for the modeller
-^^^^^^^^^^^^^^^^^^^^^^
-
-In the computational grid, a weir will always be represented by a single flowline. Therefore, weirs do not have a calculation point distance and calculation type. The calculation type of the start and end nodes is determined by the channels, culverts, manholes, and pipes connected to them.
-
-Crest level
-"""""""""""
-This is the reference level for the cross-section. For example, if the crest level is 12.0 m and the cross-section a circle with a diameter of 0.5 m, the opening will start at 12.0 m and end at 12.5 m
-
-Discharge coefficients
-""""""""""""""""""""""
-The discharge is multiplied by this value. The energy loss caused by the change in flow velocity at the entrance and exit are accounted for by 3Di. The discharge coefficients can be used to account for any additional energy loss. 'Positive' applies to flow in the drawing direction of the structure (from start node to end node); 'negative' applies to flow in the opposite direction.
-
-\
-\
-
-.. _culvert:
-
-Culvert
--------
-
-Culverts are used to schematise pipes in open water systems.
-
-In contrast to an :ref:`orifice`, the flow behaviour in a culvert is assumed to be determined by shape and much less dominated by entrance losses. Culverts can be used for longer sections of pipe-like structures and do not have to be straight. Shorter, straight culverts are best schematised as an :ref:`orifice`.
-
-Geometry
-^^^^^^^^
-Linestring (two or more vertices)
-
-Attributes
-^^^^^^^^^^
-
-.. list-table:: Culvert attributes
-   :widths: 6 4 4 2 4 30
-   :header-rows: 1
-
-   * - Attribute alias
-     - Field name
-     - Type
-     - Mandatory
-     - Units
-     - Description
-   * - ID
-     - id
-     - integer
-     - Yes
-     - \-
-     - Unique identifier
-   * - Calculation type
-     - calculation_type
-     - integer
-     - Yes
-     - \-
-     - Sets the 1D2D exchange type: embedded (100), isolated (101), connected (102), or double connected (105). See :ref:`calculation_types`.
-   * - Code
-     - code
-     - text
-     - No
-     - \-
-     - Name field, no constraints
-   * - Cross-section height
-     - cross_section_height
-     - decimal number
-     - see :ref:`cross-section_shape`
-     - m
-     - Height of the cross-section (only used for Closed rectangle cross-sections)
-   * - Cross-section shape
-     - cross_section_shape
-     - decimal number
-     - Yes
-     - integer
-     - Sets the cross-section shape, :ref:`cross-section_shape`
-   * - Cross-section table
-     - cross_section_table
-     - text
-     - see :ref:`cross-section_shape`
-     - m
-     - CSV-style table of [height, width] or [Y, Z] pairs, see :ref:`cross-section_shape`
-   * - Cross-section width
-     - cross_section_width
-     - decimal number
-     - see :ref:`cross-section_shape`
-     - integer
-     - Width or diameter of the cross-section, see :ref:`cross-section_shape`
-   * - Display name
-     - display_name
-     - text
-     - No
-     - \-
-     - Name field, no constraints
-   * - Distance between calculation points
-     - dist_calc_points
-     - decimal number
-     - No
-     - m
-     - Maximum distance between calculation points, see :ref:`techref_calculation_point_distance`
-   * - End connection node ID
-     - connection_node_end_id
-     - integer
-     - Yes
-     - \-
-     - ID of end connection node
-   * - End invert level
-     - invert_level_end_point
-     - decimal number
-     - Yes
-     - m MSL
-     - Level of lowest point on the inside at the end of the culvert
-   * - Friction type
-     - friction_type
-     - decimal number
-     - Yes
-     - \-
-     - Sets the friction type to Chézy (1) or Manning (2)
-   * - Friction value
-     - friction_value
-     - decimal number
-     - Yes
-     - m:sup:`1/2`/s or s/m:sup:`1/3`
-     - Friction or roughness value
-   * - Start connection node ID
-     - connection_node_start_id
-     - integer
-     - Yes
-     - \-
-     - ID of start connection node
-   * - Start invert level
-     - invert_level_start_point
-     - decimal number
-     - Yes
-     - m MSL
-     - Level of lowest point on the inside at the start of the pipe
-   * - Zoom category
-     - zoom_category
-     - integer
-     - No
-     - \-
-     - *Deprecated*
-
-Notes for modellers
-^^^^^^^^^^^^^^^^^^^
-
-The cross-section describes the inside of the culvert. If you only know the outer dimensions, you have to discount the wall thickness.
-
-Discharge coefficients
-""""""""""""""""""""""
-The discharge is multiplied by this value. The energy loss caused by the change in flow velocity at the entrance and exit are accounted for by 3Di. The discharge coefficients can be used to account for any additional energy loss. 'Positive' applies to flow in the drawing direction of the structure (from start node to end node); 'negative' applies to flow in the opposite direction.
-
-
-\
-\
 
 .. _orifice:
 
@@ -990,7 +1056,7 @@ Attributes
      - friction_value
      - decimal number
      - Yes
-     - m:sup:`1/2`/s or s/m:sup:`1/3`
+     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
      - Friction or roughness value
    * - Sewerage
      - sewerage
@@ -1012,6 +1078,11 @@ Attributes
      - *Deprecated*
 
 
+When using the 3Di Schematisation Editor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- The *connection nodes* are added automatically
+
 Notes for modellers
 ^^^^^^^^^^^^^^^^^^^
 
@@ -1024,9 +1095,6 @@ This is the reference level for the cross-section. For example, if the crest lev
 Discharge coefficients
 """"""""""""""""""""""
 The discharge is multiplied by this value. The energy loss caused by the change in flow velocity at the entrance and exit are accounted for by 3Di. The discharge coefficients can be used to account for any additional energy loss. 'Positive' applies to flow in the drawing direction of the structure (from start node to end node); 'negative' applies to flow in the opposite direction.
-
-\
-\
 
 .. _pipe:
 
@@ -1128,7 +1196,7 @@ Attributes
      - friction_value
      - decimal number
      - Yes
-     - m:sup:`1/2`/s or s/m:sup:`1/3`
+     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
      - Friction or roughness value
    * - Sewerage
      - sewerage
@@ -1167,6 +1235,14 @@ Attributes
      - \-
      - *Deprecated*
 
+When using the 3Di Schematisation Editor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- The *connection nodes* and *manholes* will be added automatically.
+- To draw a single pipe, the geometry must have exactly 2 vertices. A line with more than 2 vertices will be split into several pipes.
+- To digitize a trajectory of multiple pipes, first digitize the manholes, fill in the bottom levels, and then draw the pipe trajectory over these manholes by adding a vertex at each of the manholes. The pipes that are generated will use the manhole's bottom levels as invert levels and the *connection nodes* and *manholes* will be added automatically.
+
+
 .. _pipe_notes_for_modeller:
 
 Notes for modellers
@@ -1194,23 +1270,25 @@ The following types are supported:
 - Storage (6)
 - Storage and settlement tank (7)
 
-\
-\
 
-.. _cross_section_location:
 
-Cross-section location
-----------------------
+.. _weir:
 
-Object to define the dimensions, levels, and friction at a specified point along a :ref:`channel`.
+Weir
+----
+
+Overflow structure, used to control the water level. It can be used in open water systems as well as sewerage systems.
+
+A weir is commonly used to schematise structures with open cross sections, whereas the :ref:`orifice` is commonly used for structures that are closed at the top. However, both types of cross-sections can be used for either structure, and 3Di uses them in the calculation in the same way. See :ref:`weirs_and_orifices` for further details.
 
 Geometry
 ^^^^^^^^
-Point
+Linestring (exactly two vertices)
 
 Attributes
 ^^^^^^^^^^
-.. list-table:: Cross-section location attributes
+
+.. list-table:: Weir attributes
    :widths: 6 4 4 2 4 30
    :header-rows: 1
 
@@ -1226,18 +1304,24 @@ Attributes
      - Yes
      - \-
      - Unique identifier
-   * - Bank level
-     - bank_level
-     - decimal number
-     - Yes
-     - m MSL
-     - Exchange level for the 1D2D connections. Only used when calculation type is 'connected'.
    * - Code
      - code
      - text
      - No
      - \-
      - Name field, no constraints
+   * - Crest level
+     - crest_level
+     - decimal number
+     - Yes
+     - m MSL
+     - Lowest point of the cross-section.
+   * - Crest type
+     - crest_type
+     - integer
+     - Yes
+     - \-
+     - Sets the crest type: broad-crested (3) or short-crested (4)
    * - Cross-section height
      - cross_section_height
      - decimal number
@@ -1262,6 +1346,30 @@ Attributes
      - see :ref:`cross-section_shape`
      - m
      - Width or diameter of the cross-section, see :ref:`cross-section_shape`
+   * - Discharge coefficient negative
+     - discharge_coefficient_negative
+     - decimal_number
+     - Yes
+     - \-
+     - Discharge in the negative direction is multiplied by this value
+   * - Discharge coefficient positive
+     - discharge_coefficient_positive
+     - decimal_number
+     - Yes
+     - \-
+     - Discharge in the positive direction is multiplied by this value
+   * - Display name
+     - display_name
+     - text
+     - No
+     - \-
+     - Name field, no constraints
+   * - End connection node ID
+     - connection_node_end_id
+     - integer
+     - Yes
+     - \-
+     - ID of connection node to which the water is pumped
    * - Friction type
      - friction_type
      - decimal number
@@ -1272,138 +1380,20 @@ Attributes
      - friction_value
      - decimal number
      - Yes
-     - m:sup:`1/2`/s or s/m:sup:`1/3`
+     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
      - Friction or roughness value
-   * - Reference level
-     - reference_level
-     - decimal number
-     - Yes
-     - m MSL
-     - Lowest point of the cross-section
-
-
-.. _cross_section_location_notes_for_modellers:
-
-Notes for modellers
-^^^^^^^^^^^^^^^^^^^
-
-- If the channel calculation point distance is smaller than the distance between cross section locations, values in the cross section locations along the channel are interpolated, see :ref:`techref_calculation_point_distance`.
-- If there are multiple cross-section locations between two **calculation nodes** (not connection nodes), only the first cross-section location is used.
-
-Reference level
-"""""""""""""""
-This is the bed level of the channel and the reference level for the cross-section. For example, if the reference level is 12.0 m MSL and the cross-section a tabulated rectangle with a width of 5 m at height 0, this means that the channel is 5 m wide at 12.0 m MSL.
-
-.. _cross-section_shape:
-
-Cross-section shape
-"""""""""""""""""""
-The following shapes are supported:
-
-.. list-table:: Cross-section shapes
-   :widths: 1 1 4
-   :header-rows: 1
-
-   * - Shape
-     - Value
-     - Instructions
-   * - Closed rectangle
-     - 0
-     - Specify cross-section height and cross-section width
-   * - Open rectangle
-     - 1
-     - Specify cross-section width
-   * - Circle
-     - 2
-     - Specify cross-section width (i.e., diameter)
-   * - Egg
-     - 3
-     - Specify cross-section width. Height will be 1.5 * width.
-   * - Tabulated rectangle
-     - 5
-     - Fill cross-section table as CSV-style table of height, width pairs 
-   * - Tabulated trapezium
-     - 6
-     - Fill cross-section table as CSV-style table of height, width pairs
-   * - YZ
-     - 7
-     - Fill cross-section table as CSV-style table of Y, Z pairs
-   * - Inverted egg
-     - 8
-     - Specify cross-section width. Height will be 1.5 * width.
-
-
-\
-\
-
-.. _channel:
-
-Channel
--------
-
-A natural or artificial open channel. Channels can have a variable bed level, bed friction and cross section along their length. This information is stored in another object, the :ref:`cross_section_location`. A channel can have one or more cross-section locations, depending on the variability of the channel.
-
-See :ref:`channelflow` for more details.
-
-Geometry
-^^^^^^^^
-Linestring (two or more vertices)
-
-Attributes
-^^^^^^^^^^
-
-.. list-table:: Channel attributes
-   :widths: 6 4 4 2 4 30
-   :header-rows: 1
-
-   * - Attribute alias
-     - Field name
-     - Type
-     - Mandatory
-     - Units
-     - Description
-   * - ID
-     - id
-     - integer
+   * - Sewerage
+     - sewerage
+     - boolean
      - Yes
      - \-
-     - Unique identifier
-   * - Calculation type
-     - calculation_type
-     - integer
-     - Yes
-     - \-
-     - Sets the 1D2D exchange type: embedded (100), isolated (101), connected (102), or double connected (105). See :ref:`calculation_types`.
-   * - Code
-     - code
-     - text
-     - No
-     - \-
-     - Name field, no constraints
-   * - Display name
-     - display_name
-     - text
-     - No
-     - \-
-     - Name field, no constraints
-   * - Distance between calculation points
-     - dist_calc_points
-     - decimal number
-     - No
-     - m
-     - Maximum distance between calculation points, see :ref:`techref_calculation_point_distance`
-   * - End connection node ID
-     - connection_node_end_id
-     - integer
-     - Yes
-     - \-
-     - ID of end connection node
+     - Indicates if the structure is part of the sewerage system (True) or not (False)
    * - Start connection node ID
      - connection_node_start_id
      - integer
      - Yes
      - \-
-     - ID of start connection node
+     - ID of the start connection node
    * - Zoom category
      - zoom_category
      - integer
@@ -1412,18 +1402,15 @@ Attributes
      - *Deprecated*
 
 
-Notes for modellers
-^^^^^^^^^^^^^^^^^^^
+Notes for the modeller
+^^^^^^^^^^^^^^^^^^^^^^
 
-.. todo::
-   Refer to "how to schematise open water systems" when that section is finished
+In the computational grid, a weir will always be represented by a single flowline. Therefore, weirs do not have a calculation point distance and calculation type. The calculation type of the start and end nodes is determined by the channels, culverts, manholes, and pipes connected to them.
 
-- Use 1D channels wisely. In many applications, schematising waterways in 2D is preferable. See :ref:`channelflow` and :ref:`calculation_types`.
-- All channels must have at least one :ref:`cross_section_location`.
+Crest level
+"""""""""""
+This is the reference level for the cross-section. For example, if the crest level is 12.0 m and the cross-section a circle with a diameter of 0.5 m, the opening will start at 12.0 m and end at 12.5 m
 
-Calculation type 'embedded'
-"""""""""""""""""""""""""""
-- Embedded channels add extra connections between 2D grid cells, but ignore obstacles and levees.
-- Make sure the embedded channel profile always lays partially below the DEM; embedded channels cannot 'float' above the DEM.
-- Embedded channels only function when they connect several 2D grid cells, so make sure no embedded channel falls completely inside one 2D grid cell
-- Do not place boundary conditions directly on embedded channels.
+Discharge coefficients
+""""""""""""""""""""""
+The discharge is multiplied by this value. The energy loss caused by the change in flow velocity at the entrance and exit are accounted for by 3Di. The discharge coefficients can be used to account for any additional energy loss. 'Positive' applies to flow in the drawing direction of the structure (from start node to end node); 'negative' applies to flow in the opposite direction.
