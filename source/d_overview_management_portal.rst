@@ -1,7 +1,7 @@
 .. _management_screens_manual:
 
-Overview 3Di Management
-=======================
+3Di Management overview
+========================
 
 To use 3Di Management, open your browser and go to https://management.3di.live and log in with your username and password. If you do not have a 3Di account yet, or do not know your username and password, please contact the :ref:`servicedesk`.
 
