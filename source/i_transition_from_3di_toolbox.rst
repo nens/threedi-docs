@@ -1,3 +1,5 @@
+.. _transition_from_3di_toolbox:
+
 Transition guide for 3Di Toolbox users
 --------------------------------------
 
