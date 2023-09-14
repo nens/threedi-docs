@@ -21,8 +21,6 @@ In the most abstract form, a 1D network can be viewed as a combination of nodes 
 
 .. _cross_section_of_1d_element:
 
-.. _1d_momentum_equation:
-
 Cross-section shapes
 --------------------
 
@@ -84,6 +82,8 @@ Some examples are shown in the figures below.
    :alt: Cross-section shape 'Egg'
 
    Examples of cross-section shape 'Egg' in 1D networks. The 'Inverted egg' shape is the same, but upside-down.
+
+.. _1d_momentum_equation:
 
 1D momentum equation
 --------------------
