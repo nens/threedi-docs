@@ -3,6 +3,21 @@
 1D Objects
 ==========
 
+1D objects are used to schematise 1D networks. The way flow is calculated in these 1D networks is described in the section :ref:`onedee_flow`.
+
+* :ref:`connection_node`
+* :ref:`1d_boundary_condition`
+* :ref:`1d_lateral`
+* :ref:`manhole`
+* :ref:`pumpstation_without_end_node`
+* :ref:`pumpstation_with_end_node`
+* :ref:`weir`
+* :ref:`culvert`
+* :ref:`orifice`
+* :ref:`pipe`
+* :ref:`cross_section_location`
+* :ref:`channel`
+
 .. _1d_boundary_condition:
 
 1D Boundary Condition
@@ -233,6 +248,11 @@ Attributes
      - *Deprecated*
 
 
+When using the 3Di Schematisation Editor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- The *Connection nodes* and a *Cross-section location* are added automatically. 
+- Do not forget to fill in the required feature attributes for the *Cross-section location*.
+
 Notes for modellers
 ^^^^^^^^^^^^^^^^^^^
 
@@ -244,10 +264,16 @@ Notes for modellers
 
 Calculation type 'embedded'
 """""""""""""""""""""""""""
+
 - Embedded channels add extra connections between 2D grid cells, but ignore obstacles and levees.
 - Make sure the embedded channel profile always lays partially below the DEM; embedded channels cannot 'float' above the DEM.
 - Embedded channels only function when they connect several 2D grid cells, so make sure no embedded channel falls completely inside one 2D grid cell
 - Do not place boundary conditions directly on embedded channels.
+
+Calculation types 'connected' and 'double connected'
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+For channels with calculation type 'connected' and 'double connected', 1D2D connections connect each 1D calculation point to the 2D cell it is in. Therefore, channels with these calculation types need to be in a 2D cell. Alternatively, you may use an :ref:`exchangel_line` to customise the 1D2D connections. When using an exchange line, the channel does not need to be in 2D cells, but the exchange line needs to be in 2D cells.
 
 
 .. _connection_node:
@@ -403,7 +429,7 @@ Attributes
      - friction_value
      - decimal number
      - Yes
-     - m:sup:`1/2`/s or s/m:sup:`1/3`
+     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
      - Friction or roughness value
    * - Reference level
      - reference_level
@@ -418,6 +444,7 @@ Attributes
 Notes for modellers
 ^^^^^^^^^^^^^^^^^^^
 
+- A cross-section location should be placed on top of a channel vertex that is not the start or end vertex
 - If the channel calculation point distance is smaller than the distance between cross section locations, values in the cross section locations along the channel are interpolated, see :ref:`techref_calculation_point_distance`.
 - If there are multiple cross-section locations between two **calculation nodes** (not connection nodes), only the first cross-section location is used.
 
@@ -567,7 +594,7 @@ Attributes
      - friction_value
      - decimal number
      - Yes
-     - m:sup:`1/2`/s or s/m:sup:`1/3`
+     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
      - Friction or roughness value
    * - Start connection node ID
      - connection_node_start_id
@@ -587,6 +614,12 @@ Attributes
      - No
      - \-
      - *Deprecated*
+
+When using the 3Di Schematisation Editor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- The *connection nodes* are added automatically
+
 
 Notes for modellers
 ^^^^^^^^^^^^^^^^^^^
@@ -1038,7 +1071,7 @@ Attributes
      - friction_value
      - decimal number
      - Yes
-     - m:sup:`1/2`/s or s/m:sup:`1/3`
+     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
      - Friction or roughness value
    * - Sewerage
      - sewerage
@@ -1059,6 +1092,11 @@ Attributes
      - \-
      - *Deprecated*
 
+
+When using the 3Di Schematisation Editor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- The *connection nodes* are added automatically
 
 Notes for modellers
 ^^^^^^^^^^^^^^^^^^^
@@ -1173,7 +1211,7 @@ Attributes
      - friction_value
      - decimal number
      - Yes
-     - m:sup:`1/2`/s or s/m:sup:`1/3`
+     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
      - Friction or roughness value
    * - Sewerage
      - sewerage
@@ -1211,6 +1249,14 @@ Attributes
      - No
      - \-
      - *Deprecated*
+
+When using the 3Di Schematisation Editor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- The *connection nodes* and *manholes* will be added automatically.
+- To draw a single pipe, the geometry must have exactly 2 vertices. A line with more than 2 vertices will be split into several pipes.
+- To digitize a trajectory of multiple pipes, first digitize the manholes, fill in the bottom levels, and then draw the pipe trajectory over these manholes by adding a vertex at each of the manholes. The pipes that are generated will use the manhole's bottom levels as invert levels and the *connection nodes* and *manholes* will be added automatically.
+
 
 .. _pipe_notes_for_modeller:
 
@@ -1349,7 +1395,7 @@ Attributes
      - friction_value
      - decimal number
      - Yes
-     - m:sup:`1/2`/s or s/m:sup:`1/3`
+     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
      - Friction or roughness value
    * - Sewerage
      - sewerage

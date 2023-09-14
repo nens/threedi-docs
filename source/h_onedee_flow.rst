@@ -3,39 +3,15 @@
 1D Flow
 ==========
 
-3Di offers the possibility to simulate 1D flow. This means that the calculated flow velocity and discharge is averaged over both depth and width. Effects of variations in depth and width are included, but flow within a segment has only one direction. A 1D element can represent, for example, a water course, a hydraulic structure or a sewer pipe. The sections below describe the several types of 1D elements that are available in 3Di.
+3Di offers the possibility to simulate 1D flow. This means that the computed flow velocity and discharge is averaged over the full cross-sectional area. Effects of variations in depth and width are included, but flow within a segment has only one direction. A 1D element can represent, for example, a channel, a hydraulic structure or a sewer pipe. The sections below describe how 3Di deals with the computations in 1D, some specific characteristics and the several types of 1D elements that are available.
 
-.. _1d_momentum_equation:
 
-1D momentum equation
---------------------
-
-The flow in 1D networks is computed using the equations of conservation of mass and momentum, more specifically the 1D depth-averaged shallow water equations. The momentum equation for 1D flow is:
-
-.. math::
-   :label: 1D momentum equation
-
-   \frac{\partial u}{\partial t}+u \frac{\partial u}{\partial s}=-g\frac{\partial \zeta}{\partial x}-\frac{\tau_f}{\rho}-\frac{\tau_w}{\rho}
-
-| In which:
-| :math:`u` is the cross-sectionally averaged velocity
-| :math:`s` is the 1D coordinate in along the network
-| :math:`g` is the gravitational acceleration
-| :math:`\rho` is the density of the water
-| :math:`\tau_f` is the shear stress due to bottom friction
-| :math:`\tau_w` is the shear stress due to wind
-
-In words; in 1D, 3Di takes inertia, advection, pressure gradients, bottom friction and wind shear stresses into account. This yields for all types of 1D network applications. 3Di assumes hydrostatic pressure, thus pressure loss is rewritten as a water level gradient. However, in the computation of advection and the effect of wind stress on specific 1D network configurations, some differences are applied. This will be explained more elaborated below.
-
-.. todo::
-   @Nici het zinnetje "3Di assumes hydrostatic pressure, thus pressure loss is rewritten as a water level gradient." heb ik ergens anders uit de documentatie geplukt, weet niet zeker of dat klopt en hier op zijn plek is? Idem voor het zinnetje hier onder
-
-This implementation deals with backwater and transient flow phenomena, pressurized and non-pressurized flow, and subcritical and (super)critical flow conditions.
+.. _1d_network:
 
 1D Network
 ----------
 
-In the most abstract form, a 1D network can be viewed as a combination of nodes and lines. Such a network is translated to a grid, as described in :ref:`1dgrid`. The nodes and the connections have their own characteristics. Based on those, cross-sectional areas, storage and flow is computed.
+In the most abstract form, a 1D network can be viewed as a combination of nodes and lines. Such a network is translated to a grid, as described in :ref:`1dgrid`. The nodes and the connections have their own characteristics, like cross-section shapes, reference levels etc. Based on those, cross-sectional areas, storage and flow is computed.
 
 .. figure:: image/1dnetworkabstract.png
    :figwidth: 400 px
@@ -107,10 +83,89 @@ Some examples are shown in the figures below.
 
    Examples of cross-section shape 'Egg' in 1D networks. The 'Inverted egg' shape is the same, but upside-down.
 
+.. _1d_momentum_equation:
+
+1D momentum equation
+--------------------
+
+The flow in 1D networks is computed using the equations of conservation of mass and momentum, more specifically the 1D depth-averaged shallow water equations. The momentum equation for 1D flow is:
+
+.. math::
+   :label: 1D momentum equation
+
+   \frac{\partial u}{\partial t}+u \frac{\partial u}{\partial s}=-g\frac{\partial \zeta}{\partial s}-\frac{\tau_f}{R\rho}-\frac{\tau_w}{H \rho}
+
+| In which:
+| :math:`u` is the cross-sectionally averaged velocity
+| :math:`s` is the 1D coordinate along the network
+| :math:`g` is the gravitational acceleration
+| :math:`\rho` is the density of the water
+| :math:`\tau_f` is the shear stress due to bottom friction
+| :math:`\tau_w` is the shear stress due to wind
+| :math:`H` is the water depth
+| :math:`R` is the hydraulic radius
+
+In words; in 1D, 3Di takes inertia, advection, pressure gradients, bottom friction and wind shear stresses into account. This yields for all types of 1D network elements. However, there are some differences in the computation of advection and the effect of wind stress for specific 1D network This will be explained more elaborated, where these difference are relevant.
+
+.. _1d_friction:
+
+Friction in the 1D domain
+-------------------------
+
+3Di calculates the bottom friction or wall friction in the 1D-domain by integrating the shear stress over the cross-sectional area and over the length of the 1D element:
+
+.. math::
+
+   F_{f} = \rho \iint c_f u^2 dn ds =  \rho \int \frac{A^3 u^2 g}{K_{tot}} \; ds
+
+| where: 
+| :math:`u`: flow velocity
+| :math:`c_f`: dimensionless roughness coefficient
+| :math:`n`: Cross-flow direction
+| :math:`s`: Along-flow direction
+| :math:`K_{tot}`: Total conveyance factor
+
+The conveyance factor is a measure of the flow capacity of a channel. The factor combines geometry and roughness information. There are two options to determine this factor. Both methods evaluate the friction based on the geometry and roughness of the section using either Chézy or Manning formulations for the roughness. In 3Di, friction types are distinguished as Chézy, Manning (for the 1st method) and Chézy with conveyance, Manning with conveyance (for the 2nd method).
+
+
+Single section method
+^^^^^^^^^^^^^^^^^^^^^
+
+This method is suitable for closed, open, and semi-open sections. It assumes uniform roughness and velocity over the domain and therefore works best for relatively uniform cross-sections. This method considers the cross-section of the 1D element as a whole.  
+
+In the single section method, the conveyance factors are defined as:
+
+.. math::
+   :label: Conveyance Factor
+
+   \text{Chézy} \quad K_{tot} = A C R^\frac{1}{2} \\
+   \text{Manning} \quad K_{tot} = \frac{1}{n} A R^\frac{2}{3}  \\
+   R = \frac{A}{P}
+
+with: 
+
+| :math:`C`: Chézy coefficient
+| :math:`n`: Manning coefficient
+| :math:`A`: Cross-sectional area
+| :math:`P`: Wetted perimeter
+
+Conveyance method
+^^^^^^^^^^^^^^^^^
+
+The *conveyance method* (or *compound section method*), suitable for open sections only, allows for variations in the cross-flow direction. This method divides the channel cross-section into several sub-sections depending on the channel's depth. This way, the variations in velocity related to the depth and roughness of the channel is properly taken into consideration. 
+
+The conveyance factor considers the depth variations in the different depth sections. The conveyance factor reflects the transport capacity of the channel. Assuming uniformity of the ratio between wetted perimeter and cross-sectional area, in applications with strong depth variations over the cross-section, underestimates the flow capacity. The compound section method divides the channel cross-section into several sub-sections. In this method, the total conveyance factor of the section is the sum of each sub-section’s conveyance factor. In 3Di, the separation lines between the sub-sections are considered vertical . 
+
+.. figure:: image/1dconveyancefactor.png
+   :figwidth: 1000 px
+   :alt: conveyance_factor
+
+   Single Section Method vs Compound Section (Conveyance) Method
+
 .. _1Dpressurized:
 
 Pressurized flow
----------------------
+----------------
 
 In 1D elements with closed cross-sections flow may become pressurized. The way 3Di deals with this is similar to how 3Di deals with the non-lineair relations in 2D cells (e.g. between volume and water level). :ref:`subgridmethod` allows 2D cells to be  be dry, wet or *partly wet*, creating a non-lineair volume-water level relation. This was solved with a highly efficient method. However, there are some requirements for such system to be solved. one of these requirements is violated when the surface area decreases for increasing water levels, as in pipes that are more than half full (see the Figure below). Therefore, a new method had to be introduced to solve such a non-linear system of equations. This method is based on the so-called nested Newton method (`cite:t:`Casulli2013`).
 

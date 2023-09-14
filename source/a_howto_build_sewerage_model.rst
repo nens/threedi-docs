@@ -24,7 +24,7 @@ The 1D sewer network can be linked to a 2D terrain model above that network. The
 
 The 1D sewer network can also be linked to a 0D network of nodes. The 0D nodes can be used for rainfall runoff inflow and dry weather flow. In the rainfall runoff process various types of paved and unpaved areas, such as streets, roofs and parking lots can be simulated (see :ref:`0d_inflow`). Detailed infiltration as a time-dependent process following the HORTON equation is also available.
 
-Schematization
+Schematisation
 --------------
 
 Basically, a sewer network is built of manholes and sewer pipes. Each manhole is represented as a node, and each node has x,y,z coordinates. The sewer pipes are defined by a begin and an end node. Any number of sewer pipes can be connected to a manhole node. Lateral inflow and outflows are located on the manhole nodes. In the computational core, a volume and water level is computed at each manhole node. Thereby the volume of each manhole and the connected sewer pipes is taken into account. In between two nodes a discharge is computed, based on the water levels and pipe characteristics.

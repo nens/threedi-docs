@@ -6,7 +6,7 @@ Uploading and downloading schematisations
 Uploading a schematisation
 ----------------------------
 
-A schematisation can be uploaded with the :ref:`models_simulation_plugin`:
+A :ref:`schematisation revision<revision>` can be uploaded with the :ref:`models_simulation_panel`:
 
 #) Activate the '3Di Models and Simulation panel' by clicking on the pictogram (|modelsSimulations|) in the toolbar.
 #) Click on the 'Upload' icon.
@@ -30,7 +30,7 @@ Your revision will now be available for everyone in your organisation.
 Downloading a schematisation
 -----------------------------
 
-A schematisation can be downloaded with the :ref:`models_simulation_plugin`:
+A :ref:`schematisation revision<revision>` can be downloaded with the :ref:`models_simulation_panel`:
 
 #) Activate the '3Di Models and Simulation panel' by clicking on the pictogram (|modelsSimulations|) in the toolbar.
 #) Click on the 'Download' icon.

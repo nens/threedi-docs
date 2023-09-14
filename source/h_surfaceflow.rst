@@ -10,6 +10,8 @@ The methods that 3Di uses to deal with the flow in the 2D domain are thoroughly 
 
  .. TODO: Extend
 
+.. _surface_flow_cross_sections:
+
 Cross-sections and exchange levels
 ----------------------------------
 
@@ -44,7 +46,7 @@ If the model wishes to include an obstacle that may not be detected by the compu
 Friction
 --------
 
-The friction is calculated using the flow depth at each :ref:`subgrid <subgridmethod>` pixel in the :ref:`momentum domain<computational_grid_2d_domain>`. The formulations of Chézy or Manning can be used for the calculation of friction.
+In the 2D domain, the friction is calculated using the flow depth at each :ref:`subgrid <subgridmethod>` pixel in the :ref:`momentum domain<computational_grid_2d_domain>`. The formulations of Chézy or Manning can be used for the calculation of friction.
 
 Water level gradients
 ---------------------
