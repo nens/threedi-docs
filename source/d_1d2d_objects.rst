@@ -66,7 +66,7 @@ Attributes
 
 Potential breach
 ----------------
-Line drawn from a Channel to a 2D cell, to create a potential breach location.
+Line drawn from a Channel to a 2D cell, to create a potential breach location. At these locations, the 1D2D connection can be :ref:`breached<breaches>` during the simulation.
 
 Geometry
 ^^^^^^^^
@@ -114,7 +114,7 @@ Attributes
      - decimal number
      - No
      - m
-     - Maximum depth of the breach
+     - Maximum depth of the breach, in m below the exchange level.
    * - Levee material
      - levee_material
      - text
