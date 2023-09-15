@@ -3,7 +3,9 @@
 Transition guide for 3Di Toolbox users
 --------------------------------------
 
-Before October 1st, 2023, the functionality provided by the :ref:`3Di Results Analysis plugin<mi_3di_plugins>` was provided by another plugin, the 3Di Toolbox. This section gives guidelines for users familiar with the 3Di Toolbox on how to transition to using 3Di Results Analysis.
+The 3Di Toolbox will replaced by the :ref:`3Di Results Analysis plugin<mi_3di_plugins>` on October 1st, 2023. 
+
+This section gives guidelines for users familiar with the 3Di Toolbox on how to transition to using 3Di Results Analysis.
 
 For a list of all the tools available for analysing results, see :ref:`mi_analysing_results`.
 

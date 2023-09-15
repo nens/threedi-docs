@@ -28,7 +28,9 @@ These tools relate the time series of the flow variables (water levels, volumes,
 From 3Di Toolbox to 3Di Results Analysis
 ----------------------------------------
 
-Users familiar with the (now deprecated) 3Di Toolbox, but new to its successor 3Di Results Analysis are advised to read the :ref:`transition_from_3di_toolbox`.
+Users familiar with the 3Di Toolbox, but new to its successor 3Di Results Analysis are advised to read the :ref:`transition_from_3di_toolbox`.
+
+The 3Di Toolbox will replaced by the :ref:`3Di Results Analysis plugin<mi_3di_plugins>` on October 1st, 2023.
 
 
 
