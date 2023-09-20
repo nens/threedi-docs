@@ -4,7 +4,7 @@ Use rainfall-runoff (0D inflow) in 1D models
 =============================================
 Rainfall typically descends directly onto surfaces before finding its way into the sewerage system. However, in urban areas, a substantial portion of the rain lands on buildings. This rainwater can either flow into the sewerage system through rain pipes or be retained, a phenomenon known as 0D inflow.
 
-For a detailed understanding of how 0D inflow is computed and guidance on choosing between utilizing the :ref:`surface` or :ref:`impervious_surface` references, consult :ref:`0d_inflow`. Additionally, refer to :ref:`inflow_objects` for an overview of the schematization objects employed.
+For a detailed understanding of how 0D inflow is computed and guidance on choosing between utilizing the :ref:`surface` or :ref:`impervious_surface` references, consult :ref:`0d_rain`. Additionally, refer to :ref:`inflow_objects` for an overview of the schematization objects employed.
 
 
 Schematisation

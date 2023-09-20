@@ -11,7 +11,7 @@ Release notes
 September 21th, 2023
 ^^^^^^^^^^^^^^^^^^^^
 
-- It has been made easier to :ref:`_howto_clip_schematisations`
+- It has been made easier to :ref:`howto_clip_schematisations`
 - Culverts can be imported into the schematisation with the new :ref:`vector_data_importer` (#118, #119, #120).
 - The :ref:`conveyance_method` can now be used, for more accurate calculation of friction in 1D open water. For this new feature, the following checks where added to the schematisation checker: 
 	- Check 26: make sure friction types with conveyance are only used on v2_cross_section_location
@@ -23,6 +23,7 @@ September 21th, 2023
 - In 3Di Management, many properties of online resources have been made editable: schematisation names, schematisation descriptions, schematisation tags, commit messages, 3Di model names, simulation template names.
 - It has become easier to delete revisions and schematisations. When a revision is deleted, its 3Di Model is also automatically deleted. When a schematisation is deleted, its revisions are also automatically deleted.
 - In the 3Di Modeller Interface, a new page for generating :ref:`saved_states` was added to the 3Di Models & Simulations simulation wizard.
+
 For further details see the release notes for :ref:`3Di Modeller Interface<release_notes_mi_20230921>` and :ref:`3Di Management<3di_ms_release_20230921>`
 
 .. note::
@@ -942,7 +943,7 @@ September 21st, 2023
 - Culverts can be imported into the schematisation with a new graphical user interface (#118, #119, #120)
 - Support for using the :ref:`conveyance_method` in the calculation of friction in 1D open water: "Manning with conveyance" and "Chezy with conveyance" have been added as friction types in the :ref:`cross_section_location` layer (#159)
 - All layers related to :ref:`control structures<control>` are now also added to the project (#169)
-- When deleting connection nodes, you will now be asked if you want to delete all referenced features only once, instead of for each referenced feature (#67). This makes it much easier to :ref:`_howto_clip_schematisations`.
+- When deleting connection nodes, you will now be asked if you want to delete all referenced features only once, instead of for each referenced feature (#67). This makes it much easier to :ref:`howto_clip_schematisations`.
 - Bugfix: In some cases, surfaces and their surface maps were not converted properly from spatialite to geopackage (#161)
 - Bugfix: When moving a connection node, some attributes of features referencing that connection node became NULL (#162)
 - Bugfix: Improved user feedback messages when spatialite database schema is unknown, too high or too low (#103)

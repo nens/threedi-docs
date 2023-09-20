@@ -133,12 +133,10 @@ Format the time series as Comma Separated Values (CSV), with the time (in minute
 
 - The time series string cannot contain any spaces or empty rows
 
-.. TODO: Nog niet zo uitgebreid als hij bij 1d objects is op het moment. misschien wel relevanten dingen weggelaten nu
+.. TODO: 
+    Nog niet zo uitgebreid als hij bij 1d objects is op het moment. misschien wel relevanten dingen weggelaten nu
 
-\
-\
 
-.. _linear_obstacle:
 
 .. _linear_obstacle:
 
