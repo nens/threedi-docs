@@ -951,6 +951,7 @@ September 21st, 2023
 
 
 **3Di Schematisation Editor 1.6.0**
+
 - Culverts can be imported into the schematisation with a new graphical user interface  (#118, #119, #120, #176)
 - Support for using the :ref:`conveyance_method` in the calculation of friction in 1D open water: "Manning with conveyance" and "Chezy with conveyance" have been added as friction types in the :ref:`cross_section_location` layer (#159)
 - All layers related to :ref:`control structures<control>` are now also added to the project (#169)
@@ -960,6 +961,9 @@ September 21st, 2023
 - Bugfix: Improved user feedback messages when spatialite database schema is unknown, too high or too low (#103)
 - Bugfix: In a new profile, the schematisation editor no longer keeps complaining about the Macro settings being wrong (#158)
 
+**3Di Toolbox 2.5.5**
+
+- Update *Generate computational grid* and *Check schematisation* with the new conveyance friction types, by bumping the threedi-\* dependencies (threedigrid to 2.0.\*, threedi-modelchecker to 2.4.\*, threedigrid-builder to 1.12.\*
 
 
 July 20th 2023
