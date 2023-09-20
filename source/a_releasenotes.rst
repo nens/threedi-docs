@@ -13,7 +13,7 @@ September 21th, 2023
 
 - It has been made easier to :ref:`howto_clip_schematisations`.
 
-- Culverts can be imported into the schematisation with the new :ref:`vector_data_importer` (#118, #119, #120).
+- Culverts can be imported into the schematisation with the new :ref:`Vector data importer<vector_data_importer>` (#118, #119, #120).
 
 - The :ref:`conveyance_method` can now be used, for more accurate calculation of friction in 1D open water. For this new feature, the following checks where added to the schematisation checker: 
 	- Check 26: make sure friction types with conveyance are only used on v2_cross_section_location
