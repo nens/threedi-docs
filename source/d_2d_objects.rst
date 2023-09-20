@@ -13,9 +13,6 @@
 * :ref:`dem_average_area`
 * :ref:`windshielding`
 
-\
-\
-
 .. _2d_boundary_condition:
 
 2D Boundary Condition

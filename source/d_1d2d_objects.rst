@@ -8,9 +8,6 @@
 * :ref:`exchange_line`
 * :ref:`potential_breach`
 
-\
-\
-
 .. _exchange_line:
 
 Exchange line
