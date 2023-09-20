@@ -424,7 +424,7 @@ Attributes
      - decimal number
      - Yes
      - \-
-     - Sets the friction type to Chézy (1) or Manning (2)
+     - Sets the :ref:`friction type<1d_friction>` to Chézy (1), Manning (2), Chézy with conveyance (3), or Manning with conveyance (4)
    * - Friction value
      - friction_value
      - decimal number

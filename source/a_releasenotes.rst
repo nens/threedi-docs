@@ -8,6 +8,31 @@ Release notes
 3Di general releases
 --------------------
 
+September 21th, 2023
+^^^^^^^^^^^^^^^^^^^^
+
+- It has been made easier to :ref:`_howto_clip_schematisations`
+- Culverts can be imported into the schematisation with the new :ref:`vector_data_importer` (#118, #119, #120).
+- The :ref:`conveyance_method` can now be used, for more accurate calculation of friction in 1D open water. For this new feature, the following checks where added to the schematisation checker: 
+	- Check 26: make sure friction types with conveyance are only used on v2_cross_section_location
+	- Check 27: make sure friction types with conveyance are only used on tabulated rectangle, tabulated trapezium, or tabulated yz shapes.
+	- Check 28: make sure cross-sections with conveyance friction monotonically increase in width
+	- Check 29: advice to use friction with conveyance on cross-sections where it is possible, has not been used.
+- The schematisation page in 3Di Management has been revised.
+- Schematisation-level description can be added in 3Di Management
+- In 3Di Management, many properties of online resources have been made editable: schematisation names, schematisation descriptions, schematisation tags, commit messages, 3Di model names, simulation template names.
+- It has become easier to delete revisions and schematisations. When a revision is deleted, its 3Di Model is also automatically deleted. When a schematisation is deleted, its revisions are also automatically deleted.
+- In the 3Di Modeller Interface, a new page for generating :ref:`saved_states` was added to the 3Di Models & Simulations simulation wizard.
+For further details see the release notes for :ref:`3Di Modeller Interface<release_notes_mi_20230921>` and :ref:`3Di Management<3di_ms_release_20230921>`
+
+.. note::
+   3Di Toolbox will be replaced by 3Di Results Analysis on October 1st, 2023. See :ref:`transition_from_3di_toolbox`.
+
+August 7, 2023
+^^^^^^^^^^^^^^
+- Interflow can now be combined with limiters
+- The 3Di computational core now writes the actions resulting from structure controls to a file (structure_control_3di.nc), which can be downloaded via the API. Functionality in threedigrid and the 3Di Modeller Interface will be released in Q4 2023 or Q1 2024.
+
 July 18th 2023
 ^^^^^^^^^^^^^^
 
@@ -662,7 +687,12 @@ The map can be viewed here: stowa.lizard.net
 .. _release_notes_LS:
 
 3Di Live
---------------
+--------
+
+September 21, 2023
+^^^^^^^^^^^^^^^^^^
+
+- Bugfix: Allow negative and/or decimal number input in weir crest level edit (#949)
 
 April 25th 2023
 ^^^^^^^^^^^^^^^
@@ -770,8 +800,30 @@ Some bugfixes in 3Di live:
 
 .. _release_notes_MS:
 
-3Di Management Screens
-----------------------
+3Di Management
+--------------
+
+.. _3di_ms_release_20230921:
+
+September 21, 2023
+^^^^^^^^^^^^^^^^^^
+
+- Redesign of the *Schematisation details* page (#741)
+  - Schematisation name can be edited
+  - Schematisations now have a *Description*, which can be edited. Note: in the near future, you will also be able add a schematisation-level description when creating a schematisation in the 3Di Modeller Interface.
+  - Commit message can be edited
+  - Tags can be edited
+  - 3Di model names can be edited
+  - Simulation template names can be edited
+- It has become easier to delete revisions and schematisations. When a revision is deleted, its 3Di Model is also automatically deleted. When a schematisation is deleted, its revisions are also automatically deleted. 
+- Added "Delete schematisation" button in the schematisation section. This deletes the schematisation, which cascades to deletion of its revisions and 3Di models.
+- Make simulation name editable on simulation detail page (#792)
+- Schematisation revision detail page: show available saved states (#855)
+- Simulation overview page - forcings: show two decimals (#813)
+- Filter live statuses by organisation (#935)
+- *Export to Excel file* on the *Simulations* and *3Di Models* overview pages now exports *all* items instead of only the listed items. #1040
+- Bugfix: "Has 3Di Model" column not updated after model deletion (#686)
+
 
 .. _3di_ms_release_20231807:
 
@@ -868,6 +920,35 @@ For schematisations users can:
 
 3Di Modeller Interface
 ----------------------
+
+.. _release_notes_mi_20230921:
+
+September 21st, 2023
+^^^^^^^^^^^^^^^^^^^^
+
+**3Di Models & Simulations 3.6.0**
+
+- A new page "Generate saved state" was added to the Simulation Wizard. You can now name and add tags to the saved state, and choose when the saved state is created (end of simulation or specific moment in time) (#473)
+- The "New schematisation" Wizard now checks if DEM and friction files actually exist (#483)
+- A time zone explainer was added for 'radar rain' in the Simulation Wizard (#452)
+- The time zone can now be specified on the Duration page of the Simulation Wizard (#263)
+- When using *Tab* to move from one widget to the next on the Duration page, the sequence is more logical (#263)
+- Bugfix: If there is global 2D initial water level in the template, this is now used to populate the Simulation Wizard and used in the simulation (#474)
+- Bugfix: 'Post-processing in Lizard' settings are now correctly read from the template, Simulation Wizard is correctly populated with these settings so that they are used in the simulation (#481)
+- Bugfix: Saved states were used even if the option was disabled, this has been fixed now #484
+
+
+**3Di Schematisation Editor 1.6.0**
+- Culverts can be imported into the schematisation with a new graphical user interface (#118, #119, #120)
+- Support for using the :ref:`conveyance_method` in the calculation of friction in 1D open water: "Manning with conveyance" and "Chezy with conveyance" have been added as friction types in the :ref:`cross_section_location` layer (#159)
+- All layers related to :ref:`control structures<control>` are now also added to the project (#169)
+- When deleting connection nodes, you will now be asked if you want to delete all referenced features only once, instead of for each referenced feature (#67). This makes it much easier to :ref:`_howto_clip_schematisations`.
+- Bugfix: In some cases, surfaces and their surface maps were not converted properly from spatialite to geopackage (#161)
+- Bugfix: When moving a connection node, some attributes of features referencing that connection node became NULL (#162)
+- Bugfix: Improved user feedback messages when spatialite database schema is unknown, too high or too low (#103)
+- Bugfix: In a new profile, the schematisation editor no longer keeps complaining about the Macro settings being wrong (#158)
+
+
 
 July 20th 2023
 ^^^^^^^^^^^^^^
@@ -1451,7 +1532,14 @@ We are constantly working on improving the 3Di experience. Based on user experie
 .. _release_notes_api:
 
 3Di API
-----------
+-------
+
+September 21, 2023
+^^^^^^^^^^^^^^^^^^
+
+- Added *archived* field to Schematisation, allowing it to be soft-deleted. A delete request archives the schematisation. A superuser can (hard) delete it afterwards by performing a second delete request.
+- Archiving a Schematisation also archives related Revision and ThreediModel resources.
+- Extend FrictionType enum with Chézy friction with conveyance and Manning friction with conveyance.
 
 .. _3di_api_release_20231807:
 
