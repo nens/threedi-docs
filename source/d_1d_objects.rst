@@ -273,7 +273,7 @@ Calculation type 'embedded'
 Calculation types 'connected' and 'double connected'
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 
-For channels with calculation type 'connected' and 'double connected', 1D2D connections connect each 1D calculation point to the 2D cell it is in. Therefore, channels with these calculation types need to be in a 2D cell. Alternatively, you may use an :ref:`exchangel_line` to customise the 1D2D connections. When using an exchange line, the channel does not need to be in 2D cells, but the exchange line needs to be in 2D cells.
+For channels with calculation type 'connected' and 'double connected', 1D2D connections connect each 1D calculation point to the 2D cell it is in. Therefore, channels with these calculation types need to be in a 2D cell. Alternatively, you may use an :ref:`exchange_line` to customise the 1D2D connections. When using an exchange line, the channel does not need to be in 2D cells, but the exchange line needs to be in 2D cells.
 
 
 .. _connection_node:
@@ -424,7 +424,7 @@ Attributes
      - decimal number
      - Yes
      - \-
-     - Sets the friction type to Chézy (1) or Manning (2)
+     - Sets the :ref:`friction type<1d_friction>` to Chézy (1), Manning (2), Chézy with conveyance (3), or Manning with conveyance (4)
    * - Friction value
      - friction_value
      - decimal number

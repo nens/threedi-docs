@@ -10,6 +10,7 @@ Several tools are available for importing external data into your schematisation
    :caption: Importing data
    :name: Importing data
 
+   i_import_vector_data
    d_import_gwsw_hydx
    d_import_sufhyd
 

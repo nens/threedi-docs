@@ -12,7 +12,7 @@ A :ref:`schematisation revision<revision>` can be uploaded with the :ref:`models
 #) Click on the 'Upload' icon.
 #) Click on the 'New Upload' icon.
 #) Select the revision you want to upload and click 'Next'.
-#) Click on 'Check Schematisation'. If error messages appear in red, your revision will not be valid so it is best to fix them before Uploading your schematisation. If this is not the case then click on 'Next'.
+#) Click on 'Check Schematisation'. If error messages appear in red, your revision will not be valid so it is best to fix them before uploading your schematisation. If this is not the case then click on 'Next'.
 #) Select the files you want to add to your upload by clicking on 'Upload'. If you leave it on 'Ignore' the edit will not be uploaded.
 #) Describe the changes you made in a commit message.
 #) Choose 'Upload Only' or 'Upload and Process'.

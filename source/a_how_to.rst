@@ -15,6 +15,7 @@ If want to become familiar with the basics of working with 3Di and its common wo
    a_howto_calculation_point_distance
    a_howto_connection_node_storage
    a_howto_1d_or_2d
+   a_howto_clip_schematisation
    a_howto_convert_to_1d2d
    a_howto_use_inflow
    a_howto_combine_0d_rain

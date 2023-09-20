@@ -3,7 +3,7 @@
 Combine direct rainfall and sewerage inflow
 ===========================================
 
-3Di can be used to model any sanitary, storm and combined sewerage system, with water entering the model using the 0D inflow in combination with 2D rainfall. Combining :ref:`0d_inflow` with and :ref:`2D rain <2d_rain>` can be useful in several cases, for example:
+3Di can be used to model any sanitary, storm and combined sewerage system, with water entering the model using the 0D inflow in combination with 2D rainfall. Combining :ref:`0d_rain` with and :ref:`2D rain <2d_rain>` can be useful in several cases, for example:
 
 - Detailed urban water management models that use 0D inflow for the flow of water from roofs to the sewerage and 2D surface for rainfall and discharge over roads
 

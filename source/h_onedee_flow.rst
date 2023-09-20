@@ -149,12 +149,14 @@ with:
 | :math:`A`: Cross-sectional area
 | :math:`P`: Wetted perimeter
 
+.. _conveyance_method:
+
 Conveyance method
 ^^^^^^^^^^^^^^^^^
 
 The *conveyance method* (or *compound section method*), suitable for open sections only, allows for variations in the cross-flow direction. This method divides the channel cross-section into several sub-sections depending on the channel's depth. This way, the variations in velocity related to the depth and roughness of the channel is properly taken into consideration. 
 
-The conveyance factor considers the depth variations in the different depth sections. The conveyance factor reflects the transport capacity of the channel. Assuming uniformity of the ratio between wetted perimeter and cross-sectional area, in applications with strong depth variations over the cross-section, underestimates the flow capacity. The compound section method divides the channel cross-section into several sub-sections. In this method, the total conveyance factor of the section is the sum of each sub-section’s conveyance factor. In 3Di, the separation lines between the sub-sections are considered vertical . 
+The conveyance factor considers the depth variations in the different depth sections. The conveyance factor reflects the transport capacity of the channel. Assuming uniformity of the ratio between wetted perimeter and cross-sectional area, in applications with strong depth variations over the cross-section, underestimates the flow capacity. The conveyance method divides the channel cross-section into several sub-sections. In this method, the total conveyance factor of the section is the sum of each sub-section’s conveyance factor. In 3Di, the separation lines between the sub-sections are considered vertical . 
 
 .. figure:: image/1dconveyancefactor.png
    :figwidth: 1000 px
