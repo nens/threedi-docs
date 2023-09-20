@@ -13,12 +13,16 @@ September 21th, 2023
 
 - It has been made easier to :ref:`howto_clip_schematisations`.
 
-- Culverts can be imported into the schematisation with the new :ref:`Vector data importer<vector_data_importer>` (#118, #119, #120).
+- Culverts can be imported into the schematisation with the new :ref:`Vector data importer<vector_data_importer>`.
 
-- The :ref:`conveyance_method` can now be used, for more accurate calculation of friction in 1D open water. For this new feature, the following checks where added to the schematisation checker: 
+- The :ref:`conveyance_method` can now be used, for more accurate calculation of friction in 1D open water. For this new feature, the following checks where added to the schematisation checker.
+     
 	- Check 26: make sure friction types with conveyance are only used on v2_cross_section_location
+	
 	- Check 27: make sure friction types with conveyance are only used on tabulated rectangle, tabulated trapezium, or tabulated yz shapes.
+	
 	- Check 28: make sure cross-sections with conveyance friction monotonically increase in width
+	
 	- Check 29: advice to use friction with conveyance on cross-sections where it is possible, has not been used.
 	
 - The schematisation page in 3Di Management has been revised.
@@ -947,7 +951,7 @@ September 21st, 2023
 
 
 **3Di Schematisation Editor 1.6.0**
-- Culverts can be imported into the schematisation with a new graphical user interface (#118, #119, #120)
+- Culverts can be imported into the schematisation with a new graphical user interface  (#118, #119, #120, #176)
 - Support for using the :ref:`conveyance_method` in the calculation of friction in 1D open water: "Manning with conveyance" and "Chezy with conveyance" have been added as friction types in the :ref:`cross_section_location` layer (#159)
 - All layers related to :ref:`control structures<control>` are now also added to the project (#169)
 - When deleting connection nodes, you will now be asked if you want to delete all referenced features only once, instead of for each referenced feature (#67). This makes it much easier to :ref:`howto_clip_schematisations`.
