@@ -94,7 +94,7 @@ Follow :ref:`these steps<uploading_schematisation>` to upload the clipped schema
 .. |selectByLocation| image:: /image/pictogram_select_by_location.png
     :scale: 90%
 
-.. |selectionTool| image:: /image/pictogram_selection_tool.png
+.. |selectionTool| image:: /image/pictogram_qgis_select_tool.png
     :scale: 90%
 
 
