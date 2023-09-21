@@ -22,7 +22,25 @@ Why transition to 3Di Results Analysis?
 
 .. note::
    
-   Development and bugfixes of 3Di Toolbox has ended. 3Di Toolbox is no longer supported by the service desk. If you run into any issues while using the 3Di Toolbox, the service desk will ask you to install 3Di Results Analysis and try to perform the same tasks with that.
+   Development and bugfixes of 3Di Toolbox has ended. 3Di Toolbox is no longer supported by the service desk after October 1st. If you run into any issues while using the 3Di Toolbox, the service desk will ask you to install 3Di Results Analysis and try to perform the same tasks with that.
+
+Installing 3Di Results Analysis
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Before installing 3Di Results Analysis, it is advised to:
+
+#) Uninstall 3Di Toolbox
+#) :ref:`Update all other 3Di plugins<updating_plugin_schem_editor>`
+
+Then, 3Di Results Analysis can be installed as follows:
+
+#) Start the 3Di Modeller Interface
+#) In the main menu click *Plugins* > *Manage and Install plugins*
+#) At the left side, click *Settings*
+#) Check the box *Show also Experimental Plugins*
+#) At the left side, click *Not installed*
+#) In the list of available plugins, find *3Di Results Analysis*. Click the plugin name. At the bottom right, click *Upgrade plugin*
+#) Updating the 3Di Results Analysis plugin requires a restart of the 3Di Modeller Interface. Do this when prompted.
 
 
 Conceptual changes
@@ -39,7 +57,7 @@ Sunset version
 
 The :ref:`schematisationchecker`, :ref:`import_sufhyd` and :ref:`import_gwsw_hydx` still need the Spatialite. It may be necessary to directly view the Spatialite layers when using these tools, e.g. to understand certain error messages resulting from the Schematisation checker. The Spatialite will be phased out entirely and will be replaced by a GeoPackage, with a :ref:`database schema<migrate_spatialite>` that is similar to the database schema that the 3Di Schematisation Editor uses. The tools that interact with the Spatialite will be adapted to be compatible with GeoPackage and the new database schema. 
 
-While this development is ongoing, a so-called *sunset version* of 3Di Toolbox remains available. This sunset version will have only one functionality: loading the Spatialite layers in the 3Di Modeller Interface.
+While this development is ongoing, a so-called *sunset version* of 3Di Toolbox remains available. This sunset version will have only one functionality: loading the Spatialite layers in the 3Di Modeller Interface. It will be released in October 2023.
 
 Load/view schematisations
 ^^^^^^^^^^^^^^^^^^^^^^^^^
