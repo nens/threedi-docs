@@ -36,8 +36,6 @@ Then, 3Di Results Analysis can be installed as follows:
 
 #) Start the 3Di Modeller Interface
 #) In the main menu click *Plugins* > *Manage and Install plugins*
-#) At the left side, click *Settings*
-#) Check the box *Show also Experimental Plugins*
 #) At the left side, click *Not installed*
 #) In the list of available plugins, find *3Di Results Analysis*. Click the plugin name. At the bottom right, click *Upgrade plugin*
 #) Updating the 3Di Results Analysis plugin requires a restart of the 3Di Modeller Interface. Do this when prompted.
