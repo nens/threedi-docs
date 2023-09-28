@@ -6,7 +6,7 @@ Import GIS vector data
 GIS data can be imported to a schematisation using the 3Di Schematisation Editor's vector data importer.
 
 .. note:: 
-   Currently, this is only supported for :ref:`culvert`.
+   Currently, this is only supported for :ref:`culvert`, :ref:`orifice`, and :ref:`weir`.
 
 How to use the vector data importer
 -----------------------------------
@@ -50,7 +50,7 @@ The processing algorithms work in the same way as when using the graphical user 
 - **Target Schematisation Editor GeoPackage file**: Choose the GeoPackage file. This file is created when using the *Load from Spatialite* option in the :ref:`schematisation_editor_toolbar`.
 
 .. note:: 
-   Currently, this is only supported for :ref:`culvert`.
+   Currently, this is only supported for :ref:`culvert`, :ref:`orifice`, and :ref:`weir`.
 
 
 Configuration file (JSON)
@@ -60,4 +60,4 @@ This file contains all the settings that determine how the source data is read a
 
 
 .. |importVectorData| image:: /image/pictogram_import_vector_data.png
-    :scale: 90%
+    :scale: 10%

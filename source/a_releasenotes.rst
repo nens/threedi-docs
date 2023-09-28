@@ -933,6 +933,22 @@ For schematisations users can:
 3Di Modeller Interface
 ----------------------
 
+October 2nd, 2023
+^^^^^^^^^^^^^^^^^
+
+**3Di Schematisation Editor 1.7.0**
+
+- Added "Import Weirs" processing algorithm (#178)
+- Added "Import Weirs" graphical user interface (#179)
+- Added "Import Orifices" processing algorithm (#180)
+- Added "Import Orifices" graphical user interface (#181)
+- Make attribute forms scrollable (#170)
+
+**3Di Results Analysis 3.1.10**
+
+First official version of this plugin. This is the successor of the 3Di Toolbox plugin. See :ref:`transition_from_3di_toolbox` for details.
+
+
 .. _release_notes_mi_20230921:
 
 September 21st, 2023
