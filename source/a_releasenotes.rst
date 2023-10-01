@@ -949,6 +949,7 @@ October 2nd, 2023
 First official version of this plugin. This is the successor of the 3Di Toolbox plugin. See :ref:`transition_from_3di_toolbox` for details.
 
 
+
 .. _release_notes_mi_20230921:
 
 September 21st, 2023
