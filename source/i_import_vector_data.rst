@@ -60,4 +60,4 @@ This file contains all the settings that determine how the source data is read a
 
 
 .. |importVectorData| image:: /image/pictogram_import_vector_data.png
-    :scale: 10%
+    :scale: 5%
