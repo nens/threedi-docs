@@ -944,7 +944,7 @@ October 2nd, 2023
 - Added "Import Orifices" graphical user interface (#181)
 - Make attribute forms scrollable (#170)
 
-**3Di Results Analysis 3.1.10**
+**3Di Results Analysis 3.1.11**
 
 First official version of this plugin. This is the successor of the 3Di Toolbox plugin. See :ref:`transition_from_3di_toolbox` for details.
 

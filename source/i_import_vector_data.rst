@@ -22,19 +22,33 @@ Use the following steps:
    Do not forget to fill in the fields in the additional tabs. E.g. if you are importing data to the Culvert layer and you check the option *Create connection nodes*, you will also need to fill in their in the *Connection nodes* tab.
 
 - **Source layer**: Choose the layer *from* which you want to import features.
+
 - **Selected features only**: Check this box if you only want to import the selected features.
+
 - **Create connection nodes**: Check this box if you want to create connection nodes at the start and end of the schematisation object. If connection nodes are available within *snapping distance* from the start or end vertex of the imported feature, the existing connection node will be used and the start or end vertex will be snapped to the connection node.
+
 - **Main table: Field name**: Name of the target field.
-- **Main table: Method**: Method with which the target field should be filled:
-    - Auto: for ID, auto-increment from the current highest value
-	- Attribute: read the value from the specified attribute of the source feature. This can be a direct copy, or a value map (see below). If the source feature's attribute value is *NULL*, the *Default* value will be used (if specified). 
+
+- **Main table: Method**: Method with which the target field should be filled. Choose from the following options.
+    
+    - Auto: for ID, auto-increment from the current highest value.
+	
+	- Attribute: read the value from the specified attribute of the source feature. This can be a direct copy, or a value map (see below). If the source feature's attribute value is *NULL*, the *Default* value will be used (if specified).
+	
 	- Default: use the specified *Default* value.
+	
 	- Ignore: leave this attribute empty (NULL) in the target feature.
+	
 - **Main table: Source attribute**: the attribute in the source feature to be used when the chosen method is *Attribute*
+
 - **Main table: Value map** (optional): when using the method *Attribute* here you can specify how to translate the values encountered in the source layer (e.g. "Manning") to values in the target layer (e.g. 2). 
+
 - **Main table: Default value**: value to be used as fallback value when using the method *Attribute* or as value for all target features when using the method *Default*
+
 - **Snap within**: Snapping distance. If connection nodes are available within snapping distance from the start or end vertex of the imported feature, the existing connection node will be used and the start or end vertex will be snapped to the connection node.
+
 - **Save as template**: Save the import settings as a template (JSON file) to be used when importing similar data in the future.
+
 - **Load template**: Load previously saved import settings from a template (JSON file).
 
 
