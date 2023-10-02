@@ -119,12 +119,6 @@ Different structures can be used when using a control on a structure. The list o
 
 - Pump discharge
 
-Incorporate structure controls
--------------------------------
-To incorporate structure controls, there are two methods: utilizing a simulation template or uploading a JSON file via the models and simulations plugin. The figure below shows three examples of JSON-files.
-
-.. figure:: image/c_control_json.png
-   :alt: three exaples of json files with control structures
 
 
 

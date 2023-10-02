@@ -360,20 +360,206 @@ Custom
 Structure controls
 ==================
 
-Structure controls provide the capability to modify hydraulic structure parameters within a water system by leveraging flow variables. These flow variables serve as triggers for actions on a structure, based on predefined rules specific to the type of control employed. For a comprehensive understanding, visit the :ref:`control` pages.
+Several structure properties can be changed during the simulation, such as the crest or gate level, pump capacity or discharge coefficients. These properties can be changed directly (using a time control), or rules can be defined to let these properties react dynamically to changes in water level, volume, discharge, or flow velocity. See :ref:`control` for more information.
+
+From simulation template
+------------------------
+
+When structure controls have been defined in the spatialite, this information will be read into the :ref:`Simulation template<simulation_and_simulation_templates>` when generating a :ref:`threedimodel`. In the simulation wizard, the option 'From simulation template' will become available, so you can switch off some or all of the structure controls that are included in the simulation template.
+
+Upload file
+-----------
+
+You can supply a JSON file that defines additional structure controls to be used in the simulation. If structure controls are already defined in the simulation template, the structure controls in the file will be *added* to those. The structure of the file is explained below. You can combine timed, table, and memory control in the same file.
 
 
-To incorporate structure controls, there are two methods: utilizing a simulation template or uploading a JSON file. When using a simulation template, you have four options:
+Timed control
+"""""""""""""
 
-* File structure controls
-* :ref:`Table structure controls <table_control>`
-* :ref:`Memory structure controls <memory_control>`
-* Timed structure controls
-  
+The following arguments can be specified for a :ref:`timed_control`:
 
-.. VRAAG: De andere dingen stonden nog niet uitgelegd in de documentatie. Klopt dit stukje nu een beetje?
 
-|
+.. list-table:: Arguments for a timed control
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Units
+     - Required
+     - Description
+     - Comments
+   * - offset
+     - integer
+     - seconds
+     - Yes
+     - Offset of event in simulation
+     - \-
+   * - duration
+     - integer
+	 - seconds
+	 - Yes
+	 - Defines how long the control structure is active
+	 - \-
+   * - value
+     - decimal number
+	 - m MSL, \-, m3/s
+	 - Yes
+	 - Structure property will be set to this value
+	 - Units depend on the *type*. Crest and gate levels in m MSL, discharge coefficients are unitless, pump capacities in m3/s.
+   * - type
+     - string
+	 - \- 
+	 - Yes
+	 - Defines which structure property to set
+	 - Options are: 'set_discharge_coefficients', 'set_crest_level', 'set_gate_level', 'set_pump_capacity'
+   * - structure_id
+     - integer
+	 - \-
+	 - No
+	 - ID of the structure as defined in the spatialite
+	 - Either structure_id or grid_id must be specified
+   * - structure_type
+     - string
+	 - \-
+	 - Yes
+	 - The type of structure that is to be controlled
+	 - Valid values: 'v2_pumpstation', 'v2_pipe', 'v2_orifice', 'v2_culvert', 'v2_weir', 'v2_channel'
+   * - grid_id
+     - integer
+	 - \-
+     - No	 
+	 - ID of the flowline or pump that is to be controlled
+	 - Either structure_id or grid_id must be specified
+
+The type parameter specifies which action should be applied to the structure. Not all valid action types can be applied to every structure. An overview of valid combinations:
+
+*set_discharge_coefficients*: v2_orifice, v2_weir, v2_pipe, v2_channel, v2_culvert. 
+*set_crest_level*: v2_orifice, v2_weir
+*set_gate_level*: v2_orifice, v2_weir, v2_pipe, v2_channel, v2_culvert
+*set_pump_capacity*: v2_pumpstation
+
+v2_channel and v2_pipe are for internal use only. They expect a grid_id instead of a structure_id!
+
+The *value* parameter must contain 1 value, except for the *set_discharge_coefficients* action that expects a value for both flow directions.
+
+The following example JSON file sets the discharge coefficients of weir 21 to 0.4 (positive) and 0.8 (negative) for the first 100 s of the simulation::
+
+    {
+      "offset": 0,
+      "duration": 100,
+      "value": [
+        0.4, 0.8
+      ],
+      "type": "set_discharge_coefficients",
+      "structure_id": 21,
+      "structure_type": "v2_weir"
+    }
+
+Memory control
+""""""""""""""
+
+The following arguments can be specified for a :ref:`memory_control`:
+
+
+.. list-table:: Arguments for a memory control
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Units
+     - Required
+     - Description
+     - Comments
+   * - offset
+     - integer
+     - seconds
+     - Yes
+     - Offset of event in simulation
+     - \-
+   * - duration
+     - integer
+	 - seconds
+	 - Yes
+	 - Defines how long the control structure is active
+	 - \-
+   * - measure_specification
+     - :ref:`measure_specification`
+	 - \-
+	 - Yes
+	 - Specifies how the value to which the control should react is measured
+	 - \-
+   * - type
+     - string
+	 - \- 
+	 - Yes
+	 - Defines which structure property to set
+	 - Options are: 'set_discharge_coefficients', 'set_crest_level', 'set_gate_level', 'set_pump_capacity'
+   * - structure_id
+     - integer
+	 - \-
+	 - No
+	 - ID of the structure as defined in the spatialite
+	 - Either structure_id or grid_id must be specified
+   * - structure_type
+     - string
+	 - \-
+	 - Yes
+	 - The type of structure that is to be controlled
+	 - Valid values: 'v2_pumpstation', 'v2_pipe', 'v2_orifice', 'v2_culvert', 'v2_weir', 'v2_channel'
+   * - grid_id
+     - integer
+	 - \-
+     - No	 
+	 - ID of the flowline or pump that is to be controlled
+	 - Either structure_id or grid_id must be specified
+   * - value
+     - list of decimal number(s)
+	 - m MSL, \-, m3/s
+	 - Yes
+	 - Structure property will be set to this value
+	 - Units depend on the *type*. Crest and gate levels in m MSL, discharge coefficients are unitless, pump capacities in m3/s.
+
+The type parameter specifies which action should be applied to the structure. Not all valid action types can be applied to every structure. An overview of valid combinations:
+
+*set_discharge_coefficients*: v2_orifice, v2_weir, v2_pipe, v2_channel, v2_culvert. 
+*set_crest_level*: v2_orifice, v2_weir
+*set_gate_level*: v2_orifice, v2_weir, v2_pipe, v2_channel, v2_culvert
+*set_pump_capacity*: v2_pumpstation
+
+v2_channel and v2_pipe are for internal use only. They expect a grid_id instead of a structure_id!
+
+The *value* parameter must contain 1 value, except for the *set_discharge_coefficients* action that expects a value for both flow directions.
+
+The following example JSON file sets the discharge coefficients of weir 21 to 0.4 (positive) and 0.8 (negative) for the first 100 s of the simulation::
+
+    {
+      "offset": 0,
+      "duration": 100,
+      "value": [
+        0.4, 0.8
+      ],
+      "type": "set_discharge_coefficients",
+      "structure_id": 21,
+      "structure_type": "v2_weir"
+    }
+
+
+
+
+The figure below shows three examples of JSON files.
+
+.. figure:: image/c_control_json.png
+   :alt: three examples of json files with control structures
+
+
+.. _measure_specification:
+Measure specification
+"""""""""""""""""""""
+
+.. _measure_location:
+Measure location
+""""""""""""""""
+
 
 .. _simulate_api_qgis_breaches:
 
