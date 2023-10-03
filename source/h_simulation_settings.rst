@@ -129,11 +129,11 @@ This limiter is activated in case the downstream water depth is zero. Then two o
 
 *limiter_slope_crossectional_area_2d = 2*
 
-This is a very stable upstream method to redefine the water level depth. It is assumed that the flow behaves as a thin sheet flow. Therefore, the depth is defined as the upstream volume devided by the maximum surface area. If the new water depth exceeds the default version (based on high resolution grid), the default version is chosen.
+This is a very stable upstream method to redefine the water level depth. It is assumed that the flow behaves as a thin sheet flow. Therefore, the depth is defined as the upstream volume devided by the maximum surface area. If the new water depth exceeds the default version (based on uniform water level assumption), the default version is chosen.
 
 *limiter_slope_crossectional_area_2d = 3, in combination with thin_layer_definition = xx [m]*
 
-In this case, the limiter is more or less effective depending on the local depth. In case the depth at the edge base on the downstream water level is larger than the thin layer definition (given by the user), the cross-sectional area is based on the high resolution grid. When this 'downstream' water level is below the thin layer definition, then limiter 2 determines the cross-sectional area. Finally, if the downstream water level is within the thin layer depth, two types of cross-sections are weighed to define the new value.
+In this case, the limiter is more or less effective depending on the local depth. In case the depth at the edge base on the downstream water level is larger than the thin layer definition (given by the user), the cross-sectional area is based on the unifrom water level assumption. When this 'downstream' water level is below the thin layer definition, then limiter 2 determines the cross-sectional area. Finally, if the downstream water level is within the thin layer depth, two types of cross-sections are weighed to define the new value.
 
 All the cases are illustrated in the figure below. Mathematical derivation will follow.
 
