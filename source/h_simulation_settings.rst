@@ -91,7 +91,7 @@ We also use for various things a general threshold, this one is defined as gener
 Limiters
 ^^^^^^^^
 
-A limiter is a general term used for certain aspects in numerical schemes that limit the effect of high gradients in flow or forcing. This is to avoid strong oscillations, instabilities in the solution and to increase the stability. 3Di has various limiters implemented, which can be turned on or off.
+A limiter is a general term used for certain aspects in numerical schemes that limit the effect of high gradients in flow or forcing. This is to avoid strong oscillations, instabilities in the solution and to increase the accuracy. 3Di has various limiters implemented, which can be switched on or off.
 
 .. _limiter_gradient:
 
@@ -121,19 +121,19 @@ Limiter for cross-sectional area
 
 *limiter_slope_crossectional_area_2d = 0 (default)*
 
-Subgrid system assumes that the variation in water levels is negligible in comparison to the variation in the bathymetry. Based on this assumption, the water level is kept constant within a computational cell, while the bathymetry is modeled in high resolution. This assumption, however, is no longer valid in sloping areas where the change of water levels in space is considerable. Hence, uniform water level assumption would lead to overestimating the water cross section at a computational cell edge, and so the dischange, in these areas . In that sense, 3Di modifies the cross section calculations by turning the 'uniform water level' assumption into 'uniform water depth' assumption using the limiters. As the name of this new assumption indicates, instead of water level, the water depth is kept constant within a cell. Limiters "limit" the water flow by spreading the water over one or two adjacent cells, depending on the type that is chosen:
+The subgrid method assumes that the variation in water levels is much more gradual in comparison to variations in the bathymetry. Within a computational cell, the water level is assumed uniform, while the bathymetry values are allowed to vary. This assumption, however, is not valid in sloping areas, where water is flowing down the slope, like a sheet flow. In such situations, the spatial variation of the water level has the same length scales as the bathymetry. The uniform water level assumption can lead to overestimating the wet cross-sectional area at a computational cell edge and an underestimation of the friction. This would lead to an overestimation of the dischange. Therefore, 3Di uses limiters to correct the computed cross-sectional areas and the friction. These limiters are based on the sheet flow-concept, in these sloping areas it is assumed that the water depth is uniform within a domain instead of a 'uniform water level'. The limiters "limit" the water flow by spreading the water over one or two adjacent cells, depending on the type that is chosen:
 
 *limiter_slope_crossectional_area_2d = 1*
 
-The type 1 represents an accurate redifintion of the water depth, since the water is spread over two adjacent cells. This limiter is activated in case the downstream water depth is zero. Then two options are possible. In case of a large difference in waterlevels, the sum of upstream and downstream volume is spread over the cell domains. When the difference is smaller, the average water level of upstream and downstream is used. Theoretically, this would make the scheme partly second order.
+The limiter *type 1* represents an accurate redefintion of the water depth, since the water is spread over two adjacent cells. This limiter is activated in case the downstream water depth is zero. Then two options are possible. In case of a large difference in waterlevels, the sum of upstream and downstream volume is spread over the cell domains. When the difference is smaller, the average water level of upstream and downstream is used. Theoretically, this would make the scheme second order.
 
 *limiter_slope_crossectional_area_2d = 2*
 
-The type 2 is a very stable upstream method to redefine the water level depth. It is assumed that the flow behaves as a thin sheet flow. Therefore, the depth is defined as the upstream volume devided by the maximum surface area. If the new water depth exceeds the default version (based on uniform water level assumption), the default version is chosen.
+The limiter *type 2* is a very stable upstream method, to redefine the water level depth at the cell edge. It is assumed that the flow behaves as a thin sheet flow. Therefore, the depth is defined as the upstream volume devided by the maximum surface area. 
 
 *limiter_slope_crossectional_area_2d = 3, in combination with thin_layer_definition = xx [m]*
 
-The type 3 provides a smooth transition from the default water depth to the new one depending on the local depth which is compared with a user-defined "thin water layer". In case the depth at the edge base on the downstream water level is larger than the thin layer definition, the cross-sectional area is based on the unifrom water level assumption. When this downstream water level is below the thin layer definition, then limiter 2 determines the cross-sectional area. Finally, if the downstream water level is within the thin layer depth, these two types of cross-sections are weighed to define the new value (i.e., limiter type 3).
+The limiter *type 3* provides a smooth transition from the default water depth to the altered one. This transistion depends on the local depth and a user-defined "thin water layer" definition. In case the depth at the edge based on the downstream water level is larger than the thin layer definition, the cross-sectional area is based on the uniform water level assumption. In case the downstream water level is below the thin water layer definition, then limiter 2 determines the cross-sectional area. Finally, if the downstream water level is within the thin water layer depth, these two types of cross-sections are weighed to define the new value (i.e., limiter type 3).
 
 All the cases are illustrated in the figures below.
 
