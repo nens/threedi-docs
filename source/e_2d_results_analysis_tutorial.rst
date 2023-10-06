@@ -8,18 +8,29 @@ Tutorial 6: Analysing 1D and 2D simulation results
 
 Introduction
 -------------
-In this tutorial, you are going to examine the results of simulation depicting the flow of rainfall into both a river and a sewer system. The schematization is pre build. The simulation results will be analysed using the :ref:`3Di Results Analysis plugin <_analysing_results>`  in the :ref:`3Di Modeller Interface <mi_what_is>`. At the end of this tutorial, you have acquired the expertise to analyze the movement of water within your model.
+In this tutorial, we are going to examine the results of a simulation. The schematization is pre build. The simulation results will be analysed using the :ref:`3Di Results Analysis plugin <_analysing_results>`  in the :ref:`3Di Modeller Interface <mi_what_is>`. At the end of this tutorial, you have acquired some hands on expertise for analysing the movement of water within a 3Di model.
 
-Our area of interest is Langaa,a small railway town located in central Denmark. Langaa is situaed between raised agricultural lands to the western side and the Gudena River to the eastern side of the town. The urban area has a seperated sewer system. The wastewater sewer inclines towards a pumping station, and the rainwater sewer has two outlets close to the Gudena River. While this tutorial represents a real-world area, it is important to note that some processes have been simplified for the purpose of this tutorial.
+Our area of interest is Langaa, a small railway town located in central Denmark. Langaa is situated between raised agricultural lands to the western side and the Gudena River to the eastern side of the town. The urban area has a seperated sewer system. The wastewater sewer inclines towards a pumping station, and the rainwater sewer has two outlets close to the Gudena River. While this tutorial represents a real-world area, it is important to note that some processes have been simplified for the purpose of this tutorial.
+
+Case study
+-------------
+
+Several houses located next to the Vaethvey road are vulnerable to flooding. Recently, the inhabitants living in 21, 23, 25, 27 en 29 have reported heavy inundation after a 40mm rainfall event. Vaethvey road 21-29 is our study area. Now the municipality wants to reproduce this inundation with a hydrodynamic model, to gain insight in the flood properties such as floodextent, floodvolume, and floodduration. The municipality als wants to know where the floodwater originates from. All this isight should help to come up with potential measurements.  
 
 
 Learning objectives
 --------------------
 You will learn the following in this tutorial:
 
-AANPASSEN
+Downloading your simulation results
+Checking the flow summary
+Composing the maximum waterdepth raster
+Analysing the flow pattern
+Finding the maximum inundation depth
+Plotting waterlevels
+Watershed delineation for a flooded area
+Calculation the flood volume
 
-* Opening your 3Di simulation results
 
 Preparation
 ------------
@@ -84,7 +95,7 @@ You should now see the DEM around the city of Langaa.
 Running a simulation 
 ----------------------
 
-You will now start a simulation with the 3Di model you have created in the 3Di Modeller Interface: 
+We will now start a simulation with the 3Di model you have created in the 3Di Modeller Interface: 
 
 #) In the 3Di Models and Simulations panel, click *Simulate* (|simulate|) > *New simulation*.  
 
@@ -92,7 +103,7 @@ You will now start a simulation with the 3Di model you have created in the 3Di M
 
 #) Check the box *Include precipitation* (keep *Include initial conditions* and *Include boundary conditions* checked). Click *Next*.
 
-#) Give your simulation a name. Click *Next*.
+#) Give your simulation the name e.g. *Demo Langa 40mm constant rainfall in 1 hour*. Click *Next*.
 
 #) Set the duration of your simulation to 4 hours. Click *Next*.
 
@@ -102,9 +113,10 @@ You will now start a simulation with the 3Di model you have created in the 3Di M
 
 #) Fill in the following parameters for Precipitation and then click *Next*.
 
-    * Type of precipitation: choose *Design*
+    * Type of precipitation: choose *Constant*
     * Start after: 1 hrs
-    * Design number: 10
+    * Stops after: 2 hrs
+    * Intensity: 40 mm/h
 
 #) Accept the simulation settings as they are by clicking *Next*. 
 
@@ -120,17 +132,114 @@ It is also possible to simulate your model with 3Di Live. This is explained prev
 Downloading the simulation results
 ----------------------
 
-In the 3Di Models and Simulations panel, click *Simulate*. An overview is given of all running simulations for your organisation(s). Here you can follow the progress of your simulation.
+We will now download the results of your simulation to your working directory which is a local folder: 
+
+#) In the 3Di Models and Simulations panel, click *Results* (|simulate|).
+
+#) Select your simulation and click *Download*. A download progress bar now appears. This progress bar colors green when the downloading of your simulation results is finished.  
+
+#) You can now find your simulation results in your working directory. The working directory is a local folder which you have defined during your Modeller Interface installation, e.g. C:\3Di_schematisations. Your can find or change this folder by clicking *Plugins* in the Main Menu > *3Di Models and Simulations* > *Settings* and then click on the *Browse* button.
+
 
 Opening the simulation results
 ----------------------
 
+Now we are going to load your simulation results into the Modeller Interface using the 3Di Results Analysis plugin
 
+#) In the 3Di Results Analysis toolbar, click *3Di Results Manager*. Now the 3Di Results Manager panel opens.
+
+#) In the 3Di Results Manager panel, click on the *Add 3Di grids or results* button.
+
+#) Select your simulation and click *Load simulation results*, or dubble click on the name of your simulation.
+
+Now your simulations results are loaded in the Modeller Interface and shown in your *Layers panel*.
+
+
+Checking the flow summary
 ----------------------
+
+Martine?
+
+
+Composing the maximum waterdepth raster
 ----------------------
+
+In this step, we are going build a raster showing the maximum 2D waterdepth for each gridcel. 
+
+#) Open the *Processing Toolbox*  by clicking *Processing* in the Main Menu > *Toolbox*. The  Processing Toolbox panel now opens. 
+
+#) In the Processing Toolbox panel, click on *3Di* > *Post-process results* > then dubble click on *Maximum water depth/ level raster*. 
+
+Now a new panel opens where we can define the settings for the maximum waterdepth raster that we are going to creat.  
+
+#) Select your gridadmin.h5 file by clicking on de browse button browse to your working directory folder (e.g. C:\3Di_schematisations) > Demo model Langaa > revision 1 > results >  Demo Langa 40mm constant rainfall in 1 hour > gridadmin.h5.
+
+#) Select your simulation results by clicking on de browse button, then browse to your working directory folder > Demo model Langaa > revision 1 > results >  Demo Langa 40mm constant rainfall in 1 hour > results_3di.nc.
+
+#) Select the DEM (Digital Elevatil Model) by clicking on de browse button under DEM. Then browse to your working directory folder > Demo model Langaa > work in progress > schematisation >  rasters > Elevation_model_Langaa.tif.
+
+#) Set the Interpolation mode to *Interpolated water depth*.
+
+#) Set the destination file path for water depth/level raster by clicking the browse button. Browse to your working directory C:\3Di_schematisations) > Demo model Langaa > revision 1 > results and write the File name max_waterdepth_interpolated.tif.
+
+#) Click on the *run* button.
+
+When finished, the raster will automaticaly appear in the layers panel. Now we are going to add a basis styling to this raster:
+
+#) Dubble click on raster name in the layer panel to open the Layer Properties window.
+
+#) In the layer properties window, click on the left on the Symbology tab.
+
+#) Set Render type to Singleband pseudocolor.
+
+#) Set color ramp to Blues.
+
+#) Fill in 0.05 as Min value and 0.5 as Max value, the unit is meters.
+
+#) Click *OK*.
+
+
+Analysing the flow pattern
 ----------------------
+Martine?
+
+
+Finding the maximum inundation depth
 ----------------------
+
+We are going to use the Value Tool to view the inundation depth in our study area using your maximum waterdepth raster.
+
+#) First we have to make sure the maximum waterdepth raster is visible. In the Layers panel, check the layer max_waterdepth_interpolated. 
+
+#) In the Attributes Toolbar, click on the Value Tool plugin. Now the Value Tool panels opens.
+
+#) Now zoom in to our study area and hoover with your mouse over the inundation. In the Value Tool panel you can read the raster values i.e. the maximum water depth. Find that the inundation is op to 75 cm. 
+
+
+Plotting waterlevels
 ----------------------
+
+#) In the 3Di Result Analysis Toolbar, click on the Time series plotter icon. Now the Value Tool panels opens. Now the 3Di Time series plotter panel opens.
+
+#) In the 3Di Time series plotter panel, click on *Pick nodes/cells*. 
+
+#) Click on a 2D surface water node in the study area on a inundated location. Now a graph appears for the selected 2D node.
+
+#) Select Waterlevel in the upperleft drop down menu of the 3Di Time series plotter panel.
+
+
+Watershed delineation for a flooded area
+----------------------
+
+Martine?
+
+
+Calculation the flood volume
+----------------------
+
+Martine?
+
+
 
 
 
