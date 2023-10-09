@@ -82,7 +82,7 @@ Thresholds
 """"""""""
 For numerical computation several tresholds are needed in the code, to avoid deficiencies due to a limited numerical accuracy. Generally this is to keep the behaviour consistent: 
 
-In order to determine the upwind method the direction of the flow is considered. To avoid the exact 0.0 m/s point we use a threshold given by flow_direction_threshold (default=1.0^-5). 
+In order to determine the upstream method the direction of the flow is considered. To avoid the exact 0.0 m/s point we use a threshold given by flow_direction_threshold (default=1.0^-5). 
 
 We also use for various things a general threshold, this one is defined as general_numerical_threshold, the default is 1.0d-8. 
 
@@ -91,7 +91,7 @@ We also use for various things a general threshold, this one is defined as gener
 Limiters
 ^^^^^^^^
 
-A limiter is a general term used for certain aspects in numerical schemes that limit the effect of high gradients in flow or forcing. This is to avoid strong oscillations, instabilities in the solution and to increase the stability. 3Di has various limiters implemented, which can be turned on or off.
+A limiter is a general term used for certain aspects in numerical schemes that limit the effect of high gradients in flow or forcing. This is to avoid strong oscillations, instabilities in the solution and to increase the accuracy. 3Di has various limiters implemented, which can be switched on or off.
 
 .. _limiter_gradient:
 
@@ -119,30 +119,51 @@ Function where the ratio between water depth and water level gradient prescribes
 Limiter for cross-sectional area
 """"""""""""""""""""""""""""""""
 
-[limiter_slope_crossectional_area_2d ] default = 0
+*limiter_slope_crossectional_area_2d = 0 (default)*
 
-In sloping areas we are dealing with a situation where the primary assumption of a subgrid-based method does not yield. The method assumes that the water level variation in space is much smaller than the variation of the bed. This is untrue for larger cells in sloping areas. The consequence is that in that case all the water is concentrated at the lower end of the cell. The depth that defines the cross-sectional area, that determines the discharge within a time step, is overestimated (black boxes Figure 2). 
+The subgrid method assumes that the variation in water levels is much more gradual in comparison to variations in the bathymetry. Within a computational cell, the water level is assumed uniform, while the bathymetry values are allowed to vary. This assumption, however, is not valid in sloping areas, where water is flowing down the slope, like a sheet flow. In such situations, the spatial variation of the water level has the same length scales as the bathymetry. The uniform water level assumption can lead to overestimating the wet cross-sectional area at a computational cell edge and an underestimation of the friction. This would lead to an overestimation of the dischange. Therefore, 3Di uses limiters to correct the computed cross-sectional areas and the friction. These limiters are based on the sheet flow-concept; in these sloping areas, it is assumed that the water depth is uniform within a domain instead of a 'uniform water level'. The limiters "limit" the water flow by spreading the water over one or two adjacent cells, depending on the type that is chosen:
+
+.. figure:: image/nolimiter.png
+   :figwidth: 1000 px
+   :alt: no_limiter
+
+   Water distribution based on uniform water level assumption showing x-z and x-y profiles
+
 
 *limiter_slope_crossectional_area_2d = 1*
 
-This limiter starts working in case the depth based on the downstream water level is zero. Then two options are possible, in case of a large difference in waterlevel the volume is spread over the cell domains (Figure 2, alternative situation 1). When the difference is smaller, the average water level of upstream and downstream is used (Figure 2, alternative situation 2). Theoretically this would make the scheme partly second order. This is described mathematically in Figure 3.
+The limiter *type 1* represents an accurate redefintion of the water depth, since the water is spread over two adjacent cells. This limiter is activated in case the downstream water depth is zero. Then two options are possible. In case of a large difference in waterlevels, the sum of upstream and downstream volume is spread over the cell domains. When the difference is smaller, the average water level of upstream and downstream is used. Theoretically, this would make the scheme second order.
+
+.. figure:: image/limiter1.png
+   :figwidth: 1000 px
+   :alt: limiter_1
+
+   Water distribution based on limiter 1 showing x-z and x-y profiles
+
 
 *limiter_slope_crossectional_area_2d = 2*
 
-This is a very stable upwind method to redefine the water level depth. It is assumed that the flow behaves as a thin sheet flow. Therefore, the depth is defined as the upwind volume defined by the maximum surface area. 
+The limiter *type 2* is a very stable upstream method to redefine the water level depth at the cell edge. It is assumed that the flow behaves as a thin sheet flow. Therefore, the depth is defined as the upstream volume devided by the maximum surface area. 
+
+.. figure:: image/limiter2.png
+   :figwidth: 1000 px
+   :alt: limiter_2
+
+   Water distribution based on limiter 2 showing x-z and x-y profiles
+
 
 *limiter_slope_crossectional_area_2d = 3, in combination with thin_layer_definition = xx [m]*
 
-In this case the limiter is more or less effective depending of the local depth. In case the depth at the edge base on the down wind water level is larger than the definition that is given of a thin layer, the cross-sectional area is based on the high resolution grid. When this 'down wind' depth is smaller than the thin layer definition, then the limiter described for option 2 is determining the cross-sectional area. In the in between phase the two types of cross-sections are weighed to define a new value.
+The limiter *type 3* provides a smooth transition from the default water depth to the altered one. This transistion depends on the local depth and a user-defined "thin water layer" definition. In case the depth at the edge based on the downstream water level is larger than the thin layer definition, the cross-sectional area is based on the uniform water level assumption. In case the downstream water level is below the thin water layer definition, then limiter 2 determines the cross-sectional area. Finally, if the downstream water level is within the thin water layer depth, these two types of cross-sections are weighed to define the new value (i.e., limiter type 3).
 
-This is decribed in the figure below. Mathematical derivation will follow.
+.. figure:: image/limiter3.png
+   :figwidth: 1000 px
+   :alt: limiter_3
 
-.. figure:: image/slopelimiter.png
-   :alt: Limiter for cross-sectional area
-.. figure:: image/lim_slope_3.png
-   :alt: Limiter for cross-sectional area
-   
-   Grid schematisation in a sloping areas. Two alternatives to determine an effective depth for the cross-sectional area. Lower:   The alternatives for the cross-sectional area in case of limiter option 2.
+   The options of new water section based on limiter 3
+
+
+.. _limiter_friction_depth:
 
 Limiter for friction depth
 """"""""""""""""""""""""""
