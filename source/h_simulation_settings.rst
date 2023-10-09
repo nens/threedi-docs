@@ -121,21 +121,7 @@ Limiter for cross-sectional area
 
 *limiter_slope_crossectional_area_2d = 0 (default)*
 
-The subgrid method assumes that the variation in water levels is much more gradual in comparison to variations in the bathymetry. Within a computational cell, the water level is assumed uniform, while the bathymetry values are allowed to vary. This assumption, however, is not valid in sloping areas, where water is flowing down the slope, like a sheet flow. In such situations, the spatial variation of the water level has the same length scales as the bathymetry. The uniform water level assumption can lead to overestimating the wet cross-sectional area at a computational cell edge and an underestimation of the friction. This would lead to an overestimation of the dischange. Therefore, 3Di uses limiters to correct the computed cross-sectional areas and the friction. These limiters are based on the sheet flow-concept, in these sloping areas it is assumed that the water depth is uniform within a domain instead of a 'uniform water level'. The limiters "limit" the water flow by spreading the water over one or two adjacent cells, depending on the type that is chosen:
-
-*limiter_slope_crossectional_area_2d = 1*
-
-The limiter *type 1* represents an accurate redefintion of the water depth, since the water is spread over two adjacent cells. This limiter is activated in case the downstream water depth is zero. Then two options are possible. In case of a large difference in waterlevels, the sum of upstream and downstream volume is spread over the cell domains. When the difference is smaller, the average water level of upstream and downstream is used. Theoretically, this would make the scheme second order.
-
-*limiter_slope_crossectional_area_2d = 2*
-
-The limiter *type 2* is a very stable upstream method, to redefine the water level depth at the cell edge. It is assumed that the flow behaves as a thin sheet flow. Therefore, the depth is defined as the upstream volume devided by the maximum surface area. 
-
-*limiter_slope_crossectional_area_2d = 3, in combination with thin_layer_definition = xx [m]*
-
-The limiter *type 3* provides a smooth transition from the default water depth to the altered one. This transistion depends on the local depth and a user-defined "thin water layer" definition. In case the depth at the edge based on the downstream water level is larger than the thin layer definition, the cross-sectional area is based on the uniform water level assumption. In case the downstream water level is below the thin water layer definition, then limiter 2 determines the cross-sectional area. Finally, if the downstream water level is within the thin water layer depth, these two types of cross-sections are weighed to define the new value (i.e., limiter type 3).
-
-All the cases are illustrated in the figures below.
+The subgrid method assumes that the variation in water levels is much more gradual in comparison to variations in the bathymetry. Within a computational cell, the water level is assumed uniform, while the bathymetry values are allowed to vary. This assumption, however, is not valid in sloping areas, where water is flowing down the slope, like a sheet flow. In such situations, the spatial variation of the water level has the same length scales as the bathymetry. The uniform water level assumption can lead to overestimating the wet cross-sectional area at a computational cell edge and an underestimation of the friction. This would lead to an overestimation of the dischange. Therefore, 3Di uses limiters to correct the computed cross-sectional areas and the friction. These limiters are based on the sheet flow-concept; in these sloping areas, it is assumed that the water depth is uniform within a domain instead of a 'uniform water level'. The limiters "limit" the water flow by spreading the water over one or two adjacent cells, depending on the type that is chosen:
 
 .. figure:: image/nolimiter.png
    :figwidth: 1000 px
@@ -143,11 +129,21 @@ All the cases are illustrated in the figures below.
 
    Water distribution based on uniform water level assumption showing x-z and x-y profiles
 
+
+*limiter_slope_crossectional_area_2d = 1*
+
+The limiter *type 1* represents an accurate redefintion of the water depth, since the water is spread over two adjacent cells. This limiter is activated in case the downstream water depth is zero. Then two options are possible. In case of a large difference in waterlevels, the sum of upstream and downstream volume is spread over the cell domains. When the difference is smaller, the average water level of upstream and downstream is used. Theoretically, this would make the scheme second order.
+
 .. figure:: image/limiter1.png
    :figwidth: 1000 px
    :alt: limiter_1
 
    Water distribution based on limiter 1 showing x-z and x-y profiles
+
+
+*limiter_slope_crossectional_area_2d = 2*
+
+The limiter *type 2* is a very stable upstream method to redefine the water level depth at the cell edge. It is assumed that the flow behaves as a thin sheet flow. Therefore, the depth is defined as the upstream volume devided by the maximum surface area. 
 
 .. figure:: image/limiter2.png
    :figwidth: 1000 px
@@ -155,11 +151,19 @@ All the cases are illustrated in the figures below.
 
    Water distribution based on limiter 2 showing x-z and x-y profiles
 
+
+*limiter_slope_crossectional_area_2d = 3, in combination with thin_layer_definition = xx [m]*
+
+The limiter *type 3* provides a smooth transition from the default water depth to the altered one. This transistion depends on the local depth and a user-defined "thin water layer" definition. In case the depth at the edge based on the downstream water level is larger than the thin layer definition, the cross-sectional area is based on the uniform water level assumption. In case the downstream water level is below the thin water layer definition, then limiter 2 determines the cross-sectional area. Finally, if the downstream water level is within the thin water layer depth, these two types of cross-sections are weighed to define the new value (i.e., limiter type 3).
+
 .. figure:: image/limiter3.png
    :figwidth: 1000 px
    :alt: limiter_3
 
    The options of new water section based on limiter 3
+
+
+.. _limiter_friction_depth:
 
 Limiter for friction depth
 """"""""""""""""""""""""""
