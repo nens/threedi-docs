@@ -158,7 +158,14 @@ Now your simulations results are loaded in the Modeller Interface and shown in y
 Checking the flow summary
 ----------------------
 
-Martine?
+In order to gain more insight in the model simulation, you can check out the flow summary. Go to the results-folder and open the document ‘flow_summary.log’.
+
+a) Check the volume of rainfall in the log-document and translate the number back to a rainfall-intensity. Does this match the rainfall that we put on the model before the start of the model? (Hint: use the DEM-raster elevation to calculate the area. If you right-click on the ‘Digital elevation model’-layer, you can choose properties. Under the ‘information’ tab, you can find the width and height of the layer in pixels. Furthermore, under ‘pixel size’ you can find the size of the pixels in meters. If you combine this information, you can calculate the area of the elevation layer.)
+
+b) Check out the description of the volume balance in the document and complete the figure below with the different components and the corresponding numbers. Check the water balance yourself; do the numbers add up? The filled-in water balance can be found at the end of this tutorial.
+
+c) What is the default time step of the simulation? And the minimum time step? See that this time steps are not the same, and the minimum time step in this simulation is lower than the default time step. The model needs to calculate with a smaller time step, because otherwise the simulation becomes unstable.
+
 
 
 Composing the maximum waterdepth raster
