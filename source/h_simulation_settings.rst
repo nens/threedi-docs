@@ -91,7 +91,7 @@ We also use for various things a general threshold, this one is defined as gener
 Limiters
 ^^^^^^^^
 
-A limiter is a general term used for certain aspects in numerical schemes that limit the effect of high gradients in flow or forcing. This is to avoid strong oscillations, instabilities in the solution and to increase the accuracy. 3Di has various limiters implemented, which can be switched on or off.
+A limiter is a general term used for certain aspects in numerical schemes that limit the effect of high gradients in flow or forcing. They are used to avoid strong oscillations, instabilities in the solution and to increase the accuracy. 3Di has various limiters implemented, which can be switched on or off.
 
 .. _limiter_gradient:
 
@@ -100,7 +100,7 @@ Limiter for water level gradient
 
 [limiter_grad_2d] [limiter_grad_1d]
 
-The limiter on the water level gradient allows the model to deal with unrealistically steep gradients. These can occur when there are, for example, jumps in the bottom. In such case the water is not forced by the difference in water level as this gradient is limited to the actual depth. Therefore a limiter function is part of the discretization scheme. This setting exist for both the flow in the 1D domain as for the 2D domain.
+The limiter on the water level gradient allows the model to deal with unrealistically steep gradients. These can occur when there are, for example, jumps in the bottom. In such case the water is not forced by the difference in water level, as this gradient is limited to the actual depth. Therefore, a limiter function is part of the discretisation scheme. This setting exists for flow in the 1D domain and 2D domains.
 
 .. figure:: image/lim_watlev_grad.png
    :alt: Limiter for water level gradient
@@ -121,40 +121,40 @@ Limiter for cross-sectional area
 
 *limiter_slope_crossectional_area_2d = 0 (default)*
 
-The subgrid method assumes that the variation in water levels is much more gradual in comparison to variations in the bathymetry. Within a computational cell, the water level is assumed uniform, while the bathymetry values are allowed to vary. This assumption, however, is not valid in sloping areas, where water is flowing down the slope, like a sheet flow. In such situations, the spatial variation of the water level has the same length scales as the bathymetry. The uniform water level assumption can lead to overestimating the wet cross-sectional area at a computational cell edge and an underestimation of the friction. This would lead to an overestimation of the dischange. Therefore, 3Di uses limiters to correct the computed cross-sectional areas and the friction. These limiters are based on the sheet flow-concept; in these sloping areas, it is assumed that the water depth is uniform within a domain instead of a 'uniform water level'. The limiters "limit" the water flow by spreading the water over one or two adjacent cells, depending on the type that is chosen:
+The :ref:`subgridmethod` assumes that the variation in water levels is much more gradual than variations in bottom elevation or bathymetry. Within a computational cell, the water level is assumed uniform, while the bottom elevation is allowed to vary. This assumption is not valid in sloping areas where water flowss down the slope as sheet flow. In such situations, the spatial variation of the water level has the same length scales as the bottom elevation. The uniform water level assumption can lead to overestimating the wet cross-sectional area at a computational cell edge and an underestimation of the friction. This would lead to an overestimation of the discharge. Therefore, 3Di uses limiters to correct the computed cross-sectional areas and the friction. These limiters are based on the sheet flow concept; in these sloping areas, it is assumed that the water *depth* is uniform within a flow domain instead assuming the water *level* to be uniform. The way this uniform water depth is calculated, depends on the limiter type that is chosen:
 
 .. figure:: image/nolimiter.png
    :figwidth: 1000 px
    :alt: no_limiter
 
-   Water distribution based on uniform water level assumption showing x-z and x-y profiles
+   Water distribution based on uniform water level assumption showing x-z (longtidunal section) and x-y (cross-section) profiles
 
 
 *limiter_slope_crossectional_area_2d = 1*
 
-The limiter *type 1* represents an accurate redefintion of the water depth, since the water is spread over two adjacent cells. This limiter is activated in case the downstream water depth is zero. Then two options are possible. In case of a large difference in waterlevels, the sum of upstream and downstream volume is spread over the cell domains. When the difference is smaller, the average water level of upstream and downstream is used. Theoretically, this would make the scheme second order.
+The limiter *type 1* represents an accurate redefintion of the water depth, since the water is spread over two adjacent cells. This limiter is activated in case the downstream water depth is zero. Then two options are possible. In case of a large difference in water levels, the sum of upstream and downstream volume is divided by the total maximum surface area of the two cells. When the difference is smaller, the average water level of upstream and downstream is used. This makes the scheme mathematically second order.
 
 .. figure:: image/limiter1.png
    :figwidth: 1000 px
    :alt: limiter_1
 
-   Water distribution based on limiter 1 showing x-z and x-y profiles
+   Water distribution based on limiter 1 showing x-z (longtidunal section) and x-y (cross-section) profiles
 
 
 *limiter_slope_crossectional_area_2d = 2*
 
-The limiter *type 2* is a very stable upstream method to redefine the water level depth at the cell edge. It is assumed that the flow behaves as a thin sheet flow. Therefore, the depth is defined as the upstream volume devided by the maximum surface area. 
+The limiter *type 2* is a very stable upstream method to redefine the water depth at the cell edge. It is assumed that the flow behaves as a thin sheet flow. Therefore, the depth is defined as the upstream volume divided by the maximum surface area of the upstream cell. 
 
 .. figure:: image/limiter2.png
    :figwidth: 1000 px
    :alt: limiter_2
 
-   Water distribution based on limiter 2 showing x-z and x-y profiles
+   Water distribution based on limiter 2 showing x-z (longtidunal section) and x-y (cross-section) profiles
 
 
 *limiter_slope_crossectional_area_2d = 3, in combination with thin_layer_definition = xx [m]*
 
-The limiter *type 3* provides a smooth transition from the default water depth to the altered one. This transistion depends on the local depth and a user-defined "thin water layer" definition. In case the depth at the edge based on the downstream water level is larger than the thin layer definition, the cross-sectional area is based on the uniform water level assumption. In case the downstream water level is below the thin water layer definition, then limiter 2 determines the cross-sectional area. Finally, if the downstream water level is within the thin water layer depth, these two types of cross-sections are weighed to define the new value (i.e., limiter type 3).
+The limiter *type 3* provides a smooth transition from the default water depth to the altered one. This transition depends on the local depth and a user-defined *thin water layer*. In case the depth at the edge, based on the downstream water level, is larger than the thin water layer definition, the cross-sectional area is based on the uniform water level assumption. In case the downstream water level is below the thin water layer definition, then limiter 2 determines the cross-sectional area. Finally, if the downstream water level is within the thin water layer depth, these two types of cross-sections are weighted to define the new value (i.e., limiter type 3).
 
 .. figure:: image/limiter3.png
    :figwidth: 1000 px
@@ -170,7 +170,7 @@ Limiter for friction depth
 
 [limiter_slope_friction_2d] default = 0
 
-In order to take high resolution depth and roughness variations into account to determine the friction, an estimate is made of the effective frictional depth. For this the actual depth is needed. Similar to the limiter for the cross-sectional area, the actual depth in sloping areas is overestimated. In such case not only the depth to determine the cross-sectional area can be adjusted, but also the depth to determine the effective frictional depth. The friction can therefore be underestimated in sloping areas. Therefor the same limiter can be used to determine the effective frictional depth by switching this limiter on. This limiter is obligated in combination with the limiter_slope_crossectional_area_2d.
+In order to take high resolution depth and roughness variations into account to determine the friction, an estimate is made of the effective frictional depth. To determine this, the actual depth is needed. Similar to the limiter for the cross-sectional area, the actual depth in sloping areas is overestimated. In such case not only the depth to determine the cross-sectional area can be adjusted, but also the depth to determine the effective frictional depth. The friction can therefore be underestimated in sloping areas. Therefore, the same limiter can be used to determine the effective frictional depth by switching this limiter on. This limiter is obligatory in combination with the limiter_slope_crossectional_area_2d.
 
 
 .. _friction_settings:
@@ -185,9 +185,9 @@ Friction shallow water correction
 
 [friction_shallow_water_correction]  (default =0) (possible values 0,1,2,3)
 
-In case the friction assumptions based on the dominant friction balance gives a structurally underestimation of the friction, one can switch this setting on. This situation can occur in case the flow is mainly distributed based on continuity in stead. In Figure 1, the difference between the two type of flows is shown. Such a situation occurs for example in a sloping area where filled canals are cutting through in cross slope direction. When the correction is switched on, the friction is determined both the classical way and based on averaged values of depth, velocity and roughness coefficients. The maximum friction computed by the two is used.
+In case the friction assumptions based on the dominant friction balance structurally underestimates the friction, one can switch this setting on. This situation can occur in case the flow is mainly distributed based on continuity instead. In Figure 1, the difference between the two type of flows is shown. Such a situation occurs, for example, in a sloping area where filled canals are cutting through in cross-slope direction. When the correction is switched on, the friction is determined both in the classical way and based on averaged values of depth, velocity and roughness coefficients. The maximum friction computed by the two is used.
 
-It is important to define a depth for which the friction is computed. Choosing the correction for the settings 2 or 3 it will define the depth similar to the cross-sectional area limiter. For the value 1 it will use the maximum depth at the edge of the cell.
+It is important to define a depth for which the friction is computed. When the friction shallow water correction is set to 2 or 3, it will define the depth similar to the cross-sectional area limiter. For the value 1 it will use the maximum depth at the edge of the cell.
 
 .. figure:: image/friction_cont_dominated_flow.png
    :alt: Friction shallow water correction
@@ -195,8 +195,8 @@ It is important to define a depth for which the friction is computed. Choosing t
    Upper Panel) Flow distributed based on friction dominated flow. 
    Lower Panel) Flow distributed based on continuity.
 
-Friction Average
-""""""""""""""""
+Friction averaging
+""""""""""""""""""
 
 [frict_avg] (default = 0)
 
