@@ -8,6 +8,14 @@ Release notes
 3Di general releases
 --------------------
 
+October 2nd, 2023
+^^^^^^^^^^^^^^^^^
+
+- Bugfix: More memory is made available for generating 3Di models, to fix a performance degradation that was experienced when generating very large models (threedi-api #2005)
+
+- Bugfix: DEM edits would crash the simulation if the edit polygon covers more than one DEM tile (threedi-tables #262)
+
+
 September 21th, 2023
 ^^^^^^^^^^^^^^^^^^^^
 
@@ -932,6 +940,23 @@ For schematisations users can:
 
 3Di Modeller Interface
 ----------------------
+
+October 16th, 2023
+^^^^^^^^^^^^^^^^^^
+
+**3Di Schematisation Editor 1.7.1**
+
+- Moving a channel vertex that has a cross section location on it now also moves the cross section location (#100)
+- Vector data importer main button shows options when clicked (#185)
+- Vector data importer dialog is disabled as long as no source layer is selected (#185)
+
+**3Di Models & Simulations 3.6.1**
+
+- Subtle redesign of the *Uploads* and *Running simulations* dialogs (#500)
+- Add cancel button to "store / replace" question dialog, show correct path when download has completed (#439)
+- Bugfix: Simulation wizard, rain *Stop after* value was not read correctly from simulation template if *Start after* was > 0 (#498)
+- Bumped dependencies: *threedi-api-client 4.1.4*, *threedi-modelchecker 2.4.0*, *threedi-schema 0.217.11*.
+
 
 October 2nd, 2023
 ^^^^^^^^^^^^^^^^^
