@@ -8,7 +8,7 @@ Tutorial 6: Analysing 1D and 2D simulation results
 
 Introduction
 -------------
-In this tutorial, we are going to examine the results of a simulation. The schematization is pre build. The simulation results will be analysed using the :ref:`3Di Results Analysis plugin <_analysing_results>`  in the :ref:`3Di Modeller Interface <mi_what_is>`. At the end of this tutorial, you have acquired some hands on expertise for analysing the movement of water within a 3Di model.
+In this tutorial, we are going to examine the results of a simulation. The schematisation is pre build. The simulation results will be analysed using the :ref:`3Di Results Analysis plugin <_analysing_results>`  in the :ref:`3Di Modeller Interface <mi_what_is>`. At the end of this tutorial, you have acquired some hands-on expertise for analysing the movement of water within a 3Di model.
 
 Our area of interest is Langaa, a small railway town located in central Denmark. Langaa is situated between raised agricultural lands to the western side and the Gudena River to the eastern side of the town. The urban area has a seperated sewer system. The wastewater sewer inclines towards a pumping station, and the rainwater sewer has two outlets close to the Gudena River. While this tutorial represents a real-world area, it is important to note that some processes have been simplified for the purpose of this tutorial.
 
@@ -22,14 +22,14 @@ Learning objectives
 --------------------
 You will learn the following in this tutorial:
 
-Downloading your simulation results
-Checking the flow summary
-Composing the maximum waterdepth raster
-Analysing the flow pattern
-Finding the maximum inundation depth
-Plotting waterlevels
-Watershed delineation for a flooded area
-Calculation the flood volume
+- Downloading your simulation results
+- Checking the flow summary
+- Composing the maximum waterdepth raster
+- Analysing the flow pattern
+- Finding the maximum inundation depth
+- Plotting water levels
+- Watershed delineation for a flooded area
+- Calculation the flood volume
 
 
 Preparation
@@ -103,7 +103,7 @@ We will now start a simulation with the 3Di model you have created in the 3Di Mo
 
 #) Check the box *Include precipitation* (keep *Include initial conditions* and *Include boundary conditions* checked). Click *Next*.
 
-#) Give your simulation the name e.g. *Demo Langa 40mm constant rainfall in 1 hour*. Click *Next*.
+#) Give your simulation the name e.g. *Demo Langaa 40mm constant rainfall in 1 hour (your name)*. Click *Next*.
 
 #) Set the duration of your simulation to 4 hours. Click *Next*.
 
@@ -156,9 +156,9 @@ Now your simulations results are loaded in the Modeller Interface and shown in y
 
 
 Checking the flow summary
-----------------------
+-------------------------
 
-In order to gain more insight in the model simulation, you can check out the flow summary. Go to the results-folder and open the document ‘flow_summary.log’.
+In order to gain more insight in the model simulation, you can check out the flow summary. Go to the results folder and open the document ‘flow_summary.log’.
 
 a) Check the volume of rainfall in the log-document and translate the number back to a rainfall-intensity. Does this match the rainfall that we put on the model before the start of the model? (Hint: use the DEM-raster elevation to calculate the area. If you right-click on the ‘Digital elevation model’-layer, you can choose properties. Under the ‘information’ tab, you can find the width and height of the layer in pixels. Furthermore, under ‘pixel size’ you can find the size of the pixels in meters. If you combine this information, you can calculate the area of the elevation layer.)
 
@@ -169,7 +169,7 @@ c) What is the default time step of the simulation? And the minimum time step? S
 
 
 Composing the maximum waterdepth raster
-----------------------
+---------------------------------------
 
 In this step, we are going build a raster showing the maximum 2D waterdepth for each gridcel. 
 
