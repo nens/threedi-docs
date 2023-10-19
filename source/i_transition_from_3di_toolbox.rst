@@ -102,7 +102,15 @@ Statistical tool (replaced by Result aggregation)
 
 The Statistical tool has been phased out, and has been replaced by the :ref:`results_aggregation`. This tool was previously available as beta plugin, named *3Di Custom Statistics*. This beta plugin has been improved and extended in several ways, so that it can perform the tasks for which previously the Statistical tool would be used.
 
-One of the most often features of the Statistical tool was to calculate the duration of flooding from sewer water, or "Water on street duration". This is now available as preset in Result aggregation tool.
+One of the most often used features of the Statistical tool was to calculate the duration of flooding from sewer water, or "Water on street duration". This is now available as preset in Result aggregation tool.
+
+.. note::
+    The "Water on street duration" preset of the Result aggregation tool will give different results than the old Statistical tool. This is because the definition of "water on street" in the new Result aggregation tool is "1D water level is above the 1D2D exchange level", whereas the Statistical tool defined it as "1D water level is above the manhole's surface level".
+    
+	.. figure:: image/i_surface_exchange_drain_level.png
+		:alt: Manhole with its user-defined *drain level* and *surface level*, and the *1D2D exchange level* that is used in the simulation.
+		
+		Manhole with its user-defined *drain level* and *surface level*, and the *1D2D exchange level* that is used in the simulation. In this example, the drain level is lower than the lowest DEM elevation in this computational cell, so that the exchange level is higher than the drain level.
 
 While the statistical tool was used only for sewer systems, the Result aggregation tool is much more generic and works for all nodes and flowlines, and for all flow variables.
 
