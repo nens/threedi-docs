@@ -104,6 +104,13 @@ The Statistical tool has been phased out, and has been replaced by the :ref:`res
 
 One of the most often used features of the Statistical tool was to calculate the duration of flooding from sewer water, or "Water on street duration". This is now available as preset in Result aggregation tool.
 
+.. warning::
+	The "Duration water on street" algorithm is temporarily unavailable. We have discovered an issue in the algorithm, that causes an overestimation of the "duration water on street" in many cases. 
+	
+	The algorithm should use the exchange level as threshold value, but uses the drain level. If a manhole drain level is lower than the lowest pixel of the 2D cell it is located in, the exchange level may be (much) higher than the drain level (see image below).
+
+	We are working to fix the issue and will release a new version as soon as possible. We apologize for the inconvenience.
+
 .. note::
     The "Water on street duration" preset of the Result aggregation tool will give different results than the old Statistical tool. This is because the definition of "water on street" in the new Result aggregation tool is "1D water level is above the 1D2D exchange level", whereas the Statistical tool defined it as "1D water level is above the manhole's surface level".
     
@@ -111,7 +118,7 @@ One of the most often used features of the Statistical tool was to calculate the
 		:alt: Manhole with its user-defined *drain level* and *surface level*, and the *1D2D exchange level* that is used in the simulation.
 		:scale: 50%
 		
-		Manhole with its user-defined *drain level* and *surface level*, and the *1D2D exchange level* that is used in the simulation. In this example, the drain level is lower than the lowest DEM elevation in this computational cell, so that the exchange level is higher than the drain level.
+		Manhole with its user-defined *drain level* and *surface level*, and the *1D2D exchange level* that is used in the simulation. The vertical, dashed lines indicate the edges of the 2D cell. In this example, the drain level is lower than the lowest DEM elevation in this computational cell, so that the exchange level is higher than the drain level.
 
 While the statistical tool was used only for sewer systems, the Result aggregation tool is much more generic and works for all nodes and flowlines, and for all flow variables.
 

@@ -754,7 +754,7 @@ Drain level
 	:alt: Manhole with its user-defined *drain level* and *surface level*, and the *1D2D exchange level* that is used in the simulation.
 	:scale: 50%
 	
-	Manhole in a 1D2D schematisation, with its user-defined *drain level* and *surface level*, and the *1D2D exchange level* that is used in the simulation. In this example, the drain level is lower than the lowest DEM elevation in this computational cell, so that the exchange level is higher than the drain level.
+	Manhole in a 1D2D schematisation, with its user-defined *drain level* and *surface level*, and the *1D2D exchange level* that is used in the simulation. The vertical, dashed lines indicate the edges of the 2D cell. In this example, the drain level is lower than the lowest DEM elevation in this computational cell, so that the exchange level is higher than the drain level.
 
 
 Shape, width and length

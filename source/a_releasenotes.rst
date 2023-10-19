@@ -941,6 +941,15 @@ For schematisations users can:
 3Di Modeller Interface
 ----------------------
 
+October 19th, 2023
+^^^^^^^^^^^^^^^^^^
+**3Di Results Analysis 3.1.12**
+- Bugfix: make Side view tool work for 3Di Models without 2D (#931)
+- Temporarily remove the "Water on street duration" preset from the Result aggregation tool while a bug is being fixed
+
+
+
+
 October 16th, 2023
 ^^^^^^^^^^^^^^^^^^
 
