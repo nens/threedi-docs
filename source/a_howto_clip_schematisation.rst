@@ -59,6 +59,7 @@ Now you will clip all the 1D network of this schematisation, including any 0D in
 
 Go through the following steps:
 
+#. :ref:`Load the schematisation<load_schematisation>` in your project.
 #. Open the *Select by location* tool |selectByLocation|. Use the following inputs values:
    - Select features from: Connection node
    - Where the features: Check the *disjoint* box
@@ -77,6 +78,7 @@ Clip 2D and 1D2D schematisation objects
 
 There may still be 2D schematisation objects (2D laterals, 2D boundary conditions, obstacles, grid refinements, or DEM average areas) or 1D2D schematisation objects (Potential breach or Exchange line) present outside of the clip polygon. Use the same approach as with the connection nodes:
 
+#. :ref:`Load the schematisation<load_schematisation>` in your project.
 #. Select any features that are *disjoint* from the clip polygon
 #. Delete these features from that layer
 
