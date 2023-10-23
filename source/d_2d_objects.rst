@@ -21,7 +21,14 @@ Boundary condition for 2D model edge. Boundary conditions are crucial in hydraul
 
 Geometry
 ^^^^^^^^
-Line
+The 2D boundary is schematized as a line. There are a few constraints for schematizing 2D boundary conditions, these constraints are listed below: 
+
+- 2D boundary conditions can only touch boundary computational cells, this is defined as cells that have a minimum of one side that does not touch another computational cell. This means that it is also possible to schematize 2D-boundaries in the middle of your model, if there is an area which does have no data values in the DEM. 
+- 2D boundary contitions can touch one or multiple computational cells. In the case of multiple computional cells, the cells must lay vertical or horizontal but cannot be diagonal. 
+- When applying 2D boundary conditions, it is not allowed to have more than one grid resolution on the edge.
+
+
+
 
 Attributes
 ^^^^^^^^^^
