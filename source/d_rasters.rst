@@ -66,7 +66,7 @@ How you derive your raster information is entirely up to you. 3Di rasters have t
 Using GDAL to check and edit your rasters
 -----------------------------------------
 
-There are several packages available that allow you to meet the requirements stated above. Below are some examples using GDAL. 
+There are several packages available which allow you to meet the requirements stated above. Below are some examples using GDAL. 
 
 *If you are using Windows, GDAL should be installed together with QGIS and available through the OSGeo4W Shell. Try finding it through your start menu. A full list of GDAL functionalities and help can be found under the* `gdal documentation <http://www.gdal.org>`_.
 
