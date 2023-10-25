@@ -71,7 +71,7 @@ Vegetation in a water course strongly affects the flow, as the vegetation exerts
 Two key aspects of the vegetation formulation used in 3Di are important to understand well. First, how vegetation exerts a drag force on the flowing water and how this differs from shear stresses such as bottom friction. Secondly, the importance of high resolution variations of the flow due to the varying vegetation characteristics.
 
 .. figure:: image/b_veggie_velocity_profile.png
-   :scale: 50%
+   :scale: 10%
     
    Vertical velocity profiles altered by vegetation.
 
