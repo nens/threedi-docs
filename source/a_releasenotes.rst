@@ -709,10 +709,29 @@ The map can be viewed here: stowa.lizard.net
 3Di Live
 --------
 
+October 18, 2023
+^^^^^^^^^^^^^^^^
+- Flood barriers can now always be clicked for more info, also when the Flood barrier tool is not active (#527)
+
+- When hoovering over the Side view plot, the mouse position is indicated on the map (#449)
+
+- DEM value is shown when clicking on the map using the Point tool (#526)
+
+- Asset properties that are in decimal numbers are now rounded to two decimals (#453)
+
+- Display names of assets are ellipsed and full name is shown when hoovering over (#431)
+
+- 3Di Live and 3Di Management are now "domain agnostic", so they can also be hosted on other domains, like 3di.twinn.io (#1245)
+
+- An *Info* panel was added, with details about the simulation and the 3Di model used (#273)
+
+- Values in charts labels are now rounded to 2 decimals (#1168)
+
+
 September 21, 2023
 ^^^^^^^^^^^^^^^^^^
 
-- Bugfix: Allow negative and/or decimal number input in weir crest level edit (#949)
+- Bugfix: Allow negative and/or decimal number input in weir crest level edit (#949, #432)
 
 April 25th 2023
 ^^^^^^^^^^^^^^^
@@ -822,6 +841,31 @@ Some bugfixes in 3Di live:
 
 3Di Management
 --------------
+
+October 18, 2023
+^^^^^^^^^^^^^^^^
+- The simulation overview page now shows which post-processing options have been used (#814)
+
+- You can now post-process results in Lizard for finished simulations. This option can be used if no post-processing for this simulation has been done and the raw results are still available, i.e., within 7 days after the simulation was finished. (#835, #1249, #1160)
+
+- The "Export to Excel" option for Simulations and 3Di Models now downloads all items, not just the ones that are shown on the page (#1040)
+
+- Simulations can now be removed from the queue (#780)
+
+- If you do not have management rights, the *Users* button is disabled; it will now show a list of users in your organisation that have management rights when hovering over it (#852)
+
+- You can now select multiple 3Di models, schematisations, and/or revisions and delete them all at once, including in the *Choose other revision* window on the schematisation detail page (#815, #1228)
+
+- Schematisations can be moved to a different organisation, if you have *Creator* or *Manager* rights for the organisation that currently owns the schematisation *and* the organisation to which you want to transfer it (#234)
+
+- Multiple improvements were made to the 3Di model overview, especially for organisations with more than 250 3Di models (#231, #227)
+
+- The simulation ID is now shown in the simulations overview (#233)
+
+- Bugfix: Links in *queued simulations* list were wrong, this has been fixed (#781)
+
+- Bugfix: Schematisation detail page: not all info was updated when switching to another revision (#1158)
+
 
 .. _3di_ms_release_20230921:
 
@@ -941,14 +985,18 @@ For schematisations users can:
 3Di Modeller Interface
 ----------------------
 
+October 24th, 2023
+^^^^^^^^^^^^^^^^^^
+
+**3Di Models & Simulations 3.6.2**
+- Base URL is used instead of Base API URL, so that the URLs for obtaining Personal API Keys and opening the 3Di Management page are domain dependent. For example, you can set the Base URL to "3di.twinn.io" so that the plugin knowns that the management page is located at management.3di.twinn.io. (#505)
+
 October 19th, 2023
 ^^^^^^^^^^^^^^^^^^
+
 **3Di Results Analysis 3.1.12**
 - Bugfix: make Side view tool work for 3Di Models without 2D (#931)
 - Temporarily remove the "Water on street duration" preset from the Result aggregation tool while a bug is being fixed
-
-
-
 
 October 16th, 2023
 ^^^^^^^^^^^^^^^^^^
