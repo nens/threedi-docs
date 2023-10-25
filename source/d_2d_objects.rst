@@ -72,13 +72,10 @@ Format the time series as Comma Separated Values (CSV), with the time (in minute
 
 .. VRAAG: Nog niet zo uitgebreid als hij bij 1d objects is op het moment. Heb een heleboel punten rondom de notes for modellers weg gehaald omdat ik niet wist of het ook voor 2d boundary condition telte. moet een 2d boundary condition altijd deels buiten de dem vallen? 
 
-\
-\
-
 .. _2d_lateral:
 
 2D Lateral
----------------------
+----------
 Lateral discharge for 2D cell.
 
 Geometry
@@ -178,9 +175,6 @@ Attributes
      - m MSL
      - Lowest point of the obstacle
 
-\
-\
-
 .. _grid_refinement:
 
 Grid refinement
@@ -224,8 +218,6 @@ Attributes
      - \-
      - The maximum number of grid-refinement levels. See :ref:`computational_grid` for more details.
 
-\
-\
 
 .. _grid_refinement_area:
 
@@ -270,9 +262,6 @@ Attributes
      - \-
      - The maximum number of grid-refinement levels. See :ref:`computational_grid` for more details.
 
-\
-\
-
 .. _dem_average_area:
 
 DEM average area
@@ -301,19 +290,11 @@ Attributes
      - \-
      - Unique identifier
 
-
-\
-\
-
-.. VRAAG: Ik heb geen idee wat windshilding inhoudt!! Dus ik heb maar wat gedaan hier. graag critisch checken! 
-
 .. _windshielding:
 
 Windshielding
 -------------
-Windshield a channel from the prevailing winds, affecting the distribution of rainfall and subsequently impacting the hydrological processes in the region.
-
-.. VRAAG: klopt dit?
+Windshielding reduces the wind shear on open water.
 
 Geometry
 ^^^^^^^^
