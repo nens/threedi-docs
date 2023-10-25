@@ -989,13 +989,16 @@ October 24th, 2023
 ^^^^^^^^^^^^^^^^^^
 
 **3Di Models & Simulations 3.6.2**
+
 - Base URL is used instead of Base API URL, so that the URLs for obtaining Personal API Keys and opening the 3Di Management page are domain dependent. For example, you can set the Base URL to "3di.twinn.io" so that the plugin knowns that the management page is located at management.3di.twinn.io. (#505)
 
 October 19th, 2023
 ^^^^^^^^^^^^^^^^^^
 
 **3Di Results Analysis 3.1.12**
+
 - Bugfix: make Side view tool work for 3Di Models without 2D (#931)
+
 - Temporarily remove the "Water on street duration" preset from the Result aggregation tool while a bug is being fixed
 
 October 16th, 2023
