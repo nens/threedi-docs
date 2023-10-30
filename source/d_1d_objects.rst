@@ -749,6 +749,14 @@ Drain level
 - In 1D-only models, the drain level is used as the street level, above which the storage area widens to the "manhole storage area" value specified in the global settings.
 - If the drain level is not filled in, 3Di will use the DEM value at the location of the manhole, or, in case of 1D-only models, the highest top of the pipes starting or ending at this manhole.
 
+
+.. figure:: image/i_surface_exchange_drain_level.png
+	:alt: Manhole with its user-defined *drain level* and *surface level*, and the *1D2D exchange level* that is used in the simulation.
+	:scale: 50%
+	
+	Manhole in a 1D2D schematisation, with its user-defined *drain level* and *surface level*, and the *1D2D exchange level* that is used in the simulation. The vertical, dashed lines indicate the edges of the 2D cell. In this example, the drain level is lower than the lowest DEM elevation in this computational cell, so that the exchange level is higher than the drain level.
+
+
 Shape, width and length
 """""""""""""""""""""""
 These values describe the shape of the manhole in the horizontal plane (i.e. the manhole bottom). They are for administrative purposes only and do not affect the storage area of the connection node. These values are not used by 3Di.
