@@ -56,18 +56,18 @@ Attributes
    * - measure_frequency
      - integer
      - No
-     - seconds \???
-     - \????
+     - \-
+     - Not implemented
    * - start
      - text
-     - \????
-     - \????
-     - \????
+     - No
+     - seconds since start of simulation
+     - Start of period in which this control is active. If not filled in, starts at t=0.
    * - end
      - text
-     - \????
-     - \????
-     - \????
+     - No
+     - seconds since start of simulation
+     - End of period in which this control is active. If not filled in, ends at end of simulation.
 
 
 .. _control_group:
@@ -171,7 +171,7 @@ Attributes
      - text
      - Yes
      - \-
-     - Currently, only "v2_connection_nodes" is supported \???
+     - Currently, only "v2_connection_nodes" is supported.
    * - weight
      - decimal number
      - Yes
@@ -216,7 +216,7 @@ Attributes
      - text
      - Yes
      - \-
-     - Choose from '>', '<'. See :ref:`table_control`.
+     - Choose from '>' or '<'. See :ref:`table_control`.
    * - target_type
      - text
      - Yes
@@ -231,12 +231,8 @@ Attributes
      - text
      - Yes
      - \-
-     - Choose from 'waterlevel', 'volume', 'discharge', 'velocity' \????? klopt dit \????
+     - Choose from 'waterlevel', 'volume'
     
-	 
-	 
-	 
-	 
 .. _control_timed:
 
 Control timed
@@ -293,18 +289,8 @@ Action table formatting
 - Lines or rows are seperated by a "#" character
 - Columns are separated by a ";" character
 - The first column contains the time in seconds since the start of the simulation (*Control timed*), or the threshold values (in a *Control table*).
-.. todo::
-    Wat is de eenheid van de pump capacity in the action table?
 - The second column contains the action values, i.e. the value for the crest level [m MSL], gate level [m MSL], pump capacity [L/s] or discharge coefficients [-] to be set.
 - If the *action_type* is 'set_discharge_coefficients', the second column contains two values instead of one. These to values are than separated by a space.
 
 Example for an action table for a table control with action type 'set_crest_level': ``-1.7;-1.4#-1.6;-1.3#-1.5;-1.2``
 Example for an action table for a timed control with action type 'set_discharge_coefficients', that changes the discharge coefficients after 1, 2, and 3 hours: ``3600;0 0#7200;0.5 0.5#10800;1 1``
-
-
-
-	 
-
-
-	 
-
