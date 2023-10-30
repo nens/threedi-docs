@@ -1,7 +1,7 @@
 .. _control:
 
-Control structures
-==================
+Structure control
+=================
 
 Several structure properties can be changed during the simulation, such as the crest or gate level, pump capacity or discharge coefficients. The simplest way to do this is by directly setting them to a specific value at a specific time, see :ref:`timed_control`. They can also be made to react dynamically to changes in water level, volume, discharge, or flow velocity. There are two types of these dynamic controls: :ref:`memory_control` and :ref:`table_control`.
 
