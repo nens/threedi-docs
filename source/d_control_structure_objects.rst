@@ -206,7 +206,7 @@ Attributes
      - text
      - Yes
      - \-
-     - Choose from 'set_discharge_coefficients', 'set_crest_level', 'set_gate_level', 'set_pump_capacity'.
+     - Choose from *set_discharge_coefficients*, *set_crest_level*, *set_gate_level*, or *set_pump_capacity*.
    * - action_table
      - integer
      - Yes
@@ -216,12 +216,12 @@ Attributes
      - text
      - Yes
      - \-
-     - Choose from '>' or '<'. See :ref:`table_control`.
+     - Choose from *>* or *<*. See :ref:`table_control`.
    * - target_type
      - text
      - Yes
      - \-
-     - Choose from 'v2_pumpstation', 'v2_pipe', 'v2_orifice', 'v2_culvert', 'v2_weir', 'v2_channel'.
+     - Choose from *v2_pumpstation*, *v2_pipe*, *v2_orifice*, *v2_culvert*, *v2_weir*, or *v2_channel*.
    * - target_id
      - decimal number
      - Yes
@@ -231,7 +231,7 @@ Attributes
      - text
      - Yes
      - \-
-     - Choose from 'waterlevel', 'volume'
+     - Choose from *waterlevel*, or *volume*
     
 .. _control_timed:
 
@@ -261,7 +261,7 @@ Attributes
      - text
      - Yes
      - \-
-     - Choose from 'set_discharge_coefficients', 'set_crest_level', 'set_gate_level', 'set_pump_capacity'
+     - Choose from *set_discharge_coefficients*, *set_crest_level*, *set_gate_level*, *set_pump_capacity*
    * - action_table
      - integer
      - Yes
@@ -271,7 +271,7 @@ Attributes
      - text
      - Yes
      - \-
-     - Choose from 'v2_pumpstation', 'v2_pipe', 'v2_orifice', 'v2_culvert', 'v2_weir', 'v2_channel'
+     - Choose from *v2_pumpstation*, *v2_pipe*, *v2_orifice*, *v2_culvert*, *v2_weir*, *v2_channel*
    * - target_id
      - decimal number
      - Yes
@@ -290,7 +290,8 @@ Action table formatting
 - Columns are separated by a ";" character
 - The first column contains the time in seconds since the start of the simulation (*Control timed*), or the threshold values (in a *Control table*).
 - The second column contains the action values, i.e. the value for the crest level [m MSL], gate level [m MSL], pump capacity [L/s] or discharge coefficients [-] to be set.
-- If the *action_type* is 'set_discharge_coefficients', the second column contains two values instead of one. These to values are than separated by a space.
+- If the *action_type* is *set_discharge_coefficients*, the second column contains two values instead of one. These two values are separated by a space.
 
-Example for an action table for a table control with action type 'set_crest_level': ``-1.7;-1.4#-1.6;-1.3#-1.5;-1.2``
-Example for an action table for a timed control with action type 'set_discharge_coefficients', that changes the discharge coefficients after 1, 2, and 3 hours: ``3600;0 0#7200;0.5 0.5#10800;1 1``
+Example for an action table for a table control with action type *set_crest_level*: ``-1.7;-1.4#-1.6;-1.3#-1.5;-1.2``.
+
+Example for an action table for a timed control with action type *set_discharge_coefficients*, that changes the discharge coefficients after 1, 2, and 3 hours: ``3600;0 0#7200;0.5 0.5#10800;1 1``.
