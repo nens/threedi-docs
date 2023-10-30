@@ -5,7 +5,37 @@ Structure control objects
 
 Structure control objects allow you to let structures react to changes in flow variables such as water level or flow velocity, see :ref:`control`. To define them in the schematisation, the following objects are available:
 
-* :ref:`2d_boundary_condition`
+* :ref:`control_the_layer`
+* :ref:`control_group`
+* :ref:`control_measure_group`
+* :ref:`control_measure_map`
+* :ref:`control_table`
+* :ref:`control_timed`
+* :ref:`control_memory`
+
+To get started with schematising structure control, read :ref:`this practical introduction guide<schematising_structure_control>`.
+
+
+.. _schematising_structure_control:
+
+Schematising structure control
+------------------------------
+
+Several tables are required to define structure controls. The figure below gives an overview of the relations between these tables.
+
+.. figure:: image/d_control_structure_relations.png
+   :alt: Relations between the tables required for schematising structure control
+
+   Relations between the tables required for schematising structure control
+
+Follow these steps:
+
+#) In the *Global settings*, set *control_group_id* to ``1``
+#) Add a row to the :ref:`control_group` table, with id ``1``. Note that it is not possible to use multiple *Control groups* at the same time.
+#) Add one or more rows to the :ref:`control_timed`, :ref:`control_table`, and/or :ref:`control_memory` tables.
+#) For each of these, create a row in the :ref:`control_the_layer` table that references it.
+#) For each row in the :ref:`control_table`, and :ref:`control_memory` tables, create a row in the :ref:`control_measure_group`. Note that it is also possible that two controls share the same *Control measure group*.
+#) For each *Control measure group*, create one or more rows in the :ref:`control_measure_map` table.
 
 
 .. _control_the_layer:
@@ -231,7 +261,7 @@ Attributes
      - text
      - Yes
      - \-
-     - Choose from *waterlevel*, or *volume*
+     - Choose from *waterlevel* or *volume*
     
 .. _control_timed:
 
@@ -278,8 +308,78 @@ Attributes
      - \-
      - ID of the feature in the table specified by *target_type*
 	 
+    
+.. _control_memory:
+
+Control memory
+--------------
+
+This object defines a :ref:`memory_control`.
+
+Attributes
+^^^^^^^^^^
+
+.. list-table:: Control memory attributes
+   :widths: 4 4 2 4 30
+   :header-rows: 1
+
+   * - Field name
+     - Type
+     - Mandatory
+     - Units
+     - Description
+   * - id
+     - integer
+     - Yes
+     - \-
+     - Unique identifier
+   * - action_type
+     - text
+     - Yes
+     - \-
+     - Choose from *set_discharge_coefficients*, *set_crest_level*, *set_gate_level*, or *set_pump_capacity*.
+   * - action_value
+     - text
+     - Yes
+     - Depends on the action_type. *set_crest_level*: m MSL; *set_gate_level*: m MSL; *set_pump_capacity*: L/s; set_discharge_coefficients: unitless.
+     - The value to which the structure property must be set when the upper threshold is passed (or lower threshold when *is_inverse* is ``True``).
+   * - measure_variable
+     - text
+     - Yes
+     - \-
+     - Choose from *waterlevel* or *volume*
+   * - target_type
+     - text
+     - Yes
+     - \-
+     - Choose from *v2_pumpstation*, *v2_pipe*, *v2_orifice*, *v2_culvert*, *v2_weir*, or *v2_channel*.
+   * - target_id
+     - decimal number
+     - Yes
+     - \-
+     - ID of the feature in the table specified by *target_type*
+   * - upper_threshold
+     - decimal number
+     - Yes
+     - Depends on the *measure_variable*. *waterlevel*: m MSL; *volume*: m³.
+     - See :ref:`memory_control`
+   * - lower_threshold
+     - decimal number
+     - Yes
+     - Depends on the *measure_variable*. *waterlevel*: m MSL; *volume*: m³.
+     - See :ref:`memory_control`
+   * - is_active
+     - boolean
+     - Yes
+     - \-
+     - Sets the initial state of the control to active or inactive, see :ref:`memory_control`
+   * - is_inverse
+     - boolean
+     - Yes
+     - \-
+     - If set to ``True``, the memory control is inverted, see :ref:`memory_control`
 	 
-.. action_table:
+.. _action_table:
 
 Action table formatting
 -----------------------

@@ -452,6 +452,8 @@ The following example JSON file sets the discharge coefficients of weir 21 to 0.
 		]
 	}
 
+.. _sim_memory_control:
+
 Memory control
 ^^^^^^^^^^^^^^
 
@@ -578,6 +580,8 @@ The figure below shows three examples of JSON files.
 
 .. figure:: image/c_control_json.png
    :alt: three examples of json files with control structures
+
+.. _sim_table_control:
 
 Table control
 ^^^^^^^^^^^^^

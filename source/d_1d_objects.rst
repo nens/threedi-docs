@@ -626,6 +626,8 @@ Notes for modellers
 
 The cross-section describes the inside of the culvert. If you only know the outer dimensions, you have to discount the wall thickness.
 
+.. _culvert_discharge_coefficients:
+
 Discharge coefficients
 """"""""""""""""""""""
 The discharge is multiplied by this value. The energy loss caused by the change in flow velocity at the entrance and exit are accounted for by 3Di. The discharge coefficients can be used to account for any additional energy loss. 'Positive' applies to flow in the drawing direction of the structure (from start node to end node); 'negative' applies to flow in the opposite direction.
@@ -1115,6 +1117,8 @@ Crest level
 """""""""""
 This is the reference level for the cross-section. For example, if the crest level is 12.0 m and the cross-section a circle with a diameter of 0.5 m, the opening will start at 12.0 m and end at 12.5 m
 
+.. _orifice_discharge_coefficients:
+
 Discharge coefficients
 """"""""""""""""""""""
 The discharge is multiplied by this value. The energy loss caused by the change in flow velocity at the entrance and exit are accounted for by 3Di. The discharge coefficients can be used to account for any additional energy loss. 'Positive' applies to flow in the drawing direction of the structure (from start node to end node); 'negative' applies to flow in the opposite direction.
@@ -1433,6 +1437,8 @@ In the computational grid, a weir will always be represented by a single flowlin
 Crest level
 """""""""""
 This is the reference level for the cross-section. For example, if the crest level is 12.0 m and the cross-section a circle with a diameter of 0.5 m, the opening will start at 12.0 m and end at 12.5 m
+
+.. _weir_discharge_coefficients:
 
 Discharge coefficients
 """"""""""""""""""""""

@@ -297,7 +297,8 @@ Pumps
 Pumps in 3Di drain water from one location to another location, within the model domain (:ref:`pumpstation_with_end_node`) or out of the model domain (:ref:`pumpstation_without_end_node`). The behaviour of a pump is specified by defining the start and stop levels of the pump and the pump capacity, as illustrated in the figure below. See :ref:`pumpstation_with_end_node` and :ref:`pumpstation_without_end_node` for details on how to set these parameters.
 
 .. figure:: image/b_structures_pump.png
-   :alt: structures_pump
+   :scale: 50% 
+   :alt: Schematic display of a pump function
 
    Schematic display of a pump function
 
