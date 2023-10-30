@@ -398,40 +398,40 @@ The following arguments can be specified for a :ref:`timed_control`:
      - \-
    * - duration
      - integer
-	 - seconds
-	 - Yes
-	 - Defines how long the control structure is active
-	 - \-
+     - seconds
+     - Yes
+     - Defines how long the control structure is active
+     - \-
    * - value
      - decimal number
-	 - m MSL, \-, m3/s
-	 - Yes
-	 - Structure property will be set to this value
-	 - Units depend on the *type*. Crest and gate levels in m MSL, discharge coefficients are unitless, pump capacities in m3/s.
+     - m MSL, \-, m3/s
+     - Yes
+     - Structure property will be set to this value
+     - Units depend on the *type*. Crest and gate levels in m MSL, discharge coefficients are unitless, pump capacities in m3/s.
    * - type
      - string
-	 - \- 
-	 - Yes
-	 - Defines which structure property to set
-	 - Options are: 'set_discharge_coefficients', 'set_crest_level', 'set_gate_level', 'set_pump_capacity'
+     - \- 
+     - Yes
+     - Defines which structure property to set
+     - Options are: 'set_discharge_coefficients', 'set_crest_level', 'set_gate_level', 'set_pump_capacity'
    * - structure_id
      - integer
-	 - \-
-	 - No
-	 - ID of the structure as defined in the spatialite
-	 - Either structure_id or grid_id must be specified
+     - \-
+     - No
+     - ID of the structure as defined in the spatialite
+     - Either structure_id or grid_id must be specified
    * - structure_type
      - string
-	 - \-
-	 - Yes
-	 - The type of structure that is to be controlled
-	 - Valid values: 'v2_pumpstation', 'v2_pipe', 'v2_orifice', 'v2_culvert', 'v2_weir', 'v2_channel'
+     - \-
+     - Yes
+     - The type of structure that is to be controlled
+     - Valid values: 'v2_pumpstation', 'v2_pipe', 'v2_orifice', 'v2_culvert', 'v2_weir', 'v2_channel'
    * - grid_id
      - integer
-	 - \-
-     - No	 
-	 - ID of the flowline or pump that is to be controlled
-	 - Either structure_id or grid_id must be specified
+     - \-
+     - No
+     - ID of the flowline or pump that is to be controlled
+     - Either structure_id or grid_id must be specified
 
 The *value* parameter must be a list, even if it contains 1 value (e.g. [0.3]), except for the *set_discharge_coefficients* action that expects a value for both flow directions (e.g. [0.8, 0.0]).
 
@@ -475,46 +475,46 @@ The following arguments can be specified for a :ref:`memory_control`:
      - \-
    * - duration
      - integer
-	 - seconds
-	 - Yes
-	 - Defines how long the control structure is active
-	 - \-
+     - seconds
+     - Yes
+     - Defines how long the control structure is active
+     - \-
    * - measure_specification
      - :ref:`measure_specification`
-	 - \-
-	 - Yes
-	 - Specifies how the value to which the control should react is measured
-	 - \-
+     - \-
+     - Yes
+     - Specifies how the value to which the control should react is measured
+     - \-
    * - structure_id
      - integer
-	 - \-
-	 - No
-	 - ID of the structure as defined in the spatialite
-	 - Either structure_id or grid_id must be specified
+     - \-
+     - No
+     - ID of the structure as defined in the spatialite
+     - Either structure_id or grid_id must be specified
    * - structure_type
      - string
-	 - \-
-	 - Yes
-	 - The type of structure that is to be controlled
-	 - Valid values: 'v2_pumpstation', 'v2_pipe', 'v2_orifice', 'v2_culvert', 'v2_weir', 'v2_channel'
+     - \-
+     - Yes
+     - The type of structure that is to be controlled
+     - Valid values: 'v2_pumpstation', 'v2_pipe', 'v2_orifice', 'v2_culvert', 'v2_weir', 'v2_channel'
    * - type
      - string
-	 - \- 
-	 - Yes
-	 - Defines which structure property to set
-	 - Options are: 'set_discharge_coefficients', 'set_crest_level', 'set_gate_level', 'set_pump_capacity'
+     - \- 
+     - Yes
+     - Defines which structure property to set
+     - Options are: 'set_discharge_coefficients', 'set_crest_level', 'set_gate_level', 'set_pump_capacity'
    * - value
      - list of decimal number(s)
-	 - m MSL, \-, m3/s
-	 - Yes
-	 - Structure property will be set to this value
-	 - Units depend on the *type*. Crest and gate levels in m MSL, discharge coefficients are unitless, pump capacities in m3/s.
+     - m MSL, \-, m3/s
+     - Yes
+     - Structure property will be set to this value
+     - Units depend on the *type*. Crest and gate levels in m MSL, discharge coefficients are unitless, pump capacities in m3/s.
    * - grid_id
      - integer
-	 - \-
-     - No	 
-	 - ID of the flowline or pump that is to be controlled
-	 - Either structure_id or grid_id must be specified
+     - \-
+     - No     
+     - ID of the flowline or pump that is to be controlled
+     - Either structure_id or grid_id must be specified
    * - upper_threshold
      - decimal number
      - m MSL, m3, m/s, m3/s
@@ -602,46 +602,46 @@ The following arguments can be specified for a :ref:`table_control`:
      - \-
    * - duration
      - integer
-	 - seconds
-	 - Yes
-	 - Defines how long the control structure is active
-	 - \-
+     - seconds
+     - Yes
+     - Defines how long the control structure is active
+     - \-
    * - measure_specification
      - :ref:`measure_specification`
-	 - \-
-	 - Yes
-	 - Specifies how the value to which the control should react is measured
-	 - \-
+     - \-
+     - Yes
+     - Specifies how the value to which the control should react is measured
+     - \-
    * - structure_id
      - integer
-	 - \-
-	 - No
-	 - ID of the structure as defined in the spatialite
-	 - Either structure_id or grid_id must be specified
+     - \-
+     - No
+     - ID of the structure as defined in the spatialite
+     - Either structure_id or grid_id must be specified
    * - structure_type
      - string
-	 - \-
-	 - Yes
-	 - The type of structure that is to be controlled
-	 - Valid values: 'v2_pumpstation', 'v2_pipe', 'v2_orifice', 'v2_culvert', 'v2_weir', 'v2_channel'
+     - \-
+     - Yes
+     - The type of structure that is to be controlled
+     - Valid values: 'v2_pumpstation', 'v2_pipe', 'v2_orifice', 'v2_culvert', 'v2_weir', 'v2_channel'
    * - type
      - string
-	 - \- 
-	 - Yes
-	 - Defines which structure property to set
-	 - Options are: 'set_discharge_coefficients', 'set_crest_level', 'set_gate_level', 'set_pump_capacity'
+     - \- 
+     - Yes
+     - Defines which structure property to set
+     - Options are: 'set_discharge_coefficients', 'set_crest_level', 'set_gate_level', 'set_pump_capacity'
    * - values
      - list of decimal number(s)
-	 - m MSL, \-, m3/s
-	 - Yes
-	 - See :ref:`table_control_values`
-	 - \-
+     - m MSL, \-, m3/s
+     - Yes
+     - See :ref:`table_control_values`
+     - \-
    * - grid_id
      - integer
-	 - \-
-     - No	 
-	 - ID of the flowline or pump that is to be controlled
-	 - Either structure_id or grid_id must be specified
+     - \-
+     - No
+     - ID of the flowline or pump that is to be controlled
+     - Either structure_id or grid_id must be specified
 
 
 The following example JSON file activates a table control during the first hour of the simulation. It that sets the gate level of orifice 27 to an action value defined in the action table, when the water level at connection node 356 falls below the threshold value in the action table::

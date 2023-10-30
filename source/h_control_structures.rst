@@ -86,7 +86,7 @@ As an example, consider a memory control on a culvert by measuring water levels 
 
 The control will be activated when the water level at the measuring station rises above 1.2 m MSL for the first time. Now, the culvert's discharge coefficients are set to 0.0, i.e. closing off the culvert. When the water level subsequently falls below 0.8 m MSL, the control becomes inactive and the discharge coefficients defaults back to its original value, i.e. opening the culvert again. 
 
-For details on measurement variables and measurement locations, see :ref:`measurement`.
+For details on measurement variables and measurement locations, see :ref:`measurements`.
 
 
 .. _controllable_structures:
