@@ -131,6 +131,8 @@ The following structure properties can be controlled:
 
 - :ref:`Pump<pump>` capacity
 
+.. _controlling_crest_level:
+
 Controlling the crest level
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -141,6 +143,8 @@ When the crest level is changed, the whole cross-section shifts up or down. The 
 
    Example of an orifice with a circular cross-section for which the crest level is changed by a structure control.
 
+
+.. _controlling_gate_level:
 
 Controlling the gate level
 ^^^^^^^^^^^^^^^^^^^^^^^^^^

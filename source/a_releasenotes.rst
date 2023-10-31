@@ -8,6 +8,15 @@ Release notes
 3Di general releases
 --------------------
 
+October 31st, 2023
+^^^^^^^^^^^^^^^^^^
+
+- Structure controls can now set the gate level, see :ref:`controlling_gate_level`. (threedi-api #2016)
+
+- If generating a 3Di model takes more than 24 h, the process is automatically cancelled (threedi-api #1992)
+
+- Timestep reduction and matrix instability logging are no longer included in simulation.log, to avoid duplication with timestep_reduction.log and matrix.log (threedi-calculationcore #674)
+
 October 2nd, 2023
 ^^^^^^^^^^^^^^^^^
 
