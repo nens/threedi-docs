@@ -360,21 +360,433 @@ Custom
 Structure controls
 ==================
 
-Structure controls provide the capability to modify hydraulic structure parameters within a water system by leveraging flow variables. These flow variables serve as triggers for actions on a structure, based on predefined rules specific to the type of control employed. For a comprehensive understanding, visit the :ref:`control` pages.
+Several structure properties can be changed during the simulation, such as the crest or gate level, pump capacity or discharge coefficients. These properties can be changed directly (using a timed control), or rules can be defined to let these properties react dynamically to changes in water level, volume, discharge, or flow velocity. See :ref:`control` for more information.
+
+From simulation template
+------------------------
+
+When structure controls have been defined in the spatialite, this information will be read into the :ref:`Simulation template<simulation_and_simulation_templates>` when generating a :ref:`threedimodel`. In the simulation wizard, the option 'From simulation template' will become available, so you can switch off some or all of the structure controls that are included in the simulation template.
+
+Upload file
+-----------
+
+You can supply a JSON file that defines additional structure controls to be used in the simulation. If structure controls are already defined in the simulation template, the structure controls in the file will be *added* to those. The structure of the file is explained below. You can combine timed, table, and memory control in the same file.
 
 
-To incorporate structure controls, there are two methods: utilizing a simulation template or uploading a JSON file. When using a simulation template, you have four options:
+.. _sim_timed_control:
 
-* File structure controls
-* :ref:`Table structure controls <table_control>`
-* :ref:`Memory structure controls <memory_control>`
-* Timed structure controls
-  
+Timed control
+^^^^^^^^^^^^^
 
-.. VRAAG: De andere dingen stonden nog niet uitgelegd in de documentatie. Klopt dit stukje nu een beetje?
+The following arguments can be specified for a :ref:`timed_control`:
 
-|
 
+.. list-table:: Arguments for a timed control
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Units
+     - Required
+     - Description
+     - Comments
+   * - offset
+     - integer
+     - seconds
+     - Yes
+     - Offset of event in simulation
+     - \-
+   * - duration
+     - integer
+     - seconds
+     - Yes
+     - Defines how long the control structure is active
+     - \-
+   * - value
+     - decimal number
+     - m MSL, \-, m3/s
+     - Yes
+     - Structure property will be set to this value
+     - Units depend on the *type*. Crest and gate levels in m MSL, discharge coefficients are unitless, pump capacities in m3/s.
+   * - type
+     - string
+     - \- 
+     - Yes
+     - Defines which structure property to set
+     - Options are: 'set_discharge_coefficients', 'set_crest_level', 'set_gate_level', 'set_pump_capacity'
+   * - structure_id
+     - integer
+     - \-
+     - No
+     - ID of the structure as defined in the spatialite
+     - Either structure_id or grid_id must be specified
+   * - structure_type
+     - string
+     - \-
+     - Yes
+     - The type of structure that is to be controlled
+     - Valid values: 'v2_pumpstation', 'v2_pipe', 'v2_orifice', 'v2_culvert', 'v2_weir', 'v2_channel'
+   * - grid_id
+     - integer
+     - \-
+     - No
+     - ID of the flowline or pump that is to be controlled
+     - Either structure_id or grid_id must be specified
+
+The *value* parameter must be a list, even if it contains 1 value (e.g. [0.3]), except for the *set_discharge_coefficients* action that expects a value for both flow directions (e.g. [0.8, 0.0]).
+
+The following example JSON file sets the discharge coefficients of weir 21 to 0.4 (positive) and 0.8 (negative) for the first 100 s of the simulation::
+
+	{
+		"timed": [
+			{
+			  "offset": 0,
+			  "duration": 100,
+			  "value": [
+				0.4, 0.8
+			  ],
+			  "type": "set_discharge_coefficients",
+			  "structure_id": 21,
+			  "structure_type": "v2_weir"
+			}
+		]
+	}
+
+.. _sim_memory_control:
+
+Memory control
+^^^^^^^^^^^^^^
+
+The following arguments can be specified for a :ref:`memory_control`:
+
+
+.. list-table:: Arguments for a memory control
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Units
+     - Required
+     - Description
+     - Comments
+   * - offset
+     - integer
+     - seconds
+     - Yes
+     - Offset of event in simulation
+     - \-
+   * - duration
+     - integer
+     - seconds
+     - Yes
+     - Defines how long the control structure is active
+     - \-
+   * - measure_specification
+     - :ref:`measure_specification`
+     - \-
+     - Yes
+     - Specifies how the value to which the control should react is measured
+     - \-
+   * - structure_id
+     - integer
+     - \-
+     - No
+     - ID of the structure as defined in the spatialite
+     - Either structure_id or grid_id must be specified
+   * - structure_type
+     - string
+     - \-
+     - Yes
+     - The type of structure that is to be controlled
+     - Valid values: 'v2_pumpstation', 'v2_pipe', 'v2_orifice', 'v2_culvert', 'v2_weir', 'v2_channel'
+   * - type
+     - string
+     - \- 
+     - Yes
+     - Defines which structure property to set
+     - Options are: 'set_discharge_coefficients', 'set_crest_level', 'set_gate_level', 'set_pump_capacity'
+   * - value
+     - list of decimal number(s)
+     - m MSL, \-, m3/s
+     - Yes
+     - Structure property will be set to this value
+     - Units depend on the *type*. Crest and gate levels in m MSL, discharge coefficients are unitless, pump capacities in m3/s.
+   * - grid_id
+     - integer
+     - \-
+     - No     
+     - ID of the flowline or pump that is to be controlled
+     - Either structure_id or grid_id must be specified
+   * - upper_threshold
+     - decimal number
+     - m MSL, m3, m/s, m3/s
+     - No
+     - \-
+     - \-
+   * - lower_threshold
+     - decimal number
+     - m MSL, m3, m/s, m3/s
+     - No
+     - \-
+     - \-
+   * - is_active
+     - boolean
+     - \-
+     - No
+     - when True the initial state of the target is active
+     - \-
+   * - is_inverse
+     - boolean
+     - \-
+     - No
+     - when True the target will become active when the lower threshold has been reached
+     - \- 
+
+The *value* parameter must be a list, even if it contains 1 value (e.g. [0.3]), except for the *set_discharge_coefficients* action that expects a value for both flow directions (e.g. [0.8, 0.0]).
+
+The following example JSON file activates a memory control after one hour since the start of the simulation, that sets the crest level of weir 13 to 9.05 m MSL when the water level at connection node 356 rises above 0.3m. It will go back to its initial value when the water level falls below 0.1 m MSL::
+
+	{
+		"memory": [
+			{
+			  "offset": 3600,
+			  "duration": 259200,
+			  "measure_specification": {
+				"locations": [
+				  {
+					"weight": 1.00,
+					"content_type": "v2_connection_node",
+					"content_pk": 356
+				  }
+				],
+				"variable": "s1",
+				"operator": ">"
+			  },
+			  "structure_id": 13,
+			  "structure_type": "v2_weir",
+			  "type": "set_crest_level",
+			  "value": [
+				9.05
+			  ],
+			  "upper_threshold": 0.3,
+			  "lower_threshold": 0.1,
+			  "is_active": false,
+			  "is_inverse": false
+			}
+		]
+	}
+
+The figure below shows three examples of JSON files.
+
+.. figure:: image/c_control_json.png
+   :alt: three examples of json files with control structures
+
+.. _sim_table_control:
+
+Table control
+^^^^^^^^^^^^^
+
+The following arguments can be specified for a :ref:`table_control`:
+
+
+.. list-table:: Arguments for a table control
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Units
+     - Required
+     - Description
+     - Comments
+   * - offset
+     - integer
+     - seconds
+     - Yes
+     - Offset of event in simulation
+     - \-
+   * - duration
+     - integer
+     - seconds
+     - Yes
+     - Defines how long the control structure is active
+     - \-
+   * - measure_specification
+     - :ref:`measure_specification`
+     - \-
+     - Yes
+     - Specifies how the value to which the control should react is measured
+     - \-
+   * - structure_id
+     - integer
+     - \-
+     - No
+     - ID of the structure as defined in the spatialite
+     - Either structure_id or grid_id must be specified
+   * - structure_type
+     - string
+     - \-
+     - Yes
+     - The type of structure that is to be controlled
+     - Valid values: 'v2_pumpstation', 'v2_pipe', 'v2_orifice', 'v2_culvert', 'v2_weir', 'v2_channel'
+   * - type
+     - string
+     - \- 
+     - Yes
+     - Defines which structure property to set
+     - Options are: 'set_discharge_coefficients', 'set_crest_level', 'set_gate_level', 'set_pump_capacity'
+   * - values
+     - list of decimal number(s)
+     - m MSL, \-, m3/s
+     - Yes
+     - See :ref:`table_control_values`
+     - \-
+   * - grid_id
+     - integer
+     - \-
+     - No
+     - ID of the flowline or pump that is to be controlled
+     - Either structure_id or grid_id must be specified
+
+
+The following example JSON file activates a table control during the first hour of the simulation. It that sets the gate level of orifice 27 to an action value defined in the action table, when the water level at connection node 356 falls below the threshold value in the action table::
+
+	{
+		"table": [
+			{
+				"offset": 0,
+				"duration": 3600,
+				"measure_specification": {
+					"locations": [
+						{
+							"weight": 1.00,
+							"content_type": "v2_connection_node",
+							"content_pk": 356
+						}
+					],
+					"variable": "s1",
+					"operator": "<"
+				},
+				"structure_id": 27,
+				"structure_type": "v2_orifice",
+				"type": "set_gate_level",
+				"values": [
+					[
+						9.05,
+						-1.45
+					], 
+					[
+						9.10,
+						-1.5
+					],
+					[
+						9.15,
+						-1.55
+					]
+				]
+			}
+		]
+	}
+
+
+.. _table_control_values:
+
+Values parameter of table control
+"""""""""""""""""""""""""""""""""
+
+The *values* parameter is an action table, which consists of one or more (threshold, action value) pairs, e.g. [[9.05, -1.45], [9.10, -1.5], [9.15, -1.55]] 
+
+To close/open or partially close/open a structure using the *set_discharge_coefficients* type, the values must contain three values. For example [[1.2, 0.5, 0.7]], where
+
+- 1.2 is the threshold value
+
+- 0.5 the action value for the positive flow direction
+
+- 0.7 action value for the negative flow direction
+
+Action values for *set_discharge_coefficients* type must be > 0.
+
+For ALL operators threshold values must be ascending.
+
+The units of the threshold values depend on the *measure_specification*. Water levels are in m MSL, volumes in m3, flow velocities in m/s, discharges in m3/s.
+
+The units of the action values depend on the action *type*. Crest and gate levels in m MSL, discharge coefficients are unitless, pump capacities in m3/s.
+
+
+
+.. _measure_specification:
+
+Measure specification
+"""""""""""""""""""""
+
+A *Measure specification* defines how the value must be calculated that triggers a control structure action. It has the following parameters.
+
+
+.. list-table:: Arguments for a control structure measure specification
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Units
+     - Required
+     - Description
+     - Comments
+   * - name
+     - string
+     - \-
+     - No
+     - A name that describes this measure specification
+     - \-
+   * - locations
+     - list of :ref:`measure locations<measure_location>`
+     - \-
+     - Yes
+     - \-
+     - \-
+   * - variable
+     - string
+     - \-
+     - Yes
+     - measurement variable, one of the following options: s1 (waterlevel), vol1 (volume), q (discharge), u1 (velocity)
+     - \-
+   * - operator
+     - string
+     - \-
+     - Yes
+     - e.g. >, <, >=, <=
+     - \-
+
+.. _measure_location:
+
+Measure location
+""""""""""""""""
+
+A *Measure location* defines a location and its weight relative to other measure locations that are grouped in the same :ref:`measure_specification`. The sum of the weights for one *Measure specification* must equal 1. It is defined by the following arguments.
+
+.. list-table:: Arguments for a control structure measure location
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Required
+     - Description
+   * - weight
+     - decimal number
+     - Yes
+     - The weight to use for this location when calculating the weighted average of all measured values in their measure specification.
+   * - content_type
+     - string
+     - Yes
+     - spatialite table from which to select a feature to use as measure location.
+   * - content_pk
+     - integer
+     - Yes
+     - ID (primary key) of the feature to use as measure location.
+   * - grid_id
+     - integer
+     - No
+     - Computational grid ID of the node or flowline to use as measure location.
+	 
+	 
 .. _simulate_api_qgis_breaches:
 
 Breaches

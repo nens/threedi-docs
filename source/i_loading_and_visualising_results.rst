@@ -12,7 +12,9 @@ To add computational grids and simulation results to your project, open the *Res
 
 If multiple simulations have been run with the same 3Di model, the computational grid will be loaded once and both simulation results will be connected to the same computational grid.
 
-To remove a computational grid or simulation result, select the item you want to remove and click |removeresults| in the upperright corner.
+To remove a computational grid or simulation result, either *Right-click* > *Delete* or select the item you want to remove and click |removeresults| in the upper right corner.
+
+To rename a computational grid or simulation result, *Double-click* it or select the item you want to remove and hit *F2*. Note that this will just change how the item is displayed in the 3Di Modeller Interface; it will not change the actual file or folder names.
 
 Under **General settings** you can select whether or not the simulation start times are aligned (based on the simulation with the earliest start time) in case you have loaded multiple sets of results.
 
