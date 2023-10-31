@@ -994,6 +994,15 @@ For schematisations users can:
 3Di Modeller Interface
 ----------------------
 
+October 31st, 2023
+^^^^^^^^^^^^^^^^^^
+
+**3Di Results Analysis 3.2**
+
+- Introduced two new presets for the :ref:`results_aggregation`: *Water on street duration (0D1D)* and *Water on street duration (1D2D)* (#935)
+
+- Bugfix: The "Catchment for polygons" option in the Watershed tool no longer gives an error (#948)
+
 October 24th, 2023
 ^^^^^^^^^^^^^^^^^^
 
