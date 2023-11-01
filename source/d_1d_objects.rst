@@ -750,13 +750,24 @@ Drain level
 - In 1D-2D models, this setting only applies to manholes with calculation type 'connected'
 - In 1D-only models, the drain level is used as the street level, above which the storage area widens to the "manhole storage area" value specified in the global settings.
 - If the drain level is not filled in, 3Di will use the DEM value at the location of the manhole, or, in case of 1D-only models, the highest top of the pipes starting or ending at this manhole.
+- In 1D-2D models, the 1D-2D exchange level is the maximum of the manhole drain level and the 2D cell's bottom level. See the figures below for an illustration of this.
 
+**Drain level above lowest pixel in the 2D cell**
 
-.. figure:: image/i_surface_exchange_drain_level.png
-	:alt: Manhole with its user-defined *drain level* and *surface level*, and the *1D2D exchange level* that is used in the simulation.
-	:scale: 50%
+.. figure:: image/i_surface_exchange_drain_level_b.png
+	:alt: Manhole with a *drain level* below the 2D cell's lowest pixel. The *1D2D exchange level* that is used in the simulation equals the 2D cell's bottom level.
+	:scale: 75%
 	
-	Manhole in a 1D2D schematisation, with its user-defined *drain level* and *surface level*, and the *1D2D exchange level* that is used in the simulation. The vertical, dashed lines indicate the edges of the 2D cell. In this example, the drain level is lower than the lowest DEM elevation in this computational cell, so that the exchange level is higher than the drain level.
+	Manhole with a *drain level* below the 2D cell's lowest pixel. The *1D2D exchange level* that is used in the simulation equals the 2D cell's bottom level.
+
+
+**Drain level below lowest pixel in the 2D cell**
+
+.. figure:: image/i_surface_exchange_drain_level_a.png
+	:alt: Manhole with a *drain level* above the 2D cell's lowest pixel. The *1D2D exchange level* that is used in the simulation equals the manhole drain level.
+	:scale: 75%
+	
+	Manhole with a *drain level* above the 2D cell's lowest pixel. The *1D2D exchange level* that is used in the simulation equals the manhole drain level.
 
 
 Shape, width and length

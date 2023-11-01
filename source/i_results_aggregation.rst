@@ -27,13 +27,23 @@ Options
 	- < 1 second 10% of the time and/or
 	- < 3 seconds 50% of the time and/or
 	- < 5 seconds 80% of the time
-- *Water on street duration* calculates the duration that the water level is above the manhole drain level.
+- *Water on street duration (0D1D)* calculates the time [s] that the water level in manholes exceeds the *drain level*. In 3Di models without 2D, this is the level at which water flows onto the street (i.e., where the storage area changes from what is specified at the connection node to what is specified as manhole storage area in the global settings). See also :ref:`manhole_notes_for_modellers`.
+
+.. note:
+    Do not use this preset for 3Di models with 2D. In such models, the drain level defined at the manhole is not always the level at which water flows onto the street. If this drain level is lower than the bottom level (lowest pixel) of the 2D cell the manhole is in, the water must rise until the 2D cell's bottom level is reached before it can flow onto the street.
+
+- *Water on street duration (1D2D)* calculates the time [s] that the water level in manholes exceeds the *1D2D exchange level*. In 3Di models with 2D, this is the level at which water flows onto the street. The exchange level is the maximum of two values: the drain level specified for the manhole, or the bottom level (lowest pixel) of the 2D cell the manhole is in. See also :ref:`manhole_notes_for_modellers`.
+
+.. note: 
+    Manholes that have no connection to the 2D domain do not have an exchange level; the 'water on street duration' is always 0 for these manholes.
+    
+    Do not use this preset for 3Di models without 2D. In such models, none of the manholes have a connection to the 2D domain, so the 'water on street duration' will be 0 for all manholes.
 
 **Filters**
 
 - *Extent* gives you the option to limit the analysis for only a part of your model. This can be done by defining a bounding box (this can be calculated from a Layer, Layout Map or Bookmark). Additionally you can set the map canvas as the bounding box. By default the entire model is taken into account. 
 - *Temporal* gives you the option to limit the analysis for only a part of the simulation defined by the start and end time (e.g. the first hour). By default the full simulation is taken into account. 
-- *Type* gives you the option to only look at manhole nodes. When unchecked it takes all nodes into account. This is automatically checked for the 'water on street duration'.
+- *Type* gives you the option to only look at manhole nodes. When unchecked it takes all nodes into account. This is automatically checked for the *Duration water on street* presets.
 
 **Aggregations**
 
