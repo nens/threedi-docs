@@ -23,11 +23,12 @@ Geometry
 ^^^^^^^^
 The 2D boundary is schematized as a line. There are a few constraints for schematizing 2D boundary conditions, these constraints are listed below: 
 
-- 2D boundary conditions can only touch boundary computational cells, this is defined as cells that have a minimum of one side that does not touch another computational cell. This means that it is also possible to schematize 2D-boundaries in the middle of your model, if there is an area which does have no data values in the DEM. 
-- 2D boundary contitions can touch one or multiple computational cells. In the case of multiple computional cells, the cells must lay vertical or horizontal but cannot be diagonal. 
-- When applying 2D boundary conditions, it is not allowed to have more than one grid resolution on the edge.
+- 2D boundary conditions can only touch boundary computational cells, which are defined as cells having at least one side that does not share an edge with another computational cell. This means that it is also possible to schematize 2D-boundaries in the middle of your model, if there is an area which does have no data values in the DEM. 
+- 2D boundary conditions may intersect with one or more computational cells. When multiple computational cells are touched by the boundary condition, it is essential that these cells align either vertically or horizontally, diagonal alignment is not permitted.
+- When applying 2D boundary conditions, it is not allowed to have more than one grid resolution on the edge where the boundary condition is applied.
 
-
+.. tip::
+  When experiencing difficulties adding 2D boundary conditions, you could try to generate your computational grid locally using the 'computational grid from schematisation' algorithm. Afterwards, the 2D boundary conditions can be added on the correct location in your model. 
 
 
 Attributes
