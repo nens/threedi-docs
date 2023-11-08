@@ -718,6 +718,12 @@ The map can be viewed here: stowa.lizard.net
 3Di Live
 --------
 
+October 31st, 2023
+^^^^^^^^^^^^^^^^^^
+
+- Correctly show DEMs that contain None, NaN, inf or -inf values (threedi-api #2041)
+
+
 October 18, 2023
 ^^^^^^^^^^^^^^^^
 - Flood barriers can now always be clicked for more info, also when the Flood barrier tool is not active (#527)
