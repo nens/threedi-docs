@@ -3,7 +3,7 @@
 Infiltration
 ============
 
-3Di supports two methods for computing infiltration: the so-called *simple infiltration* and the *Horton based infiltration*. The simple infiltration uses an infiltration rate that is constant in time, while the Horton based infiltration is based on the concept of infiltration which reaches an equilibrium rate after some time. In 3Di, the infiltration computed with the first method in represented by the removal of water from the system. For the second method, a ground water layer is defined into which water can infiltrate. From this layer, water can also exfiltrate in case the groundwater level reaches the surface level.
+3Di supports two methods for computing infiltration: the so-called *simple infiltration* and the *Horton based infiltration*. The simple infiltration uses an infiltration rate that is constant in time, while the Horton based infiltration is based on the concept of infiltration which reaches an equilibrium rate after some time. In 3Di, the infiltration computed with the first method in represented by the removal of water from the system. For the second method, a groundwater layer is defined into which water can infiltrate. From this layer, water can also exfiltrate in case the groundwater level reaches the surface level.
 
 .. _simpleinfiltration:
 
