@@ -21,14 +21,21 @@ Boundary condition for 2D model edge. Boundary conditions are crucial in hydraul
 
 Geometry
 ^^^^^^^^
-The 2D boundary is schematized as a line. There are a few constraints for schematizing 2D boundary conditions, these constraints are listed below: 
 
-- 2D boundary conditions can only touch boundary computational cells, which are defined as cells having at least one side that does not share an edge with another computational cell. This means that it is also possible to schematize 2D-boundaries in the middle of your model, if there is an area which does have no data values in the DEM. 
-- 2D boundary conditions may intersect with one or more computational cells. When multiple computational cells are touched by the boundary condition, it is essential that these cells align either vertically or horizontally, diagonal alignment is not permitted.
-- When applying 2D boundary conditions, it is not allowed to have more than one grid resolution on the edge where the boundary condition is applied.
+Line
+
+Geometry requirements: 
+
+- 2D boundary condition line can only touch boundary computational cells. These are defined as cells having at least one side that does not share an edge with another computational cell. This is often a cell at the outer edge of the model domain. It is also possible to schematise 2D boundaries on an inner edge of the model domain, i.e. if there is a NODATA hole in the DEM. 
+
+- 2D boundary condition lines must intersect with one or more computational cells.
+
+- When multiple computational cells are touched by the 2D boundary condition line, it is essential that these cells align either vertically or horizontally. Diagonal alignment is not permitted.
+
+- All cells intersected by a 2D boundary condition line must have the same size, i.e. do not use grid refinement at the location of a 2D boundary condition.
 
 .. tip::
-  When experiencing difficulties adding 2D boundary conditions, you could try to generate your computational grid locally using the 'computational grid from schematisation' algorithm. Afterwards, the 2D boundary conditions can be added on the correct location in your model. 
+  When experiencing difficulties adding 2D boundary conditions, generate the computational grid locally using :ref:`computational_grid_from_schematisation`. This helps you see where the 2D boundary condition line is located relative to the computational cells. 
 
 
 Attributes
