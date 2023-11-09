@@ -63,6 +63,8 @@ Computational grid from gridadmin.h5 file
 
 The processing algorithm "Computational grid from gridadmin.h5" reads the computational grid data from the .h5 file and writes it to GIS-layers in a GeoPackage. You can find it in the :ref:`3di_processing_toolbox` (Main Menu > Processing > Toolbox), under 3Di > Computational Grid. Choose a folder that contains a gridadmin.h5 file and an output location for the GeoPackage. Once the algorithm has run, the layers from the GeoPackage will be added to your project. If you do not need this data anymore after closing the 3Di Modeller Interface, you can also save to a temporary file. 
 
+.. _computational_grid_from_schematisation:
+
 Computational grid from schematisation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

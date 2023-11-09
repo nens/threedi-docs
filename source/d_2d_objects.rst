@@ -21,7 +21,22 @@ Boundary condition for 2D model edge. Boundary conditions are crucial in hydraul
 
 Geometry
 ^^^^^^^^
+
 Line
+
+Geometry requirements: 
+
+- 2D boundary condition line can only touch boundary computational cells. These are defined as cells having at least one side that does not share an edge with another computational cell. This is often a cell at the outer edge of the model domain. It is also possible to schematise 2D boundaries on an inner edge of the model domain, i.e. if there is a NODATA hole in the DEM. 
+
+- 2D boundary condition lines must intersect with one or more computational cells.
+
+- When multiple computational cells are touched by the 2D boundary condition line, it is essential that these cells align either vertically or horizontally. Diagonal alignment is not permitted.
+
+- All cells intersected by a 2D boundary condition line must have the same size, i.e. do not use grid refinement at the location of a 2D boundary condition.
+
+.. tip::
+  When experiencing difficulties adding 2D boundary conditions, generate the computational grid locally using :ref:`computational_grid_from_schematisation`. This helps you see where the 2D boundary condition line is located relative to the computational cells. 
+
 
 Attributes
 ^^^^^^^^^^
