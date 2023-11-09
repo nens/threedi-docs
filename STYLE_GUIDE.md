@@ -1,6 +1,6 @@
 Style guide
 -----------
-- Use British English
+- Use British English. Write e.g. schematisation instead of schematization, schematise instead of schematize.
 - If you make screenshots, make sure there are no real user names and real projects in the screenshots. Create them using a demo account or blur them.
 - Headings use sentence case, i.e. starting with a capital letter, but other words not capitalized
 - The following names are used for our user interfaces:
