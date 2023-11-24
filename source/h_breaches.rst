@@ -48,10 +48,23 @@ Once the minimum breach level is reached, the width of the breach increases acco
    \frac{\partial B}{\partial t}  |_t = \frac{f_1  f_2}{u_c^2 ln[10]}  \frac{[g(h_{up}(t) - h_{down}(t))]^{3/2}}{1 + \frac{f_2g}{u_c}(t - T_0) }   \qquad     t > T_0
 
 | In which:
-| :math:`f_1, f_2` empirically derived parameters, different per sediment type,
+| :math:`f_1, f_2` empirically derived parameters, different per sediment type (values for 3Di are given in table xxx),
 | :math:`u_c` is the critical velocity
-| :math:`h_{up}, h_{down}` is the water level upstream and downstream of the breach.
-|
+| :math:`h_{up}, h_{down}` is the water level upstream and downstream of the breach. 
+
+.. list-table:: Parameter values breaches 3Di
+   :widths: 40 40 40
+   :header-rows: 1
+
+   * - Parameter
+     - Clay
+     - Sand
+   * - :math:`f_1`
+     - 0.8
+     - 0.02
+   * - :math:`f_2` 
+     - 1.4
+     - 0.6
 
 Because the water level gradient in front and behind the breach is included in the formulation, a natural balance may arise. This means that the breach stops growing, when the water levels are equal.
 
