@@ -718,6 +718,12 @@ The map can be viewed here: stowa.lizard.net
 3Di Live
 --------
 
+October 31st, 2023
+^^^^^^^^^^^^^^^^^^
+
+- Correctly show DEMs that contain None, NaN, inf or -inf values (threedi-api #2041)
+
+
 October 18, 2023
 ^^^^^^^^^^^^^^^^
 - Flood barriers can now always be clicked for more info, also when the Flood barrier tool is not active (#527)
@@ -993,6 +999,36 @@ For schematisations users can:
 
 3Di Modeller Interface
 ----------------------
+
+December 1st, 2023
+^^^^^^^^^^^^^^^^^^
+**Lizard QGIS plugin 0.2.0**
+
+The Lizard plugin for QGIS is now included in the 3Di Modeller Interface. You can use this plugin to access the Scenario Archive: browse for scenario's, add the as WMS and download raw and processed results.
+
+**3Di Schematisation Editor 1.7.2**
+
+- Bugfix: If the Spatialite table ``v2_surface_map`` contains rows with references to non-existent ``v2_surface`` id's, the conversion to GeoPackage no longer gives a Python error. The invalid references are reported and ignored, and the conversion is completed. (#192)
+
+**3Di Results Analysis 3.3.0**
+
+- All interaction with the 3Di working directory now uses the new package ``threedi-mi-utils`` (#805)
+
+- Bugfix: pumps with display names longer than 32 characters were not shown at all when loading the computational grid via the Results Manager. This has been fixed now.
+
+
+
+November 14th, 2023
+^^^^^^^^^^^^^^^^^^^
+
+**3Di Models & Simulations 3.7.0**
+
+- All interaction with the 3Di working directory now uses the new package ``threedi-mi-utils`` (ThreeDiToolbox #805)
+
+- Bugfix: Revision commit now waits for files to be in 'uploaded' or 'processed' state (#512)
+
+- Bugfix: Simulation wizard stops trying to initialize the simulation when file processing status is "error" (#504)
+
 
 October 31st, 2023
 ^^^^^^^^^^^^^^^^^^

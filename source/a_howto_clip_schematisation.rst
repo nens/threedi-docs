@@ -23,13 +23,21 @@ Now you will clip all the rasters that are part of this schematisation using thi
 #. Open the Processing Toolbox: *Main menu* > *Processing* > *Toolbox*. The *Processing Toolbox panel* opens.
 #. In the search bar of the Processing Toolbox panel, search for the processing algorithm *Clip raster by mask layer*. This algorithm is available in the *GDAL* category. Double click the algorithm.
 #. Use the following input arguments:
+
    - Input layer: Choose the Digital Elevation Model from the dropdown menu.
+
    - Mask layer: Choose the clip polygon layer. If the layer contains multiple polygons and you have selected the polygon you want to use, check the option *Selected features only*
+
    - Assign a specified nodata value to the output bands: -9999  
+
    - Check the option *Match the extent of the clipped raster to the extent of the mask layer*.
+
    - Check the option *Keep resolution of the input raster*
+
    - Under *Advanced Parameters* > *Profile*, choose *High compression*
+
    - Clipped (mask): Save the output file in the same location as the input raster, but add "_clipped" to the file name. For example, if the DEM filename is "C:\Users\your.name\3Di\Your copied schematisation\work in progress\schematisation\rasters\dem.tif", set the output file destination to "C:\Users\your.name\3Di\Your copied schematisation\work in progress\schematisation\rasters\dem_clipped.tif"
+   
 #. Click *Run*
 #. After the algorithm has completed, click *Change parameters*.
 #. Change the *Input layer* to the next raster of your schematisation (e.g. Friction)
