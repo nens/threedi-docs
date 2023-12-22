@@ -60,7 +60,7 @@ First the meta information of the computational grid is defined.
   Mesh2DNode_type: Type of 2D computational cell
 
   - Name: Type of 2D mesh node/face
-  - Types: surface_water_2d, grounwater_2d, groundwater_2d, open_water_boundary_2d, groundwater_boundary_2d
+  - Types: surface_water_2d, groundwater_2d, open_water_boundary_2d, groundwater_boundary_2d
 
 **Dimensions** Length of the arrays
 

@@ -9,6 +9,4 @@ In a 3Di model, flow may occur between 1D and 2D elements. In certain cases this
 Exchange formulation
 ++++++++++++++++++++++++
 
-The flow between 1D and 2D at the breach is computed based on a simplified momentum balance. A balance is made between the friction and the forcing. Note, that the volume in the breach is neglected.
-
-More details on how to use obstacles, levees and breaches can be found in :ref:`flood_model`.
+The flow through a breach is calculated with the broad crested weir equation. This equation takes into account the length and the friction over the weir. 
