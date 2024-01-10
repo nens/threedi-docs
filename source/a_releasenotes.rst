@@ -8,6 +8,110 @@ Release notes
 3Di general releases
 --------------------
 
+January 8th, 2023
+^^^^^^^^^^^^^^^^^
+
+**Water quality**
+
+We are proud to announce that we have added water quality capabilities to 3Di. More specifically, you can introduce concentrations of substances to the simulation, and compute the spread of substance concentrations due to advective forces and (numerical) diffusion.
+
+- Substances can enter the model domain as concentrations in initial water, boundary conditions, laterals, rain, leakage, surface sources and sinks. This applies to the entire model domain (1D, 2D, and groundwater).
+
+- Each forcing can contain concentrations of multiple substances at the same time
+
+- The substance concentration input mirrors the input of the forcing. I.e. 2D initial water levels are supplied as a raster, so 2D initial substance concentrations are also supplied as a raster; substance concentrations in time series rain is also to be provided as a time series; et cetera.
+
+- Substances can have names set by user 
+
+- Output is in NetCDF format. The file has the same structure as hydrodynamic results (results_3di.nc) and can be read with ``threedigrid``.
+
+- The logging includes a substance summary (similar to the flow summary) in JSON format
+
+.. note:
+	
+	- Input is purely API based (no GUI) 
+    
+	- Multiple laterals cannot be added to a single computational cell
+	
+	- All substances are known at the start of the simulation, although amounts can be set to 0.0 [g/m3,?].
+
+**Other improvements and bugfixes**
+
+- Memory efficiency in the generation of 3Di models has been improved. The limit for the DEM size is now 5 billion pixels (including NODATA pixels) (threedigrid-builder #345)
+
+- The flow summary is now JSON format instead text (.log). Units and values are split
+
+- Simulation ID is included in the flow summary (threedi-api #1303)
+
+- Timestep reduction and matrix instability logging are no longer included in simulation.log, because this information is already available in matrix.log and timestep_reduction.log (threedi-calculationcore #674)
+
+- The damage estimation (Netherlands only) now uses the newest land cover raster available in Lizard
+
+- Bugfix: cross-sectional area of groundwater flow made correct on the transitions of the grid size and in case water rises above the bed level. (threedi-calculationcore #708) 
+
+- Bugfix: several small bugfixes for structure control 
+
+- Bugfix: DEM edits in models with interflow would crash the simulation
+
+- Bugfix in ``threedigrid`` for 3Di models with boundary conditions. Time series of some variables did not have the correct ordering (i.e. wrong time series for node or flowline). This applies to ``infiltration_rate_simple``, ``ucx``, ``ucy``, ``leak``, ``intercepted_volume``, ``q_sss`` for Nodes and ``qp``, ``up1``, ``breach_depth``, ``breach_width`` for Lines.
+
+
+October 31st, 2023
+^^^^^^^^^^^^^^^^^^
+
+- Structure controls can now set the gate level, see :ref:`controlling_gate_level`. (threedi-api #2016)
+
+- If generating a 3Di model takes more than 24 h, the process is automatically cancelled (threedi-api #1992)
+
+- Timestep reduction and matrix instability logging are no longer included in simulation.log, to avoid duplication with timestep_reduction.log and matrix.log (threedi-calculationcore #674)
+
+October 2nd, 2023
+^^^^^^^^^^^^^^^^^
+
+- Bugfix: More memory is made available for generating 3Di models, to fix a performance degradation that was experienced when generating very large models (threedi-api #2005)
+
+- Bugfix: DEM edits would crash the simulation if the edit polygon covers more than one DEM tile (threedi-tables #262)
+
+
+September 21th, 2023
+^^^^^^^^^^^^^^^^^^^^
+
+- It has been made easier to :ref:`howto_clip_schematisations`.
+
+- Culverts can be imported into the schematisation with the new :ref:`Vector data importer<vector_data_importer>`.
+
+- The :ref:`conveyance_method` can now be used, for more accurate calculation of friction in 1D open water. For this new feature, the following checks where added to the schematisation checker.
+     
+	- Check 26: make sure friction types with conveyance are only used on v2_cross_section_location
+	
+	- Check 27: make sure friction types with conveyance are only used on tabulated rectangle, tabulated trapezium, or tabulated yz shapes.
+	
+	- Check 28: make sure cross-sections with conveyance friction monotonically increase in width
+	
+	- Check 29: advice to use friction with conveyance on cross-sections where it is possible, has not been used.
+	
+- The schematisation page in 3Di Management has been revised.
+
+- Schematisation-level description can be added in 3Di Management
+
+- In 3Di Management, many properties of online resources have been made editable: schematisation names, schematisation descriptions, schematisation tags, commit messages, 3Di model names, simulation template names.
+
+- It has become easier to delete revisions and schematisations. When a revision is deleted, its 3Di Model is also automatically deleted. When a schematisation is deleted, its revisions are also automatically deleted.
+
+- In the 3Di Modeller Interface, a new page for generating :ref:`saved_states` was added to the 3Di Models & Simulations simulation wizard.
+
+For further details see the release notes for :ref:`3Di Modeller Interface<release_notes_mi_20230921>` and :ref:`3Di Management<3di_ms_release_20230921>`
+
+.. note::
+   3Di Toolbox will be replaced by 3Di Results Analysis on October 1st, 2023. See :ref:`transition_from_3di_toolbox`.
+
+August 7, 2023
+^^^^^^^^^^^^^^
+
+- Interflow can now be combined with limiters
+
+- The 3Di computational core now writes the actions resulting from structure controls to a file (structure_control_actions_3di.nc), which can be downloaded via the API. Functionality in threedigrid and the 3Di Modeller Interface will be released in Q4 2023 or Q1 2024.
+
 July 18th 2023
 ^^^^^^^^^^^^^^
 
@@ -630,7 +734,7 @@ March 23rd 2021
 
 3Di is expanding! We are proud to announce that due to international recognition we are expanding the capacity of 3Di:
 
-- The first stage of setting up our second calculation center in Taiwan is finished. Organizations that prefer this center can connect to 3Di via `3di.tw <https://www.3di.tw>`_.
+- The first stage of setting up our second calculation center in Taiwan is finished. Organisations that prefer this center can connect to 3Di via `3di.tw <https://www.3di.tw>`_.
 - To cope with increasing demand for calculations the capacity of our main calculation center has been upgraded
 
 
@@ -662,7 +766,37 @@ The map can be viewed here: stowa.lizard.net
 .. _release_notes_LS:
 
 3Di Live
---------------
+--------
+
+October 31st, 2023
+^^^^^^^^^^^^^^^^^^
+
+- Correctly show DEMs that contain None, NaN, inf or -inf values (threedi-api #2041)
+
+
+October 18, 2023
+^^^^^^^^^^^^^^^^
+- Flood barriers can now always be clicked for more info, also when the Flood barrier tool is not active (#527)
+
+- When hoovering over the Side view plot, the mouse position is indicated on the map (#449)
+
+- DEM value is shown when clicking on the map using the Point tool (#526)
+
+- Asset properties that are in decimal numbers are now rounded to two decimals (#453)
+
+- Display names of assets are ellipsed and full name is shown when hoovering over (#431)
+
+- 3Di Live and 3Di Management are now "domain agnostic", so they can also be hosted on other domains, like 3di.twinn.io (#1245)
+
+- An *Info* panel was added, with details about the simulation and the 3Di model used (#273)
+
+- Values in charts labels are now rounded to 2 decimals (#1168)
+
+
+September 21, 2023
+^^^^^^^^^^^^^^^^^^
+
+- Bugfix: Allow negative and/or decimal number input in weir crest level edit (#949, #432)
 
 April 25th 2023
 ^^^^^^^^^^^^^^^
@@ -770,8 +904,55 @@ Some bugfixes in 3Di live:
 
 .. _release_notes_MS:
 
-3Di Management Screens
-----------------------
+3Di Management
+--------------
+
+October 18, 2023
+^^^^^^^^^^^^^^^^
+- The simulation overview page now shows which post-processing options have been used (#814)
+
+- You can now post-process results in Lizard for finished simulations. This option can be used if no post-processing for this simulation has been done and the raw results are still available, i.e., within 7 days after the simulation was finished. (#835, #1249, #1160)
+
+- The "Export to Excel" option for Simulations and 3Di Models now downloads all items, not just the ones that are shown on the page (#1040)
+
+- Simulations can now be removed from the queue (#780)
+
+- If you do not have management rights, the *Users* button is disabled; it will now show a list of users in your organisation that have management rights when hovering over it (#852)
+
+- You can now select multiple 3Di models, schematisations, and/or revisions and delete them all at once, including in the *Choose other revision* window on the schematisation detail page (#815, #1228)
+
+- Schematisations can be moved to a different organisation, if you have *Creator* or *Manager* rights for the organisation that currently owns the schematisation *and* the organisation to which you want to transfer it (#234)
+
+- Multiple improvements were made to the 3Di model overview, especially for organisations with more than 250 3Di models (#231, #227)
+
+- The simulation ID is now shown in the simulations overview (#233)
+
+- Bugfix: Links in *queued simulations* list were wrong, this has been fixed (#781)
+
+- Bugfix: Schematisation detail page: not all info was updated when switching to another revision (#1158)
+
+
+.. _3di_ms_release_20230921:
+
+September 21, 2023
+^^^^^^^^^^^^^^^^^^
+
+- Redesign of the *Schematisation details* page (#741)
+  - Schematisation name can be edited
+  - Schematisations now have a *Description*, which can be edited. Note: in the near future, you will also be able add a schematisation-level description when creating a schematisation in the 3Di Modeller Interface.
+  - Commit message can be edited
+  - Tags can be edited
+  - 3Di model names can be edited
+  - Simulation template names can be edited
+- It has become easier to delete revisions and schematisations. When a revision is deleted, its 3Di Model is also automatically deleted. When a schematisation is deleted, its revisions are also automatically deleted. 
+- Added "Delete schematisation" button in the schematisation section. This deletes the schematisation, which cascades to deletion of its revisions and 3Di models.
+- Make simulation name editable on simulation detail page (#792)
+- Schematisation revision detail page: show available saved states (#855)
+- Simulation overview page - forcings: show two decimals (#813)
+- Filter live statuses by organisation (#935)
+- *Export to Excel file* on the *Simulations* and *3Di Models* overview pages now exports *all* items instead of only the listed items. #1040
+- Bugfix: "Has 3Di Model" column not updated after model deletion (#686)
+
 
 .. _3di_ms_release_20231807:
 
@@ -868,6 +1049,156 @@ For schematisations users can:
 
 3Di Modeller Interface
 ----------------------
+
+January ??, 2024
+^^^^^^^^^^^^^^^^
+
+**3Di Schematisation Editor 1.8.0**
+
+- Easily load schematisations from your 3Di working directory through the new "Load Schematisation dialog" (#117)
+
+
+**3Di Models & Simulations 3.8.0**
+
+- By default, simulations will be billed to the organisation to which the 3Di model belongs. It is still possible to bill simulations to other organisations you have access to, but only if you deliberately choose this option (#107).
+
+- Change all functional and textuel references to "3Di Toolbox" to "3Di Schematisation Editor" (#503)
+
+- Bugfix: In the simulation wizard, uploading a rainfall NetCDF timeseries caused a python error (#510)
+
+
+**3Di Results Analysis 3.4.0**
+
+- Water depth/level processing algorithms now include days in the time display if selected time passes 24 h (#661)
+
+- Processing algorithms "Computational grid from gridadmin.h5 file" and "Computational grid from schematisation" now show warnings (if applicable)
+
+- Bugfix: after using the Water Depth processing tool, results_3di.nc could not be loaded as Mesh (#573)
+
+- Bugfix: Water depth/level processing algorithms are now compatible with h5py 3.0 (#966)
+
+
+December 1st, 2023
+^^^^^^^^^^^^^^^^^^
+**Lizard QGIS plugin 0.2.0**
+
+The Lizard plugin for QGIS is now included in the 3Di Modeller Interface. You can use this plugin to access the Scenario Archive: browse for scenario's, add the as WMS and download raw and processed results.
+
+**3Di Schematisation Editor 1.7.2**
+
+- Bugfix: If the Spatialite table ``v2_surface_map`` contains rows with references to non-existent ``v2_surface`` id's, the conversion to GeoPackage no longer gives a Python error. The invalid references are reported and ignored, and the conversion is completed. (#192)
+
+**3Di Results Analysis 3.3.0**
+
+- All interaction with the 3Di working directory now uses the new package ``threedi-mi-utils`` (#805)
+
+- Bugfix: pumps with display names longer than 32 characters were not shown at all when loading the computational grid via the Results Manager. This has been fixed now.
+
+
+
+November 14th, 2023
+^^^^^^^^^^^^^^^^^^^
+
+**3Di Models & Simulations 3.7.0**
+
+- All interaction with the 3Di working directory now uses the new package ``threedi-mi-utils`` (ThreeDiToolbox #805)
+
+- Bugfix: Revision commit now waits for files to be in 'uploaded' or 'processed' state (#512)
+
+- Bugfix: Simulation wizard stops trying to initialize the simulation when file processing status is "error" (#504)
+
+
+October 31st, 2023
+^^^^^^^^^^^^^^^^^^
+
+**3Di Results Analysis 3.2**
+
+- Introduced two new presets for the :ref:`results_aggregation`: *Water on street duration (0D1D)* and *Water on street duration (1D2D)* (#935)
+
+- Bugfix: The "Catchment for polygons" option in the Watershed tool no longer gives an error (#948)
+
+October 24th, 2023
+^^^^^^^^^^^^^^^^^^
+
+**3Di Models & Simulations 3.6.2**
+
+- Base URL is used instead of Base API URL, so that the URLs for obtaining Personal API Keys and opening the 3Di Management page are domain dependent. For example, you can set the Base URL to "3di.twinn.io" so that the plugin knowns that the management page is located at management.3di.twinn.io. (#505)
+
+October 19th, 2023
+^^^^^^^^^^^^^^^^^^
+
+**3Di Results Analysis 3.1.12**
+
+- Bugfix: make Side view tool work for 3Di Models without 2D (#931)
+
+- Temporarily remove the "Water on street duration" preset from the Result aggregation tool while a bug is being fixed
+
+October 16th, 2023
+^^^^^^^^^^^^^^^^^^
+
+**3Di Schematisation Editor 1.7.1**
+
+- Moving a channel vertex that has a cross section location on it now also moves the cross section location (#100)
+- Vector data importer main button shows options when clicked (#185)
+- Vector data importer dialog is disabled as long as no source layer is selected (#185)
+
+**3Di Models & Simulations 3.6.1**
+
+- Subtle redesign of the *Uploads* and *Running simulations* dialogs (#500)
+- Add cancel button to "store / replace" question dialog, show correct path when download has completed (#439)
+- Bugfix: Simulation wizard, rain *Stop after* value was not read correctly from simulation template if *Start after* was > 0 (#498)
+- Bumped dependencies: *threedi-api-client 4.1.4*, *threedi-modelchecker 2.4.0*, *threedi-schema 0.217.11*.
+
+
+October 2nd, 2023
+^^^^^^^^^^^^^^^^^
+
+**3Di Schematisation Editor 1.7.0**
+
+- Added "Import Weirs" processing algorithm (#178)
+- Added "Import Weirs" graphical user interface (#179)
+- Added "Import Orifices" processing algorithm (#180)
+- Added "Import Orifices" graphical user interface (#181)
+- Make attribute forms scrollable (#170)
+
+**3Di Results Analysis 3.1.11**
+
+First official version of this plugin. This is the successor of the 3Di Toolbox plugin. See :ref:`transition_from_3di_toolbox` for details.
+
+
+
+.. _release_notes_mi_20230921:
+
+September 21st, 2023
+^^^^^^^^^^^^^^^^^^^^
+
+**3Di Models & Simulations 3.6.0**
+
+- A new page "Generate saved state" was added to the Simulation Wizard. You can now name and add tags to the saved state, and choose when the saved state is created (end of simulation or specific moment in time) (#473)
+- The "New schematisation" Wizard now checks if DEM and friction files actually exist (#483)
+- A time zone explainer was added for 'radar rain' in the Simulation Wizard (#452)
+- The time zone can now be specified on the Duration page of the Simulation Wizard (#263)
+- When using *Tab* to move from one widget to the next on the Duration page, the sequence is more logical (#263)
+- Bugfix: If there is global 2D initial water level in the template, this is now used to populate the Simulation Wizard and used in the simulation (#474)
+- Bugfix: 'Post-processing in Lizard' settings are now correctly read from the template, Simulation Wizard is correctly populated with these settings so that they are used in the simulation (#481)
+- Bugfix: Saved states were used even if the option was disabled, this has been fixed now #484
+
+
+**3Di Schematisation Editor 1.6.0**
+
+- Culverts can be imported into the schematisation with a new graphical user interface  (#118, #119, #120, #176)
+- Support for using the :ref:`conveyance_method` in the calculation of friction in 1D open water: "Manning with conveyance" and "Chezy with conveyance" have been added as friction types in the :ref:`cross_section_location` layer (#159)
+- All layers related to :ref:`control structures<control>` are now also added to the project (#169)
+- When deleting connection nodes, you will now be asked if you want to delete all referenced features only once, instead of for each referenced feature (#67). This makes it much easier to :ref:`howto_clip_schematisations`.
+- Bugfix: In some cases, surfaces and their surface maps were not converted properly from spatialite to geopackage (#161)
+- Bugfix: When moving a connection node, some attributes of features referencing that connection node became NULL (#162)
+- Bugfix: Improved user feedback messages when spatialite database schema is unknown, too high or too low (#103)
+- Bugfix: In a new profile, the schematisation editor no longer keeps complaining about the Macro settings being wrong (#158)
+
+**3Di Toolbox 2.5.5**
+
+- Update *Generate computational grid* and *Check schematisation* with the new conveyance friction types, by bumping the threedi-\* dependencies (threedigrid to 2.0.\*, threedi-modelchecker to 2.4.\*, threedigrid-builder to 1.12.\*
+
 
 July 20th 2023
 ^^^^^^^^^^^^^^
@@ -1451,7 +1782,14 @@ We are constantly working on improving the 3Di experience. Based on user experie
 .. _release_notes_api:
 
 3Di API
-----------
+-------
+
+September 21, 2023
+^^^^^^^^^^^^^^^^^^
+
+- Added *archived* field to Schematisation, allowing it to be soft-deleted. A delete request archives the schematisation. A superuser can (hard) delete it afterwards by performing a second delete request.
+- Archiving a Schematisation also archives related Revision and ThreediModel resources.
+- Extend FrictionType enum with Chézy friction with conveyance and Manning friction with conveyance.
 
 .. _3di_api_release_20231807:
 

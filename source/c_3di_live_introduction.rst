@@ -1,7 +1,7 @@
 .. _3di_live_introduction:
 
-Introduction
-============
+What is 3Di Live
+================
 
 3Di Live is an online, interactive simulation environment. It is designed to be used with stakeholders to create a common understanding of a flood event and to try out measures to prevent and mitigate the impact of a flood. It allows you to run simulations in the browser. Every result that is calculated is shown directly on the screen. Simulations are interactive: you can add rain events, point discharges, emergency pumps, flood barriers, open en close pipes or hydraulic structures, dig storage pits, build dikes, et cetera. The effect of these interactions are immediately visible.
 
@@ -15,8 +15,8 @@ The video below gives a brief demo of 3Di Live:
 
 .. _3di_live_ui_overview:
 
-Screen overview
----------------
+3Di Live overview 
+=================
 
 When a :ref:`session<3di_live_sessions>` has started, the screen in :numref:`fig_main_ses` will be loaded. At the top left you can see the name of the loaded model.
 

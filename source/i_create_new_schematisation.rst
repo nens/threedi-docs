@@ -3,33 +3,44 @@
 Create a new schematisation
 ============================
 
-#. Open the 3Di Modeller Interface
-#. Activate the :doc:`i_plugin_models_simulation` (|modelsSimulations|). You should now see the Models and Simulations plugin panel.
-#. Choose your local working directory.
-#. Click on the 'New' button (|newschematisation|).
-#. Fill in your credentials to login.
-#. Choose a name (obligatory) and tags (optional).
-#. If you have rights to more than one organisation, choose the desired organisation.
-#. Click 'Next'.
-#. Fill in other settings, such as the projection and friction type and simulation timestep.
-#. Click 'Create Schematisation'.
-#. If you get errors, please solve them, otherwise you will get a "SUCCESS" message.
+New :ref:`schematisations<schematisation>` can be created from the :ref:`models_simulation_panel`.
 
-Congratulations, you have your first commit!
+Creating a new schematisation from scratch
+------------------------------------------
 
+To create an entirely new schematisation, go through the following steps:
 
+#. Open the :ref:`models_simulation_panel` (|modelsSimulations|).
+#. In the *Schematisation* section, click *New* (|newschematisation|).
+#. Choose a schematisation name (obligatory) and tags (optional).
+#. If you have rights to more than one organisation, choose the organisation that is to own the new schematisation.
+#. In the *Spatialite* section, choose the option *Create new spatialite*.
+#. Click *Next*.
+#. Fill in other settings, such as the projection and friction type and simulation time step.
+#. Click *Create Schematisation*.
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Importing data
-   :name: Importing data
-
-   d_import_gwsw_hydx
-   d_import_sufhyd
+A :ref:`schematisation` has now been created on the server. The corresponding folder in your local 3Di working directory contains the spatialite and (if chosen) a DEM and/or friction raster. This data itself has not been uploaded yet. See :ref:`uploading_schematisation` for instructions to upload this data as a new :ref:`revision`.
 
 
-.. VRAAG: Is dit een logische plek voor de importing data? Moet er niet nog wat uitleg bij. zoals you can also create a new schemation by importing data from a gwsw hydx or sufhyd.
+.. _copying_existing_schematisation:
 
+Copying an existing schematisation
+----------------------------------
+
+The *New schematisation* wizard can also be used to copy existing schematisations. This is useful when for example, you have a schematisation of the "current situation" and you want to investigate one or more alternatives for "future situations". In such a case, you can copy the current situation situation and start making changes in the copy, without affecting the original schematisation.
+
+Go through the following steps:
+
+#. Make sure you have :ref:`downloaded<downloading_schematisation>` the schematisation revision you want to create a copy of.
+#. Open the :ref:`models_simulation_panel` (|modelsSimulations|).
+#. In the *Schematisation* section, click *New* (|newschematisation|).
+#. Choose a schematisation name (obligatory) and tags (optional).
+#. If you have rights to more than one organisation, choose the organisation that is to own the new schematisation.
+#. In the *Spatialite* section, choose the option *Choose file*.
+#. Browse to the location where the spatialite is stored that belongs to the schematisation you want to copy. This is usually "<3Di working directory>\<Schematisation name>\work in progress\schematisation\<schematisation name>.sqlite"
+#. Click *Create Schematisation*.
+
+A :ref:`schematisation` has now been created on the server. The corresponding folder in your local 3Di working directory contains a copy of the spatialite and all the rasters it references. This data itself has not been uploaded yet. See :ref:`uploading_schematisation` for instructions to upload this data as a new :ref:`revision`.
 
 
 .. |newschematisation| image:: /image/pictogram_newschematisation.png

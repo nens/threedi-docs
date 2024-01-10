@@ -10,6 +10,8 @@ The methods that 3Di uses to deal with the flow in the 2D domain are thoroughly 
 
  .. TODO: Extend
 
+.. _surface_flow_cross_sections:
+
 Cross-sections and exchange levels
 ----------------------------------
 
@@ -44,7 +46,7 @@ If the model wishes to include an obstacle that may not be detected by the compu
 Friction
 --------
 
-The friction is calculated using the flow depth at each :ref:`subgrid <subgridmethod>` pixel in the :ref:`momentum domain<computational_grid_2d_domain>`. The formulations of Chézy or Manning can be used for the calculation of friction.
+In the 2D domain, the friction is calculated using the flow depth at each :ref:`subgrid <subgridmethod>` pixel in the :ref:`momentum domain<computational_grid_2d_domain>`. The formulations of Chézy or Manning can be used for the calculation of friction.
 
 Water level gradients
 ---------------------
@@ -69,8 +71,9 @@ Vegetation in a water course strongly affects the flow, as the vegetation exerts
 Two key aspects of the vegetation formulation used in 3Di are important to understand well. First, how vegetation exerts a drag force on the flowing water and how this differs from shear stresses such as bottom friction. Secondly, the importance of high resolution variations of the flow due to the varying vegetation characteristics.
 
 .. figure:: image/b_veggie_velocity_profile.png
+   :scale: 20%
     
-    Vertical velocity profiles altered by vegetation.
+   Vertical velocity profiles altered by vegetation.
 
 The 3Di computational core solves a force balance for the momentum domains. Different types of forces act differently on a fluid. For example, gravity is a body force, whereas bottom friction is due to a shear stress acting on a surface. Bottom friction alters the vertical velocity profile to a profile that can be described by a logarithmic function. Vegetation exerts a drag force on the water throughout the vertical profile. This drag scales with a representative vertical plane. The drag applies to the whole vertical profile if the vegetation is emerging, or, to a part of the vertical profile if the vegetation is submerged.
 

@@ -23,7 +23,7 @@ A new session will be started. During the start up of the model tips for use of 
 
 .. note::
 
-	The number of sessions that can run simultaneously by your organisation depends on your organisation's 3Di subscription. If this limit is reached, the message "Your organization is already running X sessions" will be shown.
+	The number of sessions that can run simultaneously by your organisation depends on your organisation's 3Di subscription. If this limit is reached, the message "Your organisation is already running X sessions" will be shown.
 	
 	If you organisation has a limited number of simulation hours in its subscription, the time that the session is active is subtracted from the available number of hours for the current year.
 	
@@ -119,3 +119,20 @@ which provides two products derived from the maximum water depth.
 
 - Damage estimation map
 - Damage estimation table
+
+
+.. _live_simulation_template:
+
+Storing and using simulation templates
+--------------------------------------
+A :ref:`simulation template<simulation_and_simulation_templates>` can be stored by clicking **User menu**, then clicking **Quit Simulation** and then **Create simulation template from simulation**. Set a template name and check the options you want to save:
+
+   - **Include events**: All :ref:`forcings<toctree_forcings>` and :ref:`events<toctree_events>` you have used in the simulation, such as rain events, breaches, or raster edits.
+   
+   - **Include initials**: All :ref:`initial conditions<toctree_initials>` that were used in the simulation in the simulation template, including initial water levels in 1D and/or 2D domains, or :ref:`saved_states`.
+   
+   - **Include settings**: All :ref:`simulation_settings`: physical, numerical, time step, and aggregation settings.
+
+Finally click **Store results**.
+
+Now when starting the same model again, you will be directed to choose a simulation template. The template you previously created will be accessible with the name you assigned to it. If you want to run a new simulation select the simulation template at the bottom of the list.

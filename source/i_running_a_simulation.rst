@@ -1,11 +1,9 @@
 .. _simulate_api_qgis:
 
-Running a simulation
-####################
+Simulating with the 3Di Modeller Interface
+##########################################
 
-To perform a simulation using the Modeller Interface, we will utilize the :ref:`models_simulation_plugin`. This section offers valuable insights into the various options available for your specific :ref:`scenario <scenario_info>`.
-
-
+This section explains the available options for running simulations in the 3Di Modeller Interface.
 
 
 Starting a simulation
@@ -50,30 +48,19 @@ Starting a simulation
 
 #) Name the simulation. Users within your organisation will be able to find this simulation and its results based on the name. Adding 'Tags' can clarify for other users what your simulation calculated or can be used to assign a simulation a certain project name or number.
 #) Set the 'Duration' of the simulation.
-#) The next steps depend on the selection of options from the initial screen of the wizard (step 6). Unchecked options will be omitted by the wizard. All possible options are explained below under :ref:`scenario_info`.
-#) Set the Simulation Settings. Here you can overwrite the settings in the SQLite if that is necessary.
-#) Start the simulation by clicking on 'Add to queue'. 
+#) The next steps depend on the selection of options from the initial screen of the wizard (step 6). Unchecked options will be omitted by the wizard. The different options are explained below.
+#) If you want, change the :ref:`simulation_settings`. The setting values that are shown are the ones you have specified in the schematisation spatialite. This page in the simulation wizard allows you to override specific  settings for this specific simulation. This does not change the values of the simulation settings in the spatialite.
+#) Click *Add to queue* to start the simulation. 
 
-.. VRAAG: wat moet ik nog over de simulations settings uitleggen
+You can follow the progress of your simulation by clicking on the *Simulate* icon in the :ref:`models_simulation_panel`. You can also terminate your simulation by clicking on 'Stop Simulation'. 
 
-
-
-You can follow the progress of your simulation by clicking on the 'Simulate' icon in the '3Di Models and Simulations' panel. You can also terminate your simulation by clicking on 'Stop Simulation'. 
-
-Once the simulation is done the results will be available for 7 days. For information on how to get, view and analyze results, see :ref:`mi_download_res` and :ref:`analysing_results`.
-
-
-
-.. _scenario_info:
-
-Scenario information
-====================
+Once the simulation is done the results will be available for 7 days. For information on how to download, view and analyze results, see :ref:`mi_analysing_results`.
 
 
 .. _simulate_api_qgis_boundary_conditions:
 
 Boundary conditions
--------------------
+===================
 
 * **From simulation template**: If the 3Di model contains boundary conditions, a timeseries for each boundary condition will be included in the simulation template. 
 
@@ -103,7 +90,7 @@ Boundary conditions
 
 
 Editing a time series for boundary conditions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------------------------
 
 To run a simulation in which only one or a few boundary conditions have a different time series, take the following steps. The instructions are for 1D Boundary conditions; for 2D Boundary conditions, the same instructions apply. 
 
@@ -169,8 +156,8 @@ Text example::
 
      
 
-Running a model without boundary conditions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Running a simulation without boundary conditions
+------------------------------------------------
 
 If the 3Di model contains boundary conditions, you can only run a simulation if a time series is specified for each one of them. To run a simulation without boundary conditions, you will need to remove them from your schematisation and generate a new 3Di model. 
 
@@ -179,7 +166,7 @@ If the 3Di model contains boundary conditions, you can only run a simulation if 
 .. _simulate_api_qgis_initial_conditions:
 
 Initial conditions
-------------------
+==================
 
 Initial conditions either refer to the use of saved state file, or the use of initial water level in 1D, 2D or groundwater (2D):
 
@@ -197,12 +184,6 @@ Initial conditions either refer to the use of saved state file, or the use of in
 - Aggregation method: this can mean, min or max.
 
 
-.. _simulate_api_qgis_boundary_conditions_export:
-
-Editing a time series for a single boundary condition
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
 2D Groundwater options:
 
 - Global value: a generic initial water level value in m MSL which is applied in all 2D groundwater nodes of the model.
@@ -217,7 +198,7 @@ Editing a time series for a single boundary condition
 .. _simulate_api_qgis_laterals:
 
 Laterals
---------
+========
 
 Laterals can be uploaded using .csv format for either 1D or 2D. For a more detailed description on laterals, see: :ref:`laterals`.
 
@@ -253,7 +234,7 @@ The CSV file format is generated by a right-mouse click on table: v2_1d_lateral.
 .. _dry_weather_flow:
 
 Dry weather flow
-----------------
+================
 
 Dry weather flow (DWF) is the average daily flow to a waste water treatment works during a period without rain, and can be added as a CSV file:
 
@@ -294,7 +275,7 @@ The dry weather flow that you add to your simulation, will be processed as later
 .. _simulate_api_qgis_precipitation:
 
 Precipitation
--------------
+=============
 
 There are several options to define a precipitation event for your simulation. In the drop-down menu, one can choose 'Constant', 'Custom', 'Design' and 'Radar - NL Only' events. 
 
@@ -346,12 +327,12 @@ This option is only available in the Netherlands and uses historical rainfall da
 .. _wind_apiclient:
 
 Wind
-----
+====
 
 Wind in 3Di applies to 2D surface water. You can choose between a 'Constant' or a 'Custom' type of wind. Read more about wind and the physics used by 3Di here: :ref:`wind_effects`.
 
 Constant
-^^^^^^^^
+--------
 
 * 'Start after:' defining an offset for the drag coefficient. The offset is the duration between the start of the simulation and the start of the wind event.
 * 'Stop after:' the duration between the start of the simulation and the end of the wind event.
@@ -361,7 +342,7 @@ Constant
 
 
 Custom
-^^^^^^
+------
 
 * 'Start after:' defining an offset for the drag coefficient. The offset is the duration between the start of the simulation and the start of the wind event.
 * 'Drag coefficient:' by increasing the drag coefficient, you increase the influence of the wind. It has a default value of 0,005.
@@ -377,27 +358,439 @@ Custom
 .. _sim_structure_controls:
 
 Structure controls
-------------------
+==================
 
-Structure controls provide the capability to modify hydraulic structure parameters within a water system by leveraging flow variables. These flow variables serve as triggers for actions on a structure, based on predefined rules specific to the type of control employed. For a comprehensive understanding, visit the :ref:`control` pages.
+Several structure properties can be changed during the simulation, such as the crest or gate level, pump capacity or discharge coefficients. These properties can be changed directly (using a timed control), or rules can be defined to let these properties react dynamically to changes in water level, volume, discharge, or flow velocity. See :ref:`control` for more information.
+
+From simulation template
+------------------------
+
+When structure controls have been defined in the spatialite, this information will be read into the :ref:`Simulation template<simulation_and_simulation_templates>` when generating a :ref:`threedimodel`. In the simulation wizard, the option 'From simulation template' will become available, so you can switch off some or all of the structure controls that are included in the simulation template.
+
+Upload file
+-----------
+
+You can supply a JSON file that defines additional structure controls to be used in the simulation. If structure controls are already defined in the simulation template, the structure controls in the file will be *added* to those. The structure of the file is explained below. You can combine timed, table, and memory control in the same file.
 
 
-To incorporate structure controls, there are two methods: utilizing a simulation template or uploading a JSON file. When using a simulation template, you have four options:
+.. _sim_timed_control:
 
-* File structure controls
-* :ref:`Table structure controls <table_control>`
-* :ref:`Memory structure controls <memory_control>`
-* Timed structure controls
-  
+Timed control
+^^^^^^^^^^^^^
 
-.. VRAAG: De andere dingen stonden nog niet uitgelegd in de documentatie. Klopt dit stukje nu een beetje?
+The following arguments can be specified for a :ref:`timed_control`:
 
-|
 
+.. list-table:: Arguments for a timed control
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Units
+     - Required
+     - Description
+     - Comments
+   * - offset
+     - integer
+     - seconds
+     - Yes
+     - Offset of event in simulation
+     - \-
+   * - duration
+     - integer
+     - seconds
+     - Yes
+     - Defines how long the control structure is active
+     - \-
+   * - value
+     - decimal number
+     - m MSL, \-, m3/s
+     - Yes
+     - Structure property will be set to this value
+     - Units depend on the *type*. Crest and gate levels in m MSL, discharge coefficients are unitless, pump capacities in m3/s.
+   * - type
+     - string
+     - \- 
+     - Yes
+     - Defines which structure property to set
+     - Options are: 'set_discharge_coefficients', 'set_crest_level', 'set_gate_level', 'set_pump_capacity'
+   * - structure_id
+     - integer
+     - \-
+     - No
+     - ID of the structure as defined in the spatialite
+     - Either structure_id or grid_id must be specified
+   * - structure_type
+     - string
+     - \-
+     - Yes
+     - The type of structure that is to be controlled
+     - Valid values: 'v2_pumpstation', 'v2_pipe', 'v2_orifice', 'v2_culvert', 'v2_weir', 'v2_channel'
+   * - grid_id
+     - integer
+     - \-
+     - No
+     - ID of the flowline or pump that is to be controlled
+     - Either structure_id or grid_id must be specified
+
+The *value* parameter must be a list, even if it contains 1 value (e.g. [0.3]), except for the *set_discharge_coefficients* action that expects a value for both flow directions (e.g. [0.8, 0.0]).
+
+The following example JSON file sets the discharge coefficients of weir 21 to 0.4 (positive) and 0.8 (negative) for the first 100 s of the simulation::
+
+	{
+		"timed": [
+			{
+			  "offset": 0,
+			  "duration": 100,
+			  "value": [
+				0.4, 0.8
+			  ],
+			  "type": "set_discharge_coefficients",
+			  "structure_id": 21,
+			  "structure_type": "v2_weir"
+			}
+		]
+	}
+
+.. _sim_memory_control:
+
+Memory control
+^^^^^^^^^^^^^^
+
+The following arguments can be specified for a :ref:`memory_control`:
+
+
+.. list-table:: Arguments for a memory control
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Units
+     - Required
+     - Description
+     - Comments
+   * - offset
+     - integer
+     - seconds
+     - Yes
+     - Offset of event in simulation
+     - \-
+   * - duration
+     - integer
+     - seconds
+     - Yes
+     - Defines how long the control structure is active
+     - \-
+   * - measure_specification
+     - :ref:`measure_specification`
+     - \-
+     - Yes
+     - Specifies how the value to which the control should react is measured
+     - \-
+   * - structure_id
+     - integer
+     - \-
+     - No
+     - ID of the structure as defined in the spatialite
+     - Either structure_id or grid_id must be specified
+   * - structure_type
+     - string
+     - \-
+     - Yes
+     - The type of structure that is to be controlled
+     - Valid values: 'v2_pumpstation', 'v2_pipe', 'v2_orifice', 'v2_culvert', 'v2_weir', 'v2_channel'
+   * - type
+     - string
+     - \- 
+     - Yes
+     - Defines which structure property to set
+     - Options are: 'set_discharge_coefficients', 'set_crest_level', 'set_gate_level', 'set_pump_capacity'
+   * - value
+     - list of decimal number(s)
+     - m MSL, \-, m3/s
+     - Yes
+     - Structure property will be set to this value
+     - Units depend on the *type*. Crest and gate levels in m MSL, discharge coefficients are unitless, pump capacities in m3/s.
+   * - grid_id
+     - integer
+     - \-
+     - No     
+     - ID of the flowline or pump that is to be controlled
+     - Either structure_id or grid_id must be specified
+   * - upper_threshold
+     - decimal number
+     - m MSL, m3, m/s, m3/s
+     - No
+     - \-
+     - \-
+   * - lower_threshold
+     - decimal number
+     - m MSL, m3, m/s, m3/s
+     - No
+     - \-
+     - \-
+   * - is_active
+     - boolean
+     - \-
+     - No
+     - when True the initial state of the target is active
+     - \-
+   * - is_inverse
+     - boolean
+     - \-
+     - No
+     - when True the target will become active when the lower threshold has been reached
+     - \- 
+
+The *value* parameter must be a list, even if it contains 1 value (e.g. [0.3]), except for the *set_discharge_coefficients* action that expects a value for both flow directions (e.g. [0.8, 0.0]).
+
+The following example JSON file activates a memory control after one hour since the start of the simulation, that sets the crest level of weir 13 to 9.05 m MSL when the water level at connection node 356 rises above 0.3m. It will go back to its initial value when the water level falls below 0.1 m MSL::
+
+	{
+		"memory": [
+			{
+			  "offset": 3600,
+			  "duration": 259200,
+			  "measure_specification": {
+				"locations": [
+				  {
+					"weight": 1.00,
+					"content_type": "v2_connection_node",
+					"content_pk": 356
+				  }
+				],
+				"variable": "s1",
+				"operator": ">"
+			  },
+			  "structure_id": 13,
+			  "structure_type": "v2_weir",
+			  "type": "set_crest_level",
+			  "value": [
+				9.05
+			  ],
+			  "upper_threshold": 0.3,
+			  "lower_threshold": 0.1,
+			  "is_active": false,
+			  "is_inverse": false
+			}
+		]
+	}
+
+The figure below shows three examples of JSON files.
+
+.. figure:: image/c_control_json.png
+   :alt: three examples of json files with control structures
+
+.. _sim_table_control:
+
+Table control
+^^^^^^^^^^^^^
+
+The following arguments can be specified for a :ref:`table_control`:
+
+
+.. list-table:: Arguments for a table control
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Units
+     - Required
+     - Description
+     - Comments
+   * - offset
+     - integer
+     - seconds
+     - Yes
+     - Offset of event in simulation
+     - \-
+   * - duration
+     - integer
+     - seconds
+     - Yes
+     - Defines how long the control structure is active
+     - \-
+   * - measure_specification
+     - :ref:`measure_specification`
+     - \-
+     - Yes
+     - Specifies how the value to which the control should react is measured
+     - \-
+   * - structure_id
+     - integer
+     - \-
+     - No
+     - ID of the structure as defined in the spatialite
+     - Either structure_id or grid_id must be specified
+   * - structure_type
+     - string
+     - \-
+     - Yes
+     - The type of structure that is to be controlled
+     - Valid values: 'v2_pumpstation', 'v2_pipe', 'v2_orifice', 'v2_culvert', 'v2_weir', 'v2_channel'
+   * - type
+     - string
+     - \- 
+     - Yes
+     - Defines which structure property to set
+     - Options are: 'set_discharge_coefficients', 'set_crest_level', 'set_gate_level', 'set_pump_capacity'
+   * - values
+     - list of decimal number(s)
+     - m MSL, \-, m3/s
+     - Yes
+     - See :ref:`table_control_values`
+     - \-
+   * - grid_id
+     - integer
+     - \-
+     - No
+     - ID of the flowline or pump that is to be controlled
+     - Either structure_id or grid_id must be specified
+
+
+The following example JSON file activates a table control during the first hour of the simulation. It that sets the gate level of orifice 27 to an action value defined in the action table, when the water level at connection node 356 falls below the threshold value in the action table::
+
+	{
+		"table": [
+			{
+				"offset": 0,
+				"duration": 3600,
+				"measure_specification": {
+					"locations": [
+						{
+							"weight": 1.00,
+							"content_type": "v2_connection_node",
+							"content_pk": 356
+						}
+					],
+					"variable": "s1",
+					"operator": "<"
+				},
+				"structure_id": 27,
+				"structure_type": "v2_orifice",
+				"type": "set_gate_level",
+				"values": [
+					[
+						9.05,
+						-1.45
+					], 
+					[
+						9.10,
+						-1.5
+					],
+					[
+						9.15,
+						-1.55
+					]
+				]
+			}
+		]
+	}
+
+
+.. _table_control_values:
+
+Values parameter of table control
+"""""""""""""""""""""""""""""""""
+
+The *values* parameter is an action table, which consists of one or more (threshold, action value) pairs, e.g. [[9.05, -1.45], [9.10, -1.5], [9.15, -1.55]] 
+
+To close/open or partially close/open a structure using the *set_discharge_coefficients* type, the values must contain three values. For example [[1.2, 0.5, 0.7]], where
+
+- 1.2 is the threshold value
+
+- 0.5 the action value for the positive flow direction
+
+- 0.7 action value for the negative flow direction
+
+Action values for *set_discharge_coefficients* type must be > 0.
+
+For ALL operators threshold values must be ascending.
+
+The units of the threshold values depend on the *measure_specification*. Water levels are in m MSL, volumes in m3, flow velocities in m/s, discharges in m3/s.
+
+The units of the action values depend on the action *type*. Crest and gate levels in m MSL, discharge coefficients are unitless, pump capacities in m3/s.
+
+
+
+.. _measure_specification:
+
+Measure specification
+"""""""""""""""""""""
+
+A *Measure specification* defines how the value must be calculated that triggers a control structure action. It has the following parameters.
+
+
+.. list-table:: Arguments for a control structure measure specification
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Units
+     - Required
+     - Description
+     - Comments
+   * - name
+     - string
+     - \-
+     - No
+     - A name that describes this measure specification
+     - \-
+   * - locations
+     - list of :ref:`measure locations<measure_location>`
+     - \-
+     - Yes
+     - \-
+     - \-
+   * - variable
+     - string
+     - \-
+     - Yes
+     - measurement variable, one of the following options: s1 (waterlevel), vol1 (volume), q (discharge), u1 (velocity)
+     - \-
+   * - operator
+     - string
+     - \-
+     - Yes
+     - e.g. >, <, >=, <=
+     - \-
+
+.. _measure_location:
+
+Measure location
+""""""""""""""""
+
+A *Measure location* defines a location and its weight relative to other measure locations that are grouped in the same :ref:`measure_specification`. The sum of the weights for one *Measure specification* must equal 1. It is defined by the following arguments.
+
+.. list-table:: Arguments for a control structure measure location
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Required
+     - Description
+   * - weight
+     - decimal number
+     - Yes
+     - The weight to use for this location when calculating the weighted average of all measured values in their measure specification.
+   * - content_type
+     - string
+     - Yes
+     - spatialite table from which to select a feature to use as measure location.
+   * - content_pk
+     - integer
+     - Yes
+     - ID (primary key) of the feature to use as measure location.
+   * - grid_id
+     - integer
+     - No
+     - Computational grid ID of the node or flowline to use as measure location.
+	 
+	 
 .. _simulate_api_qgis_breaches:
 
 Breaches
---------
+========
 
 The dimension of a breach in a levee can be added to determine the flow through the breach and subsequently the flood. For a description on breaches, see: :ref:`breaches`.
 
@@ -418,7 +811,7 @@ If you choose a model that incorporates breaches for simulation, a breaches file
 .. _generate_api_qgis_saved_state:
 
 Generate saved state after simulation
--------------------------------------
+=====================================
 
 When you check this option the end result of the simulation will be saved as a saved state. A saved state file can be used as an initial condition. For more information, see: :ref:`saved_states`.
 
@@ -427,7 +820,7 @@ When you check this option the end result of the simulation will be saved as a s
 .. _simulate_api_qgis_post_processing:
 
 Post-processing in Lizard
--------------------------
+=========================
 
 Storing your results in Lizard and automated post-processing is only available for users of organisations with a Lizard account.
 
@@ -469,55 +862,10 @@ All maps can be downloaded as GTiff, either via the interface `<https://demo.liz
 .. _simulate_api_qgis_multi_sim:
 
 Multiple simulations
---------------------
+====================
 
 This option becomes available when using either breaches or precipitation. You can define multiple simulations with different rainfall or breaches. Useful when simulating multiple events on the same model.
 
-|
-|
-
-Old table
----------
-
-.. VRAAG: Is dit nog steeds relevant om in de documentatie te hebben? En zo ja dan zou ik de titel verduidelijken.
-
-The most used API options are included in the newest version of the plugin. Important consideration is a difference between API v1 and v3 how initial waterzylevels, laterals and boundaries are handled. The current status is as follows:
-
-============================= =========================== =========================================== ==================================
-Forcings                        3Di Live                  "3Di Models and Simulations" Wizard         OpenAPI Client
-============================= =========================== =========================================== ==================================
-Boundary conditions            SQLite                      SQLite                                      SQLite, can be overwritten (a)
-Initial water level 2D         SQLite, always 'max'        Add raster/global in wizard                 Add raster/global to simulation
-Initial water level 1D         SQLite                      Add predefined/global in wizard             Add predefined to simulation
-Initial water level GW         SQLite                      Add predefined/global in wizard             Add predefined to simulation
-Laterals  1D and 2D            Not used                    Add in wizard with CSV (b)                  Add CSV
-Breaches                       Open in gui                 Open breach using wizard                    Open breach
-Precipitation                  Add using 3Di Live          Add using wizard (c)                        Add to simulation
-Wind                           Add using 3Di Live          Add using wizard                            Add to simulation
-Control Structures             Not used from SQLite        Not used from SQLite                        Add to simulation
-DWF (inflow)                   Not used from SQLite        Add as laterals, use dwf calculator         Add to simulation as lateral CSV
-Settings                       SQLite                      SQLite                                      SQLite, can be overwritten
-============================= =========================== =========================================== ==================================
-
-
-This is a temporary situation, simulation templates will be implemented on our servers. In these templates users will be able to predefine the forcings and settings that users want to use in a model. A model can contain multiple simulation templates
-
-**(a):** When overwriting the boundary conditions, both 1D and 2D need to be supplied
-
-**(b):** When using the laterals as a CSV note that units of the laterals in the wizard are expected in m\ :sup:`3`/s
-
-**(c):** CSV files can contain up to 300 entries
-
-This means that for *boundary conditions* nothing changes between API v1 and v3. Values are taken from the spatialite. The following requirements still hold for the boundary conditions:
-
-- number of entries have to be exactly the same
-- time has to be the same value (e.g. al time series have 0, 10, 20, 40 as time. It is not possible to have a boundary condition with the time as 0,15,20,40)
-
-*Initial water levels* are taken from the spatialite if the users selects this in the wizard, see the section on initial conditions below for a 'how to'.
-
-*Laterals* are not taken into account when added to the spatialite. The user has to add them to the API call for them to be taken into account. See the section on laterals below for a 'how to'.
-
-*DWF (inflow)* In API v1 inflow on connection nodes is being calculated based on nr of inhabitants per impervious surface and the mapping to the connection nodes. In API v3 users can calculate the inflow separately using the dwa calculator tool. The output of this tool is a csv with lateral inflow. This csv can be used in the "3Di Models and Simulations". In this approach is more transparant and generic usable for different countries.
 
 .. |modelsSimulations| image:: /image/pictogram_modelsandsimulations.png
     :scale: 90%
