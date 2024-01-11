@@ -768,6 +768,43 @@ The map can be viewed here: stowa.lizard.net
 3Di Live
 --------
 
+January 11th, 2024
+^^^^^^^^^^^^^^^^^^
+
+- Model elements and 1D flow are now visualised using WebGL, which improves performance. 1D flow is now visualised with moving waves instead of dots (#1341, #1342).
+
+- The Line selection tool now supports drawing a side view trajectory with a custom path, i.e. with more than 2 vertices. (#1446)
+
+- Option to rescale DEM color scale based on current extent (#853)
+
+- Show days in clock, relevant for simulations longer than 24 hours (#1387)
+
+- When starting a session, the organisation that owns the model is automatically selected in the "Billing goes to" dropdown (#1251)
+
+- When switched on, model grid is shown regardless of zoom level. It is no longer necessary to zoom in. (#1509)
+
+- The labels that are shown when hovering over model elements now show the display name instead of ID (#1505)
+
+- The organisation to which the simulation is billed is now included in the info panel (#1284)
+
+- Enforce "Simulation runner" and "viewer" roles (#437). A user must have "simulation_runner" role in a organisation to be able to start simulations billed to that organisation. A user must have "viewer" role in an organisation to be able to follow simulations of an organisation.
+
+- Round editable values to 2 decimals (#1345)
+
+- The user interface is loaded while loading the 3Di model, instead of after loading the 3Di model (#426)
+
+- Bugfix: Graph data was rounded to 2 decimals, while only the value on the labels should be rounded to two decimals (#1318)
+
+- Bugfix: Simulation could not be started if multiple simulation templates are available (#1330)
+
+- Bugfix: Show names instead of numbers for properties of model elements (e.g. sewerage type) (#1185)
+
+- Bugfix: Nodatavalue was shown as actual value (#434)
+
+
+
+
+
 October 31st, 2023
 ^^^^^^^^^^^^^^^^^^
 
@@ -906,6 +943,30 @@ Some bugfixes in 3Di live:
 
 3Di Management
 --------------
+
+January 11, 2024
+^^^^^^^^^^^^^^^^
+
+- Search and filter options were added to the 3Di models overview (#1382)
+
+- The filters that are set on pages that list models, schematisations, or simulations are now also applied when using "Export to Excel" (1184)
+
+- On the simulation overview page, all initials and events are listed (#1327)
+
+- You can now search for simulations by simulation ID (#239)
+
+- Include organisation in 3Di Management URLs, so that it is easier to share URLs (#1451)
+
+- The user interface for "add tags" has been improved (#1504)
+
+- Bugfix: Visualise negative laterals correctly on the simulation detail page (#1389)
+
+- Bugfix: "Run on 3Di Live" uses the wrong template is multiple templates are available for the 3Di model (#1329)
+
+- Bugfix: Revision nr. column now correctly displays revision numbers > 99 (#1417)
+
+- Bugfix: Wind events were not visualised correctly for long simulations in some cases (#934)
+
 
 October 18, 2023
 ^^^^^^^^^^^^^^^^
@@ -1053,6 +1114,23 @@ For schematisations users can:
 January ??, 2024
 ^^^^^^^^^^^^^^^^
 
+**3Di Results Analysis 3.4.0**
+
+- Water depth/level processing algorithms now include days in the time display if selected time passes 24 h (#661)
+
+- Processing algorithms "Computational grid from gridadmin.h5 file" and "Computational grid from schematisation" now show warnings (if applicable)
+
+- Bugfix: after using the Water Depth processing tool, results_3di.nc could not be loaded as Mesh (#573)
+
+- Bugfix: Water depth/level processing algorithms are now compatible with h5py 3.0 (#966)
+
+**3Di Models & Simulations 3.8.1**
+
+- Make sure all tools use the same version of the 3Di Schematisation Checker (remove python wheel threedi-modelchecker, #523)
+
+January 11, 2024
+^^^^^^^^^^^^^^^^
+
 **3Di Schematisation Editor 1.8.0**
 
 - Easily load schematisations from your 3Di working directory through the new "Load Schematisation dialog" (#117)
@@ -1065,17 +1143,6 @@ January ??, 2024
 - Change all functional and textuel references to "3Di Toolbox" to "3Di Schematisation Editor" (#503)
 
 - Bugfix: In the simulation wizard, uploading a rainfall NetCDF timeseries caused a python error (#510)
-
-
-**3Di Results Analysis 3.4.0**
-
-- Water depth/level processing algorithms now include days in the time display if selected time passes 24 h (#661)
-
-- Processing algorithms "Computational grid from gridadmin.h5 file" and "Computational grid from schematisation" now show warnings (if applicable)
-
-- Bugfix: after using the Water Depth processing tool, results_3di.nc could not be loaded as Mesh (#573)
-
-- Bugfix: Water depth/level processing algorithms are now compatible with h5py 3.0 (#966)
 
 
 December 1st, 2023
@@ -1743,7 +1810,7 @@ The following bugs have been fixed:
 
 
 February 22nd 2021
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 - We now support QGIS 3.16 for our toolbox.
 
