@@ -23,3 +23,4 @@ Common spelling mistakes:
 - Wrong: ground water. Right: groundwater.
 - Wrong: timeseries. Right: time series.
 - Wrong: time serie. Right: time series (also if it is a single time series!!).
+- Wrong: waterlevel. Right: water level

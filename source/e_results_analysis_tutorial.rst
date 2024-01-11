@@ -1,33 +1,44 @@
 Tutorial 6: Analysing 1D and 2D simulation results
-==============================================
+==================================================
 
 Introduction
--------------
-In this tutorial, we are going to examine the results of a simulation. The schematization is pre build. The simulation results will be analysed using the :ref:`3Di Results Analysis plugin <_analysing_results>`  in the :ref:`3Di Modeller Interface <mi_what_is>`. At the end of this tutorial, you have acquired some hands on expertise for analysing the movement of water within a 3Di model.
+------------
+
+In this tutorial, we are going to examine the results of a simulation. The schematization is pre build. The simulation results will be analysed using the :ref:`3Di Results Analysis plugin<mi_analysing_results>` in the :ref:`3Di Modeller Interface<mi_what_is>`. At the end of this tutorial, you have acquired some hands on expertise for analysing the movement of water within a 3Di model.
 
 Our area of interest is Langaa, a small railway town located in central Denmark. Langaa is situated between raised agricultural lands to the western side and the Gudena River to the eastern side of the town. The urban area has a seperated sewer system. The wastewater sewer inclines towards a pumping station, and the rainwater sewer has two outlets close to the Gudena River. While this tutorial represents a real-world area, it is important to note that some processes have been simplified for the purpose of this tutorial.
 
 Case study
--------------
+----------
+
 Several houses located next to the Vaethvey road are vulnerable to flooding. Recently, the inhabitants living in 21, 23, 25, 27 en 29 have reported heavy inundation after a 40mm rainfall event. Vaethvey road 21-29 is our study area. Now the municipality wants to reproduce this inundation with a hydrodynamic model, to gain insight in the flood properties such as floodextent, floodvolume, and floodduration. The municipality als wants to know where the floodwater originates from. All this isight will help to come up with potential measurements.  
 
 
 Learning objectives
---------------------
+-------------------
+
 You will learn the following in this tutorial:
 
-Downloading your simulation results
-Checking the flow summary
-Composing the maximum waterdepth raster
-Analysing the flow pattern
-Finding the maximum inundation depth
-Plotting waterlevels
-Watershed delineation for a flooded area
-Calculation the flood volume
+- Downloading your simulation results
+
+- Checking the flow summary
+
+- Composing the maximum waterdepth raster
+
+- Analysing the flow pattern
+
+- Finding the maximum inundation depth
+
+- Plotting water levels
+
+- Watershed delineation for a flooded area
+
+- Calculation the flood volume
 
 
 Preparation
-------------
+-----------
+
 Before you get started:
 
 * Make sure you have a 3Di account. Please contact the :ref:`servicedesk` if you need help with this.
@@ -40,7 +51,8 @@ Unzip the dataset for this tutorial and save the contents in your download folde
 
 
 Creating a new schematisation
-------------------------------
+-----------------------------
+
 The first step is to create a new :ref:`schematisation`:
 
 #) Open the 3Di Modeller Interface.
@@ -56,6 +68,7 @@ The first step is to create a new :ref:`schematisation`:
 
 Uploading the schematisation
 ----------------------------
+
 We will now upload the schematisation as a first :ref:`revision` and process it into a :ref:`threedimodel`. All these steps are covered by the upload wizard.
 
 #) Click the upload button (|upload|) in the 3Di Models and Simulations panel.
@@ -71,6 +84,7 @@ We will now upload the schematisation as a first :ref:`revision` and process it 
 
 Viewing the schematisation
 --------------------------
+
 We will load the schematisation in the 3Di Modeller Interface to view (and eventually modify) its contents. The schematisation can be loaded by following these steps:
 
 #) In the 3Di Schematisation Editor toolbar, click the *Load from Spatialite* button (|load_from_spatialite|). Paste the previously copied path to the spatialite and click *Open*.
@@ -122,7 +136,7 @@ It is also possible to simulate your model with 3Di Live. This is explained prev
 
 
 Downloading the simulation results
-----------------------
+----------------------------------
 
 We will now download the results of your simulation to your working directory which is a local folder: 
 
@@ -134,7 +148,7 @@ We will now download the results of your simulation to your working directory wh
 
 
 Opening the simulation results
-----------------------
+------------------------------
 
 Now we are going to load your simulation results into the Modeller Interface using the 3Di Results Analysis plugin:
 
@@ -148,7 +162,7 @@ Now your simulations results are loaded in the Modeller Interface and shown in y
 
 
 Checking the flow summary
-----------------------
+-------------------------
 
 In order to gain more insight in the simulation, we check out the flow summary. 
 
@@ -174,7 +188,7 @@ The filled-in water balance can be found below:
 
 
 Composing the maximum waterdepth raster
-----------------------
+---------------------------------------
 
 In this step, we are going build a raster showing the maximum 2D waterdepth for each gridcel. 
 
@@ -212,7 +226,7 @@ When finished, the raster will automaticaly appear in the layers panel. Now we a
 
 
 Analysing the flow pattern
-----------------------
+--------------------------
 
 Now we are going to take a first look on the movement of water on surface by visualising the flow pattern:
 
@@ -232,7 +246,7 @@ Now we are going to take a first look on the movement of water on surface by vis
 
 
 Finding the maximum inundation depth
-----------------------
+------------------------------------
 
 We are going to use the Value Tool to view the inundation depth in our study area using your maximum waterdepth raster.
 
@@ -243,8 +257,8 @@ We are going to use the Value Tool to view the inundation depth in our study are
 #) Now zoom in to our study area and hoover with your mouse over the inundation. In the Value Tool panel you can read the raster values i.e. the maximum water depth. Find that the inundation is up to 75 cm. 
 
 
-Plotting waterlevels
-----------------------
+Plotting water levels
+---------------------
 
 #) In the 3Di Result Analysis Toolbar, click on the Time series plotter icon. Now the Value Tool panels opens. Now the 3Di Time series plotter panel opens.
 
@@ -256,7 +270,7 @@ Plotting waterlevels
 
 
 Watershed delineation for a flooded area
-----------------------
+----------------------------------------
 
 To better understand why an area gets flooded and to design appropriate measures to decrease flood risks in the future; we want to know where the water in the flooded area comes from. We will now use the Watershed Tool to answer this question. The Watershed Tool allows you to determine the upstream and downstream catchment at any point or area. Follow the steps below to use the watershed tool:
 
@@ -275,8 +289,8 @@ The tool automatically calculates the upstream catchment area for the nodes that
 #)	Now click *Downstream* instead of *Upstream* to derive the downstream catchment of your selected nodes. The result gives us a indication on how the flood volume is drained during and after the event.
 
 
-Calculation the flood volume
-----------------------
+Calculating the flood volume
+----------------------------
 
 Lastly, we are going to use the water balance-tool to determine the flood volume for in our study area.
 
@@ -292,7 +306,7 @@ In the schematization, you can see that a grid refinement was implemented in the
 
 #)	The main component that is of interest in this question is *2D flow*. Notice that the graph displays both a positive and negative cumulative 2D Flow. This is caused by the fact that the 2D flow is both entering (positive) and leaving (negative) the study area. The net 2D flow is represented by the dotted red line, representing the *volume change 2D*. Use your mouse to zoom in on the y-axis, you can check the net 2D volume change at the end of the simulation. Check that the floow volume is about 3200 m3. 
 
-.. |langaa_waterbalans_leeg| image:: /langaa_waterbalans_leeg.png
+.. |langaa_waterbalans_leeg| image:: /image/langaa_waterbalans_leeg.png
 	:scale: 100%
 
 .. |langaa_waterbalans_antwoord| image:: /image/langaa_waterbalans_antwoord.png
@@ -324,4 +338,6 @@ In the schematization, you can see that a grid refinement was implemented in the
 
 .. |Simulate| image:: /image/pictogram_simulate.png
     :scale: 80%
+	
 .. check zipje!! (nieuw zipje kan reinout of wolf online zetten voor je)
+
