@@ -76,7 +76,7 @@ Activate the 3Di Models and Simulation panel by clicking the pictogram (|modelsS
 Access the 3Di Models and Simulation settings dialog by clicking *Main menu* > *Plugins* > *3Di Models and Simulations* > *Settings*.
 
 .. figure:: image/i_overview_models_sim_setting.png
-   :alt: Overview interface Models and Simulation Settings
+   :alt: Overview of the 3Di Models and Simulation Settings dialog
 
 * **Base API URL:** The Base API URL is in most cases https://api.3di.live.
 * **Uploads processing timeout:** If uploading data for a simulation (such as initial water levels or laterals time series) takes longer than the value specified here (in seconds), 3Di Models & Simulations will stop trying to initialize the simulation. Default value is 900 s.
@@ -89,16 +89,13 @@ Access the 3Di Models and Simulation settings dialog by clicking *Main menu* > *
 
 3Di Results Analysis toolbar
 ----------------------------
-.. todo::
+
+.. figure:: image/i_3di_results_analysis_toolbar.png
+   :alt: 3Di Results Analysis toolbar
    
-   describe the 3Di Results Analysis toolbar, include this thing about log file somewhere in that description:
-   .. _logfile:
-   Log file
-   --------
-   
-   Clicking the (|loggingtoolbar|) saves the logging of your results analysis to your computer. By clicking the underlined path to the text file in the pop-up windows you can open the log file. This can provide helpful information about what went wrong in case of an error.
-   
-   Also, it can be send as an attachment to our :ref:`servicedesk` at servicedesk@nelen-schuurmans.nl in case of errors.
+The 3Di Results Analysis toolbar gives you access to all the :ref:`toctree_analysing_results`. 
+
+Clicking the (|loggingtoolbar|) saves the technical logging of the 3Di Results Analysis plugin to a file. This can be helpful for the our :ref:`servicedesk` when you run into any technical issues with the 3Di Results Analysis plugin.
 
 .. _temporal_controller:
 
