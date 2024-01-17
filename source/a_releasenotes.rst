@@ -8,6 +8,54 @@ Release notes
 3Di general releases
 --------------------
 
+January 8th, 2023
+^^^^^^^^^^^^^^^^^
+
+**Water quality**
+
+We are proud to announce that we have added water quality capabilities to 3Di. More specifically, you can introduce concentrations of substances to the simulation, and compute the spread of substance concentrations due to advective forces and (numerical) diffusion.
+
+- Substances can enter the model domain as concentrations in initial water, boundary conditions, laterals, rain, leakage, surface sources and sinks. This applies to the entire model domain (1D, 2D, and groundwater).
+
+- Each forcing can contain concentrations of multiple substances at the same time
+
+- The substance concentration input mirrors the input of the forcing. I.e. 2D initial water levels are supplied as a raster, so 2D initial substance concentrations are also supplied as a raster; substance concentrations in time series rain is also to be provided as a time series; et cetera.
+
+- Substances can have names set by user 
+
+- Output is in NetCDF format. The file has the same structure as hydrodynamic results (results_3di.nc) and can be read with ``threedigrid``.
+
+- The logging includes a substance summary (similar to the flow summary) in JSON format
+
+.. note:
+	
+	- Input is purely API based (no GUI) 
+    
+	- Multiple laterals cannot be added to a single computational cell
+	
+	- All substances are known at the start of the simulation, although amounts can be set to 0.0 [g/m3,?].
+
+**Other improvements and bugfixes**
+
+- Memory efficiency in the generation of 3Di models has been improved. The limit for the DEM size is now 5 billion pixels (including NODATA pixels) (threedigrid-builder #345)
+
+- The flow summary is now JSON format instead text (.log). Units and values are split
+
+- Simulation ID is included in the flow summary (threedi-api #1303)
+
+- Timestep reduction and matrix instability logging are no longer included in simulation.log, because this information is already available in matrix.log and timestep_reduction.log (threedi-calculationcore #674)
+
+- The damage estimation (Netherlands only) now uses the newest land cover raster available in Lizard
+
+- Bugfix: cross-sectional area of groundwater flow made correct on the transitions of the grid size and in case water rises above the bed level. (threedi-calculationcore #708) 
+
+- Bugfix: several small bugfixes for structure control 
+
+- Bugfix: DEM edits in models with interflow would crash the simulation
+
+- Bugfix in ``threedigrid`` for 3Di models with boundary conditions. Time series of some variables did not have the correct ordering (i.e. wrong time series for node or flowline). This applies to ``infiltration_rate_simple``, ``ucx``, ``ucy``, ``leak``, ``intercepted_volume``, ``q_sss`` for Nodes and ``qp``, ``up1``, ``breach_depth``, ``breach_width`` for Lines.
+
+
 October 31st, 2023
 ^^^^^^^^^^^^^^^^^^
 
@@ -59,8 +107,10 @@ For further details see the release notes for :ref:`3Di Modeller Interface<relea
 
 August 7, 2023
 ^^^^^^^^^^^^^^
+
 - Interflow can now be combined with limiters
-- The 3Di computational core now writes the actions resulting from structure controls to a file (structure_control_3di.nc), which can be downloaded via the API. Functionality in threedigrid and the 3Di Modeller Interface will be released in Q4 2023 or Q1 2024.
+
+- The 3Di computational core now writes the actions resulting from structure controls to a file (structure_control_actions_3di.nc), which can be downloaded via the API. Functionality in threedigrid and the 3Di Modeller Interface will be released in Q4 2023 or Q1 2024.
 
 July 18th 2023
 ^^^^^^^^^^^^^^
@@ -718,6 +768,43 @@ The map can be viewed here: stowa.lizard.net
 3Di Live
 --------
 
+January 11th, 2024
+^^^^^^^^^^^^^^^^^^
+
+- Model elements and 1D flow are now visualised using WebGL, which improves performance. 1D flow is now visualised with moving waves instead of dots (#1341, #1342).
+
+- The Line selection tool now supports drawing a side view trajectory with a custom path, i.e. with more than 2 vertices. (#1446)
+
+- Option to rescale DEM color scale based on current extent (#853)
+
+- Show days in clock, relevant for simulations longer than 24 hours (#1387)
+
+- When starting a session, the organisation that owns the model is automatically selected in the "Billing goes to" dropdown (#1251)
+
+- When switched on, model grid is shown regardless of zoom level. It is no longer necessary to zoom in. (#1509)
+
+- The labels that are shown when hovering over model elements now show the display name instead of ID (#1505)
+
+- The organisation to which the simulation is billed is now included in the info panel (#1284)
+
+- Enforce "Simulation runner" and "viewer" roles (#437). A user must have "simulation_runner" role in a organisation to be able to start simulations billed to that organisation. A user must have "viewer" role in an organisation to be able to follow simulations of an organisation.
+
+- Round editable values to 2 decimals (#1345)
+
+- The user interface is loaded while loading the 3Di model, instead of after loading the 3Di model (#426)
+
+- Bugfix: Graph data was rounded to 2 decimals, while only the value on the labels should be rounded to two decimals (#1318)
+
+- Bugfix: Simulation could not be started if multiple simulation templates are available (#1330)
+
+- Bugfix: Show names instead of numbers for properties of model elements (e.g. sewerage type) (#1185)
+
+- Bugfix: Nodatavalue was shown as actual value (#434)
+
+
+
+
+
 October 31st, 2023
 ^^^^^^^^^^^^^^^^^^
 
@@ -856,6 +943,30 @@ Some bugfixes in 3Di live:
 
 3Di Management
 --------------
+
+January 11, 2024
+^^^^^^^^^^^^^^^^
+
+- Search and filter options were added to the 3Di models overview (#1382)
+
+- The filters that are set on pages that list models, schematisations, or simulations are now also applied when using "Export to Excel" (1184)
+
+- On the simulation overview page, all initials and events are listed (#1327)
+
+- You can now search for simulations by simulation ID (#239)
+
+- Include organisation in 3Di Management URLs, so that it is easier to share URLs (#1451)
+
+- The user interface for "add tags" has been improved (#1504)
+
+- Bugfix: Visualise negative laterals correctly on the simulation detail page (#1389)
+
+- Bugfix: "Run on 3Di Live" uses the wrong template is multiple templates are available for the 3Di model (#1329)
+
+- Bugfix: Revision nr. column now correctly displays revision numbers > 99 (#1417)
+
+- Bugfix: Wind events were not visualised correctly for long simulations in some cases (#934)
+
 
 October 18, 2023
 ^^^^^^^^^^^^^^^^
@@ -999,6 +1110,59 @@ For schematisations users can:
 
 3Di Modeller Interface
 ----------------------
+
+January 17, 2024
+^^^^^^^^^^^^^^^^
+
+**3Di Results Analysis 3.4.0**
+
+*Schematisation checker*
+
+- Warning (impervious) surface geometry has different area then the 'area' attribute (tolerance is 1 m2) (#343)
+
+- Warning for invalid references from *Surface map* or *Impervious surface map* (#337)
+
+- Info message when refinement_level equals kmax (#345)
+
+- Bugfix: Warning was incorrectly given when interception_global = 0.0 (#340)
+
+- Bugfix: Schematisation checker no longer fails when values that need to be checked are NULL (e.g. pumpstation type).
+
+*Other*
+
+- Water depth/level processing algorithms now include days in the time display if selected time passes 24 h (#661)
+
+- Processing algorithms "Computational grid from gridadmin.h5 file" and "Computational grid from schematisation" now show warnings (if applicable)
+
+- Bugfix: after using the Water Depth processing tool, results_3di.nc could not be loaded as Mesh (#573)
+
+- Bugfix: Water depth/level processing algorithms are now compatible with h5py 3.0 (#966)
+
+**3Di Models & Simulations 3.9.0**
+
+- Make sure all tools use the same version of the 3Di Schematisation Checker (remove python wheel threedi-modelchecker, #523)
+
+- Add "Refresh" button to running and finished simulations lists (#491)
+
+- Add "Refresh" button to overview of available simulation templates (#465)
+
+
+January 11, 2024
+^^^^^^^^^^^^^^^^
+
+**3Di Schematisation Editor 1.8.0**
+
+- Easily load schematisations from your 3Di working directory through the new "Load Schematisation dialog" (#117)
+
+
+**3Di Models & Simulations 3.8.0**
+
+- By default, simulations will be billed to the organisation to which the 3Di model belongs. It is still possible to bill simulations to other organisations you have access to, but only if you deliberately choose this option (#107).
+
+- Change all functional and textuel references to "3Di Toolbox" to "3Di Schematisation Editor" (#503)
+
+- Bugfix: In the simulation wizard, uploading a rainfall NetCDF timeseries caused a python error (#510)
+
 
 December 1st, 2023
 ^^^^^^^^^^^^^^^^^^
@@ -1665,7 +1829,7 @@ The following bugs have been fixed:
 
 
 February 22nd 2021
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 - We now support QGIS 3.16 for our toolbox.
 
