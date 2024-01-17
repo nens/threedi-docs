@@ -1111,10 +1111,24 @@ For schematisations users can:
 3Di Modeller Interface
 ----------------------
 
-January ??, 2024
+January 17, 2024
 ^^^^^^^^^^^^^^^^
 
 **3Di Results Analysis 3.4.0**
+
+*Schematisation checker*
+
+- Warning (impervious) surface geometry has different area then the 'area' attribute (tolerance is 1 m2) (#343)
+
+- Warning for invalid references from *Surface map* or *Impervious surface map* (#337)
+
+- Info message when refinement_level equals kmax (#345)
+
+- Bugfix: Warning was incorrectly given when interception_global = 0.0 (#340)
+
+- Bugfix: Schematisation checker no longer fails when values that need to be checked are NULL (e.g. pumpstation type).
+
+*Other*
 
 - Water depth/level processing algorithms now include days in the time display if selected time passes 24 h (#661)
 
@@ -1124,9 +1138,14 @@ January ??, 2024
 
 - Bugfix: Water depth/level processing algorithms are now compatible with h5py 3.0 (#966)
 
-**3Di Models & Simulations 3.8.1**
+**3Di Models & Simulations 3.9.0**
 
 - Make sure all tools use the same version of the 3Di Schematisation Checker (remove python wheel threedi-modelchecker, #523)
+
+- Add "Refresh" button to running and finished simulations lists (#491)
+
+- Add "Refresh" button to overview of available simulation templates (#465)
+
 
 January 11, 2024
 ^^^^^^^^^^^^^^^^
