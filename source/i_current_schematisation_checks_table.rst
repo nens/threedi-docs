@@ -46,10 +46,10 @@
      - v2_aggregation_settings.timestep is not of type ['integer']
    * - 0007
      - Error
-     - v2_aggregation_settings.flow_variable is not one of {'pump_discharge', 'leakage', 'surface_source_sink_discharge', 'discharge', 'simple_infiltration', 'rain', 'interception', 'flow_velocity', 'lateral_discharge', 'waterlevel', 'volume', 'wet_cross-section', 'wet_surface'}
+     - v2_aggregation_settings.flow_variable is not one of {'pump_discharge', 'leakage', 'surface_source_sink_discharge', 'rain', 'volume', 'wet_surface', 'wet_cross-section', 'discharge', 'waterlevel', 'simple_infiltration', 'flow_velocity', 'interception', 'lateral_discharge'}
    * - 0007
      - Error
-     - v2_aggregation_settings.aggregation_method is not one of {'cum_negative', 'avg', 'current', 'max', 'cum_positive', 'min', 'cum', 'sum'}
+     - v2_aggregation_settings.aggregation_method is not one of {'cum', 'sum', 'current', 'max', 'cum_positive', 'avg', 'min', 'cum_negative'}
    * - 0008
      - Error
      - id must be a positive signed 32-bit integer.
@@ -136,10 +136,10 @@
      - id must be a positive signed 32-bit integer.
    * - 0001
      - Error
-     - v2_channel.connection_node_start_id refers to a non-existing v2_connection_nodes
+     - v2_channel.connection_node_end_id refers to a non-existing v2_connection_nodes
    * - 0001
      - Error
-     - v2_channel.connection_node_end_id refers to a non-existing v2_connection_nodes
+     - v2_channel.connection_node_start_id refers to a non-existing v2_connection_nodes
    * - 0002
      - Error
      - v2_channel.id should to be unique
@@ -253,10 +253,10 @@
      - id must be a positive signed 32-bit integer.
    * - 0001
      - Error
-     - v2_control.control_group_id refers to a non-existing v2_control_group
+     - v2_control.measure_group_id refers to a non-existing v2_control_measure_group
    * - 0001
      - Error
-     - v2_control.measure_group_id refers to a non-existing v2_control_measure_group
+     - v2_control.control_group_id refers to a non-existing v2_control_group
    * - 0002
      - Error
      - v2_control.id should to be unique
@@ -454,13 +454,13 @@
      - v2_control_memory.is_inverse is not of type ['integer']
    * - 0007
      - Error
-     - v2_control_memory.measure_variable is not one of {'volume', 'velocity', 'discharge', 'waterlevel'}
+     - v2_control_memory.measure_variable is not one of {'waterlevel', 'velocity', 'volume', 'discharge'}
    * - 0007
      - Error
-     - v2_control_memory.action_type is not one of {'set_crest_level', 'set_discharge_coefficients', 'set_pump_capacity', 'set_capacity'}
+     - v2_control_memory.action_type is not one of {'set_capacity', 'set_crest_level', 'set_pump_capacity', 'set_gate_level', 'set_discharge_coefficients'}
    * - 0007
      - Error
-     - v2_control_memory.target_type is not one of {'v2_culvert', 'v2_weir', 'v2_orifice', 'v2_pumpstation', 'v2_pipe', 'v2_channel'}
+     - v2_control_memory.target_type is not one of {'v2_pipe', 'v2_orifice', 'v2_weir', 'v2_channel', 'v2_pumpstation', 'v2_culvert'}
    * - 0008
      - Error
      - id must be a positive signed 32-bit integer.
@@ -547,16 +547,16 @@
      - v2_control_table.target_id is not of type ['integer']
    * - 0007
      - Error
-     - v2_control_table.action_type is not one of {'set_crest_level', 'set_discharge_coefficients', 'set_pump_capacity', 'set_capacity'}
+     - v2_control_table.action_type is not one of {'set_capacity', 'set_crest_level', 'set_pump_capacity', 'set_gate_level', 'set_discharge_coefficients'}
    * - 0007
      - Error
-     - v2_control_table.measure_variable is not one of {'volume', 'velocity', 'discharge', 'waterlevel'}
+     - v2_control_table.measure_variable is not one of {'waterlevel', 'velocity', 'volume', 'discharge'}
    * - 0007
      - Error
-     - v2_control_table.measure_operator is not one of {'>', '<=', '>=', '<'}
+     - v2_control_table.measure_operator is not one of {'>', '>=', '<=', '<'}
    * - 0007
      - Error
-     - v2_control_table.target_type is not one of {'v2_culvert', 'v2_weir', 'v2_orifice', 'v2_pumpstation', 'v2_pipe', 'v2_channel'}
+     - v2_control_table.target_type is not one of {'v2_pipe', 'v2_orifice', 'v2_weir', 'v2_channel', 'v2_pumpstation', 'v2_culvert'}
    * - 0008
      - Error
      - id must be a positive signed 32-bit integer.
@@ -566,6 +566,18 @@
    * - 0003
      - Error
      - v2_control_timed.id cannot be null
+   * - 0003
+     - Error
+     - v2_control_timed.action_type cannot be null
+   * - 0003
+     - Error
+     - v2_control_timed.action_table cannot be null
+   * - 0003
+     - Error
+     - v2_control_timed.target_type cannot be null
+   * - 0003
+     - Error
+     - v2_control_timed.target_id cannot be null
    * - 0004
      - Error
      - v2_control_timed.id is not of type ['integer']
@@ -581,6 +593,12 @@
    * - 0004
      - Error
      - v2_control_timed.target_id is not of type ['integer']
+   * - 0007
+     - Error
+     - v2_control_timed.action_type is not one of {'set_capacity', 'set_crest_level', 'set_pump_capacity', 'set_gate_level', 'set_discharge_coefficients'}
+   * - 0007
+     - Error
+     - v2_control_timed.target_type is not one of {'v2_pipe', 'v2_orifice', 'v2_weir', 'v2_channel', 'v2_pumpstation', 'v2_culvert'}
    * - 0008
      - Error
      - id must be a positive signed 32-bit integer.
@@ -613,10 +631,10 @@
      - id must be a positive signed 32-bit integer.
    * - 0001
      - Error
-     - v2_cross_section_location.definition_id refers to a non-existing v2_cross_section_definition
+     - v2_cross_section_location.channel_id refers to a non-existing v2_channel
    * - 0001
      - Error
-     - v2_cross_section_location.channel_id refers to a non-existing v2_channel
+     - v2_cross_section_location.definition_id refers to a non-existing v2_cross_section_definition
    * - 0002
      - Error
      - v2_cross_section_location.id should to be unique
@@ -676,7 +694,7 @@
      - v2_cross_section_location.the_geom has invalid geometry type, expected POINT
    * - 0007
      - Error
-     - v2_cross_section_location.friction_type is not one of {1, 2}
+     - v2_cross_section_location.friction_type is not one of {1, 2, 3, 4}
    * - 0008
      - Error
      - id must be a positive signed 32-bit integer.
@@ -775,7 +793,7 @@
      - v2_culvert.calculation_type is not one of {0, 1, 2, 100, 101, 102, 105}
    * - 0007
      - Error
-     - v2_culvert.friction_type is not one of {1, 2}
+     - v2_culvert.friction_type is not one of {1, 2, 3, 4}
    * - 0007
      - Info
      - v2_culvert.zoom_category is not one of {0, 1, 2, 3, 4, 5}
@@ -868,19 +886,19 @@
      - id must be a positive signed 32-bit integer.
    * - 0001
      - Error
-     - v2_global_settings.groundwater_settings_id refers to a non-existing v2_groundwater
+     - v2_global_settings.simple_infiltration_settings_id refers to a non-existing v2_simple_infiltration
    * - 0001
      - Error
-     - v2_global_settings.numerical_settings_id refers to a non-existing v2_numerical_settings
+     - v2_global_settings.vegetation_drag_settings_id refers to a non-existing v2_vegetation_drag
    * - 0001
      - Error
      - v2_global_settings.control_group_id refers to a non-existing v2_control_group
    * - 0001
      - Error
-     - v2_global_settings.simple_infiltration_settings_id refers to a non-existing v2_simple_infiltration
+     - v2_global_settings.numerical_settings_id refers to a non-existing v2_numerical_settings
    * - 0001
      - Error
-     - v2_global_settings.vegetation_drag_settings_id refers to a non-existing v2_vegetation_drag
+     - v2_global_settings.groundwater_settings_id refers to a non-existing v2_groundwater
    * - 0001
      - Error
      - v2_global_settings.interflow_settings_id refers to a non-existing v2_interflow
@@ -1111,7 +1129,7 @@
      - v2_global_settings.advection_2d is not one of {0, 1}
    * - 0007
      - Error
-     - v2_global_settings.frict_type is not one of {1, 2}
+     - v2_global_settings.frict_type is not one of {1, 2, 3, 4}
    * - 0007
      - Error
      - v2_global_settings.water_level_ini_type is not one of {0, 1, 2}
@@ -1345,10 +1363,10 @@
      - v2_impervious_surface.the_geom has invalid geometry type, expected GEOMETRY
    * - 0007
      - Error
-     - v2_impervious_surface.surface_inclination is not one of {'hellend', 'uitgestrekt', 'vlak'}
+     - v2_impervious_surface.surface_inclination is not one of {'uitgestrekt', 'hellend', 'vlak'}
    * - 0007
      - Error
-     - v2_impervious_surface.surface_class is not one of {'open verharding', 'pand', 'half verhard', 'onverhard', 'gesloten verharding'}
+     - v2_impervious_surface.surface_class is not one of {'onverhard', 'pand', 'open verharding', 'gesloten verharding', 'half verhard'}
    * - 0007
      - Info
      - v2_impervious_surface.zoom_category is not one of {0, 1, 2, 3, 4, 5}
@@ -1357,10 +1375,10 @@
      - id must be a positive signed 32-bit integer.
    * - 0001
      - Error
-     - v2_impervious_surface_map.connection_node_id refers to a non-existing v2_connection_nodes
+     - v2_impervious_surface_map.impervious_surface_id refers to a non-existing v2_impervious_surface
    * - 0001
      - Error
-     - v2_impervious_surface_map.impervious_surface_id refers to a non-existing v2_impervious_surface
+     - v2_impervious_surface_map.connection_node_id refers to a non-existing v2_connection_nodes
    * - 0002
      - Error
      - v2_impervious_surface_map.id should to be unique
@@ -1714,13 +1732,13 @@
      - id must be a positive signed 32-bit integer.
    * - 0001
      - Error
-     - v2_orifice.connection_node_end_id refers to a non-existing v2_connection_nodes
-   * - 0001
-     - Error
      - v2_orifice.connection_node_start_id refers to a non-existing v2_connection_nodes
    * - 0001
      - Error
      - v2_orifice.cross_section_definition_id refers to a non-existing v2_cross_section_definition
+   * - 0001
+     - Error
+     - v2_orifice.connection_node_end_id refers to a non-existing v2_connection_nodes
    * - 0002
      - Error
      - v2_orifice.id should to be unique
@@ -1792,19 +1810,19 @@
      - v2_orifice.crest_type is not one of {3, 4}
    * - 0007
      - Error
-     - v2_orifice.friction_type is not one of {1, 2}
+     - v2_orifice.friction_type is not one of {1, 2, 3, 4}
    * - 0008
      - Error
      - id must be a positive signed 32-bit integer.
+   * - 0001
+     - Error
+     - v2_pipe.cross_section_definition_id refers to a non-existing v2_cross_section_definition
    * - 0001
      - Error
      - v2_pipe.connection_node_start_id refers to a non-existing v2_connection_nodes
    * - 0001
      - Error
      - v2_pipe.connection_node_end_id refers to a non-existing v2_connection_nodes
-   * - 0001
-     - Error
-     - v2_pipe.cross_section_definition_id refers to a non-existing v2_cross_section_definition
    * - 0002
      - Error
      - v2_pipe.id should to be unique
@@ -1903,7 +1921,7 @@
      - v2_pipe.calculation_type is not one of {0, 1, 2, 3, 4}
    * - 0007
      - Error
-     - v2_pipe.friction_type is not one of {1, 2}
+     - v2_pipe.friction_type is not one of {1, 2, 3, 4}
    * - 0007
      - Info
      - v2_pipe.zoom_category is not one of {0, 1, 2, 3, 4, 5}
@@ -2248,13 +2266,13 @@
      - id must be a positive signed 32-bit integer.
    * - 0001
      - Error
+     - v2_weir.connection_node_end_id refers to a non-existing v2_connection_nodes
+   * - 0001
+     - Error
      - v2_weir.connection_node_start_id refers to a non-existing v2_connection_nodes
    * - 0001
      - Error
      - v2_weir.cross_section_definition_id refers to a non-existing v2_cross_section_definition
-   * - 0001
-     - Error
-     - v2_weir.connection_node_end_id refers to a non-existing v2_connection_nodes
    * - 0002
      - Error
      - v2_weir.id should to be unique
@@ -2326,7 +2344,7 @@
      - v2_weir.crest_type is not one of {3, 4}
    * - 0007
      - Error
-     - v2_weir.friction_type is not one of {1, 2}
+     - v2_weir.friction_type is not one of {1, 2, 3, 4}
    * - 0007
      - Info
      - v2_weir.zoom_category is not one of {0, 1, 2, 3, 4, 5}
@@ -2429,6 +2447,27 @@
    * - 0025
      - Error
      - v2_weir.friction_type cannot be null
+   * - 0026
+     - Error
+     - Friction with conveyance, such as chezy_conveyance and manning_conveyance, may only be used with v2_cross_section_location
+   * - 0026
+     - Error
+     - Friction with conveyance, such as chezy_conveyance and manning_conveyance, may only be used with v2_cross_section_location
+   * - 0026
+     - Error
+     - Friction with conveyance, such as chezy_conveyance and manning_conveyance, may only be used with v2_cross_section_location
+   * - 0026
+     - Error
+     - Friction with conveyance, such as chezy_conveyance and manning_conveyance, may only be used with v2_cross_section_location
+   * - 0027
+     - Error
+     - in v2_cross_section_location, friction with conveyance, such as chezy_conveyance and manning_conveyance, may only be used with tabulated rectangle (5), tabulated trapezium (6), or tabulated yz (7) shapes
+   * - 0028
+     - Error
+     - v2_cross_section_location.friction_type can only have conveyance if the associated definition is an open shape, and its width is monotonically increasing
+   * - 0029
+     - Info
+     - Friction for this cross-section will be calculated without conveyance. For open Tabulated or YZ cross-sections, using conveyance in the calculation of friction is recommended in case there is a significant variation of the bed level (for instance, in a scenario with overflowing floodplains).
    * - 0031
      - Error
      - v2_channel.calculation_type cannot be CalculationType.EMBEDDED, CalculationType.CONNECTED or CalculationType.DOUBLE_CONNECTED when v2_global_settings.dem_file is null
@@ -2486,6 +2525,12 @@
    * - 0056
      - Error
      - v2_channel.id has both open and closed cross-sections along its length. All cross-sections on a v2_channel.id object must be either open or closed.
+   * - 0057
+     - Info
+     - v2_pipe.id has an open cross-section, which is unusual for this feature. Please make sure this is not a mistake.
+   * - 0057
+     - Info
+     - v2_culvert.id has an open cross-section, which is unusual for this feature. Please make sure this is not a mistake.
    * - 0061
      - Error
      - v2_pumpstation.upper_stop_level should be greater than v2_pumpstation.start_level
@@ -2493,7 +2538,7 @@
      - Error
      - v2_pumpstation.lower_stop_level should be less than v2_pumpstation.start_level
    * - 0063
-     - Error
+     - Warning
      - v2_connection_nodes.storage_area * 1000 for each pumpstation's end connection node must be greater than v2_pumpstation.capacity; water level should not rise >= 1 m in one second
    * - 0064
      - Error
@@ -2563,7 +2608,7 @@
      - v2_cross_section_definition width and height should contain at least 3 coordinates (excluding closing coordinate) for YZ profiles
    * - 0097
      - Error
-     - v2_cross_section_definition.width should be monotonically increasing for open YZ profiles. Perhaps this is actually a closed profile?
+     - v2_cross_section_definition.width should be strictly increasing for open YZ profiles. Perhaps this is actually a closed profile?
    * - 0098
      - Warning
      - v2_cross_section_definition.width and/or height should probably be at least 0.1m
@@ -2633,6 +2678,12 @@
    * - 0207
      - Warning
      - v2_connection_nodes.the_geom has no valid spatial index, which is required for some checks
+   * - 0208
+     - Warning
+     - v2_surface.area has a v2_surface.area (used in the simulation) differing from its geometrical area by more than 1 m2
+   * - 0208
+     - Warning
+     - v2_impervious_surface.area has a v2_impervious_surface.area (used in the simulation) differing from its geometrical area by more than 1 m2
    * - 0251
      - Warning
      - This is an isolated connection node without connections. Connect it to either a pipe, channel, culvert, weir, orifice or pumpstation.
@@ -2786,6 +2837,9 @@
    * - 0326
      - Info
      - v2_vegetation_drag is defined, but not referred to in v2_global_settings.vegetation_drag_settings_id
+   * - 0327
+     - Error
+     - Vegetation drag can only be used in combination with friction type 1 (Chézy)
    * - 0330
      - Warning
      - v2_global_settings.use_2d_flow is different and is ignored if it is not in the first record
@@ -3080,6 +3134,18 @@
    * - 0614
      - Warning
      - v2_connection_nodes.id has more than 50 surface areas mapped to it; this might be an error.
+   * - 0615
+     - Warning
+     - v2_surface_map.surface_id references a v2_surface feature that does not exist.
+   * - 0615
+     - Warning
+     - v2_impervious_surface_map.impervious_surface_id references a v2_impervious_surface feature that does not exist.
+   * - 0615
+     - Warning
+     - v2_surface_map.connection_node_id references a v2_connection_nodes feature that does not exist.
+   * - 0615
+     - Warning
+     - v2_impervious_surface_map.connection_node_id references a v2_connection_nodes feature that does not exist.
    * - 0606
      - Error
      - v2_surface_parameters.outflow_delay is <0
@@ -3410,6 +3476,9 @@
    * - 1404
      - Error
      - v2_vegetation_drag.vegetation_drag_coefficient_file has values <0 or is empty
+   * - 1405
+     - Error
+     - The file in v2_global_settings.dem_file exceeds 5000000000.0 pixels.
    * - 0800
      - Error
      - v2_grid_refinement.refinement_level must not be greater than v2_global_settings.kmax
@@ -3422,6 +3491,12 @@
    * - 0801
      - Error
      - v2_grid_refinement_area.refinement_level is <1
+   * - 0802
+     - Info
+     - v2_grid_refinement.refinement_level is equal to v2_global_settings.kmax and will therefore not have any effect. Lower the refinement_level to make the cells smaller.
+   * - 0802
+     - Info
+     - v2_grid_refinement_area.refinement_level is equal to v2_global_settings.kmax and will therefore not have any effect. Lower the refinement_level to make the cells smaller.
    * - 1101
      - Error
      - v2_global_settings.maximum_sim_time_step must be greater than or equal to v2_global_settings.sim_time_step
