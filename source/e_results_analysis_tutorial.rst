@@ -33,7 +33,7 @@ You will learn the following in this tutorial:
 
 - Watershed delineation for a flooded area
 
-- Calculation the flood volume
+- Calculating the flood volume
 
 
 Preparation
@@ -192,128 +192,153 @@ The filled-in water balance can be found below:
 
 |langaa_waterbalans_antwoord|
 
-.. todo: 
-	Martine om .ppt bestand vragen van de afbeeldingen om m3 netjes te schrijven en af te ronden op minder decimalen
-
 
 Generating the maximum water depth raster
 -----------------------------------------
 
 In this step, we are going generate a maximum inundation depth map. 
 
-#) Open the *Processing Toolbox*  by clicking *Processing* in the Main Menu > *Toolbox*. The Processing Toolbox panel now opens. 
+#) Open the *Processing Toolbox* (*Main Menu* > *Processing* > *Toolbox*). 
 
-#) In the Processing Toolbox panel, click on *3Di* > *Post-process results* > then dubble click on *Maximum water depth/ level raster*. 
+#) In the Processing Toolbox panel, click on *3Di* > *Post-process results* > then double click *Maximum water depth / level raster*. 
 
-Now a new panel opens where we can define the settings for the maximum waterdepth raster that we are going to creat.  
+Now a new panel opens where we can define the settings for the maximum water depth raster that we are going to create.  
 
-#) Select your gridadmin.h5 file by clicking on de browse button browse to your working directory folder (e.g. C:\3Di_schematisations) > Demo model Langaa > revision 1 > results >  Demo Langa 40mm constant rainfall in 1 hour > gridadmin.h5.
+#) Select your gridadmin.h5 file by clicking on the browse button and browse to your working directory folder (e.g. C:\3Di_schematisations) > Demo model Langaa > revision 1 > results >  Demo Langa 40mm constant rainfall in 1 hour > gridadmin.h5.
 
-#) Select your simulation results by clicking on de browse button, then browse to your working directory folder > Demo model Langaa > revision 1 > results >  Demo Langa 40mm constant rainfall in 1 hour > results_3di.nc.
+#) Select your simulation results file (results_3di.nc). This file is located in the same directory as the gridadmin.h5 file.
 
-#) Select the DEM (Digital Elevatil Model) by clicking on de browse button under DEM. Then browse to your working directory folder > Demo model Langaa > work in progress > schematisation >  rasters > Elevation_model_Langaa.tif.
+#) Select the DEM (Digital Elevation Model) by clicking on the browse button under DEM. Browse to your working directory > Demo model Langaa > work in progress > schematisation >  rasters > Elevation_model_Langaa.tif.
 
 #) Set the Interpolation mode to *Interpolated water depth*.
 
-#) Set the destination file path for water depth/level raster by clicking the browse button. Browse to your working directory C:\3Di_schematisations) > Demo model Langaa > revision 1 > results and write the File name max_waterdepth_interpolated.tif.
+#) Set the destination file path for water depth/level raster by clicking the browse button. Browse to your working directory > Demo model Langaa > revision 1 > results. 
 
-#) Click on the *run* button.
+#) Write the file name max_water_depth_interpolated.tif.
 
-When finished, the raster will automaticaly appear in the layers panel. Now we are going to add a basis styling to this raster:
+#) Click *Run*.
 
-#) Dubble click on raster name in the layer panel to open the Layer Properties window.
+When finished, the raster will automaticaly appear in the *Layers* panel. Now we are going to add a basic styling to this raster.
 
-#) In the layer properties window, click on the left on the Symbology tab.
+#) In the *Layers* panel, double click the layer max_water_depth_interpolated. The Layer Properties window opens.
 
-#) Set Render type to Singleband pseudocolor.
+#) In the layer properties window, the *Symbology* tab (at the left side).
 
-#) Set color ramp to Blues.
+#) Set *Render type* to *Singleband pseudocolor*.
 
-#) Fill in 0.05 as Min value and 0.5 as Max value, the unit is meters.
+#) Set *Color ramp*/ to Blues.
+
+#) Fill in 0.0 as Min value and 0.5 as Max value. These are units in meters.
+
+We will now make all water depths between 0 and 1 cm transparent.
+
+#) In the *Transparency* tab, under *Custom transparency options*, click the + button.
+
+#) For *From*, fill in 0; for *To*, fill in 0.01.
 
 #) Click *OK*.
-
-
-Analysing the flow pattern
---------------------------
-
-Now we are going to take a first look on the movement of water on surface by visualising the flow pattern:
-
-#)	First, we are going the load the results from your simulation. Open the 3Di result Manager by clicking on the *3Di results manager* icon (PLAATJE). 
- 
-#)	Click on *ADD 3Di Grid or Results* (PLAATJE green *plus*-sign). A pop-up screen appears where you can select the simulation results. Then click on *Load simulation result*. The results will now be added to your screen.
-
-#)	Now click on *3Di result aggregation* (PLAATJE) in the 3Di Results Analysis toolbar. A pop-up screen will appear.
- 
-#)	In the *input* tab, the result is selected automatically.
-
-#)	Under *preset*, you can select different aggregation results. For now, select *Flow pattern*. If you are interested, you can play around with the different other options later. Press *OK*. The flow pattern will now be derived and visualized in your screen. 
-
-#)	You can zoom in on the flow pattern to discern the individual arrows. As you can see, the direction of the arrow indicates the direction of the flow. Furthermore, the color of the arrow is an indicator for the relative discharge.
-
-#)	Zoom out again to see the general flow pattern in the model area. Look at the elevation map and the flow pattern; note that the water flows from the higher areas towards the lower areas and a large part eventually ends up in the river.
 
 
 Finding the maximum inundation depth
 ------------------------------------
 
-We are going to use the Value Tool to view the inundation depth in our study area using your maximum waterdepth raster.
+We are going to use the Value Tool to view the inundation depth in our study area using the maximum water depth raster.
 
-#) First we have to make sure the maximum waterdepth raster is visible. In the Layers panel, check the layer *max_waterdepth_interpolated*. 
+#) First, make sure the maximum water depth raster is visible. In the Layers panel, check the layer *max_water_depth_interpolated*. 
 
-#) In the Attributes Toolbar, click on the Value Tool plugin (PLAATJE ICOON). Now the Value Tool panels opens.
+#) In the Attributes Toolbar, click on the |value_tool| Value Tool button. Now the Value Tool panels opens.
 
-#) Now zoom in to our study area and hoover with your mouse over the inundation. In the Value Tool panel you can read the raster values i.e. the maximum water depth. Find that the inundation is up to 75 cm. 
+#) Now zoom in to our study area; with your mouse, hoover over the inundated area. In the Value Tool panel, you can read the raster values, i.e. the maximum inundation depth. Find that the inundation is up to 75 cm.
+
+
+
+Analysing the flow pattern
+--------------------------
+
+Now we are going to take a first look into how the water flows through the modelled area, by visualising the flow pattern.
+
+First, we are going the load the results from your simulation. 
+
+#) Click the |results_manager| *3Di Results Manager* icon. 
+ 
+#) Click |add_results| *Add 3Di Grid or Results*. 
+
+#) A pop-up screen appears where you can select the simulation results. Double-click your downloaded results. 
+
+The results will now be added to the project.
+
+#) In the 3Di Results Manager, click the |closed_eye| icon. 
+
+In the layers panel, the node, flowline and cell layers have been renamed to the variable that is visualised. 
+
+#) Toggle the *Node* and *Cell* layers to invisible.
+
+You now see the net cumulative discharge over the whole simulation for each flowline. You may move the time slider in the *Temporal Controller* at the top of the screen to view the results for earlier moments in the simulation. In the 3Di Results Manager panel, you can also change the visualised variable to *Discharge* to get a snapshot of the situation at the time step you have navigated to in the *Temporal Controller*.
+
+Another way to analyse the flow pattern is by using the *3Di Results Aggregation* tool. 
+
+#) Click |resultsaggregationtoolbar| *3Di Result Aggregation* in the *3Di Results Analysis toolbar*. A pop-up screen will appear.
+ 
+#) In the *Input* tab, the simulation result is selected automatically.
+
+#) Under *Preset*, select *Flow pattern*. If you are interested, you can play around with the other presets options later. Click *OK*. The flow pattern will now be derived and thre resulting layer will be added to the project. The layer shows an arrow for each calculation node. 
+
+#) You can zoom in on the flow pattern to discern the individual arrows. As you can see, the direction of the arrow indicates the direction of the flow. The colour of the arrow is scaled with the discharge.
+
+#) Zoom out again to see the general flow pattern in the model area. Look at the elevation map and the flow pattern; note that the water flows from the higher areas towards the lower areas and a large part eventually ends up in the river.
 
 
 Plotting water levels
 ---------------------
 
-#) In the 3Di Result Analysis Toolbar, click on the Time series plotter icon. Now the Value Tool panels opens. Now the 3Di Time series plotter panel opens.
+#) In the 3Di Result Analysis Toolbar, click on the *Time series plotter* icon. Now the 3Di Time series plotter panel opens.
 
 #) In the 3Di Time series plotter panel, click on *Pick nodes/cells*. 
 
-#) Click on a 2D surface water node in the study area on a inundated location. Now a graph appears for the selected 2D node.
+#) Click on a 2D surface water node in the study area in an inundated location. A graph is plotted for the selected 2D node.
 
-#) Select Waterlevel in the upperleft drop down menu of the 3Di Time series plotter panel.
+#) Select *Water level* in the upperleft drop-down menu of the 3Di Time series plotter panel.
 
 
 Watershed delineation for a flooded area
 ----------------------------------------
 
-To better understand why an area gets flooded and to design appropriate measures to decrease flood risks in the future; we want to know where the water in the flooded area comes from. We will now use the Watershed Tool to answer this question. The Watershed Tool allows you to determine the upstream and downstream catchment at any point or area. Follow the steps below to use the watershed tool:
+To better understand why an area gets flooded and to design appropriate measures to decrease flood risks in the future, we want to know where the water in the flooded area comes from. We will use the Watershed Tool to answer this question. The Watershed Tool allows you to determine the upstream and downstream catchment at any point or area.
 
-#) First we have to make sure the maximum waterdepth raster is still visible. In the Layers panel, check the layer *max_waterdepth_interpolated*. 
+#) First, we have to make sure the maximum water depth raster is still visible. In the Layers panel, check the layer *max_water_depth_interpolated*. 
 
-#)	Now, open the Watershed tool (PLAATJE) in the 3Di Results Analysis toolbar.
+#)	Now, open the Watershed tool |watershed_tool| in the 3Di Results Analysis toolbar.
  
-#)	In the Watershed tool, first define the Input. Select yout results under *3Di results*.
+#)	In the Watershed tool panel, define the *Input*. Select your simulations results under *3Di results*.
 
 #)	Under *Settings*, you can adjust the period for which you want to carry out the watershed analysis by adjusting the start and end time. Furthermore, you can adjust the threshold. If there is a net flow from the upstream element to the target node(s) above the defined threshold, the upstream element is included in the catchment. For now, you do not need to change the settings.
 
-#)	The next step is to define the target nodes. Click on *Click on canvas* and select the nodes in our study area (Vaethvey road 21-29).
+#)	The next step is to define the *Target nodes*. Click *Click on canvas* to activate the map tool. On the map canvas, the nodes in our study area (Vaethvey road 21-29).
  
 The tool automatically calculates the upstream catchment area for the nodes that you selected. The result of the analysis is depicted in the figure below. By choosing *Clear results*, the catchment will disappear and you can choose different nodes to derive the upstream catchment for.  
 
-#)	Now click *Downstream* instead of *Upstream* to derive the downstream catchment of your selected nodes. The result gives us a indication on how the flood volume is drained during and after the event.
+#)	In the *Output* section, check the *Downstream* option and uncheck the *Upstream* option. The result gives us a indication of how the flood volume is drained during and after the event.
 
 
 Calculating the flood volume
 ----------------------------
 
-Lastly, we are going to use the water balance-tool to determine the flood volume for in our study area.
+Lastly, we are going to use the *Water balance tool* to determine the flood volume in our study area.
 
-In the schematization, you can see that a grid refinement was implemented in the area of the town that gets flooded: our study area (Vaethvey road 21-29). 
+In the schematisation, you can see that a grid refinement was added in the area of the town that gets flooded: our study area (Vaethvey road 21-29). 
  
-#)	Click on Water balance tool (PLAATJE) in the 3Di Results Analysis toolbar.  
+#)	Click the Water balance tool button |water_balance_tool| in the 3Di Results Analysis toolbar.  
  
-#)	Choose *Select polygon* and click on the grid refinement area. Choose *grid refinement area (study_area)* in the popup menu. The tool will now automatically calculate and visualize the water balance for this area.
+#)	Choose *Select polygon* and click the grid refinement area. Choose *grid refinement area (study_area)* in the popup menu. The tool will now automatically calculate and visualize the water balance for this area.
 
-#)	In the water balance, you can choose to show both discharges and volumes. The tool is automatically set to discharge. Now change to volume by using the dropdown menu and choose the *m3 cumulative* option. 
- 
-#)	In the graph, the cumulative volumes of water for different components in the model are displayed. At the right side you can activate and deactivate different options, to visualize different flow components. Hover over the different components to see which ones are indicated in the graph. 
+.. note::
+   You can use any polygon layer as water balance area. If you do not yet have a polygon for your area of interest, create one first. In the main toolbar, click |new_geopackage|, or go to *Main Menu* > *Layer* > *Create new layer* > *New Geopackage Layer*.
 
-#)	The main component that is of interest in this question is *2D flow*. Notice that the graph displays both a positive and negative cumulative 2D Flow. This is caused by the fact that the 2D flow is both entering (positive) and leaving (negative) the study area. The net 2D flow is represented by the dotted red line, representing the *volume change 2D*. Use your mouse to zoom in on the y-axis, you can check the net 2D volume change at the end of the simulation. Check that the floow volume is about 3200 m3. 
+#)	In the water balance plot, you can either show discharge (m³/s) or volumes (cumulative discharge, m³). The tool is automatically set to discharge. Now change to volume by using the dropdown menu and choose the *m³ cumulative* option. 
+ 
+#)	In the graph, the cumulative volumes of water for flows are displayed. At the right side, you can activate and deactivate different the flows. Hover over the different components to see which ones are indicated in the graph. 
+
+#)	The main component that is of interest in this question is *2D flow*. Notice that the graph displays both a positive and negative cumulative 2D Flow. This is caused by the fact that the 2D flow is both entering (positive) and leaving (negative) the study area. The net 2D flow (change in storage) is represented by the dotted red line, representing the *volume change 2D*. Use your mouse to zoom in on the y-axis. You can check the net 2D volume change at the end of the simulation. Check that the flow volume is about 3,200 m³. 
 
 .. |langaa_waterbalans_leeg| image:: /image/langaa_waterbalans_leeg.png
 	:scale: 100%
@@ -354,6 +379,23 @@ In the schematization, you can see that a grid refinement was implemented in the
 .. |results_manager| image:: /image/i_3di_results_analysis_toolbar_results_manager.png
     :scale: 80%
 	
+.. |closed_eye| image:: /image/pictogram_temporal_controller_load_results_closed_eye.png
+	:scale: 100%
+
+.. |resultsaggregationtoolbar| image:: image/i_3di_results_analysis_toolbar_aggregation.png
+	:scale: 25%
+
+.. |watershed_tool| image:: image/i_3di_results_analysis_toolbar_watershed.png
+	:scale: 25%
+	
+.. |water_balance_tool| image:: image/i_3di_results_analysis_toolbar_waterbalance.png
+	:scale: 25%
+
+.. |value_tool| image:: image/value_tool.svg
+	:scale: 25%
+
+.. |new_geopackage| image:: image/new_geopackage.svg
+	:scale: 100%
 
 .. check zipje!! (nieuw zipje kan reinout of wolf online zetten voor je)
 

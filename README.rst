@@ -61,6 +61,11 @@ When the citation has been added to the .bib file, cite it in the text like this
 
   For further details, see :cite:p:`Volp2013`
 
+QGIS icons
+----------
+
+Instead of screenshotting the icons from QGIS, you can find the originals here: https://github.com/qgis/QGIS/tree/master/images/themes/default
+
 
 Some sphinx/restructuredtext notes
 ----------------------------------
