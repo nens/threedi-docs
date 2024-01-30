@@ -95,7 +95,11 @@ Access the 3Di Models and Simulation settings dialog by clicking *Main menu* > *
    
 The 3Di Results Analysis toolbar gives you access to all the :ref:`toctree_analysing_results`. 
 
-Clicking the (|loggingtoolbar|) saves the technical logging of the 3Di Results Analysis plugin to a file. This can be helpful for the our :ref:`servicedesk` when you run into any technical issues with the 3Di Results Analysis plugin.
+Clicking the |loggingtoolbar| saves the technical logging of the 3Di Results Analysis plugin to a file. This can be helpful for the our :ref:`servicedesk` when you run into any technical issues with the 3Di Results Analysis plugin.
+
+.. |loggingtoolbar| image:: /image/i_3di_results_analysis_toolbar_logging.png
+    :scale: 25%
+
 
 .. _temporal_controller:
 
