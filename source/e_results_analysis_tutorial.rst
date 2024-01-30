@@ -391,10 +391,10 @@ In the schematisation, you can see that a grid refinement was added in the area 
 .. |water_balance_tool| image:: image/i_3di_results_analysis_toolbar_waterbalance.png
 	:scale: 25%
 
-.. |value_tool| image:: image/value_tool.svg
+.. |value_tool| image:: image/value_tool.png
 	:scale: 25%
 
-.. |new_geopackage| image:: image/new_geopackage.svg
+.. |new_geopackage| image:: image/new_geopackage.png
 	:scale: 100%
 
 .. check zipje!! (nieuw zipje kan reinout of wolf online zetten voor je)
