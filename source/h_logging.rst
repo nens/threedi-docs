@@ -3,6 +3,9 @@
 Log files
 =========
 
+
+.. _flow_summary:
+
 Flow summary
 ------------
 
