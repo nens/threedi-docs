@@ -1,17 +1,31 @@
-Tutorial 6: Analysing 1D and 2D simulation results
-==================================================
+Tutorial 6: Analysing simulation results
+========================================
 
 Introduction
 ------------
 
 In this tutorial, we explore how you can analyse simulation results using the :ref:`3Di Modeller Interface<mi_what_is>`.
 
-Our area of interest is Langå, a small railway town located in central Denmark. Langå is situated between raised agricultural lands to the west and the Gudena River to the east of the town. The urban area has a seperated sewer system. The wastewater sewer inclines towards a pumping station, and the stormwater sewer has two outlets close to the Gudena River. While this tutorial represents a real-world area, it is important to note that some processes have been simplified for the purpose of this tutorial and that the situations described in are hypothetical.
+Our area of interest is Langå, a small railway town located in central Denmark. 
+
+.. image:: /image/e_langaa_overview_map.png
+	:scale: 100%
+	:alt: Overview of the modelled area: Langå, Denmark
+
+
+Langå is situated between raised agricultural lands to the west and the Gudena River to the east of the town. The urban area has a seperated sewer system. The sanitary sewer inclines towards a pumping station, and the stormwater sewer has two outlets close to the Gudena River. While this tutorial represents a real-world area, it is important to note that some processes have been simplified for the purpose of this tutorial and that the situations described in it are hypothetical.
 
 Case study
 ----------
 
-Several houses located next to the Vaethvey road are vulnerable to flooding. Recently, the inhabitants living in 21, 23, 25, 27 en 29 have reported heavy inundation after a 40 mm rainfall event. Vaethvey road 21-29 is our study area. Now the municipality wants to reproduce this inundation with a hydrodynamic model, to gain insight in the flood properties such as flood extent, flood volume, and flood duration. The municipality also wants to know where the flood water originates from. All this insight will help the municipal government to come up with potential measurements.  
+Several houses located next to the Vaethvey road are vulnerable to flooding. Recently, the inhabitants living in at house numbers 21, 23, 25, 27 en 29 have reported heavy inundation after a 40 mm rainfall event. Vaethvey road 21-29 is our study area. 
+
+
+.. image:: /image/e_langaa_aoi.png
+	:scale: 100%
+	:alt: Vaethvey road 21-29, Langå, Denmark
+
+Now the municipality wants to reproduce this inundation with a hydrodynamic model, to gain insight in the flood properties such as flood extent, flood volume, and flood duration. The municipality also wants to know where the flood water originates from. These insights will help the municipal government to design measures to reduce the flood risk.  
 
 
 Learning objectives
@@ -377,7 +391,7 @@ In the schematisation, you can see that a grid refinement was added in the area 
     :scale: 80%
 
 .. |results_manager| image:: /image/i_3di_results_analysis_toolbar_results_manager.png
-    :scale: 80%
+    :scale: 25%
 	
 .. |closed_eye| image:: /image/pictogram_temporal_controller_load_results_closed_eye.png
 	:scale: 100%
@@ -392,7 +406,7 @@ In the schematisation, you can see that a grid refinement was added in the area 
 	:scale: 25%
 
 .. |value_tool| image:: image/value_tool.png
-	:scale: 25%
+	:scale: 50%
 
 .. |new_geopackage| image:: image/new_geopackage.png
 	:scale: 100%
