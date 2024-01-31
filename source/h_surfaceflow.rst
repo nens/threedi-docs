@@ -48,7 +48,7 @@ If the model wishes to include an obstacle that may not be detected by the compu
    :alt: virtual_conservation_box
    :align: center
 
-   In sub-figure (A) the flow can freely flow from left to right as the blocking features are not on the cell edges. Sub-figure (B) shows the functioning of  blocked by the manually added obstacle.
+   In sub-figure (A) the flow can freely flow from left to right as the blocking features are not on the cell edges. Sub-figure (B) shows the effect of the obstacle: it affects the exchange level of the nearest cell edge.
 
 Friction
 --------
