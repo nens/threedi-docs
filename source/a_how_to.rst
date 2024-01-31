@@ -19,5 +19,5 @@ If want to become familiar with the basics of working with 3Di and its common wo
    a_howto_convert_to_1d2d
    a_howto_use_inflow
    a_howto_combine_0d_rain
-   a_howto_add_external_modules
+   a_howto_use_water_quality
    d_vegetation_howto

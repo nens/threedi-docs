@@ -12,12 +12,14 @@ This file provides a full water balance of the entire model domain for the entir
 
 The maximum volume error is also included in the volume balance; large volume errors are an indication that there may be something wrong with the schematisation. What constitutes a large volume error depends on the size of the model and the type of forcing that is used. By frequently inspecting the flow summary, an expert judgement can be trained to judge wether the volume error is normal. In very general terms, volume errors above 10 m³ are somewhat large; if the volume error is more than 1.000 m³, there is almost certainly something wrong with the schematisation.   
 
+.. _wq_logging:
+
 Water quality substance summary
-------------
+-------------------------------
 
 File name: water_quality_substance_summary.json
 
-This file provides de the substance balance when water quality is implemented in a simulation. It is recommended to check this file for any inconsistencies in the substance balance.
+This file provides the substance balance when water quality is used in a simulation. It is recommended to check this file for any inconsistencies in the substance balance.
 
 Iteration
 ---------
