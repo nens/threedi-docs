@@ -10,7 +10,7 @@ In this tutorial, we explore how you can analyse simulation results using the :r
 - :ref:`tut6_impact`
 - :ref:`tut6_why`
 - :ref:`tut6_quant`
-
+- :ref:`tut6_apply_measures` 
 
 Case study
 ##########
@@ -23,11 +23,11 @@ Our study is Langå, a small railway town located in central Denmark.
 
 Langå is situated between raised agricultural lands to the west and the Gudena River to the east of the town. The urban area has a seperated sewer system. The sanitary sewer inclines towards a pumping station, and the stormwater sewer has two outlets close to the Gudena River.
 
-Several houses on Vaethvey road (numbers 21-29) are vulnerable to flooding. Recently, the inhabitants living there have reported flood problems after a 40 mm rainfall event. 
+Several houses on the road Vaethvej (numbers 21-29) are vulnerable to flooding. Recently, the inhabitants living there have reported flood problems after a 40 mm rainfall event. 
 
 .. image:: /image/e_langaa_aoi.png
 	:scale: 80%
-	:alt: Vaethvey road 21-29, Langå, Denmark
+	:alt: Vaethvej 21-29, Langå, Denmark
 
 Now the municipality wants to reproduce this inundation with a hydrodynamic model, to gain insight in the flood properties such as flood extent, flood volume, and flood duration. The municipality also wants to know where the flood water originates from. These insights will help the municipal government to design measures to reduce the flood risk.  
 
@@ -304,12 +304,12 @@ The maximum water depth map gives insight in *where* the flooding occurs, but do
 
 #) In the 3Di Time series plotter panel, click on *Pick nodes/cells*. 
 
-#) Click on a 2D surface water node in the inundated area near Vaethvey 21-29. A graph is plotted for the selected 2D node. Note: make sure that in the upper right drop-down menu of the 3Di Time series plotter panel, the selected variable is *Water level*.
+#) Click on a 2D surface water node in the inundated area near Vaethvej 21-29. A graph is plotted for the selected 2D node. Note: make sure that in the upper right drop-down menu of the 3Di Time series plotter panel, the selected variable is *Water level*.
 
 #) Look at the graph. When does the water level start rising? When does the peak occur and why? Why does the rate of rise decrease leading up to the peak? Is the decrease after the peak faster or slower than the increase? What does this graph tell you about the drainage situation at this location?
 
 .. note::
-    If your subscription also includes the Scenario Archive, you can add a WMS layer of the water depth, and use the Temporal Controller to navigate through its time steps. This will give you additional insight in the progression of the flood through time.
+    If your subscription also includes the Scenario Archive, you can add a WMS layer of the water depth, and use the Temporal Controller to navigate through its time steps. This will give you additional insight in the progression of the flood through time. See the `Lizard documentation<https://docs.lizard.net/d_qgisplugin.html>`_ for more information.
 
 
 .. _tut6_why:
@@ -332,7 +332,7 @@ In the *Layers* panel, the node, flowline and cell layers have been renamed to t
 
 You now see the net cumulative discharge over the whole simulation for each flowline. You may move the time slider in the *Temporal Controller* at the top of the screen to view the results for earlier moments in the simulation. In the 3Di Results Manager panel, you can also change the visualised variable to *Discharge* to get a snapshot of the situation at the time step you have navigated to in the *Temporal Controller*.
 
-#) Zoom out from the Vaethvey a bit. Can you see the flow route(s) the water follows to flow to our problem area? By which route(s) does the water leave?
+#) Zoom out from the Vaethvej a bit. Can you see the flow route(s) the water follows to flow to our problem area? By which route(s) does the water leave?
 
 Another way to analyse the flow pattern is by using the *3Di Results Aggregation* tool. 
 
@@ -373,13 +373,13 @@ Another quick way to find out where the flood water comes from is using the *Wat
 
 #)	Leave the *Settings* as they are.
 
-#)	In the section *Target nodes*, click *Click on canvas* to activate the map tool. On the map canvas, click on a node in the inundated area near Vaethvey 21-29.
+#)	In the section *Target nodes*, click *Click on canvas* to activate the map tool. On the map canvas, click on a node in the inundated area near Vaethvej 21-29.
  
 The tool automatically calculates the upstream catchment area for the nodes that you selected. By choosing *Clear results*, the catchment will disappear and you can choose different nodes to derive the upstream catchment for.
 
 #)	In the *Output* section, check the *Downstream* option and uncheck the *Upstream* option. The result gives us a indication of how the flood volume is drained during and after the event.
 
-The upstream and downstream areas for Vaethvey 21-29 should look like this:
+The upstream and downstream areas for Vaethvej 21-29 should look like this:
 
 
 .. image:: /image/langaa_watershed_output.png
@@ -416,7 +416,7 @@ To determine the flood volume in our study area, we are going to use the *Water 
 
 #) The new layer is added to the project in edit mode. Click |add_polygon| *Add Polygon Feature* in the main toolbar.
 
-#) Draw a polygon around the Vaethvey 21-29 area, stop the editing session and save your edits. The polygon should look more or less like this:
+#) Draw a polygon around the Vaethvej 21-29 area, stop the editing session and save your edits. The polygon should look more or less like this:
 
 
 .. image:: /image/langaa_water_balance_polygon.png
@@ -464,7 +464,7 @@ Drawing the retention area polygon
 
 #) In the sub-tab *Buffer*, check the box *Draw text buffer* to make the label easier to read.
 
-#) How deep must the retention area be so that it can contain all the water that flows into the flood prone area at Vaethvey 21-29?
+#) How deep must the retention area be so that it can contain all the water that flows into the flood prone area at Vaethvej 21-29?
 
 #) Use the |value_tool| *Value Tool* to find out what the current elevation is within the new retention area. What should be the new elevation of the bottom of the retention area?
 
@@ -501,7 +501,7 @@ You can now repeat the steps you have done earlier in this tutorial to check if 
 
 - :ref:`tut6_impact`
 
-Has this measure solved the whole flood problem for Vaethvey 21-29? If not, what additional measures can be taken?
+Has this measure solved the whole flood problem for Vaethvej 21-29? If not, what additional measures can be taken?
 
 Congratulations
 ###############
