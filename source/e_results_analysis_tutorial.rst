@@ -4,32 +4,39 @@ Tutorial 6: Analysing simulation results
 Introduction
 ------------
 
-In this tutorial, we explore how you can analyse simulation results using the :ref:`3Di Modeller Interface<mi_what_is>`.
+In this tutorial, we explore how you can analyse simulation results using the :ref:`3Di Modeller Interface<mi_what_is>`. This tutorial is a bit longer than the previous tutorials. It has a number of sub-sections:
 
-Our area of interest is Langå, a small railway town located in central Denmark. 
+- :ref:`_tut6_simulation`
+- :ref:`_tut6_impact`
+- :ref:`_tut6_why`
+- :ref:`_tut6_quant`
+
+
+Case study
+##########
+
+Our study is Langå, a small railway town located in central Denmark. 
 
 .. image:: /image/e_langaa_overview_map.png
 	:scale: 100%
 	:alt: Overview of the modelled area: Langå, Denmark
 
+Langå is situated between raised agricultural lands to the west and the Gudena River to the east of the town. The urban area has a seperated sewer system. The sanitary sewer inclines towards a pumping station, and the stormwater sewer has two outlets close to the Gudena River.
 
-Langå is situated between raised agricultural lands to the west and the Gudena River to the east of the town. The urban area has a seperated sewer system. The sanitary sewer inclines towards a pumping station, and the stormwater sewer has two outlets close to the Gudena River. While this tutorial represents a real-world area, it is important to note that some processes have been simplified for the purpose of this tutorial and that the situations described in it are hypothetical.
-
-Case study
-----------
-
-Several houses located next to the Vaethvey road are vulnerable to flooding. Recently, the inhabitants living in at house numbers 21, 23, 25, 27 en 29 have reported heavy inundation after a 40 mm rainfall event. Vaethvey road 21-29 is our study area. 
-
+Several houses on Vaethvey road (numbers 21-29) are vulnerable to flooding. Recently, the inhabitants living there have reported flood problems after a 40 mm rainfall event. 
 
 .. image:: /image/e_langaa_aoi.png
-	:scale: 100%
+	:scale: 80%
 	:alt: Vaethvey road 21-29, Langå, Denmark
 
 Now the municipality wants to reproduce this inundation with a hydrodynamic model, to gain insight in the flood properties such as flood extent, flood volume, and flood duration. The municipality also wants to know where the flood water originates from. These insights will help the municipal government to design measures to reduce the flood risk.  
 
+.. note::
+    While this tutorial represents a real-world area, it is important to note that some processes have been simplified for the purpose of this tutorial and that the situations described in it are hypothetical.
+
 
 Learning objectives
--------------------
+###################
 
 You will learn the following in this tutorial:
 
@@ -51,45 +58,50 @@ You will learn the following in this tutorial:
 
 
 Preparation
------------
+###########
 
 Before you get started:
 
 * Make sure you have a 3Di account. Please contact the :ref:`servicedesk` if you need help with this.
 * Install the 3Di Modeller Interface, see :ref:`3di_instruments_and_downloads`.
-* Download the dataset for this tutorial `here <https://nens.lizard.net/media/3di-tutorials/3di-tutorial-04.zip>`_. AANPASSEN 
+* Download the dataset for this tutorial `here <https://nens.lizard.net/media/3di-tutorials/langaa.zip>`_.
+* Unzip the dataset for this tutorial and save the contents in your *Downloads* folder.
 
-.. TODO: zip updaten via Wolf 
+The dataset that you downloaded for this tutorial contains a 3Di schematisation, consisting of a Spatialite (.sqlite file) and a Digital Elevation Model (.tif file) for the place Langå. The DEM is located in the folder named "rasters".
 
-Unzip the dataset for this tutorial and save the contents in your download folder. The dataset that you downloaded for this tutorial contains a 3Di schematisation (.sqlite extension) including a digital elevation model raster (DEM) for the place Langå. The DEM is located in the folder named "rasters".
+.. _tut6_simulation:
 
+Running the simulation
+----------------------
+
+We will go through a number of steps to run a simulation, to have results that we can analyse. These steps should mostly be familiar if you have already done one or more of the previous tutorials. 
 
 Creating a new schematisation
------------------------------
+#############################
 
 The first step is to create a new :ref:`schematisation`:
 
 #) Open the 3Di Modeller Interface.
 
-#) Click the 3Di Models and Simulations icon (|modelsSimulations|). You should now see the 3Di Models and Simulations panel. If this is the first time you use the 3Di Models and Simulation panel, you will need to go through :ref:`some steps to set it up<setting_up_models_and_simulations>`.
+#) Click the |modelsSimulations| 3Di Models and Simulations. You should now see the 3Di Models and Simulations panel. If this is the first time you use the 3Di Models and Simulation panel, you will need to go through :ref:`some steps to set it up<setting_up_models_and_simulations>`.
 
-#) In the *Schematisation* section of the 3Di Models and Simulations panel, click the *New* button (|newschematisation|). The *New schematisation* wizard is shown.
+#) In the *Schematisation* section of the 3Di Models and Simulations panel, click |newschematisation| *New*. The *New schematisation* wizard is shown.
 
 #) Fill in a schematisation name, such as 'Tutorial analysing simulation results Langaa <your_name>'. Select the organisation you want to be the owner of the new schematisation (most users have rights for only one organisation). Tags are optional, you can leave this field empty for now. Since you will use a pre-built schematisation, select the *Choose file* option. Select the schematisation file *Demo model Langaa.sqlite* from your Downloads folder.
 
-#) Click *Create schematisation*. A popup message will tell you that the schematisation was created successfully. Copy the path that is shown in the popup message and paste it somewhere (e.g. in an empty text file).
+#) Click *Create schematisation*. A popup message will tell you that the schematisation was created successfully.
 
 
 Uploading the schematisation
-----------------------------
+############################
 
 We will now upload the schematisation as a first :ref:`revision` and process it into a :ref:`threedimodel`. All these steps are covered by the upload wizard.
 
-#) Click the upload button (|upload|) in the 3Di Models and Simulations panel.
+#) Click the |upload| upload button in the 3Di Models and Simulations panel.
 
 #) In the dialog box that has appeared, click *New upload* and click *Next*.
 
-#) Click *Check schematisation*. This will check your schematisations for any errors that would make it impossible to generate a valid 3Di model and simulation template. It should not produce any errors, warnings or info level messages. Click *Next*.
+#) Click *Check schematisation*. This will check your schematisation for any errors that would make it impossible to generate a valid 3Di model and simulation template. It should not produce any errors, warnings or info level messages. Click *Next*.
 
 #) Fill in a commit message. This is a short description of the changes you have made relative to the previous revision. As this is the first revision of this schematisation, you can provide a short description of what you upload. For example: "Langå schematision without changes".
 
@@ -97,13 +109,13 @@ We will now upload the schematisation as a first :ref:`revision` and process it 
 
 
 Viewing the schematisation
---------------------------
+##########################
 
 We will load the schematisation in the 3Di Modeller Interface to view it. Later in this tutorial we will also make some modifications. The schematisation can be loaded by following these steps:
 
-#) In the 3Di Schematisation Editor toolbar, click the *Load from Spatialite* button (|load_from_spatialite|). Paste the previously copied path to the spatialite and click *Open*.
+#) In the 3Di Schematisation Editor toolbar, click the |load_from_spatialite| *Load from Spatialite* button.
 
-    If you have not copied the path to the spatialite, click the (blue, underlined) name of your schematisation at the top of the 3Di Models & Simulations panel. Windows Explorer will open; browse to *work in progress/schematisation* and copy the path from the Windows Explorer address bar.
+#) Double-click the name of the schematisation you want to load.
 
 #) Add a background map from OpenStreetMap by clicking *Web* in the Main Menu > *Quick Map Services* > *OSM* > *OSM Standard*. 
 
@@ -113,11 +125,11 @@ You should now see the DEM around Langå.
 
 
 Running a simulation
---------------------
+####################
 
 We will now start a simulation with the 3Di model you have created in the 3Di Modeller Interface: 
 
-#) In the 3Di Models and Simulations panel, click *Simulate* (|simulate|) > *New simulation*.  
+#) In the 3Di Models and Simulations panel, click |simulate| *Simulate*  > *New simulation*.  
 
 #) Select your model and simulation template and click *Next*. A dialog box opens with several options for your simulation.  
 
@@ -148,22 +160,29 @@ In the 3Di Models and Simulations panel, click *Simulate*. An overview is given 
 
 You may also :ref:`follow the simulation in 3Di Live<follow_a_session>`.
 
+.. _tut6_impact:
+
+Assessing the flood impact
+--------------------------
+
+Now that we have ran the simulation, we can start analysing. Our first step will be to assess the flood impact: where does it flood, with what depths and for how long?
+
 
 Downloading the simulation results
-----------------------------------
+##################################
 
 We will now download the results of your simulation to your working directory which is a local folder: 
 
-#) In the 3Di Models and Simulations panel, click *Results* |simulate|.
+#) In the 3Di Models and Simulations panel, click *Results* |download_results|.
 
 #) Select your simulation and click *Download*. A download progress bar now appears. This progress bar colors green when the downloading of your simulation results is finished.  
 
-.. note:
+.. note::
   The simulation results are saved in your 3Di working directory. To open this folder, click on the name of the schematisation in the 3Di Models & Simulations panel.
 
 
 Opening the simulation results
-------------------------------
+##############################
 
 Our next step is to load the simulation results in the 3Di Modeller Interface.
 
@@ -177,7 +196,7 @@ Now your simulations results are loaded in the 3Di Modeller Interface and shown 
 
 
 Checking the flow summary
--------------------------
+#########################
 
 As a first step of gaining insight in the simulation, we will check out the :ref:`flow_summary`. 
 
@@ -191,7 +210,7 @@ First, we will check if the total rainfall volume in the *flow_summary.log* matc
 
 #) Under the *Information* tab, in the *Information from provider* section, you can find the width and height (in pixels), and pixel size (in meters). Combine this information to calculate the area of the DEM and the total rainfall volume. Does it correspond with the total rain on 2D reported in the Flow summary? 
 
-.. note:
+.. note::
    The 3Di Model in this example is atypical in that it is perfectly rectangular. All pixels in the DEM have a value. Most 3Di Models have a boundary that follows hydrogical watershed boundaries. DEM pixels outside of these boundaries are "no data" pixels. In such a case, the method used here for calculating the surface area of the model does not work. Instead, use the QGIS Processing Algorithm "Zonal statics", with an input polygon that covers the entire model domain, and choose "Count" as one of the statistics to calculate.
 
 Secondly, you are going to volume balance the better understand de functioning of the model.
@@ -208,7 +227,7 @@ The filled-in water balance can be found below:
 
 
 Generating the maximum water depth raster
------------------------------------------
+#########################################
 
 In this step, we are going generate a maximum inundation depth map. 
 
@@ -254,7 +273,7 @@ We will now make all water depths between 0 and 1 cm transparent.
 
 
 Finding the maximum inundation depth
-------------------------------------
+####################################
 
 We are going to use the Value Tool to view the inundation depth in our study area using the maximum water depth raster.
 
@@ -265,9 +284,26 @@ We are going to use the Value Tool to view the inundation depth in our study are
 #) Now zoom in to our study area; with your mouse, hoover over the inundated area. In the Value Tool panel, you can read the raster values, i.e. the maximum inundation depth. Find that the inundation is up to 75 cm.
 
 
+How long does the inundation last?
+##################################
+
+#) In the 3Di Result Analysis Toolbar, click on the *Time series plotter* icon. Now the 3Di Time series plotter panel opens.
+
+#) In the 3Di Time series plotter panel, click on *Pick nodes/cells*. 
+
+#) Click on a 2D surface water node in the study area in an inundated location. A graph is plotted for the selected 2D node.
+
+#) Select *Water level* in the upperleft drop-down menu of the 3Di Time series plotter panel.
+
+.. _tut6_why:
+
+Why does the inundation occur?
+------------------------------
+
+Now that we have established the impact and severity of the flooding, we will look into why it happens at this location. If we know where the water comes from, we know where we can add extra buffer capacity. If we know which routes the water follows, we may be able to change those routes. We may also be able to drain water from the area more quickly.
 
 Analysing the flow pattern
---------------------------
+##########################
 
 Now we are going to take a first look into how the water flows through the modelled area, by visualising the flow pattern.
 
@@ -302,20 +338,8 @@ Another way to analyse the flow pattern is by using the *3Di Results Aggregation
 #) Zoom out again to see the general flow pattern in the model area. Look at the elevation map and the flow pattern; note that the water flows from the higher areas towards the lower areas and a large part eventually ends up in the river.
 
 
-Plotting water levels
----------------------
-
-#) In the 3Di Result Analysis Toolbar, click on the *Time series plotter* icon. Now the 3Di Time series plotter panel opens.
-
-#) In the 3Di Time series plotter panel, click on *Pick nodes/cells*. 
-
-#) Click on a 2D surface water node in the study area in an inundated location. A graph is plotted for the selected 2D node.
-
-#) Select *Water level* in the upperleft drop-down menu of the 3Di Time series plotter panel.
-
-
 Watershed delineation for a flooded area
-----------------------------------------
+########################################
 
 To better understand why an area gets flooded and to design appropriate measures to decrease flood risks in the future, we want to know where the water in the flooded area comes from. We will use the Watershed Tool to answer this question. The Watershed Tool allows you to determine the upstream and downstream catchment at any point or area.
 
@@ -333,9 +357,15 @@ The tool automatically calculates the upstream catchment area for the nodes that
 
 #)	In the *Output* section, check the *Downstream* option and uncheck the *Upstream* option. The result gives us a indication of how the flood volume is drained during and after the event.
 
+.. _tut6_quant:
+
+Quantification of the flood volume
+----------------------------------
+
+Now that we know *where* additional storage or buffer capacity would be helpful, we need to estimate how much storage is needed, so that we can use the correct dimensions in the design of our measure.
 
 Calculating the flood volume
-----------------------------
+############################
 
 Lastly, we are going to use the *Water balance tool* to determine the flood volume in our study area.
 
@@ -388,6 +418,9 @@ In the schematisation, you can see that a grid refinement was added in the area 
     :scale: 80%
 
 .. |simulate| image:: /image/pictogram_simulate.png
+    :scale: 80%
+	
+.. |download_results| image:: /image/pictogram_download_results.png
     :scale: 80%
 
 .. |results_manager| image:: /image/i_3di_results_analysis_toolbar_results_manager.png
