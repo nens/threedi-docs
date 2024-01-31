@@ -6,10 +6,10 @@ Introduction
 
 In this tutorial, we explore how you can analyse simulation results using the :ref:`3Di Modeller Interface<mi_what_is>`. This tutorial is a bit longer than the previous tutorials. It has a number of sub-sections:
 
-- :ref:`_tut6_simulation`
-- :ref:`_tut6_impact`
-- :ref:`_tut6_why`
-- :ref:`_tut6_quant`
+- :ref:`tut6_simulation`
+- :ref:`tut6_impact`
+- :ref:`tut6_why`
+- :ref:`tut6_quant`
 
 
 Case study
