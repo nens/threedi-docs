@@ -7,5 +7,6 @@ Outputs
    :maxdepth: 1
 
    h_results
+   h_water_quality_results
    h_aggregate_results
    h_logging

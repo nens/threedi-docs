@@ -69,6 +69,7 @@ Table of contents
    h_grid
    h_flow
    h_simulation_settings
+   h_water_quality
    h_outputs
 
 
