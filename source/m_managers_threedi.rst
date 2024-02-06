@@ -1,5 +1,10 @@
 :orphan:
 
+========
+Managers
+========
+
+
 Wat zijn de taken die vallen op een Manager van een organisatie
 ===============================================================
 
