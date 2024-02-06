@@ -1,7 +1,4 @@
-"""""""""""""""""""""
-
-Managers rechten 3Di
-"""""""""""""""""""""
+:orphan:
 
 Wat zijn de taken die vallen op een Manager van een organisatie
 ===============================================================
@@ -95,14 +92,14 @@ Dit gebeurt als volgt:
 
 .. tip:: Wanneer de e-mail niet in de inbox verschijnt na 5 minuten, controleer dan eerst uw spam. Mocht de uitnodiging hier ook niet zijn, dan kunt u altijd de `servicedesk <mailto:servicedesk@nelen-schuurmans.nl>`_ benaderen.
 
-.. figure:: /images/threedi/threedi_overzicht_rechten.png
+.. figure:: /image/m_threedi_overzicht_rechten.png
     :scale: 50%
     :alt: Overview of the 3Di management page with multiple users.
 
     Afbeelding 1: Een overzicht van het gebruikersgedeelte in het managementscherm van 3Di.
 
 
-.. figure:: /images/threedi/threedi_uitnodiging_rechten.png
+.. figure:: /image/m_threedi_uitnodiging_rechten.png
     :scale: 50%
     :alt: Invitation screen for new users of 3Di. Enter an e-mail and select the roles for the new user.
 
@@ -122,7 +119,7 @@ U ziet hier de volgende informatie van gebruikers die rechten hebben voor uw org
 Door op het plusje achter de rollen van een gebruiker te klikken kunt u de rechten gaan aanpassen.
 De plus knop veranderd dan ook in `SAVE`. Zodra de rechten naar wens zijn klikt u op `SAVE` om dit te bevestigen.
 
-.. figure:: /images/threedi/threedi_rechten_bestaande.png
+.. figure:: /image/m_threedi_rechten_bestaande.png
 
 
 Tips
