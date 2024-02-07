@@ -65,7 +65,7 @@ You can do this in the :ref:`Users<3di_management_users>` section of 3Di Managem
 .. _maintaining_rights:
 
 Maintaining rights of existing users
-------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The rights of users under your organisation do not expire automatically.
 So, it is important that you regularly check whether users still need their rights.
@@ -76,7 +76,7 @@ It is up to you to determine how often you want to perform this check.
 .. _granting_rights:
 
 Granting rights to new users
-----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If a user needs rights for your organisation, you are responsible for granting them.
 For the smooth progress of a project, it is useful to handle such requests promptly.
