@@ -92,14 +92,14 @@ This is done as follows:
 
 .. tip:: If the email does not appear in the inbox after 5 minutes, first check your spam folder. If the invitation is not there either, you can always contact the `servicedesk <mailto:servicedesk@nelen-schuurmans.nl>`_.
 
-.. figure:: /images/threedi/threedi_overzicht_rechten.png
+.. figure:: /image/m_threedi_overzicht_rechten.png
     :scale: 50%
     :alt: Overview of the 3Di management page with multiple users.
 
     Image 1: An overview of the user section in the management screen of 3Di.
 
 
-.. figure:: /images/threedi/threedi_uitnodiging_rechten.png
+.. figure:: /image/m_threedi_uitnodiging_rechten.png
     :scale: 50%
     :alt: Invitation screen for new users of 3Di. Enter an email and select the roles for the new user.
 
@@ -118,7 +118,7 @@ Here you see the following information of users who have rights for your organiz
 By clicking on the plus sign next to the roles of a user, you can start adjusting the rights.
 The plus button will then change to `SAVE`. Once the rights are as desired, click `SAVE` to confirm.
 
-.. figure:: /images/threedi/threedi_rechten_bestaande.png
+.. figure:: /image/m_threedi_rechten_bestaande.png
 
 
 Tips
