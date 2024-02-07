@@ -4,8 +4,8 @@
 Managers
 ========
 
-What are the tasks that fall under a Manager of an organization
-===============================================================
+What are the tasks of Manager in an organization
+================================================
 
 The role of a manager is important for managing the data of an organization.
 As a manager, you grant or revoke rights for your organization.
