@@ -31,7 +31,8 @@ If you are interested in a **product demo**, a **live** or **online training**, 
 
 3Di is a result of a consortium of Stelling Hydraulics, Deltares, TU Delft and Nelen & Schuurmans.
 The computational core is developed by Prof. dr. ir. G. S. Stelling, who worked on the subgrid technique in close collaboration with Prof. dr. ir. V. Casulli.
-Most of the techniques used within the 3Di computational core are published in scientific papers. The rest of the software is maintained and developed by Nelen & Schuurmans Technology.
+Most of the techniques used within the 3Di computational core are published in scientific papers. 3Di is maintained and further developed by Nelen & Schuurmans.
+
 
 Table of contents
 =================
@@ -64,8 +65,13 @@ Table of contents
    :name: Technical Reference
    
    h_modelling_concepts
-   g_physics
+   h_initials_forcings_events
+   h_grid
+   h_flow
+   h_simulation_settings
+   h_water_quality
    h_outputs
+
 
 
 .. toctree::
@@ -86,3 +92,9 @@ Table of contents
 
    a_releasenotes
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Literature
+   :name: Literature
+
+   l_literature

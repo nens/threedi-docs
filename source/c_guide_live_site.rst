@@ -1,9 +1,11 @@
-3Di Live Site
+3Di Live
 ===============
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
-   c_what_is_the_live_site
-   c_livesite_overview
-   c_modelling_with_live_site
+   c_3di_live_introduction
+   c_3di_live_sessions
+   c_3di_live_visualisation_tools
+   c_3di_live_analysis_tools
+   c_3di_live_interactive_tools

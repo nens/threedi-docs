@@ -3,10 +3,10 @@ Choose connection node storage area
 
 A connection node is a schematisation object that connects channels, pipes, culverts, weirs, orifices and pumping stations. Storage can be added to these nodes by setting the *storage area* to a non-NULL value. This section provides guidelines for choosing the right storage area.
 
-Manholes in sewer systems
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Manholes in sewerage systems
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In sewer systems, the storage area corresponds to the surface area of the bottom of the manhole. If no data is available on the manhole dimensions, a storage area of 0.5 to 1 m can be used as a sensible default in most sewer systems.
+In sewerage systems, the storage area corresponds to the surface area of the bottom of the manhole. If no data is available on the manhole dimensions, a storage area of 0.5 to 1 m can be used as a sensible default in most sewerage systems.
 
 
 Effect on advection

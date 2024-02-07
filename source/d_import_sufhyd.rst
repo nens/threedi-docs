@@ -2,25 +2,27 @@
 
 Import from SUF-HYD
 ^^^^^^^^^^^^^^^^^^^
-.. TODO: dit stukje is wat verouderd volgensmij. Even checken of de tekst nu klopt. 
 
-SUF-HYD is a Dutch standardized format for transferring data of sewerage systems for hydraulic analyses. This tool allows an automated import of the sewerage data in the 3Di model database. 
+SUF-HYD is a Dutch standardized format for transferring data of sewerage systems for hydraulic analyses. This tool allows an automated import of the sewerage data in the 3Di model database. It is now succeeded by the newer `GWSW HydX <https://www.riool.net/applicaties/gegevenswoordenboek-stedelijk-water/modulaire-opbouw-van-het-gwsw/gwsw-hyd>`.
 
-Before you can use the tool, make sure you have downloaded an :ref:`empty spatialite <empty_database>`. The SUF-HYD data will be imported to this spatialite. Save the Sqlite to a location fo choice on your computer.
+Before you can use the tool, make sure you have downloaded an :download:`empty spatialite <other/empty.sqlite>`. The SUF-HYD data will be imported to this spatialite.
 
-The tool can be accessed by :ref:`activating the processing toolbox <processing_toolbox>` > clicking on '3Di' in the toolbox > 'Schematisation' > 'import Sufhyd' 
+.. VRAAG: klopt dit nog?
 
-1) First, make sure you have a connection with the sqlite you want to import your data to (see the first 3 steps under :ref:`rasterchecker`). 
-2) After opening the tool, select a SUF-HYD file and the database (sqlite) to import the data into and click 'OK'
+The tool can be accessed by the :ref:`3di_processing_toolbox` > clicking '3Di' in the toolbox > 'Schematisation' > 'import Sufhyd'. 
+After opening the tool, select a SUF-HYD file and the database (sqlite) to import the data into and click 'OK'
+
+.. VRAAG: heb je een SUF-HYD zodat ik kan checken dat dit nog klopt?
 
 The data from the SUF-HYD will be loaded into the sqlite. A log file of this process can be found at the same location as the SUF-HYD file. This file has the name of your SUF-HYD with a *.hyd.log* extension. You can open this log file with a text editor such as Notepad. This log-file gives a summary of data errors and warnings. 
 
 The following objects are imported:
 
-* Manhole (``*KNP``)
-    * The number of inhabitants will be added as an *Impervious surface*.
+*    Manhole (``*KNP``)
 
-Note: the shape of the manhole is referred as 'rnd' = round, 'sqr' = square and 'rect' = rectangle
+    *    The number of inhabitants will be added as an *Impervious surface*.
+    *    Note: the shape of the manhole is referred as 'rnd' = round, 'sqr' = square and 'rect' = rectangle
+
 
 *    Pipe (``*LEI``)
 

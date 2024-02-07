@@ -7,9 +7,8 @@ The results of a simulation are written to a `NetCDF <https://en.wikipedia.org/w
 
 The file size is determined by the output time step, the size of the model (number of nodes and flowlines), and the duration of the simulation.
 
-In addition to these snap shots, 3Di can generate aggregated results. More about this can be found in :ref:`aggregationnetcdf`.
+In addition to these snap shots, 3Di can generate aggregated results. More about this can be found in :ref:`aggregationnetcdf`. More about the results of the water quality can be found :ref:`wq_netcdf`
 
-When using Python to access the results, use the :ref:`j_threedigrid`.
 
 Flow results are split between node and line variables. Node variables include volumes, water levels and all the source and sink terms. Flowline variables include velocities, discharges and wet cross-section areas. A full overview is given below.
 
@@ -63,7 +62,7 @@ First the meta information of the computational grid is defined.
   - Name: Type of 2D mesh node/face
   - Types: surface_water_2d, grounwater_2d, groundwater_2d, open_water_boundary_2d, groundwater_boundary_2d
 
-**Dimensions** Lenght of the arrays
+**Dimensions** Length of the arrays
 
   nMesh2D_nodes:
 

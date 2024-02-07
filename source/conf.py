@@ -1,6 +1,18 @@
 #!/usr/bin/env python3
+from dataclasses import dataclass, field
+
 import datetime
 import sphinx_rtd_theme
+import pybtex
+
+
+from pybtex.style.formatting.alpha import Style as AlphaStyle
+from pybtex.style.labels.alpha import LabelStyle as AlphaLabelStyle
+from pybtex.style.labels import BaseLabelStyle
+from pybtex.plugin import register_plugin
+import sphinxcontrib.bibtex.plugin
+from sphinxcontrib.bibtex.style.referencing import BracketStyle
+from sphinxcontrib.bibtex.style.referencing.author_year import AuthorYearReferenceStyle
 
 # The 3Di release name that's shown at the top of the sidebar.
 # Note: non-production documentation builds are marked as such, you don't need
@@ -19,7 +31,44 @@ THREEDI_RELEASE = ""
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ["sphinx.ext.todo"]
+extensions = ["sphinx.ext.todo", "sphinxcontrib.bibtex"]
+
+# bibtex (bibliography extension)
+## Format references as "Author (year)"
+def bracket_style() -> BracketStyle:
+    return BracketStyle(
+        left='(',
+        right=')',
+    )
+
+@dataclass
+class AuthorYearRoundReferenceStyle(AuthorYearReferenceStyle):
+    bracket_parenthetical: BracketStyle = field(default_factory=bracket_style)
+    bracket_textual: BracketStyle = field(default_factory=bracket_style)
+    bracket_author: BracketStyle = field(default_factory=bracket_style)
+    bracket_label: BracketStyle = field(default_factory=bracket_style)
+    bracket_year: BracketStyle = field(default_factory=bracket_style)
+
+
+sphinxcontrib.bibtex.plugin.register_plugin(
+    'sphinxcontrib.bibtex.style.referencing',
+    'author_year_round', AuthorYearRoundReferenceStyle)
+
+## Format labels in bibliography
+class CustomLabelStyle(AlphaLabelStyle):
+    def format_label(self, entry):
+        return f"{entry.persons['author'][0].last_names[0]} {entry.fields['year']}"
+
+
+class CustomStyle(AlphaStyle):
+    default_label_style = 'custom'
+
+
+register_plugin('pybtex.style.labels', 'custom', CustomLabelStyle)
+register_plugin('pybtex.style.formatting', 'customstyle', CustomStyle)
+
+bibtex_bibfiles = ['literature.bib']
+bibtex_reference_style = 'author_year_round'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]

@@ -1,11 +1,11 @@
 
 .. _servicedesk:
 
-Servicedesk
-============================
+Service desk
+============
 
 Nelen & Schuurmans provide a Service Desk function via https://nelen-schuurmans.topdesk.net/, The Nelen & Schuurmans Self Service Portal shall be available 24/7.
-The Service Desk giving support on all 3Di modules for 3Di customers.
+The Service Desk gives support on all 3Di modules for 3Di customers.
 Customers can reach telephonic support (Prio 1) on working days from 09:00 - 17:00 (CEST) excluding the days declared as dutch public holiday close days.
 
 Customers shall report incidents primarily via the Self Service Portal but may also do so via email: servicedesk@nelen-schuurmans.nl.

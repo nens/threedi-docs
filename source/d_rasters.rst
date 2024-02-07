@@ -43,7 +43,7 @@ Interflow settings:
 DEM
 ---
 
-For the Digital Elevation Model (DEM) satellite or LIDAR-based information is often used. When working with crude SRTM-data for instance, it is important to derive the genuine surface level and remove any artefacts. Also, adding bathymetry information to your raster could be useful, since the satellite and LIDAR techniques are unable to *see* under water.
+For the Digital Elevation Model (DEM) satellite or LIDAR-based information is often used. When working with crude SRTM-data for instance, it is important to derive the genuine surface level and remove any artifacts. Also, adding bathymetry information to your raster could be useful, since the satellite and LIDAR techniques are unable to *see* under water.
 
 Raster requirements
 -------------------
@@ -61,6 +61,8 @@ How you derive your raster information is entirely up to you. 3Di rasters have t
 #. Pixel size is square
 
 #. Recommended: Origin is rounded to pixel size precision
+
+#. The maximum size of the Digital Elevation Model is 5 billion pixels. This includes NoData pixels. The other rasters will be resampled to the resolution of the DEM, so their pixel count is not relevant.
 
 
 Using GDAL to check and edit your rasters

@@ -4,7 +4,7 @@ Scenario Archive
 =================
 
 3Di users that have access to Lizard can view and playback stored scenarios. Depending on your contract and location you may be able to view estimates of damage caused by inundation or flooding (waterschadeschatter).
-For Lizard users, you can view your scenanrio's here: https://demo.lizard.net/viewer/
+For Lizard users, you can view your scenarios here: https://demo.lizard.net/viewer/
 If scenario's are set to public, you do not need an account to view them.
 If you also have Lizard management rights, you can manage your scenario's here: https://demo.lizard.net/management/data_management/scenarios
 For more information, please visit the Lizard documentation page: https://docs.lizard.net/c_scenarios.html 
@@ -124,7 +124,7 @@ To view post-processed results from your 3Di scenario in the 3Di Modeller Interf
 | b) Create a new connection.
 | c) Give your scenario a name and copy the URL composed in the previous step. 
 | d) Under *Authentication* choose *Basic*.
-| e) You need to use a personal API key. If you do not have one yet, you can create one in the Lizard management portal. Go to yourportal.lizard.net, go to **Management > Personal API keys > +New Item.** Use *__key__* as username and the personal API key you created as password. See the `Lizard documentation <https://docs.lizard.net/d_apitechnical.html#apiauthenticationanchor>`_ for more information. 
+| e) You need to use a personal API key. If you do not have one yet, you can create one in the Lizard 3Di Management. Go to yourportal.lizard.net, go to **Management > Personal API keys > +New Item.** Use *__key__* as username and the personal API key you created as password. See the `Lizard documentation <https://docs.lizard.net/d_apitechnical.html#apiauthenticationanchor>`_ for more information. 
 | f) Click *OK* to save the connection. 
 
 .. figure:: image/d_wms_connection.png

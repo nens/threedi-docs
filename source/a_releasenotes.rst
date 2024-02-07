@@ -8,12 +8,340 @@ Release notes
 3Di general releases
 --------------------
 
-April 25th 2023
+January 8th, 2023
+^^^^^^^^^^^^^^^^^
+
+**Water quality**
+
+We are proud to announce that we have added water quality capabilities to 3Di. More specifically, you can introduce concentrations of substances to the simulation, and compute the spread of substance concentrations due to advective forces and (numerical) diffusion.
+
+- Substances can enter the model domain as concentrations in initial water, boundary conditions, laterals, rain, leakage, surface sources and sinks. This applies to the entire model domain (1D, 2D, and groundwater).
+
+- Each forcing can contain concentrations of multiple substances at the same time
+
+- The substance concentration input mirrors the input of the forcing. I.e. 2D initial water levels are supplied as a raster, so 2D initial substance concentrations are also supplied as a raster; substance concentrations in time series rain is also to be provided as a time series; et cetera.
+
+- Substances can have names set by user 
+
+- Output is in NetCDF format. The file has the same structure as hydrodynamic results (results_3di.nc) and can be read with ``threedigrid``.
+
+- The logging includes a substance summary (similar to the flow summary) in JSON format
+
+.. note:
+	
+	- Input is purely API based (no GUI) 
+    
+	- Multiple laterals cannot be added to a single computational cell
+	
+	- All substances are known at the start of the simulation, although amounts can be set to 0.0 [g/m3,?].
+
+**Other improvements and bugfixes**
+
+- Memory efficiency in the generation of 3Di models has been improved. The limit for the DEM size is now 5 billion pixels (including NODATA pixels) (threedigrid-builder #345)
+
+- The flow summary is now JSON format instead text (.log). Units and values are split
+
+- Simulation ID is included in the flow summary (threedi-api #1303)
+
+- Timestep reduction and matrix instability logging are no longer included in simulation.log, because this information is already available in matrix.log and timestep_reduction.log (threedi-calculationcore #674)
+
+- The damage estimation (Netherlands only) now uses the newest land cover raster available in Lizard
+
+- Bugfix: cross-sectional area of groundwater flow made correct on the transitions of the grid size and in case water rises above the bed level. (threedi-calculationcore #708) 
+
+- Bugfix: several small bugfixes for structure control 
+
+- Bugfix: DEM edits in models with interflow would crash the simulation
+
+- Bugfix in ``threedigrid`` for 3Di models with boundary conditions. Time series of some variables did not have the correct ordering (i.e. wrong time series for node or flowline). This applies to ``infiltration_rate_simple``, ``ucx``, ``ucy``, ``leak``, ``intercepted_volume``, ``q_sss`` for Nodes and ``qp``, ``up1``, ``breach_depth``, ``breach_width`` for Lines.
+
+
+October 31st, 2023
 ^^^^^^^^^^^^^^^^^^
 
-**Live site**
+- Structure controls can now set the gate level, see :ref:`controlling_gate_level`. (threedi-api #2016)
 
-- Breaches: a line has been added to the visualisation of breaches in the live site. Discharge and flow velocity are visualized on these lines by moving dots.
+- If generating a 3Di model takes more than 24 h, the process is automatically cancelled (threedi-api #1992)
+
+- Timestep reduction and matrix instability logging are no longer included in simulation.log, to avoid duplication with timestep_reduction.log and matrix.log (threedi-calculationcore #674)
+
+October 2nd, 2023
+^^^^^^^^^^^^^^^^^
+
+- Bugfix: More memory is made available for generating 3Di models, to fix a performance degradation that was experienced when generating very large models (threedi-api #2005)
+
+- Bugfix: DEM edits would crash the simulation if the edit polygon covers more than one DEM tile (threedi-tables #262)
+
+
+September 21th, 2023
+^^^^^^^^^^^^^^^^^^^^
+
+- It has been made easier to :ref:`howto_clip_schematisations`.
+
+- Culverts can be imported into the schematisation with the new :ref:`Vector data importer<vector_data_importer>`.
+
+- The :ref:`conveyance_method` can now be used, for more accurate calculation of friction in 1D open water. For this new feature, the following checks where added to the schematisation checker.
+     
+	- Check 26: make sure friction types with conveyance are only used on v2_cross_section_location
+	
+	- Check 27: make sure friction types with conveyance are only used on tabulated rectangle, tabulated trapezium, or tabulated yz shapes.
+	
+	- Check 28: make sure cross-sections with conveyance friction monotonically increase in width
+	
+	- Check 29: advice to use friction with conveyance on cross-sections where it is possible, has not been used.
+	
+- The schematisation page in 3Di Management has been revised.
+
+- Schematisation-level description can be added in 3Di Management
+
+- In 3Di Management, many properties of online resources have been made editable: schematisation names, schematisation descriptions, schematisation tags, commit messages, 3Di model names, simulation template names.
+
+- It has become easier to delete revisions and schematisations. When a revision is deleted, its 3Di Model is also automatically deleted. When a schematisation is deleted, its revisions are also automatically deleted.
+
+- In the 3Di Modeller Interface, a new page for generating :ref:`saved_states` was added to the 3Di Models & Simulations simulation wizard.
+
+For further details see the release notes for :ref:`3Di Modeller Interface<release_notes_mi_20230921>` and :ref:`3Di Management<3di_ms_release_20230921>`
+
+.. note::
+   3Di Toolbox will be replaced by 3Di Results Analysis on October 1st, 2023. See :ref:`transition_from_3di_toolbox`.
+
+August 7, 2023
+^^^^^^^^^^^^^^
+
+- Interflow can now be combined with limiters
+
+- The 3Di computational core now writes the actions resulting from structure controls to a file (structure_control_actions_3di.nc), which can be downloaded via the API. Functionality in threedigrid and the 3Di Modeller Interface will be released in Q4 2023 or Q1 2024.
+
+July 18th 2023
+^^^^^^^^^^^^^^
+
+We have released several new features, improvements and bugfixes. Most notably:
+
+- Storage in the groundwater domain is more accurate and less cell size dependent because it uses subgrid
+
+- Simulation templates are inherited from the 3Di Model of the previous revision and persist when the 3Di Model is regenerated.
+
+- User management is now available on management.3di.live (if you have Manager rights)
+
+- If you have run a simulation but forgot to include Lizard postprocessing, you can now start it after the simulation has finished.
+
+
+For more details, see the :ref:`release notes for the 3Di API<3di_api_release_20231807>`, :ref:`release notes for the 3Di computational core<3di_calccore_release_20231807>`, and :ref:`release notes for 3Di Management core<3di_ms_release_20231807>`
+
+
+June 14th 2023
+^^^^^^^^^^^^^^
+
+**Computational core**
+
+- Vegetation drag can now be included in the calculation of 2D flow
+
+- Exchange between 1D and Groundwater is now possible
+
+- 2D Groundwater boundaries can now be used
+
+
+**Schematisation checker**
+
+- Tables and columns related to vegetation and groundwater are no longer marked as beta features.
+
+- The following checks were added or updated:
+
+.. list-table:: New or changed checks June 14th 2023
+   :widths: 10 20 40
+   :header-rows: 1
+
+   * - Check number
+     - Check level
+     - Check message
+   * - 0008
+     - Error
+     - id must be a positive signed 32-bit integer.
+   * - 0045
+     - Warning
+     - v2_channel.dist_calc_points should preferably be at least 5.0 metres to prevent simulation timestep reduction.
+   * - 0045
+     - Warning
+     - v2_pipe.dist_calc_points should preferably be at least 5.0 metres to prevent simulation timestep reduction.
+   * - 0045
+     - Warning
+     - v2_culvert.dist_calc_points should preferably be at least 5.0 metres to prevent simulation timestep reduction.
+   * - 0056
+     - Error
+     - v2_channel.id has both open and closed cross-sections along its length. All cross-sections on a v2_channel.id object must be either open or closed.
+   * - 0063
+     - Warning
+     - v2_connection_nodes.storage_area * 1000 for each pumpstation's end connection node must be greater than v2_pumpstation.capacity; water level should not rise >= 1 m in one second
+   * - 0098
+     - Warning
+     - v2_cross_section_definition.width and/or height should probably be at least 0.1m
+   * - 0202
+     - Warning
+     - The length of v2_channel is very short (< 5 m). A length of at least 5.0 m is recommended to avoid timestep reduction.
+   * - 0202
+     - Warning
+     - The length of v2_culvert is very short (< 5 m). A length of at least 5.0 m is recommended to avoid timestep reduction.
+   * - 0202
+     - Warning
+     - The length of v2_pipe is very short (< 5 m). A length of at least 5.0 m is recommended to avoid timestep reduction.
+   * - 0360
+     - Warning
+     - v2_global_settings.dist_calc_points should preferably be at least 5.0 metres to prevent simulation timestep reduction.
+   * - 0501
+     - Error
+     - v2_vegetation_drag.vegetation_height is <=0
+   * - 0503
+     - Warning
+     - v2_vegetation_drag.height is recommended as fallback value when using a vegetation_height_file.
+   * - 0504
+     - Error
+     - v2_vegetation_drag.vegetation_stem_count is <=0
+   * - 0505
+     - Error
+     - v2_vegetation_drag.vegetation_stem_count must be defined.
+   * - 0506
+     - Warning
+     - v2_vegetation_drag.vegetation_stem_count is recommended as fallback value when using a vegetation_stem_count_file.
+   * - 0507
+     - Error
+     - v2_vegetation_drag.vegetation_stem_diameter is <=0
+   * - 0508
+     - Error
+     - v2_vegetation_drag.vegetation_stem_diameter must be defined.
+   * - 0509
+     - Warning
+     - v2_vegetation_drag.vegetation_stem_diameter is recommended as fallback value when using a vegetation_stem_diameter_file.
+   * - 0510
+     - Error
+     - v2_vegetation_drag.vegetation_drag_coefficient is <=0
+   * - 0511
+     - Error
+     - v2_vegetation_drag.vegetation_drag_coefficient must be defined.
+   * - 0512
+     - Warning
+     - v2_vegetation_drag.vegetation_drag_coefficient is recommended as fallback value when using a vegetation_drag_coefficient_file.
+   * - 0613
+     - Warning
+     - v2_connection_nodes.id has a an associated inflow area larger than 10000 m2; this might be an error.
+   * - 0614
+     - Warning
+     - v2_connection_nodes.id has more than 50 surface areas mapped to it; this might be an error.
+   * - 0717
+     - Error
+     - The file in v2_vegetation_drag.vegetation_height_file is not present
+   * - 0718
+     - Error
+     - The file in v2_vegetation_drag.vegetation_stem_count_file is not present
+   * - 0719
+     - Error
+     - The file in v2_vegetation_drag.vegetation_stem_diameter_file is not present
+   * - 0720
+     - Error
+     - The file in v2_vegetation_drag.vegetation_drag_coefficient_file is not present
+   * - 0737
+     - Error
+     - The file in v2_vegetation_drag.vegetation_height_file is not a valid GeoTIFF file
+   * - 0738
+     - Error
+     - The file in v2_vegetation_drag.vegetation_stem_count_file is not a valid GeoTIFF file
+   * - 0739
+     - Error
+     - The file in v2_vegetation_drag.vegetation_stem_diameter_file is not a valid GeoTIFF file
+   * - 0740
+     - Error
+     - The file in v2_vegetation_drag.vegetation_drag_coefficient_file is not a valid GeoTIFF file
+   * - 0757
+     - Warning
+     - The file in v2_vegetation_drag.vegetation_height_file has multiple or no bands.
+   * - 0758
+     - Warning
+     - The file in v2_vegetation_drag.vegetation_stem_count_file has multiple or no bands.
+   * - 0759
+     - Warning
+     - The file in v2_vegetation_drag.vegetation_stem_diameter_file has multiple or no bands.
+   * - 0760
+     - Warning
+     - The file in v2_vegetation_drag.vegetation_drag_coefficient_file has multiple or no bands.
+   * - 0777
+     - Error
+     - The file in v2_vegetation_drag.vegetation_height_file has no CRS.
+   * - 0778
+     - Error
+     - The file in v2_vegetation_drag.vegetation_stem_count_file has no CRS.
+   * - 0779
+     - Error
+     - The file in v2_vegetation_drag.vegetation_stem_diameter_file has no CRS.
+   * - 0780
+     - Error
+     - The file in v2_vegetation_drag.vegetation_drag_coefficient_file has no CRS.
+   * - 1401
+     - Error
+     - v2_vegetation_drag.vegetation_height_file has values <0 or is empty
+   * - 1402
+     - Error
+     - v2_vegetation_drag.vegetation_stem_count_file has values <0 or is empty
+   * - 1403
+     - Error
+     - v2_vegetation_drag.vegetation_stem_diameter_file has values <0 or is empty
+   * - 1404
+     - Error
+     - v2_vegetation_drag.vegetation_drag_coefficient_file has values <0 or is empty
+   * - 1151
+     - Warning
+     - columns ['flow_variable', 'aggregation_method'] in table v2_aggregation_settings should be unique together
+   * - 1152
+     - Warning
+     - v2_aggregation_settings.timestep is different and is ignored if it is not in the first record
+   * - 1153
+     - Warning
+     - v2_aggregation_settings.timestep is smaller than v2_global_settings.output_time_step
+   * - 1154
+     - Warning
+     - To use the water balance tool, v2_aggregation_settings should have a row where aggregation_method is cum and flow_variable is pump_discharge.
+   * - 1154
+     - Warning
+     - To use the water balance tool, v2_aggregation_settings should have a row where aggregation_method is cum and flow_variable is lateral_discharge.
+   * - 1154
+     - Warning
+     - To use the water balance tool, v2_aggregation_settings should have a row where aggregation_method is cum and flow_variable is simple_infiltration.
+   * - 1154
+     - Warning
+     - To use the water balance tool, v2_aggregation_settings should have a row where aggregation_method is cum and flow_variable is rain.
+   * - 1154
+     - Warning
+     - To use the water balance tool, v2_aggregation_settings should have a row where aggregation_method is cum and flow_variable is leakage.
+   * - 1154
+     - Warning
+     - To use the water balance tool, v2_aggregation_settings should have a row where aggregation_method is current and flow_variable is interception.
+   * - 1154
+     - Warning
+     - To use the water balance tool, v2_aggregation_settings should have a row where aggregation_method is cum and flow_variable is discharge.
+   * - 1154
+     - Warning
+     - To use the water balance tool, v2_aggregation_settings should have a row where aggregation_method is cum_negative and flow_variable is discharge.
+   * - 1154
+     - Warning
+     - To use the water balance tool, v2_aggregation_settings should have a row where aggregation_method is cum_positive and flow_variable is discharge.
+   * - 1154
+     - Warning
+     - To use the water balance tool, v2_aggregation_settings should have a row where aggregation_method is current and flow_variable is volume.
+   * - 1154
+     - Warning
+     - To use the water balance tool, v2_aggregation_settings should have a row where aggregation_method is cum_negative and flow_variable is surface_source_sink_discharge.
+   * - 1154
+     - Warning
+     - To use the water balance tool, v2_aggregation_settings should have a row where aggregation_method is cum_positive and flow_variable is surface_source_sink_discharge.
+   * - 1227
+     - Error
+     - v2_control.control_id references an id in v2_control_memory or v2_control_table, but the table it references does not contain an entry with that id. 
+
+
+April 25th 2023
+^^^^^^^^^^^^^^^
+
+**3Di Live**
+
+- Breaches: a line has been added to the visualisation of breaches in 3Di Live. Discharge and flow velocity are visualized on these lines by moving dots.
 
 **Schematisation checker**
 
@@ -88,7 +416,7 @@ February 10th 2023
 Hotfix:
 
 - Fixed CRS comparison in table generation (threedi-tables 3.0.5).
-- Sources & sinks Lizard raster source did dot work due to problem with internal `LizardRasterSourcesSinks` serialization/deserialization.
+- Sources & sinks Lizard raster source did dot work due to problem with internal *LizardRasterSourcesSinks* serialization/deserialization.
 - Max time step set to NULL is allowed 
 
 
@@ -219,7 +547,7 @@ In this hotfix release, we fixed the following issues:
 - Refinement errors
 - Sporadically filled DEM
 - Initial ground water rasters 2D
-- Cloning with initial saved stae
+- Cloning with initial saved state
 
 
 .. _klondike_release:
@@ -227,10 +555,10 @@ In this hotfix release, we fixed the following issues:
 January 31st 2022 (Klondike)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-On Januari 31st we have released the backend for the Klondike release. In this release we introduce a brand new route to process schematisations into 3Di models. This will replace the process known as 'inpy'.
+On January 31st we have released the backend for the Klondike release. In this release we introduce a brand new route to process schematisations into 3Di models. This will replace the process known as 'inpy'.
 For users that have not been migrated yet, this will not have effect on their work process. 3Di Models will simulate as before.
 
-The migration will be rolled out gradually, users will be contacted for this. The management screens are available for all users right away, but keep in mind that the new features mostly work on migrated schematisations and 3Di Models.
+The migration will be rolled out gradually, users will be contacted for this. 3Di Management is available for all users right away, but keep in mind that the new features mostly work on migrated schematisations and 3Di Models.
 Contact our servicedesk if you have any questions regarding migration.
 
 We use the following definitions:
@@ -373,20 +701,20 @@ TableSettings
 
 **3Di Model**
 
-A 3Di Model is generated from a schematisation. The generation takes the grid & table settings from the spatialite and processess the schematisation into a 3Di Model.
+A 3Di Model is generated from a schematisation. The generation takes the grid & table settings from the spatialite and processes the schematisation into a 3Di Model.
 
 
 **3Di Management Screens**
 
-The management screens have been extended with a Models section. In this Models section users can:
+3Di Management has been extended with a Models section. In this Models section users can:
 
 For 3Di Models
 
 - See an overview of Models in a list
 - See an overview of Models in the map
 - Per Model a detailed page is available including the location on the map, size of the Model.
-- Per Model is an option to run the simulation on the live site
-- On the detailed Model page there is an option to run the simulation on the live site
+- Per Model is an option to run the simulation on 3Di Live
+- On the detailed Model page there is an option to run the simulation on 3Di Live
 - On the detailed Model page there is an option to delete the model
 - On the detailed Model page there is an option to re-generate the model from the schematisation
 - A history of simulations performed with the 3Di Model
@@ -406,7 +734,7 @@ March 23rd 2021
 
 3Di is expanding! We are proud to announce that due to international recognition we are expanding the capacity of 3Di:
 
-- The first stage of setting up our second calculation center in Taiwan is finished. Organizations that prefer this center can connect to 3Di via `3di.tw <https://www.3di.tw>`_.
+- The first stage of setting up our second calculation center in Taiwan is finished. Organisations that prefer this center can connect to 3Di via `3di.tw <https://www.3di.tw>`_.
 - To cope with increasing demand for calculations the capacity of our main calculation center has been upgraded
 
 
@@ -437,13 +765,80 @@ The map can be viewed here: stowa.lizard.net
 
 .. _release_notes_LS:
 
-3Di Live Site
---------------
+3Di Live
+--------
+
+January 11th, 2024
+^^^^^^^^^^^^^^^^^^
+
+- Model elements and 1D flow are now visualised using WebGL, which improves performance. 1D flow is now visualised with moving waves instead of dots (#1341, #1342).
+
+- The Line selection tool now supports drawing a side view trajectory with a custom path, i.e. with more than 2 vertices. (#1446)
+
+- Option to rescale DEM color scale based on current extent (#853)
+
+- Show days in clock, relevant for simulations longer than 24 hours (#1387)
+
+- When starting a session, the organisation that owns the model is automatically selected in the "Billing goes to" dropdown (#1251)
+
+- When switched on, model grid is shown regardless of zoom level. It is no longer necessary to zoom in. (#1509)
+
+- The labels that are shown when hovering over model elements now show the display name instead of ID (#1505)
+
+- The organisation to which the simulation is billed is now included in the info panel (#1284)
+
+- Enforce "Simulation runner" and "viewer" roles (#437). A user must have "simulation_runner" role in a organisation to be able to start simulations billed to that organisation. A user must have "viewer" role in an organisation to be able to follow simulations of an organisation.
+
+- Round editable values to 2 decimals (#1345)
+
+- The user interface is loaded while loading the 3Di model, instead of after loading the 3Di model (#426)
+
+- Bugfix: Graph data was rounded to 2 decimals, while only the value on the labels should be rounded to two decimals (#1318)
+
+- Bugfix: Simulation could not be started if multiple simulation templates are available (#1330)
+
+- Bugfix: Show names instead of numbers for properties of model elements (e.g. sewerage type) (#1185)
+
+- Bugfix: Nodatavalue was shown as actual value (#434)
+
+
+
+
+
+October 31st, 2023
+^^^^^^^^^^^^^^^^^^
+
+- Correctly show DEMs that contain None, NaN, inf or -inf values (threedi-api #2041)
+
+
+October 18, 2023
+^^^^^^^^^^^^^^^^
+- Flood barriers can now always be clicked for more info, also when the Flood barrier tool is not active (#527)
+
+- When hoovering over the Side view plot, the mouse position is indicated on the map (#449)
+
+- DEM value is shown when clicking on the map using the Point tool (#526)
+
+- Asset properties that are in decimal numbers are now rounded to two decimals (#453)
+
+- Display names of assets are ellipsed and full name is shown when hoovering over (#431)
+
+- 3Di Live and 3Di Management are now "domain agnostic", so they can also be hosted on other domains, like 3di.twinn.io (#1245)
+
+- An *Info* panel was added, with details about the simulation and the 3Di model used (#273)
+
+- Values in charts labels are now rounded to 2 decimals (#1168)
+
+
+September 21, 2023
+^^^^^^^^^^^^^^^^^^
+
+- Bugfix: Allow negative and/or decimal number input in weir crest level edit (#949, #432)
 
 April 25th 2023
 ^^^^^^^^^^^^^^^
 
-- Breaches: a line has been added to the visualisation of breaches in the live site. Discharge and flow velocity are visualized on these lines by moving dots.
+- Breaches: a line has been added to the visualisation of breaches in 3Di Live. Discharge and flow velocity are visualized on these lines by moving dots.
 
 
 March 20th 2023
@@ -505,14 +900,14 @@ August 2022
 February 2022 (Klondike)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We have released new versions of the live site.
+We have released new versions of 3Di Live.
 
 - Simulation templates are used
 
 October 18th 2021
 ^^^^^^^^^^^^^^^^^
 
-We have released new versions of the live site
+We have released new versions of 3Di Live
 
 - Saves the organisation you have selected and your previous search term last
 - Forms reflect the last action from the user. E.g. for rainfall it doesn't reset to the default value anymore
@@ -521,7 +916,7 @@ We have released new versions of the live site
 March 23rd 2021
 ^^^^^^^^^^^^^^^^
 
-We have update the 3Di live site with following features:
+We have update 3Di Live with following features:
 
 - Water depth graph now also shows a graph with water depth - 0
 - Add a clock time hover
@@ -546,8 +941,95 @@ Some bugfixes in 3Di live:
 
 .. _release_notes_MS:
 
-3Di Management Screens
-----------------------
+3Di Management
+--------------
+
+January 11, 2024
+^^^^^^^^^^^^^^^^
+
+- Search and filter options were added to the 3Di models overview (#1382)
+
+- The filters that are set on pages that list models, schematisations, or simulations are now also applied when using "Export to Excel" (1184)
+
+- On the simulation overview page, all initials and events are listed (#1327)
+
+- You can now search for simulations by simulation ID (#239)
+
+- Include organisation in 3Di Management URLs, so that it is easier to share URLs (#1451)
+
+- The user interface for "add tags" has been improved (#1504)
+
+- Bugfix: Visualise negative laterals correctly on the simulation detail page (#1389)
+
+- Bugfix: "Run on 3Di Live" uses the wrong template is multiple templates are available for the 3Di model (#1329)
+
+- Bugfix: Revision nr. column now correctly displays revision numbers > 99 (#1417)
+
+- Bugfix: Wind events were not visualised correctly for long simulations in some cases (#934)
+
+
+October 18, 2023
+^^^^^^^^^^^^^^^^
+- The simulation overview page now shows which post-processing options have been used (#814)
+
+- You can now post-process results in Lizard for finished simulations. This option can be used if no post-processing for this simulation has been done and the raw results are still available, i.e., within 7 days after the simulation was finished. (#835, #1249, #1160)
+
+- The "Export to Excel" option for Simulations and 3Di Models now downloads all items, not just the ones that are shown on the page (#1040)
+
+- Simulations can now be removed from the queue (#780)
+
+- If you do not have management rights, the *Users* button is disabled; it will now show a list of users in your organisation that have management rights when hovering over it (#852)
+
+- You can now select multiple 3Di models, schematisations, and/or revisions and delete them all at once, including in the *Choose other revision* window on the schematisation detail page (#815, #1228)
+
+- Schematisations can be moved to a different organisation, if you have *Creator* or *Manager* rights for the organisation that currently owns the schematisation *and* the organisation to which you want to transfer it (#234)
+
+- Multiple improvements were made to the 3Di model overview, especially for organisations with more than 250 3Di models (#231, #227)
+
+- The simulation ID is now shown in the simulations overview (#233)
+
+- Bugfix: Links in *queued simulations* list were wrong, this has been fixed (#781)
+
+- Bugfix: Schematisation detail page: not all info was updated when switching to another revision (#1158)
+
+
+.. _3di_ms_release_20230921:
+
+September 21, 2023
+^^^^^^^^^^^^^^^^^^
+
+- Redesign of the *Schematisation details* page (#741)
+  - Schematisation name can be edited
+  - Schematisations now have a *Description*, which can be edited. Note: in the near future, you will also be able add a schematisation-level description when creating a schematisation in the 3Di Modeller Interface.
+  - Commit message can be edited
+  - Tags can be edited
+  - 3Di model names can be edited
+  - Simulation template names can be edited
+- It has become easier to delete revisions and schematisations. When a revision is deleted, its 3Di Model is also automatically deleted. When a schematisation is deleted, its revisions are also automatically deleted. 
+- Added "Delete schematisation" button in the schematisation section. This deletes the schematisation, which cascades to deletion of its revisions and 3Di models.
+- Make simulation name editable on simulation detail page (#792)
+- Schematisation revision detail page: show available saved states (#855)
+- Simulation overview page - forcings: show two decimals (#813)
+- Filter live statuses by organisation (#935)
+- *Export to Excel file* on the *Simulations* and *3Di Models* overview pages now exports *all* items instead of only the listed items. #1040
+- Bugfix: "Has 3Di Model" column not updated after model deletion (#686)
+
+
+.. _3di_ms_release_20231807:
+
+June 18th 2023
+^^^^^^^^^^^^^^
+
+- User management is now available on 3Di management if you have Manager rights
+- Vegetation rasters are now included in schematisation revision overview
+- Add time zone (UTC offset) when listing start or end datetime of simulation
+- "Export to Excel file" button on schematisations page now downloads all schematisation names, and shows a modal with a progress bar
+- Schematisation detail page: Disable "run in 3Di Live" option if 3Di Live is not part of contract
+- Schematisation list no longer shows schematisations that have no revisions, unless you explicitly choose this option
+- Bugfix: On the schematisation revision detail page, Some raster download links did not work
+- Bugfix: On the schematisation revision detail page, "Predefined simulation data" section had wrong contents
+- Bugfix: On the schematisation revision detail page, rasters where only listed after a 3Di model had been created
+
 
 March 20th 2022
 ^^^^^^^^^^^^^^^^^^
@@ -585,7 +1067,7 @@ November 21th 2022
 
 
 February 2022 (Klondike) v2
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -	Fixed a bug where the models map page stayed empty if there were no models
 -	Fixed a bug where a schematisation that has no revisions yet showed an empty page
@@ -600,17 +1082,17 @@ February 2022 (Klondike) v2
 
 
 February 2022 (Klondike)
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
-The management screens have been extended with a Models section. In this Models section users can:
+3Di Management has been extended with a Models section. In this Models section users can:
 
 For 3Di Models
 
 - See an overview of Models in a list
 - See an overview of Models in the map
 - Per Model a detailed page is available including the location on the map, size of the Model.
-- Per Model is an option to run the simulation on the live site
-- On the detailed Model page there is an option to run the simulation on the live site
+- Per Model is an option to run the simulation on 3Di Live
+- On the detailed Model page there is an option to run the simulation on 3Di Live
 - On the detailed Model page there is an option to delete the model
 - On the detailed Model page there is an option to re-generate the model from the schematisation
 - A history of simulations performed with the 3Di Model
@@ -629,6 +1111,233 @@ For schematisations users can:
 3Di Modeller Interface
 ----------------------
 
+January 17, 2024
+^^^^^^^^^^^^^^^^
+
+**3Di Results Analysis 3.4.0**
+
+*Schematisation checker*
+
+- Warning (impervious) surface geometry has different area then the 'area' attribute (tolerance is 1 m2) (#343)
+
+- Warning for invalid references from *Surface map* or *Impervious surface map* (#337)
+
+- Info message when refinement_level equals kmax (#345)
+
+- Bugfix: Warning was incorrectly given when interception_global = 0.0 (#340)
+
+- Bugfix: Schematisation checker no longer fails when values that need to be checked are NULL (e.g. pumpstation type).
+
+*Other*
+
+- Water depth/level processing algorithms now include days in the time display if selected time passes 24 h (#661)
+
+- Processing algorithms "Computational grid from gridadmin.h5 file" and "Computational grid from schematisation" now show warnings (if applicable)
+
+- Bugfix: after using the Water Depth processing tool, results_3di.nc could not be loaded as Mesh (#573)
+
+- Bugfix: Water depth/level processing algorithms are now compatible with h5py 3.0 (#966)
+
+**3Di Models & Simulations 3.9.0**
+
+- Make sure all tools use the same version of the 3Di Schematisation Checker (remove python wheel threedi-modelchecker, #523)
+
+- Add "Refresh" button to running and finished simulations lists (#491)
+
+- Add "Refresh" button to overview of available simulation templates (#465)
+
+
+January 11, 2024
+^^^^^^^^^^^^^^^^
+
+**3Di Schematisation Editor 1.8.0**
+
+- Easily load schematisations from your 3Di working directory through the new "Load Schematisation dialog" (#117)
+
+
+**3Di Models & Simulations 3.8.0**
+
+- By default, simulations will be billed to the organisation to which the 3Di model belongs. It is still possible to bill simulations to other organisations you have access to, but only if you deliberately choose this option (#107).
+
+- Change all functional and textuel references to "3Di Toolbox" to "3Di Schematisation Editor" (#503)
+
+- Bugfix: In the simulation wizard, uploading a rainfall NetCDF timeseries caused a python error (#510)
+
+
+December 1st, 2023
+^^^^^^^^^^^^^^^^^^
+**Lizard QGIS plugin 0.2.0**
+
+The Lizard plugin for QGIS is now included in the 3Di Modeller Interface. You can use this plugin to access the Scenario Archive: browse for scenario's, add the as WMS and download raw and processed results.
+
+**3Di Schematisation Editor 1.7.2**
+
+- Bugfix: If the Spatialite table ``v2_surface_map`` contains rows with references to non-existent ``v2_surface`` id's, the conversion to GeoPackage no longer gives a Python error. The invalid references are reported and ignored, and the conversion is completed. (#192)
+
+**3Di Results Analysis 3.3.0**
+
+- All interaction with the 3Di working directory now uses the new package ``threedi-mi-utils`` (#805)
+
+- Bugfix: pumps with display names longer than 32 characters were not shown at all when loading the computational grid via the Results Manager. This has been fixed now.
+
+
+
+November 14th, 2023
+^^^^^^^^^^^^^^^^^^^
+
+**3Di Models & Simulations 3.7.0**
+
+- All interaction with the 3Di working directory now uses the new package ``threedi-mi-utils`` (ThreeDiToolbox #805)
+
+- Bugfix: Revision commit now waits for files to be in 'uploaded' or 'processed' state (#512)
+
+- Bugfix: Simulation wizard stops trying to initialize the simulation when file processing status is "error" (#504)
+
+
+October 31st, 2023
+^^^^^^^^^^^^^^^^^^
+
+**3Di Results Analysis 3.2**
+
+- Introduced two new presets for the :ref:`results_aggregation`: *Water on street duration (0D1D)* and *Water on street duration (1D2D)* (#935)
+
+- Bugfix: The "Catchment for polygons" option in the Watershed tool no longer gives an error (#948)
+
+October 24th, 2023
+^^^^^^^^^^^^^^^^^^
+
+**3Di Models & Simulations 3.6.2**
+
+- Base URL is used instead of Base API URL, so that the URLs for obtaining Personal API Keys and opening the 3Di Management page are domain dependent. For example, you can set the Base URL to "3di.twinn.io" so that the plugin knowns that the management page is located at management.3di.twinn.io. (#505)
+
+October 19th, 2023
+^^^^^^^^^^^^^^^^^^
+
+**3Di Results Analysis 3.1.12**
+
+- Bugfix: make Side view tool work for 3Di Models without 2D (#931)
+
+- Temporarily remove the "Water on street duration" preset from the Result aggregation tool while a bug is being fixed
+
+October 16th, 2023
+^^^^^^^^^^^^^^^^^^
+
+**3Di Schematisation Editor 1.7.1**
+
+- Moving a channel vertex that has a cross section location on it now also moves the cross section location (#100)
+- Vector data importer main button shows options when clicked (#185)
+- Vector data importer dialog is disabled as long as no source layer is selected (#185)
+
+**3Di Models & Simulations 3.6.1**
+
+- Subtle redesign of the *Uploads* and *Running simulations* dialogs (#500)
+- Add cancel button to "store / replace" question dialog, show correct path when download has completed (#439)
+- Bugfix: Simulation wizard, rain *Stop after* value was not read correctly from simulation template if *Start after* was > 0 (#498)
+- Bumped dependencies: *threedi-api-client 4.1.4*, *threedi-modelchecker 2.4.0*, *threedi-schema 0.217.11*.
+
+
+October 2nd, 2023
+^^^^^^^^^^^^^^^^^
+
+**3Di Schematisation Editor 1.7.0**
+
+- Added "Import Weirs" processing algorithm (#178)
+- Added "Import Weirs" graphical user interface (#179)
+- Added "Import Orifices" processing algorithm (#180)
+- Added "Import Orifices" graphical user interface (#181)
+- Make attribute forms scrollable (#170)
+
+**3Di Results Analysis 3.1.11**
+
+First official version of this plugin. This is the successor of the 3Di Toolbox plugin. See :ref:`transition_from_3di_toolbox` for details.
+
+
+
+.. _release_notes_mi_20230921:
+
+September 21st, 2023
+^^^^^^^^^^^^^^^^^^^^
+
+**3Di Models & Simulations 3.6.0**
+
+- A new page "Generate saved state" was added to the Simulation Wizard. You can now name and add tags to the saved state, and choose when the saved state is created (end of simulation or specific moment in time) (#473)
+- The "New schematisation" Wizard now checks if DEM and friction files actually exist (#483)
+- A time zone explainer was added for 'radar rain' in the Simulation Wizard (#452)
+- The time zone can now be specified on the Duration page of the Simulation Wizard (#263)
+- When using *Tab* to move from one widget to the next on the Duration page, the sequence is more logical (#263)
+- Bugfix: If there is global 2D initial water level in the template, this is now used to populate the Simulation Wizard and used in the simulation (#474)
+- Bugfix: 'Post-processing in Lizard' settings are now correctly read from the template, Simulation Wizard is correctly populated with these settings so that they are used in the simulation (#481)
+- Bugfix: Saved states were used even if the option was disabled, this has been fixed now #484
+
+
+**3Di Schematisation Editor 1.6.0**
+
+- Culverts can be imported into the schematisation with a new graphical user interface  (#118, #119, #120, #176)
+- Support for using the :ref:`conveyance_method` in the calculation of friction in 1D open water: "Manning with conveyance" and "Chezy with conveyance" have been added as friction types in the :ref:`cross_section_location` layer (#159)
+- All layers related to :ref:`control structures<control>` are now also added to the project (#169)
+- When deleting connection nodes, you will now be asked if you want to delete all referenced features only once, instead of for each referenced feature (#67). This makes it much easier to :ref:`howto_clip_schematisations`.
+- Bugfix: In some cases, surfaces and their surface maps were not converted properly from spatialite to geopackage (#161)
+- Bugfix: When moving a connection node, some attributes of features referencing that connection node became NULL (#162)
+- Bugfix: Improved user feedback messages when spatialite database schema is unknown, too high or too low (#103)
+- Bugfix: In a new profile, the schematisation editor no longer keeps complaining about the Macro settings being wrong (#158)
+
+**3Di Toolbox 2.5.5**
+
+- Update *Generate computational grid* and *Check schematisation* with the new conveyance friction types, by bumping the threedi-\* dependencies (threedigrid to 2.0.\*, threedi-modelchecker to 2.4.\*, threedigrid-builder to 1.12.\*
+
+
+July 20th 2023
+^^^^^^^^^^^^^^
+
+**3Di Toolbox 2.5.4**
+
+- Add processing algorithm for generating maximum water depth / water level rasters
+
+- Make the plugin work for both QGIS <= 3.28.5 and QGIS > 3.28.5 by making installed h5py version depend on QGIS version
+
+
+June 23 2023
+^^^^^^^^^^^^
+
+**3Di Models & Simulations 3.5.1**
+
+- Bugfix: Making a copy of a schematisation failed if sqlite did not contain *v2_vegetation_drag* table. The sqlite is now migrated to the latest schema version on the fly so this type of issue will no longer arise. (#470)
+
+
+June 16 2023
+^^^^^^^^^^^^
+
+**3Di Toolbox 2.5.3**
+
+- Compatibility with schema 217
+
+- New version of 3Di Schematisation Editor (threedi-modelchecker 2.2.4)
+
+**3Di Models & Simulations 3.5.0**
+
+- Compatibility with schema 217 (#462)
+
+- Added handling of the Vegetation drag settings rasters. (#460)
+
+- Expose attributes for vegetation and groundwater exchange in attribute forms and attribute tables (#151)
+
+- Improve the use of saved states in the simulation wizard (#461)
+
+- Bugfix: uploading CSV files for both 1D and 2D boundary conditions would fail if there are 1D boundary conditions with the same ID as a 2D boundary condition
+
+**3Di Schematisation Editor 1.5.0**
+
+- Compatibility with schema 217 (#148)
+
+- Copy friction value from nearest cross-section location (if exists) when digitizing a new cross section location (#141)
+
+- Bugfix: Error when adding new cross section location > empty bank level field > commit (#142)
+
+- Added Vegetation drag settings table with associated raster layers (#145)
+
+- "Import culverts" processing algorithm (#127)
+
+
 April 25th 2023
 ^^^^^^^^^^^^^^^
 **3Di Toolbox 2.5.2**
@@ -638,7 +1347,7 @@ April 25th 2023
 
 **3Di Models & Simulations v3.4.5**
 
-- If your organisation has a large number of models or (finished) simulations, you will notice major performance improvements when loading the list of results available for download, or when loading the overview of running simulations. Both now load instanteneously, while this previously took seconds to minutes for some organisations. This improvement also prevents API requests to be throttled (#408)
+- If your organisation has a large number of models or (finished) simulations, you will notice major performance improvements when loading the list of results available for download, or when loading the overview of running simulations. Both now load instantaneously, while this previously took seconds to minutes for some organisations. This improvement also prevents API requests to be throttled (#408)
 
 - Compatibility with schema 216 (#451).
 
@@ -766,7 +1475,7 @@ Other changes and bugfixes:
 
 - The minimum friction velocity in new schematisations now defaults to 0.005 instead of 0.05 (#411)
 - A newer version (4.1.1) of the python package threedi-api-client is now used (#417)
-- If the maximum number of 3Di models for your organisation has has been reached, a popup will allow you to delete one or more of them before uploading a new revision (#367)
+- If the maximum number of 3Di models for your organisation has been reached, a popup will allow you to delete one or more of them before uploading a new revision (#367)
 - Bugfix: in some cases, schematisation revisions could not be downloaded if "Generate 3Di model" had failed for that revision (#428)
 - Bugfix: prevent python error when attempting to start the simulation wizard with a template that has NULL as maximum_time_step value #418
 
@@ -777,7 +1486,7 @@ December 8th 2022
 **3Di Toolbox v2.4.1**
 
 Due to changes introduced in v2.4, threedi-modelchecker would re-install on every startup. This has been fixed now. (#729)
-Fixed 'Import sufhyd': this routine expected a the table v2_pipe to have a column 'pipe_quality', which was removed recently (#728)
+Fixed 'Import sufhyd': this routine expected the table v2_pipe to have a column 'pipe_quality', which was removed recently (#728)
 A schema version check was added to 'Import sufhyd'. If the target spatialite has a too low schema version, you will be instructed to migrate it and try again (#726)
 
 
@@ -820,7 +1529,7 @@ November 21th 2022
 
 - New project > New simulation no longer fails (#400)
 
-- Fix issues with Models & Simulations Panel when other dock widget on the right are also opened. The status bar at the bottom no longer dissapears when opening the Models & Simulations Panel. (#153)
+- Fix issues with Models & Simulations Panel when other dock widget on the right are also opened. The status bar at the bottom no longer disappears when opening the Models & Simulations Panel. (#153)
 
 - New schematisation: spatialite is migrated to most recent version (#359)
 
@@ -840,9 +1549,9 @@ November 21th 2022
 
 *Checker*
 
-- Warning for double cumultative cumulative discharges in the aggregation NetCDF - https://app.zenhub.com/workspaces/team-3di-5ef60eff1973dd0024268b90/issues/nens/threedi-api/1766 ?
+- Warning for double cumulative cumulative discharges in the aggregation NetCDF - https://app.zenhub.com/workspaces/team-3di-5ef60eff1973dd0024268b90/issues/nens/threedi-api/1766 ?
 
-- Check on flooding treshold is now more strict
+- Check on flooding threshold is now more strict
 
 *Postprocessing Lizard*
 
@@ -850,7 +1559,7 @@ November 21th 2022
 
 *Reminder*
 
-- The server known as inpy is no more. If you started using 3Di this year you can ignore this message. For the other users: the 3Di models cannot run anymore on the live site. But the schematisations are all available. The be able to run the 3Di model again, simply look for your schematisation on management.3di.live and press ‘generate model’.
+- The server known as inpy is no more. If you started using 3Di this year you can ignore this message. For the other users: the 3Di models cannot run anymore on 3Di Live. But the schematisations are all available. The be able to run the 3Di model again, simply look for your schematisation on management.3di.live and press ‘generate model’.
 
 - If you’re not sure whether your model is generated using inpy, go to management.3di.live search for your model. If there is no details page available (link is greyed out) then the model is generated via inpy.
 
@@ -861,8 +1570,8 @@ August 2022
 **3Di Toolbox v2.3**
 
 
-- Visualise any computatial grid (gridadmin.h5 file), using the new Processing Algorithm "Computational grid from gridadmin.h5". This works for gridadmin.h5 files that were generated on the server as well as those generated locally.
-- Generate the computational grid for your schematisation in the 3Di Modeller Interface. The routine that is used on the server to generate the computational grid, has now also been made available locally, so that you can continously check how your schematisation is translated to a computational grid. Use the new Processing Algorithm "Computational grid from schematisation".
+- Visualise any computational grid (gridadmin.h5 file), using the new Processing Algorithm "Computational grid from gridadmin.h5". This works for gridadmin.h5 files that were generated on the server as well as those generated locally.
+- Generate the computational grid for your schematisation in the 3Di Modeller Interface. The routine that is used on the server to generate the computational grid, has now also been made available locally, so that you can continuously check how your schematisation is translated to a computational grid. Use the new Processing Algorithm "Computational grid from schematisation".
 - Bugfix: pumped volume for pumps without end note is now also included in the water balance
 - Bugfix: total balance in water balance tool now also works in QGIS 3.22
 - Bugfix: water balance tool now handles aggregation netcdf's that have different timesteps for different variables
@@ -892,7 +1601,7 @@ June 2022
 - Added 3Di logo in the Plugin Manager (#606)
 - Installation and update procedure has been improved. Black command prompt windows are no longer shown on startup. (#621, #625)
 
-Documentation on the Watershed Tood can be found `here <https://github.com/nens/threedi-network-analyst#user-manual>`_.
+Documentation on the Watershed Tool can be found `here <https://github.com/nens/threedi-network-analyst#user-manual>`_.
 
 
 *3Di Schematisation Editor v1.1.1 - EXPERIMENTAL*
@@ -907,10 +1616,10 @@ This is a new plugin that will make editing schematisations much easier than bef
 What does this plugin have to offer for modellers?
 
 - Directly edit all layers of your schematisation, using all native QGIS functionality for editing vector features
-- Quickly add features to your schematision with the "magic" editing functionality for 1D layers. For example: existing connection nodes are used when drawing a pipe between them, new connection nodes and manholes are created when a new pipe is digitized, etc.
+- Quickly add features to your schematisation with the "magic" editing functionality for 1D layers. For example: existing connection nodes are used when drawing a pipe between them, new connection nodes and manholes are created when a new pipe is digitized, etc.
 - Easily move nodes and all connected lines using the smartly pre-configured snapping and topological editing settings
 - Easily move the start or end of pipes, channels, culverts, orifices, weirs, pumps, and the connection node id's will be automatically updated for you
-- Get a complete overview of your schematistion: all rasters that are part of your schematisation are added to the QGIS project when the schematisation is loaded
+- Get a complete overview of your schematisation: all rasters that are part of your schematisation are added to the QGIS project when the schematisation is loaded
 - Spot the tiniest local variation in elevation with the hillshade layer is automatically added on top of your DEM
 - Visualise the mapping of (impervious) surfaces to connection nodes and change them by updating the geometries
 - Easily navigate through your schematisation: layers in the layer panel are neatly grouped together in collapsed groups
@@ -926,7 +1635,7 @@ New in version 1.1 (for those users who already tried out version 1.0):
 - Set scale dependent visibility for manholes
 - Fix export to spatialite in QGIS 3.22 (was fixed by adding a schema migration in threedi-modelchecker)
 - Fix drawing of pipe trajectory over existing manholes
-- Consistent handling of geomtry edits
+- Consistent handling of geometry edits
 - Check write permissions for Geopackage target location
 - Support spatialite schema_version 206 + updated the popup message if schema is not up to date
 - Remove field cross_section_code
@@ -995,7 +1704,7 @@ March 2022
 
 
 February 2022 (Klondike)
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 We have released threeditoolbox 1.31 and 3Di Models & simulations 3.0.2.
 "3Di Models & simulations" is the new name for what was previously called "API client".
@@ -1007,7 +1716,7 @@ Download here the latest version: `Modeller Interface <https://docs.3di.live/mod
 
 
 August 2021
-^^^^^^^^^^^^^
+^^^^^^^^^^^
 
 We have released a new version of the Modeller Interface with the following:
 
@@ -1018,7 +1727,6 @@ We have released a new version of the Modeller Interface with the following:
 
 Download here the latest version: `Modeller Interface <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.16.7-1-Setup-x86_64.exe>`__
 
-Also we have included a comprehensive table on our docs showing the current status of implementation of features of API v3: :ref:`schematisation_basic_modelling_concepts`
 
 *Important note for QGIS Users*
 
@@ -1096,7 +1804,7 @@ A quick guide to generate water depth maps:
 
 Processing ^^> Toolbox ^^> 3Di ^^> post-processed results ^^> water depth
 
-Or check out our documentation: :ref:`waterdepthtool`
+Or check out our documentation: :ref:`3di_processing_toolbox`
 
 
 *Extended support for starting simulations using the Modeller Interface*
@@ -1121,11 +1829,9 @@ The following bugs have been fixed:
 
 
 February 22nd 2021
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
-- We now support QGIS 3.16 for our toolbox
-
-Download the latest version of the :ref:`3di_toolbox_plugin`
+- We now support QGIS 3.16 for our toolbox.
 
 Please not that the Modeller Interface is not yet upgraded to QGIS 3.16, we will do so when the QGIS repo's are updated.
 
@@ -1162,7 +1868,45 @@ We are constantly working on improving the 3Di experience. Based on user experie
 .. _release_notes_api:
 
 3Di API
-----------
+-------
+
+February 2, 2024
+^^^^^^^^^^^^^^^^
+
+- Include substance names in water quality result file(s)
+- Bugfix: issue with "Could not find aggregation file for initial groundwaterlevel raster" resolved.
+- Bugfix: DEM edits in models with for groundwater
+
+September 21, 2023
+^^^^^^^^^^^^^^^^^^
+
+- Added *archived* field to Schematisation, allowing it to be soft-deleted. A delete request archives the schematisation. A superuser can (hard) delete it afterwards by performing a second delete request.
+- Archiving a Schematisation also archives related Revision and ThreediModel resources.
+- Extend FrictionType enum with Chézy friction with conveyance and Manning friction with conveyance.
+
+.. _3di_api_release_20231807:
+
+June 18th 2023
+^^^^^^^^^^^^^^
+
+- Invite email for organisation for users now shows which organisation they are invited to
+- An e-mail is sent when your simulation has crashed
+- Allow Lizard postprocessing after simulation has finished. (when not already requested)
+- Simulation templates persist when regenerating 3Di Model
+- Simulation templates are inherited from 3Di Model of the previous revision
+- If simulation results become > 10 GB, simulation crashes with clear error message, instead of taking down the calculation node (and any other simulations that depend on that node)
+- Added dequeue action putting a queued` simulation back in created state.
+- Bugfix: Set max timestep to default timestep when max timestep is undefined
+- Improved speed of /simulations/ endpoint by introducing is_template field.
+
+
+June 14th 2023
+^^^^^^^^^^^^^^
+
+- Added *first_name* and *last_name* to SimulationStatus API listing resources.
+
+- Added support for setting a *start_date* on a contract. If set, the contract *hours_used* are calculated either based
+  on a period of 1 year before or after the *start_date* based if the current date (month & day) are before or after start_date (month & day).
 
 April 25th 2023
 ^^^^^^^^^^^^^^^
@@ -1190,14 +1934,14 @@ February 6th 2023
 - Fixed model checker (v0.33), included raster checks via rasterio.
 - Invalidate boundary files without any boundaries.
 - Upgrade threedi-tables to 3.0, raster reading is now done through a VRT, so that any projection / sampling is allowed.
-- Upgraded threedi-modelchecker to 0.34 and threedigrid-buidler to 1.6, allowing TABULATED_YZ profiles, and adding rudimentary support for exchange lines and new potential breach input.
+- Upgraded threedi-modelchecker to 0.34 and threedigrid-builder to 1.6, allowing TABULATED_YZ profiles, and adding rudimentary support for exchange lines and new potential breach input.
 - Disable inpy model mounts
 
 
 November 21th 2022
 ^^^^^^^^^^^^^^^^^^
 
-When using an .env fileyou need to change the content of this file to:
+When using an .env file you need to change the content of this file to:
 
 THREEDI_API_HOST=https://api.3di.live
 THREEDI_API_PERSONAL_API_TOKEN= supersecret API key
@@ -1244,7 +1988,7 @@ Note: this is not backwards compatible, but without duration it does not work...
 
 - Bugfix: Aggregation of uploaded initial waterlevel rasters on threedimodels was not triggered.
 
-- Allow an user to create multiple initial waterlevel rasters on a threedimodel.
+- Allow a user to create multiple initial waterlevel rasters on a threedimodel.
 
 - Support bigger geotiffs by enabling temporary compression for Cloud Optimize Geotiff creation.
 
@@ -1269,9 +2013,9 @@ July 2022
 - Increased total Lizard radar rain (multiple requests) timeout to 5 minutes.
 - Upgraded pypi packages in services.
 - Api-workers: Added Celery readiness/liveness file probes.
-- Changed order in ThreediModelTask so Simululation Template worker is started after aggregations are done.
+- Changed order in ThreediModelTask so Simulation Template worker is started after aggregations are done.
 - Fixed bug in simulation template processing.
-- Fix bug where threedimodel resources were not incorperated in simulation copy using the from-template endpoint.
+- Fix bug where threedimodel resources were not incorporated in simulation copy using the from-template endpoint.
 - Allow to dynamically enable/disable tasks in api-worker.
 - Prevent simulation deletion which is simulation-template
 - Frontends have moved to ghcr.io.
@@ -1512,7 +2256,7 @@ After this release, we stop to support API v1. Do you still need access to API v
 
 - Decreased SQL query count of files and threedimodels endpoints.
 - Simulation can only be created by an organisation with a valid contract.
-- API version v3.0 renamed from to v3. Version v3.0 still works for backwards compatibilty.
+- API version v3.0 renamed from to v3. Version v3.0 still works for backwards compatibility.
 
 *Bugfixes*
 
@@ -1594,13 +2338,35 @@ Extended API v3 with boundary conditions & bug fixing
 
 .. _computational_core_3di_releases:
 
-3Di computational core releases
--------------------------------
+3Di Computational core
+----------------------
+
+.. _3di_calccore_release_20231807:
+
+June 18th, 2023
+^^^^^^^^^^^^^^^
+
+- Storage in the groundwater domain is more accurate and less cell size dependent because it uses subgrid
+- Initialization time (when starting a simulation) for models with many 1D lines has been reduced
+- Bugfix: Missing headers in matrix.log
+- Bugfix: Embedded wet surface is now calculated *after* merging the volume table.
+- Bugfix: Source geometry for raster and obstacle edit would not be set, leading to incorrect assumption of EPSG:4326
+
+June 2023
+^^^^^^^^^
+
+- Vegetation drag
+- Groundwater 1D2D exchange
+- Groundwater 2D boundary conditions
+- Added has_vegetation attribute to model meta data
+- Bugfix: DEM edit for a model with interflow would set wrong waterlevel.
+- Bugfix: 1D boundary nodes are now included in the definition of the 1D extent of the model
+- Output NetCDF files now contain the attributes *simulation_id*, *schematisation_id*, *revision_id*, and *model_id*
 
 April 2023
 ^^^^^^^^^^
 
-- Channels with calculation type *connected* or *double connected* can now be placed outside the DEM, as long as they connect to a location where a 2D cell is present. If a 'potential breach' or 'exchange line' is used to set the location to which the calculation node connects, the location of those features determines whether an error is raised. If a channel with calculation type connected is outside of the DEM, but the closest point on its exchange_line is on the DEM, the computional grid can be built and the 3Di model is valid.
+- Channels with calculation type *connected* or *double connected* can now be placed outside the DEM, as long as they connect to a location where a 2D cell is present. If a 'potential breach' or 'exchange line' is used to set the location to which the calculation node connects, the location of those features determines whether an error is raised. If a channel with calculation type connected is outside of the DEM, but the closest point on its exchange_line is on the DEM, the computational grid can be built and the 3Di model is valid.
 
 - 1D-2D links that cross an obstacle will take the exchange level from the obstacle
 
@@ -1613,7 +2379,7 @@ August 2022 (Hotfix)
 
 
 March 2022
-^^^^^^^^^^^^
+^^^^^^^^^^
 
 **General**
 
@@ -1743,7 +2509,7 @@ We have released a new version of the computational core.
 Bugfixes:
 
 - Fixed the computation of the breach width. Especially, the initial growth was underestimated in case the time to reach the maximum breach depth was large.
-- Fixed a small bug in the raster edits. This fixed also the option to perform rsater edits in computational cells having only 4 subgrid cells.
+- Fixed a small bug in the raster edits. This fixed also the option to perform raster edits in computational cells having only 4 subgrid cells.
 - Fix for broad weir formulation for the critical conditions
 
 March 8th 2021
@@ -1756,7 +2522,7 @@ In short the following fixes are included in the calculation core:
 - Fix for 1D coordinates in netcdf file: The z-coordinates of the boundary points, are now set correctly in the netcdf
 - Fix for initial conditions in netcdf file: In case of 1D-2D models, some variables, like the wet-surface areas of a computational node, the wrong value was written in the results netcdf at the start of the simulation.
 
-Long crested weirs: The formulation of the long crested weir has been replaced by a new one. This new version is based on the law of Bernouilli instead of an alternative implementation of the advective terms for a regular 1D element. The flow over the weir is an accurate computation of the flow under ideal circumstances, but the new formulation does not require an extra computational node and has proven to be more stable under varying flow conditions.
+Long crested weirs: The formulation of the long crested weir has been replaced by a new one. This new version is based on the law of Bernoulli instead of an alternative implementation of the advective terms for a regular 1D element. The flow over the weir is an accurate computation of the flow under ideal circumstances, but the new formulation does not require an extra computational node and has proven to be more stable under varying flow conditions.
 
 Short crested weirs: Flow over a weir knows three different stages: sub-, supercritical and critical flow.  Under super-critical flow conditions, the formulation remains the same. We fixed the formulation under sub-critical flow conditions and in strong varying flow conditions.  The biggest change in discharge behaviour is expected for weirs that flow in negative direction. Moreover, the time dependency of the flow over the weir has been adjusted. This has no effect on stationary flow, but has a slightly improved stabilizing effect on the flow under changing flow conditions.
 ecko

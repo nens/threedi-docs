@@ -1,7 +1,7 @@
 3Di documentation
 =================
 
-Let's try to do it with restructuredtext/sphinx!
+This repository contains the source code of the 3Di documentation.
 
 The released documentation is at https://docs.3di.live/ .
 
@@ -52,6 +52,21 @@ to be sure::
   $ docker-compose run builder python3 fix-uppercase-lowercase.py
 
 
+Literature & citations
+----------------------
+
+The bibliography is stored in a BibTeX file (source\literature.bib). You can edit this file with citation manager software such as Mendeley. Make sure each entry has a *citation key*. We use the first author name + year, e.g. `Volp2013` as citation key.
+
+When the citation has been added to the .bib file, cite it in the text like this::
+
+  For further details, see :cite:p:`Volp2013`
+
+QGIS icons
+----------
+
+Instead of screenshotting the icons from QGIS, you can find the originals here: https://github.com/qgis/QGIS/tree/master/images/themes/default
+
+
 Some sphinx/restructuredtext notes
 ----------------------------------
 
@@ -79,15 +94,9 @@ Any questions: ask Reinout.
 Schematisation checks list
 --------------------------
 A list of checks currently executed by the modelchecker is in current_schematisation_checks_table.
-As new checks are added to the modelchecker, this table should be updated. To generate a new list,
-install the `threedi-modelchecker <https://github.com/nens/threedi-modelchecker/>`_ (preferably in
-a virtual environment), and run::
-
-    threedi_modelchecker export-checks --format rst --file i_current_schematisation_checks_table.rst
-
-This will create a new file called ``i_current_schematisation_checks_table.rst`` in the directory in which
-you run the command, with which you replace the existing ``i_current_schematisation_checks_table.rst``
-file in the ``source`` directory in this repository.
+As new checks are added to the modelchecker, this table should be updated. When a new version of the
+modelchecker is released, a pull request to update the checks table will automatically be opened in
+this repository, requesting a review from the person who created the modelchecker release.
 
 
 Some commands needed for the OSGEO4W Shell with sphinx

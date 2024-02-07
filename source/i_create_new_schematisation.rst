@@ -3,42 +3,48 @@
 Create a new schematisation
 ============================
 
+New :ref:`schematisations<schematisation>` can be created from the :ref:`models_simulation_panel`.
 
-#. Open the Modeller Interface
-#. Activate the plugin
+Creating a new schematisation from scratch
+------------------------------------------
 
-   .. figure:: image/d_openplugin.png
-      :alt: Open the 3Di Models and Simulations plugin
+To create an entirely new schematisation, go through the following steps:
 
-#. Choose your default folder
-#. Click on the 'New' button
+#. Open the :ref:`models_simulation_panel` (|modelsSimulations|).
+#. In the *Schematisation* section, click *New* (|newschematisation|).
+#. Choose a schematisation name (obligatory) and tags (optional).
+#. If you have rights to more than one organisation, choose the organisation that is to own the new schematisation.
+#. In the *Spatialite* section, choose the option *Create new spatialite*.
+#. Click *Next*.
+#. Fill in other settings, such as the projection and friction type and simulation time step.
+#. Click *Create Schematisation*.
 
-   .. figure:: image/d_modelsandsimulations.png
-      :alt: Choose New
+A :ref:`schematisation` has now been created on the server. The corresponding folder in your local 3Di working directory contains the spatialite and (if chosen) a DEM and/or friction raster. This data itself has not been uploaded yet. See :ref:`uploading_schematisation` for instructions to upload this data as a new :ref:`revision`.
 
-#. Fill in your credentials to login
-#. Choose a name (obligatory) and tags (optional)
-#. If you have rights to more than one organisation, choose the desired organisation
-#. Click 'Next'
 
-   .. figure:: image/d_newschematisation1.png
-      :alt: Choose Schematisation setttings - tab 1
+.. _copying_existing_schematisation:
 
-#. Fill in other settings, such as the projection and friction type and simulation timestep
-#. Click 'Create Schematisation'
+Copying an existing schematisation
+----------------------------------
 
-   .. figure:: image/d_newschematisation2.png
-      :alt: Choose Schematisation setttings - tab 2  
+The *New schematisation* wizard can also be used to copy existing schematisations. This is useful when for example, you have a schematisation of the "current situation" and you want to investigate one or more alternatives for "future situations". In such a case, you can copy the current situation situation and start making changes in the copy, without affecting the original schematisation.
 
-#. If you get errors, please solve them, otherwise you will get a "SUCCESS" message
+Go through the following steps:
 
-Congratulations, you have your first commit!
+#. Make sure you have :ref:`downloaded<downloading_schematisation>` the schematisation revision you want to create a copy of.
+#. Open the :ref:`models_simulation_panel` (|modelsSimulations|).
+#. In the *Schematisation* section, click *New* (|newschematisation|).
+#. Choose a schematisation name (obligatory) and tags (optional).
+#. If you have rights to more than one organisation, choose the organisation that is to own the new schematisation.
+#. In the *Spatialite* section, choose the option *Choose file*.
+#. Browse to the location where the spatialite is stored that belongs to the schematisation you want to copy. This is usually "<3Di working directory>\<Schematisation name>\work in progress\schematisation\<schematisation name>.sqlite"
+#. Click *Create Schematisation*.
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Importing data
-   :name: Importing data
+A :ref:`schematisation` has now been created on the server. The corresponding folder in your local 3Di working directory contains a copy of the spatialite and all the rasters it references. This data itself has not been uploaded yet. See :ref:`uploading_schematisation` for instructions to upload this data as a new :ref:`revision`.
 
-   d_import_gwsw_hydx
-   d_import_sufhyd
 
+.. |newschematisation| image:: /image/pictogram_newschematisation.png
+    :scale: 80%
+
+.. |modelsSimulations| image:: /image/pictogram_modelsandsimulations.png
+    :scale: 90%
