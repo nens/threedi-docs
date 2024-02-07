@@ -7,8 +7,46 @@ This section will help you solve some problems or errors that may occur when usi
 Some issues are due to the software, these will be summarised in the section Known Issues, including a temporary solution.
 Errors related to input data or other user settings are usually covered by the schematisation checker. In rare cases however they might not catch a potential issue.
 
+- :ref:`model_size_limitations`
 - :ref:`faq`
 - :ref:`known_issues`
+
+.. _model_size_limitations:
+
+Limitations to model size
+-------------------------
+
+Maximum number of nodes
+^^^^^^^^^^^^^^^^^^^^^^^
+
+There is no hard limit to the size (number of nodes and flowlines) of a 3Di model. The number of nodes strongly affects the computational speed, especially in simulations where there is flow in the entire model domain (e.g. simulations with rain). Some rules of thumb can be given:
+
+- Below 100,000 nodes, no issues are to be expected and the model will generally run smoothly. If there are issues with computational speed, they are likely caused by sub-optimal choices in the schematisation of the 1D domain and/or inappropriate initial conditions.
+- Between 100,000 and 300,000 nodes, you may start to notice that the computational speed is affected by the number of nodes.
+- Between 300,000 and 500,000 nodes, the simulation will likely be slow and 3Di may run out of memory, causing the simulation to crash.
+- Above 500,000 nodes: it is strongly recommended to change the schematisation.
+
+Some strategies that you can pursue to reduce the number of nodes are:
+
+- Choosing the model boundaries differently, e.g. following the hydrological watershed boundaries more precisely
+- Dividing the model up in multple smaller models
+- Choose a smaller *grid_space* and/or the *kmax*, see :ref:`global_settings`
+- Use fewer grid refinements (see :ref:`grid_refinement` and ref:`grid_refinement_area`), or increase their refinement level.
+- Choosing a simpler schematisation of the less important parts of the model, e.g. increase the cell size in those areas or schematise parts of the model in 1D instead of 2D. See :ref:`howto_convert_to_1d2d`.
+
+Vertical resolution
+^^^^^^^^^^^^^^^^^^^
+
+Several settings and schematisation choices control the size of the :ref:`subgrid_tables`. If these tables become too large, 3Di may run out of memory during the generation of the 3Di model or during the simulation. It is difficult to provide clear guidelines on this, but if you experience *Internal server errors* or simulation crashes with unclear reasons, this may be a cause. Have a look at the following:
+
+- Elevation range, i.e. the difference between the highest and the lowest pixel in the DEM. If the elevation range is very large, consider removing the highest parts of the model domain, e.g. replace them by :ref:`Surfaces<surface>`. 
+- The :ref:`table step size<subgrid_table_settings>`. If the table increments are very small and the elevation range very large, the subgrid tables may become too large.
+- The number of pixels per cell. If the *grid_space* or the *kmax* (see :ref:`global_settings`) values are large and the DEM pixel size is small, there will be many pixels in one cell. This will require a large number of table increments in the subgrid tables.
+
+Maximum raster size
+^^^^^^^^^^^^^^^^^^^
+
+The maximum size of the Digital Elevation Model is 5 billion pixels. This includes NoData pixels. The other rasters will be resampled to the resolution of the DEM, so their pixel count is not relevant.
 
 
 .. _faq:

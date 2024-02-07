@@ -62,6 +62,8 @@ How you derive your raster information is entirely up to you. 3Di rasters have t
 
 #. Recommended: Origin is rounded to pixel size precision
 
+#. The maximum size of the Digital Elevation Model is 5 billion pixels. This includes NoData pixels. The other rasters will be resampled to the resolution of the DEM, so their pixel count is not relevant.
+
 
 Using GDAL to check and edit your rasters
 -----------------------------------------
