@@ -79,6 +79,10 @@ In this screen, you can:
 Inviting new users
 ------------------
 
+By default the new user is granted a 'Viewer' role. At least one role is required when inviting a new user.  
+Press the 'Save' button to finish the invitation process, which results in an invitation email sent to the (new) user. An existing user can use the invitation link to accept the invitation. 
+A new user can create an account by using the :ref:`a_singing_up` guide. When accepted, the user will appear in the User Management overview.
+
 If a new user needs access to 3Di from the organisation, this can be granted by the Manager.
 This is done as follows:
 
@@ -121,6 +125,18 @@ By clicking on the plus sign next to the roles of a user, you can start adjustin
 The plus button will then change to *SAVE*. Once the rights are as desired, click *SAVE* to confirm.
 
 .. figure:: /image/m_threedi_rechten_bestaande.png
+
+
+.. _removing_users:
+
+Removing users
+--------------
+
+You can remove a user from your organisation by removing all the user's roles. 
+This will not delete the account of the user, but just revoke that user's right to your organisation. If you want to entirely deactivate a user's account, contact the :ref:`servicedesk`.
+
+You cannot revoke your own *Manager* role.	
+
 
 .. _roles:
 User roles
