@@ -83,9 +83,12 @@ For the smooth progress of a project, it is useful to handle such requests promp
 Granting rights does not have to be a lengthy task; rights can be granted in a minute.
 For instructions, see :ref:`inviting_new_users` and :ref:`adjusting_existing_rights`.
 
-.. tip:: 
+.. tip::
+
     - Use a bookmark to go directly to 3Di Management. This way, you can give a user rights in no time.
+
 	- Ensure that rights are discussed and granted at the beginning of a project. This prevents delays later due to someone waiting for their rights.
+
     - Don't forget to remove users' rights after a project is completed. This way, you actively maintain the user database and keep your data under control.
 
 Authorisation
