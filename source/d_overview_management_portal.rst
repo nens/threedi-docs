@@ -79,35 +79,31 @@ In this screen, you can:
 Inviting new users
 ------------------
 
-By default the new user is granted a 'Viewer' role. At least one role is required when inviting a new user.  
-Press the 'Save' button to finish the invitation process, which results in an invitation email sent to the (new) user. An existing user can use the invitation link to accept the invitation. 
-A new user can create an account by using the :ref:`a_singing_up` guide. When accepted, the user will appear in the User Management overview.
-
-If a new user needs access to 3Di from the organisation, this can be granted by the Manager.
-This is done as follows:
-
-3. Click `+ NEW USER` at the top right of the screen (image 1).
-4. Type the user's email in the 'email' field (image 2).
-5. Select the roles the user will have (see :ref:`roles`)
-6. Click *SAVE*.
-7. Success! The invitation has been sent and will be in the new user's mailbox within 5 minutes.
-
-.. tip:: Clicking `need help?` will also show you an overview of the roles and the rights associated with them.
-
-.. tip:: If the email does not appear in the inbox after 5 minutes, first check your spam folder. If the invitation is not there either, you can always contact the `servicedesk <mailto:servicedesk@nelen-schuurmans.nl>`_.
+If a new user needs access to 3Di from the organisation, this can be granted by the Manager from the Users section of 3Di Management.
 
 .. figure:: /image/m_threedi_overzicht_rechten.png
     :scale: 50%
     :alt: Overview of the 3Di management page with multiple users.
 
-    Image 1: An overview of the user section in the management screen of 3Di.
+    The Users section of 3Di Management
 
+#. Click `+ NEW USER` at the top right of the screen.
+#. Type the user's email in the 'email' field
 
-.. figure:: /image/m_threedi_uitnodiging_rechten.png
-    :scale: 50%
-    :alt: Invitation screen for new users of 3Di. Enter an email and select the roles for the new user.
+	.. figure:: /image/m_threedi_uitnodiging_rechten.png
+		:scale: 50%
+		:alt: Invitation screen for new users of 3Di. Enter an email and select the roles for the new user.
 
-    Image 2: The invitation screen for new users. You select the roles by clicking on them.
+		The invitation screen for new users. You select the roles by clicking on them.
+
+#. Select the roles the user will have (see :ref:`roles`)
+#. Click *SAVE*.
+#. Success! The invitation has been sent and will be in the new user's mailbox within 5 minutes. An existing user can use the invitation link to accept the invitation. 
+A new user can create an account by using the :ref:`a_singing_up` guide. When accepted, the user will appear in the *User Management* overview.
+
+.. tip:: Clicking 🛈 will also show you an overview of the roles and the rights associated with them.
+
+.. tip:: If the email does not appear in the inbox after 5 minutes, first check your spam folder. If the invitation is not there either, you can always contact the `servicedesk <mailto:servicedesk@nelen-schuurmans.nl>`_.
 
 .. _adjusting_existing_rights:
 
