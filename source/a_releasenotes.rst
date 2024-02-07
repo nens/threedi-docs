@@ -1870,6 +1870,13 @@ We are constantly working on improving the 3Di experience. Based on user experie
 3Di API
 -------
 
+February 2, 2024
+^^^^^^^^^^^^^^^^
+
+- Include substance names in water quality result file(s)
+- Bugfix: issue with "Could not find aggregation file for initial groundwaterlevel raster" resolved.
+- Bugfix: DEM edits in models with for groundwater
+
 September 21, 2023
 ^^^^^^^^^^^^^^^^^^
 
