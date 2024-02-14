@@ -1,7 +1,7 @@
 .. _water_quality:
 
 Water quality
--------------
+=============
 
 3Di has a module that can be used for water quality calculations. More specifically, you can introduce concentrations of substances to the simulation, and compute how these substances spread through the water system due to advective forces and (numerical) diffusion.
 
@@ -15,3 +15,8 @@ Water quality
 
 	You cannot add multiple laterals to a single node or cell if they have different substance concentrations
 
+Concentration equations
+-----------------------
+
+.. todo::
+    @Nici hier graag een alineaatje over de vergelijkingen die worden opgelost in de WQ module.
