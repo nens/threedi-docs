@@ -66,12 +66,110 @@ When you click the *Personal API Key* tile in the overview, you will be presente
 
 Users
 =====
-When you click the *Users* tile in the overview, you will access a list of all the users associated with your organisation along with their respective roles:
 
-- *Viewer*: This role is capable of reading data and monitoring simulations.
-- *Simulation Runner*: This role has the authority to read data and execute simulations.
-- *Creator*: Users with this role possess the ability to read data and make modifications such as adding, altering, or removing schematizations and 3Di models.
-- *Manager*: Users holding this role are empowered to manage users by performing tasks such as addition, modification, or removal.
+You only have access to this functionality if you have the *Manager* role.
+
+In this screen, you can:
+
+1. :ref:`Invite new users<inviting_new_users>`
+2. :ref:`Adjust existing rights<adjusting_existing_rights>`
+
+.. _inviting_new_users:
+
+Inviting new users
+------------------
+
+If a new user needs access to 3Di from the organisation, this can be granted by the Manager from the Users section of 3Di Management.
+
+.. figure:: /image/m_threedi_overzicht_rechten.png
+    :scale: 50%
+    :alt: Overview of the 3Di management page with multiple users.
+
+    The Users section of 3Di Management
+
+#. Click `+ NEW USER` at the top right of the screen.
+#. Type the user's email in the 'email' field
+
+	.. figure:: /image/m_threedi_uitnodiging_rechten.png
+		:scale: 50%
+		:alt: Invitation screen for new users of 3Di. Enter an email and select the roles for the new user.
+
+		The invitation screen for new users. You select the roles by clicking on them.
+
+#. Select the roles the user will have (see :ref:`roles`)
+#. Click *SAVE*.
+#. Success! The invitation has been sent and will be in the new user's mailbox within 5 minutes. An existing user can use the invitation link to accept the invitation. 
+A new user can create an account by using the :ref:`a_singing_up` guide. When accepted, the user will appear in the *User Management* overview.
+
+.. tip:: Clicking 🛈 will also show you an overview of the roles and the rights associated with them.
+
+.. tip:: If the email does not appear in the inbox after 5 minutes, first check your spam folder. If the invitation is not there either, you can always contact the `servicedesk <mailto:servicedesk@nelen-schuurmans.nl>`_.
+
+.. _adjusting_existing_rights:
+
+Adjusting existing rights
+-------------------------
+
+In the *User rights* overview screen, you can manage the rights of existing users.
+Here you see the following information of users who have rights for your organisation:
+
+1. Username
+2. Roles
+3. Email
+
+By clicking on the plus sign next to the roles of a user, you can start adjusting the rights.
+The plus button will then change to *SAVE*. Once the rights are as desired, click *SAVE* to confirm.
+
+.. figure:: /image/m_threedi_rechten_bestaande.png
+
+
+.. _removing_users:
+
+Removing users
+--------------
+
+You can remove a user from your organisation by removing all the user's roles. 
+This will not delete the account of the user, but just revoke that user's right to your organisation. If you want to entirely deactivate a user's account, contact the :ref:`servicedesk`.
+
+You cannot revoke your own *Manager* role.	
+
+
+.. _roles:
+User roles
+----------
+
+Each user is assigned one or more *Roles*, which give them the rights to perform certain sets of actions.
+
+Viewer
+^^^^^^
+
+As a viewer, you can read data from the API of the respective organisation, and you can follow simulations of others.
+These users cannot start or create simulations themselves.
+
+Simulation runner
+^^^^^^^^^^^^^^^^^
+
+With this role, users can start simulations themselves with 3Di models provided by the organisation.
+This role always goes in combination with the *Viewer* role to ensure that the user can also follow the simulation.
+
+Creator
+^^^^^^^
+
+Creator rights are needed to provide new schematisations and models to 3Di. Creators can also change or remove schematisations and 3Di models, and read data from the API.
+To run simulations, the *Simulation runner* role is necessary, also if you already have the *Creator* role.
+
+Manager
+^^^^^^^
+
+*Managers* give and take roles from other users.
+A manager can also revoke the rights of another manager.
+So, make sure to only give manager role to trusted parties.
+
+.. tip:: In some situations, organisations are created for specific projects.
+    If the data within this project falls under your organisation and you want to appoint a manager for this, 
+    please contact the `servicedesk <mailto:servicedesk@nelen-schuurmans.nl>`_.
+
+
 
 .. _3di_management_simulations:
 

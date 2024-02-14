@@ -67,7 +67,7 @@ The parametrisation for the impervious surface types is fixed. It uses the follo
      - 0.0
      - 0.0
    * -
-     - vlak uitgestrekt
+     - uitgestrekt
      - 0.1
      - 1.0
      - False
@@ -94,7 +94,7 @@ The parametrisation for the impervious surface types is fixed. It uses the follo
      - 3.0
      - 0.1
    * -
-     - vlak uitgestrekt
+     - uitgestrekt
      - 0.1
      - 1.0
      - True
@@ -121,7 +121,7 @@ The parametrisation for the impervious surface types is fixed. It uses the follo
      - 0.0
      - 0.0
    * -
-     - vlak uitgestrekt
+     - uitgestrekt
      - 0.1
      - 4.0
      - False
@@ -148,7 +148,7 @@ The parametrisation for the impervious surface types is fixed. It uses the follo
      - 3.0
      - 0.1
    * -
-     - vlak uitgestrekt
+     - uitgestrekt
      - 0.1
      - 6.0
      - True

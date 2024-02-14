@@ -47,3 +47,11 @@ Adding 1D elements
 
 After having set the global and numerical settings, you can start adding 1D features. See :ref:`edit_schematisation` for more information.
 
+You can also add 1D elements outside of the 2D domain. Set their :ref:`calculation type<calculation_types>` to *isolated* and connect them to a schematisation object (e.g. a channel) that does overlap with the 2D domain and has a *connected* or *embedded* calculation type.
+
+
+
+
+
+
+
