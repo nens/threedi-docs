@@ -1,7 +1,7 @@
 .. _breaches:
 
 Breaches
-------------
+=================
 
 3Di can simulate the consequences of a breach in a levee. In such case, the dimensions of the breach determine flow through the breach and therefore the flood. The growth of a breach is a very complex process. It is a phenomenon where hydrodynamics, morphology, groundwater and soil mechanics interact. Many aspects of this interaction is still unknown, and therefore it is difficult to model. Moreover, detailed modeling would require very detailed information about the levee. Generally, there is only a limited amount of information about the soil, structure, moisture content etc of the levee.   Nevertheless, rules of thumb have been developed that describe the breach growth, which allow us to make an estimate of the breach growth.
 
@@ -74,35 +74,35 @@ Breach flow
 ++++++++++++++++++++++++
 
 
-3Di is uses a long crested weir formulation for the flow rate through a breach. Figure XXX shows the main variables and the three flow domains used in the equations followed by 3Di in this regard.
-| 
+3Di uses a long crested weir formulation for the flow rate through a breach. The figuere below shows the main variables and the three flow domains used in the equations followed by 3Di in this regard.
+ 
 
 .. figure:: image/b_breach_flow_domain.png
    :alt: breach flow domain
-   :width: 800
-   :align: left
 
-
-In case of a breach the assumption holds that water will flow from the open water level to the inside of the dikering. 
+In case of a breach the assumption holds that water will flow from domain I to III. 
 
 | :math:`h_I` open water level (upstream, 1D)
 | :math:`h_{II}` water level in the breach
 | :math:`h_{III}` inside water level (downstream, 2D)
 | :math:`a` crest level, which is reach by exchange_level - breach_depth
 
-Which equation applies depends on whether the flow is subcritical or (super)critical. The flow is (super)critical if the difference in water levels is greater than one-third of the water depth at the crest:
+Which equation applies depends on whether the flow is subcritical or (super)critical. The flow is (super)critical if the difference in water levels between domain I and III is greater than one-third of the water depth at the crest:
 
 .. math::
-   :label: when_super_critical_breachflow
+   :label: when_supercritical_flow
 
-   (h_I - h_{III}) > \frac{1}{2}(h_I - a)
+   (h_I - h_{III}) > \frac{1}{3}(h_I - a)
+
+Supercritical breach flow
+-------------------------
 
 For supercritical flow the following equation applies:
 
 .. math::
    :label: super_critical_breachflow
 
-   v_{II} = \sqrt{\frac{2g(h_I-a)}{3(1-\gamma L)}}
+   u_{II} = \sqrt{\frac{2g(h_I-a)}{3(1-\gamma L)}}
 
 In which: 
 
@@ -111,7 +111,7 @@ In which:
 | :math:`\gamma` friction loss term
 | :math:`L` Length of the breach
 
-For :math:`g`, 9.81 :math:`m/s^2` is used; for :math:`L`, the fixed value of 30 m is used for breaches, representative of most dikes. The friction loss term :math:`\gamma`` is calculated as follows:
+For :math:`g`, 9.81 :math:`m/s^2` is used; for :math:`L`, the fixed value of 30 m is used for breaches, representative for most dikes. The friction loss term :math:`\gamma` is calculated as follows:
 
 | :math:`\gamma = \frac{c_f}{R}`
 | :math:`c_f = \frac{g}{C^2}`
@@ -130,9 +130,16 @@ In which:
 | :math:`C_Q` discharge coefficient
 | :math:`d_{II}` flowdepth on the breach
 
+Subcritical breach flow
+-------------------------
+
+When the flow is subcritical the following equation applies:
+
 .. math::
    :label: sub_critical_breachflow
 
-   v_{II} = C_1\sqrt{2g(h_I-a)}
+   u_{II} = C_1*\sqrt{\frac{2g(h_I-h_{II}-a)}{(1-\gamma L)}}
+
+The variables used in this equation are identically to the variables used in the supercritical formulation and the :math:`\gamma` is calculated following the same equations as in the previous section. 
 
 More details on how to use obstacles, levees and breaches can be found in :ref:`flood_model`.

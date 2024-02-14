@@ -9,4 +9,4 @@ In a 3Di model, flow may occur between 1D and 2D elements. In certain cases this
 Exchange formulation
 ++++++++++++++++++++++++
 
-The flow through a breach is calculated with the broad crested weir equation. This equation takes into account the length and the friction over the weir. 
+The flow through a breach is calculated with the broad crested weir equation, more information on the exact calculation of breach flow can be found in :ref:`breaches`
