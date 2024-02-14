@@ -70,9 +70,69 @@ Because the water level gradient in front and behind the breach is included in t
 
 The above formulation also corrects for the presence of different types of materials by using a critical velocity and the parameters :math:`f_1` and :math:`f_2` . The growth rate of the breach increases for materials that erode more easily. In principle, this formulation distinguishes only sand and clay.
 
-Exchange formulation
+Breach flow
 ++++++++++++++++++++++++
 
-The flow between 1D and 2D at the breach is computed based on a simplified momentum balance. A balance is made between the friction and the forcing. Note, that the volume in the breach is neglected.
+
+3Di is uses a long crested weir formulation for the flow rate through a breach. Figure XXX shows the main variables and the three flow domains used in the equations followed by 3Di in this regard.
+| 
+
+.. figure:: image/b_breach_flow_domain.png
+   :alt: breach flow domain
+   :width: 800
+   :align: left
+
+
+In case of a breach the assumption holds that water will flow from the open water level to the inside of the dikering. 
+
+| :math:`h_I` open water level (upstream, 1D)
+| :math:`h_{II}` water level in the breach
+| :math:`h_{III}` inside water level (downstream, 2D)
+| :math:`a` crest level, which is reach by exchange_level - breach_depth
+
+Which equation applies depends on whether the flow is subcritical or (super)critical. The flow is (super)critical if the difference in water levels is greater than one-third of the water depth at the crest:
+
+.. math::
+   :label: when_super_critical_breachflow
+
+   (h_I - h_{III}) > \frac{1}{2}(h_I - a)
+
+For supercritical flow the following equation applies:
+
+.. math::
+   :label: super_critical_breachflow
+
+   v_{II} = \sqrt{\frac{2g(h_I-a)}{3(1-\gamma L)}}
+
+In which: 
+
+| :math:`v_{II}` flow velocity through the breach
+| :math:`g` gravitation constant
+| :math:`\gamma` friction loss term
+| :math:`L` Length of the breach
+
+For :math:`g`, 9.81 :math:`m/s^2` is used; for :math:`L`, the fixed value of 30 m is used for breaches, representative of most dikes. The friction loss term :math:`\gamma`` is calculated as follows:
+
+| :math:`\gamma = \frac{c_f}{R}`
+| :math:`c_f = \frac{g}{C^2}`
+| :math:`R = \frac{A}{P}`
+| :math:`A = C_{Q}Wd_{II}`
+| :math:`P = W + 2h_{II}`
+| :math:`d_{II} = max(\frac{2}{3}(h_I-a),(h_{III}-a))`
+
+In which: 
+
+| :math:`c_f` friction coefficient, for breaches a fixed value of 50
+| :math:`R` hydraulic radius
+| :math:`A` wet cross-sectional area
+| :math:`P` wet radius
+| :math:`W` breach depth
+| :math:`C_Q` discharge coefficient
+| :math:`d_{II}` flowdepth on the breach
+
+.. math::
+   :label: sub_critical_breachflow
+
+   v_{II} = C_1\sqrt{2g(h_I-a)}
 
 More details on how to use obstacles, levees and breaches can be found in :ref:`flood_model`.
