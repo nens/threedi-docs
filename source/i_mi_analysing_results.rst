@@ -14,6 +14,7 @@ These tools relate the time series of the flow variables (water levels, volumes,
    :caption: Tools for analysing results in the 3Di Modeller Interface
    :name: toctree_analysing_results
    
+   Load results as WMS layers <i_wms_layers>
    Download results <i_downloading_results>
    Load and visualise results <i_loading_and_visualising_results>
    Water depth and water level rasters <i_water_depth_level_rasters>
