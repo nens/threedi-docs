@@ -55,45 +55,7 @@ When the calculation type is *connected*, a 1D2D connection is made for each cal
 
    Four examples of connected elements. 1) The exchange level is higher than (the lowest pixel in) the 2D cell. 2) The exchange level is lower than (the lowest pixel in) the 2D cell. 3) The exchange level is not set; flow is possible as soon as the 1D water level exceeds the level of the lowest pixel in the 2D cell. 4) Double connected channel, where exchange levels have different values.
 
-1D2D Flow
-"""""""""
-
-Flow through the 1D2D connection is computed using a reduced momentum balance:
-
-.. math::
-   :label: reduced 1D momentum equation
-
-   0 = -g\frac{\partial \zeta}{\partial s} \big\rvert_{1D2D}-\frac{\tau_f}{\rho}
-
-This momentum equation in combination with a cross-section defines the flux between the computational domains.
-
-.. math::
-   :label: Q 1D2D
-
-   Q_{1D2D} = u_{1D2D} A_{1D2D}
-
-The cross-sectional area of the 1D2D connection is the exchange depth times an exchange length. This exchange length is calculated in a different way for channels and for pipes. For pipes, the exchange length is based on the storage areas of the corresponding connection node [S]:
-
-.. math::
-   :label: storagearea
-
-   A_{1D2D} = L_{1D2D} H_{1D2D} = 4 \sqrt{S H_{1D2D}}
-
-In case of open water elements, there calculation of the exchange length is different for connected (two banks per 1D2D connection) and double connected (one bank per 1D2D connection).
-For connected elements:
-
-.. math::
-   :label: storagearea2
-
-   A_{1D2D} = L_{1D2D} H_{1D2D} = 2 L_{bank} H_{1D2D}
-
-
-For double connected elements this implies:
-
-.. math::
-   :label: storagearea3
-
-   A_{1D2D} = L_{1D2D} H_{1D2D} = L_{bank} H_{1D2D}
+How flow through 1D2D connections is calculated is described in :flow_1d2d:
 
 Customising 1D2D connections for channels
 """""""""""""""""""""""""""""""""""""""""
@@ -155,3 +117,49 @@ The embedded element modifies the storage of the 2D cell it is embedded in. The 
 Cross-sectional area in embedded flowlines
 """"""""""""""""""""""""""""""""""""""""""
 The cross-sectional area that is used in the 1D flow calculation is determined in a way similar to how the storage is handled. The part of the 1D cross-section that is below the DEM pixels is used, the rest is ignored. The cross-sectional area that is used for the calculation of 2D flow is unaltered by the embedded elements that pass through the cells.
+
+
+1D2D Flow
+---------
+
+Flow through a 1D2D connection is computed using a reduced momentum balance:
+
+.. math::
+   :label: reduced 1D momentum equation
+
+   0 = -g\frac{\partial \zeta}{\partial s} \big\rvert_{1D2D}-\frac{\tau_f}{\rho}
+
+This momentum equation in combination with a cross-section defines the flux between the computational domains.
+
+.. math::
+   :label: Q 1D2D
+
+   Q_{1D2D} = u_{1D2D} A_{1D2D}
+
+The cross-sectional area of the 1D2D connection is the exchange depth times an exchange length. This exchange length is calculated in a different way for channels and for pipes. For pipes, the exchange length is based on the storage areas of the corresponding connection node [S]:
+
+.. math::
+   :label: storagearea
+
+   A_{1D2D} = L_{1D2D} H_{1D2D} = 4 \sqrt{S H_{1D2D}}
+
+In case of open water elements, there calculation of the exchange length is different for connected (two banks per 1D2D connection) and double connected (one bank per 1D2D connection).
+For connected elements:
+
+.. math::
+   :label: storagearea2
+
+   A_{1D2D} = L_{1D2D} H_{1D2D} = 2 L_{bank} H_{1D2D}
+
+
+For double connected elements this implies:
+
+.. math::
+   :label: storagearea3
+
+   A_{1D2D} = L_{1D2D} H_{1D2D} = L_{bank} H_{1D2D}
+   
+Breach flow
+-----------
+
+Breaches are a special case of 1D2D connections. The flow through a breach is calculated with the broad crested weir equation, more information on the exact calculation of breach flow can be found in :ref:`breach_flow`.
