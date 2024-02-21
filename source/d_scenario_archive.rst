@@ -8,9 +8,9 @@ Scenario Archive
 
 The Scenario Archive (Lizard) is used to store and view scenarios.
 
-You can access the Scenario Archive here: https://demo.lizard.net/. For instructions on how to use the Scenario Archive, see the `Lizard documentation<http://docs.lizard.net>`_, for example, the sections about finding scenarios in the `Catalog<https://docs.lizard.net/e_catalog.html#scenarios>`_, and the section about the `Viewer<https://docs.lizard.net/e_viewer.html#>`_. 
+You can access the Scenario Archive here: https://demo.lizard.net/. For instructions on how to use the Scenario Archive, see the `Lizard documentation <http://docs.lizard.net>`_, for example, the sections about finding scenarios in the `Catalog <https://docs.lizard.net/e_catalog.html#scenarios>`_, and the section about the `Viewer <https://docs.lizard.net/e_viewer.html>`_. 
 
-Scenario's that are stored in the Scenario Archive can also be accessed in the 3Di Modeller Interface, using the `Lizard plugin<https://docs.lizard.net/d_qgisplugin.html>`
+Scenario's that are stored in the Scenario Archive can also be accessed in the 3Di Modeller Interface, using the `Lizard plugin <https://docs.lizard.net/d_qgisplugin.html>`
 
 A 3Di scenario consists of one or more of the following components:
 
@@ -69,7 +69,24 @@ Rain intensity per calculation cell (mm/h).
 Rate of rise
 ^^^^^^^^^^^^ 
 
-Rate of rise (m/s), defined by the difference in water level per second. Can be used for flood damage estimations, for example.
+Rate of rise (m/s), defined as how fast the water depth rises from 0 to 1.5 m.
+
+.. math::
+   :label: rate_of_rise
+
+   R = \frac{\delta \zeta}{\delta t}
+
+In which: 
+
+| :math:`\delta \zeta` difference in water depth, fixed to 1.5 - 0
+| :math:`\delta t` time between the cell getting wet (volume > 0) and reaching a water depth of 1.5 m. The water depth is defined as (water level - lowest DEM pixel in the cell)
+
+Cells that already have a water depth of 1.5 m at the start of the simulation are ignored.
+
+.. note::
+    
+	This raster is calculated from the :ref:`3dinetcdf`. The temporal resolution (output time step) of this file determines the precision of :math:`\delta t`.
+
 
 Max flow velocity
 ^^^^^^^^^^^^^^^^^
@@ -83,8 +100,8 @@ Arrival time
 ------------
 
 .. todo::
-    Hier een stukje voor schrijven.
-	
+
+    Hier een stukje over schrijven	
 	
 
 .. _damage_estimation:
