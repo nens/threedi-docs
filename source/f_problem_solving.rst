@@ -8,8 +8,10 @@ Some issues are due to the software, these will be summarised in the section Kno
 Errors related to input data or other user settings are usually covered by the schematisation checker. In rare cases however they might not catch a potential issue.
 
 - :ref:`model_size_limitations`
+- :ref:`problem_solving_guide`
 - :ref:`faq`
 - :ref:`known_issues`
+
 
 .. _model_size_limitations:
 
@@ -47,6 +49,33 @@ Maximum raster size
 ^^^^^^^^^^^^^^^^^^^
 
 The maximum size of the Digital Elevation Model is 5 billion pixels. This includes NoData pixels. The other rasters will be resampled to the resolution of the DEM, so their pixel count is not relevant.
+
+.. _problem_solving_guide:
+
+Problem solving guide
+---------------------
+
+The 3Di computational core is very stable and crashing simulations are very uncommon. Most schematisation errors that result in a failure to generate a valid 3Di model, or in crashing simulations, will be caught by the :ref:`schematisation checker<checking_model>`. However, if you do run into an error or crash, there are several things you can do to resolve the issues before contacting the :ref:`servicedesk`. The service desk will always ask you to go through these steps before your issue is taken up.
+
+Errors during 3Di model generation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- Run the :ref:`schematisation checker<checking_model>`. Resolve any errors reported by the checker. Also look into the warnings and info messages and try to resolve those as well, unless you are convinced that the schematisation choice for which te schematisation checker gives a warning is the correct choice for your specific use case.
+- Check if the 3Di Modeller Interface and the 3Di plugins are up to date. If this is not the case, :ref:`update the 3Di plugins<updating_plugin_schem_editor>` and run the schematisation checker again. It is recommended to :ref:`re-install the 3Di Modeller Interface<MI_installation>` every year at the end of March.
+- Check if your model is not too large, see :ref:`model_size_limitations`
+- If the model generation failed while making the simulation template: Check your initial settings in your schematisation including initial (ground)water level raster. 
+
+.. todo::
+    Margriet gaat op een rijtje zetten welke tabellen/kolommen door de template worker worden gebruikt, zodat we dat hier kunnen toevoegen
+
+Crashed simulations
+^^^^^^^^^^^^^^^^^^^
+
+Common causes for crashing simulations are noted in the list below. Please check these if you encounter crashing simulations. 
+
+- Check if your 3Di model is up to date. The model generation will always use the latest 3Di framework, but if the 3Di model was generated a long time ago, or there was a new release after the generation of your model, your 3di Model may be outdated. Please :ref:`re-generate the 3Di model<regenerate_3di_model>` to see if this resolves your issue.
+- It could be that you missed something when uploading your schematisation, when encountering a crashing simulation. You could download your schematisation and run this schematisation again to see if you missed any warnings. 
+
+If these suggestions did not solve your problem, you can try to run your simulation on the 3Di Live. When your model does run on 3Di Live, it could be that something is wrong with your simulation template. Check this for any weird/wrong settings and restart your simulation. 
 
 
 .. _faq:

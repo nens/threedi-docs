@@ -1,14 +1,14 @@
 .. _checking_model:
 
 Checking the schematisation
-===================================
+===========================
 
 It is highly recommended to check your schematisation before uploading. It helps you detect and solve errors or warnings early on.
 
 .. _schematisationchecker:
 
 Schematisation checker
--------------------------
+----------------------
 
 The *schematisation checker* checks your 3Di schematisation (.sqlite file) for completeness and consistency between tables. 
 With the checker you detect most database errors before uploading the schematisation to the 3Di servers for model generation.
@@ -37,7 +37,7 @@ For a table of all the checks run on the schematisation, and their respective er
 
 
 Visualising computational grids
---------------------------------
+-------------------------------
 
 3Di builds a computational grid from schematisation data (stored in spatialite and rasters). This computational grid is stored in a "gridadmin.h5" file. You can visualize these grids in the 3Di Modeller Interface.
 
