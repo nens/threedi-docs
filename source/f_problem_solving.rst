@@ -8,8 +8,10 @@ Some issues are due to the software, these will be summarised in the section Kno
 Errors related to input data or other user settings are usually covered by the schematisation checker. In rare cases however they might not catch a potential issue.
 
 - :ref:`model_size_limitations`
+- :ref:`debug_crashing_model`
 - :ref:`faq`
 - :ref:`known_issues`
+
 
 .. _model_size_limitations:
 
@@ -47,6 +49,32 @@ Maximum raster size
 ^^^^^^^^^^^^^^^^^^^
 
 The maximum size of the Digital Elevation Model is 5 billion pixels. This includes NoData pixels. The other rasters will be resampled to the resolution of the DEM, so their pixel count is not relevant.
+
+.. _debug_crashing_model:
+
+Debug guide crashed Generation & Simulation
+-------------------------------------------
+
+Crashes during model generation and simulations can often be addressed by examining certain variables. It is advisable to explore all available debugging options before submitting a ticket to the service desk. This proactive approach can help resolve issues more efficiently. If the problem persists despite following these recommendations, mentioning that you've already attempted these steps when submitting your ticket to the service desk
+
+Crash during model generation
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+- check if the plug-ins in your modeller interface are up to date. If this is not the case, re-run the modelchecker with the updated plug-ins.  
+- check if your model is within limitations: :ref:`model_size_limitations`
+- If the model generation failed on making the simulation template: Check your initial settings in your schematisation including initial (ground)water level raster. 
+
+Crash during simulation
+^^^^^^^^^^^^^^^^^^^
+
+A few things that are often the cause of crashing simulations have been noted in the list below. Please check these if you encounter crashing simulations. 
+
+- Check if your model up to date. The model generation will always use the latest 3Di framework, but if the 3Di model was generate a long time ago, or there was a new release after the generation of your model, your 3di model can be outdated. You can easily re-generate your model when your model page on the 3di management site.  
+- It could be that you missed something when uploading your schematisation, when encountering a crashing simulation. You could download your schematisation and run this schematisation again to see if you missed any warnings. 
+
+If these suggestions did not solve your problem, you can try to run your simulation on the livesite. When your model does run on the livesite, it could be that something is wrong with your simulation template. Check this for any weird/wrong settings and restart your simulation. 
+
+
 
 
 .. _faq:
