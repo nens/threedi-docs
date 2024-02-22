@@ -72,10 +72,59 @@ Crashed simulations
 
 Common causes for crashing simulations are noted in the list below. Please check these if you encounter crashing simulations. 
 
+- Download the simulation logging, and check the contents of all log files. In particular:
+	
+	- flow_summary.json: large volume errors or NaN values indicate that the simulation has become numerically unstable (matrix convergence was impossible). You will probably find more information in matrix.log in this case. 
+	
+	- simulation.log: if any errors are mentioned, they will probably be at/near the end of the file. But make sure to also check the rest of the file for errors or messages that may tell you more about the crash.
+	
+	- matrix.log: if there are any messages in this file, check if it is mentioned in the list of common error messages below, and follow the instructions for that error message.
+
 - Check if your 3Di model is up to date. The model generation will always use the latest 3Di framework, but if the 3Di model was generated a long time ago, or there was a new release after the generation of your model, your 3di Model may be outdated. Please :ref:`re-generate the 3Di model<regenerate_3di_model>` to see if this resolves your issue.
-- It could be that you missed something when uploading your schematisation, when encountering a crashing simulation. You could download your schematisation and run this schematisation again to see if you missed any warnings. 
+
+- If you were able to succesfully run simulations with a 3Di model of a earlier revision of the same schematisation, the problem is almost certainly caused by the recent changes you have made. Make sure you commit new revisions often and with a limited amount of changes per revision, so it is easier to pinpoint the exact cause of the problem. If your last commit included a larger number of changes, revert them one by one, and make a 3Di model for each undone change until you have a 3Di model that does run simulations succesfully.
+
+- It could be that you missed something when uploading your schematisation, when encountering a crashing simulation. You could download your schematisation and run the schematisation checker again to see if you missed any warnings. 
 
 If these suggestions did not solve your problem, you can try to run your simulation on the 3Di Live. When your model does run on 3Di Live, it could be that something is wrong with your simulation template. Check this for any weird/wrong settings and restart your simulation. 
+
+Matrix diagonal element, near zero
+""""""""""""""""""""""""""""""""""
+
+At one calculation point there is no storage area or the wet cross section area is near zero or even negative. 
+
+The error message indicates at which node the problem occurs. Note that the node at which the error occurs is not always the node where the schematisation problem is; in some cases it is a node near the one indicated in the error message.
+
+The error is followed by a reference to the calculation node without any storage or link without wet cross section area. This will look something like::
+
+    Matrix diagonal element in 1D domain, near zero;nod,aii(nod)   13375  0.0000E+00
+
+The first number (13375 in this example) refers to the calculation node on which the error occurs. To find this location:
+
+- :ref:`load the computionational grid in the 3Di Modeller Interface<3di_results_manager>` 
+- In the *Layers* panel, right-click the *Node* layer > *Open attribute table* 
+- In the bottom left, click *Show all features* > *Field filter* > *id*
+- Type the node id that was mentioned in the error message (13375 in this example)
+- Select the row that is shown
+- In the Attribute table's toolbar, click *Zoom map to the selected rows (Ctrl-J)*
+
+This may be caused by various reasons listed below:
+
+* Structure levels are below cross-section location reference levels, for instance, a culvert's invert levels are so far below the reference levels of the adjacent channels that the entire structure is below the river bed. This causes problems when water level drop below the channel bed level; flow through the culvert has no area to flow to. Update reference or structure levels so that they match. Reference levels can be below structure invert/crest levels.
+
+* A lateral inflow from laterals or an inflow surface is connected to a calculation node without storage, f.i. an pump end node or boundary node. Remove laterals or inflow from these nodes. Note that the storage of a calculation node is the connection node's storage area *plus* the half of the storage of the adjacent channels, pipes, or culverts, see :ref:`techref_storage_in_1d_domain`. 
+
+* A branch of the 1D network ends with a weir or orifice (which do by definition not have storage), and the last connection node of that branch has a storage area of 0 and no boundary condition. The simulation will crash as soon as this node gets wet, either due to the initial water level, or due to water flowing towards the node.
+
+ERROR - F - Impossible line connection at calculation node:            729
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+This error may occur when using embedded in combination with structures. Make sure no structure is placed entirely inside a 2D computational cell. You can only check this when you have a copy of the 2D computational grid. You can obtain this by making a purely 2D model of your DEM and grid refinement of try making one using the 'create grid' function in the QGIS processing toolbox.
+
+Runtime Error: NetCDF: String match to name in use
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Check the aggregation NetCDF name settings, names must be unique.
 
 
 .. _faq:
@@ -213,41 +262,6 @@ Please check the following:
 - Do you have access to the organisation to which the 3Di model belongs
 
 - Does the schematisation have a 3Di model? Someone may have deleted it, in which case you need to regenerate it. Go to `management.3di.live <https://management.3di.live>`_, search for your schematisation and check out the details page. 
-
-
-Crashed simulations
-^^^^^^^^^^^^^^^^^^^
-
-ERROR - F - Matrix diagonal element, near zero
-""""""""""""""""""""""""""""""""""""""""""""""
-
-At one calculation point there is no storage area or the wet cross section area is near zero or even negative. This may be caused by various reasons listed below:
-
-* Structure levels are below cross section reference levels, f.i. a culvert below the bed level. This is not possible as when water level drops below the bed level, flow through the culvert has no area to flow to. Update reference or structure levels so that they match. Reference levels can be below structure levels.
-
-* A lateral inflow from laterals or an inflow surface is connected to a node without storage area, f.i. an pump end node or boundary node. Removes laterals or inflow from these nodes.
-
-* Water level boundary is below structure level.
-
-* All definition values for width and height must be positive.
-
-* Pump start level is below pump stop level.
-
-The error is followed by a reference to the node without any storage or link without wet cross section area. This will look something like::
-
-    near zero, aii(nod)<1.0d-10,nod,aii(nod),su(nod)  14614   14439  0.0000E+00  0.0000E+00
-
-The first number (14614 in this example) refers to the calculation node on which the error occurs. This number can be found using the QGIS plugin when a result of this model is available. The number can be located using the *node_results*. The id's in this table match the one given here. The second number is a link id and can be found using the *line_result* layer.
-
-ERROR - F - Impossible line connection at calculation node:            729
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-This error may occur when using embedded in combination with structures. Make sure no structure is placed entirely inside a 2D computational cell. You can only check this when you have a copy of the 2D computational grid. You can obtain this by making a purely 2D model of your DEM and grid refinement of try making one using the 'create grid' function in the QGIS processing toolbox.
-
-Runtime Error: NetCDF: String match to name in use
-""""""""""""""""""""""""""""""""""""""""""""""""""
-
-Check the aggregation NetCDF name settings, names must be unique.
 
 
 .. _current_schematisation_checks:
