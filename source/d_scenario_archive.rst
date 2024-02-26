@@ -79,9 +79,12 @@ Rate of rise (m/s), defined as how fast the water depth rises from 0 to 1.5 m.
 In which: 
 
 | :math:`\delta \zeta` difference in water depth, fixed to 1.5 - 0
-| :math:`\delta t` time between the cell getting wet (volume > 0) and reaching a water depth of 1.5 m. The water depth is defined as (water level - lowest DEM pixel in the cell)
+| :math:`\delta t` time between the cell getting wet (volume > 0*) and reaching a water depth of 1.5 m. The water depth is defined as (water level - lowest DEM pixel in the cell)
 
 Cells that already have a water depth of 1.5 m at the start of the simulation are ignored.
+
+\* For optimisation purposes, the definition of a cell getting wet is actually not set to (volume > 0), but to (volume > 3.5 × 10\ :sup:`-5` ). Fun fact: this volume is used because it is the volume of a Dutch genever glass.
+
 
 .. note::
     
@@ -99,9 +102,7 @@ Maximum flow velocity per calculation cell (m/s). The flow velocity in the calcu
 Arrival time
 ------------
 
-.. todo::
-
-    Hier een stukje over schrijven	
+Arrival times are the time (in seconds) since the start of the simulation that the water depth at a pixel becomes > 0.
 	
 
 .. _damage_estimation:
