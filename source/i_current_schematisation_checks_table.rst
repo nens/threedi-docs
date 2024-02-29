@@ -430,9 +430,6 @@
      - v2_cross_section_location.friction_type cannot be null
    * - 0003
      - Error
-     - v2_cross_section_location.friction_value cannot be null
-   * - 0003
-     - Error
      - v2_cross_section_location.id cannot be null
    * - 0003
      - Error
@@ -1057,6 +1054,9 @@
      - v2_cross_section_definition.code is not of type ['text']
    * - 0004
      - Error
+     - v2_cross_section_definition.friction_values is not of type ['text']
+   * - 0004
+     - Error
      - v2_cross_section_definition.height is not of type ['text']
    * - 0004
      - Error
@@ -1064,6 +1064,18 @@
    * - 0004
      - Error
      - v2_cross_section_definition.shape is not of type ['integer']
+   * - 0004
+     - Error
+     - v2_cross_section_definition.vegetation_drag_coefficients is not of type ['text']
+   * - 0004
+     - Error
+     - v2_cross_section_definition.vegetation_heights is not of type ['text']
+   * - 0004
+     - Error
+     - v2_cross_section_definition.vegetation_stem_densities is not of type ['text']
+   * - 0004
+     - Error
+     - v2_cross_section_definition.vegetation_stem_diameters is not of type ['text']
    * - 0004
      - Error
      - v2_cross_section_definition.width is not of type ['text']
@@ -1094,6 +1106,18 @@
    * - 0004
      - Error
      - v2_cross_section_location.the_geom is not of type ['blob']
+   * - 0004
+     - Error
+     - v2_cross_section_location.vegetation_drag_coefficient is not of type ['integer', 'numeric', 'real']
+   * - 0004
+     - Error
+     - v2_cross_section_location.vegetation_height is not of type ['integer', 'numeric', 'real']
+   * - 0004
+     - Error
+     - v2_cross_section_location.vegetation_stem_density is not of type ['integer', 'numeric', 'real']
+   * - 0004
+     - Error
+     - v2_cross_section_location.vegetation_stem_diameter is not of type ['integer', 'numeric', 'real']
    * - 0004
      - Error
      - v2_culvert.calculation_type is not of type ['integer']
@@ -2405,6 +2429,9 @@
    * - 0008
      - Error
      - id must be a positive signed 32-bit integer.
+   * - 0020
+     - Error
+     - CrossSectionLocation.friction_value cannot be null or empty
    * - 0021
      - Error
      - v2_cross_section_location.friction_value is <0
@@ -2561,6 +2588,9 @@
    * - 0074
      - Error
      - v2_1d_boundary_conditions cannot have a groundwater type
+   * - 0080
+     - Error
+     - Either v2_cross_section_location.friction_valueor v2_cross_section_definition.friction_valuesmust be defined for a CrossSectionShape.TABULATED_YZ cross section shape
    * - 0081
      - Error
      - v2_cross_section_definition.width cannot be null or empty for shapes ['all']
@@ -2579,6 +2609,9 @@
    * - 0086
      - Error
      - v2_cross_section_definition.height should be greater than zero for shapes [0]
+   * - 0087
+     - Error
+     - v2_cross_section_definition.friction_values should contain a space separated list of numbers for shapes [7]
    * - 0087
      - Error
      - v2_cross_section_definition.width should contain a space separated list of numbers for shapes [5, 6, 7]
@@ -2648,6 +2681,150 @@
    * - 0110
      - Info
      - The v2_manhole.bottom_level at the end of this v2_channel is higher than the v2_cross_section_location.reference_level closest to the manhole. This will be automatically fixed in threedigrid-builder.
+   * - 0180
+     - Error
+     - v2_cross_section_definition.friction_values can only be used in combination with a TABULATED_YZ cross section shape
+   * - 0180
+     - Error
+     - v2_cross_section_definition.vegetation_drag_coefficients can only be used in combination with a TABULATED_YZ cross section shape
+   * - 0180
+     - Error
+     - v2_cross_section_definition.vegetation_heights can only be used in combination with a TABULATED_YZ cross section shape
+   * - 0180
+     - Error
+     - v2_cross_section_definition.vegetation_stem_densities can only be used in combination with a TABULATED_YZ cross section shape
+   * - 0180
+     - Error
+     - v2_cross_section_definition.vegetation_stem_diameters can only be used in combination with a TABULATED_YZ cross section shape
+   * - 0181
+     - Error
+     - v2_cross_section_definition.vegetation_drag_coefficients should contain 1 value for each element; len(v2_cross_section_definition.vegetation_drag_coefficients) = len(width)-1
+   * - 0181
+     - Error
+     - v2_cross_section_definition.vegetation_heights should contain 1 value for each element; len(v2_cross_section_definition.vegetation_heights) = len(width)-1
+   * - 0181
+     - Error
+     - v2_cross_section_definition.vegetation_stem_densities should contain 1 value for each element; len(v2_cross_section_definition.vegetation_stem_densities) = len(width)-1
+   * - 0181
+     - Error
+     - v2_cross_section_definition.vegetation_stem_diameters should contain 1 value for each element; len(v2_cross_section_definition.vegetation_stem_diameters) = len(width)-1
+   * - 0182
+     - Warning
+     - Both v2_cross_section_location.vegetation_drag_coefficient and v2_cross_section_definition.vegetation_drag_coefficients defined without conveyance; v2_cross_section_location.vegetation_drag_coefficient will be used
+   * - 0182
+     - Warning
+     - Both v2_cross_section_location.vegetation_height and v2_cross_section_definition.vegetation_heights defined without conveyance; v2_cross_section_location.vegetation_height will be used
+   * - 0182
+     - Warning
+     - Both v2_cross_section_location.vegetation_stem_density and v2_cross_section_definition.vegetation_stem_densities defined without conveyance; v2_cross_section_location.vegetation_stem_density will be used
+   * - 0182
+     - Warning
+     - Both v2_cross_section_location.vegetation_stem_diameter and v2_cross_section_definition.vegetation_stem_diameters defined without conveyance; v2_cross_section_location.vegetation_stem_diameter will be used
+   * - 0183
+     - Warning
+     - Both v2_cross_section_location.vegetation_drag_coefficient and v2_cross_section_definition.vegetation_drag_coefficients defined without conveyance; v2_cross_section_definition.vegetation_drag_coefficients will be used
+   * - 0183
+     - Warning
+     - Both v2_cross_section_location.vegetation_height and v2_cross_section_definition.vegetation_heights defined without conveyance; v2_cross_section_definition.vegetation_heights will be used
+   * - 0183
+     - Warning
+     - Both v2_cross_section_location.vegetation_stem_density and v2_cross_section_definition.vegetation_stem_densities defined without conveyance; v2_cross_section_definition.vegetation_stem_densities will be used
+   * - 0183
+     - Warning
+     - Both v2_cross_section_location.vegetation_stem_diameter and v2_cross_section_definition.vegetation_stem_diameters defined without conveyance; v2_cross_section_definition.vegetation_stem_diameters will be used
+   * - 0184
+     - Warning
+     - Both v2_cross_section_definition.friction_valuesand v2_cross_section_location.friction_valueare defined for non-conveyance friction. Only v2_cross_section_location.friction_valuewill be used
+   * - 0185
+     - Warning
+     - Both v2_cross_section_definition.friction_valuesand v2_cross_section_location.friction_valueare defined for conveyance friction. Only v2_cross_section_definition.friction_valueswill be used
+   * - 0186
+     - Error
+     - v2_cross_section_definition.friction_values can only be used in an open channel with monotonically increasing width values
+   * - 0186
+     - Error
+     - v2_cross_section_definition.vegetation_drag_coefficients can only be used in an open channel with monotonically increasing width values
+   * - 0186
+     - Error
+     - v2_cross_section_definition.vegetation_heights can only be used in an open channel with monotonically increasing width values
+   * - 0186
+     - Error
+     - v2_cross_section_definition.vegetation_stem_densities can only be used in an open channel with monotonically increasing width values
+   * - 0186
+     - Error
+     - v2_cross_section_definition.vegetation_stem_diameters can only be used in an open channel with monotonically increasing width values
+   * - 0187
+     - Error
+     - v2_cross_section_definition.vegetation_drag_coefficients should contain a space separated list of numbers for shapes [7]
+   * - 0187
+     - Error
+     - v2_cross_section_definition.vegetation_heights should contain a space separated list of numbers for shapes [7]
+   * - 0187
+     - Error
+     - v2_cross_section_definition.vegetation_stem_densities should contain a space separated list of numbers for shapes [7]
+   * - 0187
+     - Error
+     - v2_cross_section_definition.vegetation_stem_diameters should contain a space separated list of numbers for shapes [7]
+   * - 0188
+     - Error
+     - some values in v2_cross_section_definition.friction_values are < 0 and/or >= 1
+   * - 0189
+     - Error
+     - some values in v2_cross_section_definition.friction_values are < 0
+   * - 0190
+     - Error
+     - v2_cross_section_location.vegetation_drag_coefficient is <0
+   * - 0190
+     - Error
+     - v2_cross_section_location.vegetation_height is <0
+   * - 0190
+     - Error
+     - v2_cross_section_location.vegetation_stem_density is <0
+   * - 0190
+     - Error
+     - v2_cross_section_location.vegetation_stem_diameter is <0
+   * - 0191
+     - Error
+     - some values in v2_cross_section_definition.vegetation_drag_coefficients are < 0
+   * - 0191
+     - Error
+     - some values in v2_cross_section_definition.vegetation_heights are < 0
+   * - 0191
+     - Error
+     - some values in v2_cross_section_definition.vegetation_stem_densities are < 0
+   * - 0191
+     - Error
+     - some values in v2_cross_section_definition.vegetation_stem_diameters are < 0
+   * - 0192
+     - Error
+     - v2_cross_section_location.vegetation_drag_coefficient cannot be used with Manning type friction
+   * - 0192
+     - Error
+     - v2_cross_section_location.vegetation_height cannot be used with Manning type friction
+   * - 0192
+     - Error
+     - v2_cross_section_location.vegetation_stem_density cannot be used with Manning type friction
+   * - 0192
+     - Error
+     - v2_cross_section_location.vegetation_stem_diameter cannot be used with Manning type friction
+   * - 0193
+     - Error
+     - v2_cross_section_definition.vegetation_drag_coefficients cannot be used with MANNING type friction
+   * - 0193
+     - Error
+     - v2_cross_section_definition.vegetation_heights cannot be used with MANNING type friction
+   * - 0193
+     - Error
+     - v2_cross_section_definition.vegetation_stem_densities cannot be used with MANNING type friction
+   * - 0193
+     - Error
+     - v2_cross_section_definition.vegetation_stem_diameters cannot be used with MANNING type friction
+   * - 0194
+     - Error
+     - All of these columns must be defined: v2_cross_section_location.vegetation_drag_coefficient,v2_cross_section_location.vegetation_height,v2_cross_section_location.vegetation_stem_diameter,v2_cross_section_location.vegetation_stem_density
+   * - 0195
+     - Error
+     - All of these columns must be defined: v2_cross_section_definition.vegetation_drag_coefficients,v2_cross_section_definition.vegetation_heights,v2_cross_section_definition.vegetation_stem_diameters,v2_cross_section_definition.vegetation_stem_densities
    * - 0201
      - Warning
      - The connection_node is within 0.001 degrees of another connection_node.
@@ -3737,3 +3914,21 @@
    * - 1405
      - Error
      - The file in v2_global_settings.dem_file exceeds 5000000000.0 pixels.
+   * - 1500
+     - Warning
+     - v2_cross_section_location.friction_value is less than 1 while CHEZY friction is selected. This may cause nonsensical results.
+   * - 1500
+     - Warning
+     - v2_culvert.friction_value is less than 1 while CHEZY friction is selected. This may cause nonsensical results.
+   * - 1500
+     - Warning
+     - v2_orifice.friction_value is less than 1 while CHEZY friction is selected. This may cause nonsensical results.
+   * - 1500
+     - Warning
+     - v2_pipe.friction_value is less than 1 while CHEZY friction is selected. This may cause nonsensical results.
+   * - 1500
+     - Warning
+     - v2_weir.friction_value is less than 1 while CHEZY friction is selected. This may cause nonsensical results.
+   * - 1501
+     - Warning
+     - Some values in CrossSectionDefinition.friction_values are less than 1 while CHEZY friction is selected. This may cause nonsensical results.
