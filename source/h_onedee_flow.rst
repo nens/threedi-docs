@@ -187,7 +187,7 @@ Following the same approach implemented in 2D domain, the analytical formulation
 
 To account for the fully and partially submerged vegetation, :cite:t:`Baptist2007` suggests to use the effective vegetation height :math:`min[H_v, H]` to ensure the contribution of the vegetation drag within the correct vertical plane.
 
-3Di allows for defining single vegetation properties for the cross-section shapes *Tabulated rectangle* and *Tabulated trapezium*. However, to represent the spatial distribution of vegetation along a channel, 3Di also provides the option to assign different vegetation properties to different part of a cross-section. This can be done using the *YZ* shape. As shown in the figure below, users can define separate properties for each individual line. Afterwards, 3Di evaluates the section and divides it into several sub-sections according to the slope of the lines. The details about 1D vegetation entries can be found in :ref:`cross_section_location`.
+3Di allows for defining single vegetation properties for the cross-section shapes *Tabulated rectangle* and *Tabulated trapezium* (see :ref:`cross-section_shape`). However, to represent the spatial distribution of vegetation along a channel, 3Di also provides the option to assign different vegetation properties to different part of a cross-section. This can be done using the *YZ* shape (see :ref:`cross-section_shape`). As shown in the figure below, users can define separate properties for each individual line. Afterwards, 3Di evaluates the section and divides it into several sub-sections according to the slope of the lines. The details about 1D vegetation entries can be found in :ref:`cross_section_location`.
 
 .. figure:: image/1dvegetation.png
    :figwidth: 1500 px
