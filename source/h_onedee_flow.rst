@@ -164,12 +164,43 @@ The conveyance factor considers the depth variations in the different depth sect
 
    Single Section Method vs Compound Section (Conveyance) Method
 
+.. _1d_vegetation:
+
+Vegetation in the 1D domain
+---------------------------
+
+In addition to friction, natural or planted vegetation plays a significant role in the hydrualic resistance of the flow. The overall head loss along a channel can majorly increase with the presence of scarce or dense vegetation stem covers. 3Di implements this vegetation-induced roughness considering uniform vegetation properties in terms of stem density, height, and diameter.
+
+Following the same approach implemented in 2D domain, the analytical formulations proposed by :cite:t:`Baptist2007` is used in 1D domain. In this method, the effect of vegetation is modelled as the equivalent shear stress due to vegetation. The total shear stress is then the superposition of the surface and vegetation-induced shear stresses, which eventually alters the uniform flow velocity. This method uses vegetation characteristics, namely stem diameter, density, height, and drag coefficient, to quantify the vegetation-induced shear stress as:
+
+.. math::
+
+   \tau_v = \frac{1}{2}C_{DV} m D min[H_v, H]  \label{eq:veggie_drag_baptist} 
+    
+| with: 
+| :math:`U`, the velocity vector with :math:`(u,v)` the velocity components in :math:`x,y`-direction
+| :math:`H`, the water depth
+| :math:`H_v`, the relative vegetation height
+| :math:`D`, the stem diameter
+| :math:`m`, the number of stems per square meter 
+| :math:`C_{DV}`, The vegetation drag coefficient 
+
+To account for the fully and partially submerged vegetation, :cite:t:`Baptist2007` suggests to use the effective vegetation height :math:`min[H_v, H]` to ensure the contribution of the vegetation drag within the correct vertical plane.
+
+3Di allows for defining single vegetation properties for the cross-section shapes *Tabulated rectangle* and *Tabulated trapezium*. However, to represent the spatial distribution of vegetation along a channel, 3Di also provides the option to assign different vegetation properties to different part of a cross-section. This can be done using the *YZ* shape. As shown in the figure below, users can define separate properties for each individual line. Afterwards, 3Di evaluates the section and divides it into several sub-sections according to the slope of the lines.
+
+.. figure:: image/1dvegetation.png
+   :figwidth: 1500 px
+   :alt: 1D_vegetation
+
+   User-defined vegetation properties for each line of an open channel and the 3Di evaluation of the open channel
+
 .. _1Dpressurized:
 
 Pressurized flow
 ----------------
 
-In 1D elements with closed cross-sections flow may become pressurized. The way 3Di deals with this is similar to how 3Di deals with the non-lineair relations in 2D cells (e.g. between volume and water level). :ref:`subgridmethod` allows 2D cells to be  be dry, wet or *partly wet*, creating a non-lineair volume-water level relation. This was solved with a highly efficient method. However, there are some requirements for such system to be solved. one of these requirements is violated when the surface area decreases for increasing water levels, as in pipes that are more than half full (see the Figure below). Therefore, a new method had to be introduced to solve such a non-linear system of equations. This method is based on the so-called nested Newton method (`cite:t:`Casulli2013`).
+In 1D elements with closed cross-sections flow may become pressurized. The way 3Di deals with this is similar to how 3Di deals with the non-linear relations in 2D cells (e.g. between volume and water level). :ref:`subgridmethod` allows 2D cells to be  be dry, wet or *partly wet*, creating a non-linear volume-water level relation. This was solved with a highly efficient method. However, there are some requirements for such system to be solved. one of these requirements is violated when the surface area decreases for increasing water levels, as in pipes that are more than half full (see the Figure below). Therefore, a new method had to be introduced to solve such a non-linear system of equations. This method is based on the so-called nested Newton method (:cite:t:`Casulli2013`).
 
 .. figure:: image/b1_5.png
    :scale: 50%
