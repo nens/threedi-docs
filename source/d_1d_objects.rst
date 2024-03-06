@@ -424,7 +424,7 @@ Attributes
      - decimal number
      - Yes
      - \-
-     - Sets the :ref:`friction type<1d_friction>` to Chézy (1), Manning (2), Chézy with conveyance (3), or Manning with conveyance (4)
+     - See :ref:`cross_section_location_friction_type`
    * - Friction value
      - friction_value
      - decimal number
@@ -490,6 +490,19 @@ The following shapes are supported:
      - 8
      - Specify cross-section width. Height will be 1.5 * width.
 
+.. _cross_section_location_friction_type:
+
+Friction type
+"""""""""""""
+
+This attribute sets the :ref:`friction type<1d_friction>` to:
+
+- Chézy (1)
+- Manning (2)
+- Chézy with conveyance (3)
+- Manning with conveyance (4)
+
+Using the friction types with conveyance is advised for open Tabulated or YZ cross-sections, in case there is a significant variation of the water depths across the cross-section, for instance, in a scenario with overflowing floodplains.
 
 .. _culvert:
 
