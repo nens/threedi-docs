@@ -90,9 +90,14 @@ Table of contents
    :caption: Release Notes
    :name: Release Notes
 
-   a_releasenotes
+   a_releasenotes_general
+   a_releasenotes_mi
+   a_release_notes_3di_live
+   a_release_notes_3di_management
+   a_release_notes_computational_core
+   a_release_notes_api
 
-.. toctree::
+.. toctree::	
    :maxdepth: 1
    :caption: Literature
    :name: Literature
