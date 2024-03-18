@@ -13,21 +13,54 @@ The migration to database schema 300 also includes a switch to GeoPackage as fil
 
 This page aims to answer frequently asked questions on this topic.
 
+Frequently asked questions
+--------------------------
+
 .. _db_300_planning:
 
 When will this development be finished?
----------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 As of March 2024, the expectation is that this development will be completed in the second quarter of 2024. At this point, it is still difficult to make a precise assessment of the release date. The estimate will be refined when as we proceed.
 
 I don't use scripts, what will be the impact for me?
-----------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For 'normal'/'manual' use the impact will not be too bad. The migration from the "old" spatialites to the "new" geopackages will be automatic, in the same way that until now small changes in the database schema are automatically implemented when you open the schematization in the 3Di Modeller Interface.
+For 'normal'/'manual' use the impact will not be very big. The migration from the "old" spatialites to the "new" geopackages will be automatic, in the same way that until now small changes in the database schema are automatically implemented when you open the schematization in the 3Di Modeller Interface. 
+
+However, the following things *will* have an impact when you are modelling manually:
+
+- References to raster files were relative paths, starting from the location of the Spatialite (e.g. "rasters\dem.tif"). In schema 300, it should just be the file name ("dem.tif").
+
+- The ``aggregation_variable`` in the aggregation settings table now uses the same variable names as are used in the computational core (and in threedigrid). The list below shows how each variable is renamed:
+
+    - discharge -> q
+    - flow_velocity -> u1
+    - pump_discharge -> q_pump
+    - rain -> rain
+    - waterlevel -> s1
+    - wet_cross-section -> au
+    - wet_surface -> su
+    - lateral_discharge -> q_lat
+    - volume -> vol
+    - simple_infiltration -> infiltration_rate_simple
+    - leakage -> leak
+    - interception -> intercepted_volume
+    - surface_source_sink_discharge -> q_sss
+
+- Some attribute names have changed; the most important ones are:
+
+	- grid_space -> minimum_cell_size
+	- kmax -> nr_grid_levels
+	- dist_calc_points -> calculation_point_distance_1d
+
+- Specific hydrological or hydraulic processes could be switched on or off by setting or removing a reference in the global settings; this has been replaced by a boolean (True/False) attribute. E.g. to switch off the use of simple infiltration, v2_global_settings.simple_infiltration_settings_id could be set to NULL. In schema 300, set use_simple_infiltration to False.
+
+- Groundwater flow and groundwater storage can be switched on and off independently by setting ``use_groundwater_flow`` or ``use_groundwater_storage``. Note that you can only use groundwater flow if you also use groundwater storage. You *can* use groundwater storage without using groundwater flow.
 
 
 Can I keep using my existing SQL or Python scripts?
----------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 SQL or Python scripts that communicate with the Spatialite will need to be modified to continue working. For example, this code snippet:
 
@@ -62,10 +95,10 @@ For a detailed overview of all schema changes, see :ref:`db_300_migration_guide`
 We roll out all changes from database schema 219 to 300 all at once, so that this major adjustment to scripts and tooling is a one-time action, rather than a longer period of rolling out new changes.
 
 Can I still run SQL on the GeoPackage?
---------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Can I still use the views in the Spatialite to check for foreign key errors?
-------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 
@@ -73,14 +106,14 @@ Can I still use the views in the Spatialite to check for foreign key errors?
 
 
 Why do we want to switch to GeoPackage?
----------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -GeoPackage is increasingly becoming a new standard for the storage of GIS vector data, while the further development and maintenance of Spatialite is uncertain.
 
 - Some useful tooling that is available for GeoPackage is not for Spatialite. For example, geodiff, which allows you to gain insight into differences between GeoPackages and transfer them from one GeoPackage to another.
 
-Why do we want to change the database schema?
----------------------------------------------
+What are the advantages of changing the database schema?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - This makes the Load from Spatialite / Save to Spatialite unnecessary, which you now have to do frequently in the Schematization Editor.
 
@@ -88,7 +121,7 @@ Why do we want to change the database schema?
 
 - Enable direct editing by adding a geometry to all layers that currently have it via a view, such as v2_pipe_view. And by linking information about cross-sections directly to the features to which that cross-section belongs (pipe/culvert/weir/orifice/cross-section location), instead of in a separate table v2_cross_section_definition. This already works this way via the Schematisation Editor.
 
-- Can link notifications from the schematization checker to a location, if applicable.
+- Can link notifications from the schematisation checker to a location, if applicable.
 
 - Make schematising structure control much easier and more visual.
 
@@ -117,6 +150,81 @@ Why do we want to change the database schema?
 Migration guide
 ---------------
 
-Download migration guides for:
+This migration guide describes the changes from database schema version 219 to database schema 300.
 
-- `Settings <other/db_schema_300_settings.xlsx>`__
+General changes
+^^^^^^^^^^^^^^^
+
+- All tables have been renamed to remove the "v2_" prefix; e.g. ``v2_numerical_settings`` is renamed to ``numerical_settings``.
+
+- All geometry columns have been renamed from "the_geom" to "geom", following current (informal) conventions.
+
+
+Settings
+^^^^^^^^
+
+For a complete and detailed overview of the changes in the settings tables, see <other/db_schema_300_settings.xlsx>`__
+
+
+The settings that were grouped in the global settings table are split up into several tables that are consistent with (i) the grouping in the API, and (ii) the distinctions between settings required to generate the 3Di model and settings required to generate a simulation template. The contents of the global settings table can now be found in:
+
+- **Model settings**: contains settings that are used when generating a 3Di model. A further categorisation within this table (which will be reflected in the attribute forms) is:
+
+    - General
+    - Computational grid
+    - Subgrid
+    - Processes
+    - Other
+
+- **Physical settings**: same as in the API, currently contains only advection-related parameters
+
+- **Time step settings**: same as in the API, contains settings related to simulation time step and and output time step
+
+- **Simulation template settings**: contains settings that are used when generating the simulation template
+
+- **Initial conditions**: defines the initial (ground)water levels to be used in the simulation template
+
+- **Interception**: defines the interception that is used in the 3Di model
+
+The ``aggregation_variable`` in the aggregation settings table now uses the same variable names as are used in the computational core (and in threedigrid). The list below shows how each variable is renamed:
+
+- discharge	-> q
+- flow_velocity -> u1
+- pump_discharge -> q_pump
+- rain -> rain
+- waterlevel -> s1
+- wet_cross-section -> au
+- wet_surface -> su
+- lateral_discharge -> q_lat
+- volume -> vol
+- simple_infiltration -> infiltration_rate_simple
+- leakage -> leak
+- interception -> intercepted_volume
+- surface_source_sink_discharge -> q_sss
+
+References to raster files were relative paths, starting from the location of the Spatialite (e.g. "rasters\dem.tif"). In schema 300, it should just be the file name ("dem.tif").
+
+Settings tables are no longer referenced from the global settings (e.g. v2_global_settings.simple_infiltration_settings_id -> v2_simple_infiltration.id). Instead, a boolean field switches the specific process on or off (e.g. use_simple_infiltration).
+
+0D Inflow
+^^^^^^^^^
+
+
+
+Structure control
+^^^^^^^^^^^^^^^^^
+
+2D
+^^
+
+1D2D
+^^^^
+
+1D
+^^
+
+
+
+
+
+
