@@ -8,7 +8,7 @@ March 14, 2024
 
 **3Di Modeller Interface installer**
 
-- 3Di Modeller Interface is not based on QGIS 3.34.4 Long-term release instead of the previous LTR version 3.28. See :ref:`MI_installation`.
+- 3Di Modeller Interface is based on QGIS 3.34.4 Long-term release instead of the previous LTR version 3.28. See :ref:`MI_installation`.
 
 - When using the latest 3Di Modeller Interface installer, the axes of graphs on a second screen are now correct.  
  
