@@ -91,11 +91,11 @@ Table of contents
    :name: Release Notes
 
    a_releasenotes_general
-   a_releasenotes_mi
-   a_release_notes_3di_live
-   a_release_notes_3di_management
-   a_release_notes_computational_core
-   a_release_notes_api
+   a_releasenotes_3di_mi
+   a_releasenotes_3di_live
+   a_releasenotes_3di_management
+   a_releasenotes_computational_core
+   a_releasenotes_3di_api
 
 .. toctree::	
    :maxdepth: 1
