@@ -64,7 +64,8 @@ Table of contents
    :caption: Technical Reference
    :name: Technical Reference
    
-   h_modelling_concepts
+   h_schematisations_models_simulations
+   h_schematisation_objects
    h_initials_forcings_events
    h_grid
    h_flow
