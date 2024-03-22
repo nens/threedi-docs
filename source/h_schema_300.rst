@@ -16,12 +16,24 @@ This page aims to answer frequently asked questions on this topic.
 Frequently asked questions
 --------------------------
 
+- :ref:`db_300_why_new_schema`
+- :ref:`db_300_why_geopackage`
+- :ref:`db_300_views`
+- :ref:`db_300_sql_geopackage`
+- :ref:`db_300_api`
+- :ref:`db_300_existing_script`
+- :ref:`db_300_scripts`
+- :ref:`db_300_planning`
+
+
 .. _db_300_planning:
 
 When will this development be finished?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 As of March 2024, the expectation is that this development will be completed in the second quarter of 2024. At this point, it is still difficult to make a precise assessment of the release date. The estimate will be refined when as we proceed.
+
+.. _db_300_scripts:
 
 I don't use scripts, what will be the impact for me?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -58,6 +70,7 @@ However, the following things *will* have an impact when you are modelling manua
 
 - Groundwater flow and groundwater storage can be switched on and off independently by setting ``use_groundwater_flow`` or ``use_groundwater_storage``. Note that you can only use groundwater flow if you also use groundwater storage. You *can* use groundwater storage without using groundwater flow.
 
+.. _db_300_existing_script:
 
 Can I keep using my existing SQL or Python scripts?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -94,36 +107,52 @@ For a detailed overview of all schema changes, see :ref:`db_300_migration_guide`
 
 We roll out all changes from database schema 219 to 300 all at once, so that this major adjustment to scripts and tooling is a one-time action, rather than a longer period of rolling out new changes.
 
+
+.. _db_300_api:
+
+Do I need to make changes to my scripts that interact with the 3Di API?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+No, this development will not affect the 3Di REST API. Uploading and downloading schematisations, starting simulations, downloading results, etc. will still work exactly the same way.
+
+.. _db_300_sql_geopackage:
+
 Can I still run SQL on the GeoPackage?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Yes, GeoPackage supports the same SQL dialect as Spatialite.
+
+.. _db_300_views:
 
 Can I still use the views in the Spatialite to check for foreign key errors?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+No, the new schema will not contain any views. Run the schematisation checker to identify any attributes that are NULL but should have a value.
 
 
+.. _db_300_why_geopackage:
 
-
-
-Why do we want to switch to GeoPackage?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Why does 3Di switch to GeoPackage?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -GeoPackage is increasingly becoming a new standard for the storage of GIS vector data, while the further development and maintenance of Spatialite is uncertain.
 
 - Some useful tooling that is available for GeoPackage is not for Spatialite. For example, geodiff, which allows you to gain insight into differences between GeoPackages and transfer them from one GeoPackage to another.
 
+.. _db_300_why_new_schema:
+
 What are the advantages of changing the database schema?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- This makes the Load from Spatialite / Save to Spatialite unnecessary, which you now have to do frequently in the Schematization Editor.
+- Making *Load from Spatialite* / *Save to Spatialite* unnecessary, which you now have to do frequently (and might forget sometimes) in the Schematisation Editor.
 
 - The schematisation checker then works on the data that you edit; Currently you edit the data converted to GeoPackage by the Schematization Editor, but check the Spatialite. This sometimes means that errors reported by the schematization checker are difficult to trace. For example, if there is an error in v2_cross_section_definition that does not exist in the Schematization Editor file.
 
 - Enable direct editing by adding a geometry to all layers that currently have it via a view, such as v2_pipe_view. And by linking information about cross-sections directly to the features to which that cross-section belongs (pipe/culvert/weir/orifice/cross-section location), instead of in a separate table v2_cross_section_definition. This already works this way via the Schematisation Editor.
 
-- Can link notifications from the schematisation checker to a location, if applicable.
+- It will allow us to add coordinates to ERROR/WARNING/INFO messages from the schematisation checker, so they can be located on the map, if applicable.
 
-- Make schematising structure control much easier and more visual.
+- It will make schematising structure control much easier: more visual and more intuitive.
 
 - Being able to specify the different aspects of 1D2D exchange, storage and advection more explicitly and independently of each other, by:
 
@@ -152,12 +181,23 @@ Migration guide
 
 This migration guide describes the changes from database schema version 219 to database schema 300.
 
+.. note::
+    
+	This migration guide is a work in progress. It will be updated and extended during development.
+
 General changes
 ^^^^^^^^^^^^^^^
 
 - All tables have been renamed to remove the "v2_" prefix; e.g. ``v2_numerical_settings`` is renamed to ``numerical_settings``.
 
 - All geometry columns have been renamed from "the_geom" to "geom", following current (informal) conventions.
+
+Tags
+^^^^
+
+A new feature that will be introduced is *tags*. You can define tags in the schematisation, and assign any number of these tags to each feature.
+
+This is useful for administration of data sources and assumptions. For example, if you define a tag "Source: asset management system", you can assign this tag to all pipes that are imported from the asset management system. Pipes that are digitized by hand can be given the tag "Source: digitized by hand".
 
 
 Settings
@@ -209,20 +249,60 @@ Settings tables are no longer referenced from the global settings (e.g. v2_globa
 0D Inflow
 ^^^^^^^^^
 
+- The two methods of schematisating 0D inflow (using "surfaces" and "impervious surfaces") will be merged into a single method. The surface types available for "impervious surface" will still be available, as predefined settings.
+
+- Dry weather flow will be moved to a separate layer (with Point geometry), with its own mapping
+
+- It will be possible to define the distribution of dry weather flow over the 24 hours of the day in the schematisation.
+
+- Option to add tags to each feature
+
+Boundary conditions and laterals
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- New: option to specifiy time units, interpolation, and/or offset (for laterals)
+
+- New: option to add tags to each feature
 
 
 Structure control
 ^^^^^^^^^^^^^^^^^
 
+Structure control is simplified and the needed tables are given geometries, so they can be schematised, visualised, and edited on the map.
+
+- Add geometries to timed, table, and memory control
+- Measurements are schematisated using a *Measure location* (point geometry) and mapped to a table or memory control using a *Measure map* (line geometry)
+- The concept of *control groups* is removed for the sake of simplicity
+- *Measure groups* are no longer a separate entity; measurement locations are grouped implicitly by mapping them to the same control.
+
 2D
 ^^
+
+The changes to *Dem average area*, *Obstacle*, *Grid refinement* and *Grid refinement area* will be minimal. The most important changes will be:
+
+- New: option to add tags to each feature
+- Some changes in names of tables and columns
 
 1D2D
 ^^^^
 
+There will be some impactful changes to the schematisation of 1D2D exchange, but this is mainly governed by attributes of schematisation objects in the 1D category.
+
+The changes to *Exchange line* and *Potential breach* will be minimal. The most important changes will be:
+
+- New: option to add tags to each feature
+- Some changes in names of tables and columns
+
 1D
 ^^
 
+- Pipe, Weir, and Orifice will have their own geometry.
+- *Calculation type* will be replaced by two columns: *Exchange type* and *Exchange width*
+- *Manhole* will no longer have an *Calculation type*; this will be moved to *Connection node* (as *Exchange type* and *Exchange width*)
+- The table *Cross-section definition* will be removed; cross-section information will directly be defined as attributes of pipes, cross-section locations, weirs, orifices, and culverts
+- *Manhole* attributes that are purely intended for administrative purposes will be removed: shape, width, length, and surface_level
+- *Pipe* attributes that are purely intended for administrative purposes will be removed: material
+- *Pumpstation* will be renamed to *Pump*. Instead of an optional "connection_node_end_id", there will be a separate layer "Pump map"
 
 
 
