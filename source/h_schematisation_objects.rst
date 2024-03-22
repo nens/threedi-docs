@@ -5,6 +5,10 @@ Schematisation objects
 
 A 3Di schematisation consists of rasters, vector layers and settings. This section describes these schematisation objects, their attributes and requirements.
 
+.. note::
+
+   We are currently revising the 3Di database schema, i.e. the names of all layers and their attributes. For more information see :ref:`schema_300`.
+
 .. toctree::
    :maxdepth: 2
    

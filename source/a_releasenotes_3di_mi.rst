@@ -8,7 +8,7 @@ March 14, 2024
 
 **3Di Modeller Interface installer**
 
-- 3Di Modeller Interface is based on QGIS 3.34.4 Long-term release instead of the previous LTR version 3.28. See :ref:`MI_installation`.
+- 3Di Modeller Interface is now based on QGIS 3.34.4 Long-term release instead of the previous LTR version 3.28. See :ref:`MI_installation`.
 
 - When using the latest 3Di Modeller Interface installer, the axes of graphs on a second screen are now correct.  
  
@@ -28,11 +28,11 @@ March 14, 2024
 
 **3Di Schematisation Editor 1.9**
 
-- Create importer for *Manholes* (Processing Algorithm and Graphical User Interface) (#194)
+- Create :ref:`importer for *Manholes*<vector_data_importer>` (Processing Algorithm and Graphical User Interface) (#194)
 
-- Create importer for *Pipes* (Processing Algorithm and Graphical User Interface) (#976)
+- Create :ref:`importer for *Pipes*<vector_data_importer>` (Processing Algorithm and Graphical User Interface) (#976)
 
-- Create option "Create manholes" in the importers for Culvert, Pipe, Weir and Orifice (#193)
+- Create option "Create manholes" in the :ref:`importers for <vector_data_importer>` (#193)
 
 - Create processing algorithm "Manhole bottom level from pipes" (#209)
 
