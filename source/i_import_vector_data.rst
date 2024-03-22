@@ -6,7 +6,13 @@ Import GIS vector data
 GIS data can be imported to a schematisation using the 3Di Schematisation Editor's vector data importer.
 
 .. note:: 
-   Currently, this is only supported for :ref:`culvert`, :ref:`orifice`, and :ref:`weir`.
+   Currently, this is only supported for:
+   
+   - :ref:`culvert`
+   - :ref:`orifice`
+   - :ref:`weir`
+   - :ref:`pipe`
+   - :ref:`manhole`
 
 How to use the vector data importer
 -----------------------------------
@@ -26,6 +32,8 @@ Use the following steps:
 - **Selected features only**: Check this box if you only want to import the selected features.
 
 - **Create connection nodes**: Check this box if you want to create connection nodes at the start and end of the schematisation object. If connection nodes are available within *snapping distance* from the start or end vertex of the imported feature, the existing connection node will be used and the start or end vertex will be snapped to the connection node.
+
+- **Create manholes**: Check this box if you want to create manholes at the start and end of the schematisation object. If manholes already exist on the start or end connection nodes, the existing manhole will be used. This option is available for Culvert, Pipe, Weir and Orifice. 
 
 - **Main table: Field name**: Name of the target field.
 
