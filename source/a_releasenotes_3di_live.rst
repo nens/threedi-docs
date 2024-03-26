@@ -2,6 +2,36 @@
 
 3Di Live
 --------
+March 26th, 2024
+^^^^^^^^^^^^^^^^
+- 2D flow is now visualised using traces. The visualisation of 2D flow is based on the flow velocity at the center of the computational grid cells. Note that it does not take into account intra-cell variation of flow velocity or direction. For this reason, you may see flow in dry parts of cells. (#1705, #1703, #1670, #1617, #1682, #1675, #1612, #1576, #1561, #440)
+
+- Hillshade and new colour map in for the DEM (#1671, #1707, #1681, #1677, #1616, #1577)
+
+- Recording option: click on the record button to record the 3Di Live tab in your browser (#1583)
+
+- 1D flow above 2 m/s (or other user-defined threshold) is highlighted (#1558)
+
+- Design of the layers panel has been simplified by putting the flow velocity settings (for 1D and 2D) in a drop-down menu (#1692)
+	
+- Visibility of assets, breaches and model grid is no longer dependent on zoom level (#1674, #1575)
+
+- Model flowlines are shown only when drawing flood barriers (#1521)
+
+- "Code" is now shown in asset details (#1683)
+
+- Some improvements in spelling & terminology have been made (#1559)	
+
+- Technical change: 3Di Live now uses deck.gl instead of Leaflet (#1562)
+
+- Technical change: 3Di Live now uses Maptiler instead of Mapbox tiles (#1636)
+
+- Bugfix: in some cases, the model grid would not show, no matter what zoom level (#1592)
+
+- Bugfix: in some cases, the point selection tool would not react (#1592)
+
+- Bugfix: The "velocity" graph for Breaches has been fixed (#1520)
+
 
 January 11th, 2024
 ^^^^^^^^^^^^^^^^^^
