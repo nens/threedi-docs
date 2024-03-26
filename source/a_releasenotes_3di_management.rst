@@ -3,6 +3,20 @@
 3Di Management
 --------------
 
+March 26th, 2024
+^^^^^^^^^^^^^^^^
+
+- Simulation overview: initial substance concentrations are now listed under "Predefined simulation data" (#1557)
+
+- A timer has been added to "Delete schematisation" so it is harder to accidentally delete a schematisation (#1618)
+
+- Simulation detail page: the "Save as Template" button has been moved from Events to main section (#1516)
+
+- Bugfix: Initial (ground)water level rasters were not listed under schematisation revision rasters in some cases (#1600)
+
+- Bugfix: Simulation overview on schematisation detail page had "Invalid date" for all simulations (#1597)
+
+
 January 11, 2024
 ^^^^^^^^^^^^^^^^
 
