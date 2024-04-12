@@ -222,8 +222,7 @@ where :math:`h` is the local water depth, :math:`u` the local cross-sectionally 
 
 In case of structures with closed profiles, in the equation of the energy balance :math:`h` is not the water depth, but the energy height. For structures having closed profiles, the transition of water depth to energy height is automatically taken care of in case the area fills with water.
 
-For robustness, 3Di schematizes structures as connections between two nodes, as can be seen in the third panel of the figure. This assumption implies that the water level on the location of the structure is unknown. To compute accurately the discharge over the structure, a difference is made between long crested and short crested structures. Both resulting formulations are based on Bernoulli's principle, but for long crested structures, frictional losses are computed separately.
-
+For robustness, 3Di schematizes structures as connections between two nodes, as can be seen in the third panel of the figure. This assumption implies that the water level on the location of the structure is unknown. To compute accurately the discharge over the structure, a difference is made between long crested and short crested structures. Both resulting formulations are based on Bernoulli's principle, but for long crested structures, frictional losses are computed separately. The methods to resolve the flow over these structures, ensures numerical stability without timestep dependence.
 
 Short crested
 ^^^^^^^^^^^^^
@@ -270,24 +269,13 @@ Combining these equations, results in the discharge formulation.
 Broad crested
 ^^^^^^^^^^^^^
 
-For longer structures, frictional effects can become important. For the so-called broad-crested weirs and orifices an extra loss term is added to Bernoulli's equation. The frictional losses :math:`\Delta h_F` are computed as:
+For longer structures, frictional effects can become important. For the so-called broad-crested weirs and orifices an extra loss term is added to Bernoulli's equation. The extra head loss due to friction :math:`\Delta h_F` is computed as:
 
 .. math::
-   \Delta h_F= \frac{c_f L u_{II}^2}{2 g R}
+   \Delta h_F= \frac{c_f L u_{II}^2}{g R}
 
-where :math:`c_f` is the dimensionless friction coefficient, :math:`L` the length of the structure and :math:`R` is the hydraulic radius. The dimensionless friction coefficient can be based on either Manning or the Chézy formulation. It is also of importance that the structure length is correctly set. The computational core expects that this is the geometrical distance between the two connection nodes. The friction coefficient can be defined either by a Manning or a Chézy value.
+where :math:`c_f` is the dimensionless friction coefficient, :math:`L` the length of the structure and :math:`R` is the hydraulic radius on top of the weir. The dimensionless friction coefficient can be based on either the Manning or the Chézy formulation. The frictional losses scale with the length of the weir, therefore it is of importance that the structure length is correctly set. The computational core expects that this is the geometrical distance between the two connection nodes. 
 
-An advantage of these formulations is that these do not limit the timestep during the simulation.
-
-The attributes that define these structures are:
-
-* Crest level: The crest level of the weir. In case of an orifice this could be equal to the bottom level.
-
-* Crest type: Selects a short or broad crested weir/orifice formulation.
-
-* Discharge coefficient positive/negative: The coefficient used in the discharge formulation. Depending on the flow direction the coefficients could be different.
-
-* Cross-section definition: This defines the cross-section of the structure.
 
 .. _pump:
 
