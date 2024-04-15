@@ -5,6 +5,15 @@
 
 3Di offers the possibility to simulate 1D flow. This means that the computed flow velocity and discharge is averaged over the full cross-sectional area. Effects of variations in depth and width are included, but flow within a segment has only one direction. A 1D element can represent, for example, a channel, a hydraulic structure or a sewer pipe. The sections below describe how 3Di deals with the computations in 1D, some specific characteristics and the several types of 1D elements that are available.
 
+- :ref:`1d_network`
+- :ref:`cross_section_of_1d_element`
+- :ref:`1d_momentum_equation`
+- :ref:`1d_friction`
+- :ref:`1Dpressurized`
+- :ref:`channelflow`
+- :ref:`weirs_and_orifices`
+- :ref:`pump`
+
 
 .. _1d_network:
 
@@ -222,7 +231,7 @@ where :math:`h` is the local water depth, :math:`u` the local cross-sectionally 
 
 In case of structures with closed profiles, in the equation of the energy balance :math:`h` is not the water depth, but the energy height. For structures having closed profiles, the transition of water depth to energy height is automatically taken care of in case the area fills with water.
 
-For robustness, 3Di schematizes structures as connections between two nodes, as can be seen in the third panel of the figure. This assumption implies that the water level on the location of the structure is unknown. To compute accurately the discharge over the structure, a difference is made between long crested and short crested structures. Both resulting formulations are based on Bernoulli's principle, but for long crested structures, frictional losses are computed separately. The methods to resolve the flow over these structures, ensures numerical stability without timestep dependence.
+For robustness, 3Di schematizes structures as connections between two nodes, as can be seen in the third panel of the figure. This assumption implies that the water level on the location of the structure is unknown. To compute accurately the discharge over the structure, a difference is made between long crested and short crested structures. Both resulting formulations are based on Bernoulli's principle, but for long crested structures, frictional losses are computed separately. The methods to resolve the flow over these structures, ensures numerical stability without time step dependence.
 
 Short crested
 ^^^^^^^^^^^^^
@@ -269,7 +278,7 @@ Combining these equations, results in the discharge formulation.
 Broad crested
 ^^^^^^^^^^^^^
 
-For longer structures, frictional effects can become important. For the so-called broad-crested weirs and orifices an extra loss term is added to Bernoulli's equation. The extra head loss due to friction :math:`\Delta h_F` is computed as:
+For longer structures, frictional effects can become important. For the so-called broad-crested weirs and orifices an extra loss term is added to Bernoulli's equation (the term is added to the right-hand side of the  energy head balance equation at the top of this section). The extra head loss due to friction :math:`\Delta h_F` is computed as:
 
 .. math::
    \Delta h_F= \frac{c_f L u_{II}^2}{g R}
