@@ -3,8 +3,17 @@
 Editing schematisations with SQL or Python
 ==========================================
 
-A :ref:`schematisation` consists of rasters, vector data (points, lines and polygons) and tables. 
+A :ref:`schematisation` consists of rasters, vector data (points, lines and polygons) and tables. This page outlines how you can edit these data types using Python, SQL and GDAL command line tools.
 
+
+- :ref:`scripting_raster_data`
+    - :ref:`gdal_cmd`
+    - :ref:`rasters_python`
+- :ref:`vector_and_table_data`
+	- :ref:`scripting_sql`
+    - :ref:`scripting_python`
+
+.. _scripting_raster_data:
 
 Raster data
 -----------
@@ -82,6 +91,8 @@ Editing rasters with Python
 The raster file format that 3Di uses is GeoTIFF. These files can be handled and edited with many Python libraries, most notably `GDAL <https://gdal.org/api/index.html#python-api>`_, `RasterIO <https://rasterio.readthedocs.io/en/stable/>`_, and `dask-geomodeling <https://dask-geomodeling.readthedocs.io/en/latest/>`. Once the raster data is read as an array, it can be manipulated with libraries such as `NumPy <https://numpy.org/doc/stable/>`_, `SciPy <https://docs.scipy.org/doc/scipy/>`_, and/or `Xarray <https://docs.xarray.dev/en/stable/>`_
 
 
+.. _vector_and_table_data:
+
 Vector and table data
 ---------------------
 
@@ -92,6 +103,8 @@ The vector and table data is stored in a Spatialite or Geopackage file. Both of 
    We are currently phasing out the Spatialite format and revising the database schema (see :ref:`schema_300`). It is recommended to script against the Geopackage that is created by the 3Di Schematisation Editor, because its database schema is more similar to the database schema 300. In the text below, it is assumed that this Geopackage is used.
    
 `Geopackage <https://en.wikipedia.org/wiki/GeoPackage>`_ is a generic GIS file format that is widely supported by Python libraries and other tooling. 
+
+.. _scripting_sql:
 
 Using SQL
 ^^^^^^^^^
@@ -115,7 +128,10 @@ The code snippet below illustrates how you can use SQL to add a Pipe to your sch
         MakeLine((SELECT geom from connection_node where id = 27928), (SELECT geom from connection_node where id = 27918))
     )
     ;
-            
+	
+	
+.. _scripting_python:
+
 Using Python
 ^^^^^^^^^^^^
 
