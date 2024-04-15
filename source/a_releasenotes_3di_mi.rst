@@ -3,6 +3,33 @@
 3Di Modeller Interface
 ----------------------
 
+April 11, 2024
+^^^^^^^^^^^^^^
+
+**3Di Results Analysis 3.8**
+
+- Bugfix: (Max) water depth/level processing algorithm: python error when DEM does not have a nodatavalue (#982). The previous fix for this issue (released March 14, 2024) did not solve the issue in all cases.
+
+**3Di Models & Simulations 3.10.0**
+
+- NetCDF files with spatio-temporal rain (raster time series) can now be uploaded through the simulation wizard TOPDESK 2310 0176 (#527)
+
+- Added option to add project name to a simulation (#517)
+
+- Bugfix: 3Di Modeller Interface crashes if schematisation checker has too many warnings. TOPDESK 2401 0123 (#528)
+
+- Bugfix: Pressing Enter when searching for a 3Di model or simulation template in the Simulation Wizard no longer closes the dialog
+
+**3Di Schematisation Editor 1.10.0**
+
+- Added processing algorithm "Map (impervious) surfaces to connection nodes"
+
+- No longer commit changes in processing algorithms "Manhole bottom levels from pipes" so you can check your edits before committing them. This fixes some stability issues with these processing algorithms.
+
+- Add documentation (in the tool itself) to processing algorithm "Manhole bottom level from pipes"
+
+
+
 March 14, 2024
 ^^^^^^^^^^^^^^
 
