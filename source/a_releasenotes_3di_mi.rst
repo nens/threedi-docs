@@ -12,21 +12,21 @@ April 11, 2024
 
 **3Di Models & Simulations 3.10.0**
 
-- NetCDF files with spatio-temporal rain (raster time series) can now be uploaded through the simulation wizard TOPDESK 2310 0176 (#527)
+- NetCDF files with spatio-temporal rain (raster time series) can now be uploaded through the simulation wizard (#527)
 
 - Added option to add project name to a simulation (#517)
 
-- Bugfix: 3Di Modeller Interface crashes if schematisation checker has too many warnings. TOPDESK 2401 0123 (#528)
+- Bugfix: 3Di Modeller Interface crashed if schematisation checker has too many warnings (#528)
 
 - Bugfix: Pressing Enter when searching for a 3Di model or simulation template in the Simulation Wizard no longer closes the dialog
 
 **3Di Schematisation Editor 1.10.0**
 
-- Added processing algorithm "Map (impervious) surfaces to connection nodes"
+- Added processing algorithm :ref:`map_surfaces_to_connection_nodes`
 
-- No longer commit changes in processing algorithms "Manhole bottom levels from pipes" so you can check your edits before committing them. This fixes some stability issues with these processing algorithms.
+- No longer commit changes in processing algorithms :ref:`manhole_bottom_level_from_pipes` and :ref:`map_surfaces_to_connection_nodes` so you can check your edits before committing them. This fixes some stability issues with these processing algorithms.
 
-- Add documentation (in the tool itself) to processing algorithm "Manhole bottom level from pipes"
+- Add documentation (in the tool itself) to processing algorithm :ref:`manhole_bottom_level_from_pipes`
 
 
 
