@@ -185,11 +185,8 @@ For each manhole, the algorithm determines which sides of which pipes (or culver
 
 Parameters:
 
-* Manhole layer Manhole layer that is added to the project with the 3Di Schematisation Editor.
-    If "Selected manholes only" is checked, only the selected manholes will be used in the algorithm.
-* Pipe layer: Pipe or Culvert layer that is added to the project with the 3Di Schematisation Editor.
-    If "Selected pipes only" is checked, only the selected pipes will be used in the algorithm.
-* Overwrite existing bottom levels: If checked, bottom levels will be recalculated for manholes that already have a bottom level filled in.
-* Do not raise existing bottom levels: This is only relevant if "Overwrite existing bottom levels" is checked.
-    If checked, bottom levels will only be updated for manholes where the calculated value is lower than the existing value.
+- Manhole layer Manhole layer that is added to the project with the 3Di Schematisation Editor. If "Selected manholes only" is checked, only the selected manholes will be used in the algorithm.
+- Pipe layer: Pipe or Culvert layer that is added to the project with the 3Di Schematisation Editor. If "Selected pipes only" is checked, only the selected pipes will be used in the algorithm.
+- Overwrite existing bottom levels: If checked, bottom levels will be recalculated for manholes that already have a bottom level filled in.
+- Do not raise existing bottom levels: This is only relevant if "Overwrite existing bottom levels" is checked. If checked, bottom levels will only be updated for manholes where the calculated value is lower than the existing value.
 

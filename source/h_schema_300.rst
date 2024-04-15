@@ -174,6 +174,15 @@ What are the advantages of changing the database schema?
     
 - Consistent and correct use of English, for example "pump" instead of "pumpstation"
 
+.. _db_300_try_it_out:
+
+Can I try out the new database schema while it is still under development?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Yes, this is possible. We process the schema migrations in groups (e.g. "settings", "inflow", "1D", etc.) and release versions of the python package ``threedi-schema`` every time we have completed such a group. This Python package has functionality to migrate a schematisation to a higher version, see <https://www.github.com/nens/threedi-schema>`_.
+
+Note that schematisations that have been upgraded with versions of threedi-schema that are higher than the one used in the 3Di Modeller Interface will not be usable in the 3Di Modeller Interface anymore (until the version of threedi-schema in the 3Di Modeller Interface is updated accordingly).
+
 .. _db_300_migration_guide:
 
 Migration guide
@@ -203,7 +212,7 @@ This is useful for administration of data sources and assumptions. For example, 
 Settings
 ^^^^^^^^
 
-For a complete and detailed overview of the changes in the settings tables, see <other/db_schema_300_settings.xlsx>`__
+For a complete and detailed overview of the changes in the settings tables, see <other/db_schema_300_settings.xlsx>`_
 
 
 The settings that were grouped in the global settings table are split up into several tables that are consistent with (i) the grouping in the API, and (ii) the distinctions between settings required to generate the 3Di model and settings required to generate a simulation template. The contents of the global settings table can now be found in:
