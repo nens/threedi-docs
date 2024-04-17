@@ -85,7 +85,27 @@ Format the time series as Comma Separated Values (CSV), with the time (in minute
 
 - The time series string cannot contain any spaces or empty rows
 
-.. VRAAG: Nog niet zo uitgebreid als hij bij 1d objects is op het moment. Heb een heleboel punten rondom de notes for modellers weg gehaald omdat ik niet wist of het ook voor 2d boundary condition telte. moet een 2d boundary condition altijd deels buiten de dem vallen? 
+- The boundary condition time series is stored in the simulation template and is not part of the 3Di model itself. It can be overridden when starting a new simulation, without the need to create a new revision of the schematisation.
+
+- The time unit in the 2D boundary condition table *in the schematisation* is minutes, while the 3Di API expects this input in seconds. A conversion is applied when the reading the data from the schematisation. If you upload a CSV file with 1D boundary condition time series via the simulation wizard, you can choose the time unit (see :ref:`simulate_api_qgis_boundary_conditions`)
+
+- For boundary types velocity (2), discharge (3) and Sommerfeld (5), the sign of the input values determine the flow direction (see the figure below). If a 2D discharge or velocity boundary condition is placed at the eastern or northern edge of the model domain, and you want water to flow in (from east to west or from north to south), the values must be negative; if it is placed at the western or southern edge, the values must be positive to make the water flow in. For the Sommerfeld boundary, a positive value (gradient) means that the water level at the western/southern side is *lower* than the water level at the eastern/northern side, i.e. if placed at the east or north, this will result in boundary *inflow* and if placed at the west or south, it will result in boundary *outflow*.
+
+    .. figure:: image/2d_boundary_flow_directions.png
+       :alt: Flow directions for velocity and discharge boundaries
+
+- Discharge values are applied to all intersected flowlines. So if the value is 5 m³/s and the geometry of the 2D boundary condition intersects 3 flowlines, the total in- or outflow will be 15 m³/s. Generate the computational grid locally using :ref:`computational_grid_from_schematisation` to determine how many flowlines are intersected.
+
+- The time series must cover the entire simulation period.
+
+- The time series values are interpolated between the defined times
+
+- In case of multiple boundaries in 1 model: make sure they all have the same number of time series rows with the same temporal interval.
+
+- When editing the time series field in using SQL (sqlite dialect), use ``char(10)`` as line separator. The example time series shown above would look like this::
+
+    "0,145.20"||char(10)||"15,145.23"||char(10)||"30,145.35"||char(10)||"45,145.38"||char(10)||"60,145.15"
+
 
 .. _2d_lateral:
 

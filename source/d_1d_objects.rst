@@ -91,13 +91,19 @@ Format the time series as Comma Separated Values (CSV), with the time (in minute
     60,145.15
 
 - The time series string cannot contain any spaces or empty rows
+
 - The boundary condition time series is stored in the simulation template and is not part of the 3Di model itself. It can be overridden when starting a new simulation, without the need to create a new revision of the schematisation.
+
 - The time unit in the 1D boundary condition table *in the schematisation* is minutes, while the 3Di API expects this input in seconds. A conversion is applied when the reading the data from the schematisation. If you upload a CSV file with 1D boundary condition time series via the simulation wizard, you can choose the time unit (see :ref:`simulate_api_qgis_boundary_conditions`)
+
 - For boundary types velocity (2), discharge (3) and Sommerfeld (5), the drawing direction of the channel, pipe, or structure determines sign of the input value. For velocity and discharge, this means that if the 1D boundary condition is placed on the end connection node, positive values result in boundary *outflow*. For the Sommerfeld boundary, a positive gradient for a 1D boundary condition that is placed at the end connection node means that the waterlevel downstream is higher than upstream, i.e. this will result in boundary *inflow*.
+
 - The time series must cover the entire simulation period.
-- All 1D boundary conditions must have the same time steps
+
 - The time series values are interpolated between the defined times
+
 - In case of multiple boundaries in 1 model: make sure they all have the same number of timeseries rows with the same temporal interval.
+
 - When editing the time series field in using SQL (sqlite dialect), use ``char(10)`` as line separator. The example time series shown above would look like this::
 
     "0,145.20"||char(10)||"15,145.23"||char(10)||"30,145.35"||char(10)||"45,145.38"||char(10)||"60,145.15"
