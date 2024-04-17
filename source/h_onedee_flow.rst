@@ -165,7 +165,7 @@ Conveyance method
 
 The *conveyance method* (or *compound section method*), suitable for open sections only, allows for variations in the cross-flow direction. This method divides the channel cross-section into several sub-sections depending on the channel's depth. This way, the variations in velocity related to the depth and roughness of the channel is properly taken into consideration. 
 
-The conveyance factor considers the depth variations in the different depth sections. The conveyance factor reflects the transport capacity of the channel. Assuming uniformity of the ratio between wetted perimeter and cross-sectional area, in applications with strong depth variations over the cross-section, underestimates the flow capacity. The conveyance method divides the channel cross-section into several sub-sections. In this method, the total conveyance factor of the section is the sum of each sub-section’s conveyance factor. In 3Di, the separation lines between the sub-sections are considered vertical . 
+The conveyance factor considers the depth variations in the different depth sections. The conveyance factor reflects the transport capacity of the channel. Assuming uniformity of the ratio between wetted perimeter and cross-sectional area, in applications with strong depth variations over the cross-section, the flow capacity can be underestimated. In this method, the total conveyance factor of the section is the sum of each sub-section’s conveyance factor. In this way, the variation in depth and roughness throughout the cross-section can be taken into consderation. In 3Di, the separation lines between the sub-sections are considered vertical. 
 
 .. figure:: image/1dconveyancefactor.png
    :figwidth: 1000 px
@@ -173,6 +173,8 @@ The conveyance factor considers the depth variations in the different depth sect
 
    Single Section Method vs Compound Section (Conveyance) Method
 
+In 3Di, the conveyance method can be applied with single or variable roughnesses. In case of the single roughness, one roughness value is assigned to the whole cross-section. This can be used with cross-section shapes *Tabulated rectangle* and *Tabulated trapezium*. On the other hand, different roughness values can be assigned to the sub-sections to account for the variable roughness along the cross-section. This can be used with the cross-section shape *YZ*.
+ 
 .. _1Dpressurized:
 
 Pressurized flow
