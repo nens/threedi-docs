@@ -26,20 +26,57 @@ You can log out by clicking *<your user name>* > *Logout* in the top right.
 
 .. _3di_management_schematisations:
 
-Schematisations
-===============
+Schematisations list
+====================
 If you click the *Schematisations* tile in the overview, you will see a list of all :ref:`schematisations <schematisation>` within your organization. This list of schematisations can be exported to an Excel file.
 
-You can find a specific schematisation by searching its Name, Tag, or Creator using the search bar. Once you locate the desired schematisation, you can click on its name to open the detailed view. In this detailed view, you have the following options:
+You can find a specific schematisation by searching its Name, Tag, or Creator using the search bar. Once you locate the desired schematisation, you can click on its name to open the detailed view. 
 
-- View all information related to the :ref:`threedimodel`.
-- Verify the IDs.
-- Select a different revision.
-- Review the history of simulations conducted with this schematisation.
-- Download the SQLite file and rasters.
-- Generate or regenerate a 3Di model and track its progress.
-- Delete the schematisation, its revisions, associated models (note: all revisions must be deleted first), and simulation templates.
-- Explore the simulation templates connected to the schematisation.
+Schematisation detail page
+==========================
+
+The schematisation detail page consists of the following sections:
+
+- Schematisation
+- Revision
+- 3Di Model of this revision
+- Predefined simulation data (if applicable)
+
+Schematisation
+--------------
+
+Describes the schematisation. In this section you can change the properties of the schematisation, such as the name, description, and tags. You can also transfer the schematisation to another organisation or delete the schematisation.
+
+Revision
+--------
+
+This section gives information on the selected revision. To view the properties of another revision of this schematisation, click *Choose other* revision.
+In this section you can download the SQLite file and rasters for this revision.
+
+3Di Model of this revision
+--------------------------
+
+If a 3Di Model has been generated for this revision, this section shows the properties of the 3Di Model, such as model name, model size (nodes and line count), extent and location, 
+
+.. _regenerate_3di_model:
+
+(Re-)generate 3Di Model
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Under the heading *Re-generate*, you can see if the 3Di Model is still up to date, i.e. if it has been generated with the most recent 3Di framework version. If it says here that "The model is **not** up to date", you may want to re-generate the 3Di Model. In most cases, this will not be necessary, but if there are any problems with this 3Di Model, please re-generate the 3Di model to see if this solves the issues.
+
+To re-generate the 3Di model, click *Re-generate this 3Di model*.
+
+Simulation templates
+^^^^^^^^^^^^^^^^^^^^
+
+This table gives an overview of the simulation templates that are available for this 3Di model.
+
+
+Predefined simulation data (if applicable)
+------------------------------------------
+
+This section shows initial (ground)water level rasters and saved states that are available for the selected 3Di model.
 
 
 .. _3di_management_models:

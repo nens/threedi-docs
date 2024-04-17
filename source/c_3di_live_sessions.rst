@@ -88,10 +88,10 @@ You can:
 Storing results
 ---------------
 
-Raw results always stored for 7 days
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. note::
+    
+	:ref:`Raw results<outputs>` will always be stored for 7 days, even if you choose the option *Quit, don't store results*. 
 
-:ref:`Raw results<outputs>` will always be stored for 7 days, even if you choose the option *Quit, don't store results*. 
 
 Direct download
 ^^^^^^^^^^^^^^^
@@ -104,12 +104,7 @@ Store in scenario archive
 .. note::
     This option is only available if your subscription includes the Scenario Archive.
 
-Another option you have when you quit the session, is to store the results in the :ref:`scenario_archive`. When you choose this option, you also have several options for **automated post-processing**. 
-
-.. figure:: image/d3.9_store_results.png
-    :alt: Storing results
-
-For an explanation of the available options, see :ref:`scenario_archive`.
+Another option you have when you quit the session, is to store the results in the :ref:`scenario_archive`. When you choose this option, you also have several options for **automated post-processing**. For an explanation of the available options, see :ref:`scenario_archive`.
 
 
 .. _live_simulation_template:

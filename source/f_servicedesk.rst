@@ -6,7 +6,7 @@ Service desk
 
 Nelen & Schuurmans provide a Service Desk function via https://nelen-schuurmans.topdesk.net/, The Nelen & Schuurmans Self Service Portal shall be available 24/7.
 The Service Desk gives support on all 3Di modules for 3Di customers.
-Customers can reach telephonic support (Prio 1) on working days from 09:00 - 17:00 (CEST) excluding the days declared as dutch public holiday close days.
+Customers can reach telephonic support (Prio 1) on working days from 09:00 - 17:00 (CEST) excluding the days declared as Dutch public holiday close days.
 
 Customers shall report incidents primarily via the Self Service Portal but may also do so via email: servicedesk@nelen-schuurmans.nl.
 This access should be used for, but not limited to:
@@ -20,8 +20,10 @@ This access should be used for, but not limited to:
 
 All incidents relating to the 3Di software with the exception of enhancement/feature requests are recorded and followed up at no additional cost. 
 
+When reporting an issue, please provide all information that is needed for the service desk to reproduce the issue, such as schematisation ID, 3Di model ID, revision number, simulation ID, etc.
 
-If there is an error, please provide as much information as you can about the error and the model and revision number for which the error occurs.
+If you have an issue with generating 3Di models or crashing simulations, please follow the :ref:`problem_solving_guide`. If the problem persists despite following the recommendations in the Problem solving guide, please mention in your service desk ticket that you have already attempted these steps.
+
 
 
 Priority incidents
