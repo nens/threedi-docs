@@ -9,6 +9,7 @@
 - :ref:`cross_section_of_1d_element`
 - :ref:`1d_momentum_equation`
 - :ref:`1d_friction`
+- :ref:`1d_vegetation`
 - :ref:`1Dpressurized`
 - :ref:`channelflow`
 - :ref:`weirs_and_orifices`
@@ -178,9 +179,9 @@ The conveyance factor considers the depth variations in the different depth sect
 Vegetation in the 1D domain
 ---------------------------
 
-In addition to friction, natural or planted vegetation plays a significant role in the hydrualic resistance of the flow. The overall head loss along a channel can majorly increase with the presence of scarce or dense vegetation stem covers. 3Di implements this vegetation-induced roughness considering uniform vegetation properties in terms of stem density, height, and diameter.
+In addition to friction, natural or planted vegetation plays a significant role in the hydrualic resistance of the flow. The overall head loss along a channel can strongly increase with the presence of vegetation. The way 3Di calculates the effect of vegetation on the flow in the 1D domain is very similar to :ref:`flow_with_vegetation`. 
 
-Following the same approach implemented in 2D domain, the analytical formulations proposed by :cite:t:`Baptist2007` is used in 1D domain. In this method, the effect of vegetation is modelled as the equivalent shear stress due to vegetation. The total shear stress is then the superposition of the surface and vegetation-induced shear stresses, which eventually alters the uniform flow velocity. This method uses vegetation characteristics, namely stem diameter, density, height, and drag coefficient, to quantify the vegetation-induced shear stress as:
+The effect of vegetation is modelled as the equivalent shear stress due to vegetation (:cite:t:`Baptist2007`,). The total shear stress is then the superposition of the surface and vegetation-induced shear stresses, which eventually alters the uniform flow velocity. This method uses vegetation characteristics, namely stem diameter, density, height, and drag coefficient, to quantify the vegetation-induced shear stress :math:`\tau_v` as:
 
 .. math::
 
@@ -194,22 +195,20 @@ Following the same approach implemented in 2D domain, the analytical formulation
 | :math:`m`, the number of stems per square meter 
 | :math:`C_{DV}`, The vegetation drag coefficient 
 
-To account for the fully and partially submerged vegetation, :cite:t:`Baptist2007` suggests to use the effective vegetation height :math:`min[H_v, H]` to ensure the contribution of the vegetation drag within the correct vertical plane.
-
-3Di allows for defining single vegetation properties for the cross-section shapes *Tabulated rectangle* and *Tabulated trapezium* (see :ref:`cross-section_shape`). However, to represent the spatial distribution of vegetation along a channel, 3Di also provides the option to assign different vegetation properties to different part of a cross-section. This can be done using the *YZ* shape (see :ref:`cross-section_shape`). As shown in the figure below, users can define separate properties for each individual line. Afterwards, 3Di evaluates the section and divides it into several sub-sections according to the slope of the lines. The details about 1D vegetation entries can be found in :ref:`cross_section_location`.
+3Di allows for defining single vegetation properties for the cross-section shapes *Tabulated rectangle* and *Tabulated trapezium* (see :ref:`cross-section_shape`). For cross-sections with a *YZ* shape, different vegetation parameter values can be set for each segment in the cross-section, to represent the spatial distribution of vegetation across a channel (see the figure below). When generating the model, 3Di analyzes the cross-section and divides it into several sub-sections according to the slope of the segments. The details about 1D vegetation entries can be found in :ref:`cross_section_location`.
 
 .. figure:: image/1dvegetation.png
    :figwidth: 1500 px
    :alt: 1D_vegetation
 
-   User-defined vegetation properties for each line of an open channel and the 3Di evaluation of the open channel
+   User-defined vegetation properties for each segment of a YZ cross-section, and how 3Di interprets it.
 
 .. _1Dpressurized:
 
 Pressurized flow
 ----------------
 
-In 1D elements with closed cross-sections flow may become pressurized. The way 3Di deals with this is similar to how 3Di deals with the non-linear relations in 2D cells (e.g. between volume and water level). :ref:`subgridmethod` allows 2D cells to be  be dry, wet or *partly wet*, creating a non-linear volume-water level relation. This was solved with a highly efficient method. However, there are some requirements for such system to be solved. one of these requirements is violated when the surface area decreases for increasing water levels, as in pipes that are more than half full (see the Figure below). Therefore, a new method had to be introduced to solve such a non-linear system of equations. This method is based on the so-called nested Newton method (:cite:t:`Casulli2013`).
+In 1D elements with closed cross-sections, flow may become pressurized. The way 3Di deals with this is similar to how 3Di deals with the non-linear relations in 2D cells (e.g. between volume and water level). :ref:`subgridmethod` allows 2D cells to be dry, wet or *partly wet*, creating a non-linear volume-water level relation. This was solved with a highly efficient method. However, there are some requirements for such system to be solved. One of these requirements is violated when the surface area decreases for increasing water levels, as in pipes that are more than half full (see the Figure below). Therefore, a new method had to be introduced to solve such a non-linear system of equations. This method is based on the *nested Newton* method (:cite:t:`Casulli2013`).
 
 .. figure:: image/b1_5.png
    :scale: 50%

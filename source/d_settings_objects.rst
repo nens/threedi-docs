@@ -1005,7 +1005,7 @@ Schema version attributes
 Vegetation drag settings
 ------------------------
 
-The *vegetation drag* table contains the input parameters that are used for 2D flow with vegetation. For an in-depth explanation of how 2D flow with vegetation is calculated by 3Di, see :ref:`2D flow with vegetation<flow_with_vegetation>`. For more information on using vegetation in your 3Di model and choosing the right parameter values, see :ref:`How to model vegetation<a_how_to_vegetation>`.
+The *vegetation drag* table contains the input parameters that are used for 2D flow with vegetation. For an in-depth explanation of how 2D flow with vegetation is calculated by 3Di, see :ref:`flow_with_vegetation`. For more information on using vegetation in your 3Di model and choosing the right parameter values, see :ref:`How to model vegetation<a_how_to_vegetation>`.
 
 Vegetation drag can only be used with friction type 'Chezy', because the vegetation formulation (initially introduced by :cite:p:`Baptist2007`) uses Chezy.
 
