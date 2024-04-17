@@ -7,10 +7,15 @@ A :ref:`schematisation` consists of rasters, vector data (points, lines and poly
 
 
 - :ref:`scripting_raster_data`
+
     - :ref:`gdal_cmd`
+
     - :ref:`rasters_python`
+
 - :ref:`vector_and_table_data`
-	- :ref:`scripting_sql`
+
+    - :ref:`scripting_sql`
+
     - :ref:`scripting_python`
 
 .. _scripting_raster_data:
@@ -88,7 +93,7 @@ The creation options (``-co``) PREDICTOR and ZLEVEL are not strictly necessary, 
 Editing rasters with Python
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The raster file format that 3Di uses is GeoTIFF. These files can be handled and edited with many Python libraries, most notably `GDAL <https://gdal.org/api/index.html#python-api>`_, `RasterIO <https://rasterio.readthedocs.io/en/stable/>`_, and `dask-geomodeling <https://dask-geomodeling.readthedocs.io/en/latest/>`. Once the raster data is read as an array, it can be manipulated with libraries such as `NumPy <https://numpy.org/doc/stable/>`_, `SciPy <https://docs.scipy.org/doc/scipy/>`_, and/or `Xarray <https://docs.xarray.dev/en/stable/>`_
+The raster file format that 3Di uses is GeoTIFF. These files can be handled and edited with many Python libraries, most notably `GDAL<https://gdal.org/api/index.html#python-api>`_, `RasterIO<https://rasterio.readthedocs.io/en/stable/>`_, and `dask-geomodeling<https://dask-geomodeling.readthedocs.io/en/latest/>`_. Once the raster data is read as an array, it can be manipulated with libraries such as `NumPy<https://numpy.org/doc/stable/>`_, `SciPy<https://docs.scipy.org/doc/scipy/>`_, and/or `Xarray<https://docs.xarray.dev/en/stable/>`_
 
 
 .. _vector_and_table_data:
@@ -111,7 +116,7 @@ Using SQL
 
 It is a relational database stored in a file, and SQL can be used to interact with its contents. The SQL dialect to use is the same as for SQLite, see `this page <https://www.sqlite.org/lang.html>`_. The spatial function you can use are the same as for Spatialite; these functions are `listed here <https://www.gaia-gis.it/gaia-sins/spatialite-sql-5.1.0.html>`_. 
 
-You can use any client that has Spatialite support, for example the `Database manager <https://docs.qgis.org/latest/en/docs/training_manual/databases/db_manager.html>_ in the 3Di Modeller Interface.
+You can use any client that has Spatialite support, for example the `Database manager<https://docs.qgis.org/latest/en/docs/training_manual/databases/db_manager.html>`_ in the 3Di Modeller Interface.
 
 The code snippet below illustrates how you can use SQL to add a Pipe to your schematisation
 
