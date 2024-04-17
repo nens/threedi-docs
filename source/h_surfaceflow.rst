@@ -101,7 +101,7 @@ Secondly, vegetation drag is larger when the representative vertical plane is la
 
 .. math::
 
-   \tau_v = \frac{1}{2}C_D m D min[H_v, H]  \label{eq:veggie_drag_baptist} 
+   \tau_v = \frac{1}{2}C_{DV} m D min[H_v, H]|U|u  \label{eq:veggie_drag_baptist} 
     
 | In which: 
 | :math:`U` , the velocity vector with :math:`(u,v)` the velocity components in :math:`x,y`-direction
