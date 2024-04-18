@@ -185,10 +185,10 @@ The effect of vegetation is modelled as the equivalent shear stress due to veget
 
 .. math::
 
-   \tau_v = \frac{1}{2}C_{DV} m D min[H_v, H]  \label{eq:veggie_drag_baptist} 
+   \tau_v = \frac{1}{2}C_{DV} m D min[H_v, H]u^2  \label{eq:veggie_drag_baptist} 
     
 | with: 
-| :math:`U`, the velocity vector with :math:`(u,v)` the velocity components in :math:`x,y`-direction
+| :math:`u`, the 1D velocity (in flow direction)
 | :math:`H`, the water depth
 | :math:`H_v`, the relative vegetation height
 | :math:`D`, the stem diameter
