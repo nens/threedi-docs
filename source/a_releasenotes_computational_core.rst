@@ -3,6 +3,14 @@
 3Di Computational core
 ----------------------
 
+April 29, 2024
+^^^^^^^^^^^^^^
+
+- Separate friction values can now be defined for each segment of a YZ profile when using friction with conveyance (threedigrid-builder#342, threedi-calculationcore#738, threedi-tables#271, threedi-schema#42, threedi-modelchecker#354)
+
+- Vegetation can now also be used in the 1D domain (threedi-calculationcore#735, threedi-schema#42)
+
+
 March 18, 2024
 ^^^^^^^^^^^^^
 
