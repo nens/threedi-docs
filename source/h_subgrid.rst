@@ -26,11 +26,6 @@ The basic idea behind the subgrid method is that water levels vary much more gra
 
    An example of a computational cell with a bathymetry defined on the subgrid.
 
-Input
------
-
-Users define a cell size (of the finest grid resolution) and the number of refinement layers for the grid generation. A computational cell always consists of an even number of subgrid cells. In addition, the user needs to define where and if refinements should be defined. One can define polygons or lines to indicate these areas and the refinement level.
-
 .. _subgrid_tables:
 
 Subgrid tables
