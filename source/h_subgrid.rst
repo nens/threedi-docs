@@ -3,9 +3,9 @@
 Subgrid method
 ==============
 
-Flow is strongly affected by the bathymetry. Therefore, to simulate flow accurately, information of the bathymetry is crucial. To illustrate the importance of a well described bathymetry, consider the three flows in a flume shown in the Figure below. While the bathymetry differs only slightly, the flow behaves completely different.
+Flow is strongly affected by the bathymetry. To simulate flow accurately, information on the bathymetry is crucial. To illustrate the importance of a well-described bathymetry, consider the three flows in a flume shown in the Figure below. While the bathymetry differs only slightly, the flow behaves completely different.
 
-Nowadays, detailed bathymetry information becomes more and more available.  However, it is difficult to take detailed grid information into account, without a strong increase in computational cost. In search of an optimal balance between computational cost and accuracy, the so-called subgrid method (:cite:t:`Casulli2009`, :cite:t:`Casulli2011`, :cite:t:`Stelling2015`, :cite:t:`Volp2013`) is developed and implemented in 3Di.
+Nowadays, detailed bathymetry information becomes more and more available. However, it is difficult to take detailed grid information into account, without a strong increase in computational cost. In search of an optimal balance between computational cost and accuracy, the so-called subgrid method (:cite:t:`Casulli2009`, :cite:t:`Casulli2011`, :cite:t:`Stelling2015`, :cite:t:`Volp2013`) was developed and implemented in 3Di.
 
 .. figure:: image/b1_3.png
    :figwidth: 600 px
@@ -13,9 +13,9 @@ Nowadays, detailed bathymetry information becomes more and more available.  Howe
 
    Examples of flow in a flume, where a slight change in bathymetry strongly affects the flow.
 
-The basic idea behind the subgrid method, is that water levels vary much more gradually than the bathymetry. In hydrodynamic computations, water levels are assumed to be uniform within a computational cell. Traditionally, this is also assumed for the bathymetry within such a cell. The subgrid-based approach allows the bathymetry to vary within one computational cell, while the water level remains uniform. In 3Di two grids are to be defined; a high resolution subgrid and a coarse(r) computational grid. All input data, such as the bathymetry, roughness and infiltration rates can be defined on the high resolution grid, while the computations are performed on the coarse computational grid. Volumes and cross-sectional areas are based using the high resolution bathymetry information. The variation of the bathymetry within a computational cell means that a cell can be dry, wet or partly wet. This approach has two implications:
+The basic idea behind the subgrid method is that water levels vary much more gradually than the bathymetry. In hydrodynamic computations, water levels are assumed to be uniform within a computational cell. Traditionally, this is also assumed for the bathymetry within such a cell. The subgrid-based approach allows the bathymetry to vary within one computational cell, while the water level remains uniform. In 3Di two grids are defined; a high resolution subgrid and a coarse(r) computational grid. All input data, such as the bathymetry, roughness and infiltration rates can be defined on the high resolution grid, while the computations are performed on the coarse computational grid. Volumes and cross-sectional areas are determined using the high resolution bathymetry information. The variation of the bathymetry within a computational cell means that a cell can be dry, wet or partly wet (see the Figure below). This approach has two implications:
 
-- The volume has a non-linear relation with the water level, because when the water level rises, the wet surface area increases is well. Such a system can be solved using a newton iteration. To compute the volumes at the next time step.
+- The volume has a non-linear relation with the water level, because when the water level rises, the wet surface area increases as well. Such a system can be solved using a Newton iteration to compute the volumes at the next time step.
 
 - As we are allowed to have a non-linear relation between water level and volume, 3Di can deal automatically with flooding and drying. No artificial thresholds are necessary.
 
@@ -29,7 +29,7 @@ The basic idea behind the subgrid method, is that water levels vary much more gr
 Input
 -----
 
-Users define for the grid generation a cell size (of the finest grid resolution) and the number of refinement layers. A computational cell consists always of an even number of subgrid cells. In addition, the user needs to define where and if refinements should be defined. One can define polygons or lines to indicate these areas and the refinement level.
+Users define a cell size (of the finest grid resolution) and the number of refinement layers for the grid generation. A computational cell always consists of an even number of subgrid cells. In addition, the user needs to define where and if refinements should be defined. One can define polygons or lines to indicate these areas and the refinement level.
 
 .. _subgrid_tables:
 
@@ -51,7 +51,7 @@ This relation is specific for each cell, node or, in case of cross-sectional are
 Subgrid table settings
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Higher vertical precision in the description of the relations mentioned above requires subgrid tables with many entries. Such large tables may reduce the computational speed, and require a large data storage. 3Di uses a method that minimizes the number of entries in the subgrid tables. The way that this method is applied can be further tuned by setting the *Table step size*, the *Maximum table step size*, and the *Table step size 1D*. These allows you to balance the vertical precision against computational speed and data storage.
+Higher vertical precision in the description of the relations mentioned above requires subgrid tables with many entries. Such large tables may reduce the computational speed, and require a large data storage. 3Di uses a method that minimizes the number of entries in the subgrid tables. The application of this method can be further tuned by setting the *Table step size*, the *Maximum table step size*, and the *Table step size 1D*. These allow you to balance the vertical precision against computational speed and data storage.
 
 In the 2D domain, the *Table step size* is used as a minimum increment height between successive table entries. For example, if the *Table step size* is 0.1 m, and we have previously found a
 table increment at pixel height 1.5 m, the pixel values that are considered for the next table increment have to be at least 1.6 m and the water level / volume relation between 1.5 and 1.6 m is assumed linear. Decreasing the *Table step size* will increase numerical precision at the cost of computational speed. For simulations with extensive flooding and drying, it can be advantageous to increase the *Table step size*, thereby
