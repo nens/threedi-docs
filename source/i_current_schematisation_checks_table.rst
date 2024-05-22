@@ -874,9 +874,6 @@
      - v2_connection_nodes.the_geom is not of type ['blob']
    * - 0004
      - Error
-     - v2_connection_nodes.the_geom_linestring is not of type ['blob']
-   * - 0004
-     - Error
      - v2_control.control_group_id is not of type ['integer']
    * - 0004
      - Error
@@ -2017,9 +2014,6 @@
      - v2_connection_nodes.the_geom is an invalid geometry
    * - 0005
      - Error
-     - v2_connection_nodes.the_geom_linestring is an invalid geometry
-   * - 0005
-     - Error
      - v2_cross_section_location.the_geom is an invalid geometry
    * - 0005
      - Error
@@ -2066,9 +2060,6 @@
    * - 0006
      - Error
      - v2_connection_nodes.the_geom has invalid geometry type, expected POINT
-   * - 0006
-     - Error
-     - v2_connection_nodes.the_geom_linestring has invalid geometry type, expected LINESTRING
    * - 0006
      - Error
      - v2_cross_section_location.the_geom has invalid geometry type, expected POINT
@@ -2734,7 +2725,7 @@
      - Both v2_cross_section_definition.friction_valuesand v2_cross_section_location.friction_valueare defined for non-conveyance friction. Only v2_cross_section_location.friction_valuewill be used
    * - 0185
      - Warning
-     - Both v2_cross_section_definition.friction_valuesand v2_cross_section_location.friction_valueare defined for conveyance friction. Only v2_cross_section_definition.friction_valueswill be used
+     - Both v2_cross_section_definition.friction_values and v2_cross_section_location.friction_value are defined for conveyance friction. Only v2_cross_section_definition.friction_values will be used.
    * - 0186
      - Error
      - v2_cross_section_definition.friction_values can only be used in an open channel with monotonically increasing width values
@@ -2764,10 +2755,10 @@
      - v2_cross_section_definition.vegetation_stem_diameters should contain a space separated list of numbers for shapes [7]
    * - 0188
      - Error
-     - some values in v2_cross_section_definition.friction_values are < 0 and/or >= 1
+     - some values in v2_cross_section_definition.friction_values are < 0 and/or >= 1, which is not allowed for friction type(s) [2, 4]
    * - 0189
      - Error
-     - some values in v2_cross_section_definition.friction_values are < 0
+     - some values in v2_cross_section_definition.friction_values are < 0, which is not allowed for friction type(s) [1, 3]
    * - 0190
      - Error
      - v2_cross_section_location.vegetation_drag_coefficient is <0
@@ -2846,9 +2837,6 @@
    * - 0205
      - Error
      - v2_culvert.the_geom does not start or end at its connection node (tolerance = 1 m)
-   * - 0206
-     - Error
-     - ConnectionNode.the_geom_linestring must be NULL
    * - 0207
      - Warning
      - v2_connection_nodes.the_geom has no valid spatial index, which is required for some checks
@@ -3650,6 +3638,9 @@
    * - 0798
      - Error
      - v2_global_settings.grid_space is not a positive even multiple of the raster cell size.
+   * - 0799
+     - Warning
+     - Some pixels in v2_global_settings.frict_coef_file are less than 1, while friction type is Chézy. This may lead to unexpected results. Did you mean to use friction type Manning?
    * - 0800
      - Error
      - v2_grid_refinement.refinement_level must not be greater than v2_global_settings.kmax
@@ -3923,21 +3914,84 @@
    * - 1405
      - Error
      - The file in v2_global_settings.dem_file exceeds 5000000000.0 pixels.
+   * - 1406
+     - Info
+     - Raster v2_global_settings.dem_file is not compressed. It is recommended to use DEFLATE compression. This speeds up uploading and downloading and reduces storage space.
+   * - 1406
+     - Info
+     - Raster v2_global_settings.frict_coef_file is not compressed. It is recommended to use DEFLATE compression. This speeds up uploading and downloading and reduces storage space.
+   * - 1406
+     - Info
+     - Raster v2_global_settings.initial_groundwater_level_file is not compressed. It is recommended to use DEFLATE compression. This speeds up uploading and downloading and reduces storage space.
+   * - 1406
+     - Info
+     - Raster v2_global_settings.initial_waterlevel_file is not compressed. It is recommended to use DEFLATE compression. This speeds up uploading and downloading and reduces storage space.
+   * - 1406
+     - Info
+     - Raster v2_global_settings.interception_file is not compressed. It is recommended to use DEFLATE compression. This speeds up uploading and downloading and reduces storage space.
+   * - 1406
+     - Info
+     - Raster v2_global_settings.wind_shielding_file is not compressed. It is recommended to use DEFLATE compression. This speeds up uploading and downloading and reduces storage space.
+   * - 1406
+     - Info
+     - Raster v2_groundwater.equilibrium_infiltration_rate_file is not compressed. It is recommended to use DEFLATE compression. This speeds up uploading and downloading and reduces storage space.
+   * - 1406
+     - Info
+     - Raster v2_groundwater.groundwater_hydro_connectivity_file is not compressed. It is recommended to use DEFLATE compression. This speeds up uploading and downloading and reduces storage space.
+   * - 1406
+     - Info
+     - Raster v2_groundwater.groundwater_impervious_layer_level_file is not compressed. It is recommended to use DEFLATE compression. This speeds up uploading and downloading and reduces storage space.
+   * - 1406
+     - Info
+     - Raster v2_groundwater.infiltration_decay_period_file is not compressed. It is recommended to use DEFLATE compression. This speeds up uploading and downloading and reduces storage space.
+   * - 1406
+     - Info
+     - Raster v2_groundwater.initial_infiltration_rate_file is not compressed. It is recommended to use DEFLATE compression. This speeds up uploading and downloading and reduces storage space.
+   * - 1406
+     - Info
+     - Raster v2_groundwater.leakage_file is not compressed. It is recommended to use DEFLATE compression. This speeds up uploading and downloading and reduces storage space.
+   * - 1406
+     - Info
+     - Raster v2_groundwater.phreatic_storage_capacity_file is not compressed. It is recommended to use DEFLATE compression. This speeds up uploading and downloading and reduces storage space.
+   * - 1406
+     - Info
+     - Raster v2_interflow.hydraulic_conductivity_file is not compressed. It is recommended to use DEFLATE compression. This speeds up uploading and downloading and reduces storage space.
+   * - 1406
+     - Info
+     - Raster v2_interflow.porosity_file is not compressed. It is recommended to use DEFLATE compression. This speeds up uploading and downloading and reduces storage space.
+   * - 1406
+     - Info
+     - Raster v2_simple_infiltration.infiltration_rate_file is not compressed. It is recommended to use DEFLATE compression. This speeds up uploading and downloading and reduces storage space.
+   * - 1406
+     - Info
+     - Raster v2_simple_infiltration.max_infiltration_capacity_file is not compressed. It is recommended to use DEFLATE compression. This speeds up uploading and downloading and reduces storage space.
+   * - 1406
+     - Info
+     - Raster v2_vegetation_drag.vegetation_drag_coefficient_file is not compressed. It is recommended to use DEFLATE compression. This speeds up uploading and downloading and reduces storage space.
+   * - 1406
+     - Info
+     - Raster v2_vegetation_drag.vegetation_height_file is not compressed. It is recommended to use DEFLATE compression. This speeds up uploading and downloading and reduces storage space.
+   * - 1406
+     - Info
+     - Raster v2_vegetation_drag.vegetation_stem_count_file is not compressed. It is recommended to use DEFLATE compression. This speeds up uploading and downloading and reduces storage space.
+   * - 1406
+     - Info
+     - Raster v2_vegetation_drag.vegetation_stem_diameter_file is not compressed. It is recommended to use DEFLATE compression. This speeds up uploading and downloading and reduces storage space.
    * - 1500
      - Warning
-     - v2_cross_section_location.friction_value is less than 1 while CHEZY friction is selected. This may cause nonsensical results.
+     - v2_cross_section_location.friction_value is less than 1, while friction type is Chézy. This may lead to unexpected results. Did you mean to use friction type Manning?
    * - 1500
      - Warning
-     - v2_culvert.friction_value is less than 1 while CHEZY friction is selected. This may cause nonsensical results.
+     - v2_culvert.friction_value is less than 1, while friction type is Chézy. This may lead to unexpected results. Did you mean to use friction type Manning?
    * - 1500
      - Warning
-     - v2_orifice.friction_value is less than 1 while CHEZY friction is selected. This may cause nonsensical results.
+     - v2_orifice.friction_value is less than 1, while friction type is Chézy. This may lead to unexpected results. Did you mean to use friction type Manning?
    * - 1500
      - Warning
-     - v2_pipe.friction_value is less than 1 while CHEZY friction is selected. This may cause nonsensical results.
+     - v2_pipe.friction_value is less than 1, while friction type is Chézy. This may lead to unexpected results. Did you mean to use friction type Manning?
    * - 1500
      - Warning
-     - v2_weir.friction_value is less than 1 while CHEZY friction is selected. This may cause nonsensical results.
+     - v2_weir.friction_value is less than 1, while friction type is Chézy. This may lead to unexpected results. Did you mean to use friction type Manning?
    * - 1501
      - Warning
-     - Some values in CrossSectionDefinition.friction_values are less than 1 while CHEZY friction is selected. This may cause nonsensical results.
+     - some values in v2_cross_section_definition.friction_values are < 1, which is not allowed for friction type(s) [1, 3]
