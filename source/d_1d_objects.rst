@@ -1235,10 +1235,6 @@ Attributes
      - \-
      - *Deprecated*
 
-<<<<<<< HEAD
-.. todo::
-	Nieuwe grondwater attributen toevoegen
-=======
 When using the 3Di Schematisation Editor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1246,7 +1242,7 @@ When using the 3Di Schematisation Editor
 - To draw a single pipe, the geometry must have exactly 2 vertices. A line with more than 2 vertices will be split into several pipes.
 - To digitize a trajectory of multiple pipes, first digitize the manholes, fill in the bottom levels, and then draw the pipe trajectory over these manholes by adding a vertex at each of the manholes. The pipes that are generated will use the manhole's bottom levels as invert levels and the *connection nodes* and *manholes* will be added automatically.
 
->>>>>>> master
+
 
 .. _pipe_notes_for_modeller:
 
