@@ -62,48 +62,9 @@ How you derive your raster information is entirely up to you. 3Di rasters have t
 
 #. Recommended: Origin is rounded to pixel size precision
 
+#. The maximum size of the Digital Elevation Model is 5 billion pixels. This includes NoData pixels. The other rasters will be resampled to the resolution of the DEM, so their pixel count is not relevant.
 
-Using GDAL to check and edit your rasters
------------------------------------------
+.. note::
 
-There are several packages available that allow you to meet the requirements stated above. Below are some examples using GDAL. 
-
-*If you are using Windows, GDAL should be installed together with QGIS and available through the OSGeo4W Shell. Try finding it through your start menu. A full list of GDAL functionalities and help can be found under the* `gdal documentation <http://www.gdal.org>`_.
-
-**Retrieve raster information using gdalinfo**
-
-This example shows you how to find and retrieve the meta-information of your raster through the OSGeo4W Shell.
-
-- Start the OSGeo4W Shell
-- Change the directory to the location of your raster file (use for example ``D:`` and ``cd myfiles/mymodel/raster``)
-- Then type: ``gdalinfo <raster-file>``
-
-This will give you a list of all raster information available for your raster-file. Check whether your file meets the requirements listed above. Note that information that is not listed, is missing and must be added.
-
-**Change raster information using gdalwarp**
-
-To change or update your raster information you must be aware that some changes will affect your data content. For instance, updating your pixel size will require re-sampling or aggregation of your existing data. 
-
-We will use gdalwarp to update our raster information. This is a versatile command that enables you to re-project, aggregate and change the data type of your raster all in one command. The first example shows you how to change the NODATA value and transform it into a GeoTiff for any given raster. If you already found your raster in the OSGeo4W Shell you can use the following commands::
-
-    gdalwarp -srcnodata <your-NODATA-value> -dstnodata -9999 <raster-file> -of Gtiff warp_output.tif
-
-*Note that the words that start with ‘-‘ are options in gdalwarp. They are followed by a parameter specific to that option. Also, if your NODATA value is specified in the raster information, you may omit the srcnodata option.*
-
-The next example sets all raster-information in one command for rasters that use the Dutch projection. It is a useful example as long as you remember how it may change the actual data in your pixels::
-
-    gdalwarp -s_srs EPSG:XXXX -t_srs EPSG:28992 -of Gtiff -ot Float32 -tap -tr 0.5 -0.5 -srcnodata XXXX -dstnodata -9999 -cutline study-area.shp -crop_to_cutline <raster-file>  warp_output.tif
-
-Tip: Always use the ``-tap`` option to make sure all your rasters are properly aligned. 
-    
-The example uses an extra shape-file of the study area. This is convenient when you are using several raster-files. It ensures that all raster-files you make have the same extent and NODATA pixels. You should make sure however that the shape-file’s projection matches that of your raster information. If you are not sure what any of the commands do exactly, you can check the `gdal documentation <http://www.gdal.org>`_ or try options separately to generate several output files and checking them with gdalinfo to see which option generates the result you want.
-
-**Compress rasters using gdal_translate**
-
-Once your raster meets all requirements there is one last thing to consider. 3Di is cloud-based so we advise you to compress all raster-files before uploading. The example below shows you how::
-
-    gdal_translate -co COMPRESS=DEFLATE warp_output.tif compressed.tif
-
-This command copies all data and information but compresses the data.
- 
-*Note that we only recommend the DEFLATE compression option. Other options may give better compression or performance in certain cases, but they are not supported in 3Di.*
+    The 3Di Modeller Interface includes a large number of tools for manipulating raster data. It is also possible to manipulate raster data from the :ref:``command line<gdal_cmd>`` or :ref:``using Python<rasters_python>``.
+	

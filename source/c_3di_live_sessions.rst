@@ -23,7 +23,7 @@ A new session will be started. During the start up of the model tips for use of 
 
 .. note::
 
-	The number of sessions that can run simultaneously by your organisation depends on your organisation's 3Di subscription. If this limit is reached, the message "Your organization is already running X sessions" will be shown.
+	The number of sessions that can run simultaneously by your organisation depends on your organisation's 3Di subscription. If this limit is reached, the message "Your organisation is already running X sessions" will be shown.
 	
 	If you organisation has a limited number of simulation hours in its subscription, the time that the session is active is subtracted from the available number of hours for the current year.
 	
@@ -88,34 +88,37 @@ You can:
 Storing results
 ---------------
 
-Results can be stored by clicking **User menu**, then clicking **Quit Simulation** and then **Quit, Store Results**. There are two options:
+.. note::
+    
+	:ref:`Raw results<outputs>` will always be stored for 7 days, even if you choose the option *Quit, don't store results*. 
 
-- Download results directly via the browser
-- Store them to the Lizard platform (see https://docs.lizard.net/a_lizard.html) 
 
-Stored (raw) results can also be downloaded using the"3Di Models and Simulations" in the 3Di Modeller Interface, see: :ref:`mi_download_res`. Note that these raw results are only available for 7 days.
+Direct download
+^^^^^^^^^^^^^^^
 
-The options in Lizard storage are as follows:
+When you quit the session (*User menu* > *Quit Simulation*), you can download these files directly to your computer by choosing > *Quit, Store Results* > *Direct download*. You may also :ref:`download them from the 3Di Modeller Interface<mi_download_res>`.
 
-- raw data and logging
-- basic processed results
-- arrival time map
-- damage estimation (NL only)
+Store in scenario archive
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The **Basic processed results** option includes the following derivations from simulation results for Lizard users:
+.. note::
+    This option is only available if your subscription includes the Scenario Archive.
 
-.. figure:: image/d3.9_store_results.png
-    :alt: Storing results
+Another option you have when you quit the session, is to store the results in the :ref:`scenario_archive`. When you choose this option, you also have several options for **automated post-processing**. For an explanation of the available options, see :ref:`scenario_archive`.
 
-- Water level - temporal
-- Water depth - temporal
-- Maximum flow velocity
-- Maximum rate of rise
-- Maximum water depth
-- Flood hazard rating
 
-The **Damage estimation** option uses a module called *WaterSchadeSchatter* (currently only available in The Netherlands)
-which provides two products derived from the maximum water depth.
+.. _live_simulation_template:
 
-- Damage estimation map
-- Damage estimation table
+Storing and using simulation templates
+--------------------------------------
+A :ref:`simulation template<simulation_and_simulation_templates>` can be stored by clicking **User menu**, then clicking **Quit Simulation** and then **Create simulation template from simulation**. Set a template name and check the options you want to save:
+
+   - **Include events**: All :ref:`forcings<toctree_forcings>` and :ref:`events<toctree_events>` you have used in the simulation, such as rain events, breaches, or raster edits.
+   
+   - **Include initials**: All :ref:`initial conditions<toctree_initials>` that were used in the simulation in the simulation template, including initial water levels in 1D and/or 2D domains, or :ref:`saved_states`.
+   
+   - **Include settings**: All :ref:`simulation_settings`: physical, numerical, time step, and aggregation settings.
+
+Finally click **Store results**.
+
+Now when starting the same model again, you will be directed to choose a simulation template. The template you previously created will be accessible with the name you assigned to it. If you want to run a new simulation select the simulation template at the bottom of the list.

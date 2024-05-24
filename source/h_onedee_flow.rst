@@ -3,39 +3,24 @@
 1D Flow
 ==========
 
-3Di offers the possibility to simulate 1D flow. This means that the calculated flow velocity and discharge is averaged over both depth and width. Effects of variations in depth and width are included, but flow within a segment has only one direction. A 1D element can represent, for example, a water course, a hydraulic structure or a sewer pipe. The sections below describe the several types of 1D elements that are available in 3Di.
+3Di offers the possibility to simulate 1D flow. This means that the computed flow velocity and discharge is averaged over the full cross-sectional area. Effects of variations in depth and width are included, but flow within a segment has only one direction. A 1D element can represent, for example, a channel, a hydraulic structure or a sewer pipe. The sections below describe how 3Di deals with the computations in 1D, some specific characteristics and the several types of 1D elements that are available.
 
-.. _1d_momentum_equation:
+- :ref:`1d_network`
+- :ref:`cross_section_of_1d_element`
+- :ref:`1d_momentum_equation`
+- :ref:`1d_friction`
+- :ref:`1Dpressurized`
+- :ref:`channelflow`
+- :ref:`weirs_and_orifices`
+- :ref:`pump`
 
-1D momentum equation
---------------------
 
-The flow in 1D networks is computed using the equations of conservation of mass and momentum, more specifically the 1D depth-averaged shallow water equations. The momentum equation for 1D flow is:
-
-.. math::
-   :label: 1D momentum equation
-
-   \frac{\partial u}{\partial t}+u \frac{\partial u}{\partial s}=-g\frac{\partial \zeta}{\partial x}-\frac{\tau_f}{\rho}-\frac{\tau_w}{\rho}
-
-| In which:
-| :math:`u` is the cross-sectionally averaged velocity
-| :math:`s` is the 1D coordinate in along the network
-| :math:`g` is the gravitational acceleration
-| :math:`\rho` is the density of the water
-| :math:`\tau_f` is the shear stress due to bottom friction
-| :math:`\tau_w` is the shear stress due to wind
-
-In words; in 1D, 3Di takes inertia, advection, pressure gradients, bottom friction and wind shear stresses into account. This yields for all types of 1D network applications. 3Di assumes hydrostatic pressure, thus pressure loss is rewritten as a water level gradient. However, in the computation of advection and the effect of wind stress on specific 1D network configurations, some differences are applied. This will be explained more elaborated below.
-
-.. todo::
-   @Nici het zinnetje "3Di assumes hydrostatic pressure, thus pressure loss is rewritten as a water level gradient." heb ik ergens anders uit de documentatie geplukt, weet niet zeker of dat klopt en hier op zijn plek is? Idem voor het zinnetje hier onder
-
-This implementation deals with backwater and transient flow phenomena, pressurized and non-pressurized flow, and subcritical and (super)critical flow conditions.
+.. _1d_network:
 
 1D Network
 ----------
 
-In the most abstract form, a 1D network can be viewed as a combination of nodes and lines. Such a network is translated to a grid, as described in :ref:`1dgrid`. The nodes and the connections have their own characteristics. Based on those, cross-sectional areas, storage and flow is computed.
+In the most abstract form, a 1D network can be viewed as a combination of nodes and lines. Such a network is translated to a grid, as described in :ref:`1dgrid`. The nodes and the connections have their own characteristics, like cross-section shapes, reference levels etc. Based on those, cross-sectional areas, storage and flow is computed.
 
 .. figure:: image/1dnetworkabstract.png
    :figwidth: 400 px
@@ -107,10 +92,93 @@ Some examples are shown in the figures below.
 
    Examples of cross-section shape 'Egg' in 1D networks. The 'Inverted egg' shape is the same, but upside-down.
 
+.. _1d_momentum_equation:
+
+1D momentum equation
+--------------------
+
+The flow in 1D networks is computed using the equations of conservation of mass and momentum, more specifically the 1D depth-averaged shallow water equations. The momentum equation for 1D flow is:
+
+.. math::
+   :label: 1D momentum equation
+
+   \frac{\partial u}{\partial t}+u \frac{\partial u}{\partial s}=-g\frac{\partial \zeta}{\partial s}-\frac{\tau_f}{R\rho}-\frac{\tau_w}{H \rho}
+
+| In which:
+| :math:`u` is the cross-sectionally averaged velocity
+| :math:`s` is the 1D coordinate along the network
+| :math:`g` is the gravitational acceleration
+| :math:`\rho` is the density of the water
+| :math:`\tau_f` is the shear stress due to bottom friction
+| :math:`\tau_w` is the shear stress due to wind
+| :math:`H` is the water depth
+| :math:`R` is the hydraulic radius
+
+In words; in 1D, 3Di takes inertia, advection, pressure gradients, bottom friction and wind shear stresses into account. This yields for all types of 1D network elements. However, there are some differences in the computation of advection and the effect of wind stress for specific 1D network This will be explained more elaborated, where these difference are relevant.
+
+.. _1d_friction:
+
+Friction in the 1D domain
+-------------------------
+
+3Di calculates the bottom friction or wall friction in the 1D-domain by integrating the shear stress over the cross-sectional area and over the length of the 1D element:
+
+.. math::
+
+   F_{f} = \rho \iint c_f u^2 dn ds =  \rho \int \frac{A^3 u^2 g}{K_{tot}} \; ds
+
+| where: 
+| :math:`u`: flow velocity
+| :math:`c_f`: dimensionless roughness coefficient
+| :math:`n`: Cross-flow direction
+| :math:`s`: Along-flow direction
+| :math:`K_{tot}`: Total conveyance factor
+
+The conveyance factor is a measure of the flow capacity of a channel. The factor combines geometry and roughness information. There are two options to determine this factor. Both methods evaluate the friction based on the geometry and roughness of the section using either Chézy or Manning formulations for the roughness. In 3Di, friction types are distinguished as Chézy, Manning (for the 1st method) and Chézy with conveyance, Manning with conveyance (for the 2nd method).
+
+
+Single section method
+^^^^^^^^^^^^^^^^^^^^^
+
+This method is suitable for closed, open, and semi-open sections. It assumes uniform roughness and velocity over the domain and therefore works best for relatively uniform cross-sections. This method considers the cross-section of the 1D element as a whole.  
+
+In the single section method, the conveyance factors are defined as:
+
+.. math::
+   :label: Conveyance Factor
+
+   \text{Chézy} \quad K_{tot} = A C R^\frac{1}{2} \\
+   \text{Manning} \quad K_{tot} = \frac{1}{n} A R^\frac{2}{3}  \\
+   R = \frac{A}{P}
+
+with: 
+
+| :math:`C`: Chézy coefficient
+| :math:`n`: Manning coefficient
+| :math:`A`: Cross-sectional area
+| :math:`P`: Wetted perimeter
+
+.. _conveyance_method:
+
+Conveyance method
+^^^^^^^^^^^^^^^^^
+
+The *conveyance method* (or *compound section method*), suitable for open sections only, allows for variations in the cross-flow direction. This method divides the channel cross-section into several sub-sections depending on the channel's depth. This way, the variations in velocity related to the depth and roughness of the channel is properly taken into consideration. 
+
+The conveyance factor considers the depth variations in the different depth sections. The conveyance factor reflects the transport capacity of the channel. Assuming uniformity of the ratio between wetted perimeter and cross-sectional area, in applications with strong depth variations over the cross-section, the flow capacity can be underestimated. In this method, the total conveyance factor of the section is the sum of each sub-section’s conveyance factor. In this way, the variation in depth and roughness throughout the cross-section can be taken into consderation. In 3Di, the separation lines between the sub-sections are considered vertical. 
+
+.. figure:: image/1dconveyancefactor.png
+   :figwidth: 1000 px
+   :alt: conveyance_factor
+
+   Single Section Method vs Compound Section (Conveyance) Method
+
+In 3Di, the conveyance method can be applied with single or variable roughnesses. In case of the single roughness, one roughness value is assigned to the whole cross-section. This can be used with cross-section shapes *Tabulated rectangle* and *Tabulated trapezium*. On the other hand, different roughness values can be assigned to the sub-sections to account for the variable roughness along the cross-section. This can be used with the cross-section shape *YZ*.
+ 
 .. _1Dpressurized:
 
 Pressurized flow
----------------------
+----------------
 
 In 1D elements with closed cross-sections flow may become pressurized. The way 3Di deals with this is similar to how 3Di deals with the non-lineair relations in 2D cells (e.g. between volume and water level). :ref:`subgridmethod` allows 2D cells to be  be dry, wet or *partly wet*, creating a non-lineair volume-water level relation. This was solved with a highly efficient method. However, there are some requirements for such system to be solved. one of these requirements is violated when the surface area decreases for increasing water levels, as in pipes that are more than half full (see the Figure below). Therefore, a new method had to be introduced to solve such a non-linear system of equations. This method is based on the so-called nested Newton method (`cite:t:`Casulli2013`).
 
@@ -165,8 +233,7 @@ where :math:`h` is the local water depth, :math:`u` the local cross-sectionally 
 
 In case of structures with closed profiles, in the equation of the energy balance :math:`h` is not the water depth, but the energy height. For structures having closed profiles, the transition of water depth to energy height is automatically taken care of in case the area fills with water.
 
-For robustness, 3Di schematizes structures as connections between two nodes, as can be seen in the third panel of the figure. This assumption implies that the water level on the location of the structure is unknown. To compute accurately the discharge over the structure, a difference is made between long crested and short crested structures. Both resulting formulations are based on Bernoulli's principle, but for long crested structures, frictional losses are computed separately.
-
+For robustness, 3Di schematizes structures as connections between two nodes, as can be seen in the third panel of the figure. This assumption implies that the water level on the location of the structure is unknown. To compute accurately the discharge over the structure, a difference is made between long crested and short crested structures. Both resulting formulations are based on Bernoulli's principle, but for long crested structures, frictional losses are computed separately. The methods to resolve the flow over these structures, ensures numerical stability without time step dependence.
 
 Short crested
 ^^^^^^^^^^^^^
@@ -213,24 +280,13 @@ Combining these equations, results in the discharge formulation.
 Broad crested
 ^^^^^^^^^^^^^
 
-For longer structures, frictional effects can become important. For the so-called broad-crested weirs and orifices an extra loss term is added to Bernoulli's equation. The frictional losses :math:`\Delta h_F` are computed as:
+For longer structures, frictional effects can become important. For the so-called broad-crested weirs and orifices an extra loss term is added to Bernoulli's equation (the term is added to the right-hand side of the  energy head balance equation at the top of this section). The extra head loss due to friction :math:`\Delta h_F` is computed as:
 
 .. math::
-   \Delta h_F= \frac{c_f L u_{II}^2}{2 g R}
+   \Delta h_F= \frac{c_f L u_{II}^2}{g R}
 
-where :math:`c_f` is the dimensionless friction coefficient, :math:`L` the length of the structure and :math:`R` is the hydraulic radius. The dimensionless friction coefficient can be based on either Manning or the Chézy formulation. It is also of importance that the structure length is correctly set. The computational core expects that this is the geometrical distance between the two connection nodes. The friction coefficient can be defined either by a Manning or a Chézy value.
+where :math:`c_f` is the dimensionless friction coefficient, :math:`L` the length of the structure and :math:`R` is the hydraulic radius on top of the weir. The dimensionless friction coefficient can be based on either the Manning or the Chézy formulation. The frictional losses scale with the length of the weir, therefore it is of importance that the structure length is correctly set. The computational core expects that this is the geometrical distance between the two connection nodes. 
 
-An advantage of these formulations is that these do not limit the timestep during the simulation.
-
-The attributes that define these structures are:
-
-* Crest level: The crest level of the weir. In case of an orifice this could be equal to the bottom level.
-
-* Crest type: Selects a short or broad crested weir/orifice formulation.
-
-* Discharge coefficient positive/negative: The coefficient used in the discharge formulation. Depending on the flow direction the coefficients could be different.
-
-* Cross-section definition: This defines the cross-section of the structure.
 
 .. _pump:
 
@@ -240,7 +296,8 @@ Pumps
 Pumps in 3Di drain water from one location to another location, within the model domain (:ref:`pumpstation_with_end_node`) or out of the model domain (:ref:`pumpstation_without_end_node`). The behaviour of a pump is specified by defining the start and stop levels of the pump and the pump capacity, as illustrated in the figure below. See :ref:`pumpstation_with_end_node` and :ref:`pumpstation_without_end_node` for details on how to set these parameters.
 
 .. figure:: image/b_structures_pump.png
-   :alt: structures_pump
+   :scale: 50% 
+   :alt: Schematic display of a pump function
 
    Schematic display of a pump function
 

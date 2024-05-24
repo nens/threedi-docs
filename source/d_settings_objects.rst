@@ -318,7 +318,7 @@ Global settings attributes
      - Decimal number
      - Only when using only 1D-flow without a specified DEM
      - m\ :sup:`2`
-     - Manhole storage area. This global value is the surface area that each manhole is given when water reaches above the drain level. Must be left empty when using only 2D-flow.
+     - Manhole storage area. This global value is the surface area that each manhole is given when water reaches above the drain level. To use this feature, do not specify a DEM file and set the manhole calculation types to *Connected*. Must be left empty when using only 2D flow.
      - Extra options 1D
    * - Maximum angle for 1D advection
      - max_angle_1d_advection
@@ -978,7 +978,7 @@ The schema version shows the database schema version. The database schema is the
 
 .. note::
 
-    Do not change the schema version manually!
+    Do not change the schema version manually! Use the processing algorithm :ref:`migrate_spatialite`.
 
 Schema version attributes
 ^^^^^^^^^^^^^^^^^^^^^^^^^

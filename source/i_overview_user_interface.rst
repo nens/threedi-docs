@@ -1,15 +1,15 @@
 .. _mi_overview:
 
-Overview of the Modeller Interface
-===================================
+User interface overview
+=======================
 
-The main GUI consist of five components:
+The 3Di Modeller Interface consists of five components:
 
-1. **Menu Bar**: the 3Di Plugins can be reached from the Plugins menu.
-2. **Toolbar**: the :ref:`models_simulation_plugin`, the :ref:`schematisation_editor` and the :ref:`3di_results_manager` are already added to the toolbar.
-3. **Panels**: the :ref:`3di_processing_toolbox` and the :ref:`schematisation_editor` can be reached via the QGIS Processing Toolbox. The :ref:`models_simulation_plugin` and :ref:`3di_results_manager` can also be activated as a panel.
-4. **Map View**
-5. **Status Bar**
+1. **Main menu**
+2. **Toolbar**: the :ref:`schematisation_editor_toolbar`, a button to open the :ref:`models_simulation_panel`, and the :ref:`results_analysis_toolbar` are already added to the toolbar.
+3. **Panels**: the :ref:`3di_processing_toolbox` QGIS Processing Toolbox.
+4. **Map canvas**
+5. **Status bar**
 
 .. todo: 
 
@@ -18,7 +18,7 @@ The main GUI consist of five components:
 .. figure:: image/i_overview_modeller_interface.png
    :alt: 3Di Modeller Interface
 
-   An overview of the Modeller Interface.
+   Overview of the 3Di Modeller Interface.
 
 .. _schematisation_editor_toolbar:
 
@@ -76,7 +76,7 @@ Activate the 3Di Models and Simulation panel by clicking the pictogram (|modelsS
 Access the 3Di Models and Simulation settings dialog by clicking *Main menu* > *Plugins* > *3Di Models and Simulations* > *Settings*.
 
 .. figure:: image/i_overview_models_sim_setting.png
-   :alt: Overview interface Models and Simulation Settings
+   :alt: Overview of the 3Di Models and Simulation Settings dialog
 
 * **Base API URL:** The Base API URL is in most cases https://api.3di.live.
 * **Uploads processing timeout:** If uploading data for a simulation (such as initial water levels or laterals time series) takes longer than the value specified here (in seconds), 3Di Models & Simulations will stop trying to initialize the simulation. Default value is 900 s.
@@ -84,50 +84,68 @@ Access the 3Di Models and Simulation settings dialog by clicking *Main menu* > *
 * **API Key:** Set you personal API Key. Click :ref:`here <setting_up_models_and_simulations>` for more information on how to obtain one.
 * **Use defaults:** Sets the default Base API URL, Uploads processing timeout and Working directory
 
-.. todo::
+
+.. _results_analysis_toolbar:
+
+3Di Results Analysis toolbar
+----------------------------
+
+.. figure:: image/i_3di_results_analysis_toolbar.png
+   :alt: 3Di Results Analysis toolbar
    
-   describe the 3Di Results Analysis toolbar, include this thing about log file somewhere in that description:
-   .. _logfile:
-   Log file
-   --------
-   
-   Clicking the (|loggingtoolbar|) saves the logging of your results analysis to your computer. By clicking the underlined path to the text file in the pop-up windows you can open the log file. This can provide helpful information about what went wrong in case of an error.
-   
-   Also, it can be send as an attachment to our :ref:`servicedesk` at servicedesk@nelen-schuurmans.nl in case of errors.
+The 3Di Results Analysis toolbar gives you access to all the :ref:`toctree_analysing_results`. 
+
+Clicking the |loggingtoolbar| saves the technical logging of the 3Di Results Analysis plugin to a file. This can be helpful for the our :ref:`servicedesk` when you run into any technical issues with the 3Di Results Analysis plugin.
+
+.. |loggingtoolbar| image:: /image/i_3di_results_analysis_toolbar_logging.png
+    :scale: 25%
 
 
-.. _mi_technical_setup:
+.. _temporal_controller:
 
-Technical setup
----------------
+Temporal controller
+-------------------
 
-The 3Di Modeller Interface is a preconfigured QGIS. It consists of the latest Long-Term Release (LTR) of QGIS, 3Di-specific plugins, third-party plugins, and some preconfigured settings.
+When you load your results the Temporal Controller will automatically appear at the top of your screen (if it was not already visible). With the Temporal Controller you can see and analyse the results through time. The Temporal Controller is a native feature of QGIS and can also be utilised in combination with other results tools. To use this tool, you first need to click the |closed_eye| in front of the desired results in the *Results Manager*. If you have loaded more than one set of results, the |opened_eye| shows the set that is used in the visualisation. Click the |opened_eye| again to stop visualisation of the results.
 
-Plugins
-^^^^^^^
+The results are visualised on the flowlines, 1D nodes and 2D computational cells (see :ref:`3dinetcdf` for more information on the possible flow-variables).
 
-The following 3Di-specific plugins are included in the 3Di Modeller Interface. If any user interface component that the documentation refers to is missing, you most probably need to activate the plugin that provides the component: *Main menu* > *Plugins* > *Manage and Install Plugins...* > Check the box of the plugin that you need. 
+1) Pause or play the animation of the results through time.
+2) Skip to next frame.
+3) Skip to last frame.
+4) Move the slider to visualise the results at different timesteps.
+5) Check to automatically reset and repeat the animation endlessly when running the animation.
+6) The temporal range that is used for the visualisation. Note that the default range that is shown is the range used in the simulation.
+7) The steps per frame. Here the steps frame are shown every 300 seconds. Note that this shouldn't be smaller than the used output timestep in the simulation.
+8) The units that correspond to the number of steps [6].
+9) Export the results as png's for every or any timestep.
 
-*3Di Models and Simulations* takes care of all communication with the 3Di API, performing tasks like creating new schematisations, uploading and downloading schematisation revisions, starting simulations, and downloading simulation results. It provides two user interface components: the 3Di Models & Simulations panel, and the 3Di Models & Simulations settings dialog.
+.. image:: /image/i_temporal_controller.png
+	:alt: Temporal Controller panel
 
-.. note:: 
-   The first time you use the 3Di Models and Simulations plugin, you need to :ref:`fill in some settings <setting_up_models_and_simulations>`.
+.. |temporalcontroller| image:: /image/i_temporal_controller.png
+	:scale: 90%
 
-*3Di Schematisation Editor* allows you to view and edit schematisations. Its functionalities are provided through two user interface components: the 3Di Schematisation Editor toolbar, and the processing algorithms in the 3Di Schematisation Editor section of the Processing Toolbox. Note that a great deal of what this plugin does is integrated with QGIS features, such as attribute forms with special features, automatically setting snapping options, et cetera. The 3Di Schematisation Editor also provides a number of expressions, available in the expression builder.
+.. _3di_processing_toolbox:
 
-*3Di Results Analysis* provides all the tooling required for visualising and analysing computational grids and simulation results. Its features are available through the 3Di Results Analysis toolbar and the processing algorithms in the 3Di section of the Processing Toolbox. 
+3Di Processing Algorithms
+-------------------------
 
-*3Di Customisations* makes some changes to the look of the user interface.
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
+Many 3Di related actions can be performed by running a Processing Algorithm. These can be found in the (QGIS native) Processing Toolbox. To open the processing toolbox from the main menu, click *Processing* > *Toolbox*. Alteratively, you can click |processing_toolbox_icon| in the attributes toolbar or use the keyboard shortcut CTRL + ALT + T. Scroll down to the sections *3Di* and *3Di Schematisation Editor* to find the 3Di-specific processing algorithms. 
 
 
+.. |processing_toolbox_icon| image:: /image/pictogram_processing_toolbox.png
 
-.. |loggingtoolbar| image:: image/i_3di_results_analysis_toolbar_logging.png
-	:scale: 25%
+.. figure:: image/i_3di_processing_toolbox.png 
+	:alt: Processing Toolbox dock panel
+	:align: right
+	:scale: 30% 
 
 .. |modelsSimulations| image:: /image/pictogram_modelsandsimulations.png
     :scale: 90%
 
+.. |closed_eye| image:: /image/pictogram_temporal_controller_load_results_closed_eye.png
+	:scale: 100%
+	
+.. |opened_eye| image:: /image/pictogram_temporal_controller_load_results_opened_eye.png
+	:scale: 100%

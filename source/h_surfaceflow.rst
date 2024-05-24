@@ -40,13 +40,20 @@ If the model wishes to include an obstacle that may not be detected by the compu
    :alt: virtual_conservation_box
    :align: right
 
-   Figure 2: A computational grid for 2D flow including local grid refinements. The momentum domains in x- (pink) and y-direction (blue) are indicated by the planes. The obstacle elements are given with a green line and the flow links with a dashed blue line. The flow links closed by the obstacle are marked with a thick red line.
+   A computational grid for 2D flow including local grid refinements. The momentum domains in x- (pink) and y-direction (blue) are indicated by the planes. The obstacle elements are given with a green line and the flow links with a dashed blue line. The flow links closed by the obstacle are marked with a thick red line.
 
+
+.. figure:: image/side-view-obstacle-cross-section.png
+   :scale: 80%
+   :alt: virtual_conservation_box
+   :align: center
+
+   In sub-figure (A) the flow can freely flow from left to right as the blocking features are not on the cell edges. Sub-figure (B) shows the effect of the obstacle: it affects the exchange level of the nearest cell edge.
 
 Friction
 --------
 
-The friction is calculated using the flow depth at each :ref:`subgrid <subgridmethod>` pixel in the :ref:`momentum domain<computational_grid_2d_domain>`. The formulations of Chézy or Manning can be used for the calculation of friction.
+In the 2D domain, the friction is calculated using the flow depth at each :ref:`subgrid <subgridmethod>` pixel in the :ref:`momentum domain<computational_grid_2d_domain>`. The formulations of Chézy or Manning can be used for the calculation of friction.
 
 Water level gradients
 ---------------------
@@ -71,8 +78,9 @@ Vegetation in a water course strongly affects the flow, as the vegetation exerts
 Two key aspects of the vegetation formulation used in 3Di are important to understand well. First, how vegetation exerts a drag force on the flowing water and how this differs from shear stresses such as bottom friction. Secondly, the importance of high resolution variations of the flow due to the varying vegetation characteristics.
 
 .. figure:: image/b_veggie_velocity_profile.png
+   :scale: 20%
     
-    Vertical velocity profiles altered by vegetation.
+   Vertical velocity profiles altered by vegetation.
 
 The 3Di computational core solves a force balance for the momentum domains. Different types of forces act differently on a fluid. For example, gravity is a body force, whereas bottom friction is due to a shear stress acting on a surface. Bottom friction alters the vertical velocity profile to a profile that can be described by a logarithmic function. Vegetation exerts a drag force on the water throughout the vertical profile. This drag scales with a representative vertical plane. The drag applies to the whole vertical profile if the vegetation is emerging, or, to a part of the vertical profile if the vegetation is submerged.
 
@@ -93,7 +101,7 @@ Secondly, vegetation drag is larger when the representative vertical plane is la
 
 .. math::
 
-   \tau_v = \frac{1}{2}C_D m D min[H_v, H]  \label{eq:veggie_drag_baptist} 
+   \tau_v = \frac{1}{2}C_{DV} m D min[H_v, H]|U|u  \label{eq:veggie_drag_baptist} 
     
 | In which: 
 | :math:`U` , the velocity vector with :math:`(u,v)` the velocity components in :math:`x,y`-direction

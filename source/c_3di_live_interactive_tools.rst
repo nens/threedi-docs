@@ -77,6 +77,8 @@ The option **Radar** is currently only available in the Netherlands and uses his
 
 When choosing the option **Design**, a number between 3 and 16 must be selected. These numbers correlate to predetermined rain events, with differing return periods, that fall homogeneous over the entire model. Numbers 3 to 10 originate from `RIONED <https://www.riool.net/bui01-bui10>`_ and are heterogeneous in time. Numbers 11 to 16 have a constant rain intensity. When selecting a design rain the total rainfall and duration information will change in the tab.
 
+The **Forecast** option gives you the option to add forecast data from several sources to the model. Currently, we support forecast data from ICON Global, ICON EU, ICON-D2 and QPE Forecast. If there is another rain forecasting service you would like to use in 3Di Live, please contact the :ref:`servicedesk`.
+
 For a more detailed description on rainfall, see: :ref:`rain`.
 
 When the rainfall is active a cloud icon appears on the top right of the screen. Information about the rainfall event can be accessed by keeping the rainfall tab open. Active and past (inactive) events are shown in this tab 

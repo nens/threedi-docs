@@ -28,7 +28,7 @@ Initials, forcings and events
 .. toctree::
    :maxdepth: 2
    :caption: Events
-   :name: toctree_initials_forcings_events
+   :name: toctree_events
    
    h_breaches
    h_control_structures

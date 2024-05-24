@@ -34,7 +34,6 @@ The subgrid method has three implications:
 
    An example of a computational cell with a bathymetry defined on the subgrid.
 
-
 Some facts and figures
 ----------------------
 

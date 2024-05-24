@@ -3,6 +3,21 @@
 1D Objects
 ==========
 
+1D objects are used to schematise 1D networks. The way flow is calculated in these 1D networks is described in the section :ref:`onedee_flow`.
+
+* :ref:`connection_node`
+* :ref:`1d_boundary_condition`
+* :ref:`1d_lateral`
+* :ref:`manhole`
+* :ref:`pumpstation_without_end_node`
+* :ref:`pumpstation_with_end_node`
+* :ref:`weir`
+* :ref:`culvert`
+* :ref:`orifice`
+* :ref:`pipe`
+* :ref:`cross_section_location`
+* :ref:`channel`
+
 .. _1d_boundary_condition:
 
 1D Boundary Condition
@@ -76,13 +91,19 @@ Format the time series as Comma Separated Values (CSV), with the time (in minute
     60,145.15
 
 - The time series string cannot contain any spaces or empty rows
+
 - The boundary condition time series is stored in the simulation template and is not part of the 3Di model itself. It can be overridden when starting a new simulation, without the need to create a new revision of the schematisation.
+
 - The time unit in the 1D boundary condition table *in the schematisation* is minutes, while the 3Di API expects this input in seconds. A conversion is applied when the reading the data from the schematisation. If you upload a CSV file with 1D boundary condition time series via the simulation wizard, you can choose the time unit (see :ref:`simulate_api_qgis_boundary_conditions`)
+
 - For boundary types velocity (2), discharge (3) and Sommerfeld (5), the drawing direction of the channel, pipe, or structure determines sign of the input value. For velocity and discharge, this means that if the 1D boundary condition is placed on the end connection node, positive values result in boundary *outflow*. For the Sommerfeld boundary, a positive gradient for a 1D boundary condition that is placed at the end connection node means that the waterlevel downstream is higher than upstream, i.e. this will result in boundary *inflow*.
+
 - The time series must cover the entire simulation period.
-- All 1D boundary conditions must have the same time steps
+
 - The time series values are interpolated between the defined times
+
 - In case of multiple boundaries in 1 model: make sure they all have the same number of timeseries rows with the same temporal interval.
+
 - When editing the time series field in using SQL (sqlite dialect), use ``char(10)`` as line separator. The example time series shown above would look like this::
 
     "0,145.20"||char(10)||"15,145.23"||char(10)||"30,145.35"||char(10)||"45,145.38"||char(10)||"60,145.15"
@@ -252,10 +273,16 @@ Notes for modellers
 
 Calculation type 'embedded'
 """""""""""""""""""""""""""
+
 - Embedded channels add extra connections between 2D grid cells, but ignore obstacles and levees.
 - Make sure the embedded channel profile always lays partially below the DEM; embedded channels cannot 'float' above the DEM.
 - Embedded channels only function when they connect several 2D grid cells, so make sure no embedded channel falls completely inside one 2D grid cell
 - Do not place boundary conditions directly on embedded channels.
+
+Calculation types 'connected' and 'double connected'
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+For channels with calculation type 'connected' and 'double connected', 1D2D connections connect each 1D calculation point to the 2D cell it is in. Therefore, channels with these calculation types need to be in a 2D cell. Alternatively, you may use an :ref:`exchange_line` to customise the 1D2D connections. When using an exchange line, the channel does not need to be in 2D cells, but the exchange line needs to be in 2D cells.
 
 
 .. _connection_node:
@@ -406,7 +433,7 @@ Attributes
      - decimal number
      - Yes
      - \-
-     - Sets the friction type to Chézy (1) or Manning (2)
+     - See :ref:`cross_section_location_friction_type`
    * - Friction value
      - friction_value
      - decimal number
@@ -472,6 +499,19 @@ The following shapes are supported:
      - 8
      - Specify cross-section width. Height will be 1.5 * width.
 
+.. _cross_section_location_friction_type:
+
+Friction type
+"""""""""""""
+
+This attribute sets the :ref:`friction type<1d_friction>` to:
+
+- Chézy (1)
+- Manning (2)
+- Chézy with conveyance (3)
+- Manning with conveyance (4)
+
+Using the friction types with conveyance is advised for open Tabulated or YZ cross-sections, in case there is a significant variation of the water depths across the cross-section, for instance, in a scenario with overflowing floodplains.
 
 .. _culvert:
 
@@ -608,6 +648,8 @@ Notes for modellers
 
 The cross-section describes the inside of the culvert. If you only know the outer dimensions, you have to discount the wall thickness.
 
+.. _culvert_discharge_coefficients:
+
 Discharge coefficients
 """"""""""""""""""""""
 The discharge is multiplied by this value. The energy loss caused by the change in flow velocity at the entrance and exit are accounted for by 3Di. The discharge coefficients can be used to account for any additional energy loss. 'Positive' applies to flow in the drawing direction of the structure (from start node to end node); 'negative' applies to flow in the opposite direction.
@@ -733,6 +775,25 @@ Drain level
 - In 1D-2D models, this setting only applies to manholes with calculation type 'connected'
 - In 1D-only models, the drain level is used as the street level, above which the storage area widens to the "manhole storage area" value specified in the global settings.
 - If the drain level is not filled in, 3Di will use the DEM value at the location of the manhole, or, in case of 1D-only models, the highest top of the pipes starting or ending at this manhole.
+- In 1D-2D models, the 1D-2D exchange level is the maximum of the manhole drain level and the 2D cell's bottom level. See the figures below for an illustration of this.
+
+**Drain level above lowest pixel in the 2D cell**
+
+.. figure:: image/i_surface_exchange_drain_level_b.png
+	:alt: Manhole with a *drain level* below the 2D cell's lowest pixel. The *1D2D exchange level* that is used in the simulation equals the 2D cell's bottom level.
+	:scale: 75%
+	
+	Manhole with a *drain level* below the 2D cell's lowest pixel. The *1D2D exchange level* that is used in the simulation equals the 2D cell's bottom level.
+
+
+**Drain level below lowest pixel in the 2D cell**
+
+.. figure:: image/i_surface_exchange_drain_level_a.png
+	:alt: Manhole with a *drain level* above the 2D cell's lowest pixel. The *1D2D exchange level* that is used in the simulation equals the manhole drain level.
+	:scale: 75%
+	
+	Manhole with a *drain level* above the 2D cell's lowest pixel. The *1D2D exchange level* that is used in the simulation equals the manhole drain level.
+
 
 Shape, width and length
 """""""""""""""""""""""
@@ -1092,6 +1153,8 @@ Crest level
 """""""""""
 This is the reference level for the cross-section. For example, if the crest level is 12.0 m and the cross-section a circle with a diameter of 0.5 m, the opening will start at 12.0 m and end at 12.5 m
 
+.. _orifice_discharge_coefficients:
+
 Discharge coefficients
 """"""""""""""""""""""
 The discharge is multiplied by this value. The energy loss caused by the change in flow velocity at the entrance and exit are accounted for by 3Di. The discharge coefficients can be used to account for any additional energy loss. 'Positive' applies to flow in the drawing direction of the structure (from start node to end node); 'negative' applies to flow in the opposite direction.
@@ -1411,6 +1474,8 @@ In the computational grid, a weir will always be represented by a single flowlin
 Crest level
 """""""""""
 This is the reference level for the cross-section. For example, if the crest level is 12.0 m and the cross-section a circle with a diameter of 0.5 m, the opening will start at 12.0 m and end at 12.5 m
+
+.. _weir_discharge_coefficients:
 
 Discharge coefficients
 """"""""""""""""""""""
