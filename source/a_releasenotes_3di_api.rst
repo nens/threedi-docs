@@ -3,6 +3,31 @@
 3Di API
 -------
 
+April 29, 2024
+^^^^^^^^^^^^^^
+
+- Add multiplier to all surface sources and sinks endpoint(s) (threedi-api#212). The main intended use case for this is to use it with a negative value in combination with a (Lizard) raster time series that contains (positive) evapotranspiration values.
+
+- Make it possible to add substance concentrations to all surface sources and sinks endpoints (threedi-api#2173)
+
+- Migration 220 introduces the option to transfer all data from Spatialite to GeoPackage (threedi-schema#45)
+
+- Make ``threedigrid-builder`` compatible with GeoPackage (threedigrid-builder#341) 
+
+- Add cross section table data to GeoJSON export (threedigrid#218)
+
+- Include exchange level in breaches GeoJSON export (threedigrid#219). The ``levl`` property now contains the exchange height
+
+- You can now get the units of a substance through a ``GridH5WaterQualityResultAdmin`` object (threedigrid#223)
+
+- Make ``threedi-modelchecker`` compatible with GeoPackage (threedi-modelchecker#342)
+
+- Remove schematisation check that gives an INFO level message suggesting it would be better to use a friction method with Conveyance 0029 (threedi-modelchecker#358)
+
+- Bugfix: Simulation tags were not always created (threedi-api#2170)
+
+
+
 March 18, 2024
 ^^^^^^^^^^^^^
 
