@@ -3,7 +3,27 @@
 3Di general releases
 --------------------
 
-January 8th, 2023
+June 5th, 2024
+^^^^^^^^^^^^^^
+
+We have released several important new features, most importantly:
+
+- Major improvements in the **water quality** module. It is now ready for use in real-world applications.
+
+- **Vegetation** can now also be used in the 1D domain (in open channels)
+
+- Improvements in the tools to :ref:`vector_data_importer` to your schematisation make these tools even more powerful and versatile.
+
+- Several improvements have been made to make **manual editing** of 1D open water systems easier.
+
+For more details and further information, see the release notes of the different 3Di components:
+
+- :ref:`3Di Modeller Interface <release_notes_mi_20230605>`
+- :ref:`3Di Live <release_notes_3di_live_20240605>`
+- :ref:`3Di API <release_notes_3di_api_20240530>`
+- 3Di Computational core :ref:`May 30th <release_notes_calccore_20240530>` and :ref:`June 5th <release_notes_calccore_20240605>`
+
+January 8th, 2024
 ^^^^^^^^^^^^^^^^^
 
 **Water quality**
