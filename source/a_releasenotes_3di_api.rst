@@ -3,7 +3,7 @@
 3Di API
 -------
 
-.. _release_notes_3di_api_20240530
+.. _release_notes_3di_api_20240530:
 
 May 30, 2024
 ^^^^^^^^^^^^
@@ -46,7 +46,7 @@ April 29, 2024
 
 
 March 18, 2024
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 - Add water quality settings and substance settings.
 

@@ -3,7 +3,7 @@
 3Di Modeller Interface
 ----------------------
 
-.. _release_notes_mi_20230605
+.. _release_notes_mi_20230605:
 
 June 5th, 2024
 ^^^^^^^^^^^^^^

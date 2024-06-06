@@ -97,7 +97,7 @@ Boundary conditions
 
 .. Note:: You can only replace *all* boundary conditions. For example, if your model contains two 1D boundary conditions and five 2D boundary condition, the CSV file for the 1D boundary conditions should contain time series for both of the two 1D boundary conditions and the CSV file for the 2D boundary conditions should contain time series for all five 2D boundary conditions. The simulation wizard will merge them into a single JSON file that is sent to the API
 
-_boundary_conditions_csv_file_format:
+.. _boundary_conditions_csv_file_format:
 
 Boundary conditions CSV file format
 -----------------------------------
@@ -281,6 +281,7 @@ Generating a CSV file for 1D laterals
 - Click 'Ok' to save the file
 - You can now select the CSV file under the option "Upload file(s)" when adding scenario information. The time units in the spatialite (and therefore in the exported CSV) are minutes.
 
+.. _laterals_2d_csv_format_requirements:
 
 2D laterals file format
 -----------------------

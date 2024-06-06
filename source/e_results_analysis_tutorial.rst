@@ -309,7 +309,7 @@ The maximum water depth map gives insight in *where* the flooding occurs, but do
 #) Look at the graph. When does the water level start rising? When does the peak occur and why? Why does the rate of rise decrease leading up to the peak? Is the decrease after the peak faster or slower than the increase? What does this graph tell you about the drainage situation at this location?
 
 .. note::
-    If your subscription also includes the Scenario Archive, you can add a WMS layer of the water depth, and use the Temporal Controller to navigate through its time steps. This will give you additional insight in the progression of the flood through time. See the `Lizard documentation<https://docs.lizard.net/d_qgisplugin.html>`_ for more information.
+    If your subscription also includes the Scenario Archive, you can add a WMS layer of the water depth, and use the Temporal Controller to navigate through its time steps. This will give you additional insight in the progression of the flood through time. See the `Lizard documentation <https://docs.lizard.net/d_qgisplugin.html>`_ for more information.
 
 
 .. _tut6_why:
@@ -399,7 +399,7 @@ Quantification of the flood volume
 
 Now that we know *where* additional storage or buffer capacity would be helpful, we need to estimate how much storage is needed, so that we can use the correct dimensions in the design of our measure.
 
-.. _tut6_calc_flood_volume
+.. _tut6_calc_flood_volume:
 
 Calculating the flood volume
 ############################

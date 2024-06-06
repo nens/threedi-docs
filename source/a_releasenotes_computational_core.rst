@@ -3,7 +3,7 @@
 3Di Computational core
 ----------------------
 
-.. _release_notes_calccore_20240605
+.. _release_notes_calccore_20240605:
 
 June 5, 2024
 ^^^^^^^^^^^^
@@ -15,7 +15,7 @@ June 5, 2024
 - Bugfix: Load entering via leakage not included in substance summary (#808)
 
 
-.. _release_notes_calccore_20240530
+.. _release_notes_calccore_20240530:
 
 May 30, 2024
 ^^^^^^^^^^^^
@@ -38,7 +38,7 @@ April 29, 2024
 
 
 March 18, 2024
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 - Add substance settings to water quality module.
 

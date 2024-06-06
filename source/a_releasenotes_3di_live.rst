@@ -3,7 +3,7 @@
 3Di Live
 --------
 
-.. _release_notes_3di_live_20240605
+.. _release_notes_3di_live_20240605:
 
 June 5th, 2024
 ^^^^^^^^^^^^^^
