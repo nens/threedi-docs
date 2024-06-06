@@ -3,12 +3,14 @@
 3Di Live
 --------
 
+.. _release_notes_3di_live_20240605
+
 June 5th, 2024
 ^^^^^^^^^^^^^^
 
 - Improved interpolation of 2D flow visualisation between cells (#1594)
 
-- Improve threedi performance by not redrawing 2D flow 7 times in 1 second (#1686)
+- Improve 3Di Live performance of 2D flow visualisation by reducing the redrawing frequency (#1686)
 
 - Show exchange level in Breaches details (#1673)
 

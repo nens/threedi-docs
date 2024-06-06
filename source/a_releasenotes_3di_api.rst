@@ -3,6 +3,8 @@
 3Di API
 -------
 
+.. _release_notes_3di_api_20240530
+
 May 30, 2024
 ^^^^^^^^^^^^
 - Implement substance decay (threedi-api #2150)
