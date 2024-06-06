@@ -6,7 +6,7 @@
 June 5, 2024
 ^^^^^^^^^^^^
 
-- Add two step method corrector for water quality calculations to improve stability and reduce numerical diffusion (#794)
+- In the water quality module, a discretisation method has been implemented that improves the stability and reduces numerical diffusion. It uses a combination of explicit and implicit solving methods. This two-step method overcomes limitations of the accurate explicit method and ensures stability with the implicit part of the method. (#794)
 
 - Improved stability of water quality calculations in case of shallow, fast flowing water (#795)
 
