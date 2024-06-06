@@ -160,7 +160,7 @@ What are the advantages of changing the database schema?
 	
     - Make exchange type (isolated/connected/embedded) an attribute of connection node instead of manhole, so that it is no longer necessary to place manholes purely to set the exchange type.
 	
-- A cleaner database schema, including:
+- A cleaner database schema, including
 	
     - Remove the "v2_" prefixes in all table names
     
