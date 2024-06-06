@@ -9,6 +9,7 @@
 - :ref:`cross_section_of_1d_element`
 - :ref:`1d_momentum_equation`
 - :ref:`1d_friction`
+- :ref:`1d_vegetation`
 - :ref:`1Dpressurized`
 - :ref:`channelflow`
 - :ref:`weirs_and_orifices`
@@ -174,13 +175,42 @@ The conveyance factor considers the depth variations in the different depth sect
    Single Section Method vs Compound Section (Conveyance) Method
 
 In 3Di, the conveyance method can be applied with single or variable roughnesses. In case of the single roughness, one roughness value is assigned to the whole cross-section. This can be used with cross-section shapes *Tabulated rectangle* and *Tabulated trapezium*. On the other hand, different roughness values can be assigned to the sub-sections to account for the variable roughness along the cross-section. This can be used with the cross-section shape *YZ*.
- 
+
+.. _1d_vegetation:
+
+Vegetation in the 1D domain
+---------------------------
+
+In addition to friction, natural or planted vegetation plays a significant role in the hydrualic resistance of the flow. The overall head loss along a channel can strongly increase with the presence of vegetation. The way 3Di calculates the effect of vegetation on the flow in the 1D domain is very similar to :ref:`flow_with_vegetation`. 
+
+The effect of vegetation is modelled as the equivalent shear stress due to vegetation (:cite:t:`Baptist2007`,). The total shear stress is then the superposition of the surface and vegetation-induced shear stresses, which eventually alters the uniform flow velocity. This method uses vegetation characteristics, namely stem diameter, density, height, and drag coefficient, to quantify the vegetation-induced shear stress :math:`\tau_v` as:
+
+.. math::
+
+   \tau_v = \frac{1}{2}C_{DV} m D min[H_v, H]u^2  \label{eq:veggie_drag_baptist} 
+    
+| with: 
+| :math:`u`, the flow velocity (in flow direction)
+| :math:`H`, the water depth
+| :math:`H_v`, the relative vegetation height
+| :math:`D`, the stem diameter
+| :math:`m`, the number of stems per square meter 
+| :math:`C_{DV}`, The vegetation drag coefficient 
+
+3Di allows for defining single vegetation properties for the cross-section shapes *Tabulated rectangle* and *Tabulated trapezium* (see :ref:`cross-section_shape`). For cross-sections with a *YZ* shape, different vegetation parameter values can be set for each segment in the cross-section, to represent the spatial distribution of vegetation across a channel (see the figure below). When generating the model, 3Di analyzes the cross-section and divides it into several sub-sections according to the slope of the segments. The details about 1D vegetation entries can be found in :ref:`cross_section_location`.
+
+.. figure:: image/1dvegetation.png
+   :figwidth: 1500 px
+   :alt: 1D_vegetation
+
+   User-defined vegetation properties for each segment of a YZ cross-section, and how 3Di interprets it.
+
 .. _1Dpressurized:
 
 Pressurized flow
 ----------------
 
-In 1D elements with closed cross-sections flow may become pressurized. The way 3Di deals with this is similar to how 3Di deals with the non-lineair relations in 2D cells (e.g. between volume and water level). :ref:`subgridmethod` allows 2D cells to be  be dry, wet or *partly wet*, creating a non-lineair volume-water level relation. This was solved with a highly efficient method. However, there are some requirements for such system to be solved. one of these requirements is violated when the surface area decreases for increasing water levels, as in pipes that are more than half full (see the Figure below). Therefore, a new method had to be introduced to solve such a non-linear system of equations. This method is based on the so-called nested Newton method (`cite:t:`Casulli2013`).
+In 1D elements with closed cross-sections, flow may become pressurized. The way 3Di deals with this is similar to how 3Di deals with the non-linear relations in 2D cells (e.g. between volume and water level). :ref:`subgridmethod` allows 2D cells to be dry, wet or *partly wet*, creating a non-linear volume-water level relation. This was solved with a highly efficient method. However, there are some requirements for such system to be solved. One of these requirements is violated when the surface area decreases for increasing water levels, as in pipes that are more than half full (see the Figure below). Therefore, a new method had to be introduced to solve such a non-linear system of equations. This method is based on the *nested Newton* method (:cite:t:`Casulli2013`).
 
 .. figure:: image/b1_5.png
    :scale: 50%

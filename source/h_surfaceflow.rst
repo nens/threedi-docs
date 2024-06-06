@@ -3,12 +3,17 @@
 2D Surface flow
 ===============
 
-
 The 2D surface flow is based on the 2D depth-averaged shallow water equations. These equations are based on the conservation of momentum. 3Di considers the various processes; inertia, advection, pressure and friction for computing the horizontal flow.
 
 The methods that 3Di uses to deal with the flow in the 2D domain are thoroughly described and published in :cite:t:`Casulli2009`, :cite:t:`Casulli2011`, :cite:t:`Stelling2015`, and :cite:t:`Volp2013`.
 
- .. TODO: Extend
+- :ref:`surface_flow_cross_sections`
+- :ref:`obstacles`
+- :ref:`friction_2d_domain`
+- :ref:`water_level_gradients`
+- :ref:`sloping_terrain`
+- :ref:`flow_with_vegetation`
+
 
 .. _surface_flow_cross_sections:
 
@@ -50,10 +55,14 @@ If the model wishes to include an obstacle that may not be detected by the compu
 
    In sub-figure (A) the flow can freely flow from left to right as the blocking features are not on the cell edges. Sub-figure (B) shows the effect of the obstacle: it affects the exchange level of the nearest cell edge.
 
-Friction
---------
+.. _friction_2d_domain:
+
+Friction in the 2D domain
+-------------------------
 
 In the 2D domain, the friction is calculated using the flow depth at each :ref:`subgrid <subgridmethod>` pixel in the :ref:`momentum domain<computational_grid_2d_domain>`. The formulations of Chézy or Manning can be used for the calculation of friction.
+
+.. _water_level_gradients:
 
 Water level gradients
 ---------------------
@@ -61,6 +70,8 @@ Water level gradients
 On flat terrain without steep steps or jumps in elevation, the water level gradient is simply determined by the difference in water level over the x-axis or y-axis distance between the cell centers.
 
 If there are steep steps in the terrain, a :ref:`limiter_gradient` may be used to correctly calculate the water level gradient.
+
+.. _sloping_terrain:
 
 Sloping terrain
 ---------------
@@ -70,8 +81,8 @@ Calculating 2D flow on sloping terrain requires some special attention. If the d
 
 .. _flow_with_vegetation:
 
-Vegetation
-----------
+Vegetation in the 2D domain
+---------------------------
 
 Vegetation in a water course strongly affects the flow, as the vegetation exerts a *drag force* on the flowing water. In 3Di, this drag force can be calculated from the characteristics of the vegetation that is present in the water course.
 
