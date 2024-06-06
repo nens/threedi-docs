@@ -8,9 +8,9 @@ June 5th, 2024
 
 We have released several important new features, most importantly:
 
-- Major improvements in the **water quality** module. It is now ready for use in real-world applications.
+- Major improvements in the **water quality** module. It is now ready for use in real-world applications. See :ref:`How to use water quality <howto_use_water_quality>`.
 
-- **Vegetation** can now also be used in the 1D domain (in open channels)
+- **Vegetation** can now also be used in the 1D domain (in open channels). See :ref:`How to use vegetation <a_how_to_vegetation>`.
 
 - Improvements in the tools to :ref:`vector_data_importer` to your schematisation make these tools even more powerful and versatile.
 
