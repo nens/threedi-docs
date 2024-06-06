@@ -3,6 +3,92 @@
 3Di Modeller Interface
 ----------------------
 
+June 5th, 2024
+^^^^^^^^^^^^^^
+
+3Di Results Analysis 3.8.1
+""""""""""""""""""""""""""
+
+- Time series plotter: allow users to choose substance concentrations as variable (#975)
+
+- Result layers in the Result Aggregation, Cross-Sectional Discharge, and Watershed tools now have the exact same fields and field names as the input node, cell, and flowline layers (#914) 
+
+- Several small issues were fixed in the Watershed tool:
+
+	- Do not empty the result layers when closing the tool (and remove the result sets filter when closing the tool)
+
+	- Do not empty the result layers when toggling "Smooth result watersheds"
+
+	- Only show the relevant target node marker when browsing result sets
+
+	- Do not smooth result watersheds of previous result sets; "smooth result watersheds" now only affects new result sets.
+
+	- Bugfix: Catchment polygon was not created when Browse Results was checked (#655)
+
+- Bugfix: when visualising results on the map, the styling of the flowline results was partly broken in QGIS 3.34 (#1005)
+
+- Bugfix: Processing algorithm "Detect leaking obstacles in DEM" gave a Python error after completion (#1004)
+
+3Di Models & Simulations 3.10.2
+"""""""""""""""""""""""""""""""
+
+- Several new features and improvements have been implemented in the Simulation wizard:
+
+	- The laterals page has been improved (#467) 
+	
+	- The CSV file format requirements for :ref:`simulate_api_qgis_boundary_conditions`, :ref:`simulate_api_qgis_laterals`, and :ref:`dry_weather_flow` have been made less strict (#560)
+
+	- You can now add substances to your simulation via laterals (#534, #538). See :ref:`simulation_wizard_substances` for instructions on how to define the substances you want to use in your simulation and :ref:`laterals_substance_concentrations` for instructions on how to add those substances to the lateral discharges in your simulation.
+
+- Bugfix: When sorting, table widgets that include a revision ID treat it as an integer instead of a string (#564)
+
+- When uploading a new revision, simulation templates can now be inherited from the previous revision (#529)
+
+- Compatibility with schema 219 to support 1D vegetation (#532)
+
+
+3Di Schematisation Editor 1.10.1
+""""""""""""""""""""""""""""""""
+
+- **Vegetation** can now also be used in the 1D domain; this has been implemented in the cross-section location attribute form (#188, #229, #235)
+
+- You can now specify a different friction value for each segment of a cross-section with YZ shape (#188, #229, #235).
+
+- Several improvements for **manual editing** have been made:
+
+	- Cross-section location can now be placed on a channel segment, not just on channel vertex (#196)
+
+	- Channel ID is updated when moving a cross-section location (#221)
+
+	- Channel ID is filled in when drawing a potential breach (#230)
+
+	- When moving or changing the geometry of schematisation objects, related objects are also moved (topological editing). The implementation of topological editing has been improved to make it more consistent (#219, #220, #232). The new implementation is:
+		- General topological editing for Connection nodes; when moving a connection node, all schematisation objects that are connected to it are also affected.
+		- Specific logic for Channels:
+			- Cross-section locations are topologically edited when a Channel geometry is edited. Cross-section location can be on a channel vertex or segment.
+			- Potential breaches (start vertex) are topologically edited when Channel geometry is edited. Start vertex of a Potential breach can be on a channel vertex or segment.
+		- Specific logic for Impervious surface:
+			- Impervious surface map is topologically edited when Impervious surface geometry changes. The start vertex of the Impervious surface map is on the *point on surface* of the Impervious surface
+		- Specific logic for Surface:
+			- Surface map is topologically edited when Surface geometry changes. The start vertex of the Surface map is on the *point on surface* of the Surface
+
+- Several improvements have been made to the **vector data importers**:
+
+	- Vector data importers: do not commit changes (#228)
+
+	- Vector data importer: try to convert incompatible geometries to singlepart Point/Polygon/Linestring (#222)
+
+	- Vector data importer: add "expression" as a method (#211)
+
+	- Vector data importer: auto-select source attribute if it matches target attribute#190
+
+	- Import manholes: skip manholes that are snapped to connection nodes that already have a manhole (#224)
+
+- In the processing algorithm "Map (impervious) surfaces to connection nodes", the option has been added to use "Selected features only" for all vector layer inputs (#227)
+
+
+
+
 April 11, 2024
 ^^^^^^^^^^^^^^
 
