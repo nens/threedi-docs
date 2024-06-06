@@ -9,7 +9,7 @@ June 5th, 2024
 3Di Results Analysis 3.8.1
 """"""""""""""""""""""""""
 
-- Time series plotter: allow users to choose substance concentrations as variable (#975)
+- Time series plotter: you can now plot substance concentrations for individual nodes in the Time series plotter (#975)
 
 - Result layers in the Result Aggregation, Cross-Sectional Discharge, and Watershed tools now have the exact same fields and field names as the input node, cell, and flowline layers (#914) 
 
@@ -34,7 +34,7 @@ June 5th, 2024
 
 - Several new features and improvements have been implemented in the Simulation wizard:
 
-	- The laterals page has been improved (#467) 
+	- The laterals page has been improved (#467). See :ref:`simulate_api_qgis_laterals` for more information.
 	
 	- The CSV file format requirements for :ref:`simulate_api_qgis_boundary_conditions`, :ref:`simulate_api_qgis_laterals`, and :ref:`dry_weather_flow` have been made less strict (#560)
 
@@ -62,27 +62,35 @@ June 5th, 2024
 
 	- Channel ID is filled in when drawing a potential breach (#230)
 
-	- When moving or changing the geometry of schematisation objects, related objects are also moved (topological editing). The implementation of topological editing has been improved to make it more consistent (#219, #220, #232). The new implementation is:
+	- When moving or changing the geometry of schematisation objects, related objects are also moved (topological editing). The implementation of topological editing has been improved to make it more consistent (#219, #220, #232).
+
 		- General topological editing for Connection nodes; when moving a connection node, all schematisation objects that are connected to it are also affected.
-		- Specific logic for Channels:
+
+		- Specific logic for Channels
+
 			- Cross-section locations are topologically edited when a Channel geometry is edited. Cross-section location can be on a channel vertex or segment.
+
 			- Potential breaches (start vertex) are topologically edited when Channel geometry is edited. Start vertex of a Potential breach can be on a channel vertex or segment.
-		- Specific logic for Impervious surface:
-			- Impervious surface map is topologically edited when Impervious surface geometry changes. The start vertex of the Impervious surface map is on the *point on surface* of the Impervious surface
-		- Specific logic for Surface:
+
+		- Specific logic for Impervious surface
+
+			- Impervious surface map is topologically edited when Impervious surface geometry changes. The start vertex of the Impervious surface map is on the *point on surface* of the Impervious surface.
+
+		- Specific logic for Surface
+
 			- Surface map is topologically edited when Surface geometry changes. The start vertex of the Surface map is on the *point on surface* of the Surface
 
 - Several improvements have been made to the **vector data importers**:
 
-	- Vector data importers: do not commit changes (#228)
+	- Changes to the layers affected by the import are no longer committed automatically, so that you can review the added features before deciding to commit them to the layer (#228)
 
-	- Vector data importer: try to convert incompatible geometries to singlepart Point/Polygon/Linestring (#222)
+	- If geometries in the source layer are different from the geometry type of the target layer, the vector data importer will try to convert them to a compatible type. For example, multipart to singlepart, or MultiCurve to polygon (#222)
 
-	- Vector data importer: add "expression" as a method (#211)
+	- "Expression" has been added as a method to convert source attributes to target attributes (#211). This can be used e.g. to convert millimeters to meters, to create a code from a combination of source attributes, or to apply more complex if/then/else logic to the source attributes.
 
-	- Vector data importer: auto-select source attribute if it matches target attribute#190
+	- Source attributes are automatically selected if they have the same name as the target attribute (#190)
 
-	- Import manholes: skip manholes that are snapped to connection nodes that already have a manhole (#224)
+	- Import manholes: source manholes are skipped if they are snapped to connection nodes that already have a manhole (#224)
 
 - In the processing algorithm "Map (impervious) surfaces to connection nodes", the option has been added to use "Selected features only" for all vector layer inputs (#227)
 
