@@ -48,6 +48,8 @@ The high resolution subgrid data is compressed in tables that allow fast access 
 
 This relation is specific for each cell, node or, in case of cross-sectional area, flowline. When the cell is partially wet, the relation between water level and the other variables is non-lineair. The subgrid tables describe this non-linear relation using entries that contain a water level and e.g. (for volumes) the total water volume in the cell at that water level. Once the cell is completely wet, all relations become linear again (e.g. one cm rise in water level will always yield the same rise in volume), so the last entry in the subgrid tables is the highest point in the cell or cross-section.
 
+.. _subgrid_table_settings:
+
 Subgrid table settings
 ^^^^^^^^^^^^^^^^^^^^^^
 
