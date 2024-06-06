@@ -2,8 +2,32 @@
 
 3Di Live
 --------
+
+June 5th, 2024
+^^^^^^^^^^^^^^
+
+- Improved interpolation of 2D flow visualisation between cells (#1594)
+
+- Improve threedi performance by not redrawing 2D flow 7 times in 1 second (#1686)
+
+- Show exchange level in Breaches details (#1673)
+
+- The UI for the visualisation of 1D and 2D flow has been improved:
+
+	- It has been made clearer which elements are visible/invisible on the map (#1759)
+
+	- For the 1D flow/2D flow settings, the "down arrow" has been replaced with a "settings" icon (#1761)
+
+- File 2D laterals in the simulation template are now also visible on the map in 3Di Live, similar to non-file 2D laterals (#1757)
+
+- Bugfix: "Billing goes to" dropdown was very slow sometimes (#1785)
+
+- Bugfix: opening breaches in 3Di Live did not work for 3Di models generated after May 30th. This has been fixed now (#1843)
+
+
 March 26th, 2024
 ^^^^^^^^^^^^^^^^
+
 - 2D flow is now visualised using traces. The visualisation of 2D flow is based on the flow velocity at the center of the computational grid cells. Note that it does not take into account intra-cell variation of flow velocity or direction. For this reason, you may see flow in dry parts of cells. (#1705, #1703, #1670, #1617, #1682, #1675, #1612, #1576, #1561, #440)
 
 - Hillshade and new colour map in for the DEM (#1671, #1707, #1681, #1677, #1616, #1577)

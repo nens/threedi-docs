@@ -3,6 +3,28 @@
 3Di Computational core
 ----------------------
 
+June 5, 2024
+^^^^^^^^^^^^
+
+- Add two step method corrector for water quality calculations to improve stability and reduce numerical diffusion (#794)
+
+- Improved stability of water quality calculations in case of shallow, fast flowing water (#795)
+
+- Bugfix: Load entering via leakage not included in substance summary (#808)
+
+
+May 30, 2024
+^^^^^^^^^^^^
+
+- Timestep handling in the water quality module has been improved significantly (#742, #751, #752). This makes water quality calculations much faster, more stable, and more accurate.
+
+- A decay coefficient (half-life) can now be set for each substance (#700, #775)
+
+- It is now possible to use single vegetation parameter values (constant over the whole cross-section) when using cross-section shape *YZ* and friction type *Chezy with conveyance* (#800)
+
+- Bugfix: Some types of raster NetCDF forcings (e.g. NetCDF rain) were not accepted by the 3Di API because of a bug in the routine that compares the spatial extent of the forcing to the spatial extent of the 3Di model. This has been fixed now (#2221).
+
+
 April 29, 2024
 ^^^^^^^^^^^^^^
 

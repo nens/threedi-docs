@@ -3,6 +3,21 @@
 3Di API
 -------
 
+May 30, 2024
+^^^^^^^^^^^^
+- Implement substance decay (threedi-api #2150)
+
+- Add a *started_from* property to simulations to indicate which user interface started the simulation (3Di Live or 3Di Modeller Interface) (threedi-api #1328)
+
+- Add units to substances (threedi-api #2085, threedigrid #223)
+
+- Add linestring geometry to pumps in geojson (threed-api #1955)
+
+- Bugfix: Assymmetric YZ profiles were not processed correctly (threedigrid #228)
+
+- Bugfix: Simulation with multiple substances no longer crashes (threedi-api #2223)
+
+
 April 29, 2024
 ^^^^^^^^^^^^^^
 
