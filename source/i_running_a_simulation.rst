@@ -243,18 +243,18 @@ If the option 'Interpolate' is checked, the value between time steps will be lin
 The CSV file for 1D laterals should look like this::
 
     id,connection_node_id,timeseries
-	1,3,"0,0.5
-	60,1.0
-	120,2.0"
-	2,2,"0,0.5
-	60,1.0
-	120,2.0"
-	3,1,"0,0.5
-	60,1.0
-	120,2.0"
-	4,4,"0,0.5
-	60,1.0
-	120,2.0"
+    1,3,"0,0.5
+    60,1.0
+    120,2.0"
+    2,2,"0,0.5
+    60,1.0
+    120,2.0"
+    3,1,"0,0.5
+    60,1.0
+    120,2.0"
+    4,4,"0,0.5
+    60,1.0
+    120,2.0"
 
 Requirements: 
 
