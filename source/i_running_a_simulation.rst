@@ -288,16 +288,16 @@ Generating a CSV file for 1D laterals
 
 The CSV file for 2D laterals should look like this::
 
-    X,Y,id,type,timeseries
-	4.73305012754464,52.5607362843091,1,1: Surface,"0,0.5
-	60,1.0
-	120,2.0"
-	4.73149460853063,52.5589740526876,2,1: Surface,"0,0.5
-	60,1.0
-	120,2.0"
-	4.73018087976208,52.5556893490626,3,1: Surface,"0,2.5
-	60,2.0
-	120,5.0"
+    X,Y,id,timeseries
+    4.73305012754464,52.5607362843091,1,"0,0.5
+    60,1.0
+    120,2.0"
+    4.73149460853063,52.5589740526876,2,"0,0.5
+    60,1.0
+    120,2.0"
+    4.73018087976208,52.5556893490626,3,"0,2.5
+    60,2.0
+    120,5.0"
 
 |
 
@@ -340,18 +340,18 @@ If you have defined one or more substances on the :ref:`simulation_wizard_substa
 The CSV file for substance concentrations added to 1D or 2D laterals should look like this::
 
     id,timeseries
-	1,"0,0.5
-	60,1.0
-	120,2.0"
-	2,"0,0.5
-	60,1.0
-	120,2.0"
-	3,"0,0.5
-	60,1.0
-	120,2.0"
-	4,"0,0.5
-	60,1.0
-	120,2.0"
+    1,"0,0.5
+    60,1.0
+    120,2.0"
+    2,"0,0.5
+    60,1.0
+    120,2.0"
+    3,"0,0.5
+    60,1.0
+    120,2.0"
+    4,"0,0.5
+    60,1.0
+    120,2.0"
 
 Requirements: 
 
