@@ -16,7 +16,7 @@ Water quality
 .. math::
    :label: Decay coefficient
 
-   C_{decay} = frac{1}{T}
+   C_{decay} = \frac{1}{T}
 
 | where: 
 | :math:`T`: mean lifetime in seconds
