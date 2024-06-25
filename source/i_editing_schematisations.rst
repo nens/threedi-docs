@@ -70,22 +70,25 @@ Editing Feature Attributes
 
 There are two options available for editing feature attributes:
 
-1. Via the **Attribute Table**:
+1. Via the **Attribute Table** (for editing multiple objects at once):
    
    - Right-click the layer in the Layers panel.
    - Select 'Open Attribute Table'.
    - Click the 'Toggle Editing' button located in the top left corner.
    - Make the necessary edits within the table.
+   - To batch edit, use the drop-down menu in the top left to select the features to be edited. Fill out a value or expression in the text bar and click Update all to edit all objects or Update selected to edit the selected objects. 
    - Click 'Save Edits' in the top left corner to save your changes.
 
 
-2. Using the **Identify Feature** option:
+2. Using the **Identify Feature** option (for editing specific objects one at a time):
    
    - Select the desired feature layer.
+   - Click the 'Toggle Editing' button located in the top left corner.
    - Enable the 'Identify Feature' (|idendifyFeature|) option.
    - Click on a feature on the map.
    - A window will open displaying the attributes of the selected feature, along with the attributes of all related features.
-   - Explore the different tabs within the window to access the related feature attributes.
+   - Explore the different tabs within the window to access and edit the related feature attributes.
+   - Click 'Save Edits' in the top left corner to save your changes.
 
 |
 
