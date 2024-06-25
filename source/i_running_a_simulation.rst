@@ -47,7 +47,7 @@ Starting a simulation
       * :ref:`simulate_api_qgis_multi_sim` (becomes available when using either breaches or precipitation): To define multiple simulations with rainfall or breaches. Useful when simulating multiple events on the same model.
 
 #) Name the simulation. Users within your organisation will be able to find this simulation and its results based on the name. Adding 'Tags' can clarify for other users what your simulation calculated or can be used to assign a simulation a certain project name or number.
-#) Set the 'Duration' of the simulation.
+#) Set the 'Duration' of the simulation. You can specify the time zone for the simulation duration.
 #) The next steps depend on the selection of options from the initial screen of the wizard (step 6). Unchecked options will be omitted by the wizard. The different options are explained below.
 #) If you want, change the :ref:`simulation_settings`. The setting values that are shown are the ones you have specified in the schematisation spatialite. This page in the simulation wizard allows you to override specific  settings for this specific simulation. This does not change the values of the simulation settings in the spatialite.
 #) Click *Add to queue* to start the simulation. 
@@ -457,7 +457,7 @@ This option is only available in the Netherlands and uses historical rainfall da
 * 'Start after:' defines an offset. The offset is the duration between start simulation and the start of the rainfall event.
 * 'Stop after:' the duration between the start of the simulation and the end of the rain event.
 
-|
+.. Note:: Radar rain uses the time zone Central European Time. Make sure you select the same time zone for the start of your simulation on the Duration page to avoid confusion.
 
 .. _wind_apiclient:
 
