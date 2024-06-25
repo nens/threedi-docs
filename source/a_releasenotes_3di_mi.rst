@@ -3,6 +3,68 @@
 3Di Modeller Interface
 ----------------------
 
+.. _release_notes_mi_20240621
+
+June 21st, 2024
+^^^^^^^^^^^^^^^
+
+3Di Models and Simulations 3.11.0
+"""""""""""""""""""""""""""""""""
+
+Several improvements were made to the Simulation Wizard, mainly to support Water Quality simulations:
+
+	- Add substance concentrations to boundary conditions page (#536)
+
+	- Add column "decay coefficient" to table on substances page (#572)
+
+	- Read substance data from simulation template when initializing the simulation wizard (#568)
+
+	- Set the new simulation property *started_from* to "3Di Modeller Interface" (#556)
+
+	- (Bugfix): since the :ref:`release_notes_mi_20230605` release, 3Di simulations with 2D laterals but without substances could not be started from the 3Di Modeller Interface. This has been fixed now (#576)
+
+The naming of downloaded simulation results has been changed to fix some issues:
+
+	- Download results: Make simulation directory name the same for Lizard QGIS plugin and 3Di Models & Simulations (#530)
+
+	- Download results: Remove slashes from simulation name (#497)
+
+The computational grid can now be checked before uploading a new revision of your schematisation:
+
+	- Upload wizard: Check computational grid before upload (#429)
+
+3Di Results Analysis 3.9.0
+""""""""""""""""""""""""""
+
+Water quality results can now be visualized on the map canvas. Some improvements have been made in the *Time series plotter* support for Water Quality results:
+
+	- Substance concentrations can now be visualized on the map canvas (#978)
+
+	- Styling improvements in results shown on the map (#1020):
+
+		- Using pretty breaks instead of equal count bins and 2 percent cutoff thresholds
+
+		- Improved labels for first and last legend class
+
+		- Fix drawing direction of breaches
+
+		- Set rendering order for lines (lowest values are rendered first, highest are rendered last, i.e. on top)
+
+	- Time series plotter: do not show warning when there is no Water Quality NetCDF (#1017)
+
+	- Time series plotter: Show (-) if the substance that is to be plotted has no units (#1011)
+
+- Load simulation results (Bugfix): sort by revision ID as integer not string (#1008)
+
+3Di Schematisation Editor 1.11.0
+""""""""""""""""""""""""""""""""
+
+- Bugfix: When starting to draw a Culvert, a Python error was produced. This problem was introduced recently and has been fixed now. (#236)
+
+
+
+
+
 .. _release_notes_mi_20230605:
 
 June 5th, 2024
