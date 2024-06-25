@@ -39,11 +39,9 @@ Input
 +++++
 
 The numerical grid is generated based on the following settings:
-- Grid space.
-
-- Number of refinement levels.
-
-- Grid refinements.
+* Grid space.
+* Number of refinement levels.
+* Grid refinements.
 
 The grid space is the measure of the dimension of a computational cell. It is important that the width and the height of a grid cell contain an even number of subgrid cells. In case the dimensions of a subgrid cell are *0.5 x 0.5 m*:sup:`2`, the grid space can be 5.0 x 5.0 m*:sup:`2`. In case the dimensions of a subgrid cell are *1.0 x 1.0 m*:sup:`2`, the grid space can not be *5.0 x 5.0 m*:sup:`2`. The grid space is defined in the Global settings table and is the dimension of the smallest grid size. The *kmax* setting is the number of refinement levels. Locations where the refinements need to be defined can be added by a line using the Grid refinement table, or by an area using Grid refinement area. In case two refinement levels are defined at the same location, 3Di will refine to the highest level indicated. 3Di will always aim at a minimum number of grid cells, it will coarsen the grid as fast as possible, but it will only be possible to do that in steps of four.
 
@@ -94,7 +92,7 @@ The available storage for a 1D node consists of the storage of the node (if the 
 Calculation point distance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When the computational grid is generated from the schematisation input, computational nodes  are placed at each connection node. Additionally, computational nodes can be generated in between these locations. The spacing between these computational nodes is determined by a calculation point distance, the 1D grid resolution. In 3Di this distance can be specified for each individual pipe, culvert, or channel by filling the ‘dist_calc_points’ attribute of those features.
+When the computational grid is generated from the schematisation input, computational nodes are placed at each connection node. Additionally, computational nodes can be generated in between these locations. The spacing between these computational nodes is determined by a calculation point distance, the 1D grid resolution. In 3Di this distance can be specified for each individual pipe, culvert, or channel by filling the ‘dist_calc_points’ attribute of those features.
 If the specified calculation point distance is larger than the length of the feature, no additional calculation points are generated in between the connection nodes. This is visualised in the figure below.
 
 .. figure:: image/h_calculation_point_distance_intro.png
@@ -123,3 +121,221 @@ In case more than two cross-section locations are defined between two (new) comp
 
 For pipes and culverts, the drain level of the generated computational nodes is determined by linear interpolation between the drain levels at the start and end of the pipe or culvert. This is relevant only for pipes and culverts with calculation type ‘connected’. In the case of pipes, this can be a way to schematise gullies. Pipes and culverts always have a single cross-section over their entire length, so interpolation of the cross-section is not necessary.
 If drain levels are not set, the height of the DEM at that location is used as exchange height.
+
+.. _computational_grid_objects:
+
+Computational grid objects
+--------------------------
+The schematisation input in the 1D and 2D domain results in one computational grid. This grid consists of the following objects:
+
+* Cell
+* Flowline
+* Node
+* Obstacle
+* Pump (line)
+* Pump (point)
+
+Cell
+^^^^
+The cells of the computational grid. 
+
+Geometry
+++++++++
+Polygon.
+
+Attributes
+++++++++++
+
+.. list-table:: Cell attributes
+   :widths: 6 4 4 2 4 30
+   :header-rows: 1
+
+   * - Attribute alias
+     - Field name
+     - Type
+     - Mandatory
+     - Units
+     - Description
+   * - ID
+     - id
+     - integer
+     - Yes
+     - \-
+     - Unique identifier
+   * - Node type
+     - node_type
+     - integer
+     - xx Yes
+     - \-
+     - xx ID of the connection node to place the 1D boundary condition on
+   * - xx Boundary type
+     - has_dem_averaged
+     - boolean
+     - Yes
+     - \-
+     - xx Sets the type to water level (1), velocity (2), discharge (3) or Sommerfeld (5). See :ref:`1d_boundary_condition_notes_for_modellers` for details.
+   * - xx Time series
+     - max_surface_area
+     - decimal number
+     - xx Yes
+     - xx [minutes since start of simulation],[m | m/s | m³/s]. See :ref:`1d_boundary_condition_notes_for_modellers` for details.
+     - xx Timeseries of water levels, flow velocities, discharges or water level gradients to be forced on the model boundary
+   * - xx Attribute alias
+     - bottom_level
+     - decimal number
+     - xx Mandatory
+     - xx Units
+     - xx Description
+   * - Attribute alias
+     - impervious_layer_elevation
+     - decimal number
+     - xx Mandatory
+     - xx Units
+     - xx Description
+
+Flowline
+^^^^^^^^
+Straight line between two nodes.
+
+Geometry
+++++++++
+Line.
+
+Attributes
+++++++++++
+
+   * - Attribute alias
+     - Field name
+     - Type
+     - Mandatory
+     - Units
+     - Description
+   * - ID
+     - id
+     - integer
+     - Yes
+     - \-
+     - Unique identifier
+   * - Discharge coefficient positive
+     - discharge_coefficient_positive
+     - decimal number
+     - xx Mandatory
+     - \-
+     - Discharge coefficient in the positive direction.
+   * - Discharge coefficient negative
+     - discharge_coefficient_negative
+     - decimal number
+     - xx Mandatory
+     - \-
+     - Discharge coefficient in the negative direction.
+   * - Line type
+     - line_type
+     - integer
+     - xx Mandatory
+     - \-
+     - Flowline type, e.g. 2D, 1D connected or 1D isolated
+   * - Source table
+     - source_table
+     - text
+     - xx No
+     - \-
+     - For flowlines generated from 1D objects: the table in which this object is described.
+   * - Source table ID
+     - source_table_id
+     - integer
+     - xx Mandatory
+     - \-
+     - xx Description
+   * - Invert level of the start point
+     - invert_level_start_point
+     - decimal number
+     - xx Mandatory
+     - xx Units
+     - xx Description
+   * - Invert level of the end point
+     - invert_level_end_point
+     - decimal number
+     - xx Mandatory
+     - xx Units
+     - xx Description
+   * - Exchange level
+     - exchange_level
+     - decimal number
+     - xx Mandatory
+     - xx Units
+     - xx Description
+   * - Start calculation node ID
+     - calculation_node_id_start
+     - integer
+     - xx Mandatory
+     - \-
+     - ID of the calculation node that coincides with the starting point of the flowline.
+   * - End calculation node ID
+     - calculation_node_id_end
+     - integer
+     - xx Mandatory
+     - \-
+     - ID of the calculation node that coincides with the end point of the flowline.
+   * - Sewerage
+     - sewerage
+     - boolean
+     - xx Mandatory
+     - \-
+     - xx Description
+   * - Sewerage type
+     - sewerage_type
+     - integer
+     - xx Mandatory
+     - \-
+     - xx Description
+
+Node
+^^^^
+Centre of a computational cell in which water levels and pressures are defined (2D domain) or the end point of a 1D object or the connection point between two 1D objects (1D domain).
+
+Geometry
+++++++++
+Point.
+
+Attributes
+++++++++++
+Insert table.
+
+
+Obstacle
+^^^^^^^^
+Border of a computational cell along which exchange with the neighbouring cell cannot take place for water levels under the crest level of the obstacle.
+
+Geometry
+++++++++
+Line.
+
+Attributes
+++++++++++
+Insert table.
+
+
+Pump (line)
+^^^^^^^^^^^
+Description.
+
+Geometry
+++++++++
+Line.
+
+Attributes
+++++++++++
+Insert table.
+
+
+Pump (point)
+^^^^^^^^^^^^
+Description.
+
+Geometry
+++++++++
+Point.
+
+Attributes
+++++++++++
+Insert table.
