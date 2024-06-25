@@ -56,6 +56,7 @@ You can follow the progress of your simulation by clicking on the *Simulate* ico
 
 Once the simulation is done the results will be available for 7 days. For information on how to download, view and analyze results, see :ref:`mi_analysing_results`.
 
+.. Note:: You can remove a simulation from the queue in the Simulation overview window, which is reached by clicking the 'Simulate' icon.
 
 .. _simulation_wizard_substances:
 
@@ -422,17 +423,19 @@ Constant
 * 'Intensity:' The rain intensity (in mm/h) is uniform and constant in the given time frame. The rain intensity preview provides the rain intensity throughout the simulation in the form of a histogram.
 
 
-Custom
+From CSV
 
-* 'Start after:' defines an offset. The offset is the duration between start simulation and the start of the rainfall event.
-* 'Values:' the event is defined in a CSV or NetCDF file. The default format is in minutes, and the rainfall in mm for that time step. Please keep in mind that the duration of the rain in the custom format cannot exceed the duration of the simulation. Here is and example of the format of a CSV file:
+* 'Start after:' defines an offset. The offset is the duration between the start of the simulation and the start of the rainfall event.
+* 'Units:' select the units of the uploaded file.
+* 'Interpolate:' will gradually change the rain intensity throughout a time series. Without the interpolate function the rain intensity will stay constant within a time step and will make an abrupt transition to the next time step. 
+* Upload bar: the event is defined in a CSV file. The default format is in minutes, and the rainfall in mm for that time step. Please keep in mind that the duration of the rain in the custom format cannot exceed the duration of the simulation. Here is and example of the format of a CSV file:
 
   .. figure:: image/d_qgisplugin_apiclient_csv_format.png
       :alt: Example CSV
 
-* 'Units:' select the units of the uploaded file.
-* 'Interpolate:' will gradually change the rain intensity throughout a time series. Without the interpolate function the rain intensity will stay constant within a time step and will make an abrupt transition to the next time step.
-
+From NetCDF
+* 'The NetCDF contains:' choose between time series of global values and raster time series (for spatially and temporally varying precipitation data). 
+* Upload bar: the event is defined in a NetCDF file. The default format is in minutes, and the rainfall in mm for that time step. Please keep in mind that the duration of the rain in the custom format cannot exceed the duration of the simulation.
 
 Design
 
