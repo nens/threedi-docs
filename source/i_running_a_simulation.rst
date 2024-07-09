@@ -47,7 +47,7 @@ Starting a simulation
       * :ref:`simulate_api_qgis_multi_sim` (becomes available when using either breaches or precipitation): To define multiple simulations with rainfall or breaches. Useful when simulating multiple events on the same model.
 
 #) Name the simulation. Users within your organisation will be able to find this simulation and its results based on the name. Adding 'Tags' can clarify for other users what your simulation calculated or can be used to assign a simulation a certain project name or number.
-#) Set the 'Duration' of the simulation.
+#) Set the 'Duration' of the simulation. You can specify the time zone for the simulation duration.
 #) The next steps depend on the selection of options from the initial screen of the wizard (step 6). Unchecked options will be omitted by the wizard. The different options are explained below.
 #) If you want, change the :ref:`simulation_settings`. The setting values that are shown are the ones you have specified in the schematisation spatialite. This page in the simulation wizard allows you to override specific  settings for this specific simulation. This does not change the values of the simulation settings in the spatialite.
 #) Click *Add to queue* to start the simulation. 
@@ -56,6 +56,7 @@ You can follow the progress of your simulation by clicking on the *Simulate* ico
 
 Once the simulation is done the results will be available for 7 days. For information on how to download, view and analyze results, see :ref:`mi_analysing_results`.
 
+.. Note:: You can remove a simulation from the queue in the Simulation overview window, which is reached by clicking the 'Simulate' icon.
 
 .. _simulation_wizard_substances:
 
@@ -422,17 +423,19 @@ Constant
 * 'Intensity:' The rain intensity (in mm/h) is uniform and constant in the given time frame. The rain intensity preview provides the rain intensity throughout the simulation in the form of a histogram.
 
 
-Custom
+From CSV
 
-* 'Start after:' defines an offset. The offset is the duration between start simulation and the start of the rainfall event.
-* 'Values:' the event is defined in a CSV or NetCDF file. The default format is in minutes, and the rainfall in mm for that time step. Please keep in mind that the duration of the rain in the custom format cannot exceed the duration of the simulation. Here is and example of the format of a CSV file:
+* 'Start after:' defines an offset. The offset is the duration between the start of the simulation and the start of the rainfall event.
+* 'Units:' select the units of the uploaded file.
+* 'Interpolate:' will gradually change the rain intensity throughout a time series. Without the interpolate function the rain intensity will stay constant within a time step and will make an abrupt transition to the next time step. 
+* Upload bar: the event is defined in a CSV file. The default format is in minutes, and the rainfall in mm for that time step. Please keep in mind that the duration of the rain in the custom format cannot exceed the duration of the simulation. Here is and example of the format of a CSV file:
 
   .. figure:: image/d_qgisplugin_apiclient_csv_format.png
       :alt: Example CSV
 
-* 'Units:' select the units of the uploaded file.
-* 'Interpolate:' will gradually change the rain intensity throughout a time series. Without the interpolate function the rain intensity will stay constant within a time step and will make an abrupt transition to the next time step.
-
+From NetCDF
+* 'The NetCDF contains:' choose between time series of global values and raster time series (for spatially and temporally varying precipitation data). 
+* Upload bar: the event is defined in a NetCDF file. The default format is in minutes, and the rainfall in mm for that time step. Please keep in mind that the duration of the rain in the custom format cannot exceed the duration of the simulation.
 
 Design
 
@@ -457,7 +460,7 @@ This option is only available in the Netherlands and uses historical rainfall da
 * 'Start after:' defines an offset. The offset is the duration between start simulation and the start of the rainfall event.
 * 'Stop after:' the duration between the start of the simulation and the end of the rain event.
 
-|
+.. Note:: Radar rain uses the time zone Central European Time. Make sure you select the same time zone for the start of your simulation on the Duration page to avoid confusion.
 
 .. _wind_apiclient:
 

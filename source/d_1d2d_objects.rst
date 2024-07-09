@@ -12,7 +12,7 @@
 
 Exchange line
 -------------
-Line that determines which 2D cells the calculation points of a :ref:`Channel` connect to. A 1D2D connection is created from each calculation point on the Channel to the cell in which the closest point on the Exchange line is located. Applies only to channels with :ref:`calculation_types` 'connected' or 'double connected'.
+Line that determines which 2D cells the calculation points of a :ref:`Channel` connect to. A 1D2D connection is created from each calculation point on the Channel to the cell in which the closest point on the Exchange line is located. Applies only to channels with :ref:`calculation_types` 'connected' or 'double connected'. The page :ref:`generate_exchange_lines<Editing schematisations>` contains information on generating exchange lines.
 
 Geometry
 ^^^^^^^^
