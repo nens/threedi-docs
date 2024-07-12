@@ -153,45 +153,38 @@ Attributes
    * - Attribute alias
      - Field name
      - Type
-     - Mandatory
      - Units
      - Description
    * - ID
      - id
      - integer
-     - Yes
      - \-
      - Unique identifier
    * - Node type
      - node_type
      - integer
-     - xx Yes
      - \-
-     - xx ID of the connection node to place the 1D boundary condition on
-   * - xx Boundary type
+     - Defines the type of the calculation node as 2D Surface water (1), 2D Groundwater (2), 1D Without storage (3), 1D With storage (4), 2D Surface water boundary (5), 2D Groundwater boundary (6), or 1D Boundary (7). 
+   * - DEM averaged
      - has_dem_averaged
      - boolean
-     - Yes
      - \-
-     - xx Sets the type to water level (1), velocity (2), discharge (3) or Sommerfeld (5). See :ref:`1d_boundary_condition_notes_for_modellers` for details.
-   * - xx Time series
+     - If set to 'true', the DEM values within the calculation cell are averaged.
+   * - Maximum surface area
      - max_surface_area
      - decimal number
-     - xx Yes
-     - xx [minutes since start of simulation],[m | m/s | m³/s]. See :ref:`1d_boundary_condition_notes_for_modellers` for details.
-     - xx Timeseries of water levels, flow velocities, discharges or water level gradients to be forced on the model boundary
-   * - xx Attribute alias
+     - m\ :sup:`2`
+     - xHELPx
+   * - Bottom level
      - bottom_level
      - decimal number
-     - xx Mandatory
-     - xx Units
-     - xx Description
-   * - Attribute alias
+     - m
+     - Subgrid cell with the lowest elevation within the calculation cell.
+   * - Impervious layer elevation
      - impervious_layer_elevation
      - decimal number
-     - xx Mandatory
-     - xx Units
-     - xx Description
+     - m
+     - xHELPx
 
 Flowline
 ^^^^^^^^
@@ -207,87 +200,73 @@ Attributes
    * - Attribute alias
      - Field name
      - Type
-     - Mandatory
      - Units
      - Description
    * - ID
      - id
      - integer
-     - Yes
      - \-
      - Unique identifier
    * - Discharge coefficient positive
      - discharge_coefficient_positive
      - decimal number
-     - xx Mandatory
      - \-
      - Discharge coefficient in the positive direction.
    * - Discharge coefficient negative
      - discharge_coefficient_negative
      - decimal number
-     - xx Mandatory
      - \-
      - Discharge coefficient in the negative direction.
    * - Line type
      - line_type
      - integer
-     - xx Mandatory
      - \-
      - Flowline type, e.g. 2D, 1D connected or 1D isolated
    * - Source table
      - source_table
      - text
-     - xx No
      - \-
      - For flowlines generated from 1D objects: the table in which this object is described.
    * - Source table ID
      - source_table_id
      - integer
-     - xx Mandatory
      - \-
-     - xx Description
+     - For flowlines generated from 1D objects: the ID of the table in which this object is described.
    * - Invert level of the start point
      - invert_level_start_point
      - decimal number
-     - xx Mandatory
-     - xx Units
-     - xx Description
+     - m
+     - If the flowline belongs to a 1D object: the invert level of the start point of the object.
    * - Invert level of the end point
      - invert_level_end_point
      - decimal number
-     - xx Mandatory
-     - xx Units
-     - xx Description
+     - m
+     - If the flowline belongs to a 1D object: the invert level of the end point of the object.
    * - Exchange level
      - exchange_level
      - decimal number
-     - xx Mandatory
-     - xx Units
-     - xx Description
+     - m
+     - If the flowline belongs to a 1D object: the exchange level of the object.
    * - Start calculation node ID
      - calculation_node_id_start
      - integer
-     - xx Mandatory
      - \-
      - ID of the calculation node that coincides with the starting point of the flowline.
    * - End calculation node ID
      - calculation_node_id_end
      - integer
-     - xx Mandatory
      - \-
      - ID of the calculation node that coincides with the end point of the flowline.
    * - Sewerage
      - sewerage
      - boolean
-     - xx Mandatory
      - \-
-     - xx Description
+     - If set to 'true': flowline belongs to a sewerage object.
    * - Sewerage type
      - sewerage_type
      - integer
-     - xx Mandatory
      - \-
-     - xx Description
+     - Function of the pipe in the sewerage system. Used for visualisation and administrative purposes only. See :ref:`pipe_notes_for_modeller`.
 
 Node
 ^^^^
@@ -299,8 +278,58 @@ Point.
 
 Attributes
 ++++++++++
-Insert table.
 
+   * - Attribute alias
+     - Field name
+     - Type
+     - Units
+     - Description
+   * - ID
+     - id
+     - integer
+     - \-
+     - Unique identifier
+   * - Connection node ID
+     - connection_node_id
+     - integer
+     - \-
+     - xHELPx
+   * - Node type
+     - node_type
+     - integer
+     - \-
+     - Defines the type of the calculation node as 2D Surface water (1), 2D Groundwater (2), 1D Without storage (3), 1D With storage (4), 2D Surface water boundary (5), 2D Groundwater boundary (6), or 1D Boundary (7). 
+   * - Calculation type
+     - calculation_type
+     - integer
+     - Yes
+     - \-
+     - Sets the 1D2D exchange type: embedded (100), isolated (101), connected (102), or double connected (105). See :ref:`calculation_types`.
+   * - Is manhole
+     - is_manhole
+     - boolean
+     - \-
+     - \-
+   * - Storage area of the connection node 
+     - connection_node_storage_area
+     - decimal number
+     - m\ :sup:`2`
+     - \-
+   * - Maximum surface area
+     - max_surface_area
+     - decimal number
+     - m\ :sup:`2`
+     - xHELPx
+   * - Bottom level
+     - bottom_level
+     - decimal number
+     - m
+     - Subgrid cell with the lowest elevation within the associated calculation cell.
+   * - Drain level
+     - drain_level
+     - decimal number
+     - m
+     - Drain level of the manhole. See :ref:`_manhole_notes_for_modellers`.
 
 Obstacle
 ^^^^^^^^
