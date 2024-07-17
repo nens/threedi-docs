@@ -178,12 +178,12 @@ Attributes
    * - Bottom level
      - bottom_level
      - decimal number
-     - m
+     - m MSL
      - Subgrid cell with the lowest elevation within the calculation cell.
    * - Impervious layer elevation
      - impervious_layer_elevation
      - decimal number
-     - m
+     - m MSL
      - xHELPx
 
 Flowline
@@ -235,17 +235,17 @@ Attributes
    * - Invert level of the start point
      - invert_level_start_point
      - decimal number
-     - m
+     - m MSL
      - If the flowline belongs to a 1D object: the invert level of the start point of the object.
    * - Invert level of the end point
      - invert_level_end_point
      - decimal number
-     - m
+     - m MSL
      - If the flowline belongs to a 1D object: the invert level of the end point of the object.
    * - Exchange level
      - exchange_level
      - decimal number
-     - m
+     - m MSL
      - If the flowline belongs to a 1D object: the exchange level of the object.
    * - Start calculation node ID
      - calculation_node_id_start
@@ -323,12 +323,12 @@ Attributes
    * - Bottom level
      - bottom_level
      - decimal number
-     - m
+     - m MSL
      - Subgrid cell with the lowest elevation within the associated calculation cell.
    * - Drain level
      - drain_level
      - decimal number
-     - m
+     - m MSL
      - Drain level of the manhole. See :ref:`_manhole_notes_for_modellers`.
 
 Obstacle
@@ -341,12 +341,27 @@ Line.
 
 Attributes
 ++++++++++
-Insert table.
+
+   * - Attribute alias
+     - Field name
+     - Type
+     - Units
+     - Description
+   * - ID
+     - line_id
+     - integer
+     - \-
+     - Unique identifier
+   * - Exchange level
+     - exchange_level
+     - decimal number
+     - m MSL
+     - Exchange level for the linear obstacle.
 
 
 Pump (line)
 ^^^^^^^^^^^
-Description.
+Pumpstation that transports water from one connection node to another.
 
 Geometry
 ++++++++
@@ -354,12 +369,69 @@ Line.
 
 Attributes
 ++++++++++
-Insert table.
 
+   * - Attribute alias
+     - Field name
+     - Type
+     - Units
+     - Description
+   * - ID
+     - id
+     - integer
+     - \-
+     - Unique identifier
+   * - Display name
+     - display_name
+     - text
+     - \-
+     - Name field
+   * - Start calculation node ID
+     - calculation_node_id_start
+     - integer
+     - \-
+     - ID of calculation node from which the water is pumped.
+   * - End calculation node ID
+     - calculation_node_id_end
+     - integer
+     - \-
+     - ID of calculation node to which the water is pumped.
+   * - Source table ID
+     - source_table_id
+     - integer
+     - \-
+     - The ID of the table in which the pump is described.
+   * - Type
+     - type
+     - integer
+     - \-
+     - Sets whether pump reacts to water level at: suction side (1) or delivery side (2).
+   * - Bottom level
+     - bottom_level
+     - decimal number
+     - m MSL
+     - Subgrid cell with the lowest elevation within the calculation cell.
+   * - Start level
+     - start_level
+     - decimal number
+     - Yes
+     - m MSL
+     - Pump switches on when the water level exceeds this level.
+   * - Lower stop level
+     - lower_stop_level
+     - decimal number
+     - Yes
+     - m MSL
+     - Pump switches off when the water level becomes lower than this level.
+   * - Capacity
+     - capacity
+     - decimal number
+     - Yes
+     - L/s
+     - Pump capacity.
 
 Pump (point)
 ^^^^^^^^^^^^
-Description.
+Pumpstation that pumps water out of the model domain.
 
 Geometry
 ++++++++
@@ -367,4 +439,62 @@ Point.
 
 Attributes
 ++++++++++
-Insert table.
+
+   * - Attribute alias
+     - Field name
+     - Type
+     - Units
+     - Description
+   * - ID
+     - id
+     - integer
+     - \-
+     - Unique identifier
+   * - Display name
+     - display_name
+     - text
+     - \-
+     - Name field
+   * - Start calculation node ID
+     - calculation_node_id_start
+     - integer
+     - \-
+     - ID of calculation node from which the water is pumped.
+   * - End calculation node ID
+     - calculation_node_id_end
+     - integer
+     - \-
+     - ID of calculation node to which the water is pumped.
+   * - Source table ID
+     - source_table_id
+     - integer
+     - \-
+     - The ID of the table in which the pump is described.
+   * - Type
+     - type
+     - integer
+     - \-
+     - Sets whether pump reacts to water level at: suction side (1) or delivery side (2).
+   * - Bottom level
+     - bottom_level
+     - decimal number
+     - m MSL
+     - Subgrid cell with the lowest elevation within the calculation cell.
+   * - Start level
+     - start_level
+     - decimal number
+     - Yes
+     - m MSL
+     - Pump switches on when the water level exceeds this level.
+   * - Lower stop level
+     - lower_stop_level
+     - decimal number
+     - Yes
+     - m MSL
+     - Pump switches off when the water level becomes lower than this level.
+   * - Capacity
+     - capacity
+     - decimal number
+     - Yes
+     - L/s
+     - Pump capacity.
