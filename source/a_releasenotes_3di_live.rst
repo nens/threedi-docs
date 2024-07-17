@@ -3,6 +3,22 @@
 3Di Live
 --------
 
+July 11th, 2024
+^^^^^^^^^^^^^^^
+
+Several changes have been made to improve the performance of 3Di Live:
+
+- Line elements (e.g. channels, obstacles, etc.) are simplified before rendering
+ 
+- Improved efficiency in rendering 2D flow, especially when panning around the model domain.
+
+- No longer use a javascript worker, because this decreased the lag.
+
+- When 2D flow or the DEM are switched off, the rendering was still done (just not shown), therefore putting strain on the GPU. Now, when these options are not used, the entire rendering is skipped. 
+
+- Limit the width of the 1D flow visualisation to 100 m if no maximum cross-sectional width is available. This also strongly improves the general performance of 3Di Live for specific 3Di models. 
+
+
 .. _release_notes_3di_live_20240605:
 
 June 5th, 2024

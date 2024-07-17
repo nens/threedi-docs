@@ -3,6 +3,43 @@
 3Di Modeller Interface
 ----------------------
 
+July 17th, 2024
+^^^^^^^^^^^^^^^
+
+3Di Models & Simulations 3.12.0
+"""""""""""""""""""""""""""""""""
+
+The following new features have been added to the simulation wizard:
+
+- Upload 1D initial water levels (#137)
+- Add initial concentrations to your simulations (#535)
+- Option to choose the time units for uploaded substance concentration time series on the *Boundary Conditions* page (#577)
+- More intuitive navigation using *Tab* in Simulation Wizard (#480)
+	
+Other new features:
+
+- Download multiple simulation results in parallel (#391)
+- Schematisation descriptions are now also implemented in 3Di Models and Simulations (#493)
+    - You can fill in a schematisation description when creating a new schematisation
+	- The schematisation description is shown in the overview of schematisations available for download.
+- After creating, loading, or downloading a schematisation, you are now asked if you want to load the schematisation into you project
+- On the first page of the wizard for uploading new schematisations, it has been made clearer that the schematisation revision history overview is purely informative, i.e. that you do not need make a choice here (#496)
+- When uploading a new revision, you are no longer warned that this is not the same revision as you have loaded via the 3Di Schematisation Editor if you have not loaded any. (#526)
+
+
+3Di Results Analysis 3.9.1
+""""""""""""""""""""""""""
+
+- Since the previous release, threedigrid-builder was re-installed every time at startup. This has been fixed. (#1023)
+
+3Di Schematisation Editor 1.12.0
+""""""""""""""""""""""""""""""""
+
+- Other plugins or scripts can now tell the Schematisation Editor to load a specific sqlite or geopackage file as active schematisation (#238)
+- Backwards compatibility of the 3Di Schematisation Editor for older spatialites has been increased (#241)
+- The 3Di Schematisation Editor buttons are now contained in their own toolbar instead of in the generic *Plugins* toolbar, so that it is easier to customize the 3Di Modeller Interface in the way you prefer (#184)
+
+
 .. _release_notes_mi_20240621
 
 June 21st, 2024

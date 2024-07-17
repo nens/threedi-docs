@@ -34,14 +34,16 @@ Water quality simulations in the 3Di Modeller Interface
 
 The water quality module can be used in simulations started from the 3Di Modeller Interface. 
 
-At the moment, the simulation wizard supports adding substances to laterals only. 
+At the moment, the simulation wizard supports adding substances to initial water, boundary conditions, and laterals. 
 
 Follow the :ref:`same workflow as for starting any other simulation <simulate_api_qgis>`, with the following additional steps.
 
-.# On the scenario options page that is shown before the simulation wizard starts, check the box *Include substances*
-.# After having filled in the *Name* and *Duration* pages, the :ref:`simulation_wizard_substances` page lets you define the substances that you want to use in the simulation.
-.# On the :ref:`simulate_api_qgis_laterals` page, upload a CSV for 1D or 2D laterals and a :ref:`CSV with time series of concentrations <laterals_substance_concentrations>` for each of the substances that you want to add to your simulations.
-.# Go through the rest of the steps of the simulation wizard to start the simulation
+#. On the scenario options page that is shown before the simulation wizard starts, check the box *Include substances*
+#. After having filled in the *Name* and *Duration* pages, the :ref:`simulation_wizard_substances` page lets you define the substances that you want to use in the simulation.
+#. If you want to add substance concentrations to initial water, specify the initial water inputs on the *Initial conditions* page, scroll down to the *Substances* header and choose your initial concentration inputs.
+#. If you want to add substance concentrations to laterals, go to the :ref:`simulate_api_qgis_laterals` page, upload a CSV for 1D or 2D laterals and a :ref:`CSV with time series of concentrations <laterals_substance_concentrations>` for each of the substances that you want to add to your simulations.
+#. If you want to add substance concentrations to boundary conditions, specify the boundary conditions you want to use on the *Boundary conditions* page (you can also use what is already in the simulation template), scroll down to the *Substances* header and choose your initial concentration inputs.
+#. Go through the rest of the steps of the simulation wizard to start the simulation
 
 Water quality simulations using the 3Di API
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -58,10 +60,10 @@ A summary of the water quality calculations is available in the simulation loggi
 
 At the moment, the :ref:`time_series_plotter` is the 3Di Results Analysis tool with support for the 3Di water quality module.
 
-.# :ref:`Download the simulation results <dl_via_models_simulations>` via the 3Di Models & Simulations panel. The :ref:`wq_netcdf` file will also be downloaded.
-.# Load the results using the :ref:`3Di Results Manager<3di_results_manager>`
-.# Open the :ref:`time_series_plotter`
-.# Add one or more nodes to the plot
-.# In the *Variable* dropdown menu in the Time series plotter, select the substance you want to see the concentration for.
+#. :ref:`Download the simulation results <dl_via_models_simulations>` via the 3Di Models & Simulations panel. The :ref:`wq_netcdf` file will also be downloaded.
+#. Load the results using the :ref:`3Di Results Manager<3di_results_manager>`
+#. Open the :ref:`time_series_plotter`
+#. Add one or more nodes to the plot
+#. In the *Variable* dropdown menu in the Time series plotter, select the substance you want to see the concentration for.
 
 For other visualisations of substance concentrations, e.g. as a map of the substance concentrations at a specific moment in time, or an animation of such maps, use :ref:`threedigrid`. Contact the :ref:`servicedesk` for example scripts that fit your specific purpose.
