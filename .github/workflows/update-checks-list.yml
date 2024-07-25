@@ -78,7 +78,7 @@ jobs:
            list of checks run by the modelchecker to reflect the latest threedi-modelchecker version,\
             ${{ needs.update_checks_list.outputs.checker_version }}. **Please note:** The `build_and_deploy`\
             workflow cannot be triggered by this bot, so to run the required checks, please close and reopen\
-            this pull request" >> $GITHUB_ENV
+            this pull request." >> $GITHUB_ENV
 
       - name: create pull request
         uses: peter-evans/create-pull-request@v5
