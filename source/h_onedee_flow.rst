@@ -98,7 +98,7 @@ Some examples are shown in the figures below.
 1D momentum equation
 --------------------
 
-The flow in a 1D network is computed using the equations of conservation of mass and momentum. For these type of flow, these are known as the 1D depth-averaged shallow water equations. The momentum equation for 1D flow in non-conservative form is:
+The flow in a 1D network is computed using the equations of conservation of mass and momentum. For this type of flow, these are known as the 1D depth-averaged shallow water equations. The momentum equation for 1D flow in non-conservative form is:
 
 .. math::
    :label: 1D momentum equation
@@ -122,7 +122,7 @@ In words; in 1D, 3Di takes inertia, advection, pressure gradients, bottom fricti
 Advection in 1D domain
 ----------------------
 
-The second term on the left-hand side of equation (24) represents the advective term. Based on the spatial gradient of the velocity, it represents the transport of momentum. Advective terms can be numerically solved in various ways; implicit/explicit central difference method, first/second order upwind difference method, among others. Although all mathematically correct and consistent, they all have their own advantages and disadvantages. Some are/are not very computational expensive to solve, very accurate, sensitive for the timestep, robust and/or stable. Depending on the application some of these characteristics are more pronounced than others. 
+The second term on the left-hand side of equation (24) represents the advective term. Based on the spatial gradient of the velocity, it represents the transport of momentum. Advective terms can be numerically solved in various ways; implicit/explicit central difference method, first/second order upwind difference method, among others. Although all mathematically correct and consistent, they all have their own advantages and disadvantages. Some are/are not very computationally expensive to solve, very accurate, sensitive to the timestep, robust and/or stable. Depending on the application, some of these characteristics are more pronounced than others. 
 
 All these methods are consistent under smooth conditions, but under certain conditions they can result in very different solutions, some even physically incorrect (:cite:t:`Stelling2003`). Exemplary are the results near sudden bed transitions or channel expansions/contractions. At those locations there are large gradients in the velocity field. Under these circumstances the 1D momentum equation is not adequate. The vertical flow developed at the edge of these sudden transitions is at a scale too small to be resolved by large-scale models and more importantly, 3-dimensional approximations are required to model such complex flows. However, with applying correct conservation properties accurate solutions can be achieved. Below those that are used in 3Di are explained.
 
