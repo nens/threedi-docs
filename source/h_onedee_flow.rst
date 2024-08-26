@@ -21,7 +21,7 @@
 1D Network
 ----------
 
-In the most abstract form, a 1D network can be viewed as a combination of nodes and lines. Such a network is translated to a grid, as described in :ref:`1dgrid`. The nodes and the connections have their own characteristics, like cross-section shapes, reference levels etc. Based on those, cross-sectional areas, storage and flow is computed.
+In the most abstract form, a 1D network can be viewed as a combination of nodes and lines. Such a network is comparable to a grid in a 1D setting, as described in :ref:`1dgrid`. The nodes and lines have their own characteristics, like cross-section shapes, reference levels etc. Based on those, cross-sectional areas, storage and flow is computed.
 
 .. figure:: image/1dnetworkabstract.png
    :figwidth: 400 px
@@ -98,7 +98,7 @@ Some examples are shown in the figures below.
 1D momentum equation
 --------------------
 
-The flow in 1D networks is computed using the equations of conservation of mass and momentum, more specifically the 1D depth-averaged shallow water equations. The momentum equation for 1D flow in non-conservative form is:
+The flow in a 1D network is computed using the equations of conservation of mass and momentum. For these type of flow, these are known as the 1D depth-averaged shallow water equations. The momentum equation for 1D flow in non-conservative form is:
 
 .. math::
    :label: 1D momentum equation
@@ -115,18 +115,18 @@ The flow in 1D networks is computed using the equations of conservation of mass 
 | :math:`H` is the water depth
 | :math:`R` is the hydraulic radius
 
-In words; in 1D, 3Di takes inertia, advection, pressure gradients, bottom friction and wind shear stresses into account. This yields for all types of 1D network elements. However, there are some differences in the computation of advection and the effect of wind stress for specific 1D network This will be explained more elaborated, where these difference are relevant.
+In words; in 1D, 3Di takes inertia, advection, pressure gradients, bottom friction and wind shear stresses into account. This yields for almost all elements in a 1D network. However, there are, for example, some differences in the computation of advection and the effect of wind stress for specific 1D elements. This will be explained in detail in the following sections.
 
 .. _1d_advection:
 
 Advection in 1D domain
 ----------------------
 
-The second term on the left-hand side of equation (24) represents advective term which determines the spatial gradient of the velocity. Advective terms can be numerically solved in various ways; implicit/explicit central difference method, first/second order upwind difference method, among others. The main difference among these methods is in the inclusion of the number of terms from Taylor series expansion. 
+The second term on the left-hand side of equation (24) represents the advective term. Based on the spatial gradient of the velocity, it represents the transport of momentum. Advective terms can be numerically solved in various ways; implicit/explicit central difference method, first/second order upwind difference method, among others. Although all mathematically correct and consistent, they all have their own advantages and disadvantages. Some are/are not very computational expensive to solve, very accurate, sensitive for the timestep, robust and/or stable. Depending on the application some of these characteristics are more pronounced than others. 
 
-Meanwhile, at large gradients, such as in sudden bed transitions, channel expansions/contractions, the above equation does not have a unique solution (:cite:t:`Stelling2003`). The vortical flow developed at the edge of these sudden transitions is at a scale too small to be resolved by large-scale models and even more precisely, 3-dimensional approximations are required to model such complex flows. However, with applying conservation properties sufficient solutions can be achieved. Below, two of which, used in 3Di calculations, are explained.
+All these methods are consistent under smooth conditions, but under certain conditions they can result in very different solutions, some even physically incorrect (:cite:t:`Stelling2003`). Exemplary are the results near sudden bed transitions or channel expansions/contractions. At those locations there are large gradients in the velocity field. Under these circumstances the 1D momentum equation is not adequate. The vertical flow developed at the edge of these sudden transitions is at a scale too small to be resolved by large-scale models and more importantly, 3-dimensional approximations are required to model such complex flows. However, with applying correct conservation properties accurate solutions can be achieved. Below those that are used in 3Di are explained.
 
-3Di benefits from 2 main methods, both of which have been studied to be efficient and show minimum sensitivity to the grid-resolution. The first method is derived based on the momentum conservative form of equation (24).
+3Di benefits from 2 main methods, both of which have been studied to be efficient and accurate. The first method is derived based on the momentum conservative form of equation (24).
 
 .. math::
    \frac{\partial (Hu)}{\partial t}+\frac{\partial (Hu^2 + \frac{1}{2}gH^2)}{\partial s}+c_{f}u=gH\frac{\partial d}{\partial s}
@@ -148,10 +148,7 @@ For positive flow direction, the advection approximation of above equation yield
 .. math::
    u\frac{\partial u}{\partial s} = \frac{u_{i-\frac{1}{2}}+u_{i+\frac{1}{2}}}{2} \frac{u_{i+\frac{1}{2}}-u_{i-\frac{1}{2}}}{ds}
    
-
-It is important to examine the amount of energy losses due to numerical errors arising with different advection methods (artificial backwater). In case of energy-conservative method, as the approach would suggest, the total head loss is zero, therefore the advection term has no contribution to the artificial backwater. This feature makes this method a stable method without creating any numerical errors. However, it also indicates that no head loss is generated when it is expected, e.g., in sudden expansions. The momentum-conservative method, on the other hand, always produces a minimum amount of backwater; In case of sudden expansions, the head loss generated by this method is in line with expectations, however application of this principle at strong contractions wwould increase the energy head. This is wrong from the physical point of view and makes a stability issue for this method.
-
-Given the observations above, the default 1D advection method in 3Di benefits from a combined approach; the energy-conservative method is applied only at contractions and elsewhere, the advection is included using the momentum-conservative method. It is also possible to use each method independently.
+All discretisation schemes produce errors. These errors can be observed in the results as extra or diminishing energy/momentum losses. In case of, for example, a channel flow, these losses would be translated in an increase in back water curve. This is in such case an artificial back water curve. Therefore, it is important to examine the amount of energy losses due to numerical errors arising with different advection methods (artificial backwater). In case of energy-conservative scheme, as the approach would suggest, the total energy head loss is zero. Then, the advection term has no contribution to the artificial backwater. This is a stable method without creating any numerical errors. However, it also generates no head loss in case it is expected, e.g., in sudden expansions. The momentum-conservative method, on the other hand, always produces a minimum amount of backwater. In case of sudden expansions, the head loss generated by this method is in line with expectations, however application of this principle at strong contractions would increase the energy head. This is wrong from the physical point of view and might affect the stability. 3Di supports a momentum-conservative method, a energy-conservative method and as a default a combined approach. In this default option, a momentum-conservative method is applied except as sudden contractions. This combination ensures stability and realistic results.
 
 .. _1d_friction:
 
