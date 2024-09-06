@@ -317,6 +317,10 @@ For longer structures, frictional effects can become important. For the so-calle
 
 where :math:`c_f` is the dimensionless friction coefficient, :math:`L` the length of the structure and :math:`R` is the hydraulic radius on top of the weir. The dimensionless friction coefficient can be based on either the Manning or the Chézy formulation. The frictional losses scale with the length of the weir, therefore it is of importance that the structure length is correctly set. The computational core expects that this is the geometrical distance between the two connection nodes. 
 
+Different types of cross-sections for weirs and orifices
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Orifices and weirs with different types of cross-sections can be used as well. The basic assumptions are similar as those described in the sections above. Key is the definition for the critical velocity and the depth on the weir. They remain consistent with the definitions above. However, the definition of the cross-sectional area is naturally completely different for different types of cross-sections. The derived depth on the weir is the maximum depth at the weir. This depth determines the corresponding wet cross-sectional area. In case of enclosed cross-sections, in for example pipes, the derived depth can be related to a virtual water level, c.q a pressure. This happens in case the structure is completely filled. In that case the cross-sectional area is maximilised. This is consistent to how 3Di deals with enclosed cross-sections in general. 
 
 .. _pump:
 
