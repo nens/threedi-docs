@@ -21,11 +21,11 @@ Local setup
 
 If you can run docker, you're in luck. One-time setup::
 
-  $ docker-compose build
+  $ docker compose build
 
 And then every time you want to re-generate your documentation::
 
-  $ docker-compose up
+  $ docker compose up
 
 If you're not so lucky, you'll need to pip-install sphinx (``pip install -r
 requirements.txt``, preferably in a virtualenv) and you need latex (see the
@@ -38,7 +38,7 @@ Special commands
 If the sphinx documentation tells you about a makefile: you can run those
 commands from within docker, too. For example, to build the pdf version::
 
-  $ docker-compose run builder make latexpdf
+  $ docker compose run builder make latexpdf
 
 (The output is in ``build/pdf/3di.pdf``).
 
@@ -49,7 +49,7 @@ Images
 Images should be lowercase. If you've added an image, please run this command
 to be sure::
 
-  $ docker-compose run builder python3 fix-uppercase-lowercase.py
+  $ docker compose run builder python3 fix-uppercase-lowercase.py
 
 
 Literature & citations
