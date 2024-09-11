@@ -30,6 +30,8 @@ The first migrations to :ref:`schema_300` are now in use on the 3Di server. When
 
 - Bugfix: DEM en water depth maps in 3Di Live are now visualised correctly also when the DEM nodata value is not -9999 (#2257)
 
+- Bugfix: NetCDF forcings with long projection strings are now also accepted
+
 
 .. _release_notes_3di_api_20240530:
 
