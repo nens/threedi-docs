@@ -47,7 +47,7 @@ Starting a simulation
       * :ref:`simulate_api_qgis_multi_sim` (becomes available when using either breaches or precipitation): To define multiple simulations with rainfall or breaches. Useful when simulating multiple events on the same model.
 
 #) Name the simulation. Users within your organisation will be able to find this simulation and its results based on the name. Adding 'Tags' can clarify for other users what your simulation calculated or can be used to assign a simulation a certain project name or number.
-#) Set the 'Duration' of the simulation.
+#) Set the 'Duration' of the simulation. Optionally, you can specify the time zone for the simulation duration. This is especially relevant if you use radar rain in your simulation that is also defined in a specific time zone.
 #) The next steps depend on the selection of options from the initial screen of the wizard (step 6). Unchecked options will be omitted by the wizard. The different options are explained below.
 #) If you want, change the :ref:`simulation_settings`. The setting values that are shown are the ones you have specified in the schematisation spatialite. This page in the simulation wizard allows you to override specific  settings for this specific simulation. This does not change the values of the simulation settings in the spatialite.
 #) Click *Add to queue* to start the simulation. 
@@ -56,6 +56,8 @@ You can follow the progress of your simulation by clicking on the *Simulate* ico
 
 Once the simulation is done the results will be available for 7 days. For information on how to download, view and analyze results, see :ref:`mi_analysing_results`.
 
+.. note::
+    If you want to remove a simulation from the queue before it has started, use the :ref:`Live status page on 3Di Management <3di_management_live_status>`.
 
 .. _simulation_wizard_substances:
 
@@ -416,25 +418,32 @@ There are several options to define a precipitation event for your simulation. I
 
 
 Constant
+--------
 
 * 'Start after:' defines an offset. The offset is the duration between start simulation and the start of the rainfall event.
 * 'Stop after:' the duration between the start of the simulation and the end of the rain event.
 * 'Intensity:' The rain intensity (in mm/h) is uniform and constant in the given time frame. The rain intensity preview provides the rain intensity throughout the simulation in the form of a histogram.
 
 
-Custom
+From CSV
+--------
 
-* 'Start after:' defines an offset. The offset is the duration between start simulation and the start of the rainfall event.
-* 'Values:' the event is defined in a CSV or NetCDF file. The default format is in minutes, and the rainfall in mm for that time step. Please keep in mind that the duration of the rain in the custom format cannot exceed the duration of the simulation. Here is and example of the format of a CSV file:
+* 'Start after:' defines an offset. The offset is the duration between the start of the simulation and the start of the rainfall event.
+* 'Units:' select the units of the uploaded file.
+* 'Interpolate:' will gradually change the rain intensity throughout a time series. Without the interpolate function the rain intensity will stay constant within a time step and will make an abrupt transition to the next time step. 
+* Upload bar: the event is defined in a CSV file. The default format is in minutes, and the rainfall in mm for that time step. Please keep in mind that the duration of the rain in the custom format cannot exceed the duration of the simulation. Example of the format of a CSV file:
 
   .. figure:: image/d_qgisplugin_apiclient_csv_format.png
       :alt: Example CSV
 
-* 'Units:' select the units of the uploaded file.
-* 'Interpolate:' will gradually change the rain intensity throughout a time series. Without the interpolate function the rain intensity will stay constant within a time step and will make an abrupt transition to the next time step.
+From NetCDF
+-----------
 
+* 'The NetCDF contains:' choose between time series of global values and raster time series (for spatially and temporally varying precipitation data). 
+* Upload bar: the event is defined in a NetCDF file. Use the processing algorithm *Rasters to spatiotemporal NetCDF* to generate such a file from a folder of tiffs. Please keep in mind that the duration of the rain in the custom format cannot exceed the duration of the simulation.
 
 Design
+------
 
 * 'Start after:' defines an offset. The offset is the duration between start simulation and the start of the rainfall event.
 * 'Design number:' a design number between 1 and 16 must be filled in. These numbers correlate to predetermined rain events, with differing return periods, that fall homogeneous over the entire model. Numbers 1 to 10 originate from `RIONED <https://www.riool.net/bui01-bui10>`_ and are heterogeneous in time. Numbers 11 to 16 have a constant rain intensity:
@@ -451,13 +460,16 @@ Design
 
 
 Radar - NL Only 
+---------------
 
 This option is only available in the Netherlands and uses historical rainfall data that is based on radar rain images. Providing temporally and spatially varying rain information. The Dutch `Nationale Regenradar <https://nationaleregenradar.nl/>`_ is available for all Dutch applications. On request, the information from other radars can be made available to 3Di as well.
 
 * 'Start after:' defines an offset. The offset is the duration between start simulation and the start of the rainfall event.
 * 'Stop after:' the duration between the start of the simulation and the end of the rain event.
 
-|
+.. note::
+    
+    Radar rain uses the time zone Central European Time. Make sure you select the same time zone for the start of your simulation on the *Duration* page to avoid confusion.
 
 .. _wind_apiclient:
 

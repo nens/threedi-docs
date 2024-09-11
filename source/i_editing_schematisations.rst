@@ -70,22 +70,24 @@ Editing Feature Attributes
 
 There are two options available for editing feature attributes:
 
-1. Via the **Attribute Table**:
+1. Via the **Attribute Table** (for editing multiple objects at once):
    
-   - Right-click the layer in the Layers panel.
-   - Select 'Open Attribute Table'.
-   - Click the 'Toggle Editing' button located in the top left corner.
+   - In the *Layers* panel, right-click the layer > *Open Attribute Table*.
+   - In the top left corner, click *Toggle editing* .
    - Make the necessary edits within the table.
-   - Click 'Save Edits' in the top left corner to save your changes.
+   - To batch edit, use the drop-down menu in the top left to select the features to be edited. Fill out a value or expression in the text bar and click *Update all* to edit all objects, or *Update selected* to edit the selected objects. 
+   - Click *Save Edits* in the top left corner to save your changes.
 
 
-2. Using the **Identify Feature** option:
+2. Using the **Identify Feature** option (for editing specific objects one at a time):
    
    - Select the desired feature layer.
-   - Enable the 'Identify Feature' (|idendifyFeature|) option.
-   - Click on a feature on the map.
-   - A window will open displaying the attributes of the selected feature, along with the attributes of all related features.
-   - Explore the different tabs within the window to access the related feature attributes.
+   - Click the *Toggle Editing* button located in the top left corner.
+   - Activate the *Identify feature* (|idendifyFeature|) map tool.
+   - Click on a feature on the map canvas.
+   - A window will open, displaying the attributes of the identified feature, along with the attributes of all related features.
+   - Explore the different tabs within the window to access and edit the related feature attributes.
+   - Click *Save Edits* in the top left corner to save your changes.
 
 |
 
@@ -93,7 +95,7 @@ There are two options available for editing feature attributes:
 
 Editing feature geometries
 ----------------------------
-
+   
 For editing the geometries of features, the 'Vertex tool' can be used, see the `QGIS documentation <https://docs.qgis.org/3.28/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#vertex-tool>`__. On top of the standard QGIS functionalty, the 3Di Schematisation Editor provides extra functionalities:
 
     - When moving a node, all connected features will move along.
