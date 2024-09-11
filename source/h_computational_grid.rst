@@ -78,7 +78,7 @@ In 3Di, 1D networks can be defined, representing open channels, manholes, weirs,
 
 There are several options to couple the 1D and the 2D domain (see Section :ref:`onedee_flow`). All options for the coupling allow for a fully integrated computation, which means that the full 1D and 2D systems are solved as one.
 
-The 1D domain of the computational grid uses a staggered grid, just like the 2D domain (see the figure below). Volumes and water levels (or pressures) are defined at calculation points. Discharges and velocities are defined at velocity points in between the calculation points.
+The 1D domain of the computational grid uses a staggered grid, just like the 2D domain (see the figure below). Volumes and water levels (or pressures) are defined at calculation nodes. Discharges and velocities are defined at velocity points in between the calculation nodes.
 
 .. figure:: image/b1_1d.png
    :figwidth: 400 px
@@ -105,13 +105,13 @@ Calculation point distance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 When the computational grid is generated from the schematisation input, computational nodes are placed at each connection node. Additionally, computational nodes can be generated in between these locations. The spacing between these computational nodes is determined by a calculation point distance, the 1D grid resolution. In 3Di this distance can be specified for each individual pipe, culvert, or channel by filling the ‘dist_calc_points’ attribute of those features.
-If the specified calculation point distance is larger than the length of the feature, no additional calculation points are generated in between the connection nodes. This is visualised in the figure below.
+If the specified calculation point distance is larger than the length of the feature, no additional calculation nodes are generated in between the connection nodes. This is visualised in the figure below.
 
 .. figure:: image/h_calculation_point_distance_intro.png
    :figwidth: 600 px
    :alt: calculation point distance intro
    
-   Example of the generated calculation points between two nodes on a channel.
+   Example of the generated calculation nodes between two nodes on a channel.
 
 The cross-section of channel segments at a (new) velocity point is determined by linearly interpolating the wet cross-sectional area from the cross-section locations during the simulation. If a velocity point is not in between two cross-section locations, the cross-section from the nearest cross-section location is used.
 If more than two cross-section locations exist between two velocity points, the ones in the middle are ignored.
