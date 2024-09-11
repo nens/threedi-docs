@@ -252,9 +252,24 @@ Attributes
      - No
      - \-
      - *Deprecated*
-
-.. todo::
-   Nieuwe grondwater attributen toevoegen
+   * - Exchange thickness
+     - exchange_thickness
+     - decimal number
+     - No
+     - m
+     - The thickness of the porous layer that the water needs to flow through to reach the groundwater, see :ref:`1d2d_groundwater_exchange`
+   * - Hydraulic conductivity in
+     - hydraulic_conductivity_in
+     - decimal number
+     - No
+     - \-
+     - Hydraulic conductivity for water flowing from the groundwater to the channel, see :ref:`1d2d_groundwater_exchange`
+   * - Hydraulic conductivity out
+     - hydraulic_conductivity_out
+     - decimal number
+     - No
+     - \-
+     - Hydraulic conductivity for water flowing from the channel to the groundwater, see :ref:`1d2d_groundwater_exchange`
 
 
 When using the 3Di Schematisation Editor
@@ -815,9 +830,25 @@ Attributes
      - No
      - \-
      - *Deprecated*
+   * - Exchange thickness
+     - exchange_thickness
+     - decimal number
+     - No
+     - m
+     - The thickness of the (porous) pipe wall that the water needs to flow through to reach the groundwater (or v.v.), see :ref:`1d2d_groundwater_exchange`
+   * - Hydraulic conductivity in
+     - hydraulic_conductivity_in
+     - decimal number
+     - No
+     - \-
+     - Hydraulic conductivity for water flowing from the groundwater into the pipe, see :ref:`1d2d_groundwater_exchange`
+   * - Hydraulic conductivity out
+     - hydraulic_conductivity_out
+     - decimal number
+     - No
+     - \-
+     - Hydraulic conductivity for water flowing from the pipe into the groundwater, see :ref:`1d2d_groundwater_exchange`
 
-.. todo::
-	Nieuwe grondwater attributen toevoegen
 
 .. _manhole_notes_for_modellers:
 

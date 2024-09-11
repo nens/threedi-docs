@@ -153,6 +153,8 @@ For double connected elements this implies:
    A_{1D2D} = L_{1D2D} H_{1D2D} = L_{bank} H_{1D2D}
    
 
+.. _1d2d_groundwater_exchange:
+
 Exchange between 1D and groundwater
 -----------------------------------
 
