@@ -220,6 +220,8 @@ In 1D elements with closed cross-sections, flow may become pressurized. The way 
 
 Because 3Di uses this method, not only flooding and drying is automatically accounted for, but also pressurized flow can be taken into account. One of the advantages is that from the moment the pipe is full (and the volume can no longer increase), the water level can still rise and the same flow equations are still valid. From this point forward, the 'water level' in the pipe represents a pressure. This makes 3Di calculations very stable in transitions between pressurized and non-pressurized flow, without the need for Preissmann slots or other workarounds.
 
+This works the same for flow through all types of structures with closed cross-sections, includings weirs and orifices.
+
 .. _channelflow:
 
 Channels, culverts and pipes
@@ -280,7 +282,7 @@ The critical velocity over the structure is given by:
 .. math::
    u_{II}= C_1 \sqrt{\frac{2}{3} g (h_I-a)}
 
-:math:`C_1` is a loss coefficient, which can be set depending on the type and the shape of the structure itself and the entrance. The effective cross-sectional area is in this case based on the critical water depth. For a simple rectangular cross-section:
+:math:`C_1` is a loss coefficient, which can be set depending on the type and the shape of the structure itself and the entrance. In this case, the effective cross-sectional area is based on the critical water depth. For a simple rectangular cross-section:
 
 .. math::
    A_{eff}= C_2 W \frac{2}{3}(h_I-a)
@@ -297,10 +299,14 @@ In case of sub-critical flows, the waterlevel downstream of the structure is imp
 .. math::
    u_{II}= C_1 \sqrt{2 g (h_{I}-h_{II}-a)}
 
-To determine the depth at the crest, it is assumed that the waterlevel at the crest is equal to the waterlevel downstream. Based on that assumption, the effective cross-section becomes:
+To determine the depth at the crest, it is assumed that the water level at the crest is equal to the water level downstream. Based on that assumption, the effective cross-section (for an open rectangle cross-section) becomes:
 
 .. math::
-   A_{sub}= C_2 W h_{II}
+   A_{eff, sub}= C_2 W h_{II}
+   
+.. note::
+
+   For non-rectangular cross-section shapes, the wet cross-sectional area (:math:`W h_{II}` in the equation above) is calculated differently, i.e. by filling up the cross-section to :math:`h_{II}`, measured from the deepest point in the cross-section. In :ref:`pressurized flow <1Dpressurized>` conditions, the wet cross-sectional area is (obviously) maximized at the maximum cross-sectional area of the structure; in other words, it does not become larger once the whole cross-section has been filled up. 
 
 Combining these equations, results in the discharge formulation.
 
