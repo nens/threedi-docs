@@ -252,6 +252,24 @@ Attributes
      - No
      - \-
      - *Deprecated*
+   * - Exchange thickness
+     - exchange_thickness
+     - decimal number
+     - No
+     - m
+     - The thickness of the porous layer that the water needs to flow through to reach the groundwater, see :ref:`1d2d_groundwater_exchange`
+   * - Hydraulic conductivity in
+     - hydraulic_conductivity_in
+     - decimal number
+     - No
+     - \-
+     - Hydraulic conductivity for water flowing from the groundwater to the channel, see :ref:`1d2d_groundwater_exchange`
+   * - Hydraulic conductivity out
+     - hydraulic_conductivity_out
+     - decimal number
+     - No
+     - \-
+     - Hydraulic conductivity for water flowing from the channel to the groundwater, see :ref:`1d2d_groundwater_exchange`
 
 
 When using the 3Di Schematisation Editor
@@ -812,6 +830,25 @@ Attributes
      - No
      - \-
      - *Deprecated*
+   * - Exchange thickness
+     - exchange_thickness
+     - decimal number
+     - No
+     - m
+     - The thickness of the (porous) pipe wall that the water needs to flow through to reach the groundwater (or v.v.), see :ref:`1d2d_groundwater_exchange`
+   * - Hydraulic conductivity in
+     - hydraulic_conductivity_in
+     - decimal number
+     - No
+     - \-
+     - Hydraulic conductivity for water flowing from the groundwater into the pipe, see :ref:`1d2d_groundwater_exchange`
+   * - Hydraulic conductivity out
+     - hydraulic_conductivity_out
+     - decimal number
+     - No
+     - \-
+     - Hydraulic conductivity for water flowing from the pipe into the groundwater, see :ref:`1d2d_groundwater_exchange`
+
 
 .. _manhole_notes_for_modellers:
 
@@ -1355,6 +1392,7 @@ When using the 3Di Schematisation Editor
 - The *connection nodes* and *manholes* will be added automatically.
 - To draw a single pipe, the geometry must have exactly 2 vertices. A line with more than 2 vertices will be split into several pipes.
 - To digitize a trajectory of multiple pipes, first digitize the manholes, fill in the bottom levels, and then draw the pipe trajectory over these manholes by adding a vertex at each of the manholes. The pipes that are generated will use the manhole's bottom levels as invert levels and the *connection nodes* and *manholes* will be added automatically.
+
 
 
 .. _pipe_notes_for_modeller:
