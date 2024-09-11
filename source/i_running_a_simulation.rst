@@ -440,7 +440,7 @@ From NetCDF
 -----------
 
 * 'The NetCDF contains:' choose between time series of global values and raster time series (for spatially and temporally varying precipitation data). 
-* Upload bar: the event is defined in a NetCDF file. The default format is in minutes, and the rainfall in mm for that time step. Please keep in mind that the duration of the rain in the custom format cannot exceed the duration of the simulation.
+* Upload bar: the event is defined in a NetCDF file. Use the processing algorithm *Rasters to spatiotemporal NetCDF* to generate such a file from a folder of tiffs. Please keep in mind that the duration of the rain in the custom format cannot exceed the duration of the simulation.
 
 Design
 ------
