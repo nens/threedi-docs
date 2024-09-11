@@ -101,6 +101,7 @@ Some examples are shown in the figures below.
 The flow in a 1D network is computed using the equations of conservation of mass and momentum. For this type of flow, these are known as the 1D depth-averaged shallow water equations. The momentum equation for 1D flow in non-conservative form is:
 
 .. math::
+   :name: momentum_equation_1d
    :label: 1D momentum equation
 
    \frac{\partial u}{\partial t}+u \frac{\partial u}{\partial s}=-g\frac{\partial \zeta}{\partial s}-\frac{\tau_f}{R\rho}-\frac{\tau_w}{H \rho}
@@ -122,11 +123,11 @@ In words; in 1D, 3Di takes inertia, advection, pressure gradients, bottom fricti
 Advection in 1D domain
 ----------------------
 
-The second term on the left-hand side of equation (24) represents the advective term. Based on the spatial gradient of the velocity, it represents the transport of momentum. Advective terms can be numerically solved in various ways; implicit/explicit central difference method, first/second order upwind difference method, among others. Although all mathematically correct and consistent, they all have their own advantages and disadvantages. Some are/are not very computationally expensive to solve, very accurate, sensitive to the timestep, robust and/or stable. Depending on the application, some of these characteristics are more pronounced than others. 
+The second term on the left-hand side of equation :ref:`momentum_equation_1d` :math:`u \frac{\partial u}{\partial s}` represents the advective term. Based on the spatial gradient of the velocity, it represents the transport of momentum. Advective terms can be numerically solved in various ways: implicit/explicit central difference method, first/second order upwind difference method, among others. Although all are mathematically correct and consistent, they all have their own advantages and disadvantages. They differ in their computational cost, accuracy, time step sensitivity, robustness and/or stability. Depending on the application, some of these characteristics are more pronounced than others. 
 
-All these methods are consistent under smooth conditions, but under certain conditions they can result in very different solutions, some even physically incorrect (:cite:t:`Stelling2003`). Exemplary are the results near sudden bed transitions or channel expansions/contractions. At those locations there are large gradients in the velocity field. Under these circumstances the 1D momentum equation is not adequate. The vertical flow developed at the edge of these sudden transitions is at a scale too small to be resolved by large-scale models and more importantly, 3-dimensional approximations are required to model such complex flows. However, with applying correct conservation properties accurate solutions can be achieved. Below those that are used in 3Di are explained.
+All these methods are consistent under smooth conditions, but under certain conditions they can result in very different solutions, some even physically incorrect (:cite:t:`Stelling2003`). Exemplary are the results near sudden bed transitions or channel expansions or contractions. At those locations, there are large gradients in the velocity field. Under these circumstances the 1D momentum equation is not adequate. The vertical flow developed at the edge of these sudden transitions is at a scale too small to be resolved by large-scale models and more importantly, 3-dimensional approximations are required to model such complex flows. However, with applying correct conservation properties, accurate solutions can be achieved. Below, those that are used in 3Di are explained.
 
-3Di benefits from 2 main methods, both of which have been studied to be efficient and accurate. The first method is derived based on the momentum conservative form of equation (24).
+3Di benefits from two main methods, both of which have been studied to be efficient and accurate. The first method is derived based on the momentum conservative form of equation :ref:`momentum_equation_1d`.
 
 .. math::
    \frac{\partial (Hu)}{\partial t}+\frac{\partial (Hu^2 + \frac{1}{2}gH^2)}{\partial s}+c_{f}u=gH\frac{\partial d}{\partial s}
@@ -136,8 +137,7 @@ For positive flow direction, the advection approximation of above equation yield
 .. math::
    u\frac{\partial u}{\partial s} = \frac{q_{i-\frac{1}{2}}+q_{i+\frac{1}{2}}}{H_{i}+H_{i+1}} \frac{u_{i+\frac{1}{2}}-u_{i-\frac{1}{2}}}{ds}
    
-
-The second method is derived based on the energy-head conservation form of equation (24):
+The second method is derived based on the energy-head conservation form of equation :ref:`momentum_equation_1d`:
 
 .. math::
    \frac{\partial u}{\partial t}+\frac{\partial (\frac{1}{2}u^2+g\zeta)}{\partial s}+c_{f}\frac{u|u|}{h}=0
@@ -148,7 +148,7 @@ For positive flow direction, the advection approximation of above equation yield
 .. math::
    u\frac{\partial u}{\partial s} = \frac{u_{i-\frac{1}{2}}+u_{i+\frac{1}{2}}}{2} \frac{u_{i+\frac{1}{2}}-u_{i-\frac{1}{2}}}{ds}
    
-All discretisation schemes produce errors. These errors can be observed in the results as extra or diminishing energy/momentum losses. In case of, for example, a channel flow, these losses would be translated in an increase in back water curve. This is in such case an artificial back water curve. Therefore, it is important to examine the amount of energy losses due to numerical errors arising with different advection methods (artificial backwater). In case of energy-conservative scheme, as the approach would suggest, the total energy head loss is zero. Then, the advection term has no contribution to the artificial backwater. This is a stable method without creating any numerical errors. However, it also generates no head loss in case it is expected, e.g., in sudden expansions. The momentum-conservative method, on the other hand, always produces a minimum amount of backwater. In case of sudden expansions, the head loss generated by this method is in line with expectations, however application of this principle at strong contractions would increase the energy head. This is wrong from the physical point of view and might affect the stability. 3Di supports a momentum-conservative method, a energy-conservative method and as a default a combined approach. In this default option, a momentum-conservative method is applied except as sudden contractions. This combination ensures stability and realistic results.
+All discretisation schemes produce errors. These errors can be observed in the results as extra or diminishing energy/momentum losses. In case of, for example, a channel flow, these losses would be translated in an increase in the backwater curve. This is in such case an artificial backwater curve. Therefore, it is important to examine the amount of energy losses due to numerical errors arising with different advection methods (artificial backwater). In case of an energy-conservative scheme, as the approach would suggest, the total energy head loss is zero. Then, the advection term has no contribution to the artificial backwater. This is a stable method without creating any numerical errors. However, it also generates no head loss in case it is expected, e.g., in sudden expansions. The momentum-conservative method, on the other hand, always produces a minimum amount of backwater. In case of sudden expansions, the head loss generated by this method is in line with expectations, however application of this principle at strong contractions would increase the energy head. This is wrong from the physical point of view and might affect the stability. 3Di supports a momentum-conservative method, a energy-conservative method and (as a default) a combined approach. In this default option, a momentum-conservative method is applied except at sudden contractions. This combination ensures stability and realistic results.
 
 .. _1d_friction:
 
