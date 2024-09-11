@@ -509,7 +509,7 @@ Notes for modellers
 - For YZ cross-sections, friction coefficients and vegetation parameters can be defined for each individual segment of the cross-section. A segment is defined as the domain between two YZ coordinates; so if the YZ cross-section is defined by 10 YZ coordinates, the cross-section will have 9 segments. This option is only available when using friction types *Manning with conveyance* or *Chézy with conveyance*. 
 - When separate values are defined for each segment, the single value will be ignored.
 - For vegetation, either all parameter values must be defined as a single value, or all parameter values must be defined for each segment.
-- For the cross-section shapes Tabulated Rectangle, Tabulated Trapezium and YZ, the cross-section shape can be added or edited in the cross-section location attribute table. In the form view, this can be done by filling out the table. In the table view, a CSV-style table can be pasted into the cross_section_table field.
+- For the cross-section shapes *Tabulated rectangle*, *Tabulated trapezium* and *YZ*, the cross-section shape can be added or edited in the cross-section location attribute table. In the form view, this can be done by filling out the table. In the table view, a CSV-style table can be pasted into the cross_section_table field.
 
 
 Reference level
