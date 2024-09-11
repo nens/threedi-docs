@@ -13,11 +13,11 @@ Nowadays, detailed bathymetry information becomes more and more available.  Howe
 
    Examples of flow in a flume, where a slight change in bathymetry strongly affects the flow.
 
-The key assumption of the subgrid method, is that water levels vary much more gradually, than the bathymetry. In most methods used for hydrodynamic computations, water levels are assumed to be uniform within a computational cell. Traditionally, this is also assumed for the bathymetry within such a cell. The subgrid-based method allows the bathymetry to vary within a computational cell, while the water level remains uniform. In 3Di two grids are defined; a high resolution subgrid and a coarse(r) computational grid. 
+The key assumption of the subgrid method, is that water levels vary much more gradually than the bathymetry. In most methods used for hydrodynamic computations, water levels are assumed to be uniform within a computational cell. Traditionally, this is also assumed for the bathymetry within such a cell. The subgrid-based method allows the bathymetry to vary within a computational cell, while the water level remains uniform. In 3Di, two grids are defined; a high resolution *subgrid* and a coarser *computational grid*. 
 
-All input data, such as the bathymetry, roughness and infiltration rates can be defined on the high resolution grid, while the computations are performed on the coarse computational grid. Volumes and cross-sectional areas are based using the high resolution bathymetry information. The variation of the bathymetry within a computational cell, related to a 2D surface water cell means that a cell can be dry, wet or partly wet. 
+All input data, such as the bathymetry, roughness and infiltration rates, can be defined on the high resolution grid, while the computations are performed on the coarse computational grid. Volumes and cross-sectional areas are calculated using the high resolution bathymetry information. The variation of the bathymetry within a computational cell, related to a 2D surface water cell means that a cell can be dry, wet or partly wet. 
 
-For ground water computational cells, the depth of the impervious layer is assumed to be uniform. The storage capacity in a ground water cell is based on the high resolution bathymetry information. This implies that a ground water cell can also be dry, partly full and maximally filled. This happens when the ground water level reaches the highest level of the bathymetry within a computational cell.
+For groundwater computational cells, the depth of the impervious layer is assumed to be uniform. The storage capacity in a groundwater cell is based on the high resolution bathymetry information. This implies that a groundwater cell can also be dry, partly full or completely full. This happens when the groundwater level reaches the highest level of the bathymetry within a computational cell.
 
 The subgrid method has three implications:
 
@@ -34,19 +34,13 @@ The subgrid method has three implications:
 
    An example of a computational cell with a bathymetry defined on the subgrid.
 
-Some facts and figures
-----------------------
-
--	The use of high resolution information goes hand in hand with large amounts of data. To compress this data, it is stored during the computations in tables. More information about this can be found in :ref:`subgrid_tables`.
--	There are more variables defined at the high resolution grid; such as roughness, infiltration capacity and hydraulic connectivity. These will be introduced later in the documentation.
--  Users define for the grid generation a cell size (of the finest grid resolution) and the number of refinement layers. A computational cell consists always of an even number of subgrid cells. In addition, the user needs to define where and if refinements should be defined. One can define polygons or lines to indicate these areas and the refinement level.
 
 .. _subgrid_tables:
 
 Subgrid tables
 --------------
 
-The high resolution subgrid data is compressed in tables that allow fast access during the simulation. These tables describe the relation between water level and the following variables: 
+The use of high resolution information also means that more data is used during the simulation. 3Di stores this data in subgrid tables to limit the memory usage and allow fast access during the simulation. These tables describe the relation between water level and the following variables: 
 
 * Volumes per computational cell (1D, 2D)
 * Cross-sectional area per half of cell face (2D)

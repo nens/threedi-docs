@@ -158,10 +158,10 @@ For double connected elements this implies:
 Exchange between 1D and groundwater
 -----------------------------------
 
-Groundwater interacts with channel and pipes. In 3Di we allow couplings between the 1D and the 2D domain. There are various options that determine the flow, the material of the pipe/channel, the surrounding soil of the groundwater etc. For this 3Di focusses on the large scale effect of the interaction and not on the detailed micro-scale flow. 3Di computes the flux between the two domains based on a diffusive equation, similar to the Darcy equation:
+Groundwater (2D domain) can interact with channels and pipes (1D domain). The flow is governed by various parameters: the material of the pipe/channel, the surrounding soil of the groundwater, et cetera. 3Di focuses on the large scale effect of the interaction and not on the detailed micro-scale flow. 3Di computes the flux between the two domains based on a diffusive equation, similar to the Darcy equation:
 
 .. math::
-   :label: darcy_1d2d
+   :label: 1D2D groundwater exchange equation
 
    Q_{1D2D} = -A_{1D2D} \kappa_{in/out} \frac{\partial \eta}{\partial \delta}
 
@@ -176,11 +176,11 @@ The wet cross-sectional area is based on the length and the wetted perimeter of 
 
 .. figure:: image/h_1d2d_groundwaterexchange.png
    :figwidth: 400 px
-   :alt: connected_to_grw
+   :alt: Sketch of 1D-2D groundwater exchange and the wetted perimeter in red depending on the flow direction.
 
    Sketch of 1D-2D groundwater exchange and the wetted perimeter in red depending on the flow direction.
 
-Each exchange is forced by a water level gradient and scaled by the hydraulic conductivity. Depending on the material, considering pipes or depending on the bed coverage, considering a channel the in and out going flow rates can scale differently. Therefor a in- and a out-going hydraulic conductivity value can be defined. Another scaling factor is the thickness of the pipe or the bed of the channel.
+Each exchange is forced by a water level gradient and scaled by the hydraulic conductivity. Depending on the pipe wall material or the channel bed characteristics, the incoming and outgoing flow rates can scale differently. Therefore, an incoming and an outgoing hydraulic conductivity value can be defined. Another scaling factor is the thickness of the pipe or the bed (e.g. the layer of leaves and other non-decomposed organic matter) of the channel.
 
 
 Breach flow
