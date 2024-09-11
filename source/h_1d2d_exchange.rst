@@ -93,13 +93,6 @@ The figure below shows an embedded channel in the computational grid. 3Di fixes 
    :figwidth: 300 px
    :alt: Embedded channel in a computational grid
 
-.. todo::
-
-   @Nici, van onderstaande tekst begrijp ik echt heel weinig. Kan jij dit herschrijven / aan mij uitleggen / weghalen?
-
-   The geometry is simplified based upon the 2D geometry. It also shows, indicated with the coloured, transparent hollows, which domain contribute to the volumes. As they can be shifted with respect to the 2D domain, recalculation by hand can be difficult. There is an option to define the length of interest of an embedded channel.
-   If the channel within a 2D computational cell is shorter than that length, that part of the channel is skipped. This is indicated by the red circle in the same figure.
-
 Storage in embedded nodes
 """""""""""""""""""""""""
 
@@ -116,8 +109,8 @@ The embedded element modifies the storage of the 2D cell it is embedded in. The 
 
 Cross-sectional area in embedded flowlines
 """"""""""""""""""""""""""""""""""""""""""
-The cross-sectional area that is used in the 1D flow calculation is determined in a way similar to how the storage is handled. The part of the 1D cross-section that is below the DEM pixels is used, the rest is ignored. The cross-sectional area that is used for the calculation of 2D flow is unaltered by the embedded elements that pass through the cells.
 
+The cross-sectional area that is used in the 1D flow calculation is determined in a way similar to how the storage is handled. The part of the 1D cross-section that is below the DEM pixels is used, the rest is ignored. The cross-sectional area that is used for the calculation of 2D flow is unaltered by the embedded elements that pass through the cells.
 
 1D2D Flow
 ---------
@@ -159,7 +152,40 @@ For double connected elements this implies:
 
    A_{1D2D} = L_{1D2D} H_{1D2D} = L_{bank} H_{1D2D}
    
+
+.. _1d2d_groundwater_exchange:
+
+Exchange between 1D and groundwater
+-----------------------------------
+
+Groundwater (2D domain) can interact with channels and pipes (1D domain). The flow is governed by various parameters: the material of the pipe/channel, the surrounding soil of the groundwater, et cetera. 3Di focuses on the large scale effect of the interaction and not on the detailed micro-scale flow. 3Di computes the flux between the two domains based on a diffusive equation, similar to the Darcy equation:
+
+.. math::
+   :label: 1D2D groundwater exchange equation
+
+   Q_{1D2D} = -A_{1D2D} \kappa_{in/out} \frac{\partial \eta}{\partial \delta}
+
+| where:
+| :math:`Q_{1D2D}` is the discharge between the domains, positive direction is from the 1D domain to the 2D domain 
+| :math:`A_{1D2D}` is the wet cross-sectional area 
+| :math:`\kappa_{in/out}` is the hydraulic conductivity
+| :math:`\eta` is the water level gradient
+| :math:`\delta` is the exchange thickness
+
+The wet cross-sectional area is based on the length and the wetted perimeter of the 1D-element. This depends on the upstream water level and the cross-section definition of the 1D element. This is indicated in the figure below for a flux out of the 1D elements.
+
+.. figure:: image/h_1d2d_groundwaterexchange.png
+   :figwidth: 400 px
+   :alt: Sketch of 1D-2D groundwater exchange and the wetted perimeter in red depending on the flow direction.
+
+   Sketch of 1D-2D groundwater exchange and the wetted perimeter in red depending on the flow direction.
+
+Each exchange is forced by a water level gradient and scaled by the hydraulic conductivity. Depending on the pipe wall material or the channel bed characteristics, the incoming and outgoing flow rates can scale differently. Therefore, an incoming and an outgoing hydraulic conductivity value can be defined. Another scaling factor is the thickness of the pipe or the bed (e.g. the layer of leaves and other non-decomposed organic matter) of the channel.
+
+
 Breach flow
 -----------
 
 Breaches are a special case of 1D2D connections. The flow through a breach is calculated with the broad crested weir equation, more information on the exact calculation of breach flow can be found in :ref:`breach_flow`.
+
+
