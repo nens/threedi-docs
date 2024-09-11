@@ -14,7 +14,7 @@ In the sections below, we elaborate on the grids specified for computations in t
 Computational grid for 2D domain
 --------------------------------
 
-In 3Di we make use of a so-called structured, staggered grid. For the 2D domain, this implies that computational cells are perfect squares. Pressure, water levels and volumes are defined in the cell centres; velocities and discharges are defined at the cell edges.
+3Di uses a structured, staggered grid. For the 2D domain, this implies that computational cells are perfect squares. Pressure, water levels and volumes are defined in the cell centres; velocities and discharges are defined at the cell edges.
 
 .. figure:: image/b1_1.png
    :figwidth: 400 px
@@ -22,12 +22,12 @@ In 3Di we make use of a so-called structured, staggered grid. For the 2D domain,
 
    Example of a staggered 2D grid including a refinement; water levels/ pressures are defined in the cell centres (blue dots) and velocities at the cell edges (blue bars). Water level domains are indicated by blue areas, and the momentum domains by green and orange areas.
 
-The hydrodynamic computations are based on the conservation of volume and momentum. In the next sections (:ref:`cons_volume`,  :ref:`onedee_flow`, :ref:`surface_flow`, and :ref:`groundwater`), the methods concerning these computations are discussed. In order to solve the equations, the domains in which they are valid need to be defined first. In the Figure above, the volume and momentum domains are shown.
+The hydrodynamic computations are based on the conservation of volume and momentum. See :ref:`cons_volume`, :ref:`onedee_flow`, :ref:`surface_flow`, and :ref:`groundwater` for more information. In order to solve these flow equations, the domains in which they are valid need to be defined first. In the Figure above, the volume and momentum domains are shown.
 
 Grid refinement in 2D
 ^^^^^^^^^^^^^^^^^^^^^
 
-The computational cost of a simulation is strongly related to the number of computational cells. One always needs to find a balance between grid resolution and computational time. In a model area, there are often regions in which flow is more complex or for which results with a finer resolution are required. To optimise the computational cost and grid resolution, users can refine the grid locally. 3Di uses a method called quad-tree refinement. With this method, refinements are placed by dividing neighboring cells by a factor 4 (Figures below and above). This is a simple refinement method that forces smooth grid variations, enhancing accurate solutions of the equations.
+The computational cost of a simulation is strongly related to the number of computational cells. One always needs to find a balance between grid resolution and computational time. In a model area, there are often regions in which flow is more complex or for which results with a finer resolution are required. To optimise the computational cost and grid resolution, users can refine the grid locally. 3Di uses a method called quad-tree refinement. The grid is refined subdividing cells in four; a cell edge can not be smaller less than half of its neighbour (see the Figure below). This is a simple refinement method that forces smooth grid variations, enhancing accurate solutions of the equations.
 
 .. figure:: image/b1_6_quadtree_grid.png
    :figwidth: 400 px
@@ -35,15 +35,27 @@ The computational cost of a simulation is strongly related to the number of comp
 
    An example of a computational grid with quad-tree refinements.
 
-Input
-+++++
+In models with groundwater, the grid refinement is applied in both the surface water layer and the groundwater layer.
 
-The numerical grid is generated based on the following settings:
-* Grid space.
-* Number of refinement levels.
-* Grid refinements.
+.. 2d_grid_settings:
 
-The grid space is the measure of the dimension of a computational cell. It is important that the width and the height of a grid cell contain an even number of subgrid cells. In case the dimensions of a subgrid cell are *0.5 x 0.5 m*:sup:`2`, the grid space can be 5.0 x 5.0 m*:sup:`2`. In case the dimensions of a subgrid cell are *1.0 x 1.0 m*:sup:`2`, the grid space can not be *5.0 x 5.0 m*:sup:`2`. The grid space is defined in the Global settings table and is the dimension of the smallest grid size. The *kmax* setting is the number of refinement levels. Locations where the refinements need to be defined can be added by a line using the Grid refinement table, or by an area using Grid refinement area. In case two refinement levels are defined at the same location, 3Di will refine to the highest level indicated. 3Di will always aim at a minimum number of grid cells, it will coarsen the grid as fast as possible, but it will only be possible to do that in steps of four.
+2D grid settings
+++++++++++++++++
+
+The 2D computational grid is generated based on the following settings:
+
+- *Minimum cell size (grid_space)*: height or width of the smallest cell, in meters. 
+
+
+	.. note: 
+		
+		The minimum cell size (grid_space) must be an even multiple of the pixel size of the DEM. For example, if the pixel size is 0.5 m, the minimum cell size can be 5.0 m (5 / 0.5 = 10, which is even). But if the pixel size is 1 m, the minimum cell size cannot be 5.0 m (5 / 1 = 5, which is not even). 
+
+- *Number of refinement levels (kmax)*: the number of refinement levels. The size of all cells will be :math:`grid_space × 2^{kmax - 1}`, unless the are affected by grid refinements. For example, if the minimum cell size is 10 m and kmax is 1, all cells will be 10 × 10 m. If the minimum cell size is 10 and kmax is 3, the cell width becomes 10 × 2 × 2 = 40 m, so all cells will be 40 × 40 m.
+
+- *Grid refinements*: locations where the number of refinement levels is locally maximised. In case two refinement levels are defined at the same location, 3Di will refine to the smallest cell size indicated.
+
+
 
 Groundwater
 ^^^^^^^^^^^

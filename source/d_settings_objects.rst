@@ -73,14 +73,14 @@ Global settings attributes
      - Integer
      - Yes
      - m
-     - The width/length of the smallest possible 2D computation cell. See :ref:`computational_grid` for more details.
+     - The width/length of the smallest possible 2D computation cell. See :ref:`2d_grid_settings` for more details.
      - Grid
    * - Number of grid refinement levels
      - kmax
      - Integer
      - Yes
      - \-
-     - The maximum number of grid refinement levels. See :ref:`computational_grid` for more details.
+     - The maximum number of grid refinement levels. See :ref:`2d_grid_settings` for more details.
      - Grid
    * - Table step size
      - table_step_size
