@@ -3,6 +3,43 @@
 3Di Computational core
 ----------------------
 
+September 11, 2024
+^^^^^^^^^^^^^^^^^^
+
+- When using a saved state for a model with interflow, the interflow velocities and discharges from that saved state are now written to the results NetCDF at timestep 0.
+
+- When using a saved state, the initial intercepted volume and initial infiltrated volume from that saved state are now included in the flow summary (#766)
+
+- In water quality, support for (physical) diffusion has been implemented in the computational core (not yet in the API) (#773, #774)
+
+- For 1D advection, two new types of calculating 1D advection have been introduced. The current advection method (1) is momentum conservative. The two new methods are (2) energy conservative and (3) a 'smart' method that uses the energy conservative or momentum conservative method depending on the situation. See :ref:`1d_advection` for details. (#753, #754, #755)
+
+.. _release_notes_calccore_20240605:
+
+June 5, 2024
+^^^^^^^^^^^^
+
+- In the water quality module, a discretisation method has been implemented that improves the stability and reduces numerical diffusion. It uses a combination of explicit and implicit solving methods. This two-step method overcomes limitations of the accurate explicit method and ensures stability with the implicit part of the method. (#794)
+
+- Improved stability of water quality calculations in case of shallow, fast flowing water (#795)
+
+- Bugfix: Load entering via leakage not included in substance summary (#808)
+
+
+.. _release_notes_calccore_20240530:
+
+May 30, 2024
+^^^^^^^^^^^^
+
+- Timestep handling in the water quality module has been improved significantly (#742, #751, #752). This makes water quality calculations much faster, more stable, and more accurate.
+
+- A decay coefficient (half-life) can now be set for each substance (#700, #775)
+
+- It is now possible to use single vegetation parameter values (constant over the whole cross-section) when using cross-section shape *YZ* and friction type *Chezy with conveyance* (#800)
+
+- Bugfix: Some types of raster NetCDF forcings (e.g. NetCDF rain) were not accepted by the 3Di API because of a bug in the routine that compares the spatial extent of the forcing to the spatial extent of the 3Di model. This has been fixed now (#2221).
+
+
 April 29, 2024
 ^^^^^^^^^^^^^^
 
@@ -12,7 +49,7 @@ April 29, 2024
 
 
 March 18, 2024
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 - Add substance settings to water quality module.
 

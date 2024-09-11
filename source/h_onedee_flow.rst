@@ -9,6 +9,7 @@
 - :ref:`cross_section_of_1d_element`
 - :ref:`1d_momentum_equation`
 - :ref:`1d_friction`
+- :ref:`1d_vegetation`
 - :ref:`1Dpressurized`
 - :ref:`channelflow`
 - :ref:`weirs_and_orifices`
@@ -174,13 +175,42 @@ The conveyance factor considers the depth variations in the different depth sect
    Single Section Method vs Compound Section (Conveyance) Method
 
 In 3Di, the conveyance method can be applied with single or variable roughnesses. In case of the single roughness, one roughness value is assigned to the whole cross-section. This can be used with cross-section shapes *Tabulated rectangle* and *Tabulated trapezium*. On the other hand, different roughness values can be assigned to the sub-sections to account for the variable roughness along the cross-section. This can be used with the cross-section shape *YZ*.
- 
+
+.. _1d_vegetation:
+
+Vegetation in the 1D domain
+---------------------------
+
+In addition to friction, natural or planted vegetation plays a significant role in the hydrualic resistance of the flow. The overall head loss along a channel can strongly increase with the presence of vegetation. The way 3Di calculates the effect of vegetation on the flow in the 1D domain is very similar to :ref:`flow_with_vegetation`. 
+
+The effect of vegetation is modelled as the equivalent shear stress due to vegetation (:cite:t:`Baptist2007`,). The total shear stress is then the superposition of the surface and vegetation-induced shear stresses, which eventually alters the uniform flow velocity. This method uses vegetation characteristics, namely stem diameter, density, height, and drag coefficient, to quantify the vegetation-induced shear stress :math:`\tau_v` as:
+
+.. math::
+
+   \tau_v = \frac{1}{2}C_{DV} m D min[H_v, H]u^2  \label{eq:veggie_drag_baptist} 
+    
+| with: 
+| :math:`u`, the flow velocity (in flow direction)
+| :math:`H`, the water depth
+| :math:`H_v`, the relative vegetation height
+| :math:`D`, the stem diameter
+| :math:`m`, the number of stems per square meter 
+| :math:`C_{DV}`, The vegetation drag coefficient 
+
+3Di allows for defining single vegetation properties for the cross-section shapes *Tabulated rectangle* and *Tabulated trapezium* (see :ref:`cross-section_shape`). For cross-sections with a *YZ* shape, different vegetation parameter values can be set for each segment in the cross-section, to represent the spatial distribution of vegetation across a channel (see the figure below). When generating the model, 3Di analyzes the cross-section and divides it into several sub-sections according to the slope of the segments. The details about 1D vegetation entries can be found in :ref:`cross_section_location`.
+
+.. figure:: image/1dvegetation.png
+   :figwidth: 1500 px
+   :alt: 1D_vegetation
+
+   User-defined vegetation properties for each segment of a YZ cross-section, and how 3Di interprets it.
+
 .. _1Dpressurized:
 
 Pressurized flow
 ----------------
 
-In 1D elements with closed cross-sections flow may become pressurized. The way 3Di deals with this is similar to how 3Di deals with the non-lineair relations in 2D cells (e.g. between volume and water level). :ref:`subgridmethod` allows 2D cells to be  be dry, wet or *partly wet*, creating a non-lineair volume-water level relation. This was solved with a highly efficient method. However, there are some requirements for such system to be solved. one of these requirements is violated when the surface area decreases for increasing water levels, as in pipes that are more than half full (see the Figure below). Therefore, a new method had to be introduced to solve such a non-linear system of equations. This method is based on the so-called nested Newton method (`cite:t:`Casulli2013`).
+In 1D elements with closed cross-sections, flow may become pressurized. The way 3Di deals with this is similar to how 3Di deals with the non-linear relations in 2D cells (e.g. between volume and water level). :ref:`subgridmethod` allows 2D cells to be dry, wet or *partly wet*, creating a non-linear volume-water level relation. This was solved with a highly efficient method. However, there are some requirements for such system to be solved. One of these requirements is violated when the surface area decreases for increasing water levels, as in pipes that are more than half full (see the Figure below). Therefore, a new method had to be introduced to solve such a non-linear system of equations. This method is based on the *nested Newton* method (:cite:t:`Casulli2013`).
 
 .. figure:: image/b1_5.png
    :scale: 50%
@@ -189,6 +219,8 @@ In 1D elements with closed cross-sections flow may become pressurized. The way 3
    Examples of cross-sectional areas. An open and closed cross-sectional area
 
 Because 3Di uses this method, not only flooding and drying is automatically accounted for, but also pressurized flow can be taken into account. One of the advantages is that from the moment the pipe is full (and the volume can no longer increase), the water level can still rise and the same flow equations are still valid. From this point forward, the 'water level' in the pipe represents a pressure. This makes 3Di calculations very stable in transitions between pressurized and non-pressurized flow, without the need for Preissmann slots or other workarounds.
+
+This works the same for flow through all types of structures with closed cross-sections, includings weirs and orifices.
 
 .. _channelflow:
 
@@ -250,7 +282,7 @@ The critical velocity over the structure is given by:
 .. math::
    u_{II}= C_1 \sqrt{\frac{2}{3} g (h_I-a)}
 
-:math:`C_1` is a loss coefficient, which can be set depending on the type and the shape of the structure itself and the entrance. The effective cross-sectional area is in this case based on the critical water depth. For a simple rectangular cross-section:
+:math:`C_1` is a loss coefficient, which can be set depending on the type and the shape of the structure itself and the entrance. In this case, the effective cross-sectional area is based on the critical water depth. For a simple rectangular cross-section:
 
 .. math::
    A_{eff}= C_2 W \frac{2}{3}(h_I-a)
@@ -267,10 +299,14 @@ In case of sub-critical flows, the waterlevel downstream of the structure is imp
 .. math::
    u_{II}= C_1 \sqrt{2 g (h_{I}-h_{II}-a)}
 
-To determine the depth at the crest, it is assumed that the waterlevel at the crest is equal to the waterlevel downstream. Based on that assumption, the effective cross-section becomes:
+To determine the depth at the crest, it is assumed that the water level at the crest is equal to the water level downstream. Based on that assumption, the effective cross-section (for an open rectangle cross-section) becomes:
 
 .. math::
-   A_{sub}= C_2 W h_{II}
+   A_{eff, sub}= C_2 W h_{II}
+   
+.. note::
+
+   For non-rectangular cross-section shapes, the wet cross-sectional area (:math:`W h_{II}` in the equation above) is calculated differently, i.e. by filling up the cross-section to :math:`h_{II}`, measured from the deepest point in the cross-section. In :ref:`pressurized flow <1Dpressurized>` conditions, the wet cross-sectional area is (obviously) maximized at the maximum cross-sectional area of the structure; in other words, it does not become larger once the whole cross-section has been filled up. 
 
 Combining these equations, results in the discharge formulation.
 

@@ -135,7 +135,8 @@ If a new user needs access to 3Di from the organisation, this can be granted by 
 
 #. Select the roles the user will have (see :ref:`roles`)
 #. Click *SAVE*.
-#. Success! The invitation has been sent and will be in the new user's mailbox within 5 minutes. An existing user can use the invitation link to accept the invitation. 
+#. Success! The invitation has been sent and will be in the new user's mailbox within 5 minutes. An existing user can use the invitation link to accept the invitation.
+ 
 A new user can create an account by using the :ref:`a_singing_up` guide. When accepted, the user will appear in the *User Management* overview.
 
 .. tip:: Clicking 🛈 will also show you an overview of the roles and the rights associated with them.
@@ -172,6 +173,7 @@ You cannot revoke your own *Manager* role.
 
 
 .. _roles:
+
 User roles
 ----------
 

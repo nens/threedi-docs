@@ -3,6 +3,51 @@
 3Di API
 -------
 
+September 11, 2024
+^^^^^^^^^^^^^^^^^^
+
+*Database schema 300*
+
+The first migrations to :ref:`schema_300` are now in use on the 3Di server. When a 3Di model is generated from a schematisation, the spatialite is first migrated to the latest schema version. Parts of the database schema that are, from this release onwards, migrated to the new database schema are:
+
+- Settings (threedi-schema#75, threedi-schema#81, threedi-schema#79, threedi-modelchecker#363, threedi-api#2168, threedigrid-builder#355)
+
+- Inflow (threedi-schema#65, threedi-api#2228, threedigrid-builder#362)
+
+- Structure control (threedi-schema#70, threedi-modelchecker#382, threedi-modelchecker#385, threedigrid-builder#373, threedi-api#2263)
+
+*Other changes*
+
+- Access to historical and forecast rain radar services can now be configured on organisation level (by the service desk) (#2244)
+
+- Multiple 3Di accounts can now be coupled to the same Lizard account (Scenario archive) by the service desk #2203
+
+- Tags can now be added to schematisation revisions (#1948)
+
+- Bugfix: Substance concentrations were connected to DWF laterals while forcing only added substance to 2D lateral (#2243)
+
+- Bugfix: Substance concentration was only added to one boundary condition, even when user specified it should be added to multiple boundary conditions (#2242)
+
+- Bugfix: DEM en water depth maps in 3Di Live are now visualised correctly also when the DEM nodata value is not -9999 (#2257)
+
+
+.. _release_notes_3di_api_20240530:
+
+May 30, 2024
+^^^^^^^^^^^^
+- Implement substance decay (threedi-api #2150)
+
+- Add a *started_from* property to simulations to indicate which user interface started the simulation (3Di Live or 3Di Modeller Interface) (threedi-api #1328)
+
+- Add units to substances (threedi-api #2085, threedigrid #223)
+
+- Add linestring geometry to pumps in geojson (threed-api #1955)
+
+- Bugfix: Assymmetric YZ profiles were not processed correctly (threedigrid #228)
+
+- Bugfix: Simulation with multiple substances no longer crashes (threedi-api #2223)
+
+
 April 29, 2024
 ^^^^^^^^^^^^^^
 
@@ -29,7 +74,7 @@ April 29, 2024
 
 
 March 18, 2024
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 - Add water quality settings and substance settings.
 

@@ -368,7 +368,7 @@ Storage area
 Cross-section location
 ----------------------
 
-Object to define the dimensions, levels, and friction at a specified point along a :ref:`channel`.
+Object to define the dimensions, levels, friction and vegetation properties at a specified point along a :ref:`channel`.
 
 Geometry
 ^^^^^^^^
@@ -439,14 +439,67 @@ Attributes
      - decimal number
      - Yes
      - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
-     - Friction or roughness value
+     - Friction or roughness value. This global value is superseded in case friction values are provided for each individual segment of a YZ cross-section.
+   * - Friction values
+     - friction_values
+     - text
+     - No
+     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
+     - Friction value for each segment of a YZ cross-section. List of decimal numbers, space-separated (in the Spatialite) or comma-separated (in the 3Di Schematisation Editor geopackage). If provided, these values override the single *friction coefficient* value.
    * - Reference level
      - reference_level
      - decimal number
      - Yes
      - m MSL
      - Lowest point of the cross-section
-
+   * - Vegetation height
+     - vegetation_height
+     - Decimal number
+     - Yes
+     - m
+     - Height of the vegetation, i.e. the length of the plant stems. This global value is superseded in case vegetation heights are provided for each individual segment of a YZ cross-section.
+   * - Vegetation heights
+     - vegetation_heights
+     - text
+     - Yes
+     - m
+     - Vegetation heights for each segment of a YZ cross-section. List of decimal numbers, space-separated (in the Spatialite) or comma-separated (in the 3Di Schematisation Editor geopackage). If provided, these values override the single *vegetation height* value.
+   * - Vegetation stem count
+     - vegetation_stem_count
+     - Integer
+     - Yes
+     - #/m\ :sup:`2`
+     - Density of plant stems. List of decimal numbers, space-separated (in the Spatialite) or comma-separated (in the 3Di Schematisation Editor geopackage). This global value is superseded in case vegetation stem counts are provided for each individual segment of a YZ cross-section.
+   * - Vegetation stem counts
+     - vegetation_stem_counts
+     - text
+     - Yes
+     - #/m\ :sup:`2`
+     - Vegetation stem count for each segment of a YZ cross-section. List of decimal numbers, space-separated (in the Spatialite) or comma-separated (in the 3Di Schematisation Editor geopackage). If provided, these values override the single *vegetation stem count* value.
+   * - Vegetation stem diameter
+     - vegetation_stem_diameter
+     - Decimal number
+     - Yes
+     - m
+     - Mean diameter of plant stems. List of decimal numbers, space-separated (in the Spatialite) or comma-separated (in the 3Di Schematisation Editor geopackage). This global value is superseded in case vegetation stem diameters are provided for each individual segment of a YZ cross-section.
+   * - Vegetation stem diameters
+     - vegetation_stem_diameters
+     - text
+     - Yes
+     - m
+     - Vegetation stem diameter for each segment of a YZ cross-section. List of decimal numbers, space-separated (in the Spatialite) or comma-separated (in the 3Di Schematisation Editor geopackage). If provided, these values override the single *vegetation stem diameter* value.
+   * - Vegetation drag coefficient
+     - vegetation_drag_coefficient
+     - Decimal number
+     - Yes
+     - \-
+     - Coefficient to linearly scale the drag that vegetation exerts on the water. The drag resulting from vegetation is different for each situation. A large share of this variation is captured by choosing the correct values for vegetation height, stem count, and stem diameter. The drag coefficient can be used to account for the other factors that affect the drag. The drag coefficient can also be used as a calibration parameter. This global value is superseded in case vegetation drag coefficients are provided for each individual segment of a YZ cross-section.
+   * - Vegetation drag coefficients
+     - vegetation_drag_coefficients
+     - text
+     - Yes
+     - \-
+     - Vegetation drag coefficient for each segment of a YZ cross-section. List of decimal numbers, space-separated (in the Spatialite) or comma-separated (in the 3Di Schematisation Editor geopackage). If provided, these values override the single *vegetation drag coefficient* value.
 
 .. _cross_section_location_notes_for_modellers:
 
@@ -456,6 +509,10 @@ Notes for modellers
 - A cross-section location should be placed on top of a channel vertex that is not the start or end vertex
 - If the channel calculation point distance is smaller than the distance between cross section locations, values in the cross section locations along the channel are interpolated, see :ref:`techref_calculation_point_distance`.
 - If there are multiple cross-section locations between two **calculation nodes** (not connection nodes), only the first cross-section location is used.
+- For YZ cross-sections, friction coefficients and vegetation parameters can be defined for each individual segment of the cross-section. A segment is defined as the domain between two YZ coordinates; so if the YZ cross-section is defined by 10 YZ coordinates, the cross-section will have 9 segments. This option is only available when using friction types *Manning with conveyance* or *Chézy with conveyance*. 
+- When separate values are defined for each segment, the single value will be ignored.
+- For vegetation, either all parameter values must be defined as a single value, or all parameter values must be defined for each segment.
+
 
 Reference level
 """""""""""""""

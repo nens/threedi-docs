@@ -57,6 +57,14 @@ You can follow the progress of your simulation by clicking on the *Simulate* ico
 Once the simulation is done the results will be available for 7 days. For information on how to download, view and analyze results, see :ref:`mi_analysing_results`.
 
 
+.. _simulation_wizard_substances:
+
+Substances
+==========
+
+When using the water quality module, you define the substances to be used on the substances page. Each substance must have a unique name. Specifying the units is optional; units can be any text, with a max length of 16 characters. 
+
+
 .. _simulate_api_qgis_boundary_conditions:
 
 Boundary conditions
@@ -66,8 +74,10 @@ Boundary conditions
 
 * **Upload files(s)**: You can upload CSV files to replace the boundary conditions that are included in the simulation template. 
 
-  * Upload a CSV file.
+  * Upload a CSV file (see :ref:`boundary_conditions_csv_file_format` for the format requirements).
+  
   * Set the time units used in your CSV file (hours, minutes, or seconds). The default is minutes (mins), because this is the time unit that is used in the 3Di spatialite.
+  
   * If the option 'Interpolate' is checked, the value between time steps will be linearly interpolated. For example, consider the following time series:
 
     .. list-table:: Timeseries example for interpolation
@@ -87,30 +97,21 @@ Boundary conditions
 
 .. Note:: You can only replace *all* boundary conditions. For example, if your model contains two 1D boundary conditions and five 2D boundary condition, the CSV file for the 1D boundary conditions should contain time series for both of the two 1D boundary conditions and the CSV file for the 2D boundary conditions should contain time series for all five 2D boundary conditions. The simulation wizard will merge them into a single JSON file that is sent to the API
 
+.. _boundary_conditions_csv_file_format:
 
+Boundary conditions CSV file format
+-----------------------------------
 
-Editing a time series for boundary conditions
----------------------------------------------
+The columns in the CSV file are to be comma-separated. 
 
-To run a simulation in which only one or a few boundary conditions have a different time series, take the following steps. The instructions are for 1D Boundary conditions; for 2D Boundary conditions, the same instructions apply. 
-
-- Load your schematisation
-- In the Layers panel, right click on the layer '1D Boundary condition' > 'Export' > 'Save features as..'
-- For 'Format', choose 'Comma Separated Value [CSV]'
-- Choose a 'File name' and location to save the file to
-- Click 'Select fields to export and their export options'
-- Make sure only the checkboxes for the fields 'id' and 'timeseries' are checked
-- Under 'Geometry' > 'Geometry type' choose 'No Geometry'
-- Under 'Layer options', make sure the 'Separator' is 'comma'
-- Click 'Ok' to save the file
-- Open the file in a text editor to edit the values and save the CSV file
-- You can now select the edited CSV file under the option "Upload file(s)" when adding scenario information
-
-| **Boundary conditions CSV file format**
-| The CSV file input should have the following columns:
+The CSV file input should have the following columns:
 
 - "id": integer; is the id of the corresponding row in the 1D Boundary Conditions table in the spatialite
 - "timeseries": a CSV-formatted text field: pairs of time step (in minutes or seconds) and value (in m\ :sup:`3`/s, m, or m/m, depending on the boundary condition type). The timestep is separated from the value by a comma and lines are separated from one another by a newline.
+
+Any additional columns will be ignored.
+
+The easiest way to generate such a file is by exporting it from the *1D Boundary Condition* or *2D Boundary Condition* layers of your schematisation, see :ref:`exporting_boundary_condition_data`.
 
 Example as a table:
 
@@ -154,6 +155,24 @@ Text example::
     "8","0,63.307
          99999,63.307"
 
+.. _exporting_boundary_condition_data:
+
+Editing a time series for boundary conditions
+---------------------------------------------
+
+To run a simulation in which only one or a few boundary conditions have a different time series, take the following steps. The instructions are for 1D Boundary conditions; for 2D Boundary conditions, the same instructions apply. 
+
+- Load your schematisation
+- In the Layers panel, right click on the layer '1D Boundary condition' > 'Export' > 'Save features as..'
+- For 'Format', choose 'Comma Separated Value [CSV]'
+- Choose a 'File name' and location to save the file to
+- Click 'Select fields to export and their export options'
+- Make sure only the checkboxes for the fields 'id' and 'timeseries' are checked
+- Under 'Geometry' > 'Geometry type' choose 'No Geometry'
+- Under 'Layer options', make sure the 'Separator' is 'comma'
+- Click 'Ok' to save the file
+- Open the file in a text editor to edit the values and save the CSV file
+- You can now select the edited CSV file under the option "Upload file(s)" when adding scenario information
      
 
 Running a simulation without boundary conditions
@@ -161,7 +180,6 @@ Running a simulation without boundary conditions
 
 If the 3Di model contains boundary conditions, you can only run a simulation if a time series is specified for each one of them. To run a simulation without boundary conditions, you will need to remove them from your schematisation and generate a new 3Di model. 
 
-|
 
 .. _simulate_api_qgis_initial_conditions:
 
@@ -200,20 +218,57 @@ Initial conditions either refer to the use of saved state file, or the use of in
 Laterals
 ========
 
-Laterals can be uploaded using .csv format for either 1D or 2D. For a more detailed description on laterals, see: :ref:`laterals`.
+For an explanation of what laterals are and how 3Di uses them, see :ref:`laterals`.
 
-* Select the 'Type of laterals:'
-* Upload a CSV file
-* Set the time units used in your CSV file (hours, minutes, or seconds). The default is minutes (mins), because this is the time unit that is used in the 3Di spatialite
-* If the option 'Interpolate' is checked, the value between time steps will be linearly interpolated. 
-* Check the option 'Overrule single laterals', to exclude certain laterals in your model
+Laterals can be uploaded using .csv format for 1D and/or 2D. Depending on the type of laterals (1D or 2D), specific file format requirements apply, see :ref:`laterals_1d_csv_format_requirements` and :ref:`laterals_2d_csv_format_requirements`.
 
-.. VRAAG: klopt mijn uitleg over 'Overrule single laterals'
+You can switch the 1D and/or the 2D laterals on and off by checking or unchecking the checkbox for the group.
 
-The CSV file format is generated by a right-mouse click on table: v2_1d_lateral. Then choose export --> save features as --> Select csv as output format. Choose a filename and location to store and click OK. the file should be like this:
+If the option 'Interpolate' is checked, the value between time steps will be linearly interpolated. If not, the value will be constant until the next time frame starts.
 
-| **Follow these steps to generate the CSV file:**
-| The instructions are for 1D laterals; for 2D laterals, the same instructions apply. 
+.. note:: 
+    
+	If the box *Use 1D laterals from the simulation template* is checked and *Upload 1D laterals* is also checked, the uploaded laterals are added to the laterals already present in the simulation template. The same applies to 2D laterals.
+
+.. note:: 
+    
+	The time units you choose should match the time units used in the CSV file. The default is minutes (mins), because this is the time unit that is used in the 3Di spatialite
+
+
+.. _laterals_1d_csv_format_requirements:
+
+1D laterals file format
+-----------------------
+
+The CSV file for 1D laterals should look like this::
+
+    id,connection_node_id,timeseries
+    1,3,"0,0.5
+    60,1.0
+    120,2.0"
+    2,2,"0,0.5
+    60,1.0
+    120,2.0"
+    3,1,"0,0.5
+    60,1.0
+    120,2.0"
+    4,4,"0,0.5
+    60,1.0
+    120,2.0"
+
+Requirements: 
+
+- Columns are comma-separated
+
+- The file includes the columns "id", "connection_node_id", and "timeseries". Any additional columns are ignored; the sequence of the columns is not important.
+
+- The *timeseries* column contains a CSV-style list of *time,value* pairs, enclosed by double quotes. The rows in this nested table are separated by a newline, the values within the row are comma-separated.
+ 
+- The time units in the CSV file must match the time units chosen in the user interface. The default is minutes (mins), because this is the time unit that is used in the 3Di spatialite
+
+
+Generating a CSV file for 1D laterals
+-------------------------------------
 
 - Load your schematisation
 - In the Layers panel, right click on the layer '1D lateral' > 'Export' > 'Save features as..'
@@ -224,34 +279,114 @@ The CSV file format is generated by a right-mouse click on table: v2_1d_lateral.
 - Under 'Geometry' > 'Geometry type' choose 'No Geometry'
 - Under 'Layer options', make sure the 'Separator' is 'comma'
 - Click 'Ok' to save the file
-- You can now select the CSV file under the option "Upload file(s)" when adding scenario information
+- You can now select the CSV file under the option "Upload file(s)" when adding scenario information. The time units in the spatialite (and therefore in the exported CSV) are minutes.
 
+.. _laterals_2d_csv_format_requirements:
 
-*Important note: Units in the CSV are seconds (for time steps) and m\ :sup:`3`/s (for the flows).*
+2D laterals file format
+-----------------------
+
+The CSV file for 2D laterals should look like this::
+
+    X,Y,id,timeseries
+    4.73305012754464,52.5607362843091,1,"0,0.5
+    60,1.0
+    120,2.0"
+    4.73149460853063,52.5589740526876,2,"0,0.5
+    60,1.0
+    120,2.0"
+    4.73018087976208,52.5556893490626,3,"0,2.5
+    60,2.0
+    120,5.0"
 
 |
+
+Requirements: 
+
+- Columns are comma-separated
+
+- The file includes the columns "x", "y", "id", "connection_node_id", and "timeseries". Any additional columns are ignored; the sequence of the columns is not important.
+
+- The *timeseries* column contains a CSV-style list of *time,value* pairs, enclosed by double quotes. The rows in this nested table are separated by a newline, the values within the row are comma-separated.
+
+- The "x" and "y" fields contain longitude/latitude coordinates in the spatial reference system WGS84 (EPSG:4326).
+ 
+- The time units in the CSV file must match the time units chosen in the user interface. The default is minutes (mins), because this is the time unit that is used in the 3Di spatialite
+
+
+Generating a CSV file for 2D laterals
+-------------------------------------
+
+- Load your schematisation
+- In the Layers panel, right click on the layer '2D lateral' > 'Export' > 'Save features as..'
+- For 'Format', choose 'Comma Separated Value [CSV]'
+- Choose a 'File name' and location to save the file to
+- As CRS, choose 'EPGS: 4326 - WGS 84'
+- Click 'Select fields to export and their export options'
+- Make sure only the checkboxes for the fields 'id', 'type' and 'timeseries' are checked
+- Under 'Geometry', make sure the 'Geometry type' is 'Automatic'
+- Under 'Layer options', set GEOMETRY to 'AS_XY'
+- Under 'Layer options', make sure the 'Separator' is 'comma'
+- Click 'Ok' to save the file
+- You can now select the CSV file under the option "Upload file(s)" when adding scenario information
+
+.. _laterals_substance_concentrations:
+
+Substance concentrations in laterals
+------------------------------------
+
+If you have defined one or more substances on the :ref:`simulation_wizard_substances` page, you can upload substance concentrations time series for each of the laterals you upload.
+
+The CSV file for substance concentrations added to 1D or 2D laterals should look like this::
+
+    id,timeseries
+    1,"0,0.5
+    60,1.0
+    120,2.0"
+    2,"0,0.5
+    60,1.0
+    120,2.0"
+    3,"0,0.5
+    60,1.0
+    120,2.0"
+    4,"0,0.5
+    60,1.0
+    120,2.0"
+
+Requirements: 
+
+- Columns are comma-separated
+
+- The file includes the columns "id", and "timeseries". The id's must match the ids in the uploaded 1D or 2D lateral discharge CSV. Any additional columns are ignored; the sequence of the columns is not important.
+
+- The *timeseries* column contains a CSV-style list of *time,value* pairs, enclosed by double quotes. The rows in this nested table are separated by a newline, the values within the row are comma-separated.
+ 
+- The time units in the CSV file must match the time units chosen in the user interface. The default is minutes (mins), because this is the time unit that is used in the 3Di spatialite
+
+
 
 .. _dry_weather_flow:
 
 Dry weather flow
 ================
 
-Dry weather flow (DWF) is the average daily flow to a waste water treatment works during a period without rain, and can be added as a CSV file:
+Dry weather flow (DWF) is a 1D :ref:`lateral<laterals>` with one discharge value each of hour of the day. They are used to simulate the wastewater produced by households or industry, which usually follows a pattern that varies troughout the day. Ususally, dry weather flow is defined in the schematisation, so that 3Di reads it into the simulation template. 
+
+The dry weather flow can also be added as a CSV file when starting the simulation. Follow these steps:
 
 * 'Upload dry weather flow CSV'
 * If the option 'Interpolate' is checked, the value between time steps will be linearly interpolated. 
 * If the option 'CSV contains 24 hour time series' is checked, 24-hour timeseries are assumed to start and end at midnight. The simulation start and end time will determine which part of the timeseries is used.
 
-
-The dry weather flow that you add to your simulation, will be processed as lateral discharge. If lateral discharges on the same connection nodes already exists, the dry weather flow will be added to these lateral discharges.
+The dry weather flow that you add to your simulation, will be added to the simulation as lateral discharges. If lateral discharges on the same connection nodes already exists, the dry weather flow will be added to these lateral discharges.
 
 
 **Follow these steps to generate the dry weather flow CSV file:**
 
-- Open the Processing Toolbox. You can find it by going to 'Processing' in the menubar and select 'Toolbox'. Alteratively, you can click |processing_toolbox_icon| in the attributes toolbar (or use the keyboard shortcut CTRL + ALT + T).
-- Click on '3Di' > 'Dry weather flow' > 'DWF Calculator'
-- Set the 'Input spatialite'
-- Set a name and location to save the file under 'Output CSV'
+- Open the Processing Toolbox. You can find it by going to 'Processing' in the menubar and select 'Toolbox'. Alternatively, you can click |processing_toolbox_icon| in the attributes toolbar or use the keyboard shortcut Ctrl + Alt + T.
+- Click *3Di* > *Dry weather flow* > *DWF Calculator*
+- Set the *Input spatialite*
+- Set a name and location to save the file under *Output CSV*
 
   - 'Input spatialite': valid spatialite containing the schematisation of a 3Di model
   - 'Start time of day': at which hour of the day the simulation is started (HH:MM:SS)
