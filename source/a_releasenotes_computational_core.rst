@@ -12,6 +12,7 @@ September 11, 2024
 
 - In water quality, support for (physical) diffusion has been implemented in the computational core (not yet in the API) (#773, #774)
 
+- For 1D advection, two new types of calculating 1D advection have been introduced. The current advection method (1) is momentum conservative. The two new methods are (2) energy conservative and (3) a 'smart' method that uses the energy conservative or momentum conservative method depending on the situation. See :ref:`1d_advection` for details. (#753, #754, #755)
 
 .. _release_notes_calccore_20240605:
 
