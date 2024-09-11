@@ -3,6 +3,16 @@
 3Di Computational core
 ----------------------
 
+September 11, 2024
+^^^^^^^^^^^^^^^^^^
+
+- When using a saved state for a model with interflow, the interflow velocities and discharges from that saved state are now written to the results NetCDF at timestep 0.
+
+- When using a saved state, the initial intercepted volume and initial infiltrated volume from that saved state are now included in the flow summary (#766)
+
+- In water quality, support for (physical) diffusion has been implemented in the computational core (not yet in the API) (#773, #774)
+
+
 .. _release_notes_calccore_20240605:
 
 June 5, 2024
