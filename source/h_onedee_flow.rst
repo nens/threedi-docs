@@ -8,6 +8,7 @@
 - :ref:`1d_network`
 - :ref:`cross_section_of_1d_element`
 - :ref:`1d_momentum_equation`
+- :ref:`1d_advection`
 - :ref:`1d_friction`
 - :ref:`1d_vegetation`
 - :ref:`1Dpressurized`
@@ -339,7 +340,7 @@ To determine the depth at the crest, it is assumed that the water level at the c
    
 .. note::
 
-   For non-rectangular cross-section shapes, the wet cross-sectional area (:math:`W h_{II}` in the equation above) is calculated differently, i.e. by filling up the cross-section to :math:`h_{II}`, measured from the deepest point in the cross-section. In :ref:`pressurized flow <1Dpressurized>` conditions, the wet cross-sectional area is (obviously) maximized at the maximum cross-sectional area of the structure; in other words, it does not become larger once the whole cross-section has been filled up. 
+   For non-rectangular cross-section shapes, the wet cross-sectional area (:math:`W h_{II}` in the equation above) is calculated differently, i.e. by filling up the cross-section to :math:`h_{II}`, measured from the deepest point in the cross-section. In :ref:`pressurized flow <1Dpressurized>` conditions, the wet cross-sectional area is maximized at the maximum cross-sectional area of the structure; in other words, it does not become larger once the whole cross-section has been filled up. This may seem obvious, but many other hydrodynamic models do not allow this, and instead require solutions like Preissmann slots. See :ref:`Pressurized flow <1Dpressurized>` for more information.
 
 Combining these equations, results in the discharge formulation.
 

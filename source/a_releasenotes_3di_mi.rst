@@ -3,11 +3,79 @@
 3Di Modeller Interface
 ----------------------
 
+September 12th, 2024
+^^^^^^^^^^^^^^^^^^^^
+
+3Di Results Analysis 3.13.0
+"""""""""""""""""""""""""""
+
+- A new tool has been introduced for viewing and comparing flow summaries (#725)
+
+- A new processing algorithm has been introduced to generate spatiotemporal forcing NetCDFs from a list of rasters (#1029)
+
+- Several additions have been made to the *Result aggregation tool* (#861):
+
+	- You can now choose "pump discharge" as variable.
+
+	- The methods comparing the time series to a threshold have been extended. You can now choose the (percentage of) time a variable is below, on or above a threshold. The margin used for a value being "on" a threshold is 1e-06. The way to define the threshold has also been made much more versatile: you can choose any attribute that contains decimal numbers as threshold (e.g. pump capacity or drain level), or define a fixed number as threshold value.   
+
+	- Preset "Total pumped volume" has been added
+
+	- Preset "Pumps: % of time at max capacity" has been added
+
+Bugfix: Watershed tool: 2D flowlines intersecting obstacles are shown as 1D flowlines (#1034)
+
+Bugfix: In the Result manager's *Model selection* dialog, the sorting takes into account each column's data type (#1039)
+
+Bugfix: the cross-sectional discharge algorithm no longer gives a python error if cross-section lines have different CRS then the 3Di results. The cross-section lines are automatically reprojected.
+
+Bugfix: Time series plotter would give and attribute error when picking a flowline when the simulation includes both pumps and substances (#1044)
+
+
+3Di Models & Simulations 3.13.0
+"""""""""""""""""""""""""""""""
+
+- You now have the option to cancel uploads of new schematisation revisions (#551)
+
+- Several improvements where made to the *Download schematisation* dialog (#276):
+
+	- The *Model slug* column was removed
+
+	- A *Updated* column was added, showing the moment this schematisation was last updated
+
+	- Revisions are automatically fetched when you click on a schematisation (the *Fetch revisions* button was removed)
+
+	- In the *Schematisations* table, the *Created by* and *Commited by* columns now show the user's first and last name instead of their user name
+
+- The gridadmin files are no longer downloaded to the *work in progress* folder, but to the *revision {nr}\grid* folder, because they are read-only (#449)
+
+- The *work in progress\grid* and *work in progress\results* folders are no longer created, as they are not used for anything
+
+- Bugfix: the *Last updated* column in the Simulation Wizard's *Select model* dialog now sorts numerically instead of lexicographically (#587)
+
+- Bugfix for error when trying to start a simulation with laterals and substances (#589)
+
+August 14th, 2024
+^^^^^^^^^^^^^^^^^
+
+3Di Results Analysis 3.9.3
+""""""""""""""""""""""""""
+
+- Bugfix: Fix "Not a string" error in the Watershed tool (#1032)
+
+August 6th, 2024
+^^^^^^^^^^^^^^^^^
+
+3Di Results Analysis 3.9.2
+""""""""""""""""""""""""""
+
+- Bugfix: Removed field *max_capacity* from the Sufhyd import tool (#1030)
+
 July 17th, 2024
 ^^^^^^^^^^^^^^^
 
 3Di Models & Simulations 3.12.0
-"""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""
 
 The following new features have been added to the simulation wizard:
 
