@@ -23,13 +23,13 @@ September 12th, 2024
 
 	- Preset "Pumps: % of time at max capacity" has been added
 
-Bugfix: Watershed tool: 2D flowlines intersecting obstacles are shown as 1D flowlines (#1034)
+- Bugfix: Watershed tool: 2D flowlines intersecting obstacles are shown as 1D flowlines (#1034)
 
-Bugfix: In the Result manager's *Model selection* dialog, the sorting takes into account each column's data type (#1039)
+- Bugfix: In the Result manager's *Model selection* dialog, the sorting takes into account each column's data type (#1039)
 
-Bugfix: the cross-sectional discharge algorithm no longer gives a python error if cross-section lines have different CRS then the 3Di results. The cross-section lines are automatically reprojected.
+- Bugfix: the cross-sectional discharge algorithm no longer gives a python error if cross-section lines have different CRS then the 3Di results. The cross-section lines are automatically reprojected.
 
-Bugfix: Time series plotter would give and attribute error when picking a flowline when the simulation includes both pumps and substances (#1044)
+- Bugfix: Time series plotter would give and attribute error when picking a flowline when the simulation includes both pumps and substances (#1044)
 
 
 3Di Models & Simulations 3.13.0
