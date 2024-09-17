@@ -268,6 +268,8 @@ Requirements:
  
 - The time units in the CSV file must match the time units chosen in the user interface. The default is minutes (mins), because this is the time unit that is used in the 3Di spatialite
 
+- The values are in m³/s
+
 
 Generating a CSV file for 1D laterals
 -------------------------------------
@@ -314,6 +316,8 @@ Requirements:
 - The "x" and "y" fields contain longitude/latitude coordinates in the spatial reference system WGS84 (EPSG:4326).
  
 - The time units in the CSV file must match the time units chosen in the user interface. The default is minutes (mins), because this is the time unit that is used in the 3Di spatialite
+
+- The values are in m³/s
 
 
 Generating a CSV file for 2D laterals
@@ -365,7 +369,7 @@ Requirements:
  
 - The time units in the CSV file must match the time units chosen in the user interface. The default is minutes (mins), because this is the time unit that is used in the 3Di spatialite
 
-
+- The units of the values depend on how this has been defined when the substance was created; see :ref:`simulation_wizard_substances`
 
 .. _dry_weather_flow:
 
