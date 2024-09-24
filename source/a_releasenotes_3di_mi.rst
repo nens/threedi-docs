@@ -3,6 +3,41 @@
 3Di Modeller Interface
 ----------------------
 
+September 24th, 2024
+^^^^^^^^^^^^^^^^^^^^
+
+3Di Schematisation Editor 1.13.0
+""""""""""""""""""""""""""""""""
+
+- Load multiple schematisations in the same QGIS project. This also makes it very easy to import (parts of) schematisations into other schematisations (#186, #250, #257)
+
+- Vector data importer improvements (#167)
+
+    - If your culvert/weir/orifice source data has a point geometry, the importer now converts them to line geometries on the fly (#167)
+    
+	- When importing culverts, weirs, or orifices, you now have the option to insert them into existing channel networks. The channel will be cut up and cross-section locations will be moved and/or duplicated accordingly (#167)
+
+- Some changes where made to the default properties of the Digital Elevation Model layer, so that it can now be used seamlessly in the QGIS native Elevation profile tool (#116)
+
+3Di Models & Simulations 3.14.0
+"""""""""""""""""""""""""""""""
+
+- Simulation wizard: The user interface for adding breach events to your simulation has been reimplemented for an improved user experience (#440). New possibilities include:
+
+    - Searching for potential breaches by code or display name
+	
+	- Selecting any 1D2D flowline as a breach location
+	
+	- Adding multiple breach events in the same simulation.
+
+- User experience improvements in the *Download results* window (#368):
+
+	- You can now filter the results by username 
+
+	- You can start downloading a simulation result by double-clicking it
+
+	- The "Simulation name" column has been made wide enough to view the whole simulation name
+
 September 12th, 2024
 ^^^^^^^^^^^^^^^^^^^^
 
