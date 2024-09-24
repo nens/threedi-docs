@@ -9,34 +9,34 @@ September 24th, 2024
 3Di Schematisation Editor 1.13.0
 """"""""""""""""""""""""""""""""
 
-- Load multiple schematisations in the same QGIS project. This also makes it very easy to import (parts of) schematisations into other schematisations (#186, #250, #257)
+- You can now load multiple schematisations at the same time. This also makes it very easy to import (parts of) schematisations into other schematisations (#186, #250, #257)
 
-- Vector data importer improvements (#167)
-
-    - If your culvert/weir/orifice source data has a point geometry, the importer now converts them to line geometries on the fly (#167)
+- The vector data importer has several new features (#167)
     
-	- When importing culverts, weirs, or orifices, you now have the option to insert them into existing channel networks. The channel will be cut up and cross-section locations will be moved and/or duplicated accordingly (#167)
+    - When importing a weir, orifice, or culvert in a location where a channel is present, the structure can now be inserted into the channel network. The channel will be cut automatically, and cross-section locations will be moved and duplicated accordingly. 
+
+    - If your culvert/weir/orifice source data has a point geometry, the importer will convert them to line geometries on the fly.
 
 - Some changes where made to the default properties of the Digital Elevation Model layer, so that it can now be used seamlessly in the QGIS native Elevation profile tool (#116)
 
 3Di Models & Simulations 3.14.0
 """""""""""""""""""""""""""""""
 
-- Simulation wizard: The user interface for adding breach events to your simulation has been reimplemented for an improved user experience (#440). New possibilities include:
+- The user interface for adding breach events to your simulation has been reimplemented for an improved user experience (#440). New possibilities include:
 
     - Searching for potential breaches by code or display name
-	
-	- Selecting any 1D2D flowline as a breach location
-	
-	- Adding multiple breach events in the same simulation.
+    
+    - Selecting any 1D2D flowline as a breach location
+    
+    - Adding multiple breach events in the same simulation
 
-- User experience improvements in the *Download results* window (#368):
+- The user experience in the *Download results* window has been improved in several ways (#368):
 
-	- You can now filter the results by username 
+    - You can now filter the results by username 
 
-	- You can start downloading a simulation result by double-clicking it
+    - You can start downloading a simulation result by double-clicking it
 
-	- The "Simulation name" column has been made wide enough to view the whole simulation name
+    - The "Simulation name" column has been made wide enough to view the whole simulation name
 
 September 12th, 2024
 ^^^^^^^^^^^^^^^^^^^^
@@ -50,13 +50,13 @@ September 12th, 2024
 
 - Several additions have been made to the *Result aggregation tool* (#861):
 
-	- You can now choose "pump discharge" as variable.
+    - You can now choose *pump discharge* as variable.
 
-	- The methods comparing the time series to a threshold have been extended. You can now choose the (percentage of) time a variable is below, on or above a threshold. The margin used for a value being "on" a threshold is 1e-06. The way to define the threshold has also been made much more versatile: you can choose any attribute that contains decimal numbers as threshold (e.g. pump capacity or drain level), or define a fixed number as threshold value.   
+    - The methods comparing the time series to a threshold have been extended. You can now choose the (percentage of) time a variable is below, on or above a threshold. The margin used for a value being "on" a threshold is 1e-06. The way to define the threshold has also been made much more versatile: you can choose any attribute that contains decimal numbers as threshold (e.g. pump capacity or drain level), or define a fixed number as threshold value.   
 
-	- Preset "Total pumped volume" has been added
+    - Preset *Total pumped volume* has been added
 
-	- Preset "Pumps: % of time at max capacity" has been added
+    - Preset *Pumps: % of time at max capacity* has been added
 
 - Bugfix: Watershed tool: 2D flowlines intersecting obstacles are shown as 1D flowlines (#1034)
 
@@ -74,13 +74,13 @@ September 12th, 2024
 
 - Several improvements where made to the *Download schematisation* dialog (#276):
 
-	- The *Model slug* column was removed
+    - The *Model slug* column was removed
 
-	- A *Updated* column was added, showing the moment this schematisation was last updated
+    - A *Updated* column was added, showing the moment this schematisation was last updated
 
-	- Revisions are automatically fetched when you click on a schematisation (the *Fetch revisions* button was removed)
+    - Revisions are automatically fetched when you click on a schematisation (the *Fetch revisions* button was removed)
 
-	- In the *Schematisations* table, the *Created by* and *Commited by* columns now show the user's first and last name instead of their user name
+    - In the *Schematisations* table, the *Created by* and *Commited by* columns now show the user's first and last name instead of their user name
 
 - The gridadmin files are no longer downloaded to the *work in progress* folder, but to the *revision {nr}\grid* folder, because they are read-only (#449)
 
@@ -164,46 +164,46 @@ June 21st, 2024
 
 Several improvements were made to the Simulation Wizard, mainly to support Water Quality simulations:
 
-	- Add substance concentrations to boundary conditions page (#536)
+    - Add substance concentrations to boundary conditions page (#536)
 
-	- Add column "decay coefficient" to table on substances page (#572)
+    - Add column "decay coefficient" to table on substances page (#572)
 
-	- Read substance data from simulation template when initializing the simulation wizard (#568)
+    - Read substance data from simulation template when initializing the simulation wizard (#568)
 
-	- Set the new simulation property *started_from* to "3Di Modeller Interface" (#556)
+    - Set the new simulation property *started_from* to "3Di Modeller Interface" (#556)
 
-	- (Bugfix): since the :ref:`release_notes_mi_20230605` release, 3Di simulations with 2D laterals but without substances could not be started from the 3Di Modeller Interface. This has been fixed now (#576)
+    - (Bugfix): since the :ref:`release_notes_mi_20230605` release, 3Di simulations with 2D laterals but without substances could not be started from the 3Di Modeller Interface. This has been fixed now (#576)
 
 The naming of downloaded simulation results has been changed to fix some issues:
 
-	- Download results: Make simulation directory name the same for Lizard QGIS plugin and 3Di Models & Simulations (#530)
+    - Download results: Make simulation directory name the same for Lizard QGIS plugin and 3Di Models & Simulations (#530)
 
-	- Download results: Remove slashes from simulation name (#497)
+    - Download results: Remove slashes from simulation name (#497)
 
 The computational grid can now be checked before uploading a new revision of your schematisation:
 
-	- Upload wizard: Check computational grid before upload (#429)
+    - Upload wizard: Check computational grid before upload (#429)
 
 3Di Results Analysis 3.9.0
 """"""""""""""""""""""""""
 
 Water quality results can now be visualized on the map canvas. Some improvements have been made in the *Time series plotter* support for Water Quality results:
 
-	- Substance concentrations can now be visualized on the map canvas (#978)
+    - Substance concentrations can now be visualized on the map canvas (#978)
 
-	- Styling improvements in results shown on the map (#1020):
+    - Styling improvements in results shown on the map (#1020):
 
-		- Using pretty breaks instead of equal count bins and 2 percent cutoff thresholds
+        - Using pretty breaks instead of equal count bins and 2 percent cutoff thresholds
 
-		- Improved labels for first and last legend class
+        - Improved labels for first and last legend class
 
-		- Fix drawing direction of breaches
+        - Fix drawing direction of breaches
 
-		- Set rendering order for lines (lowest values are rendered first, highest are rendered last, i.e. on top)
+        - Set rendering order for lines (lowest values are rendered first, highest are rendered last, i.e. on top)
 
-	- Time series plotter: do not show warning when there is no Water Quality NetCDF (#1017)
+    - Time series plotter: do not show warning when there is no Water Quality NetCDF (#1017)
 
-	- Time series plotter: Show (-) if the substance that is to be plotted has no units (#1011)
+    - Time series plotter: Show (-) if the substance that is to be plotted has no units (#1011)
 
 - Load simulation results (Bugfix): sort by revision ID as integer not string (#1008)
 
@@ -230,15 +230,15 @@ June 5th, 2024
 
 - Several small issues were fixed in the Watershed tool:
 
-	- Do not empty the result layers when closing the tool (and remove the result sets filter when closing the tool)
+    - Do not empty the result layers when closing the tool (and remove the result sets filter when closing the tool)
 
-	- Do not empty the result layers when toggling "Smooth result watersheds"
+    - Do not empty the result layers when toggling "Smooth result watersheds"
 
-	- Only show the relevant target node marker when browsing result sets
+    - Only show the relevant target node marker when browsing result sets
 
-	- Do not smooth result watersheds of previous result sets; "smooth result watersheds" now only affects new result sets.
+    - Do not smooth result watersheds of previous result sets; "smooth result watersheds" now only affects new result sets.
 
-	- Bugfix: Catchment polygon was not created when Browse Results was checked (#655)
+    - Bugfix: Catchment polygon was not created when Browse Results was checked (#655)
 
 - Bugfix: when visualising results on the map, the styling of the flowline results was partly broken in QGIS 3.34 (#1005)
 
@@ -249,11 +249,11 @@ June 5th, 2024
 
 - Several new features and improvements have been implemented in the Simulation wizard:
 
-	- The laterals page has been improved (#467). See :ref:`simulate_api_qgis_laterals` for more information.
-	
-	- The CSV file format requirements for :ref:`simulate_api_qgis_boundary_conditions`, :ref:`simulate_api_qgis_laterals`, and :ref:`dry_weather_flow` have been made less strict (#560)
+    - The laterals page has been improved (#467). See :ref:`simulate_api_qgis_laterals` for more information.
+    
+    - The CSV file format requirements for :ref:`simulate_api_qgis_boundary_conditions`, :ref:`simulate_api_qgis_laterals`, and :ref:`dry_weather_flow` have been made less strict (#560)
 
-	- You can now add substances to your simulation via laterals (#534, #538). See :ref:`simulation_wizard_substances` for instructions on how to define the substances you want to use in your simulation and :ref:`laterals_substance_concentrations` for instructions on how to add those substances to the lateral discharges in your simulation.
+    - You can now add substances to your simulation via laterals (#534, #538). See :ref:`simulation_wizard_substances` for instructions on how to define the substances you want to use in your simulation and :ref:`laterals_substance_concentrations` for instructions on how to add those substances to the lateral discharges in your simulation.
 
 - Bugfix: When sorting, table widgets that include a revision ID treat it as an integer instead of a string (#564)
 
@@ -271,41 +271,41 @@ June 5th, 2024
 
 - Several improvements for **manual editing** have been made:
 
-	- Cross-section location can now be placed on a channel segment, not just on channel vertex (#196)
+    - Cross-section location can now be placed on a channel segment, not just on channel vertex (#196)
 
-	- Channel ID is updated when moving a cross-section location (#221)
+    - Channel ID is updated when moving a cross-section location (#221)
 
-	- Channel ID is filled in when drawing a potential breach (#230)
+    - Channel ID is filled in when drawing a potential breach (#230)
 
-	- When moving or changing the geometry of schematisation objects, related objects are also moved (topological editing). The implementation of topological editing has been improved to make it more consistent (#219, #220, #232).
+    - When moving or changing the geometry of schematisation objects, related objects are also moved (topological editing). The implementation of topological editing has been improved to make it more consistent (#219, #220, #232).
 
-		- General topological editing for Connection nodes; when moving a connection node, all schematisation objects that are connected to it are also affected.
+        - General topological editing for Connection nodes; when moving a connection node, all schematisation objects that are connected to it are also affected.
 
-		- Specific logic for Channels
+        - Specific logic for Channels
 
-			- Cross-section locations are topologically edited when a Channel geometry is edited. Cross-section location can be on a channel vertex or segment.
+            - Cross-section locations are topologically edited when a Channel geometry is edited. Cross-section location can be on a channel vertex or segment.
 
-			- Potential breaches (start vertex) are topologically edited when Channel geometry is edited. Start vertex of a Potential breach can be on a channel vertex or segment.
+            - Potential breaches (start vertex) are topologically edited when Channel geometry is edited. Start vertex of a Potential breach can be on a channel vertex or segment.
 
-		- Specific logic for Impervious surface
+        - Specific logic for Impervious surface
 
-			- Impervious surface map is topologically edited when Impervious surface geometry changes. The start vertex of the Impervious surface map is on the *point on surface* of the Impervious surface.
+            - Impervious surface map is topologically edited when Impervious surface geometry changes. The start vertex of the Impervious surface map is on the *point on surface* of the Impervious surface.
 
-		- Specific logic for Surface
+        - Specific logic for Surface
 
-			- Surface map is topologically edited when Surface geometry changes. The start vertex of the Surface map is on the *point on surface* of the Surface
+            - Surface map is topologically edited when Surface geometry changes. The start vertex of the Surface map is on the *point on surface* of the Surface
 
 - Several improvements have been made to the **vector data importers**:
 
-	- Changes to the layers affected by the import are no longer committed automatically, so that you can review the added features before deciding to commit them to the layer (#228)
+    - Changes to the layers affected by the import are no longer committed automatically, so that you can review the added features before deciding to commit them to the layer (#228)
 
-	- If geometries in the source layer are different from the geometry type of the target layer, the vector data importer will try to convert them to a compatible type. For example, multipart to singlepart, or MultiCurve to polygon (#222)
+    - If geometries in the source layer are different from the geometry type of the target layer, the vector data importer will try to convert them to a compatible type. For example, multipart to singlepart, or MultiCurve to polygon (#222)
 
-	- "Expression" has been added as a method to convert source attributes to target attributes (#211). This can be used e.g. to convert millimeters to meters, to create a code from a combination of source attributes, or to apply more complex if/then/else logic to the source attributes.
+    - "Expression" has been added as a method to convert source attributes to target attributes (#211). This can be used e.g. to convert millimeters to meters, to create a code from a combination of source attributes, or to apply more complex if/then/else logic to the source attributes.
 
-	- Source attributes are automatically selected if they have the same name as the target attribute (#190)
+    - Source attributes are automatically selected if they have the same name as the target attribute (#190)
 
-	- Import manholes: source manholes are skipped if they are snapped to connection nodes that already have a manhole (#224)
+    - Import manholes: source manholes are skipped if they are snapped to connection nodes that already have a manhole (#224)
 
 - In the processing algorithm "Map (impervious) surfaces to connection nodes", the option has been added to use "Selected features only" for all vector layer inputs (#227)
 
@@ -966,12 +966,12 @@ March 2022
 
 *3Di Customisations  v1.2*
 
--	Remove all user interface customisations, except red menu bar
--	Add "About 3Di modeller interface" dialog
+-    Remove all user interface customisations, except red menu bar
+-    Add "About 3Di modeller interface" dialog
 
 *3Di Toolbox v1.33*
 
--	Processing tools have been added to check the Spatialite and Rasters. These processing algorithms add the check results as layers to your QGIS project, instead of in a separate shapefile, csv, or text file. You can access them through Processing > Toolbox > 3Di > Schematisation. In the future, these processing algorithms will replace the current checker tools available in the 'Commands' Toolbox.
+-    Processing tools have been added to check the Spatialite and Rasters. These processing algorithms add the check results as layers to your QGIS project, instead of in a separate shapefile, csv, or text file. You can access them through Processing > Toolbox > 3Di > Schematisation. In the future, these processing algorithms will replace the current checker tools available in the 'Commands' Toolbox.
 
 
 
@@ -1012,9 +1012,9 @@ The styling of all animation layers has been improved. The value categories are 
 Below are examples of a dike breach. Animation 1 is showing relative change in water level and discharge. The plot is done for every calculation cell and flow line. Animation 2 is the same situation as an absolute plot showing the water level per calculation cell and the discharge over the flow lines.
 Some other improvements to the toolbar include:
 
--	More user feedback.
--	The animation layers are removed when the Animation Toolbar is deactivated.
--	The groundwater layers are only displayed when the simulation includes groundwater.
+-    More user feedback.
+-    The animation layers are removed when the Animation Toolbar is deactivated.
+-    The groundwater layers are only displayed when the simulation includes groundwater.
 
 *Dry weather flow calculator*
 
@@ -1028,11 +1028,11 @@ We have added the option to generate water depth/level maps for a range of times
 
 The water depth processing algorithm also has various minor bugfixes and improvements:
 
--	Selecting DEM layer from project no longer gives an error.
--	Generating outputs for timestep 0 without moving the timestep slider no longer gives an error.
--	Improved readability of LCD display by adding days to the display.
--	Set LCD value to 00:00 when file is loaded.
--	More accurate description of what the tool does.
+-    Selecting DEM layer from project no longer gives an error.
+-    Generating outputs for timestep 0 without moving the timestep slider no longer gives an error.
+-    Improved readability of LCD display by adding days to the display.
+-    Set LCD value to 00:00 when file is loaded.
+-    More accurate description of what the tool does.
 
 
 *Bugfix SideView tool*
