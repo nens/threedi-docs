@@ -3,6 +3,15 @@
 3Di Modeller Interface
 ----------------------
 
+September 25th, 2024
+^^^^^^^^^^^^^^^^^^^^
+
+3Di Models & Simulations 3.14.0
+"""""""""""""""""""""""""""""""
+
+- Bugfix for *KeyError: 'simulation_user_first_name'* issue
+
+
 September 24th, 2024
 ^^^^^^^^^^^^^^^^^^^^
 
