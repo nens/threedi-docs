@@ -3,6 +3,16 @@
 3Di Computational core
 ----------------------
 
+October 10, 2024
+^^^^^^^^^^^^^^^^
+
+- Customized result files for hydrodynamic and water quality results (nens/threedi-api#2339, threedi-calculationcore#803, threedi-calculationcore#799, threedi-calculationcore#823)
+
+- Receive new result file settings from API (#798)
+
+- Bugfix: Set threedicore-version in attribute of netcdf result files (#841)
+
+
 September 11, 2024
 ^^^^^^^^^^^^^^^^^^
 

@@ -3,10 +3,54 @@
 3Di API
 -------
 
+October 10, 2024
+^^^^^^^^^^^^^^^^
+
+More control over output files
+""""""""""""""""""""""""""""""
+
+- A new output file type has been introduced, *Customized results*. Like the *results_3di.nc* and *water_quality_results_3di.nc*, this file contains snapshots at each output time step; however, you can customize the contents of the file. You can limit the results to a spatial subset (area of interest) of your model domain, and to a subset of flow variables. This allows you to output e.g. water levels at the location of a stage gauging station at a very high temporal resolution, without creating huge output files. Customized result files are available for both hydrodynamic and water quality results (threedi-api#2198, threedi-api#2199, nens/threedigrid#237).
+
+- A new category of simulation settings has been introduced: output settings (both for hydrodynamic and water quality outputs. This includes:
+    - On/off switch for creating the results_3di.nc file (i.e. if you only want customized_results_3di.nc)
+    - On/off switch for creating the water_quality_results_3di.nc file (i.e. if you only want customized_water_quality_results_3di.nc)
+    - Start time and end time for the results_3di.nc and customized_results_3di.nc files, for if you are only interested in a specific temporal part of your hydrodynamic simulation results
+    - Start time and end time for the water_quality_results_3di.nc and customized_water_quality_results_3di.nc files, for if you are only interested in a specific temporal part of your water quality results
+    - Switching between single precision or double precision outputs for each results file.
+
+Database schema 300
+"""""""""""""""""""
+
+We continue to work on :ref:`schema_300`. Two additional migrations are now in use on the 3Di server. When a 3Di model is generated from a schematisation, the spatialite is first migrated to the latest schema version. Additional parts of the database schema that are migrated to the new database schema are from this release onwards are:
+
+- 2D & 1D2D. This encompasses the obstacles, grid refinement (lines and areas), dem average areas, exchange lines, and potential breaches (nens/threedi-schema#73, nens/threedigrid-builder#375, nens/threedi-modelchecker#387, nens/threedi-api#2279, nens/threedi-schema#108).
+
+- Boundary conditions (1D and 2D) and Laterals (1D and 2D) (nens/threedi-schema#69, nens/threedi-modelchecker#381, nens/threedigrid-builder#371, nens/threedi-api#2262, nens/threedi-schema#106)
+
+Some bugfixes on the previously released schema migrations have also been released:
+
+- Bugfix: Control measure map geometry was reversed (nens/threedi-schema#96)
+
+- Bugfix: Ensure dry_weather_flow_map.geom and surface_map.geom are valid, also in special cases ("dry_weather_flow_map.geom is an invalid geometry
+") nens/threedi-schema#102
+
+- Bugfix: Warning instead of error for schematisations that have structure controls that reference non-existing connection nodes (#91)
+
+- Bugfix: Prevent migrations to fail if the spatialite contains user-created tables named "temp" or having the same name of one of the new tables created in the migration (nens/threedi-schema#93, nens/threedi-schema#95)
+
+Other changes
+"""""""""""""
+
+- Support for setting the diffusion parameter for substances has been added to the API (#2253)
+
+- Support for the two new 1D advection types (see :ref:`1d_advection`) has been implemented in the API (#2289) and in the database schema (threedi-schema#84)
+
+
 September 11, 2024
 ^^^^^^^^^^^^^^^^^^
 
-*Database schema 300*
+Database schema 300
+"""""""""""""""""""
 
 The first migrations to :ref:`schema_300` are now in use on the 3Di server. When a 3Di model is generated from a schematisation, the spatialite is first migrated to the latest schema version. Parts of the database schema that are, from this release onwards, migrated to the new database schema are:
 
@@ -16,7 +60,8 @@ The first migrations to :ref:`schema_300` are now in use on the 3Di server. When
 
 - Structure control (threedi-schema#70, threedi-modelchecker#382, threedi-modelchecker#385, threedigrid-builder#373, threedi-api#2263)
 
-*Other changes*
+Other changes
+"""""""""""""
 
 - Access to historical and forecast rain radar services can now be configured on organisation level (by the service desk) (#2244)
 
