@@ -9,13 +9,17 @@ October 10, 2024
 More control over output files
 """"""""""""""""""""""""""""""
 
-- A new output file type has been introduced, *Customized results*. Like the *results_3di.nc* and *water_quality_results_3di.nc*, this file contains snapshots at each output time step; however, you can customize the contents of the file. You can limit the results to a spatial subset (area of interest) of your model domain, and to a subset of flow variables. This allows you to output e.g. water levels at the location of a stage gauging station at a very high temporal resolution, without creating huge output files. Customized result files are available for both hydrodynamic and water quality results (threedi-api#2198, threedi-api#2199, nens/threedigrid#237).
+- A new output file type has been introduced, *Customized results*. Like the *results_3di.nc* and *water_quality_results_3di.nc*, this file contains snapshots at each output time step. The advantage is that you can customize what is written to this file: limit the results to a specific area of interest, and/or to a subset of flow variables. This allows you to output e.g. water levels at the location of a stage gauging station at a very high temporal resolution, while keeping the output files small. Customized result files are available for both hydrodynamic and water quality results (threedi-api#2198, threedi-api#2199, nens/threedigrid#237).
 
 - A new category of simulation settings has been introduced: output settings (both for hydrodynamic and water quality outputs. This includes:
+
     - On/off switch for creating the results_3di.nc file (i.e. if you only want customized_results_3di.nc)
+
     - On/off switch for creating the water_quality_results_3di.nc file (i.e. if you only want customized_water_quality_results_3di.nc)
     - Start time and end time for the results_3di.nc and customized_results_3di.nc files, for if you are only interested in a specific temporal part of your hydrodynamic simulation results
+
     - Start time and end time for the water_quality_results_3di.nc and customized_water_quality_results_3di.nc files, for if you are only interested in a specific temporal part of your water quality results
+
     - Switching between single precision or double precision outputs for each results file.
 
 Database schema 300
@@ -31,8 +35,7 @@ Some bugfixes on the previously released schema migrations have also been releas
 
 - Bugfix: Control measure map geometry was reversed (nens/threedi-schema#96)
 
-- Bugfix: Ensure dry_weather_flow_map.geom and surface_map.geom are valid, also in special cases ("dry_weather_flow_map.geom is an invalid geometry
-") nens/threedi-schema#102
+- Bugfix: Ensure dry_weather_flow_map.geom and surface_map.geom are valid, also in special cases. This fixed situations where the error "dry_weather_flow_map.geom is an invalid geometry" was given (nens/threedi-schema#102)
 
 - Bugfix: Warning instead of error for schematisations that have structure controls that reference non-existing connection nodes (#91)
 
