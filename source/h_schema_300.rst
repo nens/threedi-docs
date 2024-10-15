@@ -31,7 +31,9 @@ Frequently asked questions
 When will this development be finished?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As of June 2024, the expectation is that this development will be completed by the end of 2024. A definitive release date will be announced 2 months in advance.
+- The definition of the new database schema (version 300) is final and can be downloaded `here <other/3Di database schema 219 to schema 300.xlsx>`
+
+As of  2024, the expectation is that this development will be completed by the end of 2024. A definitive release date will be announced 2 months in advance.
 
 .. _db_300_scripts:
 
@@ -179,7 +181,7 @@ What are the advantages of changing the database schema?
 Can I try out the new database schema while it is still under development?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Yes, this is possible. We process the schema migrations in groups (e.g. "settings", "inflow", "1D", etc.) and release versions of the python package ``threedi-schema`` every time we have completed such a group. This Python package has functionality to migrate a schematisation to a higher version, see <https://www.github.com/nens/threedi-schema>`_.
+Yes, this is possible. We process the schema migrations in groups (e.g. "settings", "inflow", "1D", etc.) and release versions of the python package ``threedi-schema`` every time we have completed such a group. This Python package has functionality to migrate a schematisation to a higher version, see the `threedi-schema GitHub repository <https://www.github.com/nens/threedi-schema>`_.
 
 Note that schematisations that have been upgraded with versions of threedi-schema that are higher than the one used in the 3Di Modeller Interface will not be usable in the 3Di Modeller Interface anymore (until the version of threedi-schema in the 3Di Modeller Interface is updated accordingly).
 
@@ -190,7 +192,7 @@ Migration guide
 
 This migration guide describes the changes from database schema version 219 to database schema 300.
 
-For a complete and detailed overview of the changes in each of the tables and columns, see <other/3Di database schema 219 to schema 300.xlsx>`_
+For a complete and detailed overview of the changes in each of the tables and columns, see the :download:`Migration guide spreadsheet <other/3Di database schema 219 to schema 300.xlsx>`
 
 .. note::
     
@@ -241,7 +243,7 @@ Tables in database schema 300:
 - time_step_settings
 - vegetation_drag_2d
 
-For a complete and detailed overview of the changes in each of the tables and columns, see <other/3Di database schema 219 to schema 300.xlsx>`_
+For a complete and detailed overview of the changes in each of the tables and columns, see the :download:`Migration guide spreadsheet <other/3Di database schema 219 to schema 300.xlsx>`
 
 The settings that were grouped in the global settings table are split up into several tables that are consistent with (i) the grouping in the API, and (ii) the distinctions between settings required to generate the 3Di model and settings required to generate a simulation template. The contents of the global settings table can now be found in:
 
@@ -289,7 +291,7 @@ Tables in database schema 300:
 - surface_map
 - surface_parameters
 
-For a complete and detailed overview of the changes in each of the tables and columns, see <other/3Di database schema 219 to schema 300.xlsx>`_
+For a complete and detailed overview of the changes in each of the tables and columns, see the :download:`Migration guide spreadsheet <other/3Di database schema 219 to schema 300.xlsx>`
 
 - The two methods of schematisating 0D inflow (using "surfaces" and "impervious surfaces") are merged into a single method. The surface types available for "impervious surface" will still be available, as prepopulated entries in the *surface parameters* table.
 
@@ -317,7 +319,7 @@ Tables in database schema 300:
 - lateral_1d
 - lateral_2d
 
-For a complete and detailed overview of the changes in each of the tables and columns, see <other/3Di database schema 219 to schema 300.xlsx>`_
+For a complete and detailed overview of the changes in each of the tables and columns, see the :download:`Migration guide spreadsheet <other/3Di database schema 219 to schema 300.xlsx>`
 
 - New: option to specifiy time units, interpolation, and/or offset (for laterals)
 
@@ -346,14 +348,22 @@ Tables in database schema 300:
 - memory_control
 - table_control
 
-For a complete and detailed overview of the changes in each of the tables and columns, see <other/3Di database schema 219 to schema 300.xlsx>`_
+For a complete and detailed overview of the changes in each of the tables and columns, see <other/3Di database schema 219 to schema 300.xlsx>`
 
-Structure control is simplified and the needed tables are given geometries, so they can be schematised, visualised, and edited on the map.
+The changes to structure control are significant. The schema is strongly simplified, and some important changes have been made to facilitate a much more user friendly workflow. Structure control can be shown and edited on the map, because all layers involved now have a geometry.
 
-- Add geometries to timed, table, and memory control
-- Measurements are schematisated using a *Measure location* (point geometry) and mapped to a table or memory control using a *Measure map* (line geometry)
-- The concept of *control groups* is removed for the sake of simplicity
+The workflow for schematising structure control now works as follows:
+
+#. Add a *Measure location* (point geometry) to a connection node
+#. Add a *Memory control* or a *Table control* (point geometry) to a structure
+#. Add a *Measure map* (line geometry) from the measure location to the memory control
+#. Make sure that *Use structure control* in the simulation template settings table is switched on
+
+Other changes:
+- Timed control has been removed from the schematisation, because at the time of schematisation, it is not yet known what time period the simulation(s) will cover. Timed control can still be defined in a simulation and saved in a simulation template.
+- The concept of *Control groups* is removed for the sake of simplicity
 - *Measure groups* are no longer a separate entity; measurement locations are grouped implicitly by mapping them to the same control.
+- The tables *Control delta* and *Control PID* where not used and have been removed. If you are interested in these types of structure control, please get in touch about the possibilities for implementing them.
 
 2D
 ^^
@@ -372,12 +382,17 @@ Tables in database schema 300:
 - grid_refinement_line
 - obstacle
 
-For a complete and detailed overview of the changes in each of the tables and columns, see <other/3Di database schema 219 to schema 300.xlsx>`_
+For a complete and detailed overview of the changes in each of the tables and columns, see the :download:`Migration guide spreadsheet <other/3Di database schema 219 to schema 300.xlsx>`
 
-The changes to *Dem average area*, *Obstacle*, *Grid refinement* and *Grid refinement area* will be minimal. The most important changes will be:
+The changes to these tables will be minimal. The most important changes will be:
 
-- New: option to add tags to each feature
-- Some changes in names of tables and columns
+- Obstacles have three new attributes to finetune which types of flowlines they affect: 2D, 1D2D open water, and/or 1D2D closed system. 1D2D flowlines that are categorized in "open water" or "closed system" depending on the type of the 1D node. 3Di identifies 1D nodes as "open water" if at least one channel is connected to it.
+
+    .. note::
+        Before database schema 300, all 1D nodes without a storage area where regarded as open water. The new default is to regard all nodes that connect to at least one channel as open water. To make the migration backwards compatible, it is still possible to use the old method, by setting the new attribute *node_open_water_detection* in the model settings to 1. In the migration, this is automatically done to be backwards combatible. It is recommended to manually set it to 0 after the migration.
+        
+- *Grid refinement* has been renamed to *Grid refinement line*, to make its equivalence with *Grid refinement area* clearer.
+- *Refinement level* has been renamed to *grid_level*, consistent with the renaming of *kmax* to *nr_grid_levels*
 
 1D2D
 ^^^^
@@ -392,14 +407,9 @@ Tables in database schema 300:
 - exchange_line
 - potential_breach
 
-For a complete and detailed overview of the changes in each of the tables and columns, see <other/3Di database schema 219 to schema 300.xlsx>`_
+For a complete and detailed overview of the changes in each of the tables and columns, see the :download:`Migration guide spreadsheet <other/3Di database schema 219 to schema 300.xlsx>`
 
-There will be some impactful changes to the schematisation of 1D2D exchange, but this is mainly governed by attributes of schematisation objects in the 1D category.
-
-The changes to *Exchange line* and *Potential breach* will be minimal. The most important changes will be:
-
-- New: option to add tags to each feature
-- Some changes in names of tables and columns
+The most important changes is that instead of defining a maximum breach depth defined relative to the exchange level, the potential breach now has an attribute *Final exchange level*, which defines the level (in m MSL) to which the breach will grow downward. The *Exchange level* has been renamed to *Initial exchange level*.
 
 1D
 ^^
@@ -433,7 +443,7 @@ Tables in database schema 300:
 - windshielding_1d
 - obstacle
 
-For a complete and detailed overview of the changes in each of the tables and columns, see <other/3Di database schema 219 to schema 300.xlsx>`_
+For a complete and detailed overview of the changes in each of the tables and columns, see the :download:`Migration guide spreadsheet <other/3Di database schema 219 to schema 300.xlsx>`
 
 
 - Pipe, Weir, and Orifice will have their own geometry.
