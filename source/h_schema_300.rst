@@ -5,26 +5,24 @@ Database schema 300
 
 A 3Di schematisation consists of rasters, vector layers and settings. The vector data and settings are stored in a database file. This database file contains a fixed set of tables, each with a fixed set of columns of a fixed type. This set of tables, columns, and data types is called the `database schema <https://en.wikipedia.org/wiki/Database_schema>`_
 
-Sometimes, changes are made to the 3Di database schema, e.g. when new features require additional tables or columns. Each change in the database schema is numbered; you can find the schema version in the :ref:`schema_version` table. Changes to the database schema are automatically applied to your schematisation, by means of so-called 'migrations'. 
+Sometimes, changes are made to the 3Di database schema. For example, when new features require additional tables or columns. Each change in the database schema is numbered; you can find the schema version in the :ref:`schema_version` table. Changes to the database schema are automatically applied to your schematisation, by means of so-called *migrations*. 
 
-Apart from new features, the database schema is kept the same as much as possible. However, over the years, a growing number of wishes for optimizing the database schema has been collected. These changes are implemented all at once, migrating your schematisation to schema version 300 all at once. The reason to do this in one single release is so that users that use SQL, Python, or other automated methods need to do a large update of their scripts only once.
+Other than in the case of new features, the database schema is kept the same as much as possible. However, over the years, a growing number of wishes for optimizing the database schema has been collected. These changes are implemented all at once, migrating your schematisation from schema version 219 to 300. The reason to do this in one single release is so that users that use SQL, Python, or other automated methods need to do a large update of their scripts only once.
 
 The migration to database schema 300 also includes a switch to GeoPackage as file format, instead of Spatialite.
 
 This page aims to answer frequently asked questions on this topic.
 
-Frequently asked questions
---------------------------
-
-- :ref:`db_300_why_new_schema`
-- :ref:`db_300_why_geopackage`
-- :ref:`db_300_views`
-- :ref:`db_300_sql_geopackage`
-- :ref:`db_300_api`
-- :ref:`db_300_existing_script`
-- :ref:`db_300_scripts`
 - :ref:`db_300_planning`
-
+- :ref:`db_300_scripts`
+- :ref:`db_300_existing_script`
+- :ref:`db_300_api`
+- :ref:`db_300_sql_geopackage`
+- :ref:`db_300_views`
+- :ref:`db_300_why_geopackage`
+- :ref:`db_300_why_new_schema`
+- :ref:`db_300_try_it_out`
+- :ref:`db_300_migration_guide`
 
 .. _db_300_planning:
 
@@ -33,44 +31,21 @@ When will this development be finished?
 
 - The definition of the new database schema (version 300) is final and can be downloaded `here <other/3Di database schema 219 to schema 300.xlsx>`
 
-As of  2024, the expectation is that this development will be completed by the end of 2024. A definitive release date will be announced 2 months in advance.
+- A new version of the 3Di Modeller Interface that is based on the new database schema will be released on **January 28th, 2025**
+
+- In the meantime, the migrations (220 to 300) will be released to the 3Di server one by one. See :ref:`release_notes_api` for updates on which migrations have been released. 
 
 .. _db_300_scripts:
 
 I don't use scripts, what will be the impact for me?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For 'normal'/'manual' use the impact will not be very big. The migration from the "old" spatialites to the "new" geopackages will be automatic, in the same way that until now small changes in the database schema are automatically implemented when you open the schematization in the 3Di Modeller Interface. 
+If you do not use scripts (e.g. SQL or Python) to interact with the 3Di schematisation files, the impact will not be very big. The migration from the "old" spatialites to the "new" geopackages will be automatic, in the same way that until now small changes in the database schema are automatically implemented when you open the schematisation in the 3Di Modeller Interface. 
 
-However, the following things *will* have an impact when you are modelling manually:
+However, some changes will have an impact when you are modelling manually; please read the :ref:`db_300_migration_guide` for more information.
 
-- References to raster files were relative paths, starting from the location of the Spatialite (e.g. "rasters\dem.tif"). In schema 300, it should just be the file name ("dem.tif").
-
-- The ``aggregation_variable`` in the aggregation settings table now uses the same variable names as are used in the computational core (and in threedigrid). The list below shows how each variable is renamed:
-
-    - discharge -> q
-    - flow_velocity -> u1
-    - pump_discharge -> q_pump
-    - rain -> rain
-    - waterlevel -> s1
-    - wet_cross-section -> au
-    - wet_surface -> su
-    - lateral_discharge -> q_lat
-    - volume -> vol
-    - simple_infiltration -> infiltration_rate_simple
-    - leakage -> leak
-    - interception -> intercepted_volume
-    - surface_source_sink_discharge -> q_sss
-
-- Some attribute names have changed; the most important ones are:
-
-	- grid_space -> minimum_cell_size
-	- kmax -> nr_grid_levels
-	- dist_calc_points -> calculation_point_distance_1d
-
-- Specific hydrological or hydraulic processes could be switched on or off by setting or removing a reference in the global settings; this has been replaced by a boolean (True/False) attribute. E.g. to switch off the use of simple infiltration, v2_global_settings.simple_infiltration_settings_id could be set to NULL. In schema 300, set use_simple_infiltration to False.
-
-- Groundwater flow and groundwater storage can be switched on and off independently by setting ``use_groundwater_flow`` or ``use_groundwater_storage``. Note that you can only use groundwater flow if you also use groundwater storage. You *can* use groundwater storage without using groundwater flow.
+.. note::
+    Some things will actually become much easier, such as schematising structure control. Understanding well what has changed will make you a more effective modeller!
 
 .. _db_300_existing_script:
 
@@ -84,7 +59,7 @@ SQL or Python scripts that communicate with the Spatialite will need to be modif
    UPDATE v2_global_settings 
    SET name = 'a pretty name',
        grid_space = 20,
-	   kmax = 3
+       kmax = 3
    ;
    
    DELETE FROM v2_grid_refinement_area;
@@ -99,11 +74,10 @@ Needs to be rewritten to:
    
    UPDATE model_settings 
    SET minimum_cell_size = 20,
-	   nr_grid_levels = 3
+       nr_grid_levels = 3
    ;
    
    DELETE FROM grid_refinement_area;
-
 
 For a detailed overview of all schema changes, see :ref:`db_300_migration_guide`.
 
@@ -129,7 +103,7 @@ Yes, GeoPackage supports the same SQL dialect as Spatialite.
 Can I still use the views in the Spatialite to check for foreign key errors?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-No, the new schema will not contain any views. Run the schematisation checker to identify any attributes that are NULL but should have a value.
+No, the new schema will not contain any views. Run the schematisation checker to identify any attributes that are NULL that are not allowed to be NULL.
 
 
 .. _db_300_why_geopackage:
@@ -137,9 +111,11 @@ No, the new schema will not contain any views. Run the schematisation checker to
 Why does 3Di switch to GeoPackage?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--GeoPackage is increasingly becoming a new standard for the storage of GIS vector data, while the further development and maintenance of Spatialite is uncertain.
+- GeoPackage is increasingly becoming a new standard for the storage of GIS vector data, while the further development and maintenance of Spatialite is uncertain.
 
-- Some useful tooling that is available for GeoPackage is not for Spatialite. For example, geodiff, which allows you to gain insight into differences between GeoPackages and transfer them from one GeoPackage to another.
+- Some useful tooling that is available for GeoPackage is not available for Spatialite. For example, geodiff, which allows you to gain insight into differences between GeoPackages and transfer them from one GeoPackage to another.
+
+- Storing data in a Geopackage often takes up much less disk space then storing the same data in a Spatialite.
 
 .. _db_300_why_new_schema:
 
@@ -148,31 +124,31 @@ What are the advantages of changing the database schema?
 
 - Making *Load from Spatialite* / *Save to Spatialite* unnecessary, which you now have to do frequently (and might forget sometimes) in the Schematisation Editor.
 
-- The schematisation checker then works on the data that you edit; Currently you edit the data converted to GeoPackage by the Schematization Editor, but check the Spatialite. This sometimes means that errors reported by the schematization checker are difficult to trace. For example, if there is an error in v2_cross_section_definition that does not exist in the Schematization Editor file.
+- The schematisation checker will work on the data that you edit. Currently you edit the data converted to GeoPackage by the Schematization Editor, but check the Spatialite. This sometimes means that errors reported by the schematisation checker are difficult to trace. For example, if there is an error in v2_cross_section_definition that does not exist in the Schematisation Editor file.
 
-- Enable direct editing by adding a geometry to all layers that currently have it via a view, such as v2_pipe_view. And by linking information about cross-sections directly to the features to which that cross-section belongs (pipe/culvert/weir/orifice/cross-section location), instead of in a separate table v2_cross_section_definition. This already works this way via the Schematisation Editor.
+- Many layers, such as v2_pipe, do not have their own geometry in database schema 219. To view them on the map, the spatialite used views (e.g. v2_pipe_view), but these are not editable. The 3Di Schematisation Editor adds these geometries when converting the data from the spatialite. With the new database schema, these conversions will not be necessary anymore.
 
+- The same applies to cross-section data. In the new database schema, pipes, culverts, weirs, orifices, and cross-section locations will have attributes defining the cross-section directly, instead of referring to a cross-section definition in another table. This makes it possible to edit cross-section data directly. The 3Di Schematisation Editor also uses this approach, but will no longer need to convert the data back and forth.
+ 
 - It will allow us to add coordinates to ERROR/WARNING/INFO messages from the schematisation checker, so they can be located on the map, if applicable.
 
 - It will make schematising structure control much easier: more visual and more intuitive.
 
-- Being able to specify the different aspects of 1D2D exchange, storage and advection more explicitly and independently of each other, by:
-
-    - Specify the exchange width specifically
-	
-    - Make exchange type (isolated/connected/embedded) an attribute of connection node instead of manhole, so that it is no longer necessary to place manholes purely to set the exchange type.
-	
+- It is no longer required to add a manhole to a connection node to specify the 1D2D exchange type (isolated/connected/embedded)
+    
 - A cleaner database schema, including
-	
-    - Remove the "v2_" prefixes in all table names
     
-	- Delete all old ("v1_") tables.
+    - Removal of all "v2_" prefixes in all table names
     
-- Table and column names that better express (also for new users) what they mean (for example "minimum_cell_size" instead of "grid_space")
+    - Delete all old tables (remnants of the database schema that 3Di used before "v2").
     
-- Merging the (functionally almost identical) 0D inflow schematizations "v2_surface" and "v2_impervious_surface"
+- Table and column names that better express what they mean, for example "minimum_cell_size" instead of "grid_space". This is particularly helpful for new users.
     
-- Consistency between database schema and API, for example in naming tables and columns, options such as "interpolate" with Laterals time series, grouping of settings.
+- The (functionally identical) 0D inflow methods "v2_surface" and "v2_impervious_surface" are merged into one method
+
+- Dry weather flow, which is functionally separate from 0D surface inflow, is now defined in separate layers.
+    
+- Consistency between database schema and API, for example in naming tables and columns, options such as "interpolate" for laterals and boundary conditions time series, the grouping of settings, etc.
     
 - Consistent and correct use of English, for example "pump" instead of "pumpstation"
 
@@ -183,7 +159,7 @@ Can I try out the new database schema while it is still under development?
 
 Yes, this is possible. We process the schema migrations in groups (e.g. "settings", "inflow", "1D", etc.) and release versions of the python package ``threedi-schema`` every time we have completed such a group. This Python package has functionality to migrate a schematisation to a higher version, see the `threedi-schema GitHub repository <https://www.github.com/nens/threedi-schema>`_.
 
-Note that schematisations that have been upgraded with versions of threedi-schema that are higher than the one used in the 3Di Modeller Interface will not be usable in the 3Di Modeller Interface anymore (until the version of threedi-schema in the 3Di Modeller Interface is updated accordingly).
+Note that schematisations that have been upgraded with versions of threedi-schema that are higher than the one used in the 3Di Modeller Interface will not be usable in the 3Di Modeller Interface anymore (until the version of threedi-schema in the 3Di Modeller Interface is updated accordingly, which will happen on January 28th, 2025).
 
 .. _db_300_migration_guide:
 
@@ -196,7 +172,7 @@ For a complete and detailed overview of the changes in each of the tables and co
 
 .. note::
     
-	This migration guide is a work in progress. It will be updated and extended during development.
+    This migration guide is a work in progress. It will be updated and extended during development.
 
 General changes
 ^^^^^^^^^^^^^^^
@@ -205,15 +181,21 @@ General changes
 
 - All geometry columns have been renamed from "the_geom" to "geom", following current (informal) conventions.
 
-- All tables that have a geometry will also have a code, display name, and tags
+- All tables that have a geometry (in the new schema) also have a code, display name, and tags
+
+- Instead of using latitude/longtitude coordinates (WGS84, EPSG:4326) to define geometries, the data uses a local, projected coordinate system (set by model_settings.epsg_code). This has several benefits:
+    - Measurements can be done in meters instead of degrees
+	- Spatial schematisation checks no longer need to project the data before performing the check, making them faster and in some cases more accurate
+	- The data as it appears on the map canvas in the 3Di Modeller Interface is exactly the same as what is used by 3Di. This is expected to fix some hard to solve issues with 2D boundary conditions not being located at the correct location, even though they seem to be exactly in the right location on the map.
+	- It simplifies the routines used by 3Di to convert schematisation data to 3Di models, by eliminating the need to reproject the data to a projected CRS.
+
 
 Tags
 ^^^^
 
 A new feature is the option to add *tags* to each schematisation object. You can define tags in the schematisation, and assign any number of these tags to each feature.
 
-This is useful for administration of data sources and assumptions. For example, if you define a tag "Source: asset management system", you can assign this tag to all pipes that are imported from the asset management system; pipes that are digitized by hand can be given the tag "Source: digitized by hand", etc.
-
+This is useful for administration of data sources and assumptions. For example, if you define a tag "Source: asset management system", you can assign this tag to all pipes that are imported from the asset management system; pipes that are have been edited manually can be given the tag "Manually edited", etc.
 
 Settings
 ^^^^^^^^
@@ -245,7 +227,7 @@ Tables in database schema 300:
 
 For a complete and detailed overview of the changes in each of the tables and columns, see the :download:`Migration guide spreadsheet <other/3Di database schema 219 to schema 300.xlsx>`
 
-The settings that were grouped in the global settings table are split up into several tables that are consistent with (i) the grouping in the API, and (ii) the distinctions between settings required to generate the 3Di model and settings required to generate a simulation template. The contents of the global settings table can now be found in:
+The settings that were grouped in the global settings table are split up into several tables that are consistent with (i) the grouping in the API, and (ii) the distinctions between settings that are required to generate a 3Di model vs. the settings that are required to generate a simulation template. The contents of the global settings table can now be found in:
 
 - **Model settings**: contains settings that are used when generating a 3Di model. A further categorisation within this table (which will be reflected in the attribute forms) is:
 
@@ -257,7 +239,7 @@ The settings that were grouped in the global settings table are split up into se
 
 - **Physical settings**: same as in the API, currently contains only advection-related parameters
 
-- **Time step settings**: same as in the API, contains settings related to simulation time step and and output time step
+- **Time step settings**: same as in the API, contains settings related to simulation time step and output time step
 
 - **Simulation template settings**: contains settings that are used when generating the simulation template
 
@@ -269,8 +251,8 @@ References to raster files were relative paths, starting from the location of th
 
 Settings tables are no longer referenced from the global settings (e.g. v2_global_settings.simple_infiltration_settings_id -> v2_simple_infiltration.id). Instead, a boolean field switches the specific process on or off (e.g. use_simple_infiltration).
 
-Obstacles have three new attributes to finetune which types of flowlines they affect: 2D, 1D2D open water, and/or 1D2D closed system. For this reason, it matters in which cases 3Di identifies a node as "open water" node, and subsequently sets the flowline type of 1D2D flowlines connecting to such nodes to "open water". Before database schema 300, all nodes without a storage area where regarded as open water. The new default is to regard all nodes that connect to at least one channel as open water. To make the migration backwards compatible, it is still possible to use the old method, by setting the new attribute *node_open_water_detection* in the model settings to 1. In the migration, this is automatically done to be backwards combatible. It is recommended to manually set it to 0 after the migration. 
-	
+Obstacles have three new attributes to finetune which types of flowlines they affect: 2D, 1D2D open water, and/or 1D2D closed system. For this reason, it matters in which cases 3Di identifies a node as "open water" node, and subsequently sets the flowline type of 1D2D flowlines connecting to such nodes to "open water". Before database schema 300, all nodes without a storage area where regarded as open water. The new default is to regard all nodes that connect to at least one channel as open water. To make the migration backwards compatible, it is still possible to use the old method, by setting the new attribute *node_open_water_detection* in the model settings to 1. In the migration, this is automatically done to be backwards combatible. It is recommended to manually set it to 0 after the migration.
+    
 0D Inflow
 ^^^^^^^^^
 
@@ -321,9 +303,11 @@ Tables in database schema 300:
 
 For a complete and detailed overview of the changes in each of the tables and columns, see the :download:`Migration guide spreadsheet <other/3Di database schema 219 to schema 300.xlsx>`
 
-- New: option to specifiy time units, interpolation, and/or offset (for laterals)
-
-- New: option to add tags to each feature
+The most important changes are:
+- Option to specifiy the time units (seconds, minutes, or hours). Before this field was introduced, the time units where always interpreted as minutes.
+- Option to switch interpolation from one time step to the next on and off
+- For laterals, the option to specify an offset
+- 1D boundary condition and 1D lateral now have a geometry (point)
 
 
 Structure control
@@ -445,16 +429,23 @@ Tables in database schema 300:
 
 For a complete and detailed overview of the changes in each of the tables and columns, see the :download:`Migration guide spreadsheet <other/3Di database schema 219 to schema 300.xlsx>`
 
-
-- Pipe, Weir, and Orifice will have their own geometry.
-- *Calculation type* will be replaced by two columns: *Exchange type* and *Exchange width*
-- *Manhole* will no longer have an *Calculation type*; this will be moved to *Connection node* (as *Exchange type* and *Exchange width*)
-- The table *Cross-section definition* will be removed; cross-section information will directly be defined as attributes of pipes, cross-section locations, weirs, orifices, and culverts
-- *Manhole* attributes that are purely intended for administrative purposes will be removed: shape, width, length, and surface_level
-- *Pipe* attributes that are purely intended for administrative purposes will be removed: material
-- *Pumpstation* will be renamed to *Pump*. Instead of an optional "connection_node_end_id", there will be a separate layer "Pump map"
-
-
-
-
-
+There are quite a few relevant changes in these tables: 
+- A new table *Material* has been introduced, which allows you to define friction coefficients for wall materials of pipes, culverts, orifices, or weirs. It is also still possible to directly set the friction coefficient of these objects; if the friction type and friction value for an object are filled in, the material is ignored. 
+- The *Manhole* layer has been merged with the *Connection node* layer, and the attributes that describe the manhole dimensions (shape, width, length) have been removed, as they were used for administrative purposes only.
+- The *v2_pumpstation* layer has been split into *Pump* and *Pump map*. The pump contains all the properties of the pump, the pump map can be added to let the water be pumped to a connection node within the model domain. A pump without a pump map is equivalent to a v2_pumpstation with an empty connection_node_end_id.
+- Layers that referred to connection nodes but did not have a geometry of their own, will now have a geometry:
+    - Orifice
+    - Pipe
+    - Pump and Pump map
+    - Weir
+- The table *Cross-section definition* has been removed; cross-section information will directly be defined as attributes of pipes, cross-section locations, weirs, orifices, and culverts
+- Cross-section data for *Tabulated rectangle*, *Tabulated trapezium*, and *YZ* will be stored in a text field (cross_section_table) as a CSV-style table, instead of in the width and height fields;
+- Some fields have been renamed:
+    - calculation_type -> exchange_type
+    - dist_calc_points -> calculation_point_distance
+    - connection_node_start_id -> connection_node_id_start
+    - connection_node_end_id -> connection_node_id_end
+    - invert_level_start_point -> invert_level_start
+    - invert_level_end_point -> invert_level_end
+    - drain_level -> exchange_level
+    - manhole_indicator -> visualisation
