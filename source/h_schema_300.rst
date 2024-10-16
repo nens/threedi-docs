@@ -185,11 +185,14 @@ General changes
 - All tables that have a geometry (in the new schema) also have a code, display name, and tags.
 
 - Instead of using latitude/longtitude coordinates (WGS84, EPSG:4326) to define geometries, the data uses a local, projected coordinate system (set by model_settings.epsg_code). This has several benefits:
-    - Measurements can be done in meters instead of degrees
-    - Spatial schematisation checks no longer need to project the data before performing the check, making them faster and in some cases more accurate
-    - The data as it appears on the map canvas in the 3Di Modeller Interface is exactly the same as what is used by 3Di. This is expected to fix some hard-to-solve issues with 2D boundary conditions not being located at the correct location, even though they seem to be exactly in the right location on the map.
-    - It simplifies the routines used by 3Di to convert schematisation data to 3Di models, by eliminating the need to reproject the data to a projected CRS.
 
+    - Measurements can be done in meters instead of degrees
+
+    - Spatial schematisation checks no longer need to project the data before performing the check, making them faster and in some cases more accurate
+
+    - The data as it appears on the map canvas in the 3Di Modeller Interface is exactly the same as what is used by 3Di. This is expected to fix some hard-to-solve issues with 2D boundary conditions not being located at the correct location, even though they seem to be exactly in the right location on the map.
+
+    - It simplifies the routines used by 3Di to convert schematisation data to 3Di models, by eliminating the need to reproject the data to a projected CRS.
 
 Tags
 ^^^^
