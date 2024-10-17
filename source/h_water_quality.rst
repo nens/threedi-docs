@@ -17,19 +17,18 @@ Water quality
 
 - Some characteristics can be set per substance, these are introduced in the sections below.
 
-Decay rate constant
-~~~~~~~~~~~~~~~~~~~~
-.. _adding_decay_term:
+.. warning::
 
-Modelling accurately the decay of a substance  is highly complex. This is mainly due to the dependence on environmental conditions that are often unknown, interact with each other, and rely strongly on empirical relations. To keep it simple, 3Di supports only a constant decay rate. Results can be refined through external scripting to meet specific needs.
+    You cannot add multiple laterals to a single node or cell if they have different substance concentrations. This will be resolved in the near future.
 
-.. figure:: image/h_decay_terms.png
-   :scale: 55%
-   :align: center
+.. _decay_coefficient:
 
-   Decay of a substance fraction over time for different decay rate constants, and where :math:`A_i=100`. Dotted lines indicate the concept of half life periods.
+Decay coefficient
+^^^^^^^^^^^^^^^^^
 
-To introduce the concept of a constant decay rate, an idealised case is considered. Assume a basin without any spatial flow and no source or sink terms, in such case the transport equation reduces to:
+In 3Di, substances can decay by a constant decay rate. This constant decay rate is defined by the substance property *Decay coefficient* .
+
+To introduce the concept of a constant decay rate, an idealised case is considered. Assume a basin without any spatial flow and no source or sink terms. In such case the transport equation reduces to:
 
 .. math::
 
@@ -41,32 +40,26 @@ where :math:`\mu \, [s^{-1}]` is the decay rate constant, :math:`c` is the conce
 
    c(t) = A_i e^{\mu t}
 
-In which :math:`A_i` depends on the initial conditions. 
-Figure :numref:`fig:decay_term` shows the results for various decay rate constants (:math:`\mu \, [s^{-1}]`). The dotted lines indicate the half-life period (:math:`t_{1/2}`) for :math:`\mu = 0.001 \, s^{-1}`. This is time it takes to reduce the amount of substance with a factor two. The half-life periods of the other decay rate constants are listed in :numref:`tab:mu`. The decay rate constant and half-life period can be converted:
+In which :math:`A_i` depends on the initial conditions.
+
+The figure below illustrates the effect of the decay coefficient on the concentration over time.
+
+.. figure:: image/h_decay_terms.png
+   :scale: 55%
+
+   Decay of a substance concentration over time for different decay coefficients, and where :math:`A_i=100`. Dotted lines indicate the half-life.
+
+.. note::
+    Decay of substances is a complex biochemical process, governed by interactions between substances, and environmental conditions. If your aim is to model the full complexity of these processes, a constant decay rate may not be sufficient. 3Di results can be used as input for aquatic ecology or chemistry models that do include such complexity. In this way, you can combine the hydrodynamic accuracy of 3Di with a detailed handling of the processes specific to your application domain.
+
+Half-life and decay rate
+""""""""""""""""""""""""
+
+Substance property databases often define the half-life of substances in water. The concept of half-life is related to constant decay rate and can be converted to it by a simple formula.
+
+Figure :numref:`fig:decay_term` shows the results for various decay rate constants (:math:`\mu \, [s^{-1}]`). The dotted lines indicate the half-life period (:math:`t_{1/2}`) for :math:`\mu = 0.001 \, s^{-1}`. This is the time it takes to reduce the amount of substance to half. To convert the half-life to a decay coefficient, the following equation can be used:
 
 .. math::
 
    t_{1/2} = \frac{\ln(2)}{\mu}
-
-
-.. table:: Overview of decay rate constants and their half-life periods. 
-   :name: tab:mu
-   :align: center
-   :widths: auto
-
-   ====================  ===================
-   :math:`\mu [s^{-1}]`  :math:`t_{1/2} [s]`   
-   ====================  ===================
-   0.000001              693147.18
-   0.00001               69314.718
-   0.0001                6931.4718
-   **0.001**             **693.14718**
-   0.01                  69.314718
-   0.1                   6.9314718
-   ====================  ===================
-
-
-.. warning::
-
-	You cannot add multiple laterals to a single node or cell if they have different substance concentrations. This will be resolved in the near future.
 
