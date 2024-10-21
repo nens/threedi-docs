@@ -45,7 +45,7 @@ In which :math:`A_i` depends on the initial conditions.
 The figure below illustrates the effect of the decay coefficient on the concentration over time.
 
 .. figure:: image/h_decay_terms.png
-   :name:fig_decay_term
+   :name: fig_decay_term
    :scale: 75%
 
    Decay of a substance concentration over time for different decay coefficients, and where :math:`A_i=100`. Dotted lines indicate the half-life.
