@@ -4,3 +4,4 @@ docs_voorbeeld/
 .vscode/settings.json
 _build/
 source/test_build/*
+.idea/workspace.xml
