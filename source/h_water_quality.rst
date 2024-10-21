@@ -45,7 +45,8 @@ In which :math:`A_i` depends on the initial conditions.
 The figure below illustrates the effect of the decay coefficient on the concentration over time.
 
 .. figure:: image/h_decay_terms.png
-   :scale: 55%
+   :name:fig_decay_term
+   :scale: 75%
 
    Decay of a substance concentration over time for different decay coefficients, and where :math:`A_i=100`. Dotted lines indicate the half-life.
 
@@ -57,9 +58,9 @@ Half-life and decay rate
 
 Substance property databases often define the half-life of substances in water. The concept of half-life is related to constant decay rate and can be converted to it by a simple formula.
 
-Figure :numref:`fig:decay_term` shows the results for various decay rate constants (:math:`\mu \, [s^{-1}]`). The dotted lines indicate the half-life period (:math:`t_{1/2}`) for :math:`\mu = 0.001 \, s^{-1}`. This is the time it takes to reduce the amount of substance to half. To determine a decay rate constant based on the half-life period, one can use:
+Figure :numref:`fig_decay_term` shows the results for various decay rate constants (:math:`\mu \, [s^{-1}]`). The dotted lines indicate the half-life period (:math:`t_{1/2}`) for :math:`\mu = 0.001 \, s^{-1}`. This is the time it takes to reduce the amount of substance to half. To determine a decay rate constant based on the half-life period, one can use:
 
 .. math::
 
-   t_{1/2} = \frac{\ln(2)}{\mu}
+   \mu = \frac{\ln(2)}{t_{1/2}}
 
