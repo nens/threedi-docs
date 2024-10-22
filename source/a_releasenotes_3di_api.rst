@@ -3,6 +3,42 @@
 3Di API
 -------
 
+October 22, 2024
+^^^^^^^^^^^^^^^^
+
+Database schema 300
+"""""""""""""""""""
+
+In the database schema, some additional changes were made to structure control:
+
+- Use *Measure variable* from *Control measure location* instead of from *Memory control* or *Table control* (threedi-api#2322)
+
+- Check if all measure locations that are mapped to the same *Table control* or *Memory control* have the same *Measure variable* (threedi-modelchecker#395)
+
+- Remove *Measure variable* from *Memory control* and *Table control*; this should be specified at the *Measure location* (nens/threedi-schema#97)
+
+Bugfixes and minor improvements
+"""""""""""""""""""""""""""""""
+
+Several bugfixes and improvements were made:
+
+- Improvements in "simulation crashed" email (threedi-api#2331)
+
+- The available historical and radar rain services were recently made configurable per organisation; it is now possible to set a list of services for each, instead of only one (threedi-api#2353)
+
+- Bugfix: Fix 1D initial substance concentration bug (threedi-api#2347)
+
+- Bugfix: YZ cross-sections are not processed correctly if they have an irregular shape (threedigrid-builder#383)
+
+- Bugfix: Some settings were not migrated correctly if the original spatialite still was a Spatialite 3 file instead of Spatialite 4 (threedi-schema#121)
+
+- Bugfix: Structure control type could not be validated succesfully (threedi-api#2354)
+
+- Bugfix: Bulk forcing does not take file offset into account (threedi-api#2351)
+
+
+
+
 October 10, 2024
 ^^^^^^^^^^^^^^^^
 
