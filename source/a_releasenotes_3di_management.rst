@@ -3,6 +3,20 @@
 3Di Management
 --------------
 
+October 22, 2024
+^^^^^^^^^^^^^^^^
+
+We have released a new version of 3Di Management, with several small new features and a bugfix:
+
+- Show tags and "projects" in simulation detail page (#1741)
+
+- Inherit simulation templates from previous 3Di model (#1604)
+
+- Download button for "File" events, such as file laterals, file boundary conditions, etc. (#1793)
+
+- Bugfix: Visual of rainfall sometimes did not show any rain when it should (#1769)
+
+
 March 26th, 2024
 ^^^^^^^^^^^^^^^^
 

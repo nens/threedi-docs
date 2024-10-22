@@ -3,6 +3,27 @@
 3Di Live
 --------
 
+October 22, 2024
+^^^^^^^^^^^^^^^^
+
+We have released a new version of 3Di Live. There is one new feature:
+
+- Cross-sections are now visualised in a graph under *Details* (#454, #2082)
+
+The release also includes several minor improvements and bugfixes:
+
+- Rain is now shown in mm/h in graph, instead of m/s (#1863)
+- Some improvements have been made in how node details are shown (#1876)
+- Show pumpstation line + put pumpstation symbol at start node (#446, #1940, #1956)
+- Some improvements where made to the labels that are shown when hovering over a graph (#1875)
+- Performance improvements (mainly for large models) (#1786)
+- Bugfix: Side view visualisation with groundwater was often wrong #1885
+- Bugfix: DEM edit confirm button was not shown when Side view tool was active (#1971)
+- Bugfix: Some sewerage types were not visible (#2085)
+- Bugfix: 2D flow was not visualised in cells where the flow was negative in X and Y directions (#2083)
+- Bugfix: Throttling issues would sometimes occur due to a too large number of requests for permissions (#1907)
+
+
 July 11th, 2024
 ^^^^^^^^^^^^^^^
 
