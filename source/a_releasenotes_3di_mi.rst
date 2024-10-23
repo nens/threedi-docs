@@ -6,7 +6,7 @@
 September 25th, 2024
 ^^^^^^^^^^^^^^^^^^^^
 
-3Di Models & Simulations 3.14.0
+3Di Models & Simulations 3.14.1
 """""""""""""""""""""""""""""""
 
 - Bugfix for *KeyError: 'simulation_user_first_name'* issue
@@ -50,7 +50,7 @@ September 24th, 2024
 September 12th, 2024
 ^^^^^^^^^^^^^^^^^^^^
 
-3Di Results Analysis 3.13.0
+3Di Results Analysis 3.10.0
 """""""""""""""""""""""""""
 
 - A new tool has been introduced for viewing and comparing flow summaries (#725)
