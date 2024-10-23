@@ -143,7 +143,7 @@ What are the advantages of changing the database schema?
     
 - A cleaner database schema, including
     
-    - Removal of all "v2_" prefixes in all table names
+    - Removal of all "v2" prefixes in all table names
     
     - Removal of all old remnants of the database schema that 3Di used before "v2"
     
