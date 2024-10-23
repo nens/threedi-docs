@@ -234,7 +234,7 @@ Tables in database schema 300:
 
 The most important changes are:
 
-- References to raster files were relative paths, starting from the location of the Spatialite (e.g. "rasters\dem.tif"). In schema 300, it should just be the file name ("dem.tif").
+- References to raster files were relative paths, starting from the location of the Spatialite (e.g. "rasters/dem.tif"). In schema 300, it should just be the file name ("dem.tif").
 
 - Settings tables are no longer referenced from the global settings (e.g. v2_global_settings.simple_infiltration_settings_id -> v2_simple_infiltration.id). Instead, a boolean field switches the specific process on or off (e.g. use_simple_infiltration).
 
@@ -336,7 +336,7 @@ Tables in database schema 300:
 - memory_control
 - table_control
 
-For a complete and detailed overview of the changes in each of the tables and columns, see <other/3Di database schema 219 to schema 300.xlsx>`
+For a complete and detailed overview of the changes in each of the tables and columns, see the :download:`Migration guide spreadsheet <other/3Di database schema 219 to schema 300.xlsx>`
 
 The changes to structure control are significant. The schema is strongly simplified, and some important changes have been made to facilitate a much more user friendly workflow. Structure control can be shown and edited on the map, because all layers involved now have a geometry.
 
