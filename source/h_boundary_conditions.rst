@@ -23,7 +23,9 @@ A boundary condition must define one variable, so that the computational core ca
 
 * Water level gradient (Sommerfeld boundary)
 
+* Total discharge, a user defines the total discharge for a flowpath in 2D domain (surface and groundwater layers). 3Di will then distribute the total discharge to the boundary cells that fall within the cross-section of the flowpath depending on the resistance of each cell to the flow. This resistance depends on the wet area, friction, and vegetation of the cell for surface water, and wet area and hydraulic conductivity of the cell if interflow is included. For the ground water layer, the distribution of the discharge is determined based on the wet area and hydraulic conductivity of the soil for each cell. 
 
+Note: In case of using different refinement levels at the boundary of the domain, the user should be aware of the difference in water level gradient for boundary type Water level. This stems from the cell size difference that might lead to different gradient, more notably in steep areas.
 
 Time series
 -----------
