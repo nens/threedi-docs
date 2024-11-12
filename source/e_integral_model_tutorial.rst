@@ -1,7 +1,7 @@
-.. _tutorial2_2dflatmodel:
+.. _tutorial7_1d2dmodel:
 
 Tutorial 7: Creating an integral 1D2D urban drainage model
-===============================
+==========================================================
 
 Introduction
 ------------
@@ -21,6 +21,7 @@ In this tutorial you will:
 
 * Create a new schematisation
 * Use the vector data importer to add 1D objects to a schematisation in batch
+* Use expressions to infer culvert characteristics in the attribute table
 * Use a processing algorithm to infer the manhole bottom level from pipes
 * Add impervious surfaces to a schematisation and use a processing algorithm to map them to connection nodes 
 * Upload a schematisation
@@ -35,8 +36,9 @@ Before you get started:
 
 * Install the 3Di Modeller Interface installed, see :ref:`3di_instruments_and_downloads`.
 
-* Download the xtt `Digital Elevation Model (DEM) for the Burrows area <https://demo.lizard.net/media/3di-tutorials/3di-tutorial-02.zip>`_ [#dem_attribution]_. 
+* Download the xtt DEM. 
 
+* Add the model bounds GeoPackage (regina_model_boundaries.gpkg) to the project.
 
 Creating a new schematisation
 -----------------------------
@@ -46,55 +48,63 @@ Follow these steps to create a new :ref:`schematisation`:
 #) Open the 3Di Modeller Interface and click on the 3Di Models and Simulations icon (|modelsSimulations|). You should now see the 3Di Models and Simulations panel.
 
     .. note::
-        If this is the first time you use 3Di Models and Simulation panel, you will need to go through :ref:`some steps to set it up<setting_up_models_and_simulations>`.
+        If this is the first time you use 3Di Models and Simulation panel, you will need to go through :ref:`some steps to set it up<setting_up_models_and_simulations>`. http://localhost:62677/e_2d_flood_tutorial.htmlhttp://localhost:62677/a_how_to.html
 
 #) In the *Schematisation* section of the 3Di Models and Simulations panel, click the *New* button (|newschematisation|). The *New schematisation* wizard is shown.
 
-#) Fill in a  schematisation name, such as 'Tutorial 2 <your_name>'. Select the organisation you want to be the owner of the new schematisation (most users have rights for only one organisation). Tags are optional, you can leave this field empty for now. Since we are creating a schematisation from scratch, select the *Create new Spatialite* option. Click *Next*.
+#) Fill in a  schematisation name, such as 'Tutorial 7 <your_name>'. Select the organisation you want to be the owner of the new schematisation (most users have rights for only one organisation). Tags are optional, you can leave this field empty for now. Since we are creating a schematisation from scratch, select the *Create new Spatialite* option. Click *Next*.
 
 #) Read the explanation on the second page of the *New schematisation* wizard. Click *Next*.
 
-#) In the section *2D Flow*, browse to the DEM (.tif) file you have downloaded. The coordinate reference system (EPSG:27700) is read from the DEM file and filled in automatically.
+#) In the section *2D Flow*, browse to the DEM (.tif) file you have downloaded. The coordinate reference system (EPSG:2957) is read from the DEM file and filled in automatically.
 
 #) Fill in the following settings:
 
-	* Computational cell size: 64
+	* Computational cell size: 10
 
-	* The model area is predominantly: Flat
+	* The model area is predominantly: Sloping
 
-	* No 1D flow
+	* Check 1D flow 
 
-	* No 0D flow
+	* Check 0D flow and do not change the inflow parameters type
 
 	* Friction type: Manning
 
 	* No friction file
 
-	* Global 2D friction coefficient: 0.06
+	* Global 2D friction coefficient: 0.03
 
-	* Simulation timestep: 30 s
+	* Simulation timestep: 10 s
 
 	* Typical simulation duration: 0-3 hours
 
-#) Click *Create schematisation*. A popup message will tell you that the the schematisation was created. Copy the path that is shown in the popup message.
+#) Click *Create schematisation*. A popup message will ask you if you want to load the schematisation data from the associated Spatialite file. Click *Yes*.
 
+Viewing and editing the schematisation
+--------------------------------------
 
-Viewing the schematisation
---------------------------
-
-You will now add the schematisation in your 3Di Modeller Interface project and add a background map for reference. This will allow you to check if the schematisation looks as you expect.
-
-You will need the path to the spatialite file (.sqlite) for this schematisation. If you have not copied the path to the spatialite in the previous step, do the following to find it: At the top of the 3Di Models & Simulations panel, click on the (blue, underlined) name of your schematisation. Windows Explorer will open; browse to *work in progress/schematisation* and copy the path from the Windows Explorer address bar.
-
-#) In the 3Di Schematisation Editor toolbar, click the *Load from Spatialite* button (|load_from_spatialite|). Paste the path to the spatialite and click *Open*.
+The schematisation is added to your 3Di Modeller Interface project. You will now add a background map for reference. This will allow you to check if the schematisation looks as you expect.
 
 #) Add a background map from OpenStreetMap by clicking *Web* in the Main Menu > *Quick Map Services* > *OSM* > *OSM Standard*.
 
 #) In the *Layers* panel, reorder the layers such that the OpenStreetMap layer is below the 3Di schematisation.
 
-You should now see the DEM, located in southern Wales.
+You should now see the DEM, located in Regina.
 
-.. _tut_uploading:
+You will now change some default settings and save the changes to the spatialite.
+
+#) Open the *Global settings* attribute table. Make sure to use the form view; you can change the view on the bottom right. 
+
+#) Click the *Toggle editing mode* button (|toggle_editing|) in the top left corner.
+
+#) Click the *Grid* tab and set kmax to 3. For explanation on the grid size and grid refinements, see :ref:`computational_grid_2d_domain`.
+
+#) Click the *Terrain information* tab and set initial_waterlevel to 568.
+
+#) Click the *Toggle editing mode* button and save your edits to this table.
+
+#) In the 3Di Schematisation Editor toolbar, click *Save to Spatialite* (|save_to_spatialite|). Wait for this process to finish.
+
 
 Uploading the schematisation
 ----------------------------
@@ -117,111 +127,214 @@ The next step is to check the schematisation, upload it as a first :ref:`revisio
     .. note::
         By default, this page of the upload wizard is set to *UPLOAD AND PROCESS*, so that a 3Di model and simulation template will be generated automatically after the upload. When you start using the upload wizard regularly, you may sometimes want to upload data without generating a new 3Di model from it. In that case, choose the *UPLOAD ONLY* option.
 
-Your 3Di model is now ready for simulation!  
 
-.. _tut_run_simulation:
+.. _tut_import_vector_data:
 
 Import vector data from open data source 
 ----------------------------------------
 
-You will now a
+Right now, you have a schematisation and model of your first version, which only contains the DEM and some global settings. To make this an integral model, you will now add the manholes, culverts and pipes to your schematisation. To do this, you need to add the relevant layers from the open data to your project through an ArcGIS REST Server. To do this, make sure you can see the Browser panel. 
 
-Manual checks and fixes
------------------------
+#) Right-click *ArcGIS REST Servers* and select *New Connection...*
 
-Check and fix the imported data
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#) Fill in the following settings: 
 
-Manually add missing elements
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    * Name: name of your choice, for example "Regina Storm Sewer Network". 
 
-We will now add infiltration to the model you have just created. In this tutorial, you will set a global infiltration rate, that applies to the entire model domain. 
+    * URL: https://opengis.regina.ca/arcgis/rest/services/OpenData/StormSewerNetwork/MapServer
+
+#) Click *Ok*.
+
+You are now able to see all layers from the server in the Browser panel. You will add the manholes, culverts and pipes layers to the project after applying filters to select the desired attributes within the model bounds.
+
+#) Manholes:
+
+	* Double-click the vector layer *Manhole* from the ArcGIS REST Server to add it to the project.
+  
+	* Right-click the layer and select *Filter...*
+
+	* Under *Provider Specific Filter Expression*, type: "SUBTYPENAME" IN ('Interceptor', 'Manhole', 'ManholeChamber').
+
+#) Pipes:
+
+	* Double-click the vector layer *Storm Sewer Line* from the ArcGIS REST Server to add it to the project.
+
+	* Rename the layer to "Pipe".
+
+	* Right-click the layer and select *Filter...*
+
+	* Under *Provider Specific Filter Expression*, type: "SUBTYPENAME" IN ('Main', 'Trunk'). This way, you only keep the pipes and filter out other types, such as culverts.
+
+#) Culverts:
+
+	* Double-click the vector layer *Storm Sewer Line* from the ArcGIS REST Server to add it to the project.
+
+	* Rename the layer to "Culvert".
+
+	* Right-click the layer and select *Filter...*
+
+	* Under *Provider Specific Filter Expression*, type: "SUBTYPENAME" = 'Culvert'.
+
+You now have three vector layers in your project, which contain the attributes that make up the sewer system in Regina. As you can see, there are also attributes outside of the model bounds.  
+You will use the *Select by Location* tool on each of these layers in order to select attributes within the model bounds. Follow these steps for all three layers:
+
+#) Click *Select by Location*.
+
+#) Fill in the following settings:
+
+	* Select features from: select the layer Manhole, Pipe or Culvert.
+
+	* Where the features: are within.
+
+	* By comparing to features from: regina_model_boundaries.
+
+	* Modify current selection by: creating new selection.
+
+#) Click *Run* to create the selection.
+
+Now you have selected the relevant attributes, you are ready to import them into the schematisation. 
+
+#) Manholes: Click *Import schematisation objects* in the Schematisation Editor panel and select *Manholes*. Fill in the following settings:
+  
+	* Source manhole layer: select your filtered manhole layer.
+
+	* Check *Selected features only* to only import the features within the model bounds.
+
+	* Check *Create connection nodes*.
+
+	* Check *Snap within* and fill in 0.10 meters.
+
+	* Now set the method, source attributes and default values for the manhole fields:
+
+	.. csv-table:: Import manholes settings
+		:name: import_manholes_settings
+		:header: "Field name", "Method", "Source attribute", "Default value"
+
+		"ID", Auto, -, -
+		"Code", Attribute, OBJECTID, -
+		"Display name", Attribute, OBJECTID, -
+		"Calculation type", Default, -, Connected
+		"Shape", Default, -, Square
+		"Width [m]", Default, -, 1.0
+		"Length [m]", Default, -, 1.0
+		"Bottom level [m MSL]", Ignore, -, -
+		"Surface level [m MSL]", Attribute, RIMELEVATION, -
+		"Drain level [m MSL]", Attribute, RIMELEVATION, -
+		"Sediment level [m MSL]", Ignore, -, -
+		"Manhole indicator", Default, -, Inspection
+		"Zoom category", Default, -, Medium low visibility
+		"Connection node ID", Auto, -, -
+		"Exchange thickness [m]", Ignore, -, -
+		"Hydraulic conductivity in [m/d]", Ignore, -, -
+		"Hydraulic conductivity out [m/d]", Ignore, -, -
+
+	* You are also creating connection nodes. To set the method, source attributes and default values for these, click the *Connection nodes* tab and fill in the table:
+
+	.. csv-table:: Import manholes settings: connection nodes
+		:name: import_manholes_settings_connection_nodes
+		:header: "Field name", "Method", "Source attribute", "Default value"
+
+		"ID", Auto, -, -
+		"Code", Attribute, OBJECTID, -
+		"Initial water level [m]", Ignore, -, -
+		"Storage area [m2]", Default, -, 1.0
+
+The values for the ID fields are autogenerated, such that each attribute has a unique ID. With the method *Attribute*, the value from the selected field from the source table is filled in. The method *Default* allows you to set a default value in the target table. Finally, *Ignore* results in a NULL value in the target table. 
+In this case, we used the attribute *OBJECTID* from the imported manholes to set the *Code* and *Display name* in the schematisation's manhole layer. Every manhole has calculation type "Connected" and is square with a width of 1 m. 
+We ignored the bottom level, because we will obtain those later, based on the pipes' invert levels. Try to find out for yourself how the values in the other fields are determined.  
+
+    .. note::
+        You don't have to fill in this table each time. You can save these configurations by clicking *Save as template...*. Next time you would like to import a manhole layer with the same format, simply select the saved JSON file after clicking *Load template...*.
+
+
+#) Pipes: Click *Import schematisation objects* in the Schematisation Editor panel and select *Pipes*. Fill in the following settings:
+
+	* Source pipe layer: select your filtered pipe layer.
+
+	* Check *Selected features only* to only import the features within the model bounds.
+
+	* Check *Create manholes* and *Create connection nodes*. The tool will create new manholes and connection nodes if these are not found within the snapping distance of a pipe end.
+
+	* Check *Snap within* and fill in 0.10 meters.
+
+	* Now set the method, source attributes and default values for the pipe fields: 
+
+	.. csv-table:: Import pipe settings
+		:name: import_pipe_settings
+		:header: "Field name", "Method", "Source attribute", "Value map", "Default value"
+
+		"ID", Auto, -, -, -
+		"Code", Attribute, OBJECTID, -, -
+		"Display name", Attribute, OBJECTID, -, -
+		"Calculation type", Default, -, -, Isolated
+		"Calculation point distance [m]", Default, -, -, 1000.0
+		"Invert level start point", Attribute, STARTELEVATION, -, -
+		"Invert level end point", Attribute, ENDELEVATION, -, -
+		"Friction value", Attribute, MATERIAL, xtt see below (paste table below), -
+		"Friction type", Default, -, -, Manning
+		"Material", Ignore, -, -, -
+		"Sewerage type", Default, -, -, Storm drain
+		"Zoom category", Default, -, -, Medium low visibility
+		"Connection node start ID", Auto, -, -
+		"Connection node end ID", Auto, -, -
+		"Cross section shape", Default, -, -, Circle
+		"Cross section width [m]", Attribute, DIAMETER, -, -
+		"Cross section height [m]", Ignore, -, -, -
+		"Cross section table", Ignore, -, -, -
+		"Exchange thickness [m]", Ignore, -, -, -
+		"Hydraulic conductivity in [m/d]", Ignore, -, -, -
+		"Hydraulic conductivity out [m/d]", Ignore, -, -, -
+
+	* You are also creating connection nodes. To set the method, source attributes and default values for these, click the *Connection nodes* tab and fill in the table:
+
+	.. csv-table:: Import pipe settings: connection nodes
+		:name: import_manholes_settings_connection_nodes
+		:header: "Field name", "Method", "Source attribute", "Default value"
+
+		"ID", Auto, -, -
+		"Code", Attribute, OBJECTID, -
+		"Initial water level [m]", Ignore, -, -
+		"Storage area [m2]", Default, -, 1.0
+
+	* You are also creating manholes. To set the method, source attributes and default values for these, click the *Manholes* tab and fill in the table:
+
+	.. csv-table:: Import pipe settings: manholes
+		:name: import_pipe_settings_manholes
+		:header: "Field name", "Method", "Source attribute", "Default value"
+
+		"ID", Auto, -, -
+		"Code", Attribute, OBJECTID, -
+		"Display name", Attribute, OBJECTID, -
+		"Calculation type", Default, -, Connected
+		"Shape", Default, -, Square
+		"Width [m]", Default, -, 1.0
+		"Length [m]", Default, -, 1.0
+		"Bottom level [m MSL]", Ignore, -, -
+		"Surface level [m MSL]", Ignore, -, -
+		"Drain level [m MSL]", Ignore, -, -
+		"Sediment level [m MSL]", Ignore, -, -
+		"Manhole indicator", Default, -, Inspection
+		"Zoom category", Default, -, Medium low visibility
+		"Connection node ID", Auto, -, -
+		"Exchange thickness [m]", Ignore, -, -
+		"Hydraulic conductivity in [m/d]", Ignore, -, -
+		"Hydraulic conductivity out [m/d]", Ignore, -, -
 
 .. note::
-   It is also possible to use a spatially variable infiltration rate by providing an infiltration rate raster file. This will be shown in :ref:`tutorial 3 <tutorial3_2dflowmodel>`.
+	This time, you used a value map to infer the friction value from the material. 
 
-To add infiltration to the model, you need to create a *Simple infiltration settings* record and reference it from the *Global settings*.
+#) Culverts: Click *Import schematisation objects* in the Schematisation Editor panel and select *Culverts*. Fill in the following settings:
 
-Follow these steps:
+	* Source culvert layer: select your filtered culvert layer.
 
-#) In the *Layers* panel, under *Settings*, click on the *Simple infiltration settings* layer
+	* Check *Selected features only* to only import the features within the model bounds.
 
-#) Click the *Toggle editing mode* button (|toggle_editing|) in the top left corner, then click the *Add Feature* button (|add_feature|). Fill in the values from the table below (:ref:`inf_settings`) and click *OK*.
+	* Check *Create manholes* and *Create connection nodes*. The tool will create new manholes and connection nodes if these are not found within the snapping distance of a culvert end.
 
-#) Click the *Toggle editing mode* button in the toolbar and save your edits to this layer.
+	* Check *Snap within* and fill in 0.10 meters.
 
-	.. csv-table:: Simple infiltration settings
-		:name: inf_settings
-		:header: "Setting", "Value for this tutorial", "Comments"
+	* Now set the method, source attributes and default values for the culvert fields: @Leendert hier ben ik gebleven
 
-		"id", "1", "Must match the simple_infiltration_settings_id in the v2_global_settings_table"
-		"display_name", "infiltration"
-		"infiltration_rate", "360", "in mm/day; uniform silty sand is assumed in this tutorial"
-		"infiltration_rate_file", "NULL", "Only used for spatially varying infiltration rates"
-		"max_infiltration_capacity", "NULL", "infinite infiltration capacity is assumed in this tutorial"
-		"max_infiltration_capacity_file", "NULL", "infinite infiltration capacity is assumed in this tutorial"
-		"infiltration_surface_option", "Rain", "See :ref:`infiltration`"
-
-
-
-Now you need to reference this *Simple infiltration settings* record from the *Global settings* table.
-
-#) In the *Layers* panel, under *Settings*, right-click the *Global settings* layer > *Open attribute table*
-
-#) Click *Switch to form view* in the bottom right corner.
-
-#) Click *Toggle editing mode* in the top left corner.
-
-#) In the tab *Settings IDs*, fill in the ID (1) of the *Simple infiltration settings* record you have just created.
-
-#) Click the *Toggle editing mode* button in the toolbar and save your edits to this layer.
-
-
-To make a new revision that includes these edits, you need to save the changes to the spatialite and upload them.
-
-#) In the 3Di Schematisation Editor toolbar, click *Save to Spatialite* (|save_to_spatialite|). Wait for this process to finish.
-
-#) Upload a new revision, in the same way you did before (see :ref:`tut_uploading`).
-
-
-Running a simulation with infiltration
---------------------------------------
-
-With the model that includes infiltration, run the same simulation as before (see :ref:`tut_run_simulation`).
-
-
-Online access
--------------
-
-Note that the models you have created are stored online. You can use them in 3Di Live and view them in the 3Di Management pages. 
-
-To use the model in 3Di Live:
-
-#) Go to `www.3di.live <www.3di.live>`_, log in and type the name of your schematisation in the search bar.
-
-#) Select the model you want to use; #1 is the first revision (without infiltration) and #2 is the second revision (with infiltration). Click *Start*
-
-
-To view the model on 3Di Management:
-
-#) Go to `management.3di.live <management.3di.live>`_, and log in (if needed) 
-
-#) Click on *Schematisations*
-
-#) Type the name of your schematisation in the search bar
-
-#) In the list, click on your schematisation 
-
-#) On this page, you see the details of the last revision of your schematisation. You can switch to older revisions by clicking *Choose other revisions*
-
-#) Under *3Di Model of this revision* > *Simulation templates*, you can start a 3Di Live simulation with this model, by clicking on the button with three horizontal lines > *Run on 3Di Live*
-
-
-
-
-.. rubric:: Footnotes
-
-.. [#dem_attribution] The digital elevation model contains United Kingdom public sector information licensed under the Open Government Licence v2.0.
 
 
 .. images:
