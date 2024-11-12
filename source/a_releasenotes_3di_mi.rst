@@ -3,6 +3,71 @@
 3Di Modeller Interface
 ----------------------
 
+November 12th, 2024
+^^^^^^^^^^^^^^^^^^^
+
+3Di Models & Simulations 3.15.0
+"""""""""""""""""""""""""""""""
+
+This release introduces several useful new options for water quality simulations:
+
+- You can now use constant substance concentrations for laterals and boundary conditions (#1024). It is also still possible to specify a concentration time series for each individual lateral or boundary condition
+
+- You can now add substance concentrations to rain, e.g. to use as a label or tracer (#537)
+
+- You can now add substance concentrations to 1D initial concentrations (#609). This option was already available for 2D concentrations.
+
+- A diffusion parameter can be specified for each substance (#602)
+
+- Using water quality is disabled if your organisation does not include the water quality module in its contract (#625). This will become effective from March 1st, 2024.
+
+- The use of special characters in units field of substances has been restricted to the characters that are accepted by the calculation core (#621)
+
+
+Other new options and additions:
+
+- Simulation wizard: include option to select previously uploaded 1D initial water level file#610
+
+- New options for :ref:`1d_advection` are now also available in the simulation wizard. New schematisations will by default use the combined energy/momentum conservative scheme instead of the momentum conservative scheme that was the previous default (#603).
+
+- Simulation template creation: append prefix to saved template name in case of Multiple Simulations (#613)
+
+Bugfixes:
+
+- Simulation wizard now gives proper feedback if you choose an invalid boundary conditions file (#624)
+
+- Fix for error when trying to refresh list of downloadable simulations (#622)
+
+- "Stop after" was not read correctly from the simulation template in some cases (#616)
+
+- Substance decay coefficients are now loaded from the simulation template (#612)
+
+
+3Di Schematisation Editor 1.14.0
+""""""""""""""""""""""""""""""""
+
+- New options for :ref:`1d_advection` are now also available in *Global settings* attribute form (#255)
+
+- Vector data importers remember the last directory from which config json was loaded (#254)
+
+- Moving through attribute forms using TAB now follows a logical sequence (#149)
+
+- Bugfix: you can now load multiple schematisations with the same name without getting errors (#270)
+
+
+
+3Di Results Analysis 3.11.0
+"""""""""""""""""""""""""""
+
+- Several options were added to customise how nodes and flowlines are visualised on the map canvas (#1046)
+
+- The cross-sectional discharge algorithm can now deal with LinestringZ input
+
+- The "use selected features" behaviour in the cross-sectional discharge algorithm has been made more explicit
+
+- Bugfix: Import GWSW-Hyd no longer gives a KeyError when an outlet references a non-existent node (hydxlib#59)
+
+
 September 25th, 2024
 ^^^^^^^^^^^^^^^^^^^^
 
