@@ -26,11 +26,11 @@ This release introduces several useful new options for water quality simulations
 
 Other new options and additions:
 
-- Simulation wizard: include option to select previously uploaded 1D initial water level file#610
+- Simulation wizard: include option to select previously uploaded 1D initial water level file (#610)
 
 - New options for :ref:`1d_advection` are now also available in the simulation wizard. New schematisations will by default use the combined energy/momentum conservative scheme instead of the momentum conservative scheme that was the previous default (#603).
 
-- Simulation template creation: append prefix to saved template name in case of Multiple Simulations (#613)
+- Simulation template creation: append prefix to saved template name in case of multiple simulations (#613)
 
 Bugfixes:
 
@@ -61,9 +61,9 @@ Bugfixes:
 
 - Several options were added to customise how nodes and flowlines are visualised on the map canvas (#1046)
 
-- The cross-sectional discharge algorithm can now deal with LinestringZ input
+- The cross-sectional discharge algorithm can now deal with LinestringZ input (#1057)
 
-- The "use selected features" behaviour in the cross-sectional discharge algorithm has been made more explicit
+- The "use selected features" behaviour in the cross-sectional discharge algorithm has been made more explicit (#1057)
 
 - Bugfix: Import GWSW-Hyd no longer gives a KeyError when an outlet references a non-existent node (hydxlib#59)
 
