@@ -1,4 +1,6 @@
-FROM sphinxdoc/sphinx-latexpdf
+FROM sphinxdoc/sphinx-latexpdf:8.0.2
+# Pin the docker tag to use Python 3.12 to work
+# around PyPi sub-dependencies with no 3.13 wheels
 
 # ARG DEBIAN_FRONTEND=noninteractive
 # RUN apt-get update && apt-get install -y --no-install-recommends \
