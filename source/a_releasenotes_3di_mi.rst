@@ -11,13 +11,13 @@ November 12th, 2024
 
 This release introduces several useful new options for water quality simulations:
 
-- You can now use constant substance concentrations for laterals and boundary conditions (#1024). It is also still possible to specify a concentration time series for each individual lateral or boundary condition
+- You can now use constant substance concentrations for laterals and boundary conditions (#1024). This means that you can input one concentration (e.g. 100%) to be applied to all laterals or boundary conditions in the simulation, for their whole duration. It is also still possible to specify a concentration time series for each individual lateral or boundary condition
 
-- You can now add substance concentrations to rain, e.g. to use as a label or tracer (#537)
+- You can now add substance concentrations to rain, e.g. to use as a label or tracer (#537). In the current implementation, the concentration is added all the rain, regardless of where it falls. In the near future you will also be able to label rain depending on the area where it falls.
 
-- You can now add substance concentrations to 1D initial concentrations (#609). This option was already available for 2D concentrations.
+- You can now add substance concentrations to 1D initial water (#609). This option was already available for 2D concentrations.
 
-- A diffusion parameter can be specified for each substance (#602)
+- A diffusion parameter can be specified for each substance, to set the amount of (physical) diffusion for that substance (#602).
 
 - Using water quality is disabled if your organisation does not include the water quality module in its contract (#625). This will become effective from March 1st, 2024.
 
