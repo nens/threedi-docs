@@ -836,19 +836,19 @@ Attributes
      - decimal number
      - No
      - m
-     - The thickness of the (porous) pipe wall that the water needs to flow through to reach the groundwater (or v.v.), see :ref:`1d2d_groundwater_exchange`
+     - The thickness of the (porous) manhole wall that the water needs to flow through to reach the groundwater (or v.v.), see :ref:`1d2d_groundwater_exchange`
    * - Hydraulic conductivity in
      - hydraulic_conductivity_in
      - decimal number
      - No
      - \-
-     - Hydraulic conductivity for water flowing from the groundwater into the pipe, see :ref:`1d2d_groundwater_exchange`
+     - Hydraulic conductivity for water flowing from the groundwater into the manhole, see :ref:`1d2d_groundwater_exchange`
    * - Hydraulic conductivity out
      - hydraulic_conductivity_out
      - decimal number
      - No
      - \-
-     - Hydraulic conductivity for water flowing from the pipe into the groundwater, see :ref:`1d2d_groundwater_exchange`
+     - Hydraulic conductivity for water flowing from the manhole into the groundwater, see :ref:`1d2d_groundwater_exchange`
 
 
 .. _manhole_notes_for_modellers:
@@ -895,6 +895,11 @@ This value is used for administrative and visualisation purposes only. It does n
 Surface level
 """""""""""""
 This value is used for administrative purposes only. It does not affect the calculation
+
+Groundwater exchange
+"""""""""""""""""""
+To let the manhole exchange with groundwater, specify the *Exchange thickness*, *Hydraulic conductivity in*, and *Hydraulic conductivity out*. This is independent from the calculation type (embedded/isolated/connected), so you can also schematise a manhole that does *not* exchange with the surface water domain (calculation type is isolated), but *does* exchange with the groundwater domain.
+
 
 .. _pumpstation_without_end_node:
 
@@ -1386,6 +1391,24 @@ Attributes
      - No
      - \-
      - *Deprecated*
+   * - Exchange thickness
+     - exchange_thickness
+     - decimal number
+     - No
+     - m
+     - The thickness of the (porous) pipe wall that the water needs to flow through to reach the groundwater (or v.v.), see :ref:`1d2d_groundwater_exchange`
+   * - Hydraulic conductivity in
+     - hydraulic_conductivity_in
+     - decimal number
+     - No
+     - \-
+     - Hydraulic conductivity for water flowing from the groundwater into the pipe, see :ref:`1d2d_groundwater_exchange`
+   * - Hydraulic conductivity out
+     - hydraulic_conductivity_out
+     - decimal number
+     - No
+     - \-
+     - Hydraulic conductivity for water flowing from the pipe to the groundwater, see :ref:`1d2d_groundwater_exchange`	 	 
 
 When using the 3Di Schematisation Editor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1422,6 +1445,10 @@ The following types are supported:
 - Syphon (5)
 - Storage (6)
 - Storage and settlement tank (7)
+
+Groundwater exchange
+"""""""""""""""""""
+To let the pipe exchange with groundwater, specify the *Exchange thickness*, *Hydraulic conductivity in*, and *Hydraulic conductivity out*. This is independent from the calculation type (embedded/isolated/connected), so you can also schematise a pipe that does not exchange with the surface water domain (calculation type is isolated), but does exchange with the groundwater domain.
 
 
 
