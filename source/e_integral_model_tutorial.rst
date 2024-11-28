@@ -6,9 +6,9 @@ Tutorial 7: Creating an integral 1D2D urban drainage model
 Introduction
 ------------
 
-In this tutorial, you will us the :ref:`3Di Modeller Interface <mi_what_is>` to build an integral 1D2D urban drainage model of the xtt..., in xtt.... This model will include flow above and under the surface: rain on the 2D grid and on buildings, overland flow, flow into the sewer system (from buildings and from the surface) and flow through the sewer system.  
+In this tutorial, you will use the :ref:`3Di Modeller Interface <mi_what_is>` to build an integral 1D2D urban drainage model of the xtt..., in xtt.... The purpose of the model is to analyse urban drainage patterns and pluvial flooding in the city. This model will include flow above and below ground: rain on the 2D grid and on buildings, overland flow, flow into the sewer system (from buildings and from the surface) and flow through the sewer system.  
 
-For the sewer system, you will use open data from xtt... You will import these data using the vector data importer and use two different processing algorithms to automatically add information to 1D objects.  
+For the sewer system, you will use open data from xtt... You will import these data using the vector data importer and use two different processing algorithms to automatically add information to 1D objects. 
 
 Although the model will represent a real-world area, some processes will be simplified for the sake of this tutorial. Please keep this in mind while analysing the results of your simulations.
 
@@ -17,6 +17,7 @@ A similar model is built in this `webinar <https://www.youtube.com/watch?v=YhJzz
 
 Learning objectives
 -------------------
+
 In this tutorial you will:
 
 * Create a new schematisation
@@ -36,7 +37,7 @@ Before you get started:
 
 * Install the 3Di Modeller Interface installed, see :ref:`3di_instruments_and_downloads`.
 
-* Download the xtt DEM. 
+* Download the xtt... DEM. 
 
 * Add the model bounds GeoPackage (regina_model_boundaries.gpkg) to the project.
 
@@ -48,7 +49,7 @@ Follow these steps to create a new :ref:`schematisation`:
 #) Open the 3Di Modeller Interface and click on the 3Di Models and Simulations icon (|modelsSimulations|). You should now see the 3Di Models and Simulations panel.
 
     .. note::
-        If this is the first time you use 3Di Models and Simulation panel, you will need to go through :ref:`some steps to set it up<setting_up_models_and_simulations>`. http://localhost:62677/e_2d_flood_tutorial.htmlhttp://localhost:62677/a_how_to.html
+        If this is the first time you use the 3Di Models and Simulation panel, you will need to go through :ref:`some steps to set it up<setting_up_models_and_simulations>`. http://localhost:62677/e_2d_flood_tutorial.htmlhttp://localhost:62677/a_how_to.html
 
 #) In the *Schematisation* section of the 3Di Models and Simulations panel, click the *New* button (|newschematisation|). The *New schematisation* wizard is shown.
 
@@ -97,9 +98,9 @@ You will now change some default settings and save the changes to the spatialite
 
 #) Click the *Toggle editing mode* button (|toggle_editing|) in the top left corner.
 
-#) Click the *Grid* tab and set kmax to 3. For explanation on the grid size and grid refinements, see :ref:`computational_grid_2d_domain`.
+#) Click the *Grid* tab and set *kmax* to 3. For explanation on the grid size and grid refinements, see :ref:`computational_grid_2d_domain`.
 
-#) Click the *Terrain information* tab and set initial_waterlevel to 568.
+#) Click the *Terrain information* tab and set initial_waterlevel to 568. Note that it is also possible to supply an initial water level raster to specify an initial water level for each cell; in this tutorial we use a global value, for simplicity.
 
 #) Click the *Toggle editing mode* button and save your edits to this table.
 
@@ -117,25 +118,24 @@ The next step is to check the schematisation, upload it as a first :ref:`revisio
 
 #) Click *Check schematisation*. This will check your schematisations for any errors. A schematisation that contains errors cannot be processed into a 3Di model and simulation template. The schematisation checker may also produce warnings or info level messages. These help you to improve the schematisation. If you have followed the instructions in this tutorial, the schematisation checker should not produce any errors, warnings or info level messages.
 
-	.. note::
-	   Please do not ignore warnings. These are given for schematisation choices that are usually wrong and negatively impact the performance of you model. It will still be possible generate a model from a schematisation with warnings, and there may also be special cases where your schematisation choice is intentional and you deliberately ignore the warning. If the performance of you model is sub-par, please fix any warnings before reaching out to the servicedesk.
+    .. note::
+       Please do not ignore warnings. These are given for schematisation choices that are usually wrong and negatively impact the performance of you model. It will still be possible to generate a model from a schematisation with warnings, and there may also be special cases where your schematisation choice is intentional and you deliberately ignore the warning. If the performance of you model is sub-par, please fix any warnings before reaching out to the :ref:`servicedesk`.
 
-#) Continue to the next screen. Here you have to fill in a commit message that describes the changes your have made relative to the previous revision. As this is the first revision of this schematisation, you can instead provide a short description of what you upload. For example: "Default settings, DEM only".
+#) Continue to the next screen. Here you have to fill in a commit message that describes the changes you have made relative to the previous revision. As this is the first revision of this schematisation, you can instead provide a short description of what you upload. For example: "Default settings, DEM only".
 
-#) Click *Start upload*. Check if it is the upload is successful and if the uploaded data is successfully processed into a 3Di model.  
+#) Click *Start upload*. Check if the upload is successful and if the uploaded data is successfully processed into a 3Di model.  
 
     .. note::
         By default, this page of the upload wizard is set to *UPLOAD AND PROCESS*, so that a 3Di model and simulation template will be generated automatically after the upload. When you start using the upload wizard regularly, you may sometimes want to upload data without generating a new 3Di model from it. In that case, choose the *UPLOAD ONLY* option.
-
 
 .. _tut_import_vector_data:
 
 Import vector data from open data source 
 ----------------------------------------
 
-Right now, you have a schematisation and model of your first version, which only contains the DEM and some global settings. To make this an integral model, you will now add the manholes, culverts and pipes to your schematisation. To do this, you need to add the relevant layers from the open data to your project through an ArcGIS REST Server. To do this, make sure you can see the Browser panel. 
+Right now, you have a schematisation and model of your first version, which only contains the DEM and some global settings. To make this an integral model, you will now add the manholes, culverts and pipes to your schematisation. To do this, you need to add the relevant layers from the open data to your project. The open data is made available through an ArcGIS REST Server. To add a connection to this service, make sure you can see the Browser panel. 
 
-#) Right-click *ArcGIS REST Servers* and select *New Connection...*
+#) In the Browser panel, right-click *ArcGIS REST Servers* and select *New Connection...*
 
 #) Fill in the following settings: 
 
@@ -145,103 +145,107 @@ Right now, you have a schematisation and model of your first version, which only
 
 #) Click *Ok*.
 
-You are now able to see all layers from the server in the Browser panel. You will add the manholes, culverts and pipes layers to the project after applying filters to select the desired attributes within the model bounds.
+You are now able to see all layers from the server in the Browser panel. You will add the manholes, culverts and pipes layers to the project after applying filters to select the desired features within the model bounds.
 
 #) Manholes:
 
-	* Double-click the vector layer *Manhole* from the ArcGIS REST Server to add it to the project.
+    * Double-click the vector layer *Manhole* from the ArcGIS REST Server to add it to the project.
   
-	* Right-click the layer and select *Filter...*
+    * Right-click the layer and select *Filter...*
 
-	* Under *Provider Specific Filter Expression*, type: "SUBTYPENAME" IN ('Interceptor', 'Manhole', 'ManholeChamber').
+    * Under *Provider Specific Filter Expression*, type: "SUBTYPENAME" IN ('Interceptor', 'Manhole', 'ManholeChamber').
 
 #) Pipes:
 
-	* Double-click the vector layer *Storm Sewer Line* from the ArcGIS REST Server to add it to the project.
+    * Double-click the vector layer *Storm Sewer Line* from the ArcGIS REST Server to add it to the project.
 
-	* Rename the layer to "Pipe".
+    * Rename the layer to "Pipe".
 
-	* Right-click the layer and select *Filter...*
+    * Right-click the layer and select *Filter...*
 
-	* Under *Provider Specific Filter Expression*, type: "SUBTYPENAME" IN ('Main', 'Trunk'). This way, you only keep the pipes and filter out other types, such as culverts.
+    * Under *Provider Specific Filter Expression*, type: "SUBTYPENAME" IN ('Main', 'Trunk'). This way, you only keep the pipes and filter out other types, such as culverts.
 
 #) Culverts:
 
-	* Double-click the vector layer *Storm Sewer Line* from the ArcGIS REST Server to add it to the project.
+    * Double-click the vector layer *Storm Sewer Line* from the ArcGIS REST Server to add it to the project.
 
-	* Rename the layer to "Culvert".
+    * Rename the layer to "Culvert".
 
-	* Right-click the layer and select *Filter...*
+    * Right-click the layer and select *Filter...*
 
-	* Under *Provider Specific Filter Expression*, type: "SUBTYPENAME" = 'Culvert'.
+    * Under *Provider Specific Filter Expression*, type: "SUBTYPENAME" = 'Culvert'.
 
-You now have three vector layers in your project, which contain the attributes that make up the sewer system in Regina. As you can see, there are also attributes outside of the model bounds.  
-You will use the *Select by Location* tool on each of these layers in order to select attributes within the model bounds. Follow these steps for all three layers:
+You now have three vector layers in your project, which contain the features that make up the sewer system in Regina. As you can see, there are also features outside of the model bounds.  
+You will use the *Select by Location* tool on each of these layers in order to select features within the model bounds. Follow these steps for all three layers:
 
 #) Click *Select by Location*.
 
 #) Fill in the following settings:
 
-	* Select features from: select the layer Manhole, Pipe or Culvert.
+    * Select features from: select the layer Manhole
 
-	* Where the features: are within.
+    * Where the features: are within.
 
-	* By comparing to features from: regina_model_boundaries.
+    * By comparing to features from: regina_model_boundaries.
 
-	* Modify current selection by: creating new selection.
+    * Modify current selection by: creating new selection.
 
 #) Click *Run* to create the selection.
 
-Now you have selected the relevant attributes, you are ready to import them into the schematisation. 
+Now you have selected the relevant Manhole features, you are ready to import them into the schematisation.
+
+#) Repeat these steps for the *Pipe* and *Culvert* layers, to select the relevant features from those layers.
+
+You will now import the Manholes, Pipes and Culverts to the 3Di Schematisation.
 
 #) Manholes: Click *Import schematisation objects* in the Schematisation Editor panel and select *Manholes*. Fill in the following settings:
   
-	* Source manhole layer: select your filtered manhole layer.
+    * Source manhole layer: select your filtered manhole layer.
 
-	* Check *Selected features only* to only import the features within the model bounds.
+    * Check *Selected features only* to only import the features within the model bounds.
 
-	* Check *Create connection nodes*.
+    * Check *Create connection nodes*.
 
-	* Check *Snap within* and fill in 0.10 meters.
+    * Check *Snap within* and fill in 0.10 meters.
 
-	* Now set the method, source attributes and default values for the manhole fields:
+    * Now set the method, source attributes and default values for the manhole fields:
 
-	.. csv-table:: Import manholes settings
-		:name: import_manholes_settings
-		:header: "Field name", "Method", "Source attribute", "Default value"
+    .. csv-table:: Import manholes settings
+        :name: import_manholes_settings
+        :header: "Field name", "Method", "Source attribute", "Default value"
 
-		"ID", Auto, -, -
-		"Code", Attribute, OBJECTID, -
-		"Display name", Attribute, OBJECTID, -
-		"Calculation type", Default, -, Connected
-		"Shape", Default, -, Square
-		"Width [m]", Default, -, 1.0
-		"Length [m]", Default, -, 1.0
-		"Bottom level [m MSL]", Ignore, -, -
-		"Surface level [m MSL]", Attribute, RIMELEVATION, -
-		"Drain level [m MSL]", Attribute, RIMELEVATION, -
-		"Sediment level [m MSL]", Ignore, -, -
-		"Manhole indicator", Default, -, Inspection
-		"Zoom category", Default, -, Medium low visibility
-		"Connection node ID", Auto, -, -
-		"Exchange thickness [m]", Ignore, -, -
-		"Hydraulic conductivity in [m/d]", Ignore, -, -
-		"Hydraulic conductivity out [m/d]", Ignore, -, -
+        "ID", Auto, -, -
+        "Code", Attribute, OBJECTID, -
+        "Display name", Attribute, OBJECTID, -
+        "Calculation type", Default, -, Connected
+        "Shape", Default, -, Square
+        "Width [m]", Default, -, 1.0
+        "Length [m]", Default, -, 1.0
+        "Bottom level [m MSL]", Ignore, -, -
+        "Surface level [m MSL]", Attribute, RIMELEVATION, -
+        "Drain level [m MSL]", Attribute, RIMELEVATION, -
+        "Sediment level [m MSL]", Ignore, -, -
+        "Manhole indicator", Default, -, Inspection
+        "Zoom category", Default, -, Medium low visibility
+        "Connection node ID", Auto, -, -
+        "Exchange thickness [m]", Ignore, -, -
+        "Hydraulic conductivity in [m/d]", Ignore, -, -
+        "Hydraulic conductivity out [m/d]", Ignore, -, -
 
-	* You are also creating connection nodes. To set the method, source attributes and default values for these, click the *Connection nodes* tab and fill in the table:
+    * You are also creating connection nodes. To set the method, source attributes, and default values for these, click the *Connection nodes* tab and fill in the table:
 
-	.. csv-table:: Import manholes settings: connection nodes
-		:name: import_manholes_settings_connection_nodes
-		:header: "Field name", "Method", "Source attribute", "Default value"
+    .. csv-table:: Import manholes settings: connection nodes
+        :name: import_manholes_settings_connection_nodes
+        :header: "Field name", "Method", "Source attribute", "Default value"
 
-		"ID", Auto, -, -
-		"Code", Attribute, OBJECTID, -
-		"Initial water level [m]", Ignore, -, -
-		"Storage area [m2]", Default, -, 1.0
+        "ID", Auto, -, -
+        "Code", Attribute, OBJECTID, -
+        "Initial water level [m]", Ignore, -, -
+        "Storage area [m2]", Default, -, 1.0
 
 The values for the ID fields are autogenerated, such that each attribute has a unique ID. With the method *Attribute*, the value from the selected field from the source table is filled in. The method *Default* allows you to set a default value in the target table. Finally, *Ignore* results in a NULL value in the target table. 
 In this case, we used the attribute *OBJECTID* from the imported manholes to set the *Code* and *Display name* in the schematisation's manhole layer. Every manhole has calculation type "Connected" and is square with a width of 1 m. 
-We ignored the bottom level, because we will obtain those later, based on the pipes' invert levels. Try to find out for yourself how the values in the other fields are determined.  
+We ignored the bottom levels, because we will obtain those later, based on the pipes' invert levels. Try to find out for yourself how the values in the other fields are determined.  
 
     .. note::
         You don't have to fill in this table each time. You can save these configurations by clicking *Save as template...*. Next time you would like to import a manhole layer with the same format, simply select the saved JSON file after clicking *Load template...*.
@@ -249,91 +253,91 @@ We ignored the bottom level, because we will obtain those later, based on the pi
 
 #) Pipes: Click *Import schematisation objects* in the Schematisation Editor panel and select *Pipes*. Fill in the following settings:
 
-	* Source pipe layer: select your filtered pipe layer.
+    * Source pipe layer: select your filtered pipe layer.
 
-	* Check *Selected features only* to only import the features within the model bounds.
+    * Check *Selected features only* to only import the features within the model bounds.
 
-	* Check *Create manholes* and *Create connection nodes*. The tool will create new manholes and connection nodes if these are not found within the snapping distance of a pipe end.
+    * Check *Create manholes* and *Create connection nodes*. The tool will create new manholes and connection nodes if these are not found within the snapping distance of a pipe end.
 
-	* Check *Snap within* and fill in 0.10 meters.
+    * Check *Snap within* and fill in 0.10 meters.
 
-	* Now set the method, source attributes and default values for the pipe fields: 
+    * Now set the method, source attributes and default values for the pipe fields: 
 
-	.. csv-table:: Import pipe settings
-		:name: import_pipe_settings
-		:header: "Field name", "Method", "Source attribute", "Value map", "Default value"
+    .. csv-table:: Import pipe settings
+        :name: import_pipe_settings
+        :header: "Field name", "Method", "Source attribute", "Value map", "Default value"
 
-		"ID", Auto, -, -, -
-		"Code", Attribute, OBJECTID, -, -
-		"Display name", Attribute, OBJECTID, -, -
-		"Calculation type", Default, -, -, Isolated
-		"Calculation point distance [m]", Default, -, -, 1000.0
-		"Invert level start point", Attribute, STARTELEVATION, -, -
-		"Invert level end point", Attribute, ENDELEVATION, -, -
-		"Friction value", Attribute, MATERIAL, xtt see below (paste table below), -
-		"Friction type", Default, -, -, Manning
-		"Material", Ignore, -, -, -
-		"Sewerage type", Default, -, -, Storm drain
-		"Zoom category", Default, -, -, Medium low visibility
-		"Connection node start ID", Auto, -, -
-		"Connection node end ID", Auto, -, -
-		"Cross section shape", Default, -, -, Circle
-		"Cross section width [m]", Attribute, DIAMETER, -, -
-		"Cross section height [m]", Ignore, -, -, -
-		"Cross section table", Ignore, -, -, -
-		"Exchange thickness [m]", Ignore, -, -, -
-		"Hydraulic conductivity in [m/d]", Ignore, -, -, -
-		"Hydraulic conductivity out [m/d]", Ignore, -, -, -
+        "ID", Auto, -, -, -
+        "Code", Attribute, OBJECTID, -, -
+        "Display name", Attribute, OBJECTID, -, -
+        "Calculation type", Default, -, -, Isolated
+        "Calculation point distance [m]", Default, -, -, 1000.0
+        "Invert level start point", Attribute, STARTELEVATION, -, -
+        "Invert level end point", Attribute, ENDELEVATION, -, -
+        "Friction value", Attribute, MATERIAL, xtt see below (paste table below), -
+        "Friction type", Default, -, -, Manning
+        "Material", Ignore, -, -, -
+        "Sewerage type", Default, -, -, Storm drain
+        "Zoom category", Default, -, -, Medium low visibility
+        "Connection node start ID", Auto, -, -
+        "Connection node end ID", Auto, -, -
+        "Cross section shape", Default, -, -, Circle
+        "Cross section width [m]", Attribute, DIAMETER, -, -
+        "Cross section height [m]", Ignore, -, -, -
+        "Cross section table", Ignore, -, -, -
+        "Exchange thickness [m]", Ignore, -, -, -
+        "Hydraulic conductivity in [m/d]", Ignore, -, -, -
+        "Hydraulic conductivity out [m/d]", Ignore, -, -, -
 
-	* You are also creating connection nodes. To set the method, source attributes and default values for these, click the *Connection nodes* tab and fill in the table:
+    * You are also creating connection nodes. To set the method, source attributes and default values for these, click the *Connection nodes* tab and fill in the table:
 
-	.. csv-table:: Import pipe settings: connection nodes
-		:name: import_manholes_settings_connection_nodes
-		:header: "Field name", "Method", "Source attribute", "Default value"
+    .. csv-table:: Import pipe settings: connection nodes
+        :name: import_manholes_settings_connection_nodes
+        :header: "Field name", "Method", "Source attribute", "Default value"
 
-		"ID", Auto, -, -
-		"Code", Attribute, OBJECTID, -
-		"Initial water level [m]", Ignore, -, -
-		"Storage area [m2]", Default, -, 1.0
+        "ID", Auto, -, -
+        "Code", Attribute, OBJECTID, -
+        "Initial water level [m]", Ignore, -, -
+        "Storage area [m2]", Default, -, 1.0
 
-	* You are also creating manholes. To set the method, source attributes and default values for these, click the *Manholes* tab and fill in the table:
+    * You are also creating manholes. To set the method, source attributes and default values for these, click the *Manholes* tab and fill in the table:
 
-	.. csv-table:: Import pipe settings: manholes
-		:name: import_pipe_settings_manholes
-		:header: "Field name", "Method", "Source attribute", "Default value"
+    .. csv-table:: Import pipe settings: manholes
+        :name: import_pipe_settings_manholes
+        :header: "Field name", "Method", "Source attribute", "Default value"
 
-		"ID", Auto, -, -
-		"Code", Attribute, OBJECTID, -
-		"Display name", Attribute, OBJECTID, -
-		"Calculation type", Default, -, Connected
-		"Shape", Default, -, Square
-		"Width [m]", Default, -, 1.0
-		"Length [m]", Default, -, 1.0
-		"Bottom level [m MSL]", Ignore, -, -
-		"Surface level [m MSL]", Ignore, -, -
-		"Drain level [m MSL]", Ignore, -, -
-		"Sediment level [m MSL]", Ignore, -, -
-		"Manhole indicator", Default, -, Inspection
-		"Zoom category", Default, -, Medium low visibility
-		"Connection node ID", Auto, -, -
-		"Exchange thickness [m]", Ignore, -, -
-		"Hydraulic conductivity in [m/d]", Ignore, -, -
-		"Hydraulic conductivity out [m/d]", Ignore, -, -
+        "ID", Auto, -, -
+        "Code", Attribute, OBJECTID, -
+        "Display name", Attribute, OBJECTID, -
+        "Calculation type", Default, -, Connected
+        "Shape", Default, -, Square
+        "Width [m]", Default, -, 1.0
+        "Length [m]", Default, -, 1.0
+        "Bottom level [m MSL]", Ignore, -, -
+        "Surface level [m MSL]", Ignore, -, -
+        "Drain level [m MSL]", Ignore, -, -
+        "Sediment level [m MSL]", Ignore, -, -
+        "Manhole indicator", Default, -, Inspection
+        "Zoom category", Default, -, Medium low visibility
+        "Connection node ID", Auto, -, -
+        "Exchange thickness [m]", Ignore, -, -
+        "Hydraulic conductivity in [m/d]", Ignore, -, -
+        "Hydraulic conductivity out [m/d]", Ignore, -, -
 
 .. note::
-	This time, you used a value map to infer the friction value from the material. 
+    This time, you used a value map to infer the friction value from the material. 
 
 #) Culverts: Click *Import schematisation objects* in the Schematisation Editor panel and select *Culverts*. Fill in the following settings:
 
-	* Source culvert layer: select your filtered culvert layer.
+    * Source culvert layer: select your filtered culvert layer.
 
-	* Check *Selected features only* to only import the features within the model bounds.
+    * Check *Selected features only* to only import the features within the model bounds.
 
-	* Check *Create manholes* and *Create connection nodes*. The tool will create new manholes and connection nodes if these are not found within the snapping distance of a culvert end.
+    * Check *Create manholes* and *Create connection nodes*. The tool will create new manholes and connection nodes if these are not found within the snapping distance of a culvert end.
 
-	* Check *Snap within* and fill in 0.10 meters.
+    * Check *Snap within* and fill in 0.10 meters.
 
-	* Now set the method, source attributes and default values for the culvert fields: @Leendert hier ben ik gebleven
+    * Now set the method, source attributes and default values for the culvert fields: @Leendert hier ben ik gebleven
 
 
 
@@ -351,7 +355,7 @@ We ignored the bottom level, because we will obtain those later, based on the pi
     :scale: 80%
 
 .. |load_from_spatialite| image:: /image/pictogram_load_from_spatialite.png
-	:scale: 80%
+    :scale: 80%
 
 .. |simulate| image:: /image/pictogram_simulate.png
     :scale: 80%
@@ -360,8 +364,8 @@ We ignored the bottom level, because we will obtain those later, based on the pi
     :scale: 80%
 
 .. |add_feature| image:: /image/pictogram_addfeature.png
-	:scale: 80%
+    :scale: 80%
 
 .. |save_to_spatialite| image:: /image/pictogram_save_to_spatialite.png
-	:scale: 80%
-	
+    :scale: 80%
+    
