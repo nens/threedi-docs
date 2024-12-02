@@ -38,7 +38,7 @@ The files that are downloaded in this way are the :ref:`Raw results<outputs>`. T
 Download via the Lizard plugin
 ------------------------------
 
-If you have stored simulation results in the :ref:`scenario_archive`, you can download them using the `Lizard plugin <https://docs.lizard.net/d_qgisplugin.html>`_.
+If you have stored simulation results in the :ref:`scenario_archive`, you can download them using the `Lizard plugin <https://docs.lizard.net/b_lizardplugin.html>`_.
 
 Instructions for storing simulation results in the Scenario Archive can be found here:
 
