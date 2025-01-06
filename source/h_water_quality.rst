@@ -1,7 +1,7 @@
 .. _water_quality:
 
 Water quality
--------------
+=============
 
 3Di has a module that can be used for water quality calculations. More specifically, you can introduce substances to the simulation, and compute how these substances spread through the water system due to advective forces and  diffusion.
 
@@ -64,3 +64,8 @@ Figure :numref:`fig_decay_term` shows the results for various decay rate constan
 
    \mu = \frac{\ln(2)}{t_{1/2}}
 
+Concentration equations
+-----------------------
+
+.. todo::
+    @Nici hier graag een alineaatje over de vergelijkingen die worden opgelost in de WQ module.
