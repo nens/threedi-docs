@@ -3,7 +3,7 @@
 Water quality and the transport of substances
 ---------------------------------------------
 
-3Di has a water quality and tracing module. It allows users to simulate the transport of substances throughout the model domain. 3Di focuses on the spreading of so-called *passive* substances, that do not affect the density of the water nor each other. 3Di can also calculate the decay and :ref:`diffusion` of substances.
+The water quality module of 3Di simulates the transport, spreading, and age of substances. This module provides insights into water origin, water distribution, and water quality. The principles that guarantee volume conservation in the hydrodynamic model are extended naturally to the water quality module. This ensures that substances can travel between surface water and groundwater, (in/ex)filtrate into the sewer system, and return to the open water network.
 
 - Substances can enter the model domain as concentrations in initial water, boundary conditions, laterals, rain, leakage, surface sources and sinks. This applies to the entire model domain (1D, 2D, and groundwater).
 
@@ -15,46 +15,49 @@ Water quality and the transport of substances
 
 - Some characteristics can be set per substance, these are introduced in the sections below.
 
+The transport processes are governed by equations based on the advective-diffusion equation, with an added decay term. It is assumed that substances are passive. This means they do not interact with each other and do not influence the density of the flow. Naturally, full mass conservation of substances is assumed. The advective-diffusion equation is:
+
+.. math::
+
+    \frac{dVc}{dt} \bigg|_i = 
+    \sum_{l}^{\lambda_{i:in}} Q_{l} c_{l} 
+    - \sum_{l}^{\lambda_{i:out}} Q_{l} c_{l} 
+    + \sum_{k}^{\gamma_{i:in}} S_{k} c_{k} 
+    - \sum_{k}^{\gamma_{i:out}} S_{k} c_{k} 
+    + \sum_{l}^{\lambda_{i:all}} \nu A_l \frac{c_{l:up} - c_{l:down}}{\Delta x_l} 
+    - \mu V c \bigg|_i
+
+
+In this equation:
+- :math:`V` and :math:`c` represent the volume and concentration within a domain :math:`i`.
+- :math:`Q_l` denotes the incoming and outgoing fluxes.
+- :math:`S_k` includes all source and sink terms in the domain, each with their respective concentrations.
+- The diffusion coefficient is :math:`\nu`, while :math:`A_l` and :math:`\Delta x_l` represent the cross-sectional area and the grid spacing.
+- The decay of a substance is determined by :math:`\mu`.
+
+In the sections below, the specific aspects of the various terms and the methods used to solve these equations are explained in more detail.
+
+
 .. warning::
 
     You cannot add multiple laterals to a single node or cell if they have different substance concentrations. This will be resolved in the near future.
 
-.. todo:
-    
-	@Nici ik dacht dat hier eerst een algemener verhaal zou komen over Transport van substanties?
 
 .. _diffusion:
 
 Dispersion and diffusion
 ========================
 
-.. todo::
-    
-    @Nici: in deze paragraaf worden heel veel coefficienten genoemd, maar het is denk ik moeilijk voor gebruikers hier uit te halen welke coefficient ze nou zelf kunnen invullen en hoe die voor hen heet, versus coefficienten die in deze redenering/opbouw een rol spelen of intern in het rekenhart worden gebruikt.
+The transport of substances cannot be adequately described by considering the average flow only. Imagine adding a bit of lemonade to a glass of water. Even though there is no flow, it will spread throughout the glass. This spread is caused by the processes of dispersion and diffusion. There are subtle differences between (molecular) diffusivity and dispersion. The most important difference is the spatial scale on which they act. In some applications, these differences are important. However, when dealing with the simulation of transport of substances for environmental applications, the scales collapse to the scale of a computational cell. On this scale, what matters is the *cumulative* effect of these processes. There are various methods to incorporate this effect.
 
-The transport of substances cannot be adequately described by considering the average flow only. Imagine adding a bit of lemonade to a glass of water. Even though there is no flow, it will spread throughout the glass. This spread is caused by the processes of dispersion and diffusion. There are subtle differences between (molecular) diffusivity and dispersion. The most important difference is the spatial scale on which they act. In some applications, these differences are important. However, when dealing with the simulation of transport of substances for environmental applications, the scales collapse to the scale of a computational cell. On this scale, what matters is the *cumulative* effect of these processes and generally a closure relation is used to account for this. 
+In the context where the shallow water equations are used to simulate the flow, these effects are often included by using the concept of *horizontal eddy viscosity* (:math:`\nu`). It allows for the spreading of a substance due to flow that exists on a smaller scale than the average flow. Such flow is gradient-driven, meaning it occurs if there is a spatial gradient in concentration. 
 
-.. todo::
-    
-	@Nici closure relation? wat is dat? de laatste zin van bovenstaande alinea vind ik sowieso wat cryptisch
+The eddy viscosity is generally determined by calibration, because, in a numerical model, the grid resolution is a crucial factor determining the scales and processes captured. In principle, the eddy viscosity is proportional to the computational grid resolution (see [Saichenthur_2022]_). In the table below are some value ranges listed, to give you an idea of the correct values.
 
-A common approach to including these processes in the shallow water equations, is by using the concept of *horizontal eddy viscosity* (:math:`\nu`). It allows for the spreading of a substance due to flow on a smaller scale than the average flow. The eddy viscosity scales the fluid interior friction effect that allows for energy exchange to smaller and smaller scales. This spreading is related to Reynolds stresses and thereby relates, in this case, to concentration gradients. Such flow is gradient-driven, meaning there is a spatial gradient in concentration. The diffusivity is scaled with a coefficient associated with the transport term :math:`T_{diff}`, which for uniform diffusivity constants is given by:
+Keep in mind that the spreading of a substance is affected by this diffusion term, but that spreading also inherently occurs due to numerical methods. Therefore, one might want to limit this extra spreading-effect. This can be done by minimising the physical diffusion, switching on specific limiters (we will add more information on this soon) and/or allow differences in values per substance. 
 
-.. math::
-
-   T_{diff} = \frac{\partial}{\partial x} \left( \nu_x \frac{\partial c}{\partial x}\right) + 
-              \frac{\partial}{\partial y} \left( \nu_y \frac{\partial c}{\partial y}\right) =
-              \nu \frac{\partial^2 c}{\partial x^2} + \nu \frac{\partial^2 c }{\partial y^2} 
-
-where :math:'c' is the concentration varying in an :math:`x,y`-space. The eddy viscosity is generally determined by calibration, because, in a numerical model, the grid resolution is a crucial factor determining the scales and processes captured. In principle, the eddy viscosity is proportional to the computational grid resolution (see [Saichenthur_2022]_). In order to give you an idea in the following table are some ranges listed.
-
-.. todo:
-
-    @Nici: is de diffusion coefficient hetzelfde als de horizontal eddy viscosity? En als het van de locatie afhangt, waarom geef je het dan op als eigenschap van de substance? 
-
-
-Typical eddy viscosity values for various environments
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Typical eddy viscosity values :math:`\nu` for various environments
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +----------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------------------+
 | **Environment**                              | **Typical Eddy Viscosity**        | **Description**                                                                                      |
@@ -98,11 +101,7 @@ Thus, the :math:`E` makes an advection-diffusion equation out of an advection eq
 
    \nu_{num} = -\frac{u}{2}\left(u\Delta t-\Delta x\right)
 
-This diffusivity is solely related to the numerical schematisation, therefore it is referred to as the numerical diffusivity coefficient. This coefficient cannot be set by users, but 3Di guarantees it to be positive to ensure stability. Additionally, note that this numerical diffusivity coefficient scales with the grid resolution (:math:`\Delta x`) and the time step (:math:`\Delta t`). You can influence this numerical diffusion coefficient by setting the time step and the grid size.
-
-.. todo::
-
-    @Nici: zorgt een hogere diffusie coeeficient voor een snellere verspreiding van de stof? En zorgt een grotere time step en een grotere grid size voor een hogere numerical diffusion coefficient?
+This diffusivity is solely related to the numerical schematisation, therefore it is referred to as the numerical diffusivity coefficient. This coefficient cannot be set by users, but 3Di guarantees it to be positive to ensure stability. Additionally, note that this numerical diffusivity coefficient scales with the grid resolution (:math:`\Delta x`) and the time step (:math:`\Delta t`). You can reduce the numerical diffusion coefficient by decreasing the time step and the grid size.
 
 Considering physical diffusion, as initially introduced, an extra term is added in the transport equation. Users can set the eddy diffusion coefficient (:math:`\nu`) as shown in the table above. 3Di aims to avoid overestimating diffusive processes. The equation above shows the estimate of the numerical diffusion. Based on the amplitude of the numerical diffusion term, the local eddy diffusion coefficient :math:`\nu_l` is reduced. This results in the *effective local diffusivity coefficient*:
 
