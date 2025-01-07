@@ -45,6 +45,9 @@ When you start the 3Di Modeller Interface for the first time, you need to set tw
 
 You can now use all online 3Di functionalities of the 3Di Modeller Interface. When logging in is required, the Personal API Key will be read from the QGIS Password manager and be used for logging in. 
 
+.. note::
+    You can install the Modeller Interface for all users if you run the installer as administrator. 
+
 .. |modelsSimulations| image:: /image/pictogram_modelsandsimulations.png
     :scale: 90%
 
@@ -116,6 +119,7 @@ If certificate errors show, please check any security software.
 One way of testing this is by visiting https://api.3di.live/v3.0/ in a browser and check the certificate.
 If it is issued by R3, this is the certificate configured by us.
 Any other name will point towards the security software in use.
+
 
 .. _setup_modeller_interface:
 
