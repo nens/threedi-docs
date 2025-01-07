@@ -133,6 +133,9 @@ The next step is to check the schematisation, upload it as a first :ref:`revisio
 Import vector data from open data source 
 ----------------------------------------
 
+Making a connection to the data source
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Right now, you have a schematisation and model of your first version, which only contains the DEM and some global settings. To make this an integral model, you will now add the manholes, culverts and pipes to your schematisation. To do this, you need to add the relevant layers from the open data to your project. The open data is made available through an ArcGIS REST Server. To add a connection to this service, make sure you can see the Browser panel. 
 
 #) In the Browser panel, right-click *ArcGIS REST Servers* and select *New Connection...*
@@ -196,19 +199,22 @@ Now you have selected the relevant Manhole features, you are ready to import the
 
 #) Repeat these steps for the *Pipe* and *Culvert* layers, to select the relevant features from those layers.
 
-You will now import the Manholes, Pipes and Culverts to the 3Di Schematisation.
+Import manholes
+^^^^^^^^^^^^^^^
 
-#) Manholes: Click *Import schematisation objects* in the Schematisation Editor panel and select *Manholes*. Fill in the following settings:
+You will now import the Manholes to the 3Di Schematisation.
+
+Click *Import schematisation objects* in the Schematisation Editor panel and select *Manholes*. Fill in the following settings:
   
-    * Source manhole layer: select your filtered manhole layer.
-
-    * Check *Selected features only* to only import the features within the model bounds.
-
-    * Check *Create connection nodes*.
-
-    * Check *Snap within* and fill in 0.10 meters.
-
-    * Now set the method, source attributes and default values for the manhole fields:
+  #) Source manhole layer: select your filtered manhole layer.
+  
+  #) Check *Selected features only* to only import the features within the model bounds.
+  
+  #) Check *Create connection nodes*.
+  
+  #) Check *Snap within* and fill in 0.10 meters.
+  
+  #) Now set the method, source attributes and default values for the manhole fields:
 
     .. csv-table:: Import manholes settings
         :name: import_manholes_settings
@@ -231,8 +237,8 @@ You will now import the Manholes, Pipes and Culverts to the 3Di Schematisation.
         "Exchange thickness [m]", Ignore, -, -
         "Hydraulic conductivity in [m/d]", Ignore, -, -
         "Hydraulic conductivity out [m/d]", Ignore, -, -
-
-    * You are also creating connection nodes. To set the method, source attributes, and default values for these, click the *Connection nodes* tab and fill in the table:
+        
+  #) You are also creating connection nodes. To set the method, source attributes, and default values for these, click the *Connection nodes* tab and fill in the table:
 
     .. csv-table:: Import manholes settings: connection nodes
         :name: import_manholes_settings_connection_nodes
@@ -250,18 +256,22 @@ We ignored the bottom levels, because we will obtain those later, based on the p
     .. note::
         You don't have to fill in this table each time. You can save these configurations by clicking *Save as template...*. Next time you would like to import a manhole layer with the same format, simply select the saved JSON file after clicking *Load template...*.
 
+Import pipes
+^^^^^^^^^^^^
 
-#) Pipes: Click *Import schematisation objects* in the Schematisation Editor panel and select *Pipes*. Fill in the following settings:
+You will now import the Pipes to the 3Di Schematisation.
 
-    * Source pipe layer: select your filtered pipe layer.
+Click *Import schematisation objects* in the Schematisation Editor panel and select *Pipes*. Fill in the following settings:
 
-    * Check *Selected features only* to only import the features within the model bounds.
-
-    * Check *Create manholes* and *Create connection nodes*. The tool will create new manholes and connection nodes if these are not found within the snapping distance of a pipe end.
-
-    * Check *Snap within* and fill in 0.10 meters.
-
-    * Now set the method, source attributes and default values for the pipe fields: 
+  #) Source pipe layer: select your filtered pipe layer.
+  
+  #) Check *Selected features only* to only import the features within the model bounds.
+  
+  #) Check *Create manholes* and *Create connection nodes*. The tool will create new manholes and connection nodes if these are not found within the snapping distance of a pipe end.
+  
+  #) Check *Snap within* and fill in 0.10 meters.
+  
+  #) Now set the method, source attributes and default values for the pipe fields: 
 
     .. csv-table:: Import pipe settings
         :name: import_pipe_settings
@@ -289,7 +299,7 @@ We ignored the bottom levels, because we will obtain those later, based on the p
         "Hydraulic conductivity in [m/d]", Ignore, -, -, -
         "Hydraulic conductivity out [m/d]", Ignore, -, -, -
 
-    * You are also creating connection nodes. To set the method, source attributes and default values for these, click the *Connection nodes* tab and fill in the table:
+  #) You are also creating connection nodes. To set the method, source attributes and default values for these, click the *Connection nodes* tab and fill in the table:
 
     .. csv-table:: Import pipe settings: connection nodes
         :name: import_manholes_settings_connection_nodes
@@ -300,7 +310,7 @@ We ignored the bottom levels, because we will obtain those later, based on the p
         "Initial water level [m]", Ignore, -, -
         "Storage area [m2]", Default, -, 1.0
 
-    * You are also creating manholes. To set the method, source attributes and default values for these, click the *Manholes* tab and fill in the table:
+  #) You are also creating manholes. To set the method, source attributes and default values for these, click the *Manholes* tab and fill in the table:
 
     .. csv-table:: Import pipe settings: manholes
         :name: import_pipe_settings_manholes
@@ -327,17 +337,22 @@ We ignored the bottom levels, because we will obtain those later, based on the p
 .. note::
     This time, you used a value map to infer the friction value from the material. 
 
-#) Culverts: Click *Import schematisation objects* in the Schematisation Editor panel and select *Culverts*. Fill in the following settings:
+Import culverts
+^^^^^^^^^^^^^^^
 
-    * Source culvert layer: select your filtered culvert layer.
+You will now import the Culverts to the 3Di Schematisation.
 
-    * Check *Selected features only* to only import the features within the model bounds.
+Click *Import schematisation objects* in the Schematisation Editor panel and select *Culverts*. Fill in the following settings:
 
-    * Check *Create manholes* and *Create connection nodes*. The tool will create new manholes and connection nodes if these are not found within the snapping distance of a culvert end.
-
-    * Check *Snap within* and fill in 0.10 meters.
-
-    * Now set the method, source attributes and default values for the culvert fields: @Leendert hier ben ik gebleven
+  #) Source culvert layer: select your filtered culvert layer.
+  
+  #) Check *Selected features only* to only import the features within the model bounds.
+  
+  #) Check *Create manholes* and *Create connection nodes*. The tool will create new manholes and connection nodes if these are not found within the snapping distance of a culvert end.
+  
+  #) Check *Snap within* and fill in 0.10 meters.
+  
+  #) Now set the method, source attributes and default values for the culvert fields: @Leendert hier ben ik gebleven
 
 
 
