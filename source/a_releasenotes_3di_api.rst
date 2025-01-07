@@ -3,6 +3,17 @@
 3Di API
 -------
 
+November 18, 2024
+^^^^^^^^^^^^^^^^^
+
+- Some internal functionalities were added allowing Rana to add users and create/revoke Personal API Keys
+
+- Restrict substance units to ASCII characters (#2343)
+
+- Bugfix: Starting simulation from the 3Di Modeller Interface with the option to upload a local raster as 2D initial concentration raster would give the error "Failed to process Initial Concentration raster". This has now been fixed by including an internal wait time for concentration file uploads in the API (#2256) 
+
+- Bugfix: in the *settings* migration for database schema 300, the raster paths for vegetation_drag_2d were not stripped of 'rasters/' (threedi-schema#131)
+
 October 23, 2024
 ^^^^^^^^^^^^^^^^
 
