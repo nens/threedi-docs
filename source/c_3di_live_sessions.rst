@@ -16,16 +16,16 @@ Starting a new session
 ----------------------
 
 * Click *New session*. 
-* If you have simulation rights for multiple organisations, use the *Billing goes to* dropdown menu to select the 
+* If you have simulation rights for multiple organisations, use the *Billing goes to* dropdown menu to select the organisation for which you would like to simulate.
 * Select the model you want to use to start a simulation with. You may type the model name in the search bar to find it.
 
-A new session will be started. During the start up of the model tips for use of the site will be shown. It may take some time to load the model. Actual loading time dependens on the model size; for large models, this may take several minutes.
+A new session will be started. During the start up of the model tips for use of the site will be shown. It may take some time to load the model. Actual loading time depends on the model size; for large models, this may take several minutes.
 
 .. note::
 
 	The number of sessions that can run simultaneously by your organisation depends on your organisation's 3Di subscription. If this limit is reached, the message "Your organisation is already running X sessions" will be shown.
 	
-	If you organisation has a limited number of simulation hours in its subscription, the time that the session is active is subtracted from the available number of hours for the current year.
+	If your organisation has a limited number of simulation hours in its subscription, the time that the session is active is subtracted from the available number of hours for the current year.
 	
 	When paused and inactive for too long, the session will close and say: 'This simulations is no longer active. You may start a new simulation.'
 
@@ -71,10 +71,10 @@ Restarting the simulation resets all the calculations that have been made and re
 Quitting the session
 --------------------
 
-In the **User menu** you can select **quitting the simulation**, this ends the use of calculation time. If this option is not used the session remains active. One of the following scenario's might apply:
+In the **User menu** you can select **quitting the simulation**, this ends the use of calculation time. If this option is not used, the session remains active. One of the following scenarios might apply:
 
-- time out after being inactive is set to 30 minute for a running simulation
-- time out after being inactive is set to 5 minute for a paused simulation
+- time out after being inactive is set to 30 minutes for a running simulation
+- time out after being inactive is set to 5 minutes for a paused simulation
 - leaving the session via a tab will close the simulation after 30 minutes
 
 You can:
