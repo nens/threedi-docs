@@ -16,6 +16,12 @@ jobs:
       checks_changed: ${{ steps.check_files.outputs.checks_changed }}
       checker_version: ${{ steps.fetch_version.outputs.checker_version }}
     steps:
+      # install apt dependencies
+      - name: Install apt dependencies for modelchecker
+        run: |
+          sudo apt update
+          sudo apt install --yes --no-install-recommends libgdal-dev
+
       # Checkout the code.
       - uses: actions/checkout@v4
 
