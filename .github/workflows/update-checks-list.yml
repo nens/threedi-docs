@@ -30,6 +30,9 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Install GDAL python library
+        run: python -m pip install GDAL==$(gdal-config --version)
+
       - name: install threedi-modelchecker
         run: python -m pip install threedi-modelchecker
 
