@@ -11,7 +11,7 @@ on:
 
 jobs:
   update_checks_list:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     outputs:
       checks_changed: ${{ steps.check_files.outputs.checks_changed }}
       checker_version: ${{ steps.fetch_version.outputs.checker_version }}
@@ -65,7 +65,7 @@ jobs:
 
 
   create_pr:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     needs: update_checks_list
     if: needs.update_checks_list.outputs.checks_changed == 'true' # don't run if the checks table hasn't changed
     steps:
