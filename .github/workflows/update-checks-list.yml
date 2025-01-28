@@ -26,7 +26,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: set up Python 3.11
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
@@ -59,7 +59,7 @@ jobs:
             echo "checks_changed=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           path: source/i_current_schematisation_checks_table.rst
 
@@ -72,7 +72,7 @@ jobs:
       # Checkout the code.
       - uses: actions/checkout@v4
 
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
 
       - name: move downloaded artifact file to correct place
         run: |
@@ -90,7 +90,7 @@ jobs:
             this pull request." >> $GITHUB_ENV
 
       - name: create pull request
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v7
         with:
           title: ${{ env.PR_TITLE }}
           commit-message: ${{ env.PR_TITLE }}
