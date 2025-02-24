@@ -56,8 +56,8 @@ The eddy viscosity is generally determined by calibration, because, in a numeric
 
 Keep in mind that the spreading of a substance is affected by this diffusion term, but that spreading also inherently occurs due to numerical methods. Therefore, one might want to limit this extra spreading-effect. This can be done by minimising the physical diffusion, switching on specific limiters (we will add more information on this soon) and/or allow differences in values per substance. 
 
-Typical eddy viscosity values :math:`\nu` for various environments
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Typical eddy viscosity values for various environments
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +----------------------------------------------+-----------------------------------+------------------------------------------------------------------------------------------------------+
 | **Environment**                              | **Typical Eddy Viscosity**        | **Description**                                                                                      |
