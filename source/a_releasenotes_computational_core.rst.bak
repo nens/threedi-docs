@@ -12,8 +12,6 @@ February 24th, 2025
 
 - Fix NaN value propagation from gridadmin and tables files
 
-- Bugfix for 0D inflow from impervious surfaces
-
 
 
 October 10, 2024
