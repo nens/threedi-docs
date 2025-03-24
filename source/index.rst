@@ -64,7 +64,8 @@ Table of contents
    :caption: Technical Reference
    :name: Technical Reference
    
-   h_modelling_concepts
+   h_schematisations_models_simulations
+   h_schematisation_objects
    h_initials_forcings_events
    h_grid
    h_flow
@@ -90,9 +91,14 @@ Table of contents
    :caption: Release Notes
    :name: Release Notes
 
-   a_releasenotes
+   a_releasenotes_general
+   a_releasenotes_3di_mi
+   a_releasenotes_3di_live
+   a_releasenotes_3di_management
+   a_releasenotes_computational_core
+   a_releasenotes_3di_api
 
-.. toctree::
+.. toctree::	
    :maxdepth: 1
    :caption: Literature
    :name: Literature

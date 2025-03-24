@@ -1,7 +1,7 @@
 .. _basic_modelling_concepts:
 
-Schematisation, Models & Simulations 
-====================================
+Schematisations, Models & Simulations 
+=====================================
 
 In the 3Di modelling workflow, you make a *schematisation* and upload it to the server. On the server, a *3Di model* is generated. You can run *simulations* with this 3Di model, adding initial conditions, forcings and events. All this information can also be stored in a *simulation template*. 
 

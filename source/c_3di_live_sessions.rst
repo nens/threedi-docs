@@ -88,37 +88,23 @@ You can:
 Storing results
 ---------------
 
-Results can be stored by clicking **User menu**, then clicking **Quit Simulation** and then **Quit, Store Results**. There are two options:
+.. note::
+    
+	:ref:`Raw results<outputs>` will always be stored for 7 days, even if you choose the option *Quit, don't store results*. 
 
-- Download results directly via the browser
-- Store them to the Lizard platform (see https://docs.lizard.net/a_lizard.html) 
 
-Stored (raw) results can also be downloaded using the"3Di Models and Simulations" in the 3Di Modeller Interface, see: :ref:`mi_download_res`. Note that these raw results are only available for 7 days.
+Direct download
+^^^^^^^^^^^^^^^
 
-The options in Lizard storage are as follows:
+When you quit the session (*User menu* > *Quit Simulation*), you can download these files directly to your computer by choosing > *Quit, Store Results* > *Direct download*. You may also :ref:`download them from the 3Di Modeller Interface<mi_download_res>`.
 
-- raw data and logging
-- basic processed results
-- arrival time map
-- damage estimation (NL only)
+Store in scenario archive
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The **Basic processed results** option includes the following derivations from simulation results for Lizard users:
+.. note::
+    This option is only available if your subscription includes the Scenario Archive.
 
-.. figure:: image/d3.9_store_results.png
-    :alt: Storing results
-
-- Water level - temporal
-- Water depth - temporal
-- Maximum flow velocity
-- Maximum rate of rise
-- Maximum water depth
-- Flood hazard rating
-
-The **Damage estimation** option uses a module called *WaterSchadeSchatter* (currently only available in The Netherlands)
-which provides two products derived from the maximum water depth.
-
-- Damage estimation map
-- Damage estimation table
+Another option you have when you quit the session, is to store the results in the :ref:`scenario_archive`. When you choose this option, you also have several options for **automated post-processing**. For an explanation of the available options, see :ref:`scenario_archive`.
 
 
 .. _live_simulation_template:

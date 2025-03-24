@@ -3,7 +3,11 @@
 Water quality results 3Di
 =========================
 
-The water quality results of a simulation are written to a `NetCDF <https://en.wikipedia.org/wiki/NetCDF>`_ file called *water_quality_results_3di.nc*, which follows the `CF Conventions <http://cfconventions.org/>`_ . The CF convention stipulates that the 2D and 1D mesh data are stored in separate parts of the file. The *water_quality_results_3di.nc* file contains snapshots of concentrations at nodes (1D and 2D). The output timestep, i.e. the interval at which these snapshot values are written to the NetCDF file, is set at the start of the simulation. 
+The water quality results of a simulation are written to a `NetCDF <https://en.wikipedia.org/wiki/NetCDF>`_ file called *water_quality_results_3di.nc*. 
+
+Use :ref:`threedigrid` to work with this file.
+
+The file structure follows the `CF Conventions <http://cfconventions.org/>`_ . The CF convention stipulates that the 2D and 1D mesh data are stored in separate parts of the file. The *water_quality_results_3di.nc* file contains snapshots of concentrations at nodes (1D and 2D). The output timestep, i.e. the interval at which these snapshot values are written to the NetCDF file, is set at the start of the simulation. 
 
 Water quality results can be retrieved from the nodes in the 1D and 2D. The amount of variables in the netcdf depends on the amount of added substances in the model. An overview of the configuration of the variables is given below.
 

@@ -52,57 +52,44 @@ Existing users should use the same method as they used when signing in for the f
 
 .. _a_user_management:
 
-User management
----------------
+User management: tasks of the *Manager*
+---------------------------------------
 
+Users rights are managed by the person(s) in your organisation that have the *Manager* role. As *Manager*, you manage your organisation's 3Di account and its users. You grant or revoke rights for your organisation. A manager has two main tasks:
 
-.. figure:: /image/a_usermanagement1.png
-   :alt: The User Management interface.
+1. :ref:`maintaining_rights`
+2. :ref:`granting_rights`
 
-   The User Management interface.
+You can do this in the :ref:`Users<3di_management_users>` section of 3Di Management (`management.3di.live <management.3di.live>`_).
 
+.. _maintaining_rights:
 
-Users can be managed in the User Management interface. This interface can be reached via https://api.3di.live/management/users/.
-The example above shows the list of users in the example organisation '3Di Test', with for each user options for 4 roles. These role are desribed as: 
+Maintaining rights of existing users
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* A **Viewer**, who can only *read* data and *follow* simulations
-* A **Simulation runner**, who can *read* data and *run* simulations
-* An **Creator**, who can *read* data and can *add*, *change* or *delete* schematisations and 3Di models
-* A **Manager**, who can *manage* other roles in the organisation. A manager can not read or write data by default. This role should be appointed separately. 
+The rights of users under your organisation do not expire automatically.
+So, it is important that you regularly check whether users still need their rights.
+This can include employees leaving the organisation or projects coming to an end.
+Sometimes, not all rights need to be revoked; it is also possible to revoke only specific rights.
+It is up to you to determine how often you want to perform this check.
 
-The User Management interface gives you an overview of all users in your organisation. As manager you can distribute the roles to all users within the organisation.
-This is done by clicking the '+' next to the user and choose the roles you want to assign tot the user. Click “Save” to save the changes.
-If you are Manager of multiple organisations you can switch between organisations by using the selection menu next to your username.  
+.. _granting_rights:
 
-   
-.. note::
-    A manager role is required to access the User Management interface.
-    If you wish to obtain one for your organisation, please contact the application manager within your organisation or our :ref:`servicedesk` at servicedesk@nelen-schuurmans.nl.
-	
+Granting rights to new users
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Adding a new user**
+If a user needs rights for your organisation, you are responsible for granting them.
+For the smooth progress of a project, it is useful to handle such requests promptly.
+Granting rights does not have to be a lengthy task; rights can be granted in a minute.
+For instructions, see :ref:`inviting_new_users` and :ref:`adjusting_existing_rights`.
 
-You can add a new user by clicking the “NEW USER” icon in the upper right corner. This will lead you to the screen to add a new user.
+.. tip::
 
+    - Use a bookmark to go directly to 3Di Management. This way, you can give a user rights in no time.
 
-.. figure:: /image/a_usermanagement2.png
-   :alt: The interface for adding a user.
+    - Ensure that rights are discussed and granted at the beginning of a project. This prevents delays later due to someone waiting for their rights.
 
-   The interface for adding a user.
-   
-
-By default the new user is granted a 'Viewer' role. At least one role is required when inviting a new user.  
-Press the 'Save' button to finish the invitation process, which results in an invitation email sent to the (new) user. An existing user can use the invitation link to accept the invitation. 
-A new user can create an account by using the :ref:`a_singing_up` guide. When accepted, the user will appear in the User Management overview.
-
-
-.. note::
-   * The invitation email might end up in your spam folder. 
-   * Deselecting all roles will remove the user from the organisation, but will not delete the account of the user.
-   * You cannot remove your own manager role.	
-
-
-	
+    - Don't forget to remove users' rights after a project is completed. This way, you actively maintain the user database and keep your data under control.
 
 Authorisation
 -------------

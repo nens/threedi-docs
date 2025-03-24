@@ -1,3 +1,5 @@
+.. _threedi_management:
+
 3Di Management
 ==============
 

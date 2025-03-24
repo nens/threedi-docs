@@ -91,13 +91,19 @@ Format the time series as Comma Separated Values (CSV), with the time (in minute
     60,145.15
 
 - The time series string cannot contain any spaces or empty rows
+
 - The boundary condition time series is stored in the simulation template and is not part of the 3Di model itself. It can be overridden when starting a new simulation, without the need to create a new revision of the schematisation.
+
 - The time unit in the 1D boundary condition table *in the schematisation* is minutes, while the 3Di API expects this input in seconds. A conversion is applied when the reading the data from the schematisation. If you upload a CSV file with 1D boundary condition time series via the simulation wizard, you can choose the time unit (see :ref:`simulate_api_qgis_boundary_conditions`)
+
 - For boundary types velocity (2), discharge (3) and Sommerfeld (5), the drawing direction of the channel, pipe, or structure determines sign of the input value. For velocity and discharge, this means that if the 1D boundary condition is placed on the end connection node, positive values result in boundary *outflow*. For the Sommerfeld boundary, a positive gradient for a 1D boundary condition that is placed at the end connection node means that the waterlevel downstream is higher than upstream, i.e. this will result in boundary *inflow*.
+
 - The time series must cover the entire simulation period.
-- All 1D boundary conditions must have the same time steps
+
 - The time series values are interpolated between the defined times
+
 - In case of multiple boundaries in 1 model: make sure they all have the same number of timeseries rows with the same temporal interval.
+
 - When editing the time series field in using SQL (sqlite dialect), use ``char(10)`` as line separator. The example time series shown above would look like this::
 
     "0,145.20"||char(10)||"15,145.23"||char(10)||"30,145.35"||char(10)||"45,145.38"||char(10)||"60,145.15"
@@ -246,6 +252,24 @@ Attributes
      - No
      - \-
      - *Deprecated*
+   * - Exchange thickness
+     - exchange_thickness
+     - decimal number
+     - No
+     - m
+     - The thickness of the porous layer that the water needs to flow through to reach the groundwater, see :ref:`1d2d_groundwater_exchange`
+   * - Hydraulic conductivity in
+     - hydraulic_conductivity_in
+     - decimal number
+     - No
+     - \-
+     - Hydraulic conductivity for water flowing from the groundwater to the channel, see :ref:`1d2d_groundwater_exchange`
+   * - Hydraulic conductivity out
+     - hydraulic_conductivity_out
+     - decimal number
+     - No
+     - \-
+     - Hydraulic conductivity for water flowing from the channel to the groundwater, see :ref:`1d2d_groundwater_exchange`
 
 
 When using the 3Di Schematisation Editor
@@ -359,7 +383,7 @@ Storage area
 Cross-section location
 ----------------------
 
-Object to define the dimensions, levels, and friction at a specified point along a :ref:`channel`.
+Object to define the dimensions, levels, friction and vegetation properties at a specified point along a :ref:`channel`.
 
 Geometry
 ^^^^^^^^
@@ -424,20 +448,73 @@ Attributes
      - decimal number
      - Yes
      - \-
-     - Sets the :ref:`friction type<1d_friction>` to Chézy (1), Manning (2), Chézy with conveyance (3), or Manning with conveyance (4)
+     - See :ref:`cross_section_location_friction_type`
    * - Friction value
      - friction_value
      - decimal number
      - Yes
      - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
-     - Friction or roughness value
+     - Friction or roughness value. This global value is superseded in case friction values are provided for each individual segment of a YZ cross-section.
+   * - Friction values
+     - friction_values
+     - text
+     - No
+     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
+     - Friction value for each segment of a YZ cross-section. List of decimal numbers, space-separated (in the Spatialite) or comma-separated (in the 3Di Schematisation Editor geopackage). If provided, these values override the single *friction coefficient* value.
    * - Reference level
      - reference_level
      - decimal number
      - Yes
      - m MSL
      - Lowest point of the cross-section
-
+   * - Vegetation height
+     - vegetation_height
+     - Decimal number
+     - Yes
+     - m
+     - Height of the vegetation, i.e. the length of the plant stems. This global value is superseded in case vegetation heights are provided for each individual segment of a YZ cross-section.
+   * - Vegetation heights
+     - vegetation_heights
+     - text
+     - Yes
+     - m
+     - Vegetation heights for each segment of a YZ cross-section. List of decimal numbers, space-separated (in the Spatialite) or comma-separated (in the 3Di Schematisation Editor geopackage). If provided, these values override the single *vegetation height* value.
+   * - Vegetation stem count
+     - vegetation_stem_count
+     - Integer
+     - Yes
+     - #/m\ :sup:`2`
+     - Density of plant stems. List of decimal numbers, space-separated (in the Spatialite) or comma-separated (in the 3Di Schematisation Editor geopackage). This global value is superseded in case vegetation stem counts are provided for each individual segment of a YZ cross-section.
+   * - Vegetation stem counts
+     - vegetation_stem_counts
+     - text
+     - Yes
+     - #/m\ :sup:`2`
+     - Vegetation stem count for each segment of a YZ cross-section. List of decimal numbers, space-separated (in the Spatialite) or comma-separated (in the 3Di Schematisation Editor geopackage). If provided, these values override the single *vegetation stem count* value.
+   * - Vegetation stem diameter
+     - vegetation_stem_diameter
+     - Decimal number
+     - Yes
+     - m
+     - Mean diameter of plant stems. List of decimal numbers, space-separated (in the Spatialite) or comma-separated (in the 3Di Schematisation Editor geopackage). This global value is superseded in case vegetation stem diameters are provided for each individual segment of a YZ cross-section.
+   * - Vegetation stem diameters
+     - vegetation_stem_diameters
+     - text
+     - Yes
+     - m
+     - Vegetation stem diameter for each segment of a YZ cross-section. List of decimal numbers, space-separated (in the Spatialite) or comma-separated (in the 3Di Schematisation Editor geopackage). If provided, these values override the single *vegetation stem diameter* value.
+   * - Vegetation drag coefficient
+     - vegetation_drag_coefficient
+     - Decimal number
+     - Yes
+     - \-
+     - Coefficient to linearly scale the drag that vegetation exerts on the water. The drag resulting from vegetation is different for each situation. A large share of this variation is captured by choosing the correct values for vegetation height, stem count, and stem diameter. The drag coefficient can be used to account for the other factors that affect the drag. The drag coefficient can also be used as a calibration parameter. This global value is superseded in case vegetation drag coefficients are provided for each individual segment of a YZ cross-section.
+   * - Vegetation drag coefficients
+     - vegetation_drag_coefficients
+     - text
+     - Yes
+     - \-
+     - Vegetation drag coefficient for each segment of a YZ cross-section. List of decimal numbers, space-separated (in the Spatialite) or comma-separated (in the 3Di Schematisation Editor geopackage). If provided, these values override the single *vegetation drag coefficient* value.
 
 .. _cross_section_location_notes_for_modellers:
 
@@ -447,6 +524,11 @@ Notes for modellers
 - A cross-section location should be placed on top of a channel vertex that is not the start or end vertex
 - If the channel calculation point distance is smaller than the distance between cross section locations, values in the cross section locations along the channel are interpolated, see :ref:`techref_calculation_point_distance`.
 - If there are multiple cross-section locations between two **calculation nodes** (not connection nodes), only the first cross-section location is used.
+- For YZ cross-sections, friction coefficients and vegetation parameters can be defined for each individual segment of the cross-section. A segment is defined as the domain between two YZ coordinates; so if the YZ cross-section is defined by 10 YZ coordinates, the cross-section will have 9 segments. This option is only available when using friction types *Manning with conveyance* or *Chézy with conveyance*. 
+- When separate values are defined for each segment, the single value will be ignored.
+- For vegetation, either all parameter values must be defined as a single value, or all parameter values must be defined for each segment.
+- For the cross-section shapes *Tabulated rectangle*, *Tabulated trapezium* and *YZ*, the cross-section shape can be added or edited in the cross-section location attribute table. In the form view, this can be done by filling out the table. In the table view, a CSV-style table can be pasted into the cross_section_table field.
+
 
 Reference level
 """""""""""""""
@@ -490,6 +572,19 @@ The following shapes are supported:
      - 8
      - Specify cross-section width. Height will be 1.5 * width.
 
+.. _cross_section_location_friction_type:
+
+Friction type
+"""""""""""""
+
+This attribute sets the :ref:`friction type<1d_friction>` to:
+
+- Chézy (1)
+- Manning (2)
+- Chézy with conveyance (3)
+- Manning with conveyance (4)
+
+Using the friction types with conveyance is advised for open Tabulated or YZ cross-sections, in case there is a significant variation of the water depths across the cross-section, for instance, in a scenario with overflowing floodplains.
 
 .. _culvert:
 
@@ -736,6 +831,25 @@ Attributes
      - No
      - \-
      - *Deprecated*
+   * - Exchange thickness
+     - exchange_thickness
+     - decimal number
+     - No
+     - m
+     - The thickness of the (porous) manhole wall that the water needs to flow through to reach the groundwater (or v.v.), see :ref:`1d2d_groundwater_exchange`
+   * - Hydraulic conductivity in
+     - hydraulic_conductivity_in
+     - decimal number
+     - No
+     - \-
+     - Hydraulic conductivity for water flowing from the groundwater into the manhole, see :ref:`1d2d_groundwater_exchange`
+   * - Hydraulic conductivity out
+     - hydraulic_conductivity_out
+     - decimal number
+     - No
+     - \-
+     - Hydraulic conductivity for water flowing from the manhole into the groundwater, see :ref:`1d2d_groundwater_exchange`
+
 
 .. _manhole_notes_for_modellers:
 
@@ -781,6 +895,11 @@ This value is used for administrative and visualisation purposes only. It does n
 Surface level
 """""""""""""
 This value is used for administrative purposes only. It does not affect the calculation
+
+Groundwater exchange
+"""""""""""""""""""
+To let the manhole exchange with groundwater, specify the *Exchange thickness*, *Hydraulic conductivity in*, and *Hydraulic conductivity out*. This is independent from the calculation type (embedded/isolated/connected), so you can also schematise a manhole that does *not* exchange with the surface water domain (calculation type is isolated), but *does* exchange with the groundwater domain.
+
 
 .. _pumpstation_without_end_node:
 
@@ -1272,6 +1391,24 @@ Attributes
      - No
      - \-
      - *Deprecated*
+   * - Exchange thickness
+     - exchange_thickness
+     - decimal number
+     - No
+     - m
+     - The thickness of the (porous) pipe wall that the water needs to flow through to reach the groundwater (or v.v.), see :ref:`1d2d_groundwater_exchange`
+   * - Hydraulic conductivity in
+     - hydraulic_conductivity_in
+     - decimal number
+     - No
+     - \-
+     - Hydraulic conductivity for water flowing from the groundwater into the pipe, see :ref:`1d2d_groundwater_exchange`
+   * - Hydraulic conductivity out
+     - hydraulic_conductivity_out
+     - decimal number
+     - No
+     - \-
+     - Hydraulic conductivity for water flowing from the pipe to the groundwater, see :ref:`1d2d_groundwater_exchange`	 	 
 
 When using the 3Di Schematisation Editor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1279,6 +1416,7 @@ When using the 3Di Schematisation Editor
 - The *connection nodes* and *manholes* will be added automatically.
 - To draw a single pipe, the geometry must have exactly 2 vertices. A line with more than 2 vertices will be split into several pipes.
 - To digitize a trajectory of multiple pipes, first digitize the manholes, fill in the bottom levels, and then draw the pipe trajectory over these manholes by adding a vertex at each of the manholes. The pipes that are generated will use the manhole's bottom levels as invert levels and the *connection nodes* and *manholes* will be added automatically.
+
 
 
 .. _pipe_notes_for_modeller:
@@ -1307,6 +1445,10 @@ The following types are supported:
 - Syphon (5)
 - Storage (6)
 - Storage and settlement tank (7)
+
+Groundwater exchange
+"""""""""""""""""""
+To let the pipe exchange with groundwater, specify the *Exchange thickness*, *Hydraulic conductivity in*, and *Hydraulic conductivity out*. This is independent from the calculation type (embedded/isolated/connected), so you can also schematise a pipe that does not exchange with the surface water domain (calculation type is isolated), but does exchange with the groundwater domain.
 
 
 

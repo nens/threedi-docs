@@ -13,9 +13,17 @@ Nowadays, detailed bathymetry information becomes more and more available.  Howe
 
    Examples of flow in a flume, where a slight change in bathymetry strongly affects the flow.
 
-The basic idea behind the subgrid method, is that water levels vary much more gradually than the bathymetry. In hydrodynamic computations, water levels are assumed to be uniform within a computational cell. Traditionally, this is also assumed for the bathymetry within such a cell. The subgrid-based approach allows the bathymetry to vary within one computational cell, while the water level remains uniform. In 3Di two grids are to be defined; a high resolution subgrid and a coarse(r) computational grid. All input data, such as the bathymetry, roughness and infiltration rates can be defined on the high resolution grid, while the computations are performed on the coarse computational grid. Volumes and cross-sectional areas are based using the high resolution bathymetry information. The variation of the bathymetry within a computational cell means that a cell can be dry, wet or partly wet. This approach has two implications:
+The key assumption of the subgrid method, is that water levels vary much more gradually than the bathymetry. In most methods used for hydrodynamic computations, water levels are assumed to be uniform within a computational cell. Traditionally, this is also assumed for the bathymetry within such a cell. The subgrid-based method allows the bathymetry to vary within a computational cell, while the water level remains uniform. In 3Di, two grids are defined; a high resolution *subgrid* and a coarser *computational grid*. 
 
-- The volume has a non-linear relation with the water level, because when the water level rises, the wet surface area increases is well. Such a system can be solved using a newton iteration. To compute the volumes at the next time step.
+All input data, such as the bathymetry, roughness and infiltration rates, can be defined on the high resolution grid, while the computations are performed on the coarse computational grid. Volumes and cross-sectional areas are calculated using the high resolution bathymetry information. The variation of the bathymetry within a computational cell, related to a 2D surface water cell means that a cell can be dry, wet or partly wet. 
+
+For groundwater computational cells, the depth of the impervious layer is assumed to be uniform. The storage capacity in a groundwater cell is based on the high resolution bathymetry information. This implies that a groundwater cell can also be dry, partly full or completely full. This happens when the groundwater level reaches the highest level of the bathymetry within a computational cell.
+
+The subgrid method has three implications:
+
+- The storage capacity in the 2D surface and groundwater domains are grid size independent. 
+
+- The volume of a computational cell is a non-linear relation with the water level, because when the water level rises, the wet surface area changes as well. 
 
 - As we are allowed to have a non-linear relation between water level and volume, 3Di can deal automatically with flooding and drying. No artificial thresholds are necessary.
 
@@ -26,24 +34,13 @@ The basic idea behind the subgrid method, is that water levels vary much more gr
 
    An example of a computational cell with a bathymetry defined on the subgrid.
 
-Input
------
-
-Users define for the grid generation a cell size (of the finest grid resolution) and the number of refinement layers. A computational cell consists always of an even number of subgrid cells. In addition, the user needs to define where and if refinements should be defined. One can define polygons or lines to indicate these areas and the refinement level.
-
-Some facts and figures
-----------------------
-
--	The use of high resolution information goes hand in hand with large amounts of data. To compress this data, it is stored during the computations in tables. More information about this can be found in :ref:`subgrid_tables`.
--	There are more variables defined at the high resolution grid; such as roughness, infiltration capacity and hydraulic connectivity. These will be introduced later in the documentation.
-
 
 .. _subgrid_tables:
 
 Subgrid tables
 --------------
 
-The high resolution subgrid data is compressed in tables that allow fast access during the simulation. These tables describe the relation between water level and the following variables: 
+The use of high resolution information also means that more data is used during the simulation. 3Di stores this data in subgrid tables to limit the memory usage and allow fast access during the simulation. These tables describe the relation between water level and the following variables: 
 
 * Volumes per computational cell (1D, 2D)
 * Cross-sectional area per half of cell face (2D)
@@ -54,6 +51,8 @@ The high resolution subgrid data is compressed in tables that allow fast access 
 * Groundwater volumes per computational cell (2D)
 
 This relation is specific for each cell, node or, in case of cross-sectional area, flowline. When the cell is partially wet, the relation between water level and the other variables is non-lineair. The subgrid tables describe this non-linear relation using entries that contain a water level and e.g. (for volumes) the total water volume in the cell at that water level. Once the cell is completely wet, all relations become linear again (e.g. one cm rise in water level will always yield the same rise in volume), so the last entry in the subgrid tables is the highest point in the cell or cross-section.
+
+.. _subgrid_table_settings:
 
 Subgrid table settings
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -67,7 +66,7 @@ increasing the linearization of the system and simplifying the mathematical equa
 The maximum distance between height increments is determined by the pixel values. This way, we prevent generating height increments for which each subsequent table entry would
 only linearly increase with respect to the previous table entry, thereby omitting an opportunity for data reduction and gain in computational speed. The exceptions are 
 tables with a non-linear relation regarding water depths, for example for friction tables. Interpolation between table entries that are too far apart will cause a loss in numerical
-precision due to the non-linear friction profile. 3Di can be forced to use a *Maximum table step size*; if not set, the maximum table step size is 100 × the table step size.
+precision due to the non-linear friction profile. 3Di can be forced to use a *Maximum table step size*; if not set, the maximum table step size is 100 times the table step size.
 
 
 .. figure:: image/table_2d_increments.png
