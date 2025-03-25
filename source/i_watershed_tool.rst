@@ -11,8 +11,6 @@ The Watershed Tool (|watershedtoolbar|) allows you to determine the upstream and
    -  Interflow is not taken into account in the network analysis.
    -  Groundwater flow is taken into account but has not been tested yet, please check the results.
 
-.. @Leendert: is it still the case that v2_surfaces are not supported?
-
 
 .. figure:: image/i_watershed_tool.png
 	:alt: Watershed Tool
@@ -23,7 +21,7 @@ The Watershed Tool (|watershedtoolbar|) allows you to determine the upstream and
 **Inputs**
 
 1) Select the simulation results you want to analyse.
-2) The 3Di schematisation spatialite (.sqlite-file) is an optional input, required only for visualizing the upstream v2_impervious_surfaces. This functionality is currently not supported for v2_surface features.
+2) The 3Di schematisation database (*.gpkg) is an optional input, required only for visualizing the upstream Surfaces.
 
 **Settings**
 

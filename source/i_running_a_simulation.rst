@@ -188,12 +188,24 @@ If the 3Di model contains boundary conditions, you can only run a simulation if 
 Initial conditions
 ==================
 
-Initial conditions either refer to the use of saved state file, or the use of initial water level in 1D, 2D or groundwater (2D):
+Initial conditions either refer to the use of saved state file, or the use of initial water level in 1D, 2D or groundwater (2D)
 
-1D options:
+Saved state
+-----------
 
-- Global value: a generic initial water level value in m MSL which is applied in all 1D nodes of the model.
-- From Spatialite: the initial water level as defined in the column initial_waterlevel in the connection nodes in the spatialite.
+Choose this option if you want to start a simulation from a previously saved state. This state includes all variables know to the computational core, including water levels, volumes, velocities, discharges, etc. It is an "all or nothing" state: you can either start the simulation using the entire saved state, or not use it at all. It is not possible to combine saved states with other initial conditions, as these are already included in the saved state.
+
+If you have not yet generated a saved state, this option will not be available. To generate a saved state, choose the option "Generate saved state" when starting a simulation.
+
+1D initial water levels
+-----------------------
+
+- Global value: specify an initial water level value in m MSL which is applied to all 1D nodes of the model.
+- From Spatialite: use the initial water level as defined in the column initial_waterlevel in the connection nodes in the spatialite that was used when generating the 3Di model and simulation template that you picked.
+- Online file: use a set of 1D initial water levels that you have uploaded for this 3Di model previously.
+- Upload CSV: upload a CSV file with an initial water level for one or more *calculation nodes* (not connection nodes) 
+
+
 
 
 2D Surface Water options:
@@ -211,9 +223,65 @@ Initial conditions either refer to the use of saved state file, or the use of in
 - Local Raster: a local the initial water level raster.
 - Aggregation method: this can mean, min or max.
 
-.. VRAAG: moet er nog meer uitleg bij de aggregation method?
+.. _1d_initial_water_levels_csv_file_format:
 
-|
+1D initial water levels file format CSV file format
+-----------------------------------
+
+The columns in the CSV file are to be comma-separated. 
+
+The CSV file input should have the following columns:
+
+- "id": integer; is the id of the corresponding row in the 1D Boundary Conditions table in the spatialite
+- "timeseries": a CSV-formatted text field: pairs of time step (in minutes or seconds) and value (in m\ :sup:`3`/s, m, or m/m, depending on the boundary condition type). The timestep is separated from the value by a comma and lines are separated from one another by a newline.
+
+Any additional columns will be ignored.
+
+The easiest way to generate such a file is by exporting it from the *1D Boundary Condition* or *2D Boundary Condition* layers of your schematisation, see :ref:`exporting_boundary_condition_data`.
+
+Example as a table:
+
+.. list-table:: Boundary conditions CSV file format
+   :header-rows: 1
+
+   * - id
+     - timeseries
+   * - 4
+     - 0,1.2
+
+       99999,1.2
+   * - 5
+     - 0,2.1
+
+       99999,2.1
+   * - 6
+     - 0,1.3
+
+       99999,5.6
+   * - 7
+     - 0,8.2
+
+       99999,1.0
+   * - 8
+     - 0,63.307
+
+       99999,63.307
+
+Text example::
+
+    id,timeseries
+    "4","0,1.2
+         99999,1.2"
+    "5","0,2.1
+         99999,2.1"
+    "6","0,1.3
+         99999,5.6"
+    "7","0,8.2
+         99999,1.0"
+    "8","0,63.307
+         99999,63.307"
+
+
 
 .. _simulate_api_qgis_laterals:
 
@@ -727,6 +795,9 @@ The following example JSON file activates a memory control after one hour since 
 		]
 	}
 
+.. note::
+    References to object types must include the *v2_* prefix in this JSON file. This is a legacy of the table names in the schematisation database as defined up until March 2025 that has been upheld for reasons of backward compatibility.
+
 The figure below shows three examples of JSON files.
 
 .. figure:: image/c_control_json.png
@@ -838,7 +909,9 @@ The following example JSON file activates a table control during the first hour 
 		]
 	}
 
-
+.. note::
+    References to object types must include the *v2_* prefix in this JSON file. This is a legacy of the table names in the schematisation database as defined up until March 2025 that has been upheld for reasons of backward compatibility.
+	
 .. _table_control_values:
 
 Values parameter of table control
@@ -927,7 +1000,7 @@ A *Measure location* defines a location and its weight relative to other measure
    * - content_type
      - string
      - Yes
-     - spatialite table from which to select a feature to use as measure location.
+     - schematisation database table from which to select a feature to use as measure location, e.g. 'v2_connection_node'
    * - content_pk
      - integer
      - Yes
@@ -936,7 +1009,9 @@ A *Measure location* defines a location and its weight relative to other measure
      - integer
      - No
      - Computational grid ID of the node or flowline to use as measure location.
-	 
+
+.. note::
+    References to object types must include the *v2_* prefix in this JSON file. This is a legacy of the table names in the schematisation database as defined up until March 2025 that has been upheld for reasons of backward compatibility.
 	 
 .. _simulate_api_qgis_breaches:
 

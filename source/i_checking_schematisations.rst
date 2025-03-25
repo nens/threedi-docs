@@ -10,17 +10,18 @@ It is highly recommended to check your schematisation before uploading. It helps
 Schematisation checker
 ----------------------
 
-The *schematisation checker* checks your 3Di schematisation (.sqlite file) for completeness and consistency between tables. 
-With the checker you detect most database errors before uploading the schematisation to the 3Di servers for model generation.
+The *schematisation checker* checks your 3Di schematisation (.gpkg file) for completeness and consistency between tables. 
+It detects most database errors before uploading the schematisation to the 3Di servers for model generation.
 
 In order to use the *schematisation checker* follow these steps:
 
-1. Start the Modeller Interface
-2. Add a connection to the schematisation database (*Layer* -> *Data Source Manager*, Select *SpatiaLite* on the left and create a *'New'* connection or connect to an existing connection)
-3. Open the *schematization checker* by opening the :ref:`3di_processing_toolbox` > 3Di > Schematisation > Check Schematisation.
-4. Select the SpatiaLite connection of the schematisation database and the location where to store the output of the schematisation checker. Click *run* to run the schematisation checker. Click *open* to open the output.
+#. Start the 3Di Modeller Interface
+#. Open the processing algorithm in the :ref:`3di_processing_toolbox` > *3Di* > *Schematisation* > *Check Schematisation*.
+#. Choose to the geopackage file you want to check
+#. Optionally, choose a location to store the outputs; otherwise, the output will be stored in a temporary file.
+#. Click *Run* to run the schematisation checker. The outputs are added to your project as a table layer.
 
-The output is a comma-separated value file, which can be opened in, for example, Excel. It contains 6 columns: *id, table, column, value, description and check*:
+The output contains six columns: *id, table, column, value, description and check*:
 
 - **id**: identification number of the row where a check encounters an error.
 - **table**: the table in which the error occurs.
@@ -33,13 +34,11 @@ The output is a comma-separated value file, which can be opened in, for example,
 
 For a table of all the checks run on the schematisation, and their respective error codes, see the :ref:`current_schematisation_checks`.
 
-.. TODO: kopje hieronder aanpassen als 3di toolbox plugin af is en zorgen dat deze uitleg dan daar staat.
-
 
 Visualising computational grids
 -------------------------------
 
-3Di builds a computational grid from schematisation data (stored in spatialite and rasters). This computational grid is stored in a "gridadmin.h5" file. You can visualize these grids in the 3Di Modeller Interface.
+3Di builds a computational grid from schematisation data (stored in geopackage and rasters). This computational grid is stored in a "gridadmin.h5" file. You can visualize these grids in the 3Di Modeller Interface.
 
 
 .. figure:: image/d_computational_grid.png
@@ -47,8 +46,9 @@ Visualising computational grids
     An example of a visualised computational grid
 
 
-
 You can also generate the computational grid from a schematisation. This is very useful to understand how the data in your schematisation is interpreted by 3Di. It answers questions like: 
+
+- Is the data in the schematisation database valid, i.e. can a computational grid be created from it?
 
 - Where is each 2D cell located? 
 
@@ -68,7 +68,7 @@ The processing algorithm "Computational grid from gridadmin.h5" reads the comput
 Computational grid from schematisation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The processing algorithm "Computational grid from schematisation" builds a computational grid from schematisation data (stored in spatialite and rasters). The algorithm writes this to a gridadmin.h5 file and subsequently converts that data to GIS-layers in a GeoPackage. You can find it in the :ref:`3di_processing_toolbox` (Main Menu > Processing > Toolbox), under 3Di > Computational Grid. Choose your schematisation's spatialite file and an output location for the GeoPackage. Once the algorithm has run, the layers from the GeoPackage will be added to your project. If you do not need this data anymore after closing the 3Di Modeller Interface, you can also save to a temporary file. 
+The processing algorithm "Computational grid from schematisation" builds a computational grid from schematisation data (stored in geopackage and rasters). The algorithm writes this to a gridadmin.h5 file and subsequently converts that data to GIS-layers in a GeoPackage. You can find it in the :ref:`3di_processing_toolbox` (Main Menu > Processing > Toolbox), under 3Di > Computational Grid. Choose your schematisation's geopackage file and an output location for the GeoPackage. Once the algorithm has run, the layers from the GeoPackage will be added to your project. If you do not need this data anymore after closing the 3Di Modeller Interface, you can also save to a temporary file. 
 
 Differences between locally and server-generated grids
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

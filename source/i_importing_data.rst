@@ -12,6 +12,3 @@ Several tools are available for importing external data into your schematisation
 
    i_import_vector_data
    d_import_gwsw_hydx
-   d_import_sufhyd
-
-

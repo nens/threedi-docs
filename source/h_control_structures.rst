@@ -22,7 +22,11 @@ Structure controls can be made to react dynamically to the flow variables listed
 Timed control
 -------------
 
-Timed structure controls are used to set specific properties of hydraulic structures during a specified time in the simulation. For example, to set the crest level of weir with ID 154 to 1.5 m MSL during the second hour of the simulation, you could define a timed control with the following parameters:
+Timed structure controls are used to set specific properties of hydraulic structures during a specified time in the simulation. 
+
+Timed control can only be added to simulations and saved in simulation templates; it is not possible to define timed control in the schematisation.
+
+For example, to set the crest level of weir with ID 154 to 1.5 m MSL during the second hour of the simulation, you could define a timed control with the following parameters:
 
 - Offset: 3600 s
 
@@ -37,8 +41,6 @@ Timed structure controls are used to set specific properties of hydraulic struct
 - Structure type: "v2_weir"
 
 See the :ref:`timed control section in the simulation wizard manual<sim_timed_control>` for details on how to include them in a simulation. 
-
-See the schematisation object :ref:`control_timed` for details on how to define timed controls in the schematisation.
 
 .. _table_control:
 

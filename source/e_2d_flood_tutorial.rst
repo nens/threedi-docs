@@ -33,16 +33,17 @@ Unzip the dataset for this tutorial and save the contents into a folder. The dat
 
 
 Creating a new schematisation
-------------------------------
+-----------------------------
+
 The first step is to create a new :ref:`schematisation`:
 
 #) Open the 3Di Modeller Interface.
 
-#) Click the 3Di Models and Simulations icon (|modelsSimulations|). You should now see the 3Di Models and Simulations panel. If this is the first time you use the 3Di Models and Simulation panel, you will need to go through :ref:`some steps to set it up<setting_up_models_and_simulations>`.
+#) Click the 3Di Models and Simulations icon |modelsSimulations|. You should now see the 3Di Models and Simulations panel. If this is the first time you use the 3Di Models and Simulation panel, you will need to go through :ref:`some steps to set it up<setting_up_models_and_simulations>`.
 
-#) In the *Schematisation* section of the 3Di Models and Simulations panel, click the *New* button (|newschematisation|). The *New schematisation* wizard is shown.
+#) In the *Schematisation* section of the 3Di Models and Simulations panel, click the *New* button |newschematisation|. The *New schematisation* wizard is shown.
 
-#) Fill in a schematisation name, such as 'Tutorial dike breach model <your_name>'. Select the organisation you want to be the owner of the new schematisation (most users have rights for only one organisation). Tags are optional, you can leave this field empty for now. Since we are creating a schematisation from scratch, select the *Create new Spatialite* option. Click *Next*.
+#) Fill in a schematisation name, such as 'Tutorial dike breach model <your_name>'. Select the organisation you want to be the owner of the new schematisation (most users have rights for only one organisation). Project and Tags are optional, you can leave these fields empty for now. Since we are creating a schematisation from scratch, select the *Create new Geopackage* option. Click *Next*.
 
 #) Read the explanation on the second page of the *New schematisation* wizard. Click *Next*.
 
@@ -66,18 +67,29 @@ The first step is to create a new :ref:`schematisation`:
 
 	* Global 2D friction coefficient: 0.03
 
-	* Simulation timestep: 30 s
+	* Simulation time step: 30 s
 
 	* Typical simulation duration: 3-12 hours
 
-#) Click *Create schematisation*. A popup message will tell you that the schematisation was created successfully. Copy the path that is shown in the popup message and paste it somewhere (e.g. in an empty text file).
+
+#) Click *Create schematisation*. 
+
+    A popup message will tell you that the the schematisation was created, asking you if you want to add it to the project. 
+
+#) Click *Yes*
+
+    You should now see the DEM south of the river "Oude Maas".
+
+#) Add a background map from OpenStreetMap by clicking *Web* in the Main Menu > *Quick Map Services* > *OSM* > *OSM Standard*.
+
+#) In the *Layers* panel, reorder the layers such that the OpenStreetMap layer is below the 3Di schematisation.
 
 
 Uploading the schematisation
 ----------------------------
 We will now upload the schematisation as a first :ref:`revision` and process it into a :ref:`threedimodel`. All these steps are covered by the upload wizard.
 
-#) Click the upload button (|upload|) in the 3Di Models and Simulations panel.
+#) Click the upload button |upload| in the 3Di Models and Simulations panel.
 
 #) In the dialog box that has appeared, click *New upload* and click *Next*.
 
@@ -90,24 +102,11 @@ We will now upload the schematisation as a first :ref:`revision` and process it 
 Your 3Di model is now ready to run a simulation!  
 
 
-Loading the schematisation in the 3Di Modeller Interface
---------------------------------------------------------
-We will load the schematisation in the 3Di Modeller Interface to view and modify its contents. The schematisation can be loaded by following these steps:
-
-#) In the 3Di Schematisation Editor toolbar, click the *Load from Spatialite* button (|load_from_spatialite|). Paste the previously copied path to the spatialite and click *Open*.
-
-    If you have not copied the path to the spatialite, click the (blue, underlined) name of your schematisation at the top of the 3Di Models & Simulations panel. Windows Explorer will open; browse to *work in progress/schematisation* and copy the path from the Windows Explorer address bar.
-
-#) Add a background map from OpenStreetMap by clicking *Web* in the Main Menu > *Quick Map Services* > *OSM* > *OSM Standard*.
-
-#) In the Layers panel, reorder the layers such that the OpenStreetMap layer is below the 3Di schematisation.
-
-You should now see the DEM south of the river "Oude Maas".
-
-
 Adding a potential dike breach to the schematisation
 ----------------------------------------------------
+
 We now have a schematisation with a DEM and the essential settings filled in.
+
 First, we will incorporate the 1D elements, including a channel and boundary conditions. Next, we will introduce the 2D elements, particularly a linear obstacle to represent the dike. Finally, we will add a potential breach.
 
 .. _adding_a_channel:
@@ -116,13 +115,13 @@ Adding a channel (1D)
 ^^^^^^^^^^^^^^^^^^^^^
 We are going to add a :ref:`channel` at the 'Scheepvaart- en Voedingskanaal' in the north of our model domain. See the :ref:`t4reference-image` for a reference.
 
-A channel :ref:`flows <channelflow>` from one connection node to another, has a :ref:`calculation type <calculation_types>` and a :ref:`channel geometry <cross_section_of_1d_element>`. Create a channel by following these steps:
+A channel :ref:`flows <channelflow>` from one connection node to another, has a :ref:`exchange type <calculation_types>` and a line geometry. Create a channel by following these steps:
 
 #) In the *Layers* panel, locate the *1D* group and select the *Channel* layer.
 
-#) Click the *Toggle editing mode* button (|toggle_editing|) in the top left.
+#) Click the *Toggle editing mode* button |toggle_editing| in the top left.
 
-#) Click the *Add line feature* button (|add_line|).
+#) Click the *Add line feature* button |add_line|.
 
 #) Begin by clicking at the desired starting location for your channel. Next, click along the 'Scheepvaart- en Voedingskanaal' until you reach the channel end. Ensure that the channel remains fully within the Digital Elevation Model (DEM). 
 
@@ -133,8 +132,9 @@ A channel :ref:`flows <channelflow>` from one connection node to another, has a 
    * ID: <filled in automatically>
    * Code: give your channel a code so you can identify it later
    * Display name: this is the name the channel will be displayed with in 3Di Live 
-   * Calculation type: Connected
+   * Exchange type: 102: Connected
    * Distance between calculation points [m]: 15
+   * Ignore all the attributes in the Groundwater exchange group
    * Connection nodes: <filled in automatically>
 
 #) In the *Connection nodes* tab, fill in the following parameters for both connection nodes:
@@ -159,76 +159,80 @@ A channel :ref:`flows <channelflow>` from one connection node to another, has a 
 
 #) Click the *Toggle editing mode* button in the toolbar and save your edits to this layer.
 
-The 'Reference level' corresponds to the bed level of the channel. The 'Bank level' indicates the level at which the channel will :ref:`exchange <1d2d_exchange>` with the 2D field. Initially, it will prioritize this level before considering the elevation of the DEM surrounding the channel or any obstacles. The 'Friction value' for the Manning coefficient, it is derived from the roughness of the grass.
+The 'Reference level' corresponds to the bed level of the channel. The 'Bank level' indicates the level at which the channel is allowed to :ref:`exchange <1d2d_exchange>` with the 2D domain.
 
 .. _adding_boundary_conditions:
 
 Adding boundary conditions (1D)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-In order for water to flow through the channel boundary conditions must be added. As the channel is a :ref:`1D object <1d_objects>`, a 1D boundary condition will be added with the following steps:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We let water flow into the channel by adding 1D boundary conditions.
 
 #) In the *Layers* panel, locate the *1D* group and select the *1D Boundary condition* layer.
 
-#) Click the *Toggle editing mode* button (|toggle_editing|) in the top left.
+#) Click the *Toggle editing mode* button |toggle_editing| in the top left.
 
-#) Click the *Add point feature* button (|add_point|).
+#) Click the *Add point feature* button |add_point|.
 
 #) Hover over the end of your channel until you see a pink square. Click the pink square and fill in the following parameters:
 
    * ID: <filled in automatically>
    * Connection node ID: <filled in automatically> (This is related to the previously added connection nodes)
-   * Boundary type: Waterlevel
-   * Timeseries: copy and paste the following text. 
+   * Boundary type: 1: Water level
+   * Time series: Delete the existing empty row, then copy and paste the following text. 
 
-Timeseries text::
-
+Time series text::
+    
     0,3.5
     15,3.5
     9999,3.5
 
-#) Do the same for the other end of your channel but with different Timeseries:
+#) Do the same for the other end of your channel but with different time series:
 
 Timeseries text::
+    
     0,3.0
     15,3.0
     9999,3.0
 
 #) Click the *Toggle editing mode* button in the toolbar and save your edits to this layer.
 
-The use of two distinct time series generates a flow within the channel, carrying water from one end to the other. The direction of this flow is determined by the time series' starting points; water will naturally move from a higher water level (3.5) to a lower water level (3.0).
+The use of two distinct time series generates a flow within the channel, carrying water from one end to the other. The direction of this flow is determined by the time series' starting points; water will naturally move from a higher water level (3.5 m MSL) to a lower water level (3.0 m MSL).
 
 
 Adding a dike (2D)
 ^^^^^^^^^^^^^^^^^^
+
 The dike at this location is included in the DEM. However, if the dike is narrower than the 2D cells, it may not affect the exchange between 2D cells. Put more simply, water may flow through the dike in such cases. See :ref:`surface_flow_cross_sections` and :ref:`obstacles` for a more elaborate explanation of this. To prevent leakage of the dike, we will add a :ref:`linear_obstacle`. Follow these steps, and reference the DEM and the :ref:`t4reference-image` to draw the obstacle:
        
-#) In the *Layers* panel, locate the *2D* group and select the *Linear Obstacle* layer.
+#) In the *Layers* panel, locate the *2D* group and select the *Obstacle* layer.
 
-#) Enable editing mode by clicking the *Toggle editing mode* button (|toggle_editing|) located in the top left corner.
+#) Enable editing mode by clicking the *Toggle editing mode* button |toggle_editing| located in the top left corner.
 
-#) Click the *Add line feature* button (|add_line|).
+#) Click the *Add line feature* button |add_line|.
 
 #) To begin drawing the dike, click at a starting location adjacent to the starting point of the channel, aligning it with the visible dike on the DEM. Next, trace the dike along the 'Scheepvaart- en Voedingskanaal' visible in the DEM. Continue until you have reached the location where you want the dike to end.
 
 #) Right-click to stop drawing the dike. A popup screen with the Feature Attributes should now appear.
 
-#) Fill in the value '3' for the *crest level [m MSL]* of the dike, then click *OK*.
+#) Fill in the value '3' for the *Crest level [m MSL]* of the dike, then click *OK*.
 
-#)  Click the *Toggle editing mode* button in the toolbar to exit editing mode and save your edits to this layer.
+#)  Click the *Toggle editing mode* button |toggle_editing| in the toolbar to exit editing mode and save your edits to this layer.
 
 .. _adding_potential_breach:
 
 Potential Breach (1D-2D)
 ^^^^^^^^^^^^^^^^^^^^^^^^
-Now that we have added a channel with calculation type *connected*, the next step is to introduce a potential breach location. This breach is a link between the 1D and 2D domains of the model. Once the breach is activated and water flows through it, the breach will grow deeper and than wider. In our scenario, the potential breach will simulate a dike breach, where water can flow through the dike onto the fields behind the dike. For more theoretical information on breaches, see: :ref:`breaches`. 
+
+Now that we have added a channel with exchange type *connected*, the next step is to introduce a potential breach location. This breach is a link between the 1D and 2D domains of the model. Once the breach is activated and water flows through it, the breach will grow deeper and than wider. In our scenario, the potential breach will simulate a dike breach, where water can flow through the dike onto the fields behind the dike. For more theoretical information on breaches, see: :ref:`breaches`. 
 
 See the :ref:`t4reference` for a reference of where to draw the potential breach. To add a potential breach, follow these steps:
 
 #) In the *Layers* panel, locate the *1D2D* group and select the *Potential breach* layer.
 
-#) Click the *Toggle editing mode* button (|toggle_editing|) in the top left.
+#) Click the *Toggle editing mode* button |toggle_editing| in the top left.
 
-#) Click the *Add line feature* button (|add_line|).
+#) Click the *Add line feature* button |add_line|.
 
 #) Hover over your channel until a pink square appears. Click the pink square. Now click at the other side of the dike. Right-click to stop drawing.
 
@@ -237,16 +241,16 @@ See the :ref:`t4reference` for a reference of where to draw the potential breach
    * ID: <filled in automatically>
    * Code: a code to identify your potential breach
    * Display name: a name to identify your potential breach
-   * Exchange level [m MSL]: 4
-   * Max breach depth [m]: 1
-   * Levee material: Sand
+   * Initial exchange level [m MSL]: 4
+   * Final exchange level [m MSL]: 1
+   * Levee material: 1: Sand
    * Channel ID: <filled in automatically>
 
 #) Click *OK*.
 
 #) Click the *Toggle editing mode* button in the toolbar and save your edits to this layer.
 
-If the water level in the channel rises above the *exchange level*, water will start flowing through the potential breach, i.e. it works as a generic 1D2D connection. The breach can also be activated to simulate an event in which the dike fails for some reason, and water starts flowing the hole in the dike. The *Max breach depth* signifies the maximum depth of the breach, measured in meters below the exchange level. When this depth has been reached, the breach will no longer grow in depth and start widening.
+If the water level in the channel rises above the *initial exchange level*, water will start flowing through the potential breach, i.e. it works as a generic 1D2D connection. The breach can also be activated to simulate an event in which the dike fails for some reason, and water starts flowing the hole in the dike. The *final exchange level* signifies the level that the bottom of the breach will grow down to. When this level has been reached, the breach will no longer grow deeper and start widening.
 
 The final result should look similar to this, with the location of the channel (blue), the boundary conditions (purple), the dike obstacle (brown), and the potential breach (black) from the channel to the field behind the dike:
 
@@ -267,7 +271,8 @@ The final result should look similar to this, with the location of the channel (
 
 
 Adding a channel outside of the DEM
-------------------------------------
+-----------------------------------
+
 A channel can also be added to the schematisation if it is outside of the DEM. If you want to do this you need to add an :ref:`exchange_line`. This line will link the 1D channel to the 2D domain of the DEM. Follow these steps:
 
 
@@ -277,9 +282,9 @@ A channel can also be added to the schematisation if it is outside of the DEM. I
 
 #) In the *Layers* panel, locate the *1D2D* group and select the *Exchange line* layer.
 
-#) Click the *Toggle editing mode* button (|toggle_editing|) in the top left.
+#) Click the *Toggle editing mode* button |toggle_editing| in the top left.
 
-#) Click the *Add line feature* button (|add_line|).
+#) Click the *Add line feature* button |add_line|.
 
 #) Draw the exchange line parallel to your channel. Ensure that the exchange line remains within the DEM. 
 
@@ -289,7 +294,7 @@ A channel can also be added to the schematisation if it is outside of the DEM. I
 
     * ID: <filled in automatically>
     * Code: fill in a code or name you can identify it by
-    * Exchange level [m]: <leave empty>
+    * Exchange level [m MSL]: <leave empty>
     * Channel ID: ID of the channel outside of the DEM
 
 #) Click *OK* and click the *Toggle editing mode* button in the toolbar and save your edits to this layer.
@@ -301,11 +306,9 @@ Uploading a revision
 ----------------------
 The next step is to check the schematisation, upload it as a new :ref:`revision` and process it into a :ref:`threedimodel`. 
 
-#) In the 3Di Schematisation Editor toolbar, click *Save to Spatialite* (|save_to_spatialite|). Wait for this process to finish.
+#) Click the 3Di Models and Simulations icon |modelsSimulations|. You should now see the 3Di Models and Simulations panel.
 
-#) Click the 3Di Models and Simulations icon (|modelsSimulations|). You should now see the 3Di Models and Simulations panel.
-
-#) Click the upload button (|upload|) in the 3Di Models and Simulations panel.
+#) Click the upload button |upload| in the 3Di Models and Simulations panel.
 
 #) In the dialog box that appears, click *New upload* and click *Next*.
 
@@ -323,7 +326,7 @@ Running a simulation
 
 You will now start a simulation with the 3Di model you have created in the 3Di Modeller Interface: 
 
-#) In the 3Di Models and Simulations panel, click *Simulate* (|simulate|) > *New simulation*.  
+#) In the 3Di Models and Simulations panel, click *Simulate* |simulate| > *New simulation*.  
 
 #) Select your model and simulation template and click *Next*. A dialog box opens with several options for your simulation.  
 
@@ -373,10 +376,6 @@ It is also possible to run simulations with this model in 3Di Live:
 #) You can open a breach by clicking the potential breach and clicking the settings button. You can adjust the breach settings when your simulation is paused.
 
 
-
-.. |load_from_spatialite| image:: /image/pictogram_load_from_spatialite.png
-	:scale: 80%
-
 .. |toggle_editing| image:: /image/pictogram_toggle_editing.png
     :scale: 80%
 
@@ -391,9 +390,6 @@ It is also possible to run simulations with this model in 3Di Live:
 
 .. |modelsSimulations| image:: /image/pictogram_modelsandsimulations.png
     :scale: 90%
-
-.. |save_to_spatialite| image:: /image/pictogram_save_to_spatialite.png
-	:scale: 80%
 
 .. |newschematisation| image:: /image/pictogram_newschematisation.png
     :scale: 80%

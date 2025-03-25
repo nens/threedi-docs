@@ -91,42 +91,43 @@ The aggregation settings can be found and configured in the spatialite-table *Ag
    :widths: 5, 10, 20, 15, 15, 20
    :header-rows: 1
    
-The time step size (i.e. the period over which is aggregated) is adjustable. For new models, these settings are preloaded in the empty spatialite database. For older models, these settings must be added to the *v2_aggregation_settings*-table. These SQL-queries will help you in doing so:
+The time step size (i.e. the period over which is aggregated) is adjustable. For new models, these settings are preloaded in the empty spatialite database. For older models, these settings must be added to the *Aggregation settings*-table. These SQL-queries will help you in doing so:
 
 Remove existing aggregation settings::
 
-    DELETE FROM v2_aggregation_settings;
+    DELETE FROM aggregation_settings;
   
-Add aggregation settings for all rows in the global-settings table (only older schematisations that date from before the Klondike-release (Jan 31\ :sup:`st` 2022) can have multiple global-settings id's)::
+Add aggregation settings::
 
-    INSERT INTO v2_aggregation_settings(global_settings_id, var_name, flow_variable, aggregation_method, timestep)
-    SELECT id, 'pump_discharge_cum', 'pump_discharge', 'cum', output_time_step FROM v2_global_settings
+    INSERT INTO aggregation_settings(flow_variable, aggregation_method, interval)
+    SELECT 'pump_discharge', 'cum', output_time_step FROM time_step_settings
     UNION
-    SELECT id, 'lateral_discharge_cum', 'lateral_discharge', 'cum', output_time_step FROM v2_global_settings
+    SELECT 'lateral_discharge', 'cum', output_time_step FROM time_step_settings
     UNION
-    SELECT id, 'simple_infiltration_cum', 'simple_infiltration', 'cum', output_time_step FROM v2_global_settings
+    SELECT 'simple_infiltration', 'cum', output_time_step FROM time_step_settings
     UNION
-    SELECT id, 'rain_cum', 'rain', 'cum', output_time_step FROM v2_global_settings
+    SELECT 'rain', 'cum', output_time_step FROM time_step_settings
     UNION
-    SELECT id, 'leakage_cum', 'leakage', 'cum', output_time_step FROM v2_global_settings
+    SELECT 'leakage', 'cum', output_time_step FROM time_step_settings
     UNION
-    SELECT id, 'interception_current', 'interception', 'current', output_time_step FROM v2_global_settings
+    SELECT 'interception', 'current', output_time_step FROM time_step_settings
     UNION
-    SELECT id, 'discharge_cum', 'discharge', 'cum', output_time_step FROM v2_global_settings
+    SELECT 'discharge', 'cum', output_time_step FROM time_step_settings
     UNION
-    SELECT id, 'discharge_cum_neg', 'discharge', 'cum_negative', output_time_step FROM v2_global_settings
+    SELECT 'discharge', 'cum_negative', output_time_step FROM time_step_settings
     UNION
-    SELECT id, 'discharge_cum_pos', 'discharge', 'cum_positive', output_time_step FROM v2_global_settings
+    SELECT 'discharge', 'cum_positive', output_time_step FROM time_step_settings
     UNION
-    SELECT id, 'volume_current', 'volume', 'current', output_time_step  FROM v2_global_settings
+    SELECT 'volume', 'current', output_time_step  FROM time_step_settings
     UNION
-    SELECT id, 'qsss_cum_pos', 'surface_source_sink_discharge', 'cum_positive', output_time_step FROM v2_global_settings
+    SELECT 'surface_source_sink_discharge', 'cum_positive', output_time_step FROM time_step_settings
     UNION
-    SELECT id, 'qsss_cum_neg', 'surface_source_sink_discharge', 'cum_negative', output_time_step FROM v2_global_settings
+    SELECT 'surface_source_sink_discharge', 'cum_negative', output_time_step FROM time_step_settings
     ;
 	
-\*Note that the above query sets the aggregation time step equal to the output time step size. If you want to use a different aggregation time step size, make sure to use the same time step size for all aggregation variables, otherwise the Water Balance Tool cannot be used::
+.. note::
+    
+    The query above sets the aggregation time step equal to the output time step size. If you want to use a different aggregation time step size, make sure to use the same time step size for all aggregation variables, otherwise the Water Balance Tool cannot be used::
+        
+        UPDATE v2_aggregation_settings SET time_step = [desired time step size];
 
-
-	UPDATE v2_aggregation_settings SET time_step = [desired time step size];
-	

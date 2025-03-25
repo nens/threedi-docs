@@ -50,13 +50,6 @@ Conceptual changes
 
 This conceptual consistency makes it easier to understand what you are looking at, makes the software more stable and prevents strange, hard-to-solve bugs.
 
-Sunset version
-^^^^^^^^^^^^^^
-
-The :ref:`schematisationchecker`, :ref:`import_sufhyd` and :ref:`import_gwsw_hydx` still need the Spatialite. It may be necessary to directly view the Spatialite layers when using these tools, e.g. to understand certain error messages resulting from the Schematisation checker. The Spatialite will be phased out entirely and will be replaced by a GeoPackage, with a :ref:`database schema<migrate_spatialite>` that is similar to the database schema that the 3Di Schematisation Editor uses. The tools that interact with the Spatialite will be adapted to be compatible with GeoPackage and the new database schema. 
-
-While this development is ongoing, a so-called *sunset version* of 3Di Toolbox remains available. This sunset version will have only one functionality: loading the Spatialite layers in the 3Di Modeller Interface. It will be released in October 2023.
-
 Load/view schematisations
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 

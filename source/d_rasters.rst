@@ -6,7 +6,7 @@ Rasters
 Raster files
 ------------
 
-In 3Di we can use several raster input types. 3Di uses raster files stored in the GeoTIFF format. 3Di knows which raster files to use through a relative path-reference in the v2_global_settings table in the spatialite.
+In 3Di we can use several raster input types. 3Di uses raster files stored in the GeoTIFF format. 3Di knows which raster files to use through a relative path reference in several tables in the schematisation database.
 
 You may use any source for your raster information. Below see an example for the DEM, which is the main raster in case you want to do a simulation that includes 2D flow.
 
