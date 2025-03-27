@@ -16,7 +16,6 @@ For manual editing, the following topics are covered:
 The following processing algorithms are available:
 
 * :ref:`generate_exchange_lines`
-* :ref:`auto_fill_sewerage_properties`
 * :ref:`map_surfaces_to_connection_nodes`
 * :ref:`manhole_bottom_level_from_pipes`
 

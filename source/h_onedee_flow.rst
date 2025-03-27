@@ -124,11 +124,11 @@ In words; in 1D, 3Di takes inertia, advection, pressure gradients, bottom fricti
 Advection in 1D domain
 ----------------------
 
-The second term on the left-hand side of equation :ref:`momentum_equation_1d` :math:`u \frac{\partial u}{\partial s}` represents the advective term. Based on the spatial gradient of the velocity, it represents the transport of momentum. Advective terms can be numerically solved in various ways: implicit/explicit central difference method, first/second order upwind difference method, among others. Although all are mathematically correct and consistent, they all have their own advantages and disadvantages. They differ in their computational cost, accuracy, time step sensitivity, robustness and/or stability. Depending on the application, some of these characteristics are more pronounced than others. 
+The second term on the left-hand side of equation :eq:`momentum_equation_1d` :math:`u \frac{\partial u}{\partial s}` represents the advective term. Based on the spatial gradient of the velocity, it represents the transport of momentum. Advective terms can be numerically solved in various ways: implicit/explicit central difference method, first/second order upwind difference method, among others. Although all are mathematically correct and consistent, they all have their own advantages and disadvantages. They differ in their computational cost, accuracy, time step sensitivity, robustness and/or stability. Depending on the application, some of these characteristics are more pronounced than others. 
 
 All these methods are consistent under smooth conditions, but under certain conditions they can result in very different solutions, some even physically incorrect (:cite:t:`Stelling2003`). Exemplary are the results near sudden bed transitions or channel expansions or contractions. At those locations, there are large gradients in the velocity field. Under these circumstances the 1D momentum equation is not adequate. The vertical flow developed at the edge of these sudden transitions is at a scale too small to be resolved by large-scale models and more importantly, 3-dimensional approximations are required to model such complex flows. However, with applying correct conservation properties, accurate solutions can be achieved. Below, those that are used in 3Di are explained.
 
-3Di benefits from two main methods, both of which have been studied to be efficient and accurate. The first method is derived based on the momentum conservative form of equation :ref:`momentum_equation_1d`.
+3Di benefits from two main methods, both of which have been studied to be efficient and accurate. The first method is derived based on the momentum conservative form of equation :eq:`momentum_equation_1d`.
 
 .. math::
    \frac{\partial (Hu)}{\partial t}+\frac{\partial (Hu^2 + \frac{1}{2}gH^2)}{\partial s}+c_{f}u=gH\frac{\partial d}{\partial s}
@@ -138,7 +138,7 @@ For positive flow direction, the advection approximation of above equation yield
 .. math::
    u\frac{\partial u}{\partial s} = \frac{q_{i-\frac{1}{2}}+q_{i+\frac{1}{2}}}{H_{i}+H_{i+1}} \frac{u_{i+\frac{1}{2}}-u_{i-\frac{1}{2}}}{ds}
    
-The second method is derived based on the energy-head conservation form of equation :ref:`momentum_equation_1d`:
+The second method is derived based on the energy-head conservation form of equation :eq:`momentum_equation_1d`:
 
 .. math::
    \frac{\partial u}{\partial t}+\frac{\partial (\frac{1}{2}u^2+g\zeta)}{\partial s}+c_{f}\frac{u|u|}{h}=0

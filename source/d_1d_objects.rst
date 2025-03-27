@@ -897,7 +897,7 @@ Surface level
 This value is used for administrative purposes only. It does not affect the calculation
 
 Groundwater exchange
-"""""""""""""""""""
+""""""""""""""""""""
 To let the manhole exchange with groundwater, specify the *Exchange thickness*, *Hydraulic conductivity in*, and *Hydraulic conductivity out*. This is independent from the calculation type (embedded/isolated/connected), so you can also schematise a manhole that does *not* exchange with the surface water domain (calculation type is isolated), but *does* exchange with the groundwater domain.
 
 
@@ -1447,7 +1447,7 @@ The following types are supported:
 - Storage and settlement tank (7)
 
 Groundwater exchange
-"""""""""""""""""""
+""""""""""""""""""""
 To let the pipe exchange with groundwater, specify the *Exchange thickness*, *Hydraulic conductivity in*, and *Hydraulic conductivity out*. This is independent from the calculation type (embedded/isolated/connected), so you can also schematise a pipe that does not exchange with the surface water domain (calculation type is isolated), but does exchange with the groundwater domain.
 
 

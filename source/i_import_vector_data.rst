@@ -79,9 +79,11 @@ The vector data importer is also available as a set of Processing Algorithms in 
 
 The processing algorithms work in the same way as when using the graphical user interface explained above, but most of the options are read from the configuration file (JSON) that is supplied.
 
-- **Source layer**: Choose the layer *from* which you want to import features.
-- **Import configuration file**: Choose the JSON file that contains the import settings you want to use. The easiest way to create this JSON file is by using the *Save as template* option in the graphical user interface.
-- **Target schematisation database**: Choose the schematisation database file (*.gpkg).
+* **Source layer**: Choose the layer *from* which you want to import features.
+
+* **Import configuration file**: Choose the JSON file that contains the import settings you want to use. The easiest way to create this JSON file is by using the *Save as template* option in the graphical user interface.
+
+* **Target schematisation database**: Choose the schematisation database file (\*.gpkg).
 
 Configuration file (JSON)
 -------------------------

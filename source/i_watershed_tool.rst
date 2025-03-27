@@ -20,8 +20,8 @@ The Watershed Tool (|watershedtoolbar|) allows you to determine the upstream and
 	
 **Inputs**
 
-1) Select the simulation results you want to analyse.
-2) The 3Di schematisation database (*.gpkg) is an optional input, required only for visualizing the upstream Surfaces.
+#. Select the simulation results you want to analyse.
+#. The 3Di schematisation database (\*.gpkg) is an optional input, required only for visualizing the upstream Surfaces.
 
 **Settings**
 

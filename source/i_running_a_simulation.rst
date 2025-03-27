@@ -226,7 +226,7 @@ If you have not yet generated a saved state, this option will not be available. 
 .. _1d_initial_water_levels_csv_file_format:
 
 1D initial water levels file format CSV file format
------------------------------------
+---------------------------------------------------
 
 The columns in the CSV file are to be comma-separated. 
 

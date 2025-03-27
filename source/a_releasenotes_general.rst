@@ -4,7 +4,7 @@
 --------------------
 
 February 24th, 2025
-^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
 We have updated the backend of 3Di with the new geopackage database functionalities.
 

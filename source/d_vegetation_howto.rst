@@ -40,7 +40,7 @@ Vegetation drag can only be used with friction type *Chézy*, because the vegeta
 
 Example: Biesbosch
 ------------------
-To illustrate how vegetation drag parameters can be chosen for your use case, we will take the Biesbosch as an example. The Biesbosch is an estuary in the west of the Netherlands, near Rotterdam. A vegetation map is available from the Dutch national water management authority Rijkswaterstaat, see their `viewer < https://maps.rijkswaterstaat.nl/geoweb55/index.html?viewer=Vegetatielegger>`_. This data can be added to your 3Di Modeller Interface project as an ArcGIS REST service, using this link: https://geo.rijkswaterstaat.nl/arcgis/rest/services/GDR/rws_vegetatielegger/FeatureServer .
+To illustrate how vegetation drag parameters can be chosen for your use case, we will take the Biesbosch as an example. The Biesbosch is an estuary in the west of the Netherlands, near Rotterdam. A vegetation map is available from the Dutch national water management authority Rijkswaterstaat, see their `viewer <https://geoweb.rijkswaterstaat.nl/ModuleViewer/?app=988a774e44ba4a3084e721d95c4b49a5>`_. This data can be added to your 3Di Modeller Interface project as an ArcGIS REST service, using this link: https://geo.rijkswaterstaat.nl/arcgis/rest/services/GDR/rws_vegetatielegger/FeatureServer .
 
 .. figure:: image/a_vegetation_data_example_biesbosch.png
     :scale: 80%
