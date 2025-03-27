@@ -12,33 +12,47 @@ You may use any source for your raster information. Below see an example for the
 
 The following rasters can be included in a 3Di schematisation; they are referenced from different settings tables:
 
-Global settings:
+Model settings:
 
 * Digital elevation model [m MSL]
 * Friction coefficient [-]
-* Initial groundwater level [m MSL]
+
+Initial conditions:
+
 * Initial water level [m MSL]
+* Initial groundwater level [m MSL]
+
+Interception:
+
 * Interception [m]
 
-Simple Infiltration settings:
+Simple infiltration settings:
 
 * Infiltration rate [mm/d]
-* Max infiltration capacity [m]
+* Max infiltration volume  [m]
 
-Groundwater settings:
+Groundwater:
 
-* Equilibrium infiltration rate [mm/d]
-* Hydraulic conductivity [m/day]
 * Impervious layer level [m MSL]
-* Infiltration decay period [d]
-* Initial infiltration rate [mm/d]
-* Leakage [mm/d]
 * Phreatic storage capacity [-]
+* Hydraulic conductivity [m/day]
+* Initial infiltration rate [mm/d]
+* Equilibrium infiltration rate [mm/d]
+* Infiltration decay period [d]
+* Leakage [mm/d]
 
-Interflow settings:
+Interflow:
 
+* Impervious layer elevation [m MSL]
+* Porosity [fraction]
 * Hydraulic conductivity [m/d]
-* Porosity [-]
+
+2D Vegetation drag:
+
+* Vegetation height [m]
+* Vegetation stem count :math:`[m/s^{-2}]`
+* Vegetation stem diameter [m]
+* Vegetation drag coefficient [-]
 
 DEM
 ---
@@ -51,6 +65,8 @@ Raster requirements
 How you derive your raster information is entirely up to you. 3Di rasters have to meet the following requirements:
 
 #. Format is GeoTIFF (.tif)
+
+#. Coordinate reference system is Projected, not Geographic
 
 #. Projection is in meters (EPSG:28992 in NL)
 

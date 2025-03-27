@@ -6,7 +6,7 @@
 2D objects are calculated in the :ref:`2D domain <computational_grid_2d_domain>`. There are several 2D objects:
 
 * :ref:`2d_boundary_condition`
-* :ref:`2d_lateral`
+
 * :ref:`linear_obstacle`
 * :ref:`grid_refinement`
 * :ref:`grid_refinement_area`
@@ -105,66 +105,6 @@ Format the time series as Comma Separated Values (CSV), with the time (in minute
 - When editing the time series field in using SQL (sqlite dialect), use ``char(10)`` as line separator. The example time series shown above would look like this::
 
     "0,145.20"||char(10)||"15,145.23"||char(10)||"30,145.35"||char(10)||"45,145.38"||char(10)||"60,145.15"
-
-
-.. _2d_lateral:
-
-2D Lateral
-----------
-Lateral discharge for 2D cell.
-
-Geometry
-^^^^^^^^
-Point
-
-Attributes
-^^^^^^^^^^
-
-.. list-table:: 2D Lateral attributes
-   :widths: 4 4 2 4 30
-   :header-rows: 1
-
-   * - Field name
-     - Type
-     - Mandatory
-     - Units
-     - Description
-   * - id
-     - integer
-     - Yes
-     - \-
-     - Unique identifier
-   * - type
-     - text
-     - Yes
-     - \-
-     - Type of 2D lateral: Surface
-   * - timeseries
-     - text
-     - Yes
-     - [minutes since start of simulation],[m³/s]
-     - Timeseries of lateral discharges to be added to the specified location
-
-.. _2d_lateral_notes_for_modellers:
-
-Notes for modellers
-^^^^^^^^^^^^^^^^^^^
-
-Time series
-"""""""""""
-Format the time series as Comma Separated Values (CSV), with the time (in minutes since the start of the simulation) in the first column and the value (m³/s) in the second column. For example::
-
-    0,0.2
-    15,10.0
-    30,20.0
-    45,7.5
-    60,0.0
-
-- The time series string cannot contain any spaces or empty rows
-
-.. TODO: 
-    Nog niet zo uitgebreid als hij bij 1d objects is op het moment. misschien wel relevanten dingen weggelaten nu
-
 
 
 .. _linear_obstacle:
