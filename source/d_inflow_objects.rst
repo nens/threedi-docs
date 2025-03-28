@@ -94,7 +94,7 @@ Attributes
      - \-
      - True: flux will be interpolated between time steps. False: flux will remain contant until the next time step	 
    * - Time series
-     - time_series
+     - timeseries
      - text
      - Yes
      - \-
@@ -217,7 +217,7 @@ Attributes
      - \-
      - True: flux will be interpolated between time steps. False: flux will remain contant until the next time step	 
    * - Time series
-     - time_series
+     - timeseries
      - text
      - Yes
      - \-

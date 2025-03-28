@@ -33,7 +33,7 @@ Some strategies that you can pursue to reduce the number of nodes are:
 - Choosing the model boundaries differently, e.g. following the hydrological watershed boundaries more precisely
 - Dividing the model up in multple smaller models
 - Choose a smaller *grid_space* and/or the *kmax*, see :ref:`global_settings`
-- Use fewer grid refinements (see :ref:`grid_refinement` and ref:`grid_refinement_area`), or increase their refinement level.
+- Use fewer grid refinements (see :ref:`grid_refinement_line` and ref:`grid_refinement_area`), or increase their refinement level.
 - Choosing a simpler schematisation of the less important parts of the model, e.g. increase the cell size in those areas or schematise parts of the model in 1D instead of 2D. See :ref:`howto_convert_to_1d2d`.
 
 Vertical resolution
@@ -147,9 +147,9 @@ An explainer on schematisations and simulation templates can be found here* :ref
 
 - Why is the name of my simulation template 'default'? 
 
-*The name is being read from the v2_global_settings table in the 'name' column. If that happens to be 'default', then that is the name of your simulation template.*
+*The name is being read from the 'name' attribute in the *Simulation template settings* table. If that happens to be 'default', then that is the name of your simulation template.*
 
-- What happens if I add an extra entry in the v2_global_settings table? 
+- What happens if I add an extra entry in the *Simulation template settings* table? 
 
 *Extra entries will be ignored.*
 

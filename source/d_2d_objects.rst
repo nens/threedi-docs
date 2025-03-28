@@ -3,21 +3,20 @@
 2D Objects
 ==========
 
-2D objects are calculated in the :ref:`2D domain <computational_grid_2d_domain>`. There are several 2D objects:
+2D objects define properties of the computational grid of the :ref:`2D domain <computational_grid_2d_domain>`. There are several 2D objects:
 
 * :ref:`2d_boundary_condition`
-
-* :ref:`linear_obstacle`
-* :ref:`grid_refinement`
+* :ref:`obstacle`
 * :ref:`grid_refinement_area`
+* :ref:`grid_refinement_line`
 * :ref:`dem_average_area`
-* :ref:`windshielding`
 
 .. _2d_boundary_condition:
 
 2D Boundary Condition
 ---------------------
-Boundary condition for 2D model edge. Boundary conditions are crucial in hydraulic modeling because they define the interactions between the modeled area and its surroundings. They help simulate how water flows into or out of the simulation domain and how different types of forces, like inflows, outflows, water levels, or water velocities, are accounted for at the edges of the simulated region.
+
+Boundary condition for 2D model edge. Boundary conditions define the interactions between the modeled area and its surroundings. They define how water flows into or out of the model domain.
 
 Geometry
 ^^^^^^^^
@@ -45,37 +44,67 @@ Attributes
    :widths: 4 4 2 4 30
    :header-rows: 1
 
-   * - Field name
+   * - Attribute alias
+     - Field name
      - Type
      - Mandatory
      - Units
      - Description
-   * - id
+   * - ID
+     - id
      - integer
      - Yes
      - \-
      - Unique identifier
-   * - display_name
+   * - Code
+     - code
      - text
-     - Yes
+     - No
      - \-
      - Name field, no constraints
-   * - boundary_type
+   * - Display name
+     - display_name
+     - text
+     - No
+     - \-
+     - Name field, no constraints
+   * - Boundary type
+     - type
+     - integer
+     - Yes
+     - \-
+     - Sets the type to 1: Water level, 2: Velocity, 3: Discharge, 5: Sommerfeld, 6: Groundwater level or 7: Groundwater discharge
+   * - Time units
+     - time_units
      - text
      - Yes
      - \-
-     - Sets the type to Waterlevel, Velocity, Discharge, Sommerfeld, Groundwater level or Groundwater discharge
-   * - timeseries
+     - Units of the time step. Possible values: 'seconds', 'minutes', 'hours'
+   * - Interpolate
+     - interpolate
+     - boolean
+     - Yes
+     - \-
+     - True: values will be interpolated between time steps. False: values will remain contant until the next time step
+   * - Time series
+     - timeseries
      - text
      - Yes
-     - [minutes since start of simulation],[m | m/s | m³/s]
-     - Timeseries of water levels, flow velocities, discharges or water level gradients to be forced on the model boundary
+     - [s, min, or h] and [m MSL, m/s, m/m, m³/s]
+     - CSV-style table of 'time_step,value' pairs, separated by newline character.	 
+   * - Tags
+     - tags
+     - text
+     - No
+     - \-
+     - Comma-separated list of foreign key references to ID's in :ref:`tag`
 
 .. _2d_boundary_condition_notes_for_modellers:
 
 Time series
 """""""""""
-Format the time series as Comma Separated Values (CSV), with the time (in minutes since the start of the simulation) in the first column and the value (units dependent on the boundary type) in the second column. For example::
+
+- Format the time series as Comma Separated Values (CSV), with the time (in seconds, minutes or hours since the start of the simulation) in the first column and the value (units dependent on the boundary type) in the second column. For example::
 
     0,145.20
     15,145.23
@@ -83,13 +112,21 @@ Format the time series as Comma Separated Values (CSV), with the time (in minute
     45,145.38
     60,145.15
 
+- Units used are:
+    - Water level: m MSL
+	- Velocity: m/s
+	- Discharge: m³/s
+	- Sommerfeld: m/m
+	- Groundwater level: m MSL
+    - Groundwater discharge: m³/s
+
 - The time series string cannot contain any spaces or empty rows
 
 - The boundary condition time series is stored in the simulation template and is not part of the 3Di model itself. It can be overridden when starting a new simulation, without the need to create a new revision of the schematisation.
 
-- The time unit in the 2D boundary condition table *in the schematisation* is minutes, while the 3Di API expects this input in seconds. A conversion is applied when the reading the data from the schematisation. If you upload a CSV file with 1D boundary condition time series via the simulation wizard, you can choose the time unit (see :ref:`simulate_api_qgis_boundary_conditions`)
+- When posted to the 3Di server, the time steps will be converted to seconds. If you upload a CSV file with boundary conditions time series via the simulation wizard, the time units should always be in *seconds* (see :ref:`simulate_api_qgis_boundary_conditions`)
 
-- For boundary types velocity (2), discharge (3) and Sommerfeld (5), the sign of the input values determine the flow direction (see the figure below). If a 2D discharge or velocity boundary condition is placed at the eastern or northern edge of the model domain, and you want water to flow in (from east to west or from north to south), the values must be negative; if it is placed at the western or southern edge, the values must be positive to make the water flow in. For the Sommerfeld boundary, a positive value (gradient) means that the water level at the western/southern side is *lower* than the water level at the eastern/northern side, i.e. if placed at the east or north, this will result in boundary *inflow* and if placed at the west or south, it will result in boundary *outflow*.
+- For boundary types Velocity, Discharge and Sommerfeld, the sign of the input values determines the flow direction (see the figure below). If a 2D discharge or velocity boundary condition is placed at the eastern or northern edge of the model domain, and you want water to flow in (from east to west or from north to south), the values must be negative; if it is placed at the western or southern edge, the values must be positive to make the water flow in. For the Sommerfeld boundary, a positive value (gradient) means that the water level at the western/southern side is *lower* than the water level at the eastern/northern side, i.e. if placed at the east or north, this will result in boundary *inflow* and if placed at the west or south, it will result in boundary *outflow*.
 
     .. figure:: image/2d_boundary_flow_directions.png
        :alt: Flow directions for velocity and discharge boundaries
@@ -98,19 +135,18 @@ Format the time series as Comma Separated Values (CSV), with the time (in minute
 
 - The time series must cover the entire simulation period.
 
-- The time series values are interpolated between the defined times
-
-- In case of multiple boundaries in 1 model: make sure they all have the same number of time series rows with the same temporal interval.
+- In case of multiple boundaries in one model: make sure they all have the same number of time series rows with the same temporal interval. This also applies if you have e.g. one 1D boundary and one 2D boundary.
 
 - When editing the time series field in using SQL (sqlite dialect), use ``char(10)`` as line separator. The example time series shown above would look like this::
 
     "0,145.20"||char(10)||"15,145.23"||char(10)||"30,145.35"||char(10)||"45,145.38"||char(10)||"60,145.15"
 
 
-.. _linear_obstacle:
+.. _obstacle:
 
-Linear obstacle
----------------
+Obstacle
+--------
+
 Line with fixed crest level that overrides DEM values at edges of computational cells when calculating the cross-section between cells.
 
 Geometry
@@ -150,7 +186,7 @@ Attributes
      - m MSL
      - Lowest point of the obstacle
 
-.. _grid_refinement:
+.. _grid_refinement_line:
 
 Grid refinement
 ---------------
@@ -264,77 +300,3 @@ Attributes
      - Yes
      - \-
      - Unique identifier
-
-.. _windshielding:
-
-Windshielding
--------------
-Windshielding reduces the wind shear on open water.
-
-Geometry
-^^^^^^^^
-No geometry
-
-Attributes
-^^^^^^^^^^
-
-.. list-table:: Windshielding attributes
-   :widths: 4 4 2 4 30
-   :header-rows: 1
-
-   * - Field name
-     - Type
-     - Mandatory
-     - Units
-     - Description
-   * - id
-     - integer
-     - Yes
-     - \-
-     - Unique identifier
-   * - channel_id
-     - integer
-     - No
-     - \-
-     - ID of the channel
-   * - north
-     - decimal number
-     - No
-     - \-
-     - The amount of wind being shielded from the north.
-   * - northeast
-     - decimal number
-     - No
-     - \-
-     - The amount of wind being shielded from the northeast .
-   * - east
-     - decimal number
-     - No
-     - \-
-     - The amount of wind being shielded from the east.
-   * - southeast
-     - decimal number
-     - No
-     - \-
-     - The amount of wind being shielded from the southeast.
-   * - south
-     - decimal number
-     - No
-     - \-
-     - The amount of wind being shielded from the south.
-   * - southwest
-     - decimal number
-     - No
-     - \-
-     - The amount of wind being shielded from the southwest.
-   * - west
-     - decimal number
-     - No
-     - \-
-     - The amount of wind being shielded from the west.
-   * - northwest
-     - decimal number
-     - No
-     - \-
-     - The amount of wind being shielded from the northwest.
-
