@@ -147,14 +147,83 @@ Time series
 Obstacle
 --------
 
-Line with fixed crest level that overrides DEM values at edges of computational cells when calculating the cross-section between cells.
+Line with fixed crest level that overrides DEM values at edges of computational cells when calculating the cross-section between cells if they are lower than the obstacle crest level. Or, in other words, the exchange level of the flowlines that intersect with this obstacle will increased to the obstacle's crest level.
 
 Geometry
 ^^^^^^^^
+
 Line
 
 Attributes
 ^^^^^^^^^^
+
+.. list-table:: Dry weather flow map attributes
+   :widths: 4 4 2 4 30
+   :header-rows: 1
+
+   * - Attribute alias
+     - Field name
+     - Type
+     - Mandatory
+     - Units
+     - Description
+   * - ID
+     - id
+     - integer
+     - Yes
+     - \-
+     - Unique identifier
+   * - Code
+     - code
+     - text
+     - No
+     - \-
+     - Name field, no constraints
+   * - Display name
+     - display_name
+     - text
+     - No
+     - \-
+     - Name field, no constraints
+   * - Crest level
+     - crest_level
+     - decimal number
+     - Yes
+     - m MSL
+     - Exchange level of intersected flowlines will be updated to this value
+   * - Affects 2D
+     - affects_2d
+     - boolean
+     - No
+     - \-
+     - Determines wether 2D flowlines are :ref:`affected <obstacle_notes_for_modellers>`
+   * - Affects 1D2D open water
+     - affects_1d2d_open_water
+     - boolean
+     - No
+     - \-
+     - Determines wether 1D2D open water flowlines are :ref:`affected <obstacle_notes_for_modellers>`
+   * - Affects 1D2D closed
+     - affects_1d2d_closed
+     - boolean
+     - No
+     - \-
+     - Determines wether 1D2D closed flowlines are :ref:`affected <obstacle_notes_for_modellers>`
+   * - Tags
+     - tags
+     - text
+     - No
+     - \-
+     - Comma-separated list of foreign key references to ID's in :ref:`tag`
+
+.. _obstacle_notes_for_modellers:
+
+Notes for modellers
+^^^^^^^^^^^^^^^^^^^
+
+You can fine-tune which types of flowlines are affected by the obstacle, by setting any combination of 2D, 1D-2D open water, and 1D-2d closed. "2D" refers to flowlines between two 2D cells. "1D-2D open water" refers to a flowline between a "1D open water" node and a 2D cell. "1D-2D closed" refers to a flowline between a "1D closed" node and a 2D cell. By default, any node that is part of a channel or connected to a channel is regarded as "open water" and all other 1D nodes are regarded as "closed". Older schematisations may use a different setting, see the setting *Node open water detection* in :ref:`model_settings`.
+
+
 
 .. list-table:: Linear obstacle attributes
    :widths: 4 4 2 4 30
