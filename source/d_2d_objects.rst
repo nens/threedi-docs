@@ -18,6 +18,11 @@
 
 Boundary condition for 2D model edge. Boundary conditions define the interactions between the modeled area and its surroundings. They define how water flows into or out of the model domain.
 
+Layer name
+^^^^^^^^^^
+
+boundary_condition_2d
+
 Geometry
 ^^^^^^^^
 
@@ -149,6 +154,11 @@ Obstacle
 
 Line with fixed crest level that overrides DEM values at edges of computational cells when calculating the cross-section between cells if they are lower than the obstacle crest level. Or, in other words, the exchange level of the flowlines that intersect with this obstacle will increased to the obstacle's crest level.
 
+Layer name
+^^^^^^^^^^
+
+obstacle
+
 Geometry
 ^^^^^^^^
 
@@ -157,7 +167,7 @@ Line
 Attributes
 ^^^^^^^^^^
 
-.. list-table:: Dry weather flow map attributes
+.. list-table:: Obstacle attributes
    :widths: 4 4 2 4 30
    :header-rows: 1
 
@@ -255,58 +265,21 @@ You can fine-tune which types of flowlines are affected by the obstacle, by sett
      - m MSL
      - Lowest point of the obstacle
 
-.. _grid_refinement_line:
-
-Grid refinement
----------------
-Lines that determine local 2D calculation grid refinement.
-
-Geometry
-^^^^^^^^
-Line
-
-Attributes
-^^^^^^^^^^
-
-.. list-table:: Grid refinement attributes
-   :widths: 4 4 2 4 30
-   :header-rows: 1
-
-   * - Field name
-     - Type
-     - Mandatory
-     - Units
-     - Description
-   * - id
-     - integer
-     - Yes
-     - \-
-     - Unique identifier
-   * - display_name
-     - text
-     - Yes
-     - \-
-     - Name field, no constraints
-   * - code
-     - text
-     - Yes
-     - \-
-     - Name field, no constraints
-   * - refinement_level
-     - integer
-     - Yes
-     - \-
-     - The maximum number of grid-refinement levels. See :ref:`computational_grid` for more details.
-
-
 .. _grid_refinement_area:
 
 Grid refinement area
 --------------------
-Polygons that determine local 2D calculation grid refinement.
+
+Polygon that sets local 2D calculation grid refinement.
+
+Layer name
+^^^^^^^^^^
+
+grid_refinement_area
 
 Geometry
 ^^^^^^^^
+
 Polygon
 
 Attributes
@@ -316,56 +289,155 @@ Attributes
    :widths: 4 4 2 4 30
    :header-rows: 1
 
-   * - Field name
+   * - Attribute alias
+     - Field name
      - Type
      - Mandatory
      - Units
      - Description
-   * - id
+   * - ID
+     - id
      - integer
      - Yes
      - \-
      - Unique identifier
-   * - display_name
+   * - Code
+     - code
      - text
-     - Yes
+     - No
      - \-
      - Name field, no constraints
-   * - code
+   * - Display name
+     - display_name
      - text
-     - Yes
+     - No
      - \-
      - Name field, no constraints
-   * - refinement_level
+   * - Grid level
+     - grid_level
      - integer
      - Yes
      - \-
-     - The maximum number of grid-refinement levels. See :ref:`computational_grid` for more details.
+     - Set this to 1 to let all intersected cells have the :ref:`minimum cell size<model_settings>`. Each increase by 1 doubles the cell size. The grid level cannot exceed the number of grid levels set in :ref:`model_settings`.
+   * - Tags
+     - tags
+     - text
+     - No
+     - \-
+     - Comma-separated list of foreign key references to ID's in :ref:`tag`
+
+.. _grid_refinement_line:
+
+Grid refinement line
+--------------------
+
+Line that sets local 2D calculation grid refinement.
+
+Layer name
+^^^^^^^^^^
+
+grid_refinement_line
+
+Geometry
+^^^^^^^^
+
+Line
+
+Attributes
+^^^^^^^^^^
+
+.. list-table:: Grid refinement line attributes
+   :widths: 4 4 2 4 30
+   :header-rows: 1
+
+   * - Attribute alias
+     - Field name
+     - Type
+     - Mandatory
+     - Units
+     - Description
+   * - ID
+     - id
+     - integer
+     - Yes
+     - \-
+     - Unique identifier
+   * - Code
+     - code
+     - text
+     - No
+     - \-
+     - Name field, no constraints
+   * - Display name
+     - display_name
+     - text
+     - No
+     - \-
+     - Name field, no constraints
+   * - Grid level
+     - grid_level
+     - integer
+     - Yes
+     - \-
+     - Set this to 1 to let all intersected cells have the :ref:`minimum cell size<model_settings>`. Each increase by 1 doubles the cell size. The grid level cannot exceed the number of grid levels set in :ref:`model_settings`.
+   * - Tags
+     - tags
+     - text
+     - No
+     - \-
+     - Comma-separated list of foreign key references to ID's in :ref:`tag`
 
 .. _dem_average_area:
 
 DEM average area
 ----------------
-Polygons that determine in which cells DEM averaging should be applied.
+
+Polygon that determine in which cells DEM averaging should be applied.
+
+Layer name
+^^^^^^^^^^
+
+dem_average_area
 
 Geometry
 ^^^^^^^^
+
 Polygon
 
 Attributes
 ^^^^^^^^^^
 
-.. list-table:: Dem average area attributes
+.. list-table:: DEM average area attributes
    :widths: 4 4 2 4 30
    :header-rows: 1
 
-   * - Field name
+   * - Attribute alias
+     - Field name
      - Type
      - Mandatory
      - Units
      - Description
-   * - id
+   * - ID
+     - id
      - integer
      - Yes
      - \-
      - Unique identifier
+   * - Code
+     - code
+     - text
+     - No
+     - \-
+     - Name field, no constraints
+   * - Display name
+     - display_name
+     - text
+     - No
+     - \-
+     - Name field, no constraints
+   * - Tags
+     - tags
+     - text
+     - No
+     - \-
+     - Comma-separated list of foreign key references to ID's in :ref:`tag`
