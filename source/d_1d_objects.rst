@@ -10,6 +10,7 @@
 * :ref:`connection_node`
 * :ref:`cross_section_location`
 * :ref:`culvert`
+* :ref:`material`
 * :ref:`orifice`
 * :ref:`pipe`
 * :ref:`pump_schematisation_object`
@@ -842,6 +843,62 @@ Material, friction type and friction value
 """"""""""""""""""""""""""""""""""""""""""
 
 The :ref:`material` table lets you define materials with a friction type and friction value. In the attribute form of the culvert, you can either fill in the material ID to use the friction type and value of that material, or fill in the friction type an value directly. If you fill in both the material ID and the friction type and friction value, the latter will be used. 
+
+
+.. _material:
+
+Material
+-------
+
+Material for which you want to define a friction type and friction value. Can be used to set the friction data for :ref:`culvert`, :ref:`pipe`, :ref:`orifice`, or :ref:`weir` 
+
+Layer name
+^^^^^^^^^^
+
+material
+
+Geometry
+^^^^^^^^
+
+No geometry
+
+Attributes
+^^^^^^^^^^
+
+.. list-table:: Material attributes
+   :widths: 6 4 4 2 4 30
+   :header-rows: 1
+
+   * - Attribute alias
+     - Field name
+     - Type
+     - Mandatory
+     - Units
+     - Description
+   * - ID
+     - id
+     - integer
+     - Yes
+     - \-
+     - Unique identifier
+   * - Description
+     - description
+     - text
+     - No
+     - \-
+     - Name of the material
+   * - Friction type
+     - friction_type
+     - decimal number
+     - Yes
+     - \-
+     - Sets the friction type to Chézy (1) or Manning (2)
+   * - Friction coefficient
+     - friction_coefficient
+     - decimal number
+     - Yes
+     - m\ :sup:`1/2`/s (Chézy) or s/m\ :sup:`1/3` (Manning)
+     - Friction or roughness value
 
 .. _orifice:
 
