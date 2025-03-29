@@ -11,8 +11,8 @@ The 1D resolution (calculation point distance) relates to the scale at which the
 
 Exchange between 1D and 2D
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-If the channel is part of a 1D/2D schematisation and has a *(double) connected* :ref:`calculation type <calculation_types>`, you will also need to consider the exchange with the 2D domain. This exchange is only possible at computational points. A general guideline is to match the 1D and 2D resolutions in those areas, i.e., if the computational cell size is 40 x 40 m\ :sup:`2`, a 1D calculation point distance of 40 m would be recommended.
+If the channel is part of a 1D/2D schematisation and has a *(double) connected* :ref:`exchange type <calculation_types>`, you will also need to consider the exchange with the 2D domain. This exchange is only possible at computational points. A general guideline is to match the 1D and 2D resolutions in those areas, i.e., if the computational cell size is 40 x 40 m\ :sup:`2`, a 1D calculation point distance of 40 m would be recommended.
 
-Pipes can also be given a *connected* calculation type, in combination with a calculation point distance that is smaller than the length of the pipe. In this way, the pipe can exchange with 2D cells it crosses. This can be used as a way to schematise gullies.
+Pipes can also be given a *connected* exchange type, in combination with a calculation point distance that is smaller than the length of the pipe. In this way, the pipe can exchange with 2D cells it crosses. This can be used as a way to schematise gullies.
 
 See the :ref:`channelflow` section for more information and a visual representation of the exchange between the 1D and 2D domains.

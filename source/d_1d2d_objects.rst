@@ -105,7 +105,7 @@ Attributes
      - decimal number
      - Yes
      - m MSL
-     - Exchange level for the 1D2D connections. Only used when calculation type is 'connected'.
+     - Exchange level for the 1D2D connections. Only used when exchange type is 'connected'.
    * - Max breach depth [m]
      - maximum_breach_depth
      - decimal number

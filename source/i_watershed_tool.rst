@@ -3,14 +3,13 @@
 Watershed tool
 ==============
 
-The Watershed Tool (|watershedtoolbar|) allows you to determine the upstream and downstream catchment at any point or area. Upstream or downstream elements include surface areas (2D cells), sewerage and channel flow (1D flowlines) as well as impervious surfaces (0D inflow). If there is net flow from the element to the target node(s) above a user-defined threshold, the element is included in the upstream results; for the downstream area, this is based on flow originated from the target node(s) to the downstream elements. These connections may consist of any (combination of) flowline(s) included in the model. 
+The Watershed Tool (|watershedtoolbar|) allows you to determine the upstream and downstream catchment at any point or area. Upstream or downstream elements include surface areas (2D cells), sewerage and channel flow (1D flowlines) as well as surfaces (0D inflow). If there is net flow from the element to the target node(s) above a user-defined threshold, the element is included in the upstream results; for the downstream area, this is based on flow originated from the target node(s) to the downstream elements. These connections may consist of any (combination of) flowline(s) included in the model. 
 
 .. @Leendert: Is this still correct?
 .. note::
-   -  Pumplines (pumping stations that pump water from one location in the model to another) are not taken into account in the network analysis.
+   -  Pump maps (pumps that pump water from one location in the model to another) are not taken into account in the network analysis.
    -  Interflow is not taken into account in the network analysis.
    -  Groundwater flow is taken into account but has not been tested yet, please check the results.
-
 
 .. figure:: image/i_watershed_tool.png
 	:alt: Watershed Tool

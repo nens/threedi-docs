@@ -166,8 +166,8 @@ First of all, instability is not common within 3Di, but certain settings or mode
 #) Make sure you have fixed all errors *and warnings* that the Schematisation checker gives. 
 #) Decrease your calculation time step (background information: courant number)
 #) Temporarily decrease your output time step . This makes it easier to analyse what goes wrong
-#) Check if there are pump stations that are pumping to another 1D-node within the same 2D-computational cell
-#) Put the 'pump_implicit_ratio' in the numerical settings to 1. This makes sure that the model calculates smoothly for pump stations (see :ref:`matrixsolvers` --> pump_implicit_ratio)
+#) Check if there are pumps that are pumping to another 1D node within the same 2D computational cell
+#) Put the 'pump_implicit_ratio' in the numerical settings to 1. This makes sure that the model calculates smoothly for pumps (see :ref:`matrixsolvers` --> pump_implicit_ratio)
 
 
 .. _known_issues:

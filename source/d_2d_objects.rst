@@ -129,7 +129,7 @@ Time series
 
 - The boundary condition time series is stored in the simulation template and is not part of the 3Di model itself. It can be overridden when starting a new simulation, without the need to create a new revision of the schematisation.
 
-- When posted to the 3Di server, the time steps will be converted to seconds. If you upload a CSV file with boundary conditions time series via the simulation wizard, the time units should always be in *seconds* (see :ref:`simulate_api_qgis_boundary_conditions`)
+- When posted to the 3Di server, the time steps will be converted to seconds.
 
 - For boundary types Velocity, Discharge and Sommerfeld, the sign of the input values determines the flow direction (see the figure below). If a 2D discharge or velocity boundary condition is placed at the eastern or northern edge of the model domain, and you want water to flow in (from east to west or from north to south), the values must be negative; if it is placed at the western or southern edge, the values must be positive to make the water flow in. For the Sommerfeld boundary, a positive value (gradient) means that the water level at the western/southern side is *lower* than the water level at the eastern/northern side, i.e. if placed at the east or north, this will result in boundary *inflow* and if placed at the west or south, it will result in boundary *outflow*.
 
