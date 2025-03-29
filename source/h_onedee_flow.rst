@@ -363,7 +363,7 @@ where :math:`c_f` is the dimensionless friction coefficient, :math:`L` the lengt
 Pumps
 ------
 
-Pumps in 3Di drain water from one location to another location, within the model domain (:ref:`pumpstation_with_end_node`) or out of the model domain (:ref:`pumpstation_without_end_node`). The behaviour of a pump is specified by defining the start and stop levels of the pump and the pump capacity, as illustrated in the figure below. See :ref:`pumpstation_with_end_node` and :ref:`pumpstation_without_end_node` for details on how to set these parameters.
+Pumps in 3Di drain water from one location to another location, within the model domain (:ref:`pump_schematisation_object` with a :ref:`pump_map`) or out of the model domain (:ref:`pump_schematisation_object` without a :ref:`pump_map`). The behaviour of a pump is specified by defining the start and stop levels of the pump and the pump capacity, as illustrated in the figure below. See :ref:`pump_schematisation_object` and :ref:`pump_map` for details on how to set these parameters.
 
 .. figure:: image/b_structures_pump.png
    :scale: 50% 

@@ -1015,9 +1015,14 @@ Pipe
 
 Pipe in a sewerage system.
 
+Layer name
+^^^^^^^^^^
+
+pipe
+
 Geometry
 ^^^^^^^^
-Linestring (exactly two vertices)
+Linestring (two or more vertices)
 
 Attributes
 ^^^^^^^^^^
@@ -1038,114 +1043,84 @@ Attributes
      - Yes
      - \-
      - Unique identifier
-   * - exchange type
-     - calculation_type
-     - integer
-     - Yes
-     - \-
-     - Sets the 1D2D exchange type: embedded (0), isolated (1), or connected (2). See :ref:`calculation_types`.
    * - Code
      - code
      - text
      - No
      - \-
      - Name field, no constraints
-   * - Cross-section height
-     - cross_section_height
-     - decimal number
-     - see :ref:`cross-section_shape`
-     - m
-     - Height of the cross-section (only used for Closed rectangle cross-sections)
-   * - Cross-section shape
-     - cross_section_shape
-     - decimal number
-     - Yes
-     - integer
-     - Sets the cross-section shape, :ref:`cross-section_shape`
-   * - Cross-section table
-     - cross_section_table
-     - text
-     - see :ref:`cross-section_shape`
-     - m
-     - CSV-style table of [height, width] or [Y, Z] pairs, see :ref:`cross-section_shape`
-   * - Cross-section width
-     - cross_section_width
-     - decimal number
-     - see :ref:`cross-section_shape`
-     - integer
-     - Width or diameter of the cross-section, see :ref:`cross-section_shape`
    * - Display name
      - display_name
      - text
      - No
      - \-
      - Name field, no constraints
-   * - Distance between calculation points
-     - dist_calc_points
+   * - Calculation point distance
+     - calculation_point_distance
      - decimal number
      - No
      - m
      - Maximum distance between calculation points, see :ref:`techref_calculation_point_distance`
-   * - End connection node ID
-     - connection_node_end_id
+   * - Exchange type
+     - exchange_type
      - integer
      - Yes
      - \-
-     - ID of end connection node
-   * - End invert level
-     - invert_level_end_point
-     - decimal number
-     - Yes
-     - m MSL
-     - Level of lowest point on the inside at the end of the pipe
+     - Sets the 1D2D exchange type: Embedded (0), Isolated (1), or Connected (2). See :ref:`calculation_types`.	 
+   * - Material
+     - material_id
+	 - integer
+	 - No
+	 - \-
+	 - Foreign key reference to an ID in the :ref:`material` table, see :ref:`pipe_material`
    * - Friction type
      - friction_type
      - decimal number
-     - Yes
+     - See :ref:`pipe_material`
      - \-
      - Sets the friction type to Chézy (1) or Manning (2)
    * - Friction value
      - friction_value
      - decimal number
-     - Yes
-     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
+     - See :ref:`pipe_material`
+     - m\ :sup:`1/2`/s (Chézy) or s/m\ :sup:`1/3` (Manning)
      - Friction or roughness value
-   * - Sewerage
-     - sewerage
-     - boolean
-     - Yes
-     - \-
-     - Indicates if the pumpstation is part of the sewerage system (True) or not (False)
-   * - Start connection node ID
-     - connection_node_start_id
-     - integer
-     - Yes
-     - \-
-     - ID of start connection node
-   * - Start invert level
-     - invert_level_start_point
+   * - Invert level start
+     - invert_level_start
      - decimal number
      - Yes
      - m MSL
      - Level of lowest point on the inside at the start of the pipe
-   * - Material
-     - material
-     - integer
-     - No
-     - \-
-     - Pipe wall material, not used in the calculation. See :ref:`pipe_notes_for_modeller`.
-   * - Sewerage type
-     - sewerage_type
-     - integer
+   * - Invert level end 
+     - invert_level_end
+     - decimal number
      - Yes
-     - \-
-     - Function of the pipe in the sewerage system. Used for visualisation and administrative purposes only. See :ref:`pipe_notes_for_modeller`.
-   * - Zoom category
-     - zoom_category
+     - m MSL
+     - Level of lowest point on the inside at the end of the pipe
+   * - Cross-section shape
+     - cross_section_shape
+     - decimal number
+     - Yes
      - integer
-     - No
-     - \-
-     - *Deprecated*
+     - Sets the cross-section shape, :ref:`cross-section_shape`
+   * - Cross-section width
+     - cross_section_width
+     - decimal number
+     - See :ref:`cross-section_shape`
+     - integer
+     - Width or diameter of the cross-section, see :ref:`cross-section_shape`
+   * - Cross-section height
+     - cross_section_height
+     - decimal number
+     - See :ref:`cross-section_shape`
+     - m
+     - Height of the cross-section (only used for Closed rectangle cross-sections)
+   * - Cross-section table
+     - cross_section_table
+     - text
+     - See :ref:`cross-section_shape`
+     - m
+     - CSV-style table of [height, width] or [Y, Z] pairs, see :ref:`cross-section_shape`
    * - Exchange thickness
      - exchange_thickness
      - decimal number
@@ -1164,30 +1139,50 @@ Attributes
      - No
      - \-
      - Hydraulic conductivity for water flowing from the pipe to the groundwater, see :ref:`1d2d_groundwater_exchange`	 	 
-
-When using the 3Di Schematisation Editor
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-- The *connection nodes* and *manholes* will be added automatically.
-- To draw a single pipe, the geometry must have exactly 2 vertices. A line with more than 2 vertices will be split into several pipes.
-- To digitize a trajectory of multiple pipes, first digitize the manholes, fill in the bottom levels, and then draw the pipe trajectory over these manholes by adding a vertex at each of the manholes. The pipes that are generated will use the manhole's bottom levels as invert levels and the *connection nodes* and *manholes* will be added automatically.
-
-
+   * - Sewerage type
+     - sewerage_type
+     - integer
+     - Yes
+     - \-
+     - Function of the pipe in the sewerage system. Used for visualisation and administrative purposes only. See :ref:`pipe_notes_for_modeller`.
+   * - Connection node ID start
+     - connection_node_id_start
+     - integer
+     - Yes
+     - \-
+     - ID of start connection node
+   * - Connection node ID end
+     - connection_node_id_end
+     - integer
+     - Yes
+     - \-
+     - ID of start connection node
+   * - Tags
+     - tags
+     - text
+     - No
+     - \-
+     - Comma-separated list of foreign key references to ID's in :ref:`tag`
+	 
 
 .. _pipe_notes_for_modeller:
 
 Notes for modellers
 ^^^^^^^^^^^^^^^^^^^
 
-The cross-section describes the inside of the pipe. If you only know the outer dimensions, you have to discount the wall thickness.
+- The cross-section describes the inside of the pipe. If you only know the outer dimensions, you have to discount the wall thickness.
+- To draw a single pipe, the geometry must have exactly 2 vertices. A line with more than 2 vertices will be split into several pipes.
 
 Adding a pipe trajectory
 """"""""""""""""""""""""
 When you digitize (draw) a pipe feature with more than two vertices, each vertex will be converted into a connection node plus manhole, connected by pipes. If you digitize a pipe that connects existing manholes, the pipe(s) will use the manholes' bottom levels as their invert levels and automatically refer to the correct the connection nodes. Therefore, the quickest way to  digitize a trajectory of multiple pipes is to first digitize the manholes, fill in the bottom levels, and then draw the pipe trajectory over these manholes by adding a vertex at each of the manholes.
 
-Material
-""""""""
-The material is not used in the calculation, but can be used to estimate the friction value. The processing algorithm "Guess Indicators" recognizes the following values:  0: concrete; 1: pvc; 2: gres; 3: cast iron; 4: brickwork; 5: HPE; 6: HDPE; 7: plate iron; 8: steel.
+.. _pipe_material:
+
+Material, friction type and friction value
+""""""""""""""""""""""""""""""""""""""""""
+
+The :ref:`material` table lets you define materials with a friction type and friction value. In the attribute form of the pipe, you can either fill in the material ID to use the friction type and value of that material, or fill in the friction type and value directly. If you fill in both the material ID and the friction type and friction value, the latter will be used. 
 
 Sewerage type
 """""""""""""
@@ -1210,18 +1205,22 @@ To let the pipe exchange with groundwater, specify the *Exchange thickness*, *Hy
 Pump
 ----
 
-Pumpstation that pumps water out of the model domain. This can be used, for example, to simulate a final pumpstation that pumps the water to a sewage treatment plant that is outside of the model domain. See :ref:`pump` for details on how pumping stations work in 3Di.
+Structure that pumps water out of the model domain, or, when combined with a :ref:`pump_map`, to another connection node within the model domain. See :ref:`pump` for details on how pumps work in 3Di.
 
-If you want the pumpstation to pump the water to another location *within* the model, use :ref:`pumpstation_with_end_node`
+Layer name
+^^^^^^^^^^
+
+pump
 
 Geometry
 ^^^^^^^^
+
 Point
 
 Attributes
 ^^^^^^^^^^
 
-.. list-table:: Pumpstation (without end node) attributes
+.. list-table:: Pump attributes
    :widths: 6 4 4 2 4 30
    :header-rows: 1
 
@@ -1237,71 +1236,66 @@ Attributes
      - Yes
      - \-
      - Unique identifier
-   * - Capacity
-     - capacity
-     - decimal number
-     - Yes
-     - L/s
-     - Pump capacity
    * - Code
      - code
      - text
      - No
      - \-
      - Name field, no constraints
-   * - Connection node ID
-     - connection_node_id
-     - integer
-     - Yes
-     - \-
-     - ID of connection node on which the pumpstation is placed
    * - Display name
      - display_name
      - text
      - No
      - \-
      - Name field, no constraints
-   * - Lower stop level
-     - lower_stop_level
+   * - Capacity
+     - capacity
      - decimal number
      - Yes
-     - m MSL
-     - Pump switches off when the water level becomes lower than this level
-   * - Sewerage
-     - sewerage
-     - boolean
-     - Yes
-     - \-
-     - Indicates if the pumpstation is part of the sewerage system (True) or not (False)
+     - L/s
+     - Pump capacity
    * - Start level
      - start_level
      - decimal number
      - Yes
      - m MSL
      - Pump switches on when the water level exceeds this level
-   * - Type
-     - type
-     - integer
+   * - Lower stop level
+     - lower_stop_level
+     - decimal number
      - Yes
-     - \-
-     - Sets whether pump reacts to water level at: suction side (1) or delivery side (2)
+     - m MSL
+     - Pump switches off when the water level becomes lower than this level
    * - Upper stop level
      - upper_stop_level
      - decimal number
      - Yes
      - m MSL
      - Pump switches off when the water level exceeds this level
-   * - Zoom category
-     - zoom_category
+   * - Type
+     - type
      - integer
-     - No
+     - Yes
      - \-
-     - *Deprecated*
+     - Sets whether pump reacts to water level at: suction side (1) or delivery side (2)
+   * - Sewerage
+     - sewerage
+     - boolean
+     - Yes
+     - \-
+     - Indicates if the pump is part of the sewerage system (True) or not (False)
+   * - Connection node ID
+     - connection_node_id
+     - integer
+     - Yes
+     - \-
+     - ID of connection node on which the pumpstation is placed
 
 
 Notes for modellers
 ^^^^^^^^^^^^^^^^^^^
-- Multiple pumpstations may be defined for the same connection node. If their active ranges (start/stop level) overlap, they may pump at the same time.
+
+- Multiple pumps may be defined for the same connection node. If their active ranges (start/stop level) overlap, they may pump at the same time.
 
 
 .. _pump_map:
@@ -1309,17 +1303,18 @@ Notes for modellers
 Pump map
 --------
 
-Pumpstation that transports water from one connection node to another. See :ref:`pump` for details on how pumping stations work in 3Di. If you want the pumpstation to pump the water out of the model, use :ref:`pumpstation_without_end_node`. You do *not* need to use a 1D boundary condition for this.
+Mapping object to define to which connection node a pump should pump.
 
 Geometry
 ^^^^^^^^
+
 Linestring (exactly two vertices)
 
 
 Attributes
 ^^^^^^^^^^
 
-.. list-table:: Pumpstation (with end node) attributes
+.. list-table:: Pump map attributes
    :widths: 6 4 4 2 4 30
    :header-rows: 1
 
@@ -1335,12 +1330,6 @@ Attributes
      - Yes
      - \-
      - Unique identifier
-   * - Capacity
-     - capacity
-     - decimal number
-     - Yes
-     - L/s
-     - Pump capacity
    * - Code
      - code
      - text
@@ -1353,60 +1342,23 @@ Attributes
      - No
      - \-
      - Name field, no constraints
-   * - End connection node ID
+   * - Pump ID
+     - pump_id
+     - integer
+     - Yes
+     - \-
+     - Foreign key reference to the ID of a :ref:`pump_schematisation_object`
+   * - Connection node ID end
      - connection_node_end_id
      - integer
      - Yes
      - \-
      - ID of connection node to which the water is pumped
-   * - Lower stop level
-     - lower_stop_level
-     - decimal number
-     - Yes
-     - m MSL
-     - Pump switches off when the water level becomes lower than this level
-   * - Sewerage
-     - sewerage
-     - boolean
-     - Yes
-     - \-
-     - Indicates if the pumpstation is part of the sewerage system (True) or not (False)
-   * - Start connection node ID
-     - connection_node_start_id
-     - integer
-     - Yes
-     - \-
-     - ID of connection node from which the water is pumped
-   * - Start level
-     - start_level
-     - decimal number
-     - Yes
-     - m MSL
-     - Pump switches on when the water level exceeds this level
-   * - Type
-     - type
-     - integer
-     - Yes
-     - \-
-     - Sets whether pump reacts to water level at: suction side (1) or delivery side (2)
-   * - Upper stop level
-     - upper_stop_level
-     - decimal number
-     - Yes
-     - m MSL
-     - Pump switches off when the water level exceeds this level
-   * - Zoom category
-     - zoom_category
-     - integer
-     - No
-     - \-
-     - *Deprecated*
-
 
 Notes for modellers
 ^^^^^^^^^^^^^^^^^^^
-- Multiple pumpstations may be defined for the same connection node. If their active ranges (start/stop level) overlap, they may pump at the same time.
 
+- Each pump can be mapped only once.
 
 .. _weir:
 
@@ -1417,8 +1369,14 @@ Overflow structure, used to control the water level. It can be used in open wate
 
 A weir is commonly used to schematise structures with open cross sections, whereas the :ref:`orifice` is commonly used for structures that are closed at the top. However, both types of cross-sections can be used for either structure, and 3Di uses them in the calculation in the same way. See :ref:`weirs_and_orifices` for further details.
 
+Layer name
+^^^^^^^^^^
+
+weir
+
 Geometry
 ^^^^^^^^
+
 Linestring (exactly two vertices)
 
 Attributes
@@ -1446,96 +1404,102 @@ Attributes
      - No
      - \-
      - Name field, no constraints
-   * - Crest level
-     - crest_level
-     - decimal number
-     - Yes
-     - m MSL
-     - Lowest point of the cross-section.
-   * - Crest type
-     - crest_type
-     - integer
-     - Yes
-     - \-
-     - Sets the crest type: broad-crested (3) or short-crested (4)
-   * - Cross-section height
-     - cross_section_height
-     - decimal number
-     - see :ref:`cross-section_shape`
-     - m
-     - Height of the cross-section (only used for Closed rectangle cross-sections)
-   * - Cross-section shape
-     - cross_section_shape
-     - decimal number
-     - Yes
-     - \-
-     - Sets the cross-section shape, :ref:`cross-section_shape`
-   * - Cross-section table
-     - cross_section_table
-     - text
-     - see :ref:`cross-section_shape`
-     - m
-     - CSV-style table of [height, width] or [Y, Z] pairs, see :ref:`cross-section_shape`
-   * - Cross-section width
-     - cross_section_width
-     - decimal number
-     - see :ref:`cross-section_shape`
-     - m
-     - Width or diameter of the cross-section, see :ref:`cross-section_shape`
-   * - Discharge coefficient negative
-     - discharge_coefficient_negative
-     - decimal_number
-     - Yes
-     - \-
-     - Discharge in the negative direction is multiplied by this value
-   * - Discharge coefficient positive
-     - discharge_coefficient_positive
-     - decimal_number
-     - Yes
-     - \-
-     - Discharge in the positive direction is multiplied by this value
    * - Display name
      - display_name
      - text
      - No
      - \-
      - Name field, no constraints
-   * - End connection node ID
-     - connection_node_end_id
+   * - Crest type
+     - crest_type
      - integer
      - Yes
      - \-
-     - ID of connection node to which the water is pumped
+     - Sets the crest type: broad-crested (3) or short-crested (4)
+   * - Discharge coefficient positive
+     - discharge_coefficient_positive
+     - decimal_number
+     - Yes
+     - \-
+     - Discharge in the positive direction is multiplied by this value
+   * - Discharge coefficient negative
+     - discharge_coefficient_negative
+     - decimal_number
+     - Yes
+     - \-
+     - Discharge in the negative direction is multiplied by this value
+   * - Material
+     - material_id
+	 - integer
+	 - See :ref:`weir_material`
+	 - \-
+	 - Foreign key reference to an ID in the :ref:`material` table.
    * - Friction type
      - friction_type
      - decimal number
-     - Yes
+     - See :ref:`weir_material`
      - \-
      - Sets the friction type to Chézy (1) or Manning (2)
    * - Friction value
      - friction_value
      - decimal number
-     - Yes
-     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
+     - See :ref:`weir_material`
+     - m\ :sup:`1/2`/s (Chézy) or s/m\ :sup:`1/3` (Manning)
      - Friction or roughness value
+   * - Crest level
+     - crest_level
+     - decimal number
+     - Yes
+     - m MSL
+     - Lowest point of the cross-section.
+   * - Cross-section shape
+     - cross_section_shape
+     - decimal number
+     - Yes
+     - \-
+     - Sets the cross-section shape, :ref:`cross-section_shape`
+   * - Cross-section width
+     - cross_section_width
+     - decimal number
+     - see :ref:`cross-section_shape`
+     - m
+     - Width or diameter of the cross-section, see :ref:`cross-section_shape`
+   * - Cross-section height
+     - cross_section_height
+     - decimal number
+     - see :ref:`cross-section_shape`
+     - m
+     - Height of the cross-section (only used for Closed rectangle cross-sections)
+   * - Cross-section table
+     - cross_section_table
+     - text
+     - see :ref:`cross-section_shape`
+     - m
+     - CSV-style table of [height, width] or [Y, Z] pairs, see :ref:`cross-section_shape`
    * - Sewerage
      - sewerage
      - boolean
      - Yes
      - \-
      - Indicates if the structure is part of the sewerage system (True) or not (False)
-   * - Start connection node ID
-     - connection_node_start_id
+   * - Connection node ID start
+     - connection_node_id_start
      - integer
      - Yes
      - \-
      - ID of the start connection node
-   * - Zoom category
-     - zoom_category
+   * - Connection node ID end
+     - connection_node_id_end
      - integer
+     - Yes
+     - \-
+     - ID of the end connection node
+   * - Tags
+     - tags
+     - text
      - No
      - \-
-     - *Deprecated*
+     - Comma-separated list of foreign key references to ID's in :ref:`tag`
 
 
 Notes for the modeller
@@ -1543,86 +1507,132 @@ Notes for the modeller
 
 In the computational grid, a weir will always be represented by a single flowline. Therefore, weirs do not have a calculation point distance and exchange type. The exchange type of the start and end nodes is determined by the channels, culverts, manholes, and pipes connected to them.
 
+
 Crest level
 """""""""""
+
 This is the reference level for the cross-section. For example, if the crest level is 12.0 m and the cross-section a circle with a diameter of 0.5 m, the opening will start at 12.0 m and end at 12.5 m
 
 .. _weir_discharge_coefficients:
 
 Discharge coefficients
 """"""""""""""""""""""
+
 The discharge is multiplied by this value. The energy loss caused by the change in flow velocity at the entrance and exit are accounted for by 3Di. The discharge coefficients can be used to account for any additional energy loss. 'Positive' applies to flow in the drawing direction of the structure (from start node to end node); 'negative' applies to flow in the opposite direction.
+
+.. _weir_material:
+
+Material, friction type and friction value
+""""""""""""""""""""""""""""""""""""""""""
+
+Only weirs with crest type *Broad-crested* need a friction type and friction value. Short-crested weirs do not need this.
+
+The :ref:`material` table lets you define materials with a friction type and friction value. In the attribute form of the orifice, you can either fill in the material ID to use the friction type and value of that material, or fill in the friction type an value directly. If you fill in both the material ID and the friction type and friction value, the latter will be used. 
 
 .. _windshielding:
 
-1D Windshielding
+1D Wind shielding
 ----------------
 
-Windshielding reduces the wind shear on open water.
+Wind shielding reduces the wind shear on open water.
+
+Layer name
+^^^^^^^^^^
+
+windshielding_1d
 
 Geometry
 ^^^^^^^^
-No geometry
+
+Point
 
 Attributes
 ^^^^^^^^^^
 
-.. list-table:: Windshielding attributes
-   :widths: 4 4 2 4 30
+.. list-table:: 1D Wind shielding attributes
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
-   * - Field name
+   * - Attribute alias
+     - Field name
      - Type
      - Mandatory
      - Units
      - Description
-   * - id
+   * - ID
+     - id
      - integer
      - Yes
      - \-
      - Unique identifier
-   * - channel_id
+   * - Code
+     - code
+     - text
+     - No
+     - \-
+     - Name field, no constraints
+   * - Display name
+     - display_name
+     - text
+     - No
+     - \-
+     - Name field, no constraints
+   * - Channel ID
+     - channel_id
      - integer
      - No
      - \-
      - ID of the channel
-   * - north
+   * - North
      - decimal number
      - No
      - \-
      - The amount of wind being shielded from the north.
-   * - northeast
+   * - North-east
+     - northeast
      - decimal number
      - No
      - \-
-     - The amount of wind being shielded from the northeast .
-   * - east
+     - The amount of wind being shielded from the north-east .
+   * - East
+     - east
      - decimal number
      - No
      - \-
      - The amount of wind being shielded from the east.
-   * - southeast
+   * - South-east
+     - southeast
      - decimal number
      - No
      - \-
-     - The amount of wind being shielded from the southeast.
-   * - south
+     - The amount of wind being shielded from the south-east.
+   * - South
+     - south
      - decimal number
      - No
      - \-
      - The amount of wind being shielded from the south.
-   * - southwest
+   * - South-west
+     - southwest
      - decimal number
      - No
      - \-
-     - The amount of wind being shielded from the southwest.
-   * - west
+     - The amount of wind being shielded from the south-west.
+   * - West
+     - west
      - decimal number
      - No
      - \-
      - The amount of wind being shielded from the west.
-   * - northwest
+   * - North-west
+     - northwest
      - decimal number
      - No
      - \-
-     - The amount of wind being shielded from the northwest.
+     - The amount of wind being shielded from the north-west.
+   * - Tags
+     - tags
+     - text
+     - No
+     - \-
+     - Comma-separated list of foreign key references to ID's in :ref:`tag`
