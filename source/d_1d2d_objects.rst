@@ -3,7 +3,7 @@
 1D2D Objects
 ============
 
-1D2D objects allow for an :ref:`exchange <1d2d_exchange>` between :ref:`1d_objects` and the :ref:`2D domain <2d_objects>`. There are two 1D2D objects in 3Di models:
+1D2D objects regulate the :ref:`exchange <1d2d_exchange>` between :ref:`1d_objects` and the :ref:`2D domain <2d_objects>`. There are two 1D2D objects in 3Di models:
 
 * :ref:`exchange_line`
 * :ref:`potential_breach`
@@ -14,8 +14,14 @@ Exchange line
 -------------
 Line that determines which 2D cells the calculation points of a :ref:`Channel` connect to. A 1D2D connection is created from each calculation point on the Channel to the cell in which the closest point on the Exchange line is located. Applies only to channels with :ref:`calculation_types` 'connected' or 'double connected'. The page :ref:`Editing schematisations <generate_exchange_lines>` contains information on generating exchange lines.
 
+Layer name
+^^^^^^^^^^
+
+exchange_line
+
 Geometry
 ^^^^^^^^
+
 Line
 
 Attributes
@@ -43,30 +49,46 @@ Attributes
      - No
      - \-
      - Name field, no constraints
+   * - Display name
+     - display_name
+     - text
+     - No
+     - \-
+     - Name field, no constraints
    * - Exchange level [m MSL]
      - exchange_level
      - decimal number
      - Yes
      - m MSL
-     - Exchange level for the 1D2D connections. Only used when calculation 
+     - Exchange level for the 1D2D connections. See :ref:`1d2d_exchange` 
    * - Channel ID
      - channel_id
      - integer
      - Yes
      - \-
      - ID of the channel
-
-\
-\
-
+   * - Tags
+     - tags
+     - text
+     - No
+     - \-
+     - Comma-separated list of foreign key references to ID's in :ref:`tag`
+	 
 .. _potential_breach:
 
 Potential breach
 ----------------
-Line drawn from a Channel to a 2D cell, to create a potential breach location. At these locations, the 1D2D connection can be :ref:`breached<breaches>` during the simulation.
+
+Line from a Channel to a 2D cell, to create a potential breach location. At these locations, the 1D2D connection can be :ref:`breached<breaches>` during the simulation.
+
+Layer name
+^^^^^^^^^^
+
+potential_breach
 
 Geometry
 ^^^^^^^^
+
 Line
 
 Attributes
@@ -100,27 +122,33 @@ Attributes
      - No
      - \-
      - Name field, no constraints
-   * - Exchange level [m MSL]
-     - exchange_level
+   * - Initial exchange level
+     - initial_exchange_level
      - decimal number
      - Yes
      - m MSL
-     - Exchange level for the 1D2D connections. Only used when exchange type is 'connected'.
-   * - Max breach depth [m]
-     - maximum_breach_depth
+     - Exchange level for the 1D2D connection when the breach has not been activated yet
+   * - Final exchange level
+     - final_exchange_level
      - decimal number
      - No
-     - m
-     - Maximum depth of the breach, in m below the exchange level.
+     - m MSL
+     - Breach will grow down to this level, before growing in width.
    * - Levee material
      - levee_material
      - text
      - No
      - \-
-     - Set the material of the levee: sand or clay
+     - Set the material of the levee: sand (1) or clay (2)
    * - Channel ID
      - channel_id
      - integer
      - Yes
      - \-
      - ID of the channel
+   * - Tags
+     - tags
+     - text
+     - No
+     - \-
+     - Comma-separated list of foreign key references to ID's in :ref:`tag`
