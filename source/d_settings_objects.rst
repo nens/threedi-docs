@@ -3,316 +3,195 @@
 Settings objects
 ================
 
-On this page an overview of all settings objects is provided.
+Objects in this category contain the settings that govern several aspects of the model and the simulation template. Tags are also included in this category.
 
-.. _global_settings:
+* :ref:`model_settings`
+* :ref:`aggregation_settings`
+* :ref:`numerical_settings`
+* :ref:`hp_groundwater`
+* :ref:`physical_settings`
+* :ref:`simulation_template_settings`
+* :ref:`tag`
 
-Global settings
----------------
+.. _model_settings:
 
-The global settings of your schematisation. These can be grouped into categories: *General*, *Grid*, *Terrain information*, *Time*, *Settings id's*, *Extra options 1D*, and *Extra options 2D*.
+Model settings
+------------------
 
-Global settings attributes
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Defines the settings that are needed in the creation of a 3Di model (computational grid and subgrid tables).
 
-.. list-table:: Global settings attributes
-   :widths: 20 20 15 10 10 25 20
+Raster files need to be stored in a folder called *rasters*, in the same folder as the schematisation geopackage.
+
+This table can contain only one row.
+
+Layer name
+^^^^^^^^^^
+
+model_settings
+
+Attributes
+^^^^^^^^^^
+
+.. list-table:: Model settings attributes
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
-   * - Attribute
+   * - Attribute alias
      - Field name
      - Type
      - Mandatory
      - Units
      - Description
-     - Category
    * - ID
      - id
-     - Integer
+     - integer
      - Yes
      - \-
-     - Unique identifier. A schematisation should have only one global settings ID.
-     - General
-   * - Name
-     - name
-     - Text
-     - No
-     - \-
-     - Name of simulation template. This is the default simulation name when starting a simulation. Can be changed for any simulation.
-     - General
-   * - Use 0D inflow
-     - use_0d_inflow
-     - Integer
-     - Yes
-     - \-
-     - Choose between: *0: do not use 0d inflow*, *1: use v2_impervious_surface*, or *2: use v2_surface*. See :ref:`howto_use_inflow` for more details.
-     - General
-   * - Use 1D flow
-     - use_1d_flow
-     - Boolean
-     - Yes
-     - \-
-     - Indicates whether 1D flow is taken into account in a simulation.
-     - General
-   * - Use 2D rain
-     - use_2d_rain
-     - Boolean
-     - Yes
-     - \-
-     - Indicates whether rain on the 2D domain is taken into account in a simulation.
-     - General
-   * - Use 2D flow
-     - use_2d_flow
-     - Boolean
-     - Yes
-     - \-
-     - Indicates whether 2D flow is taken into account in a simulation.
-     - General
-   * - Grid space
-     - grid_space
-     - Integer
-     - Yes
-     - m
-     - The width/length of the smallest possible 2D computation cell. See :ref:`computational_grid` for more details.
-     - Grid
-   * - Number of grid refinement levels
-     - kmax
-     - Integer
-     - Yes
-     - \-
-     - The maximum number of grid refinement levels. See :ref:`computational_grid` for more details.
-     - Grid
-   * - Table step size
-     - table_step_size
-     - Decimal number
-     - Yes
-     - m
-     - Defines the height interval between successive increments in the subgrid tabulation. See :ref:`subgrid_tables` for more details.
-     - Grid
-   * - Maximum table step size
-     - maximum_table_step_size
-     - Decimal number
-     - No
-     - m
-     - Defines the maximum height interval between successive increments in the subgrid tabulation. Defaults to 100 × minimum table step size. See :ref:`subgrid_tables` for more details.
-     - Grid
+     - Unique identifier
    * - DEM file
      - dem_file
      - Text
      - No
      - m MSL
-     - Location of your DEM file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\dem.tif*
-     - Terrain information
-   * - EPSG code
-     - epsg_code
+     - Name of the DEM file (*.tif)
+   * - Minimum cell size
+     - minimum_cell_size
+     - Integer
+     - Yes
+     - m
+     - The width/length of the smallest possible 2D computation cell. See :ref:`computational_grid` for more details.
+   * - Number of grid levels
+     - nr_grid_levels
      - Integer
      - Yes
      - \-
-     - Defines the coordinate reference system (CRS) to define the spatial reference system for you schematisation.
-     - Terrain information
-   * - Friction coefficient file
-     - frict_coef_file
-     - Text
-     - No
-     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
-     - Location of your friction coeffient file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\friction.tif*. This superseeds any global friction coefficient.
-     - Terrain information
-   * - Friction coefficient
-     - frict_coef
-     - Decimal number
-     - Yes
-     - m\ :sup:`1/2`/s (Chèzy) or s/m\ :sup:`1/3` (Manning)
-     - Defines a friction coefficient for your schematisation. This global value is superseded in case a friction coefficient file is provided.
-     - Terrain information
-   * - Friction type
-     - frict_type
-     - Integer
-     - Yes
-     - \-
-     - Defines the friction type from two options: *1: Chèzy* or *2: Manning*. Make sure the friction type matches the friction coefficient (file).
-     - Terrain information
-   * - Friction average
-     - frict_avg
-     - Boolean
-     - Yes
-     - \-
-     - Indicates whether the friction values in a subgrid-cell are averaged or not
-     - Terrain information
-   * - Wind shielding file
-     - wind_shielding_file
-     - Text
-     - No
-     - \-
-     - Location of your wind shielding factor file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\wind_shielding.tif*. See :ref:`wind_effects` for more details.
-     - Terrain information
-   * - Start date
-     - start_date
-     - Date
-     - Yes
-     - \-
-     - Start date of simulation template. The format is yyyy-mm-dd (e.g. 2023-07-21).
-     - Time
-   * - Start time
-     - start_time
-     - Date
-     - Yes
-     - \-
-     - Start time of simulation template. The format is hh:mm:ss.
-     - Time
-   * - Simulation time step
-     - sim_time_step
-     - Decimal number
-     - Yes
-     - s
-     - The default time step used in the simulation.
-     - Time
-   * - Time step plus
-     - timestep_plus
-     - Boolean
-     - Yes
-     - \-
-     - Indicates whether or not time step plus is used. If possible it will use a larger time step than the simulation time step. Note that it is only useful in steady state simulation.
-     - Time
-   * - Minimum simulation time step
-     - minimum_sim_time_step
-     - Decimal number
-     - Yes
-     - s
-     - Minimum time step that is allowed in the simulation.
-     - Time
-   * - Maximum simulation time step
-     - maximum_sime_time_step
-     - Decimal number
-     - Only when using time step plus
-     - s
-     - Maximum time step that is allowed in the simulation. Use in conjunction with *Time step plus*.
-     - Time
-   * - Number of time steps
-     - nr_timesteps
-     - Integer
-     - Yes
-     - \-
-     - Maximum number of time step (this is no longer used).
-     - Time
-   * - Output time step
-     - output_time_step
-     - Decimal number
-     - Yes
-     - s
-     - The output time step that is written in the output file (NetCDF). This must be a multiplication of the simulation time step.
-     - Time
-   * - Groundwater settings ID
-     - groundwater_settings_id
-     - Integer
-     - Only when using groundwater
-     - \-
-     - Reference to the groundwater settings ID.
-     - Settings ID's
-   * - Numerical settings ID
-     - numerical_settings_id
-     - Integer
-     - Yes
-     - \-
-     - Reference to the numerical settings ID.
-     - Settings ID's
-   * - Simple infiltration settings ID
-     - simple_infiltration_settings_id
-     - Integer
-     - Only when using simple infiltration
-     - \-
-     - Reference to the simple infiltration settings ID.
-     - Settings ID's
-   * - Control group ID
-     - control_group_id
-     - Integer
-     - Only when using controls
-     - \-
-     - Reference to the control group ID.
-     - Settings ID's
-   * - Vegetation drag settings ID
-     - vegetation_drag_settings_id
-     - Integer
-     - Only when using vegetation
-     - \-
-     - Reference to the vegetation drag settings ID.
-     - Settings ID's
-   * - Advection 1D
-     - advection_1d
-     - Integer
-     - Yes
-     - \-
-     - Choose between *0: Do not use advection 1D* or *1: Use advection 1D*. Options 2-6 are in an experimental phase.
-     - Extra options 1D
-   * - Calculation point distance
-     - dist_calc_points
+     - The maximum number of 2D cell sizes, doubling in size each time. See :ref:`computational_grid` for more details.
+   * - Calculation point distance 1D
+     - calculation_point_distance_1d
      - Decimal number
      - Yes
      - \-
-     - Distance between calculation points for line elements. This global value is superseded in case this  is specified with the specific 1D objects.
-     - Extra options 1D
-   * - Manhole storage area
-     - manhole_storage_area
+     - Maximum distance between calculation points for line elements. This global value is superseded in case it is specified for the specific 1D object.
+   * - Minimum table step size
+     - minimum_table_step_size
      - Decimal number
-     - Only when using only 1D-flow without a specified DEM
-     - m\ :sup:`2`
-     - Manhole storage area. This global value is the surface area that each manhole is given when water reaches above the drain level. To use this feature, do not specify a DEM file and set the manhole exchange types to *Connected*. Must be left empty when using only 2D flow.
-     - Extra options 1D
-   * - Maximum angle for 1D advection
-     - max_angle_1d_advection
+     - Yes
+     - m
+     - Defines the height interval between successive increments in the subgrid tabulation. See :ref:`subgrid_tables` for more details.
+   * - Maximum table step size
+     - maximum_table_step_size
      - Decimal number
      - No
-     - Degrees
-     - Maximum angle at which advection is taken into account (should be between 0 and 90 degrees).
-     - Extra options 1D
-   * - Table step size for the 1D domain
+     - m
+     - Defines the maximum height interval between successive increments in the subgrid tabulation. Defaults to 100 × *Minimum table step size*. See :ref:`subgrid_tables` for more details.
+   * - Table step size 1D
      - table_step_size_1d
      - Decimal number
      - No
      - m
-     - User-defined table step size/increment (m) for 1d cross-sections and volumes; see :ref:`subgrid_tables`. Default value = table_step_size. Supersedes the table step size for 1D domain.
-     - Extra options 1D
-   * - Advection 2D
-     - advection_2d
+     - User-defined table step size/increment (m) for 1D cross-sections and volumes; see :ref:`subgrid_tables`. Defaults to *Minimum table step size*.
+   * - Friction type
+     - friction_type
      - Integer
      - Yes
      - \-
-     - Choose between *0: Do not use advection 2D* or *1: Use advection 2D*.
-     - Extra options 2D
-   * - DEM obstacle detection
-     - dem_obstacle_detection
+     - Defines the friction type for the 2D domain: *1: Chézy* or *2: Manning*. Make sure the friction type matches the friction coefficient (file).
+   * - Friction coefficient
+     - friction_coefficient
+     - Decimal number
+     - Yes
+     - m\ :sup:`1/2`/s (Chézy) or s/m\ :sup:`1/3` (Manning)
+     - Defines a friction coefficient for your schematisation. This global value is superseded in case a friction coefficient file is provided.
+   * - Friction averaging
+     - friction_averaging
+     - Boolean
+     - Yes
+     - \-
+     - Sets whether the friction values in a subgrid cell are averaged or not
+   * - Friction coefficient file
+     - friction_coefficient_file
+     - Text
+     - No
+     - m\ :sup:`1/2`/s (Chézy) or s/m\ :sup:`1/3` (Manning)
+     - Name of the friction coeffient file. This supersedes the global 2D friction coefficient.
+   * - Use 1D flow
+     - use_1d_flow
      - Boolean
      - No
      - \-
-     - This feature is no longer supported.
-     - Extra options 2D
-   * - Guess dams
-     - guess_dams
+     - If false, no 1D network and 1D2D flowlines will be created when making the computational grid.
+   * - Use 2D flow
+     - use_2d_flow
      - Boolean
      - No
      - \-
-     - This feature is no longer supported.
-     - Extra options 2D
-   * - DEM obstacle height
-     - dem_obstacle_height
+     - If false, no 2D flowlines will be created when making the computational grid. Note that 2D cells (for storage) and 1D2D connections will still be made and used.
+   * - Use 2D rain
+     - use_2d_rain
+     - Boolean
+     - No
+     - \-
+     - Sets whether rain on the 2D domain is taken into account in a simulation.
+   * - Use interception
+     - use_interception
+     - Boolean
+     - No
+     - \-
+     - Sets the inclusion of interception in the 3Di model.
+   * - Use interflow
+     - use_interflow
+     - Boolean
+     - No
+     - \-
+     - Sets the inclusion of interflow in the 3Di model.
+   * - Use simple infiltration
+     - use_simple_infiltration
+     - Boolean
+     - No
+     - \-
+     - Sets the inclusion of simple infiltration in the 3Di model.
+   * - Use vegetation drag 2D
+     - use_vegetation_drag_2d
+     - Boolean
+     - No
+     - \-
+     - Sets the inclusion of 2D vegetation drag in the 3Di model.
+   * - Use groundwater storage
+     - use_groundwater_storage
+     - Boolean
+     - No
+     - \-
+     - If true, groundwater cells will be created. Switch on *Use groundwater flow* to also create groundwater flowlines.
+   * - Use groundwater flow
+     - use_groundwater_flow
+     - Boolean
+     - No
+     - \-
+     - If true, groundwater flowlines will be created. Switching on *Use groundwater storage* is required to use this option.
+   * - Max. angle 1D advection
+     - max_angle_1d_advection
      - Decimal number
      - No
-     - m
-     - This feature is no longer supported.
-     - Extra options 2D
+     - Radians
+     - Maximum angle at which advection is taken into account (should be between 0 and 0.5 π).
+   * - Manhole aboveground storage area
+     - manhole_aboveground_storage_area
+     - Decimal number
+     - For models with only 1D flow
+     - m\ :sup:`2`
+     - Storage area for connection nodes at street level. This global value is the surface area that each connection node is given when water reaches above the exchange level. To use this feature, set the connection node exchange types to *Connected*. Must be left empty when using only 2D flow.
    * - Embedded cutoff threshold
      - embedded_cutoff_threshold
      - Decimal number
      - No
      - \-
-     - Relative length of cell size. When an embedded channel intersects a 2D cell with a length shorter than the cell size * cutoff threshold, the embedded channel skips this 2D cell. This is useful for preventing very short embedded channel segments (which slow down your simulation).
-     - Extra options 2D
-   * - Flooding threshold
-     - flooding_threshold
+     - When an embedded channel intersects a 2D cell with a length shorter than the cell size × cutoff threshold, the embedded channel skips this 2D cell. This is useful for preventing very short embedded channel segments (which slow down your simulation).
+   * - Node open water detection
+     - node_open_water_detection
      - Decimal number
-     - Yes
-     - m
-     - The water depth threshold for flow between 2D cells. The depth is relative to the lowest DEM pixel at the edge between two 2D cells. It should be equal or higher than 0.
-     - Extra options 2D
+     - No
+     - \-
+     - Sets which calculation nodes are labelled as *open water* vs. *closed*. Choose between *0: Node is regarded as open water if at least one channel connects to it* (recommended) or *1: Node is regarded as open water if it has no storage area* (not recommended; for backward compatibility only)
 
 
 .. _aggregation_settings:
@@ -320,10 +199,17 @@ Global settings attributes
 Aggregation settings
 --------------------
 
-You can set multiple aggregation options for each *flow_variable* as long as the *aggregation_method* is not used twice for the same flow_variable. For more information about aggregation, see :ref:`aggregationnetcdf`.
+You can set multiple aggregation options for each *flow_variable* as long as the *aggregation_method* is not used twice for the same flow_variable. For more information about result aggregation, see :ref:`aggregationnetcdf`.
 
-Aggregation settings attributes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+These settings are stored in the simulation template. You can change them before starting the simulation, without the need to regenerate the 3Di model.
+
+Layer name
+^^^^^^^^^^
+
+aggregation_settings
+
+Attributes
+^^^^^^^^^^
 
 .. list-table:: Aggregation settings attributes
    :widths: 20 20 15 10 15 40
@@ -340,7 +226,7 @@ Aggregation settings attributes
      - Integer
      - Yes
      - \-
-     - Unique identifier. Each aggregation needs a unique ID.
+     - Unique identifier.
    * - Flow variable
      - flow_variable
      - Text
@@ -350,10 +236,10 @@ Aggregation settings attributes
      
        - discharge (Discharge)
        - flow_velocity (Flow velocity)
-       - pump_discharger (Pump discharge)
+       - pump_discharge (Pump discharge)
        - rain (Rain)
-       - waterlevel (Water level)
-       - wet_cross-section (Wet cross-sectional area)
+       - water_level (Water level)
+       - wet_cross_section (Wet cross-sectional area)
        - wet_surface (Wet surface)
        - lateral_discharge (Lateral discharge)
        - volume (Volume)
@@ -371,457 +257,251 @@ Aggregation settings attributes
        - avg (Average): Calculates the average value of the variable over the aggregation interval.
        - min (Minimum): Calculates the minimum value of the variable over the aggregation interval.
        - max (Maximum): Calculates the maximum value of the variable over the aggregation interval.
-       - cum (Cumulative): Calculates the cumulative value of the variable over the aggregation interval by integrating over time [dt * variable].
+       - cum (Cumulative): Calculates the cumulative value of the variable over the aggregation interval by integrating over time [dt × variable].
        - med (Median): Calculates the median value of the variable over the aggregation interval.
-       - cum_negative (Cumulative negative): Calculates the cumulative negative value of the variable over the aggregation interval by integrating over time [dt * variable].
-       - cum_positive (Cumulative positive): Calculates the cumulative positive value of the variable over the aggregation interval by integrating over time [dt * variable].
-       - current (Current): Uses the current value of a variable. This is for the Water Balance Tool. This is only valid for volume and intercepted_volume.
-   * - Aggregation interval
-     - time_step
+       - cum_negative (Cumulative negative): Calculates the cumulative negative value of the variable over the aggregation interval by integrating over time [dt × variable].
+       - cum_positive (Cumulative positive): Calculates the cumulative positive value of the variable over the aggregation interval by integrating over time [dt × variable].
+       - current (Current): Uses the current value of a variable. This is only valid for volume and intercepted_volume.
+   * - Interval
+     - interval
      - Integer
      - Yes
      - s
-     - Determines the interval over which the aggregation will be calculated
-   * - Aggregation variable name
-     - var_name
-     - Text
-     - No
-     - \-
-     - This field is no longer used
-   * - Global settings id
-     - global_settings_id
-     - Integer
-     - Yes
-     - \-
-     - Reference to the global settings ID
-
-.. _simple_infiltration_settings:
-
-Simple infiltration settings
-----------------------------
-
-Settings for :ref:`simpleinfiltration`. 
-
-Simple infiltration attributes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. list-table:: Simple infiltration settings attributes
-   :widths: 15 20 10 10 10 35
-   :header-rows: 1
-
-   * - Attribute
-     - Field name
-     - Type
-     - Mandatory
-     - Units
-     - Description
-   * - ID
-     - id
-     - Integer
-     - Yes
-     - \-
-     - Unique identifier. A schematisation should have only one simple infiltration settings ID.
-   * - Display name
-     - display_name
-     - Text
-     - Yes
-     - \-
-     - For user administration only.
-   * - Infiltration rate
-     - infiltration_rate
-     - Decimal number
-     - Yes
-     - mm/day
-     - Infiltration rate.  This global value is superseded in case an infiltration rate file is provided.
-   * - Infiltration rate file
-     - infiltration_rate_file
-     - Text
-     - No
-     - mm/day
-     - Location of your infiltration rate file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\infiltration.tif*. This superseeds any global infiltration rate.
-   * - Maximum infiltration capacity
-     - max_infiltration_capacity
-     - Decimal number
-     - No
-     - m
-     - Maximum infiltration capacity, which uses the sum of pixel values per 2D cell. Once this capacity has been reached there will be no more infiltration. This global value is superseded in case a maximum infiltration capacity file is provided.
-   * - Maximum infiltration capacity file
-     - max_infiltration_capacity_file
-     - Text
-     - No
-     - m
-     - Location of your maximum infiltration capacity file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\max_infiltration.tif*. This superseeds any global maximum infiltration capacity.
-   * - Infiltration surface option
-     - infiltration_surface_option
-     - Integer
-     - Yes
-     - \-
-     - Option that determines how the infiltration works in 2D cells. Choose between *0: Rain (whole surface when raining, only wet pixels when dry)*, *1: Whole surface*, *2: Only wet surface*.
-
-
-Groundwater settings
---------------------
-
-Settings for groundwater models. For more information on groundwater, see :ref:`groundwater`.
-
-Groundwater settings attributes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. list-table:: Groundwater settings attributes
-   :widths: 25 25 15 10 10 45 20
-   :header-rows: 1
-
-   * - Attribute
-     - Field name
-     - Type
-     - Mandatory
-     - Units
-     - Description
-     - Category
-   * - ID
-     - id
-     - Integer
-     - Yes
-     - \-
-     - Unique identifier. A schematisation should have only one groundwater settings ID.
-     - General
-   * - Display name
-     - display_name
-     - Text
-     - No
-     - \-
-     - For user administration only.
-     - General
-   * - Equilibrium infiltration rate
-     - equilibrium_infiltration_rate
-     - Decimal number
-     - No
-     - mm/day
-     - The equilibrium infiltration rate for Horton-based infiltration. For more information, see :ref:`grwhortoninfiltration`.
-     - Equilibrium infiltration
-   * - Equilibrium infiltration rate file
-     - equilibrium_infiltration_rate_file
-     - Text
-     - No
-     - mm/day
-     - Location of your equilibrium infiltration rate file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\gw_equilibrium_infiltration.tif*. For more information, see :ref:`grwhortoninfiltration`.
-     - Equilibrium infiltration
-   * - Equilibrium infiltration rate type
-     - equilibrium_infiltration_rate_type
-     - Integer
-     - Yes
-     - \-
-     - Choose between: *0: Maximum*, *1: Minimum*, and *2: Average*.
-     - Equilibrium infiltration
-   * - Groundwater hydraulic connectivity
-     - groundwater_hydr_connectivity
-     - Decimal number
-     - Yes
-     - m/day
-     - Darcy coefficient.
-     - Hydro connectivity
-   * - Groundwater hydraulic connectivity file
-     - groundwater_hydr_connectivity_file
-     - Text
-     - No
-     - m/day
-     - Location of your groundwater hydraulic connectivity file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\gw_hydro_conductivity.tif*.
-     - Hydro connectivity
-   * - Groundwater hydraulic connectivity type
-     - groundwater_hydr_connectivity_type
-     - Integer
-     - No
-     - \-
-     - Choose between: *0: Maximum*, *1: Minimum*, and *2: Average*.
-     - Hydro connectivity
-   * - Groundwater impervious layer level
-     - groundwater_impervious_layer_level
-     - Decimal number
-     - Yes
-     - m MSL
-     - Level of the impervious layer that acts as the bottom (and thus boundary) of the groundwater layer.
-     - Impervious layer level
-   * - Groundwater impervious layer level file
-     - groundwater_impervious_layer_level_file
-     - Text
-     - No
-     - m MSL
-     - Location of your groundwater impervious layer level file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\gw_imp_layer_lvl.tif*.
-     - Impervious layer level
-   * - Groundwater impervious layer level type
-     - groundwater_impervious_layer_level_type
-     - Integer
-     - No
-     - \-
-     - Choose between: *0: Maximum*, *1: Minimum*, and *2: Average*.
-     - Impervious layer level
-   * - Initial infiltration rate
-     - initial_infiltration_rate
-     - Decimal number
-     - Yes
-     - mm/day
-     - The initial infiltration rate for Horton-based infiltration. For more information, see :ref:`grwhortoninfiltration`.
-     - Initial infiltration
-   * - Initial infiltration rate file
-     - initial_infiltration_rate_file
-     - Text
-     - No
-     - mm/day
-     - Location of your initial infiltration rate file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\gw_ini_infiltration.tif*.
-     - Initial infiltration
-   * - Initial infiltration rate type
-     - initial_infiltration_rate_type
-     - Integer
-     - No
-     - \-
-     - Choose between: *0: Maximum*, *1: Minimum*, and *2: Average*.
-     - Initial infiltration
-   * - Infiltration decay period
-     - infiltration_decay_period
-     - Decimal number
-     - Yes
-     - days
-     - Period in which the infiltration rate decays to an equilibrium for Horton-based infiltration.
-     - Infiltration decay
-   * - Infiltration decay period file
-     - infiltration_decay_period_file
-     - Text
-     - No
-     - days
-     - Location of your infiltration decay period file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\gw_infil_decay.tif*.
-     - Infiltration decay
-   * - Infiltration decay period type
-     - infiltration_decay_period_type
-     - Integer
-     - No
-     - \-
-     - Choose between: *0: Maximum*, *1: Minimum*, and *2: Average*.
-     - Infiltration decay
-   * - Leakage
-     - leakage
-     - Decimal number
-     - Yes
-     - mm/day
-     - The bottom boundary condition (constant in time) that describes the leakage to deeper ground layers.
-     - Leakage
-   * - Leakage file
-     - leakage_file
-     - Text
-     - No
-     - mm/day
-     - Location of your leakage file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\gw_leakage.tif*.
-     - Leakage
-   * - Phreatic storage capacity
-     - phreatic_storage_capacity
-     - Decimal number
-     - Yes
-     - \-
-     - The potential storage in the saturated zone (= porosity). The phreatic storage capacity is described by a value between 0 and 1.
-     - Phreatic storage capacity
-   * - Phreatic storage capacity file
-     - phreatic_storage_capacity_file
-     - Text
-     - No
-     - \-
-     - Location of your phreatic storage capacity file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\gw_phrea_storage_cap.tif*.
-     - Phreatic storage capacity
-   * - Phreatic storage capacity type
-     - phreatic_storage_capacity_type
-     - Integer
-     - No
-     - \-
-     - Choose between: *0: Maximum*, *1: Minimum*, and *2: Average*.
-     - Phreatic storage capacity
-
+     - Interval over which the aggregation will be calculated
 
 .. _numerical_settings:
 
 Numerical settings
 ------------------
  
-Most users do not need to worry about these settings. More advanced users can change the default settings to improve their models. These can be grouped into categories: *General*, *Limiters*, *Matrix*, *Time*, *Thresholds*, *Miscellaneous*. For more information on the numerical settings, see :ref:`numerics`.
+Most users do not need to worry about these settings. More advanced users can change the default settings to improve their models. For more information on the numerical settings, see :ref:`numerics`.
 
-Numerical settings attributes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+These settings are stored in the simulation template. You can change them before starting the simulation, without the need to regenerate the 3Di model.
+
+Layer name
+^^^^^^^^^^
+
+numerical_settings
+
+Attributes
+^^^^^^^^^^
+
 
 .. list-table:: Numerical settings attributes
-   :widths: 20 20 15 10 10 40 15
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
-   * - Attribute
+   * - Attribute alias
      - Field name
      - Type
      - Mandatory
      - Units
      - Description
-     - Category
    * - ID
      - id
-     - Integer
+     - integer
      - Yes
      - \-
-     - Unique identifier. A schematisation should have only one numerical settings ID.
-     - General
-   * - Limiter 1D gradient
-     - limiter_grad_1d
-     - Integer
-     - No
-     - \-
-     - Limiter on the 1D water level gradient to allow the model to deal with unrealistically steep gradients. For more information, see :ref:`limiters`.
-     - Limiters
-   * - Limiter 2D gradient
-     - limiter_grad_2d
-     - Integer
-     - No
-     - \-
-     - Limiter on the 2D water level gradient to allow the model to deal with unrealistically steep gradients. For more information, see :ref:`limiters`.
-     - Limiters
-   * - Limiter 2D slope cross-sectional area
-     - limiter_slope_crosssectional_area_2d
-     - Integer
-     - No
-     - \-
-     - Limiter on the 2D slope cross-sectional area to allow the model to deal with unrealistically large cross-sectional areas resulting from the subgrid method in sloping terrain. Choose between *0*, *1*, *2*, and *3*. A limiter of 3 has to be used in combination with this water layer definition. For more information, see :ref:`limiters`.
-     - Limiters
-   * - Limiter 2D slope friction depth
-     - limiter_slope_friction_2d
-     - Integer
-     - No
-     - \-
-     - Limiter on the 2D slope friction depth to allow the model to deal with unrealistically small friction values resulting from the subgrid method in sloping terrain. For more information, see :ref:`limiters`.
-     - Limiters
-   * - Convergence definition
-     - convergence_cg
-     - Decimal number
-     - No
-     - \-
-     - Convergence definition to iteratively solve matrices. For more information, see :ref:`matrixsolvers`.
-     - Matrix
-   * - Minimum residual for convergence
-     - convergence_eps
-     - Decimal number
-     - Yes
-     - \-
-     - Minimal residual for convergence of Newton iteration. For more information, see :ref:`matrixsolvers`.
-     - Matrix
-   * - Number of conjugate gradient method iterations
-     - use_of_cg
-     - Integer
-     - Yes
-     - \-
-     - Number of iterations of the conjugate gradient method before switching to another method. For more information, see :ref:`matrixsolvers`.
-     - Matrix
-   * - Use of nested Newton
-     - use_of_nested_newton
-     - Integer
-     - Yes
-     - \-
-     - Choose between *0: When the schematisation does not include 1D-elements with closed profiles* and *1: When the schematisation includes 1D-elements with closed profiles*. For more information, see :ref:`matrixsolvers`.
-     - Matrix
-   * - Maximum degree
-     - max_degree
-     - Integer
-     - Yes
-     - \-
-     - Determines the efficiency of the matrix solver. Advised values depend on the type of model:
-	 
-       - Only 1D flow: 700
-       - 1D and 2D flow: 7
-       - Only surface 2D flow: 5
-       - Surface and groundwater flow: 7
-       - 1D, 2D surface and groundwater flow: 70 (or higher). Play around with this value in case of groundwater. This could potentially significantly speed up your model.
-     - Matrix
-   * - Maximum number of nonlinear iterations
-     - max_nonlin_iterations
-     - Integer
-     - Yes
-     - \-
-     - Maximum number of nonlinear iterations in a single time step. For more information, see :ref:`matrixsolvers`.
-     - Matrix
-   * - Gradient method preconditioner
-     - precon_cg
-     - Integer
-     - No
-     - \-
-     - Preconditioner for the matrix solver. Setting this to 1 generally increases simulation speed. For more information, see :ref:`matrixsolvers`.
-     - Matrix
-   * - Time integration method
-     - integration_method
-     - Integer
-     - Yes
-     - \-
-     - For more information, see :ref:`matrixsolvers`.
-     - Matrix
-   * - Flow direction threshold
-     - flow_direction_threshold
-     - Decimal number
-     - No
-     - m/s
-     - Threshold to determine the flow direction, in order to avoid flows of exactly 0.0 m/s.
-     - Thresholds
+     - Unique identifier
    * - General numerical threshold
      - general_numerical_threshold
      - Decimal number
      - No
      - \-
      - Generally used numerical threshold to avoid singularities due to limited numerical accuracy.
-     - Thresholds
-   * - Thin water layer definition
-     - thin_water_layer_definition
+   * - Max. non-linear Newton iterations
+     - max_non_linear_newton_iterations
+     - Integer
+     - Yes
+     - \-
+     - Maximum number of non-linear Newton iterations in a single time step. For more information, see :ref:`matrixsolvers`.
+   * - Minimum convergence criterion for Newton's method
+     - convergence_eps
+     - Decimal number
+     - Yes
+     - \-
+     - Minimal residual for convergence of Newton iteration. For more information, see :ref:`matrixsolvers`.
+   * - Use nested Newton
+     - use_nested_newton
+     - Integer
+     - Yes
+     - \-
+     - Choose between *0: For schematisations without closed cross-sections* and *1: For schematisations with closed cross-sections*. For more information, see :ref:`matrixsolvers`.
+   * - Number of conjugate gradient method iterations
+     - use_of_cg
+     - Integer
+     - Yes
+     - \-
+     - Number of iterations of the conjugate gradient method before switching to another method. For more information, see :ref:`matrixsolvers`.
+   * - Convergence criterion for conjugate gradient method
+     - convergence_cg
      - Decimal number
      - No
-     - m/s
-     - Has to be used in combination with a Limiter 2D slope cross-sectional area of 3. For more information, see :ref:`limiters`.
-     - Thresholds
-   * - Minimum friction velocity
-     - minimum_friction_velocity
-     - Decimal number
+     - \-
+     - Convergence criterion to iteratively solve matrices. For more information, see :ref:`matrixsolvers`.
+   * - Use preconditioner conjugate gradient
+     - use_preconditioner_cg
+     - Boolean
      - No
-     - m/s
-     - Minimum velocity that is used for the transition of a cell from dry to wet. This is done for model stability.
-     - Thresholds
-   * - Minimum surface area
-     - minimum_surface_area
-     - Decimal number
-     - No
-     - m\ :sup:`2`
-     - Numerical setting to guarantee proper matrix characterics
-     - Thresholds
-   * - Strictness of CFL-condition for 1D flow
+     - \-
+     - Preconditioner for the matrix solver. Setting this to True generally increases simulation speed. For more information, see :ref:`matrixsolvers`.
+   * - Max. degree Gauss-Seidel
+     - max_degree_gauss_seidel
+     - Integer
+     - Yes
+     - \-
+     - Determines the efficiency of the matrix solver. Advised values depend on the type of model:
+     
+       - Only 1D flow: 700
+       - 1D and 2D flow: 7
+       - Only surface 2D flow: 5
+       - Surface and groundwater flow: 7
+       - 1D, 2D surface and groundwater flow: 70 (or higher). 
+       
+       Play around with this value in case of groundwater. This could potentially speed up your simulation significantly.
+   * - CFL strictness factor 1D
      - cfl_strictness_factor_1d
      - Decimal number
      - No
      - \-
      - Strictness of the Courant-Friedrichs-Lewy ratio for 1D flow.
-     - Miscellaneous
-   * - Strictness of CFL-condition for 2D flow
+   * - CFL strictness factor 2D
      - cfl_strictness_factor_2d
      - Decimal number
      - No
      - \-
      - Strictness of the Courant-Friedrichs-Lewy ratio for 2D flow.
-     - Miscellaneous
-   * - Shallow water friction correction
-     - frict_shallow_water_correction
+   * - Time integration method
+     - time_integration_method
+     - Integer
+     - Yes
+     - \-
+     - The only option at the moment is 0 (Euler implicit). For more information, see :ref:`matrixsolvers`.
+   * - Flooding threshold
+     - flooding_threshold
+     - decimal number
+     - Yes
+     - \-
+     - The water depth threshold for flow between 2D cells. The depth is relative to the lowest DEM pixel at the edge between two 2D cells. It should be equal or higher than 0. It is recommended to keep this value very low (1e-06).
+   * - Flow direction threshold
+     - flow_direction_threshold
+     - Decimal number
+     - No
+     - m/s
+     - Threshold to determine the flow direction, in order to avoid flows of exactly 0.0 m/s.
+   * - Minimum surface area
+     - min_surface_area
+     - Decimal number
+     - No
+     - m\ :sup:`2`
+     - Numerical setting to guarantee proper matrix characterics
+   * - Minimum friction velocity
+     - min_friction_velocity
+     - Decimal number
+     - No
+     - m/s
+     - Minimum velocity that is used for the transition of a cell from dry to wet. This is done for model stability.
+   * - Friction shallow water depth correction
+     - friction_shallow_water_depth_correction
      - Integer
      - No
      - \-
      - Determines how the friction is calculated. Choose between *0*, *1*, *2*, and *3*. For more information, see :ref:`friction_settings`.
-     - Miscellaneous
+   * - Limiter slope cross-sectional area 2D 
+     - limiter_slope_crosssectional_area_2d
+     - Integer
+     - No
+     - \-
+     - Limiter on the 2D slope cross-sectional area to allow the model to deal with unrealistically large cross-sectional areas resulting from the subgrid method in sloping terrain. Choose between *0*, *1*, *2*, and *3*. A limiter of 3 has to be used in combination with this water layer definition. For more information, see :ref:`limiters`.
+   * - Limiter slope friction 2D
+     - limiter_slope_friction_2d
+     - Integer
+     - No
+     - \-
+     - Limiter on the 2D slope friction depth to allow the model to deal with unrealistically small friction values resulting from the subgrid method in sloping terrain. For more information, see :ref:`limiters`.
+   * - Limiter slope thin water layer
+     - limiter_slope_thin_water_layer
+     - Decimal number
+     - No
+     - m/s
+     - Has to be used in combination with setting *Limiter slope cross-sectional area 2D* to 3. For more information, see :ref:`limiters`.
+   * - Limiter water level gradient 1D
+     - limiter_waterlevel_gradient_1d
+     - Integer
+     - No
+     - \-
+     - Limiter on the 1D water level gradient to allow the model to deal with unrealistically steep gradients. For more information, see :ref:`limiters`.
+   * - Limiter water level gradient 2D
+     - limiter_waterlevel_gradient_2d
+     - Integer
+     - No
+     - \-
+     - Limiter on the 2D water level gradient to allow the model to deal with unrealistically steep gradients. For more information, see :ref:`limiters`.
+   * - Preissmann slot
+     - preissmann_slot
+     - Decimal number
+     - No
+     - m\ :sup:`2`
+     - Mimics the effect of pressurized flows by creating a narrow slot on top of a pipe. Note that this method is not required for 3Di, but it can be used to compare results with other hydrodynamic simulation software.
    * - Pump implicit ratio
      - pump_implicit_ratio
      - Decimal number
      - No
      - \-
      - Determines whether and how 3Di will adjust the pump capacity based on the (expected) available water. Should be between 0 and 1.
-     - Miscellaneous
-   * - Preissmann slot
-     - preissmann_slot
-     - Decimal number
-     - No
-     - m\ :sup:`2`
-     - Mimics the effect of pressurized flows by creating a narrow slot on top of a pipe. Note that this method is not required for 3Di, but it can be used to compare results with other hydrodynamic software.
-     - Miscellaneous
+
+
+.. _physical_settings:
+
+Physical settings
+------------------
+ 
+Settings related to the physics involved in the simulation.
+ 
+These settings are stored in the simulation template. You can change them before starting the simulation, without the need to regenerate the 3Di model.
+
+Layer name
+^^^^^^^^^^
+
+physical_settings
+
+Attributes
+^^^^^^^^^^
+
+.. list-table:: Physical settings attributes
+   :widths: 6 4 4 2 4 30
+   :header-rows: 1
+
+   * - Attribute alias
+     - Field name
+     - Type
+     - Mandatory
+     - Units
+     - Description
+   * - ID
+     - id
+     - integer
+     - Yes
+     - \-
+     - Unique identifier
+   * - Use advection 1D
+     - use_advection_1d
+     - integer
+     - Yes
+     - \-
+     - See :ref:`1d_advection`. Choose from:
+	     
+	     - 0: No 1D advection
+         - 1: Momentum conservative scheme
+         - 2: Energy conservative scheme
+         - 3: Combined momentum and energe conservative scheme (recommended)
+   * - Use advection 2D
+     - use_advection_2d
+     - integer
+     - Yes
+     - \-
+     - 0: Off; 1: On
+
 
 .. _schema_version:
 
@@ -854,86 +534,3 @@ Schema version attributes
      - \-
      - Number determining which schematistion version is used, left-padded with zeroes to four characters.
 
-.. _vegetation_drag:
-
-Vegetation drag settings
-------------------------
-
-The *vegetation drag* table contains the input parameters that are used for 2D flow with vegetation. For an in-depth explanation of how 2D flow with vegetation is calculated by 3Di, see :ref:`flow_with_vegetation`. For more information on using vegetation in your 3Di model and choosing the right parameter values, see :ref:`How to model vegetation<a_how_to_vegetation>`.
-
-Vegetation drag can only be used with friction type 'Chezy', because the vegetation formulation (initially introduced by :cite:p:`Baptist2007`) uses Chezy.
-
-
-Vegetation drag settings attributes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. list-table:: Vegetation drag settings attributes
-   :widths: 20 20 15 10 10 40
-   :header-rows: 1
-
-   * - Attribute
-     - Field name
-     - Type
-     - Mandatory
-     - Units
-     - Description
-   * - ID
-     - id
-     - Integer
-     - Yes
-     - \-
-     - Unique identifier. A schematisation should have only one vegetation drag settings ID.
-   * - Display name
-     - display_name
-     - Text
-     - No
-     - \-
-     - For user administration only.
-   * - Vegetation height
-     - vegetation_height
-     - Decimal number
-     - Yes
-     - m
-     - Height of the vegetation, i.e. the length of the plant stems. This global value is superseded in case a vegetation height file is provided.
-   * - Vegetation height file
-     - vegetation_height_file
-     - Text
-     - No
-     - m
-     - Location of your vegetation height file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\veg_height.tif*. This supersedes any global vegetation height.
-   * - Vegetation stem count
-     - vegetation_stem_count
-     - Integer
-     - Yes
-     - #/m\ :sup:`2`
-     - Density of plant stems. This global value is superseded in case a vegetation stem count file is provided.
-   * - Vegetation stem count file
-     - vegetation_stem_count_file
-     - Text
-     - No
-     - #/m\ :sup:`2`
-     - Location of your vegetation stem count file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\veg_stem_count.tif*. This supersedes any global vegetation stem count.
-   * - Vegetation stem diameter
-     - vegetation_stem_diameter
-     - Decimal number
-     - Yes
-     - m
-     - Mean diameter of plant stems. This global value is superseded in case a vegetation stem diameter file is provided.
-   * - Vegetation stem diameter file
-     - vegetation_stem_diameter_file
-     - Text
-     - No
-     - m
-     - Location of your vegetation stem diameter file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\veg_stem_diam.tif*. This supersedes any global vegetation stem diameter value.
-   * - Vegetation drag coefficient
-     - vegetation_drag_coefficient
-     - Decimal number
-     - Yes
-     - \-
-     - Coefficient to linearly scale the drag that vegetation exerts on the water. The drag resulting from vegetation is different for each situation. A large share of this variation is captured by choosing the correct values for vegetation height, stem count, and stem diameter. The drag coefficient can be used to account for the other factors that affect the drag. The drag coefficient can also be used as a calibration parameter. This global value is superseded in case a vegetation drag coefficient file is provided.
-   * - Vegetation drag coefficient file
-     - vegetation_drag_coefficient_file
-     - Text
-     - No
-     - \-
-     - Location of your vegetation drag coefficient file, relative to the location of your sqlite in the folder structure. It should look something like *rasters\\veg_drag_coeff.tif*. This supersedes any global drag coefficient.
