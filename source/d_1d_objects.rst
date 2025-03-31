@@ -153,7 +153,7 @@ Time series
 
 - When editing the time series field in using SQL (sqlite dialect), use ``char(10)`` as line separator. The example time series shown above would look like this::
 
-    "0,145.20"||char(10)||"15,145.23"||char(10)||"30,145.35"||char(10)||"45,145.38"||char(10)||"60,145.15"
+    '0,145.20'||char(10)||'15,145.23'||char(10)||'30,145.35'||char(10)||'45,145.38'||char(10)||'60,145.15'
 
 
 .. _channel:

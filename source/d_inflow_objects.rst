@@ -135,7 +135,7 @@ Format the time series as Comma Separated Values (CSV), with the time (in second
 - The time series does not need to cover the entire simulation period.
 - When editing the time series field in using SQL (sqlite dialect), use ``char(10)`` as line separator. The example time series shown above would look like this::
 
-    "0,0.2"||char(10)||"15,10.0"||char(10)||"30,20.0"||char(10)||"45,7.5"||char(10)||"60,0.0"
+    '0,0.2'||char(10)||'15,10.0'||char(10)||'30,20.0'||char(10)||'45,7.5'||char(10)||'60,0.0'
 
 
 .. _2d_lateral:
@@ -252,7 +252,7 @@ Format the time series as Comma Separated Values (CSV), with the time (in second
 - The time series does not need to cover the entire simulation period.
 - When editing the time series field in using SQL (sqlite dialect), use ``char(10)`` as line separator. The example time series shown above would look like this::
 
-    "0,0.2"||char(10)||"15,10.0"||char(10)||"30,20.0"||char(10)||"45,7.5"||char(10)||"60,0.0"
+    '0,0.2'||char(10)||'15,10.0'||char(10)||'30,20.0'||char(10)||'45,7.5'||char(10)||'60,0.0'
 
 
 .. _dry_weather_flow:
