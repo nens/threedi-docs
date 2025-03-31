@@ -44,18 +44,11 @@ Then, 3Di Results Analysis can be installed as follows:
 Conceptual changes
 ^^^^^^^^^^^^^^^^^^
 
-3Di Toolbox required you to load the spatialite (:ref:`schematisation` data) first, and than add one or more :ref:`simulation<simulation_and_simulation_templates>` results. 3Di Toolbox would then attempt to map the simulation results to the schematisation data, which is not always possible (e.g. when 1D elements with calculation type *embedded* are used). 
+3Di Toolbox required you to load the spatialite (:ref:`schematisation` data) first, and than add one or more :ref:`simulation<simulation_and_simulation_templates>` results. 3Di Toolbox would then attempt to map the simulation results to the schematisation data, which is not always possible (e.g. when 1D elements with exchange type *embedded* are used). 
 
 3Di Results Analysis consistently uses the conceptual separation of :ref:`schematisation` data (spatialite + rasters), :ref:`threedimodel` (computational grid and subgrid tables), and :ref:`simulation<simulation_and_simulation_templates>` results. It maps the simulation results (time series of flow variables) to the computational grid (locations of nodes and flowlines). It does not use the schematisation data at all. 
 
 This conceptual consistency makes it easier to understand what you are looking at, makes the software more stable and prevents strange, hard-to-solve bugs.
-
-Sunset version
-^^^^^^^^^^^^^^
-
-The :ref:`schematisationchecker`, :ref:`import_sufhyd` and :ref:`import_gwsw_hydx` still need the Spatialite. It may be necessary to directly view the Spatialite layers when using these tools, e.g. to understand certain error messages resulting from the Schematisation checker. The Spatialite will be phased out entirely and will be replaced by a GeoPackage, with a :ref:`database schema<migrate_spatialite>` that is similar to the database schema that the 3Di Schematisation Editor uses. The tools that interact with the Spatialite will be adapted to be compatible with GeoPackage and the new database schema. 
-
-While this development is ongoing, a so-called *sunset version* of 3Di Toolbox remains available. This sunset version will have only one functionality: loading the Spatialite layers in the 3Di Modeller Interface. It will be released in October 2023.
 
 Load/view schematisations
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -107,24 +100,24 @@ One of the most often used features of the Statistical tool was to calculate the
 .. note::
     The *Water on street duration (0D1D)* and *Water on street duration (1D2D)* presets of the Result aggregation tool will give different results than the old Statistical tool. This is because the definition of "water on street" in the new Result aggregation tool is "1D water level is above the **drain level** (for 0D1D) / **exchange level** (for 1D2D)". The Statistical tool defined it as "1D water level is above the manhole's surface level".
     
-	The figures illustrate the relation between the manhole drain level, the 2D cell's lowest pixel, and the 1D2D exchange level.
+    The figures illustrate the relation between the manhole drain level, the 2D cell's lowest pixel, and the 1D2D exchange level.
 
-	**Drain level above lowest pixel in the 2D cell**
+    **Drain level above lowest pixel in the 2D cell**
 
-	.. figure:: image/i_surface_exchange_drain_level_b.png
-		:alt: Manhole with a *drain level* below the 2D cell's lowest pixel. The *1D2D exchange level* that is used in the simulation equals the 2D cell's bottom level.
-		:scale: 75%
-		
-		Manhole with a *drain level* below the 2D cell's lowest pixel. The *1D2D exchange level* that is used in the simulation equals the 2D cell's bottom level.
+    .. figure:: image/i_surface_exchange_drain_level_b.png
+        :alt: Manhole with a *drain level* below the 2D cell's lowest pixel. The *1D2D exchange level* that is used in the simulation equals the 2D cell's bottom level.
+        :scale: 75%
+        
+        Manhole with a *drain level* below the 2D cell's lowest pixel. The *1D2D exchange level* that is used in the simulation equals the 2D cell's bottom level.
 
 
-	**Drain level below lowest pixel in the 2D cell**
+    **Drain level below lowest pixel in the 2D cell**
 
-	.. figure:: image/i_surface_exchange_drain_level_a.png
-		:alt: Manhole with a *drain level* above the 2D cell's lowest pixel. The *1D2D exchange level* that is used in the simulation equals the manhole drain level.
-		:scale: 75%
-		
-		Manhole with a *drain level* above the 2D cell's lowest pixel. The *1D2D exchange level* that is used in the simulation equals the manhole drain level.
+    .. figure:: image/i_surface_exchange_drain_level_a.png
+        :alt: Manhole with a *drain level* above the 2D cell's lowest pixel. The *1D2D exchange level* that is used in the simulation equals the manhole drain level.
+        :scale: 75%
+        
+        Manhole with a *drain level* above the 2D cell's lowest pixel. The *1D2D exchange level* that is used in the simulation equals the manhole drain level.
 
 
 While the statistical tool was used only for sewer systems, the Result aggregation tool is much more generic and works for all nodes and flowlines, and for all flow variables.

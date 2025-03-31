@@ -32,8 +32,8 @@ Some strategies that you can pursue to reduce the number of nodes are:
 
 - Choosing the model boundaries differently, e.g. following the hydrological watershed boundaries more precisely
 - Dividing the model up in multple smaller models
-- Choose a smaller *grid_space* and/or the *kmax*, see :ref:`global_settings`
-- Use fewer grid refinements (see :ref:`grid_refinement` and ref:`grid_refinement_area`), or increase their refinement level.
+- Choose a smaller *Minimum cell size* and/or *Number of grid levels*, see :ref:`model_settings`
+- Use fewer grid refinements (see :ref:`grid_refinement_line` and ref:`grid_refinement_area`), or increase their refinement level.
 - Choosing a simpler schematisation of the less important parts of the model, e.g. increase the cell size in those areas or schematise parts of the model in 1D instead of 2D. See :ref:`howto_convert_to_1d2d`.
 
 Vertical resolution
@@ -43,7 +43,7 @@ Several settings and schematisation choices control the size of the :ref:`subgri
 
 - Elevation range, i.e. the difference between the highest and the lowest pixel in the DEM. If the elevation range is very large, consider removing the highest parts of the model domain, e.g. replace them by :ref:`Surfaces<surface>`. 
 - The :ref:`table step size<subgrid_table_settings>`. If the table increments are very small and the elevation range very large, the subgrid tables may become too large.
-- The number of pixels per cell. If the *grid_space* or the *kmax* (see :ref:`global_settings`) values are large and the DEM pixel size is small, there will be many pixels in one cell. This will require a large number of table increments in the subgrid tables.
+- The number of pixels per cell. If the *Minimum cell size* or the *Number of grid levels* (see :ref:`model_settings`) values are large and the DEM pixel size is small, there will be many pixels in one cell. This will require a large number of table increments in the subgrid tables.
 
 Maximum raster size
 ^^^^^^^^^^^^^^^^^^^
@@ -73,12 +73,12 @@ Crashed simulations
 Common causes for crashing simulations are noted in the list below. Please check these if you encounter crashing simulations. 
 
 - Download the simulation logging, and check the contents of all log files. In particular:
-	
-	- flow_summary.json: large volume errors or NaN values indicate that the simulation has become numerically unstable (matrix convergence was impossible). You will probably find more information in matrix.log in this case. 
-	
-	- simulation.log: if any errors are mentioned, they will probably be at/near the end of the file. But make sure to also check the rest of the file for errors or messages that may tell you more about the crash.
-	
-	- matrix.log: if there are any messages in this file, check if it is mentioned in the list of common error messages below, and follow the instructions for that error message.
+    
+    - flow_summary.json: large volume errors or NaN values indicate that the simulation has become numerically unstable (matrix convergence was impossible). You will probably find more information in matrix.log in this case. 
+    
+    - simulation.log: if any errors are mentioned, they will probably be at/near the end of the file. But make sure to also check the rest of the file for errors or messages that may tell you more about the crash.
+    
+    - matrix.log: if there are any messages in this file, check if it is mentioned in the list of common error messages below, and follow the instructions for that error message.
 
 - Check if your 3Di model is up to date. The model generation will always use the latest 3Di framework, but if the 3Di model was generated a long time ago, or there was a new release after the generation of your model, your 3di Model may be outdated. Please :ref:`re-generate the 3Di model<regenerate_3di_model>` to see if this resolves your issue.
 
@@ -147,9 +147,9 @@ An explainer on schematisations and simulation templates can be found here* :ref
 
 - Why is the name of my simulation template 'default'? 
 
-*The name is being read from the v2_global_settings table in the 'name' column. If that happens to be 'default', then that is the name of your simulation template.*
+*The name is being read from the 'name' attribute in the *Simulation template settings* table. If that happens to be 'default', then that is the name of your simulation template.*
 
-- What happens if I add an extra entry in the v2_global_settings table? 
+- What happens if I add an extra entry in the *Simulation template settings* table? 
 
 *Extra entries will be ignored.*
 
@@ -166,8 +166,8 @@ First of all, instability is not common within 3Di, but certain settings or mode
 #) Make sure you have fixed all errors *and warnings* that the Schematisation checker gives. 
 #) Decrease your calculation time step (background information: courant number)
 #) Temporarily decrease your output time step . This makes it easier to analyse what goes wrong
-#) Check if there are pump stations that are pumping to another 1D-node within the same 2D-computational cell
-#) Put the 'pump_implicit_ratio' in the numerical settings to 1. This makes sure that the model calculates smoothly for pump stations (see :ref:`matrixsolvers` --> pump_implicit_ratio)
+#) Check if there are pumps that are pumping to another 1D node within the same 2D computational cell
+#) Put the 'pump_implicit_ratio' in the numerical settings to 1. This makes sure that the model calculates smoothly for pumps (see :ref:`matrixsolvers` --> pump_implicit_ratio)
 
 
 .. _known_issues:
@@ -204,7 +204,7 @@ Via the 3Di Models & Simulations plugin settings (see below).
     :alt: Open the settings of 3Di Models and Simulations
 
 .. figure:: image/f_changepluginsettings2.png
-    :alt: Change the working directory of 3Di Models and Simulations	
+    :alt: Change the working directory of 3Di Models and Simulations
 
 3Di Modeller Interface in other languages than English
 """"""""""""""""""""""""""""""""""""""""""""""""""""""

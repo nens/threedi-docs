@@ -9,7 +9,7 @@ The video below gives a brief demo of 3Di Live:
 
 .. raw:: html
 
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/k9heL89ZF1E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/k9heL89ZF1E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 *A demo of 3Di Live*
 
@@ -23,9 +23,9 @@ When a :ref:`session<3di_live_sessions>` has started, the screen in :numref:`fig
 .. _fig_main_ses:
 
 .. figure:: image/d2.6_main.png 
-	:alt: Main session
+    :alt: Main session
 
-	Interface main session.
+    Interface main session.
 
 1. With the **Start simulation** button, the simulation can be started and paused once started. 
 2. The simulation run time will be indicated in [hours:minutes].
@@ -45,5 +45,5 @@ When a :ref:`session<3di_live_sessions>` has started, the screen in :numref:`fig
 - :ref:`Layer tool <layers_menu_guide>`
 
 .. note::
-	The language of 3Di Live will change depending on the language settings of your browser. Attribute values of model features (such as the display name of a weir) are never translated. Please contact the service desk if you would like 3Di Live to become available in your language.
+    The language of 3Di Live will change depending on the language settings of your browser. Attribute values of model features (such as the display name of a weir) are never translated. Please contact the service desk if you would like 3Di Live to become available in your language.
 

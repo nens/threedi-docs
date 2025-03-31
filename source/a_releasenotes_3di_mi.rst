@@ -992,7 +992,7 @@ New in version 1.1 (for those users who already tried out version 1.0):
 - Pump capacity should be NULL by default
 - Add geopackage database connection to QGIS list
 - Refresh map canvas after removing 3Di model
-- Correct list of calculation types in culvert attribute form
+- Correct list of exchange types in culvert attribute form
 - Guarantee that layers are added to the correct group
 - Add hillshade styled DEM
 - Raster styling classes
@@ -1003,7 +1003,7 @@ New in version 1.1 (for those users who already tried out version 1.0):
 - Rename plugin to 3Di Schematisation Editor
 - Fix width and diameter labels for tabulated cross sections
 - Compatibility with QGIS 3.22 / Spatialite v4.3
-- Drop-downs are used in the attribute table for fields with a limited list of valid integer values (e.g. calculation type).
+- Drop-downs are used in the attribute table for fields with a limited list of valid integer values (e.g. exchange type).
 
 *3Di Toolbox v2.1*
 

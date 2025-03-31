@@ -17,13 +17,13 @@ The Sideview Tool also works if you have only loaded the computational grid, wit
 \*Note: The sideview can  be exported as an image. Right-click the plot and choose 'Export...' from the drop-down menu. A new window pops up in which you can choose the desired output format. Click "Export" to select a location to save the data.
 
 .. figure:: image/i_sideview_tool.png
-	:alt: Sideview Tool
-	:scale: 75%
+    :alt: Sideview Tool
+    :scale: 75%
 
 
 .. |sideviewtooltoolbar| image:: image/i_3di_results_analysis_toolbar_sideview.png
-	:scale: 25%
-	
+    :scale: 25%
+    
 .. |A-icon| image:: /image/pictogram_capital_a_icon.png
-	:scale: 120%
+    :scale: 120%
 

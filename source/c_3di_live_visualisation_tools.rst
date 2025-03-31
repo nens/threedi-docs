@@ -11,9 +11,9 @@ Opening the *Map layers* panel
 Click on the *Layer tool* at the bottom left of the screen. The *Map layers* panel appears: 
 
 .. figure:: image/d3.6_layer_tool.png
-	:alt: Layer tool.
+    :alt: Layer tool.
 
-	Map layers panel.
+    Map layers panel.
 
 
 Base maps
@@ -58,12 +58,12 @@ If the model contains 1D elements, they are set to visible by default. Depending
 - Manholes (shown after zooming in)
 - Nodes
 - Sewers
-- Pump stations
+- Pumps
 - Weirs
 
 Colors for all these layers can be changed according to your preferences by clicking on the small paint pallet next to the element.
 
 .. note::
-	Manholes are turned off by default. Turning them on and zooming out may degrade the performance of 3Di Live.
+    Manholes are turned off by default. Turning them on and zooming out may degrade the performance of 3Di Live.
 
 

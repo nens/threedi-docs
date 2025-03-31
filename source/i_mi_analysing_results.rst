@@ -25,13 +25,9 @@ These tools relate the time series of the flow variables (water levels, volumes,
    Water balance of an area of choice <i_water_balance_tool>
    Upstream and downstream catchments for any given location<i_watershed_tool>
 
+.. note::
 
-From 3Di Toolbox to 3Di Results Analysis
-----------------------------------------
-
-Users familiar with the 3Di Toolbox, but new to its successor 3Di Results Analysis are advised to read the :ref:`transition_from_3di_toolbox`.
-
-The 3Di Toolbox will replaced by the :ref:`3Di Results Analysis plugin<mi_3di_plugins>` on October 1st, 2023.
+   Before October 1st, 2023, a deprecated plugin called 3Di Toolbox was used for analysing results. Users familiar with the 3Di Toolbox, but new to its successor 3Di Results Analysis are advised to read the :ref:`transition_from_3di_toolbox`.
 
 
 

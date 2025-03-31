@@ -6,7 +6,6 @@ Install and update manual
 .. note::
 
     Are you running into problems when downloading or updating the software? Please consult the :ref:`problem solving<problem_solving_3di_mi>` section. If the error and/or solution is not mentioned, please contact our :ref:`servicedesk`
-	
 
 .. _MI_installation:
 

@@ -5,9 +5,11 @@ Database schema 300
 
 A 3Di schematisation consists of rasters, vector layers and settings. The vector data and settings are stored in a database file. This database file contains a fixed set of tables, each with a fixed set of columns of a fixed type. This set of tables, columns, and data types is called the `database schema <https://en.wikipedia.org/wiki/Database_schema>`_.
 
-Changes are made to the 3Di database schema, e.g. when new features require additional tables or columns. Each new version of the database schema is numbered; you can find the schema version in the :ref:`schema_version` table. The current schema version is 219. Changes to the database schema are automatically applied to your schematisation, by means of so-called *migrations*. 3Di uses this mechanism so that even years old schematisations can be seamlessly used today. 
+Every so often, changes are made to the 3Di database schema, e.g. when new features require additional tables or columns. Each new version of the database schema is numbered; you can find the schema version in the :ref:`schema_version` table. Up until March 2025, the schema version was 219. Changes to the database schema are automatically applied to your schematisation, by means of so-called *migrations*. 3Di uses this mechanism so that even years old schematisations can be seamlessly used today. 
 
-Other than in the case of new features, we generally keep the database schema the same as much as we can. However, over the years, a growing number of wishes for optimizing the database schema has been collected. We are now implementing all these changes. They will be released as one series of migrations, migrating your schematisation from schema version 219 to 300, so that you need to update your scripts and workflows only once.
+Other than in the case of new features, we generally keep the database schema the same as much as we can. However, over the years, a growing number of wishes for optimizing the database schema has been collected. These changes have now been implemented and were released in March 2025. This means that if you load an existing schematisation, it will be migrated from schema version 219 to 300.
+
+If you have scripts and automated workflows that interact with the schematisation database, you will have to update them.
 
 The migration to database schema 300 also includes a switch to GeoPackage as file format, instead of Spatialite.
 
@@ -18,7 +20,6 @@ This page aims to answer :ref:`db_300_faq` on this topic and provides a :ref:`db
 Frequently asked questions
 --------------------------
 
-- :ref:`db_300_planning`
 - :ref:`db_300_scripts`
 - :ref:`db_300_existing_script`
 - :ref:`db_300_api`
@@ -26,19 +27,7 @@ Frequently asked questions
 - :ref:`db_300_views`
 - :ref:`db_300_why_geopackage`
 - :ref:`db_300_why_new_schema`
-- :ref:`db_300_try_it_out`
 - :ref:`db_300_migration_guide`
-
-.. _db_300_planning:
-
-When will this development be finished?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-- The definition of the new database schema (version 300) is final and can be downloaded here: :download:`Migration guide spreadsheet <other/3Di database schema 219 to schema 300.xlsx>`
-
-- A new version of the 3Di Modeller Interface that is based on the new database schema will be released on **January 28th, 2025**
-
-- In the meantime, the migrations (220 to 300) will be released to the 3Di server one by one. See :ref:`release_notes_api` for updates on which migrations have been released. 
 
 .. _db_300_scripts:
 
@@ -110,11 +99,10 @@ Can I still use the views in the Spatialite to check for foreign key errors?
 
 No, the new schema will not contain any views. Run the schematisation checker to identify any attributes that are NULL that are not allowed to be NULL.
 
-
 .. _db_300_why_geopackage:
 
-Why does 3Di switch to GeoPackage?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Why has 3Di switched to GeoPackage?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - GeoPackage is increasingly becoming a new standard for the storage of GIS vector data, while the further development and maintenance of Spatialite is uncertain.
 
@@ -127,17 +115,17 @@ Why does 3Di switch to GeoPackage?
 What are the advantages of changing the database schema?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- Making *Load from Spatialite* / *Save to Spatialite* unnecessary, which you now have to do frequently (and might forget sometimes) in the Schematisation Editor.
+- It is no longer necessary to use *Load from Spatialite* / *Save to Spatialite*, which before this change was needed (and forgotten) frequently when working with the 3Di Schematisation Editor.
 
-- The schematisation checker will work on the data that you edit. Currently, the Schematisation Editor converts the data from the 3Di Spatialite to another format, you edit this converted data, and the Schematisation Editor converts it back to the Spatialite. But the Schematisation Checker check the data in the Spatialite. Some errors reported by the schematisation checker are difficult to interpret for this reason. For example, if there is an error in the table v2_cross_section_definition, while that layer does not exist in the layers that the Schematisation Editor adds to the project.
+- The schematisation checker now works on the data that you edit. The 3Di Schematisation Editor used to convert the data from the 3Di Spatialite to another format, you edited this converted data, and the Schematisation Editor converted it back to the Spatialite. But the Schematisation Checker checked the data in the Spatialite. Some errors reported by the schematisation checker were difficult to interpret for this reason. For example, if there was an error in the table v2_cross_section_definition, it was difficult to find out to which object that error actually applied.
 
-- Many layers, such as v2_pipe, do not have their own geometry in database schema 219. To view them on the map, the spatialite used views (e.g. v2_pipe_view), but these are not editable. The 3Di Schematisation Editor adds these geometries when converting the data from the spatialite. With the new database schema, these conversions will not be necessary anymore.
+- Many layers, such as v2_pipe, did not have their own geometry in database schema 219. To view them on the map, the spatialite used views (e.g. v2_pipe_view), but these are not editable. The 3Di Schematisation Editor added these geometries when converting the data from the spatialite. With the new database schema, these conversions are no longer necessary.
 
-- The same applies to cross-section data. In the new database schema, pipes, culverts, weirs, orifices, and cross-section locations will have attributes defining the cross-section directly, instead of referring to a cross-section definition in another table. This makes it possible to edit cross-section data directly. The 3Di Schematisation Editor also uses this approach, but will no longer need to convert the data back and forth.
+- The same applies to cross-section data. In the new database schema, pipes, culverts, weirs, orifices, and cross-section locations have attributes defining the cross-section directly, instead of referring to a cross-section definition in another table. This makes it possible to edit cross-section data directly. The 3Di Schematisation Editor also used this approach, but will no longer need to convert the data back and forth.
  
-- It will allow us to add coordinates to ERROR/WARNING/INFO messages from the schematisation checker, so they can be located on the map, if applicable.
+- Database schema 300 allows us to add coordinates to ERROR/WARNING/INFO messages from the schematisation checker, so they can be located on the map, if applicable.
 
-- It will make schematising structure control much easier: more visual and more intuitive.
+- Database schema 300 makes schematising structure control much easier: more visual and more intuitive.
 
 - It is no longer required to add a manhole to a connection node to specify the 1D2D exchange type (isolated/connected/embedded)
     
@@ -157,15 +145,6 @@ What are the advantages of changing the database schema?
     
 - Consistent and correct use of English, for example "pump" instead of "pumpstation"
 
-.. _db_300_try_it_out:
-
-Can I try out the new database schema while it is still under development?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Yes, this is possible. We process the schema migrations in groups (e.g. "settings", "inflow", "1D", etc.) and release versions of the python package ``threedi-schema`` every time we have completed such a group. This Python package has functionality to migrate a schematisation to a higher version, see the `threedi-schema GitHub repository <https://www.github.com/nens/threedi-schema>`_.
-
-Note that schematisations that have been migrated to a schema version higher than 219 are not yet usuable in the 3Di Modeller Interface. From January 28th 2025, the 3Di Modeller Interface will be compatible with schema version 300.
-
 .. _db_300_migration_guide:
 
 Migration guide
@@ -184,7 +163,7 @@ General changes
 
 - All tables that have a geometry (in the new schema) also have a code, display name, and tags.
 
-- Instead of using latitude/longtitude coordinates (WGS84, EPSG:4326) to define geometries, the data uses a local, projected coordinate system (set by model_settings.epsg_code). This has several benefits:
+- Instead of using latitude/longtitude coordinates (WGS84, EPSG:4326) to define geometries, the data uses a local, projected coordinate system. This has several benefits:
 
     - Measurements can be done in meters instead of degrees
 

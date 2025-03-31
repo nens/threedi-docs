@@ -4,7 +4,7 @@
 --------------------
 
 February 24th, 2025
-^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
 We have updated the backend of 3Di with the new geopackage database functionalities.
 
@@ -411,7 +411,7 @@ The 3Di spatialite now supports *beta* tables, fields, and values. These are use
 
 **Computational grid**
 
-- Channels with calculation type *connected* or *double connected* can now be placed outside the DEM, as long as they connect to a location where a 2D cell is present. If a 'potential breach' or 'exchange line' is used to set the location to which the calculation node connects, the location of those features determines whether an error is raised. If a channel with calculation type connected is outside of the DEM, but the closest point on its exchange_line is on the DEM, the computional grid can be built and the 3Di model is valid.
+- Channels with exchange type *connected* or *double connected* can now be placed outside the DEM, as long as they connect to a location where a 2D cell is present. If a 'potential breach' or 'exchange line' is used to set the location to which the calculation node connects, the location of those features determines whether an error is raised. If a channel with exchange type connected is outside of the DEM, but the closest point on its exchange_line is on the DEM, the computional grid can be built and the 3Di model is valid.
 
 - 1D-2D links that cross an obstacle will take the exchange level from the obstacle
 

@@ -4,7 +4,7 @@
 ----------------------
 
 February 24th, 2025
-^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
 - Total discharge boundary for 2D and Groundwater
 
@@ -112,7 +112,7 @@ June 2023
 April 2023
 ^^^^^^^^^^
 
-- Channels with calculation type *connected* or *double connected* can now be placed outside the DEM, as long as they connect to a location where a 2D cell is present. If a 'potential breach' or 'exchange line' is used to set the location to which the calculation node connects, the location of those features determines whether an error is raised. If a channel with calculation type connected is outside of the DEM, but the closest point on its exchange_line is on the DEM, the computational grid can be built and the 3Di model is valid.
+- Channels with exchange type *connected* or *double connected* can now be placed outside the DEM, as long as they connect to a location where a 2D cell is present. If a 'potential breach' or 'exchange line' is used to set the location to which the calculation node connects, the location of those features determines whether an error is raised. If a channel with exchange type connected is outside of the DEM, but the closest point on its exchange_line is on the DEM, the computational grid can be built and the 3Di model is valid.
 
 - 1D-2D links that cross an obstacle will take the exchange level from the obstacle
 
@@ -142,9 +142,9 @@ March 2022
 
 - If the direction of a channel/pipe/culvert geometry is reversed compared to the “connection_node_start” and “connection_node_end”, then this is now fixed automatically.
 
-- The calculation type of culverts is not ignored anymore.
+- The exchange type of culverts is not ignored anymore.
 
-- For calculation nodes on channels with connected calculation type, the cross section will be used until the surface level of the DEM. This will give differences for channels with connected calculation type in case the cross section is below the surface level.
+- For calculation nodes on channels with connected exchange type, the cross section will be used until the surface level of the DEM. This will give differences for channels with connected exchange type in case the cross section is below the surface level.
 
 
 **Cross section definitions**
