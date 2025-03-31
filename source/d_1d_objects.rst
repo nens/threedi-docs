@@ -130,10 +130,10 @@ Time series
 
 - Units used are:
     - Water level: m MSL
-	- Velocity: m/s
-	- Discharge: m³/s
-	- Sommerfeld: m/m
-	- Groundwater level: m MSL
+    - Velocity: m/s
+    - Discharge: m³/s
+    - Sommerfeld: m/m
+    - Groundwater level: m MSL
     - Groundwater discharge: m³/s
 
 
@@ -392,7 +392,7 @@ Attributes
      - decimal number
      - No
      - m MSL
-     - Top of the manhole, e.g. street level (not used in the calculation).	 
+     - Top of the manhole, e.g. street level (not used in the calculation).
    * - Tags
      - tags
      - text
@@ -450,19 +450,19 @@ Exchange level
 **Exchange level above lowest pixel in the 2D cell**
 
 .. figure:: image/i_surface_exchange_drain_level_b.png
-	:alt: Connection node with a *exchange level* below the 2D cell's lowest pixel. The *1D2D exchange level* that is used in the simulation equals the 2D cell's bottom level.
-	:scale: 75%
-	
-	Connection node with a *exchange level* below the 2D cell's lowest pixel. The *1D2D exchange level* that is used in the simulation equals the 2D cell's bottom level.
+    :alt: Connection node with a *exchange level* below the 2D cell's lowest pixel. The *1D2D exchange level* that is used in the simulation equals the 2D cell's bottom level.
+    :scale: 75%
+    
+    Connection node with a *exchange level* below the 2D cell's lowest pixel. The *1D2D exchange level* that is used in the simulation equals the 2D cell's bottom level.
 
 
 **Exchange level below lowest pixel in the 2D cell**
 
 .. figure:: image/i_surface_exchange_drain_level_a.png
-	:alt: Connection node with a *exchange level* above the 2D cell's lowest pixel. The *1D2D exchange level* that is used in the simulation equals the connection node's exchange level.
-	:scale: 75%
-	
-	Connection node with a *drain level* above the 2D cell's lowest pixel. The *1D2D exchange level* that is used in the simulation equals the connection node's exchange level.
+    :alt: Connection node with a *exchange level* above the 2D cell's lowest pixel. The *1D2D exchange level* that is used in the simulation equals the connection node's exchange level.
+    :scale: 75%
+    
+    Connection node with a *drain level* above the 2D cell's lowest pixel. The *1D2D exchange level* that is used in the simulation equals the connection node's exchange level.
 
 Visualisation
 """""""""""""
@@ -602,10 +602,10 @@ Attributes
      - CSV-style data with the "columns" vegetation_stem_densities, vegetation_stem_diameters, vegetation_heights, vegetation_drag_coefficients
    * - Channel ID
      - channel_id
-	 - integer
-	 - Yes
-	 - \-
-	 - Foreign key reference to an ID in the :ref:`channel` table
+     - integer
+     - Yes
+     - \-
+     - Foreign key reference to an ID in the :ref:`channel` table
 
 .. _cross_section_location_notes_for_modellers:
 
@@ -754,10 +754,10 @@ Attributes
      - Sets the 1D2D exchange type: Embedded (100), Isolated (101), Connected (102), or Double connected (105). See :ref:`calculation_types`.
    * - Material
      - material_id
-	 - integer
-	 - No
-	 - \-
-	 - Foreign key reference to an ID in the :ref:`material` table, see :ref:`culvert_material`
+     - integer
+     - No
+     - \-
+     - Foreign key reference to an ID in the :ref:`material` table, see :ref:`culvert_material`
    * - Friction type
      - friction_type
      - decimal number
@@ -970,10 +970,10 @@ Attributes
      - Discharge in the negative direction is multiplied by this value
    * - Material
      - material_id
-	 - integer
-	 - See :ref:`orifice_material`
-	 - \-
-	 - Foreign key reference to an ID in the :ref:`material` table.
+     - integer
+     - See :ref:`orifice_material`
+     - \-
+     - Foreign key reference to an ID in the :ref:`material` table.
    * - Friction type
      - friction_type
      - decimal number
@@ -1123,13 +1123,13 @@ Attributes
      - integer
      - Yes
      - \-
-     - Sets the 1D2D exchange type: Embedded (0), Isolated (1), or Connected (2). See :ref:`calculation_types`.	 
+     - Sets the 1D2D exchange type: Embedded (0), Isolated (1), or Connected (2). See :ref:`calculation_types`.
    * - Material
      - material_id
-	 - integer
-	 - No
-	 - \-
-	 - Foreign key reference to an ID in the :ref:`material` table, see :ref:`pipe_material`
+     - integer
+     - No
+     - \-
+     - Foreign key reference to an ID in the :ref:`material` table, see :ref:`pipe_material`
    * - Friction type
      - friction_type
      - decimal number
@@ -1195,7 +1195,7 @@ Attributes
      - decimal number
      - No
      - \-
-     - Hydraulic conductivity for water flowing from the pipe to the groundwater, see :ref:`1d2d_groundwater_exchange`	 	 
+     - Hydraulic conductivity for water flowing from the pipe to the groundwater, see :ref:`1d2d_groundwater_exchange`
    * - Sewerage type
      - sewerage_type
      - integer
@@ -1220,7 +1220,7 @@ Attributes
      - No
      - \-
      - Comma-separated list of foreign key references to ID's in :ref:`tag`
-	 
+     
 
 .. _pipe_notes_for_modeller:
 
@@ -1487,10 +1487,10 @@ Attributes
      - Discharge in the negative direction is multiplied by this value
    * - Material
      - material_id
-	 - integer
-	 - See :ref:`weir_material`
-	 - \-
-	 - Foreign key reference to an ID in the :ref:`material` table.
+     - integer
+     - See :ref:`weir_material`
+     - \-
+     - Foreign key reference to an ID in the :ref:`material` table.
    * - Friction type
      - friction_type
      - decimal number
