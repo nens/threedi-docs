@@ -83,4 +83,4 @@ How you derive your raster information is entirely up to you. 3Di rasters have t
 .. note::
 
     The 3Di Modeller Interface includes a large number of tools for manipulating raster data. It is also possible to manipulate raster data from the :ref:``command line<gdal_cmd>`` or :ref:``using Python<rasters_python>``.
-	
+

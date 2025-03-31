@@ -15,7 +15,7 @@ Your schematisation should now be loaded and you should be able to view all the 
     If your schematisation database does not have the newest database schema version, it will automatically be migrated so that it is compatible with all the latest features.
 
 .. |add_schematisation| image:: /image/add_schematisation.png
-	:scale: 25%
+    :scale: 25%
 
 
 .. _multiplestyles:

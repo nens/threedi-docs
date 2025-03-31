@@ -13,7 +13,7 @@ Every aggregated results has its own time variable in the aggregated result file
 <time>_<aggregation_variable>
 
 .. note::
-	The time variable does not indicate the exact time at which the underlying data points (e.g., maxima or minima) were observed. Rather, it denotes the specific aggregated output timestep chosen by the user.
+    The time variable does not indicate the exact time at which the underlying data points (e.g., maxima or minima) were observed. Rather, it denotes the specific aggregated output timestep chosen by the user.
 
 
 The input flow variable names are mapped to the names in the output file in the following way:

@@ -73,12 +73,12 @@ Crashed simulations
 Common causes for crashing simulations are noted in the list below. Please check these if you encounter crashing simulations. 
 
 - Download the simulation logging, and check the contents of all log files. In particular:
-	
-	- flow_summary.json: large volume errors or NaN values indicate that the simulation has become numerically unstable (matrix convergence was impossible). You will probably find more information in matrix.log in this case. 
-	
-	- simulation.log: if any errors are mentioned, they will probably be at/near the end of the file. But make sure to also check the rest of the file for errors or messages that may tell you more about the crash.
-	
-	- matrix.log: if there are any messages in this file, check if it is mentioned in the list of common error messages below, and follow the instructions for that error message.
+    
+    - flow_summary.json: large volume errors or NaN values indicate that the simulation has become numerically unstable (matrix convergence was impossible). You will probably find more information in matrix.log in this case. 
+    
+    - simulation.log: if any errors are mentioned, they will probably be at/near the end of the file. But make sure to also check the rest of the file for errors or messages that may tell you more about the crash.
+    
+    - matrix.log: if there are any messages in this file, check if it is mentioned in the list of common error messages below, and follow the instructions for that error message.
 
 - Check if your 3Di model is up to date. The model generation will always use the latest 3Di framework, but if the 3Di model was generated a long time ago, or there was a new release after the generation of your model, your 3di Model may be outdated. Please :ref:`re-generate the 3Di model<regenerate_3di_model>` to see if this resolves your issue.
 
@@ -204,7 +204,7 @@ Via the 3Di Models & Simulations plugin settings (see below).
     :alt: Open the settings of 3Di Models and Simulations
 
 .. figure:: image/f_changepluginsettings2.png
-    :alt: Change the working directory of 3Di Models and Simulations	
+    :alt: Change the working directory of 3Di Models and Simulations
 
 3Di Modeller Interface in other languages than English
 """"""""""""""""""""""""""""""""""""""""""""""""""""""

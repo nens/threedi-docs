@@ -157,7 +157,7 @@ Below two tables are included with a summary of the possible settings for interf
    * - Porosity layer
      - .. math::
          \checkmark
-     - 	X
+     - X
    * - Hydraulic conductivity
      - .. math::
          \checkmark

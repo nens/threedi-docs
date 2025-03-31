@@ -5,7 +5,7 @@ Water Balance Tool
 The Water Balance Tool (|waterbalancetoolbar|) computes the water balance in any area of your model, by using the incoming and outgoing fluxes at any polygon. The results are visualised as a graph. The development of this tool was an initiative of Deltares and was jointly developed with Nelen & Schuurmans and co-funded by the Dutch Top Sector Water (Ministry of Economic Affairs).
 
 This is the only results tool that requires specific aggregation variables. If these are missing, an error will pop up. See :ref:`waterbalanceactivate` for more information on the required input for the Water Balance Tool.
-	
+    
 1) Select a polygon from any layer to define the area of interest. The graph shows the water balance over time for the selected area. In case you are interested in only part of the water balance (e.g. the first 30 minutes) you can pan or zoom in and out on the plot itself and along either axis. Another way is to right-click the graph and change the range for either axis. The visible x-axis determines the period over which the water balance is calculated (see next step).
 2) Click the "Show total balance" button to show the :ref:`water_balance_tool_total_balance` for the time period that is visible in the Water Balance graph. 
 3) Choose between flow (m\ :sup:`3`/s) (default) or cumulative flow (m\ :sup:`3`). 
@@ -19,12 +19,12 @@ The water balance can be exported as an image or csv-file. Right-click the plot 
 
 .. figure:: image/i_waterbalance_tool.png 
     :alt: Water Balance Tool
-	
+    
 .. |waterbalancetoolbar| image:: /image/i_3di_results_analysis_toolbar_waterbalance.png
-	:scale: 25%
+    :scale: 25%
 
 .. |temporalcontroller| image:: /image/i_temporal_controller.png
-	:scale: 90%	
+    :scale: 90%
 
 
 .. _water_balance_tool_total_balance:
@@ -38,7 +38,7 @@ The total water balance can be exported as an image or csv-file. Right-click the
 
 .. figure:: image/i_waterbalance_tool_total_water_balance.png 
     :alt: Total Water Balance
-	.. _water_balance_tool_categories_explanation
+    .. _water_balance_tool_categories_explanation
 
 
 Explanation of categories
@@ -124,7 +124,7 @@ Add aggregation settings::
     UNION
     SELECT 'surface_source_sink_discharge', 'cum_negative', output_time_step FROM time_step_settings
     ;
-	
+    
 .. note::
     
     The query above sets the aggregation time step equal to the output time step size. If you want to use a different aggregation time step size, make sure to use the same time step size for all aggregation variables, otherwise the Water Balance Tool cannot be used::

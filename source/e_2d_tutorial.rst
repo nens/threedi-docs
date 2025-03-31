@@ -54,23 +54,23 @@ Follow these steps to create a new :ref:`schematisation`:
 
 #) Fill in the following settings:
 
-	* Computational cell size: 64
+    * Computational cell size: 64
 
-	* The model area is predominantly: Flat
+    * The model area is predominantly: Flat
 
-	* No 1D flow
+    * No 1D flow
 
-	* No 0D flow
+    * No 0D flow
 
-	* Friction type: Manning
+    * Friction type: Manning
 
-	* No friction file
+    * No friction file
 
-	* Global 2D friction coefficient: 0.06
+    * Global 2D friction coefficient: 0.06
 
-	* Simulation time step: 30 s
+    * Simulation time step: 30 s
 
-	* Typical simulation duration: 0-3 hours
+    * Typical simulation duration: 0-3 hours
 
 #) Click *Create schematisation*. 
 
@@ -97,8 +97,8 @@ The next step is to check the schematisation, upload it as a first :ref:`revisio
 
 #) Click *Check schematisation*. This will check your schematisations for any errors. A schematisation that contains errors cannot be processed into a 3Di model and simulation template. The schematisation checker may also produce warnings or info level messages. These help you to improve the schematisation. If you have followed the instructions in this tutorial, the schematisation checker should not produce any errors, warnings or info level messages.
 
-	.. note::
-	   Please do not ignore warnings. These are given for schematisation choices that are usually wrong and negatively impact the performance of you model. It will still be possible generate a model from a schematisation with warnings, and there may also be special cases where your schematisation choice is intentional and you deliberately ignore the warning. If the performance of you model is sub-par, please fix any warnings before reaching out to the servicedesk.
+    .. note::
+       Please do not ignore warnings. These are given for schematisation choices that are usually wrong and negatively impact the performance of you model. It will still be possible generate a model from a schematisation with warnings, and there may also be special cases where your schematisation choice is intentional and you deliberately ignore the warning. If the performance of you model is sub-par, please fix any warnings before reaching out to the servicedesk.
 
 #) Continue to the next screen. Here you have to fill in a commit message that describes the changes your have made relative to the previous revision. As this is the first revision of this schematisation, you can instead provide a short description of what you upload. For example: "Default settings, DEM only".
 
@@ -160,16 +160,16 @@ Follow these steps:
 
 #) Click the *Toggle editing mode* button in the toolbar and save your edits to this layer.
 
-	.. csv-table:: Simple infiltration settings
-		:name: inf_settings
-		:header: "Setting", "Value for this tutorial", "Comments"
+    .. csv-table:: Simple infiltration settings
+        :name: inf_settings
+        :header: "Setting", "Value for this tutorial", "Comments"
 
-		"ID", "1", ""
-		"Infiltration rate [mm/d]", "360", "Uniform silty sand is assumed in this tutorial"
-		"Infiltration rate file", "NULL", "Only used for spatially varying infiltration rates"
-		"Infiltration surface option", "0: Whole surface when raining", "See :ref:`infiltration`"
-		"Max. infiltration volume [m]", "NULL", "Infinite infiltration capacity is assumed in this tutorial"
-		"Max. infiltration volume file", "NULL", "Infinite infiltration capacity is assumed in this tutorial"
+        "ID", "1", ""
+        "Infiltration rate [mm/d]", "360", "Uniform silty sand is assumed in this tutorial"
+        "Infiltration rate file", "NULL", "Only used for spatially varying infiltration rates"
+        "Infiltration surface option", "0: Whole surface when raining", "See :ref:`infiltration`"
+        "Max. infiltration volume [m]", "NULL", "Infinite infiltration capacity is assumed in this tutorial"
+        "Max. infiltration volume file", "NULL", "Infinite infiltration capacity is assumed in this tutorial"
 
 
 Now you need to enable *Use simple infiltration* in the *Model settings* table.
@@ -248,4 +248,4 @@ To view the model on 3Di Management:
     :scale: 80%
 
 .. |add_feature| image:: /image/pictogram_addfeature.png
-	:scale: 80%
+    :scale: 80%

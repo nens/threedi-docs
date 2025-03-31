@@ -10,7 +10,7 @@ In this tutorial, you will build a basic 2D flow model in mountainous terrain us
 The selected area is that of Lake Mead in the USA, just east of Las Vegas. The lake is enclosed between the mountains of Nevada, Utah, and Arizona. The area is characterized by strong elevation differences and steep slopes. Due to the steep slopes, it can not be assumed that the water level in a cell is uniform, which is a basic assumption in the :ref:`subgridmethod`. Therefore, different settings are required, which will be explored in this tutorial. For further information on how this works in 3Di, see :ref:`limiters`.
 
 .. note::
-	The data and simulation results from this tutorial cannot be used to draw conclusions of the real-world location that was the inspiration for this tutorial. The raster files that describe the variation of friction and infiltration have been highly simplified for the purpose of this tutorial.  
+    The data and simulation results from this tutorial cannot be used to draw conclusions of the real-world location that was the inspiration for this tutorial. The raster files that describe the variation of friction and infiltration have been highly simplified for the purpose of this tutorial.  
 
 
 Learning objectives
@@ -77,18 +77,17 @@ The first step is to create a new :ref:`schematisation`.
 
 #) Click *Yes*
 
-By choosing the option "The model area is predominantly sloping", the relevant *numerical settings* will be set to values suitable for calculating flow over slopes. The following parameters are set automatically; for more in-depth discussion of these parameters, see :ref:`limiters`.
+    By choosing the option "The model area is predominantly sloping", the relevant *numerical settings* will be set to values suitable for calculating flow over slopes. The following parameters are set automatically; for more in-depth discussion of these parameters, see :ref:`limiters`.
 
+    .. csv-table:: Numerical settings values specific for sloping terrain
+        :header: "Setting", "Value", "Comments"
 
-	.. csv-table:: Numerical settings values specific for sloping terrain
-		:header: "Setting", "Value", "Comments"
-
-		"Limiter water level gradient 1D", "Checked"
-		"Limiter water level gradient 2D", "Unchecked"
-		"Limiter slope cross-sectional area 2D", "3: Thin water layer approach", "For sloping areas"
-		"Limiter slope friction 2D", "Checked", "For sloping areas"
-		"Limiter slope thin water layer [m]", "0.3", "Value in meters"
-		"Friction shallow water depth correction", "3: Linearized depth based on weighted average", "For sloping areas"
+        "Limiter water level gradient 1D", "Checked"
+        "Limiter water level gradient 2D", "Unchecked"
+        "Limiter slope cross-sectional area 2D", "3: Thin water layer approach", "For sloping areas"
+        "Limiter slope friction 2D", "Checked", "For sloping areas"
+        "Limiter slope thin water layer [m]", "0.3", "Value in meters"
+        "Friction shallow water depth correction", "3: Linearized depth based on weighted average", "For sloping areas"
 
 
 #) Add a background map from OpenStreetMap by clicking *Web* in the Main Menu > *Quick Map Services* > *OSM* > *OSM Standard*.
@@ -147,16 +146,16 @@ Filling in the Simple infiltration settings
 
 #) Click the *Toggle editing mode* button (|toggle_editing|) in the top left, then click the *Add feature* button (|add_feature|). Fill in the following values from the table below and click *OK*:
 
-	.. csv-table:: Simple infiltration settings
-		:name: inf_settings_tut3
-		:header: "Setting", "Value for this tutorial", "Comments"
+    .. csv-table:: Simple infiltration settings
+        :name: inf_settings_tut3
+        :header: "Setting", "Value for this tutorial", "Comments"
 
-		"ID", "1", ""
-		"Infiltration rate [mm/d]", "30", "when using an infiltration rate raster, this value will only be used as fallback value for NODATA pixels"
-		"Infiltration rate file", "Mead_infiltration.tif", "Do not forget to copy the raster to the correct location before uploading."
-		"Infiltration surface option", "1: Always whole surface", "See :ref:`infiltration`"
-		"Max. infiltration volume [m]", "0.1", "100 mm of total infiltration"
-		"Max. infiltration volume file", "NULL", "A global value is used for this parameter"
+        "ID", "1", ""
+        "Infiltration rate [mm/d]", "30", "when using an infiltration rate raster, this value will only be used as fallback value for NODATA pixels"
+        "Infiltration rate file", "Mead_infiltration.tif", "Do not forget to copy the raster to the correct location before uploading."
+        "Infiltration surface option", "1: Always whole surface", "See :ref:`infiltration`"
+        "Max. infiltration volume [m]", "0.1", "100 mm of total infiltration"
+        "Max. infiltration volume file", "NULL", "A global value is used for this parameter"
 
 
 #) Click the *Toggle editing mode* button in the toolbar and save your edits to this layer.
@@ -220,4 +219,4 @@ Congratulations! You have completed the 2D flow model for sloping area.
     :scale: 80%
 
 .. |add_feature| image:: /image/pictogram_addfeature.png
-	:scale: 80%
+    :scale: 80%

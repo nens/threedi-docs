@@ -44,11 +44,11 @@ Exploring the model
 
 On the left side of the screen, you find a toolbar. These tools are used to inspect the model, add forcings (discharge, pump, rain, or wind), or edit the model during the simulation (editing the DEM or adding a flood barrier). The layers button at the bottom-left opens the *Map Layers* panel, where you can change the visualisation to your liking.
  
-#)	Open the *Map Layers* (|map_layer|) panel.
+#) Open the *Map Layers* (|map_layer|) panel.
 
 #)  Task: find out what the lowest elevation in the DEM is. Hint: Toggle the *Digital Elevation Map* to visible, and use the :ref:`line_selection_tool` (|line_selection_tool|).
 
-#)	Task: find out what the size of the 2D computational cells is (in m²)? Hint: toggle the :ref:`Model grid <visualisation_calculation_layers_3di_live>` to visible and zoom in. Use the :ref:`line_selection_tool` to measure the length of the cells.
+#) Task: find out what the size of the 2D computational cells is (in m²)? Hint: toggle the :ref:`Model grid <visualisation_calculation_layers_3di_live>` to visible and zoom in. Use the :ref:`line_selection_tool` to measure the length of the cells.
 
 Starting the simulation
 -----------------------

@@ -92,13 +92,13 @@ Attributes
      - boolean
      - Yes
      - \-
-     - True: flux will be interpolated between time steps. False: flux will remain contant until the next time step	 
+     - True: flux will be interpolated between time steps. False: flux will remain contant until the next time step 
    * - Time series
      - timeseries
      - text
      - Yes
      - \-
-     - CSV-style table of 'time_step,value' pairs, separated by newline character.	 
+     - CSV-style table of 'time_step,value' pairs, separated by newline character. 
    * - Connection node ID
      - connection_node_id
      - integer
@@ -221,7 +221,7 @@ Attributes
      - text
      - Yes
      - \-
-     - CSV-style table of 'time_step,value' pairs, separated by newline character.	 
+     - CSV-style table of 'time_step,value' pairs, separated by newline character. 
    * - Tags
      - tags
      - text
@@ -447,7 +447,7 @@ Attributes
      - No
      - \-
      - Comma-separated list of foreign key references to ID's in :ref:`tag`
-	 
+
 .. _surface:
 
 Surface

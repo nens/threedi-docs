@@ -190,11 +190,11 @@ Attributes
      - decimal number
      - Yes
      - Depends on the *Action type*.
-	     
-		 - Set crest level: m MSL
-		 - Set gate level: m MSL
-		 - Set pump capacity: L/s
-		 - Set discharge coefficients: unitless
+         
+         - Set crest level: m MSL
+         - Set gate level: m MSL
+         - Set pump capacity: L/s
+         - Set discharge coefficients: unitless
      - The value to which the structure property must be set when the upper threshold is passed (or lower threshold when *Is inverse* is *True*).
    * - Action value 2
      - action_value_2
@@ -283,10 +283,10 @@ Attributes
      - Choose from *>* or *<*. See :ref:`table_control`.
    * - Action table
      - action_table
-	 - text
-	 - Yes
-	 - \-
-	 - :ref:`action_table_formatting<CSV-style table>` that defines the value to set when the measured value exceeds or falls below the specified value.
+     - text
+     - Yes
+     - \-
+     - :ref:`action_table_formatting<CSV-style table>` that defines the value to set when the measured value exceeds or falls below the specified value.
    * - Tags
      - tags
      - text
@@ -301,15 +301,15 @@ Action table formatting
 
 The *Action table* is a CSV-style table with three columns. The columns are comma-separated, the rows are newline-separated. Example for action type *Set crest level* (note the comma at the end of each row)::
     
-	-1.7,-1.4,
-	-1.6,-1.3,
-	-1.5,-1.2,
+    -1.7,-1.4,
+    -1.6,-1.3,
+    -1.5,-1.2,
 
 Example for an action table for a timed control with action type *Set discharge coefficients* that changes the discharge coefficients after 1, 2, and 3 hours::
     
     3600,0,0
-	7200,0.5,0.5
-	10800,1,1
+    7200,0.5,0.5
+    10800,1,1
 
 The first column contains the value to compare the measured value to. The second column contains the value to set the structure property to (e.g. weir crest level). The third column is only used when the *Action type* is *Set discharge coefficients*, to store the negative discharge coefficient. For all other action types, leave this column empty. 
 

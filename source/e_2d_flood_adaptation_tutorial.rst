@@ -102,11 +102,11 @@ The simulation (including the discharge you added) can be saved as a template. T
 
 #) Click *Restart simulation* in the user menu (|user_menu|). 
 
-#)	Select *Store results instead of restarting*
+#) Select *Store results instead of restarting*
 
-#)	Select *Create simulation template from simulation*
+#) Select *Create simulation template from simulation*
 
-#)	Choose a template name (Like: 'Discharge 30 m³/s for 24 hours') and make sure the boxes *Include events*, *Include initials* and *Include settings* are checked. Then click *Store results*.
+#) Choose a template name (Like: 'Discharge 30 m³/s for 24 hours') and make sure the boxes *Include events*, *Include initials* and *Include settings* are checked. Then click *Store results*.
 
 
 Adding a flood barrier to your simulation
@@ -137,17 +137,17 @@ As we have seen earlier in this tutorial, the inundation reaches 2.35 m MSL, if 
 
 #) Click the :ref:`flood_barrier_tool_3di_live` button (|barrier_tool|).
 
-#)	Use an elevation of 2.5 m MSL. This is the flood barrier's crest level.
+#) Use an elevation of 2.5 m MSL. This is the flood barrier's crest level.
 
-#)	Click *Draw on map*.
+#) Click *Draw on map*.
 
-#)	Draw a flood barrier on the map as is shown in the figure below. When you are finished drawing, click *Confirm*.
+#) Draw a flood barrier on the map as is shown in the figure below. When you are finished drawing, click *Confirm*.
 
-#)	Select the barrier using the Selection tool to check whether the height is correct and see the total length of the placed flood barrier.
+#) Select the barrier using the Selection tool to check whether the height is correct and see the total length of the placed flood barrier.
 
-#)	Start the simulation and let it run for 1 hour.
+#) Start the simulation and let it run for 1 hour.
 
-#)	To make a quick comparison, take a screenshot of the results and paste it next to the screenshot of the model without barrier. Did the flood barrier properly protect the urban area?
+#) To make a quick comparison, take a screenshot of the results and paste it next to the screenshot of the model without barrier. Did the flood barrier properly protect the urban area?
 
 .. figure:: image/t_05_location_barrier.png
    :alt: Location of the barrier
@@ -163,7 +163,7 @@ As we have seen earlier in this tutorial, the inundation reaches 2.35 m MSL, if 
     :scale: 80%
 
 .. |load_from_spatialite| image:: /image/pictogram_load_from_spatialite.png
-	:scale: 80%
+    :scale: 80%
 
 .. |discharge_tool| image:: /image/pictogram_discharge_tool.png
     :scale: 80%

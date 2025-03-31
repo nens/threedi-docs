@@ -17,5 +17,5 @@ The outputs that are produced directly by 3Di are called *Raw results*. Which of
 
 .. note::
     
-	The computional grid file (gridadmin.h5) is created from the schematisation by 3Di and is input for the 3Di computional core. As such it is not an output or result of the simulation, but is needed to open the other files.
+    The computional grid file (gridadmin.h5) is created from the schematisation by 3Di and is input for the 3Di computional core. As such it is not an output or result of the simulation, but is needed to open the other files.
 

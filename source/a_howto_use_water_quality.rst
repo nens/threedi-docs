@@ -25,7 +25,7 @@ It involves the following steps:
     
     .. note:: 
         
-		The way substance concentrations are defined, mirrors the way that the initials or forcings are defined. I.e., 2D initial water levels are supplied as a raster, so 2D initial substance concentrations are also supplied as a raster; substance concentrations in time series rain is also provided as a time series; et cetera.
+        The way substance concentrations are defined, mirrors the way that the initials or forcings are defined. I.e., 2D initial water levels are supplied as a raster, so 2D initial substance concentrations are also supplied as a raster; substance concentrations in time series rain is also provided as a time series; et cetera.
 
 - Run the simulation in the same way as you are used to
 

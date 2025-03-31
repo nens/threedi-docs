@@ -491,8 +491,8 @@ Attributes
      - Yes
      - \-
      - See :ref:`1d_advection`. Choose from:
-	     
-	     - 0: No 1D advection
+         
+         - 0: No 1D advection
          - 1: Momentum conservative scheme
          - 2: Energy conservative scheme
          - 3: Combined momentum and energe conservative scheme (recommended)
@@ -554,7 +554,7 @@ Attributes
      - No
      - \-
      - Set to True to use Structure control
-	 
+     
 .. _time_step_settings:
 
 Time step settings
@@ -618,7 +618,7 @@ Attributes
      - Yes
      - s
      - The output time step that is written in the output file (NetCDF). This must be a multiple of the simulation time step.
-	 
+     
 .. _tag:
 
 Tag

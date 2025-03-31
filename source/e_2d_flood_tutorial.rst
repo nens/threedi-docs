@@ -49,27 +49,27 @@ The first step is to create a new :ref:`schematisation`:
 
 #) Fill in the following Schematisation settings:
 
-	* The coordinate reference system: is read from the DEM file and filled in automatically (EPSG:28992 - Amersfoort / RD New)
+    * The coordinate reference system: is read from the DEM file and filled in automatically (EPSG:28992 - Amersfoort / RD New)
 
-	* Digital elevation model: browse to the DEM file you have downloaded (dem_Nissewaard.tif)
+    * Digital elevation model: browse to the DEM file you have downloaded (dem_Nissewaard.tif)
 
-	* Computational cell size: 20
+    * Computational cell size: 20
 
-	* The model area is predominantly: Flat
+    * The model area is predominantly: Flat
 
-	* Use 1D flow
+    * Use 1D flow
 
-	* No 0D flow
+    * No 0D flow
 
-	* Friction type: Manning
+    * Friction type: Manning
 
-	* Friction file: Leave empty
+    * Friction file: Leave empty
 
-	* Global 2D friction coefficient: 0.03
+    * Global 2D friction coefficient: 0.03
 
-	* Simulation time step: 30 s
+    * Simulation time step: 30 s
 
-	* Typical simulation duration: 3-12 hours
+    * Typical simulation duration: 3-12 hours
 
 
 #) Click *Create schematisation*. 

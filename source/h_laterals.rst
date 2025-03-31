@@ -7,7 +7,7 @@ Laterals are point sources and sinks. Each time step, the volume as specified in
 
 A specific type of laterals is dry weather flow (DWF). DWF is a 1D lateral with one discharge value for each hour of the day. It is used to simulate the wastewater produced by households or industry, which usually follows a pattern that varies troughout the day.
 
-For information on defining laterals and dry weather flow to the schematisation, see :ref:`inflow_objects`.	
+For information on defining laterals and dry weather flow to the schematisation, see :ref:`inflow_objects`.
 
 1D laterals, 2D laterals, and dry weather flow can be defined in the schematisation, so that they will be part of the simulation template that is created along with the 3Di model for that schematisation; see :ref:`2d_lateral`, :ref:`1d_lateral`, and, for :ref:`inflow_objects`.
 

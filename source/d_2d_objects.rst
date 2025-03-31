@@ -96,7 +96,7 @@ Attributes
      - text
      - Yes
      - [s, min, or h] and [m MSL, m/s, m/m, m³/s]
-     - CSV-style table of 'time_step,value' pairs, separated by newline character.	 
+     - CSV-style table of 'time_step,value' pairs, separated by newline character. 
    * - Tags
      - tags
      - text
@@ -119,10 +119,10 @@ Time series
 
 - Units used are:
     - Water level: m MSL
-	- Velocity: m/s
-	- Discharge: m³/s
-	- Sommerfeld: m/m
-	- Groundwater level: m MSL
+    - Velocity: m/s
+    - Discharge: m³/s
+    - Sommerfeld: m/m
+    - Groundwater level: m MSL
     - Groundwater discharge: m³/s
 
 - The time series string cannot contain any spaces or empty rows

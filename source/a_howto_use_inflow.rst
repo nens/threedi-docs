@@ -24,7 +24,7 @@ How to add 0D inflow to a schematisation:
 - If you want, you can also divide the runoff from a surface over several connection nodes. Draw :ref:`surface_map` lines from the same :ref:`surface` to several connection nodes. The *Percentage* attribute of the :ref:`surface_map` feature determines how the runoff is distributed over the different connection nodes. E.g. if you map a surface to three connection nodes, you may want to set the percentages to 25%, 25% and 50%.
 
 .. note::
-	Pay attention to the total storage that is available in the target node in relation to the area of the surface. The total storage of the node is the sum of the storage in the connection node (storage area multiplied by the difference between bottom and exchange level) and half of the volume of all connected pipes, channels and/or culverts. If the total storage in the node is very small relative to the amount of inflow that is expected, the water level in the node will rise very quickly, which may lead to unexpected behaviour.
+    Pay attention to the total storage that is available in the target node in relation to the area of the surface. The total storage of the node is the sum of the storage in the connection node (storage area multiplied by the difference between bottom and exchange level) and half of the volume of all connected pipes, channels and/or culverts. If the total storage in the node is very small relative to the amount of inflow that is expected, the water level in the node will rise very quickly, which may lead to unexpected behaviour.
 
 Combining 0D inflow with 2D rain
 --------------------------------

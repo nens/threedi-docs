@@ -91,7 +91,7 @@ Detecting leaking obstacles in the DEM
 
 Two processing algorithms are available to help you identify leaking obstacles in the DEM, such as dikes or elevated roads in the dem that are 'missed' by 3Di because they do not cover the entire edge of a calculation cell. Access them via *Main Menu* > *Processing* > *Toolbox* > *3Di* > *Computational Grid*.
 
-	* **Detect leaking obstacles in DEM** analyses all 2D flowlines in the model domain.
-	* **Detect leaking obstacles in DEM (discharge threshold)** analyses only the 2D flowlines in the model domain through which more than a specified volume of water flows during the entire simulation. It also estimates how much effect placing an obstacle would have on this volume.
+    * **Detect leaking obstacles in DEM** analyses all 2D flowlines in the model domain.
+    * **Detect leaking obstacles in DEM (discharge threshold)** analyses only the 2D flowlines in the model domain through which more than a specified volume of water flows during the entire simulation. It also estimates how much effect placing an obstacle would have on this volume.
 
 

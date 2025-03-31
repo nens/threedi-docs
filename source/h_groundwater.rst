@@ -88,7 +88,7 @@ Most of the groundwater concepts on which the groundwater method in 3Di is based
 .. math::
    :label: inf_press
 
-	q(x,y,z,t) = -\kappa(x,y,z) \frac{\partial \phi}{\partial z}
+    q(x,y,z,t) = -\kappa(x,y,z) \frac{\partial \phi}{\partial z}
 
 |
 
@@ -115,7 +115,7 @@ Horton based infiltration formulation describes infiltration rate that is decayi
 .. math::
    :label: inf_horton
 
-	f(x,y,t) = f_{equ}(x,y)+(  f_{ini}(x,y)-f_{equ}(x,y))e^{-t/T(x,y)}
+    f(x,y,t) = f_{equ}(x,y)+(  f_{ini}(x,y)-f_{equ}(x,y))e^{-t/T(x,y)}
 
 in which :math:`f` is the infiltration rate varying in time and space, :math:`f_{equ}` and :math:`f_{ini}` are the equilibrium and the initial infiltration rates, respectively. The decay period :math:`T` determines the time that the infiltration rate reaches its equilibrium. An example of the decay function is shown in *Figure 4*.
 

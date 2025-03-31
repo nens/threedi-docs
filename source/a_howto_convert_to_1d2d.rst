@@ -3,55 +3,41 @@
 Add 1D elements to a 2D model
 =============================
 
-1D elements can be added to any 2D model in a few simple steps. First, you need to change some :ref:`global_settings` and :ref:`numerical_settings`. Then you add the 1D elements to the schematisation and upload it as a new revision. The 3Di model that is created from this revision will include the 1D elements.
+1D elements can be added to any 2D model in a few simple steps. First, you need to change some :ref:`model_settings`, :ref:`numerical_settings`, and :ref:`physical_settings`. Then you add the 1D elements to the schematisation and upload it as a new revision. The 3Di model that is created from this revision will include the 1D elements.
 
-Global settings to be changed
------------------------------
+Model settings to be changed
+----------------------------
 
-To make the required changes to the global settings, :ref:`load your schematisations<load_schematisation>` and open the *Global settings* attribute table.
+To make the required changes to the model settings, :ref:`load your schematisations<load_schematisation>` and open the *Model settings* attribute table.
 
-- In the tab *General*, check the option *Use 1D flow*
+- In the tab *Processes*, check the option *Use 1D flow*
 
-- In the tab *Extra options 1D*, check if the settings have the correct values
+- In the tab *General*, set *Calculation point distance 1D* to 1000. Specify the calculation point distance for each individual 1D element; this global value will then be ignored.
 
-.. todo::
-	Why is the suggested value for max_angle_advection_1d 1.570795 when the range is between 0-90 degrees?
-	
-	.. csv-table:: Global settings for models with 1D elements
-		:name: inf_settings_1d
-		:header: "Setting", "Attribute name", "Suggested value", "Comments"
+- In the tab *Advanced* set *Max angle advection 1D* to 1.570795 radians.
 
-		"Advection 1D", "advection_1d", "1", "In most cases, you will want to include the effect of advective forces on flow in the 1D domain"
-		"Calculation point distance", "dist_calc_points", "1000", "Specify the calculation point distance for each individual 1D element; this global value will then be ignored."
-		"Manhole storage area", "manhole_storage_area", "NULL", "Relevant only for sewerage models without 2D"
-		"Max angle advection 1D", "max_angle_advection_1d", "1.570795", "Advection is not relevant when the angle is more than 90 degrees"
-		"Table step size 1D", "table_step_size_1d", "0.01", "Recommended to make this value much smaller than the smallest 1D cross section in the schematisation"
+- In the tab *General* set *Table step size 1D* to 0.01. It is recommended to make this value much smaller than the smallest 1D cross section in the schematisation.
 
 Numerical settings to be changed
 --------------------------------
 
 Open the *Numerical settings* attribute table.
 
-- In the tab *Limiters*, switch the *limiter_grad_1d* on (set it to 1). 
+- In the tab *Matrix solver*, set *Use nested Newton* to the correct value (depends on whether the 1D elements you are going to add will have open or closed cross-sections).
+- Still in the tab *Matrix*, set *Convergence criterion for conjugate gradient method* to "7: For 1D and 2D flow"
 
-- In the tab *Matrix*, set *use_of_nested_newton* to the correct value (depends on what if the 1D elements you are going to add will have open or closed cross-sections).
+- In the tab *Slope limiters*, switch the *Limiter water level gradient 1D* on. 
 
-- Still in the tab *Matrix*, set *max_degree* to "7: for 1D and 2D flow"
+- In the tab *Misc*, the *Pump implicit ratio* should normally be set to 1, unless you want to study exactly when the pump switches on or off.
 
-- If you are going to use pumps, the *pump_implicit_ratio* (*Miscellaneous* tab) should normally be set to 1, unless you want to study exactly when the pump switches on or off.
+Physical settings to be changed
+-------------------------------
 
-- The *preissmann_slot* (*Miscellaneous* tab) should normally not be used, i.e. set it to 0.
+- Set *Use advection 1D* to *3: Combined momentum and energy conservative scheme* 
 
 Adding 1D elements
 ------------------
 
-After having set the global and numerical settings, you can start adding 1D features. See :ref:`edit_schematisation` for more information.
+After having set these settings, you can start adding 1D features. See :ref:`edit_schematisation` for more information.
 
 You can also add 1D elements outside of the 2D domain. Set their :ref:`exchange type<calculation_types>` to *isolated* and connect them to a schematisation object (e.g. a channel) that does overlap with the 2D domain and has a *connected* or *embedded* exchange type.
-
-
-
-
-
-
-
