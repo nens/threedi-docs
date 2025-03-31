@@ -12,6 +12,7 @@ Objects in this category contain the settings that govern several aspects of the
 * :ref:`physical_settings`
 * :ref:`simulation_template_settings`
 * :ref:`tag`
+* :ref:`schema_version`
 
 .. _model_settings:
 
@@ -454,7 +455,7 @@ Attributes
 .. _physical_settings:
 
 Physical settings
-------------------
+-----------------
  
 Settings related to the physics involved in the simulation.
  
@@ -502,17 +503,177 @@ Attributes
      - \-
      - 0: Off; 1: On
 
+.. _simulation_template_settings:
 
+Simulation template settings
+----------------------------
+ 
+Settings to set simulation properties in the simulation template.
+ 
+These settings are stored in the simulation template. You can change them before starting the simulation, without the need to regenerate the 3Di model.
+
+Layer name
+^^^^^^^^^^
+
+simulation_template_settings
+
+Attributes
+^^^^^^^^^^
+
+.. list-table:: Simulation template settings attributes
+   :widths: 6 4 4 2 4 30
+   :header-rows: 1
+
+   * - Attribute alias
+     - Field name
+     - Type
+     - Mandatory
+     - Units
+     - Description
+   * - ID
+     - id
+     - integer
+     - Yes
+     - \-
+     - Unique identifier
+   * - Name
+     - name
+     - integer
+     - Yes
+     - \-
+     - Name of the simulation and the simulation template
+   * - Use 0D inflow
+     - use_0d_inflow
+     - boolean
+     - No
+     - \-
+     - Set to True to use Surface inflow and Dry weather flow
+   * - Use structure control
+     - use_structure_control
+     - boolean
+     - No
+     - \-
+     - Set to True to use Structure control
+	 
+.. _time_step_settings:
+
+Time step settings
+----------------------------
+ 
+Settings to set simulation and output time steps.
+ 
+These settings are stored in the simulation template. You can change them before starting the simulation, without the need to regenerate the 3Di model.
+
+Layer name
+^^^^^^^^^^
+
+time_step_settings
+
+Attributes
+^^^^^^^^^^
+
+.. list-table:: Time step settings attributes
+   :widths: 6 4 4 2 4 30
+   :header-rows: 1
+
+   * - Attribute alias
+     - Field name
+     - Type
+     - Mandatory
+     - Units
+     - Description
+   * - ID
+     - id
+     - integer
+     - Yes
+     - \-
+     - Unique identifier
+   * - Time step
+     - time step
+     - integer
+     - Yes
+     - s
+     - The default time step used in the simulation.
+   * - Min. time step
+     - min_time_step
+     - integer
+     - Yes
+     - s
+     - Minimum time step that is allowed in the simulation.
+   * - Use time step stretch
+     - use_time_step_stretch
+     - boolean
+     - Yes
+     - s
+     - If set to True, 3Di will use a larger time step than the simulation time step when the simulation reaches a steady state.
+   * - Max. time step
+     - min_time_step
+     - integer
+     - Yes
+     - s
+     - Maximum time step that is allowed in the simulation. Use in conjunction with *Use time step stretch*.
+   * - Output time step
+     - output_time_step
+     - integer
+     - Yes
+     - s
+     - The output time step that is written in the output file (NetCDF). This must be a multiple of the simulation time step.
+	 
+.. _tag:
+
+Tag
+---
+ 
+Tag that can be assigned to other schematisation objects. Example usages are to track data sources, assumptions, and automated or manual edits.
+
+Layer name
+^^^^^^^^^^
+
+tag
+
+Attributes
+^^^^^^^^^^
+
+.. list-table:: Time step settings attributes
+   :widths: 6 4 4 2 4 30
+   :header-rows: 1
+
+   * - Attribute alias
+     - Field name
+     - Type
+     - Mandatory
+     - Units
+     - Description
+   * - ID
+     - id
+     - integer
+     - Yes
+     - \-
+     - Unique identifier
+   * - Description
+     - description
+     - text
+     - Yes
+     - \-
+     - Text of the tag
+   
 .. _schema_version:
 
 Schema version
 --------------
 
-The schema version shows the database schema version. The database schema is the definition of all tables, columns, and data types. If changes to the database schema are made, tools in the 3Di Modeller Interface will ask you to migrate the spatialite to the newer database schema version. This migration will add or delete the tables and columns that have been changed.
+*This table exists in the schematisation database, but is not added to the project when loading the schematisation.*
+
+Shows the database schema version. The database schema is the definition of all tables, columns, and data types. If changes to the database schema are made, tools in the 3Di Modeller Interface will ask you to migrate the schematisation database to the newer database schema version. This migration will add or delete the tables and columns that have been changed.
 
 .. note::
 
     Do not change the schema version manually! Use the processing algorithm :ref:`migrate_spatialite`.
+
+Layer name
+^^^^^^^^^^
+
+schema_version
 
 Schema version attributes
 ^^^^^^^^^^^^^^^^^^^^^^^^^
