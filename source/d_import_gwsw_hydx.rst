@@ -12,7 +12,7 @@ You can use this processing algorithm to import a previously downloaded local da
 Parameters
 """"""""""
 
-**Target 3Di Schematisation**: Geopackage (*.gpkg) file that contains the layers required by 3Di. Imported data will be added to any data already contained in the 3Di schematisation geopackage.
+**Target 3Di Schematisation**: Geopackage (\*.gpkg) file that contains the layers required by 3Di. Imported data will be added to any data already contained in the 3Di schematisation geopackage.
 
 **GWSW HydX directory (local)**: Use this option if you have already downloaded a GWSW HydX dataset to a local directory.
 

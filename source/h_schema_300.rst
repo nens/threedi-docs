@@ -102,7 +102,7 @@ No, the new schema will not contain any views. Run the schematisation checker to
 .. _db_300_why_geopackage:
 
 Why has 3Di switched to GeoPackage?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - GeoPackage is increasingly becoming a new standard for the storage of GIS vector data, while the further development and maintenance of Spatialite is uncertain.
 

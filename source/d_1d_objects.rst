@@ -848,7 +848,7 @@ The :ref:`material` table lets you define materials with a friction type and fri
 .. _material:
 
 Material
--------
+--------
 
 Material for which you want to define a friction type and friction value. Can be used to set the friction data for :ref:`culvert`, :ref:`pipe`, :ref:`orifice`, or :ref:`weir` 
 
@@ -1589,7 +1589,7 @@ The :ref:`material` table lets you define materials with a friction type and fri
 .. _windshielding:
 
 1D Wind shielding
-----------------
+-----------------
 
 Wind shielding reduces the wind shear on open water.
 
@@ -1641,6 +1641,7 @@ Attributes
      - \-
      - ID of the channel
    * - North
+     - north
      - decimal number
      - No
      - \-

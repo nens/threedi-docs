@@ -31,7 +31,7 @@ The hydrodynamic computations are based on the conservation of volume and moment
 Grid refinement in 2D
 ^^^^^^^^^^^^^^^^^^^^^
 
-The computational cost of a simulation is strongly related to the number of computational cells. One always needs to find a balance between grid resolution and computational time. There are often regions where the flow is more complex or where one requires results with a finer resolution. To optimise the computational cost and grid resolution, users can refine the grid locally. 3Di uses a method called quad-tree refinement. This means, that in space, refinements are placed by dividing neighboring cells by a factor 4 (Figures below and above). This is a simple refinement method that forces smooth grid variations, which enhances an accurate solution of the equation.
+The computational cost of a simulation is strongly related to the number of computational cells. One always needs to find a balance between grid resolution and computational time. There are often regions where the flow is more complex or where one requires results with a finer resolution. To optimise the computational cost and grid resolution, users can refine the grid locally. 3Di uses a method called quad-tree refinement. This means, that in space, refinements are placed by dividing neighboring cells in four (Figures below and above). This is a simple refinement method that forces smooth grid variations, which enhances an accurate solution of the equation.
 
 .. figure:: image/b1_6_quadtree_grid.png
    :figwidth: 400 px
@@ -41,15 +41,16 @@ The computational cost of a simulation is strongly related to the number of comp
 
 In case groundwater is taken into account, the grid refinement is present in both the surface layer and the groundwater layer.
 
-Input
-+++++
-
-The numerical grid is generated based on some the following settings:
-- Grid space
-- Number of refinement levels
+The numerical grid is generated based on the following settings:
+- Minimum cell size
+- Number of grid levels
 - Grid refinements
 
-The grid space is the measure of the dimension of a computational cell. It is important that a width and the height of a grid cell contains an even number of subgrid cells. In case the dimensions of a subgrid cell are *0.5 x 0.5 m*:sup:`2`, the grid space can be 5.0 x 5.0 :math:`m^2`. In case the dimensions of a subgrid cell are *1.0 x 1.0 m*:sup:`2`, the grid space can not be *5.0 x 5.0 m*:sup:`2`. The grid space is defined in the Global settings table and is the dimension of the smallest grid size. The *kmax* setting is the number of refinement levels. Locations where the refinements need to be defined can be added by a line using the Grid refinement table, or by an area using Grid refinement area. In case two refinement levels are defined at the same location, 3Di will refine to the highest level indicated. 3Di will always aim at a minimum number of grid cells, it will coarsen the grid as fast as possible, but it will only be possible to do that in steps of four.
+The *Minimum cell size* is the width or length of a computational cell. An even number of subgrid pixels must fit in the *Minimum cell size*. In case the dimensions of a subgrid pixel are *0.5 x 0.5 m*:sup:`2`, the *Minimum cell size* can be 5.0 x 5.0 :math:`m^2`. In case the dimensions of a subgrid pixel are *1.0 x 1.0 m*:sup:`2`, the *Minimum cell size* can not be *5.0 x 5.0 m*:sup:`2`. The *Minimum cell size* is defined in the :ref:`model_settings`. The *Number of grid levels* setting is the number of refinement levels. Locations where the grid needs to be refined can be defined using a :ref:`grid_refinement_line`, or a :ref:`grid_refinement_area`. In case two refinement levels are defined at the same location, 3Di will refine to smallest cell size of the two. Next to the cells that intersect the grid refinement, the cells will become larger again. This is done using the quadtree method described above.
+
+.. note::
+    
+    A computational grid with many cell size transitions may also slow down the simulation. It is therefore recommended to merge grid refinements that are close together and prevent gaps between them. Sometimes a large area with uniform small cell size is more efficient than a large variation in cell sizes, even if the latter has fewer cells. Try out what works best in your situation.
 
 
 .. _1dgrid:

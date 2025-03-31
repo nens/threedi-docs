@@ -286,7 +286,7 @@ Attributes
      - text
      - Yes
      - \-
-     - :ref:`action_table_formatting<CSV-style table>` that defines the value to set when the measured value exceeds or falls below the specified value.
+     - :ref:`CSV-style table<action_table_formatting>` that defines the value to set when the measured value exceeds or falls below the specified value.
    * - Tags
      - tags
      - text

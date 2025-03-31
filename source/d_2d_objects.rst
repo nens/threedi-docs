@@ -46,7 +46,7 @@ Attributes
 ^^^^^^^^^^
 
 .. list-table:: 2D Boundary condition attributes
-   :widths: 4 4 2 4 30
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
    * - Attribute alias
@@ -168,7 +168,7 @@ Attributes
 ^^^^^^^^^^
 
 .. list-table:: Obstacle attributes
-   :widths: 4 4 2 4 30
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
    * - Attribute alias
@@ -236,7 +236,7 @@ You can fine-tune which types of flowlines are affected by the obstacle, by sett
 
 
 .. list-table:: Linear obstacle attributes
-   :widths: 4 4 2 4 30
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
    * - Field name
@@ -272,6 +272,8 @@ Grid refinement area
 
 Polygon that sets local 2D calculation grid refinement.
 
+A computational grid with many cell size transitions may slow down the simulation in some cases. It is therefore recommended to merge grid refinements that are close together and prevent gaps between them. Sometimes a large area with uniform small cell size is more efficient than a large variation in cell sizes, even if the latter has fewer cells. Try out what works best in your case.
+
 Layer name
 ^^^^^^^^^^
 
@@ -286,7 +288,7 @@ Attributes
 ^^^^^^^^^^
 
 .. list-table:: Grid refinement area attributes
-   :widths: 4 4 2 4 30
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
    * - Attribute alias
@@ -333,6 +335,8 @@ Grid refinement line
 
 Line that sets local 2D calculation grid refinement.
 
+A computational grid with many cell size transitions may slow down the simulation in some cases. It is therefore recommended to merge grid refinements that are close together and prevent gaps between them. You may want to buffer the grid refinement lines, remove the holes and add them as :ref:`grid_refinement_area` instead. Sometimes a large area with uniform small cell size is more efficient than a large variation in cell sizes, even if the latter has fewer cells. Try out what works best in your case.
+
 Layer name
 ^^^^^^^^^^
 
@@ -347,7 +351,7 @@ Attributes
 ^^^^^^^^^^
 
 .. list-table:: Grid refinement line attributes
-   :widths: 4 4 2 4 30
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
    * - Attribute alias
@@ -408,7 +412,7 @@ Attributes
 ^^^^^^^^^^
 
 .. list-table:: DEM average area attributes
-   :widths: 4 4 2 4 30
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
    * - Attribute alias

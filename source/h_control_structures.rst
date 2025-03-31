@@ -70,7 +70,7 @@ For details on measurement variables and measurement locations, see :ref:`measur
 
 See the :ref:`table control section in the simulation wizard manual<sim_table_control>` for details on how to include them in a simulation. 
 
-See the schematisation object :ref:`control_table` for details on how to define table controls in the schematisation.
+See the schematisation object :ref:`layer_table_control` for details on how to define table controls in the schematisation.
 
 .. _memory_control:
 
@@ -97,7 +97,7 @@ For details on measurement variables and measurement locations, see :ref:`measur
 
 See the :ref:`memory control section in the simulation wizard manual<sim_memory_control>` for details on how to include them in a simulation. 
 
-See the schematisation object :ref:`control_memory` for details on how to define memory controls in the schematisation.
+See the schematisation object :ref:`layer_memory_control` for details on how to define memory controls in the schematisation.
 
 
 .. _controllable_structures:

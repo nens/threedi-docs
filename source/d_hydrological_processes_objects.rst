@@ -152,7 +152,7 @@ Attributes
 ^^^^^^^^^^
 
 .. list-table:: Interflow attributes
-   :widths: 20 20 15 10 10 40 20
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
    * - Attribute
@@ -179,7 +179,6 @@ Attributes
      - Yes
      - m
      - Depth of impervious layer below lowest pixel. Value has to be greater than 0.
-     - Impervious layer
    * - Porosity
      - porosity
      - decimal number
@@ -231,7 +230,7 @@ Attributes
 ^^^^^^^^^^
 
 .. list-table:: Groundwater attributes
-   :widths: 20 20 15 10 10 40 20
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
    * - Attribute
@@ -387,7 +386,7 @@ Attributes
 ^^^^^^^^^^
 
 .. list-table:: Simple infiltration attributes
-   :widths: 20 20 15 10 10 40 20
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
    * - Attribute
@@ -455,7 +454,7 @@ Attributes
 ^^^^^^^^^^
 
 .. list-table:: Simple infiltration attributes
-   :widths: 20 20 15 10 10 40 20
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
    * - Attribute

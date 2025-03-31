@@ -24,7 +24,7 @@ Starting a simulation
 
       * :ref:`simulate_api_qgis_boundary_conditions`: Boundary conditions are taken from the spatialite directly.
       * :ref:`simulate_api_qgis_laterals`: Select laterals to use in the model.
-      * :ref:`dry_weather_flow`: Include dry weather flow in your model.
+      * :ref:`simulate_dry_weather_flow`: Include dry weather flow in your model.
       * :ref:`simulate_api_qgis_precipitation`: Define precipitation in the model.
       * :ref:`wind_apiclient`: Define wind in the model.
       * Raster edits
@@ -439,7 +439,7 @@ Requirements:
 
 - The units of the values depend on how this has been defined when the substance was created; see :ref:`simulation_wizard_substances`
 
-.. _dry_weather_flow:
+.. _simulate_dry_weather_flow:
 
 Dry weather flow
 ================

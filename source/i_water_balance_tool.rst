@@ -38,8 +38,8 @@ The total water balance can be exported as an image or csv-file. Right-click the
 
 .. figure:: image/i_waterbalance_tool_total_water_balance.png 
     :alt: Total Water Balance
-    .. _water_balance_tool_categories_explanation
 
+.. _water_balance_tool_categories_explanation
 
 Explanation of categories
 """""""""""""""""""""""""

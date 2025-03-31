@@ -42,7 +42,7 @@ Attributes
 ^^^^^^^^^^
 
 .. list-table:: 1D Lateral attributes
-   :widths: 4 4 2 4 30
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
    * - Attribute alias
@@ -159,7 +159,7 @@ Attributes
 ^^^^^^^^^^
 
 .. list-table:: 2D Lateral attributes
-   :widths: 4 4 2 4 30
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
    * - Attribute alias
@@ -278,7 +278,7 @@ Attributes
 ^^^^^^^^^^
 
 .. list-table:: Dry weather flow attributes
-   :widths: 4 4 2 4 30
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
    * - Attribute alias
@@ -352,7 +352,7 @@ Attributes
 ^^^^^^^^^^
 
 .. list-table:: Dry weather flow map attributes
-   :widths: 4 4 2 4 30
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
    * - Attribute alias
@@ -469,7 +469,7 @@ Attributes
 ^^^^^^^^^^
 
 .. list-table:: Surface attributes
-   :widths: 4 4 2 4 30
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
    * - Attribute alias
@@ -523,7 +523,7 @@ Surface map
 Connection between a surface and its target connection node.
 
 .. list-table:: Surface map attributes
-   :widths: 4 4 2 4 30
+   :widths: 6 4 4 2 4 30
    :header-rows: 1
 
    * - Attribute alias

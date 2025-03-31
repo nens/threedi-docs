@@ -11,7 +11,7 @@ For information on defining laterals and dry weather flow to the schematisation,
 
 1D laterals, 2D laterals, and dry weather flow can be defined in the schematisation, so that they will be part of the simulation template that is created along with the 3Di model for that schematisation; see :ref:`2d_lateral`, :ref:`1d_lateral`, and, for :ref:`inflow_objects`.
 
-It is also possible to add laterals and DWF to a simulation if they are not already included in the simulation template; to do this from the 3Di Modeller Interface, see :ref:`simulate_api_qgis_laterals` and :ref:`dry_weather_flow`. 
+It is also possible to add laterals and DWF to a simulation if they are not already included in the simulation template; to do this from the 3Di Modeller Interface, see :ref:`simulate_api_qgis_laterals` and :ref:`simulate_dry_weather_flow`. 
 
 .. note::
    Negative laterals extract water from the model. If less water is available in the node or cell then what is to be extracted, 3Di will limit the extraction. Just before the cell becomes dry, the extraction discharge will be less than the extraction in the lateral time series. This is done to guarantee stability and capture reality better.

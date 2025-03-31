@@ -54,7 +54,7 @@ Attributes
      - Text
      - No
      - m MSL
-     - Name of the DEM file (*.tif)
+     - Name of the DEM file (\*.tif)
    * - Minimum cell size
      - minimum_cell_size
      - Integer

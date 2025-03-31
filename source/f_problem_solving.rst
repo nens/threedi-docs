@@ -32,7 +32,7 @@ Some strategies that you can pursue to reduce the number of nodes are:
 
 - Choosing the model boundaries differently, e.g. following the hydrological watershed boundaries more precisely
 - Dividing the model up in multple smaller models
-- Choose a smaller *grid_space* and/or the *kmax*, see :ref:`global_settings`
+- Choose a smaller *Minimum cell size* and/or *Number of grid levels*, see :ref:`model_settings`
 - Use fewer grid refinements (see :ref:`grid_refinement_line` and ref:`grid_refinement_area`), or increase their refinement level.
 - Choosing a simpler schematisation of the less important parts of the model, e.g. increase the cell size in those areas or schematise parts of the model in 1D instead of 2D. See :ref:`howto_convert_to_1d2d`.
 
@@ -43,7 +43,7 @@ Several settings and schematisation choices control the size of the :ref:`subgri
 
 - Elevation range, i.e. the difference between the highest and the lowest pixel in the DEM. If the elevation range is very large, consider removing the highest parts of the model domain, e.g. replace them by :ref:`Surfaces<surface>`. 
 - The :ref:`table step size<subgrid_table_settings>`. If the table increments are very small and the elevation range very large, the subgrid tables may become too large.
-- The number of pixels per cell. If the *grid_space* or the *kmax* (see :ref:`global_settings`) values are large and the DEM pixel size is small, there will be many pixels in one cell. This will require a large number of table increments in the subgrid tables.
+- The number of pixels per cell. If the *Minimum cell size* or the *Number of grid levels* (see :ref:`model_settings`) values are large and the DEM pixel size is small, there will be many pixels in one cell. This will require a large number of table increments in the subgrid tables.
 
 Maximum raster size
 ^^^^^^^^^^^^^^^^^^^
