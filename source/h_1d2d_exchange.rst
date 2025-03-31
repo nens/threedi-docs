@@ -7,10 +7,10 @@
 
 .. _calculation_types:
 
-Calculation types
+exchange types
 -----------------
 
-In 1D-2D schematisations, the interaction between the each 1D element and the 2D domain can be set by choosing the calculation type. The following calculation types can be chosen.
+In 1D-2D schematisations, the interaction between the each 1D element and the 2D domain can be set by choosing the exchange type. The following exchange types can be chosen.
 
 - Isolated: no connection to the 2D domain
 
@@ -26,14 +26,14 @@ In the figure below, three channels are drawn within a 2D domain. It shows a con
    :figwidth: 600 px
    :alt: channel_types
 
-   Channel in a 2D domain with calculation types connected (orange), double connected (purple) and embedded. Squares: calculation nodes; circles: velocity points (center of the flowline); thin swirly lines: 1D2D connection; green stars: 1D calculation nodes that are removed because they are merged with 2D nodes.
+   Channel in a 2D domain with exchange types connected (orange), double connected (purple) and embedded. Squares: calculation nodes; circles: velocity points (center of the flowline); thin swirly lines: 1D2D connection; green stars: 1D calculation nodes that are removed because they are merged with 2D nodes.
 
-Calculation types are defined for individual 1D elements; different calculation types can be combined in one model.
+exchange types are defined for individual 1D elements; different exchange types can be combined in one model.
 
 Isolated
 ^^^^^^^^
 
-1D elements with calculation type *isolated* do not interact with the 2D surface domain. This calculation type is also used for 1D elements in models without 2D flow.
+1D elements with exchange type *isolated* do not interact with the 2D surface domain. This exchange type is also used for 1D elements in models without 2D flow.
 
 .. figure:: image/b_isolatedelement.png
    :figwidth: 300 px
@@ -47,7 +47,7 @@ Connected
 Description
 """""""""""
 
-When the calculation type is *connected*, a 1D2D connection is made for each calculation node, connecting it to the 2D cell it is in. Each 1D2D connection has an exchange level. Water will start flowing through the 1D2D connection when the water level exceeds the exchange level in either the 1D or the 2D computational point. This is illustrated in the figure below.
+When the exchange type is *connected*, a 1D2D connection is made for each calculation node, connecting it to the 2D cell it is in. Each 1D2D connection has an exchange level. Water will start flowing through the 1D2D connection when the water level exceeds the exchange level in either the 1D or the 2D computational point. This is illustrated in the figure below.
 
 .. figure:: image/b_connectedelement.png
    :figwidth: 600 px
@@ -85,7 +85,7 @@ Embedded
 
 Description
 """""""""""
-When the calculation type is embedded, the 1D element uses the 2D calculation nodes (and its water level) instead of separate 1D nodes.
+When the exchange type is embedded, the 1D element uses the 2D calculation nodes (and its water level) instead of separate 1D nodes.
 
 The figure below shows an embedded channel in the computational grid. 3Di fixes the locations where the 1D element crosses the 2D cells. In between those points, the 1D embedded point is defined (green stars in the figure). These are merged with the 2D calculation nodes: there is only one water level, used in both the 1D and the 2D domain. However, these 2D calculation nodes are now connected by two flowlines: the original 2D flowline, and the embedded 1D flowline. The velocities and discharges through the embedded 1D flowline are computed with the 1D flow equation.
 

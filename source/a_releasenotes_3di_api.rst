@@ -444,9 +444,9 @@ February 2022 (Klondike)
 
 - If the direction of a channel/pipe/culvert geometry is reversed compared to the “connection_node_start” and “connection_node_end”, then this is now fixed automatically.
 
-- The calculation type of culverts is not ignored anymore.
+- The exchange type of culverts is not ignored anymore.
 
-- For calculation nodes on channels with connected calculation type, the cross section will be used until the surface level of the DEM. This will give differences for channels with connected calculation type in case the cross section is below the surface level.
+- For calculation nodes on channels with connected exchange type, the cross section will be used until the surface level of the DEM. This will give differences for channels with connected exchange type in case the cross section is below the surface level.
 
 
 **Cross section definitions**

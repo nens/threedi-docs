@@ -44,7 +44,7 @@ Then, 3Di Results Analysis can be installed as follows:
 Conceptual changes
 ^^^^^^^^^^^^^^^^^^
 
-3Di Toolbox required you to load the spatialite (:ref:`schematisation` data) first, and than add one or more :ref:`simulation<simulation_and_simulation_templates>` results. 3Di Toolbox would then attempt to map the simulation results to the schematisation data, which is not always possible (e.g. when 1D elements with calculation type *embedded* are used). 
+3Di Toolbox required you to load the spatialite (:ref:`schematisation` data) first, and than add one or more :ref:`simulation<simulation_and_simulation_templates>` results. 3Di Toolbox would then attempt to map the simulation results to the schematisation data, which is not always possible (e.g. when 1D elements with exchange type *embedded* are used). 
 
 3Di Results Analysis consistently uses the conceptual separation of :ref:`schematisation` data (spatialite + rasters), :ref:`threedimodel` (computational grid and subgrid tables), and :ref:`simulation<simulation_and_simulation_templates>` results. It maps the simulation results (time series of flow variables) to the computational grid (locations of nodes and flowlines). It does not use the schematisation data at all. 
 

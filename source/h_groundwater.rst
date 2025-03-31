@@ -83,7 +83,7 @@ Most of the groundwater concepts on which the groundwater method in 3Di is based
 
 |
 
-7. In case of a porous surface layer, surface water will be flowing downward due to gravity, depending on the pressure gradient, the saturation and the hydraulic connectivity. As seen in the graph, there will be a saturated front flowing downward. There is a difference between the infiltration rate and the effective infiltration velocity. The infiltration rate is the rate in which the surface water level decreases. The effective infiltration velocity is the velocity of the front of the saturated zone. Due to differences in porosity the effective velocity can vary with depth. The vertical flow can be described by a Darcy-like formulation in the vertical:
+7. In case of a porous surface layer, surface water will be flowing downward due to gravity, depending on the pressure gradient, the saturation and the hydraulic conductivity. As seen in the graph, there will be a saturated front flowing downward. There is a difference between the infiltration rate and the effective infiltration velocity. The infiltration rate is the rate in which the surface water level decreases. The effective infiltration velocity is the velocity of the front of the saturated zone. Due to differences in porosity the effective velocity can vary with depth. The vertical flow can be described by a Darcy-like formulation in the vertical:
 
 .. math::
    :label: inf_press
@@ -92,7 +92,7 @@ Most of the groundwater concepts on which the groundwater method in 3Di is based
 
 |
 
-        where :math:`\phi` is the hydraulic head. This equation is seemingly simple, but the hydraulic head and the hydraulic connectivity are both dependent on the saturation of the soil. Due to the complexity of the infiltration processes, there are various formulations for infiltration, such as Green and Ampt, Horton and Philip infiltration. There are several differences between those formulations. However, they share that the infiltration rate is initially higher and decreases more or less exponentially to an equilibrium rate. For now, only the Horton-based infiltration, see :ref:`grwhortoninfiltration`, is implemented, which is a formulation, originally, for ponded infiltration only. The formulation described by Horton (1875-1945) takes into account that when the soil contains more water, the infiltration rate will decrease. This can be seen in the graph in the  at *Label E* .
+        where :math:`\phi` is the hydraulic head. This equation is seemingly simple, but the hydraulic head and the hydraulic conductivity are both dependent on the saturation of the soil. Due to the complexity of the infiltration processes, there are various formulations for infiltration, such as Green and Ampt, Horton and Philip infiltration. There are several differences between those formulations. However, they share that the infiltration rate is initially higher and decreases more or less exponentially to an equilibrium rate. For now, only the Horton-based infiltration, see :ref:`grwhortoninfiltration`, is implemented, which is a formulation, originally, for ponded infiltration only. The formulation described by Horton (1875-1945) takes into account that when the soil contains more water, the infiltration rate will decrease. This can be seen in the graph in the  at *Label E* .
 
 |
 
@@ -170,7 +170,7 @@ with :math:`Q_x, Q_y` the x- and y- component of the discharges, :math:`A_x, A_y
 Input
 ~~~~~
 
-The input for using groundwater flow is very similar to the input for :ref:`grwhortoninfiltration`. In addition to these parameters, one can define the Darcy or hydraulic connectivity values globally or using a raster for spatially varying values. The dimension of the hydraulic connectivity is in *[m/day]*. You can download the complete overview of settings that 3Di uses in the spatialite database :download:`here <pdf/database-overview.pdf>`.
+The input for using groundwater flow is very similar to the input for :ref:`grwhortoninfiltration`. In addition to these parameters, one can define the Darcy or hydraulic conductivity values globally or using a raster for spatially varying values. The dimension of the hydraulic conductivity is in *[m/day]*. You can download the complete overview of settings that 3Di uses in the spatialite database :download:`here <pdf/database-overview.pdf>`.
 
 
 Output

@@ -2887,13 +2887,13 @@
      - A connection node that is not connected to a pipe, channel, culvert, weir, or orifice must have a manhole with a bottom_level.
    * - 0260
      - Error
-     - v2_channel can only have a v2_exchange_line if it has a (double) connected (102 or 105) calculation type
+     - v2_channel can only have a v2_exchange_line if it has a (double) connected (102 or 105) exchange type
    * - 0261
      - Error
-     - v2_channel can have max 1 v2_exchange_line if it has connected (102) calculation type
+     - v2_channel can have max 1 v2_exchange_line if it has connected (102) exchange type
    * - 0262
      - Error
-     - v2_channel can have max 2 v2_exchange_line if it has double connected (105) calculation type
+     - v2_channel can have max 2 v2_exchange_line if it has double connected (105) exchange type
    * - 0263
      - Warning
      - v2_exchange_line.the_geom should not be significantly shorter than its corresponding channel.
@@ -2908,10 +2908,10 @@
      - v2_potential_breach is assigned to an isolated or embedded channel.
    * - 0271
      - Error
-     - v2_channel can have max 1 v2_potential_breach at the same position on a channel of connected (102) calculation type
+     - v2_channel can have max 1 v2_potential_breach at the same position on a channel of connected (102) exchange type
    * - 0272
      - Error
-     - v2_channel can have max 2 v2_potential_breach at the same position on a channel of double connected (105) calculation type
+     - v2_channel can have max 2 v2_potential_breach at the same position on a channel of double connected (105) exchange type
    * - 0273
      - Error
      - v2_potential_breach.the_geom must begin at the channel it is assigned to

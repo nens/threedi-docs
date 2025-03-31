@@ -203,7 +203,7 @@ The use of two distinct time series generates a flow within the channel, carryin
 Adding a dike (2D)
 ^^^^^^^^^^^^^^^^^^
 
-The dike at this location is included in the DEM. However, if the dike is narrower than the 2D cells, it may not affect the exchange between 2D cells. Put more simply, water may flow through the dike in such cases. See :ref:`surface_flow_cross_sections` and :ref:`obstacles` for a more elaborate explanation of this. To prevent leakage of the dike, we will add a :ref:`linear_obstacle`. Follow these steps, and reference the DEM and the :ref:`t4reference-image` to draw the obstacle:
+The dike at this location is included in the DEM. However, if the dike is narrower than the 2D cells, it may not affect the exchange between 2D cells. Put more simply, water may flow through the dike in such cases. See :ref:`surface_flow_cross_sections` and :ref:`obstacles` for a more elaborate explanation of this. To prevent leakage of the dike, we will add a :ref:`obstacle`. Follow these steps, and reference the DEM and the :ref:`t4reference-image` to draw the obstacle:
        
 #) In the *Layers* panel, locate the *2D* group and select the *Obstacle* layer.
 

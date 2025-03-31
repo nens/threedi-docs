@@ -58,7 +58,7 @@ If the model contains 1D elements, they are set to visible by default. Depending
 - Manholes (shown after zooming in)
 - Nodes
 - Sewers
-- Pump stations
+- Pumps
 - Weirs
 
 Colors for all these layers can be changed according to your preferences by clicking on the small paint pallet next to the element.

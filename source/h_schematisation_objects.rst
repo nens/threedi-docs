@@ -18,4 +18,5 @@ A 3Di schematisation consists of rasters, vector layers and settings. This secti
    d_1d2d_objects
    d_inflow_objects
    d_control_structure_objects
+   d_hydrological_processes_objects
    d_settings_objects
