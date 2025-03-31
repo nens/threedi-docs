@@ -5,3 +5,4 @@ docs_voorbeeld/
 _build/
 source/test_build/*
 .idea/workspace.xml
+/.idea
