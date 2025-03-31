@@ -1,9 +1,9 @@
-Choose for 1D or 2D
-===================
+Choose between 1D and 2D
+=========================
 
-An important modelling choice is choosing between 1D or 2D flow. This "how to" aims to provide some guidelines when making such choices. While in some situations there is cleare a 'best' option, there are also many situations where the 'best' choice really depends on the specific modelling objectives, performance requirements and data availability.
+An important modelling choice is choosing between 1D or 2D flow. This "how to" aims to provide some guidelines when making such choices. While in some situations there is clearly a 'best' option, there are also many situations where the 'best' choice really depends on the specific modelling objectives, performance requirements and data availability.
 
-A common pitfall is to let the choice between 1D and 2D depend mainly on data availability, i.e., schematising all waterways and structures for which data is available in 1D. This often lead to sub-optimal results. Take for example a flat area with a lot of small ditches. Adding all these ditches to the schematisation as 1D elements is quite a bit of work, while carving them out in the DEM is simple and will probably capture their function in storage and drainage with sufficient accuracy. This "how to" will help you to make better choices in such situations.
+A common pitfall is to let the choice between 1D and 2D depend mainly on data availability, i.e., schematising all waterways and structures for which data is available in 1D. This often leads to sub-optimal results. Take for example a flat area with a lot of small ditches. Adding all these ditches to the schematisation as 1D elements is quite a bit of work, while carving them out in the DEM is simple and will probably capture their function in storage and drainage with sufficient accuracy. This "how to" will help you to make better choices in such situations.
 
 
 2D if possible, 1D if needed

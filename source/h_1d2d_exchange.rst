@@ -7,8 +7,8 @@
 
 .. _calculation_types:
 
-exchange types
------------------
+Exchange types
+--------------
 
 In 1D-2D schematisations, the interaction between the each 1D element and the 2D domain can be set by choosing the exchange type. The following exchange types can be chosen.
 

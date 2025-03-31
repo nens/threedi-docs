@@ -22,4 +22,4 @@ The loss of advective momentum also occurs at channel junctions, because of the 
 Pumps
 ^^^^^
 
-A pump's start connection node should be sufficiently large in comparison to the pump capacity. If you do not have data on the dimensions of the pump cellar, choose a realistic value based on how fast the water level is expected to lower as soon as the pump turns on. E.g., if the pump capacity is 3000 L/s, a storage area of 2 m:sup:`2` would lead to a drawdown of 1.5 m/s, which is not very realistic. A storage area of 20 m would be more realistic in this case.
+A pump's start connection node should be sufficiently large in comparison to the pump capacity. If you do not have data on the dimensions of the pump cellar, choose a realistic value based on how fast the water level is expected to lower as soon as the pump turns on. E.g., if the pump capacity is 3000 L/s, a storage area of 2 m² would lead to a drawdown of 1.5 m/s, which is not very realistic. A storage area of 20 m would be more realistic in this case.

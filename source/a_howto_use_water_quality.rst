@@ -48,7 +48,7 @@ Follow the :ref:`same workflow as for starting any other simulation <simulate_ap
 Water quality simulations using the 3Di API
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you want to use water quality features that are not yet supported in the 3Di Modeller Interface, such as substance decay or adding substance concentrations to forcings other than laterals, you can use the :ref:`a_api` directly. Contact the :ref:`servicedesk` for example scripts that fit your specific purpose.
+If you want to use water quality features that are not yet supported in the 3Di Modeller Interface, you can use the :ref:`a_api` directly. Contact the :ref:`servicedesk` for example scripts that fit your specific purpose.
 
 
 Viewing and analysing water quality results
