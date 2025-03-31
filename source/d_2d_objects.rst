@@ -233,38 +233,6 @@ Notes for modellers
 
 You can fine-tune which types of flowlines are affected by the obstacle, by setting any combination of 2D, 1D-2D open water, and 1D-2d closed. "2D" refers to flowlines between two 2D cells. "1D-2D open water" refers to a flowline between a "1D open water" node and a 2D cell. "1D-2D closed" refers to a flowline between a "1D closed" node and a 2D cell. By default, any node that is part of a channel or connected to a channel is regarded as "open water" and all other 1D nodes are regarded as "closed". Older schematisations may use a different setting, see the setting *Node open water detection* in :ref:`model_settings`.
 
-
-
-.. list-table:: Linear obstacle attributes
-   :widths: 6 4 4 2 4 30
-   :header-rows: 1
-
-   * - Field name
-     - Type
-     - Mandatory
-     - Units
-     - Description
-   * - fid
-     - integer
-     - Yes
-     - \-
-     - Unique identifier
-   * - id
-     - integer
-     - Yes
-     - \-
-     - Unique identifier
-   * - code
-     - text
-     - No
-     - \-
-     - Name field, no constraints
-   * - crest_level
-     - decimal number
-     - No
-     - m MSL
-     - Lowest point of the obstacle
-
 .. _grid_refinement_area:
 
 Grid refinement area
