@@ -5,7 +5,9 @@ Laterals and dry weather flow
 
 Laterals are point sources and sinks. Each time step, the volume as specified in the supplied time series is added to the volume of the node or cell they are added to. Laterals can be applied in the 1D and in the 2D surface domain. They are treated as any source and sink term, but laterals have a specific location and can vary in time. 
 
-A specific type of laterals is dry weather flow (DWF). DWF is a 1D lateral with one discharge value each of hour of the day. They are used to simulate the wastewater produced by households or industry, which usually follows a pattern that varies troughout the day.
+A specific type of laterals is dry weather flow (DWF). DWF is a 1D lateral with one discharge value for each hour of the day. It is used to simulate the wastewater produced by households or industry, which usually follows a pattern that varies troughout the day.
+
+For information on defining laterals and dry weather flow to the schematisation, see :ref:`inflow_objects`.	
 
 1D laterals, 2D laterals, and dry weather flow can be defined in the schematisation, so that they will be part of the simulation template that is created along with the 3Di model for that schematisation; see :ref:`2d_lateral`, :ref:`1d_lateral`, and, for :ref:`inflow_objects`.
 
