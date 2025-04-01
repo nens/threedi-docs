@@ -115,7 +115,7 @@ Viewing the schematisation
 
 We will load the schematisation in the 3Di Modeller Interface to view it. Later in this tutorial we will also make some modifications. The schematisation can be loaded by following these steps:
 
-#) In the 3Di Schematisation Editor toolbar, click the |load_from_spatialite| *Load from Spatialite* button.
+#) In the 3Di Schematisation Editor toolbar, click the *Add schematisation* |add_schematisation| button.
 
 #) Double-click the name of the schematisation you want to load.
 
@@ -517,8 +517,8 @@ If you would like to learn more about the tools available for analysing your 3Di
 .. |langaa_waterbalans_antwoord| image:: /image/langaa_waterbalans_antwoord.png
     :scale: 100%
 
-.. |load_from_spatialite| image:: /image/pictogram_load_from_spatialite.png
-    :scale: 80%
+.. |add_schematisation| image:: /image/add_schematisation.png
+    :scale: 25%
 
 .. |toggle_editing| image:: /image/pictogram_toggle_editing.png
     :scale: 80%
@@ -540,9 +540,6 @@ If you would like to learn more about the tools available for analysing your 3Di
 
 .. |modelsSimulations| image:: /image/pictogram_modelsandsimulations.png
     :scale: 90%
-
-.. |save_to_spatialite| image:: /image/pictogram_save_to_spatialite.png
-    :scale: 80%
 
 .. |newschematisation| image:: /image/pictogram_newschematisation.png
     :scale: 80%

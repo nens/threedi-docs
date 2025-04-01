@@ -162,9 +162,6 @@ As we have seen earlier in this tutorial, the inundation reaches 2.35 m MSL, if 
 .. |newschematisation| image:: /image/pictogram_newschematisation.png
     :scale: 80%
 
-.. |load_from_spatialite| image:: /image/pictogram_load_from_spatialite.png
-    :scale: 80%
-
 .. |discharge_tool| image:: /image/pictogram_discharge_tool.png
     :scale: 80%
 
