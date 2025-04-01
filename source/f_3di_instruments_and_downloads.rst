@@ -65,13 +65,13 @@ The :ref:`mi_3di_plugins` can be updated in the following way:
 #) In the main menu click *Plugins* > *Manage and Install plugins*
 #) At the left side, click *Installed*
 #) Plugins that can be updated are shown in **bold**
-#) Click the plugin name. At the bottom right, click *Upgrade plugin*
-#) Updating the 3Di Results Analysis plugin requires a restart of the 3Di Modeller Interface. Do this when prompted.
-#) Do **not** use *Open 3Di GeoPackage* the first time you load your schematisation after having upgraded all 3Di plugins. Use *Load from Spatialite* instead.
-
-.. note:
-   If you update a 3Di plugin, make sure to update all at once.
    
+   .. note::
+       Always update all 3Di plugins at once. Update 3Di Results Analysis last and do not forget to restart the 3Di Modeller Interface.
+
+#) Click the plugin name. At the bottom right, click *Upgrade plugin*
+#) Updating the 3Di Results Analysis plugin requires a restart of the 3Di Modeller Interface. Do this when prompted, or when you get a Python error during installation.
+
 Advanced: separate installation of QGIS and 3Di plugins
 -------------------------------------------------------
 
