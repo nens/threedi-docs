@@ -32,8 +32,8 @@ Some strategies that you can pursue to reduce the number of nodes are:
 
 - Choosing the model boundaries differently, e.g. following the hydrological watershed boundaries more precisely
 - Dividing the model up in multple smaller models
-- Choose a smaller *Minimum cell size* and/or *Number of grid levels*, see :ref:`model_settings`
-- Use fewer grid refinements (see :ref:`grid_refinement_line` and ref:`grid_refinement_area`), or increase their refinement level.
+- Choose a larger *Minimum cell size* and/or smaller *Number of grid levels*, see :ref:`model_settings`
+- Use fewer grid refinements, or increase their grid level. See :ref:`grid_refinement_line` and ref:`grid_refinement_area`.
 - Choosing a simpler schematisation of the less important parts of the model, e.g. increase the cell size in those areas or schematise parts of the model in 1D instead of 2D. See :ref:`howto_convert_to_1d2d`.
 
 Vertical resolution
