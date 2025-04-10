@@ -212,6 +212,17 @@ Via the 3Di Models & Simulations plugin settings (see below).
 The 3Di Modeller Interface can be used in other languages than English. What matters is that the numbers notation is set to English. There is a bug in QGIS with scientific notations and Dutch number notations which can cause unexpected behaviour. This may also apply to number locations in other locales.  
 Please go to *Settings* > *Options* > *General* and set *Locale (numbers, date and currency formats)* to *en_GB*.
 
+Database is locked
+""""""""""""""""""
+
+In some cases the following happens:
+- You want to save your edits
+- QGIS freezes for several minutes
+- Finally, you see the error: "Could not commit changes to layer {layer name}. Errors: ERROR: 1 attribute value change not applied. Provider errors: OGR error committing transaction: sqlite3_exec(COMMIT) failed: database is locked"
+
+The cause of this is probably that you have created a Query layer that uses the schematisation database that you are trying to edit as provider/source.
+
+To resolve the issue, remove the Query layer from your project and try again.
 
 SSLError (HTTPSConnectionPool(host='api.3di.live', port=443): Max retries exceeded with url ...)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
