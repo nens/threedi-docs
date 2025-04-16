@@ -399,5 +399,4 @@ Attributes
 Notes on target types
 ---------------------
 
-- References to target types must include the *v2_* prefix. This is a legacy of the table names in the schematisation database as defined up until March 2025 that has been upheld for reasons of backward compatibility.
-- In the schematisation, Mmemory and table control cannot be specified for culverts, channels, and pipes. Please contact the :ref:`servicedesk` if you need this feature.
+- In the schematisation, Memory and table control cannot be specified for culverts, channels, and pipes. Please contact the :ref:`servicedesk` if you need this feature.
