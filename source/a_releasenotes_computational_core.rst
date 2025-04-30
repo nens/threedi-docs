@@ -3,6 +3,14 @@
 3Di Computational core
 ----------------------
 
+April 30th, 2025
+^^^^^^^^^^^^^^^^
+
+- Refactor of laterals and substance laterals to make it possible to use substances in DWF and fix several issues with laterals and DWF (threedi-calculationcore#852, #860, #859, #861, #857)
+- Total discharge boundary condition is now compatible with interflow (threedi-tables#280, threedi-calculationcore#821)
+- Interflow discharge and velocity at boundary lines for total discharge boundary type are added in netCDF file 
+
+
 February 24th, 2025
 ^^^^^^^^^^^^^^^^^^^
 
