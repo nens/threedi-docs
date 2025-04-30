@@ -34,6 +34,7 @@ The output contains six columns: *id, table, column, value, description and chec
 
 For a table of all the checks run on the schematisation, and their respective error codes, see the :ref:`current_schematisation_checks`.
 
+.. _visualing_computational_grids:
 
 Visualising computational grids
 -------------------------------

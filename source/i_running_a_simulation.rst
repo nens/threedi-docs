@@ -205,23 +205,19 @@ If you have not yet generated a saved state, this option will not be available. 
 - Online file: use a set of 1D initial water levels that you have uploaded for this 3Di model previously.
 - Upload CSV: upload a CSV file with an initial water level for one or more *calculation nodes* (not connection nodes) 
 
-
-
-
 2D Surface Water options:
 
 - Global value: a generic initial water level value in m MSL which is applied in all 2D nodes of the model.
 - Online Raster: the initial water level raster as uploaded with the model to the model database.
 - Local Raster: a local the initial water level raster.
-- Aggregation method: this can mean, min or max.
-
+- Aggregation method: this can be  mean, min or max.
 
 2D Groundwater options:
 
 - Global value: a generic initial water level value in m MSL which is applied in all 2D groundwater nodes of the model.
 - Online Raster: the initial water level raster as uploaded with the model to the model database.
 - Local Raster: a local the initial water level raster.
-- Aggregation method: this can mean, min or max.
+- Aggregation method: this can be mean, min or max.
 
 .. _1d_initial_water_levels_csv_file_format:
 
@@ -232,56 +228,97 @@ The columns in the CSV file are to be comma-separated.
 
 The CSV file input should have the following columns:
 
-- "id": integer; is the id of the corresponding row in the 1D Boundary Conditions table in the spatialite
-- "timeseries": a CSV-formatted text field: pairs of time step (in minutes or seconds) and value (in m\ :sup:`3`/s, m, or m/m, depending on the boundary condition type). The timestep is separated from the value by a comma and lines are separated from one another by a newline.
+- "id": calculation node ID's. Note that these are **not connection node IDs**. 
+- "value": the initial water level to be used for this calculation node
 
 Any additional columns will be ignored.
 
-The easiest way to generate such a file is by exporting it from the *1D Boundary Condition* or *2D Boundary Condition* layers of your schematisation, see :ref:`exporting_boundary_condition_data`.
-
-Example as a table:
-
-.. list-table:: Boundary conditions CSV file format
-   :header-rows: 1
-
-   * - id
-     - timeseries
-   * - 4
-     - 0,1.2
-
-       99999,1.2
-   * - 5
-     - 0,2.1
-
-       99999,2.1
-   * - 6
-     - 0,1.3
-
-       99999,5.6
-   * - 7
-     - 0,8.2
-
-       99999,1.0
-   * - 8
-     - 0,63.307
-
-       99999,63.307
-
 Text example::
 
-    id,timeseries
-    "4","0,1.2
-         99999,1.2"
-    "5","0,2.1
-         99999,2.1"
-    "6","0,1.3
-         99999,5.6"
-    "7","0,8.2
-         99999,1.0"
-    "8","0,63.307
-         99999,63.307"
+    id,value
+    8548,0.43
+    8549,0.43
+    8550,0.43
+    8551,-0.5
+    8552,-0.5
+    8553,-0.5
+    8554,-0.5
+    8555,-0.5
+    8556,0.43
+    8557,0.43
+    8558,0.43
+    8559,0.43
+    8560,0.43
+    8561,2.31
+    8562,2.31
+    8563,2.31
+    8564,2.31
 
+See also :ref:`generating_1d_initial_conditions_csv_files`.
 
+.. _1d_initial_concentrations_csv_file_format:
+
+1D Initial concentrations CSV file format
+-----------------------------------------
+
+If you have defined one or more substances on the :ref:`simulation_wizard_substances` page, you can upload substance concentrations for calculation node.
+
+The CSV file for initial concentrations in the 1D domain should look like this::
+
+    id,value
+    8548,100
+    8549,100
+    8550,100
+    8551,100
+    8552,100
+    8553,100
+    8554,100
+    8555,100
+    8556,100
+    8557,100
+    8558,100
+    8559,100
+    8560,100
+    8561,100
+    8562,100
+    8563,100
+    8564,100
+
+This will add an initial concentration of 100 (e.g. 100%) to calculation nodes 8548 - 8564.
+
+Requirements: 
+
+- Columns are comma-separated
+
+- The file includes the columns "id" and "value". Any additional columns are ignored; the sequence of the columns is not important.
+
+- The id's are calculation node ID's, not connection node IDs. 
+
+- The units of the values depend on the substance for which this file is used. E.g. if the substance has *mg* as units, this will be the unit of the value in this CSV file. See :ref:`simulation_wizard_substances`
+
+See also :ref:`generating_1d_initial_conditions_csv_files`.
+
+.. _generating_1d_initial_conditions_csv_files:
+
+Generating 1D initial conditions CSV files
+------------------------------------------
+
+- Load the computational grid for your 3Di model, using the :ref:`3Di Results Analysis panel<3di_results_manager>`, or the :ref:`processing algorithms<visualing_computational_grids>` that are available for this.
+- In the *Layers* panel, right-click the *Nodes* layer > *Filter* 
+- As *Provider specific filter expression*, set: "calculation_type" in (3, 4)
+- Export the filtered nodes to a GeoPackage (Right-click the *Nodes* layer > *Export* > *Save features as*)
+- Remove the filter expression from the original Nodes layer
+- Open the attribute table of the layer that contains the exported nodes.
+- Use the field calculator to add a new field:
+    - Output field name: "value"
+	- Output field type: Decimal number (real)
+	- Expression: anything you want. E.g. if you want the initial water level to be 2.43 for all nodes, fill in 2.43 as expression.
+- Now use any native QGIS method to set the value to what you want it to be
+- Once you are happy with the values you filled in, export the result to CSV (Right-click the *Nodes* layer > *Export* > *Save features as*)
+    - Format: Comma Separated Values [CSV]
+    - Under *Select fields to export and their export options*, check only *id* and *value*
+    - Under *Geometry*, set *Geometry type*  to *No Geometry*
+- Click *OK*.
 
 .. _simulate_api_qgis_laterals:
 
