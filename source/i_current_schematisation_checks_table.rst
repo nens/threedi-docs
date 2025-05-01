@@ -376,10 +376,16 @@
      - grid_refinement_area.geom cannot be null
    * - 0003
      - Error
+     - grid_refinement_area.grid_level cannot be null
+   * - 0003
+     - Error
      - grid_refinement_area.id cannot be null
    * - 0003
      - Error
      - grid_refinement_line.geom cannot be null
+   * - 0003
+     - Error
+     - grid_refinement_line.grid_level cannot be null
    * - 0003
      - Error
      - grid_refinement_line.id cannot be null
@@ -2316,9 +2322,6 @@
      - Error
      - pipe.friction_type is not one of [1, 2, 3, 4]
    * - 0007
-     - Info
-     - pipe.sewerage_type is not one of [0, 1, 2, 3, 4, 5, 6, 7]
-   * - 0007
      - Error
      - potential_breach.levee_material is not one of [1, 2]
    * - 0007
@@ -4109,6 +4112,18 @@
    * - 1206
      - Error
      - The timesteps for the first boundary_condition_1d.timeseries did not match the timesteps for the first boundary_condition_2d.timeseries. All boundary conditions must have the same timesteps in their timeseries.
+   * - 1207
+     - Error
+     - boundary_condition_1d.time_units is not recognized as a valid unit of time.
+   * - 1207
+     - Error
+     - boundary_condition_2d.time_units is not recognized as a valid unit of time.
+   * - 1207
+     - Error
+     - lateral_1d.time_units is not recognized as a valid unit of time.
+   * - 1207
+     - Error
+     - lateral_2d.time_units is not recognized as a valid unit of time.
    * - 1227
      - Error
      - control_measure_map.control_id references an id in memory_control or table_control, but the table it references does not contain an entry with that id.
