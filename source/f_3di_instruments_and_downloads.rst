@@ -84,7 +84,7 @@ You can also install QGIS separately with the appropriate plugins. This is not r
     * Go to Settings > Options > General
     * Tick the box 'Override System Locale'
     * For User Interface Translation, choose 'American English'
-    * For Locale, choose 'English UnitedStates (en_US)'
+    * For Locale, choose 'English United Kingdom (en_GB)'
     * Restart QGIS
 
 .. note:
