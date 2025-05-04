@@ -156,3 +156,8 @@ Figure :numref:`fig_decay_term` shows the results for various decay rate constan
 
    \mu = \frac{\ln(2)}{t_{1/2}}
 
+Concentration equations
+-----------------------
+
+.. todo::
+    @Nici hier graag een alineaatje over de vergelijkingen die worden opgelost in de WQ module.
