@@ -2316,9 +2316,6 @@
      - Error
      - pipe.friction_type is not one of [1, 2, 3, 4]
    * - 0007
-     - Info
-     - pipe.sewerage_type is not one of [0, 1, 2, 3, 4, 5, 6, 7]
-   * - 0007
      - Error
      - potential_breach.levee_material is not one of [1, 2]
    * - 0007
