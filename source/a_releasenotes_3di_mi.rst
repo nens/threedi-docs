@@ -12,9 +12,11 @@ May 7th, 2025
 - It is now possible to specify a total discharge for 2D boundary conditions, instead of specifying a discharge per flowline. This option is available for both surface water and groundwater.
 - Any warnings that are raised during the migration of a schematisation are now displayed
 - Removed python dependencies, added a plugin dependency for Nelen & Schuurmans Dependency Loader instead
+- Added new sewerage types for visualisation and administration purposes. Infiltration drain (8), Slot/trench drain (9), and Pressure sewer (10) (#332)
 - Bugfix: zooming to DEM extent when schematisation CRS differs from project CRS
 - Bugfix: when importing structures using the "edit channels" option, ID's would always start counting at 1, even when features were already present in the target layer.
 - Bugfix: When importing connection nodes using the vector data importers, the values for manhole surface level and bottom level were swapped. This has been fixed now.
+- Bugfix: id, code, display name labels did not work for line geometry layers
 
 3Di Results Analysis 3.17.0
 """""""""""""""""""""""""""
