@@ -14,6 +14,7 @@ May 7th, 2025
 - Removed python dependencies, added a plugin dependency for Nelen & Schuurmans Dependency Loader instead
 - Bugfix: zooming to DEM extent when schematisation CRS differs from project CRS
 - Bugfix: when importing structures using the "edit channels" option, ID's would always start counting at 1, even when features were already present in the target layer.
+- Bugfix: When importing connection nodes using the vector data importers, the values for manhole surface level and bottom level were swapped. This has been fixed now.
 
 3Di Results Analysis 3.17.0
 """""""""""""""""""""""""""

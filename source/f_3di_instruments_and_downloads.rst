@@ -61,16 +61,17 @@ The 3Di Modeller Interface consists of two parts: QGIS and 3Di plugins. Each of 
 The :ref:`mi_3di_plugins` can be updated in the following way:
 
 #) Start the 3Di Modeller Interface
-#) If any schematisation is loaded remove them before proceeding
+#) If any schematisation is loaded, remove them before proceeding
 #) In the main menu click *Plugins* > *Manage and Install plugins*
 #) At the left side, click *Installed*
 #) Plugins that can be updated are shown in **bold**
    
    .. note::
-       Always update all 3Di plugins at once. Update 3Di Results Analysis last and do not forget to restart the 3Di Modeller Interface.
-
+       If you update, always update *all* 3Di plugins that have updates available at the same time.
+	   
 #) Click the plugin name. At the bottom right, click *Upgrade plugin*
-#) Updating the 3Di Results Analysis plugin requires a restart of the 3Di Modeller Interface. Do this when prompted, and when you get a Python error during installation.
+#) If you are asked to install or update the Nelen & Schuurmans Dependency Loader, please do so.
+#) Updating the Nelen & Schuurmans Dependency Loader requires a restart of the 3Di Modeller Interface. Do this when prompted, and also when you get a Python error during installation.
 
 Advanced: separate installation of QGIS and 3Di plugins
 -------------------------------------------------------
@@ -97,7 +98,7 @@ You can also install QGIS separately with the appropriate plugins. This is not r
 
 * Install the 3Di plugins: in the tab *All*, install the :ref:`mi_3di_plugins`. Restart QGIS when prompted.
 
-* Enable macros: Make sure that *Enable macros* is set to *Always* in Settings > Options > General > Project files. 
+* Enable project's embedded Python code: Make sure that this is set to *Always* in Settings > Options > General > Project files. 
 
 .. note: 
     On Linux/OSX: install the following system dependencies: `python3-h5py python3-scipy python3-pyqt5.qtwebsockets`
