@@ -12,7 +12,7 @@ Install and update manual
 Installing the 3Di Modeller Interface
 ---------------------------------------
 
-To install the 3Di Modeller Interface, download the and execute the `3Di Modeller Interface Installer <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.34.5-1-7-Setup-x86_64.exe>`_
+To install the 3Di Modeller Interface, download the and execute the `3Di Modeller Interface Installer 3.40.6 <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.40.6-1-1-Setup-x86_64.exe>`_
 
 
 .. _setting_up_models_and_simulations:
