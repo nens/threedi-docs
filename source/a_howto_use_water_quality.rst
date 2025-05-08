@@ -16,7 +16,7 @@ It involves the following steps:
 - Define one or more substances that you want to use in the simulation, e.g. "Benzene hexachloride", "Biological Oxygen Demand (BOD)", or "Contaminant".
 
     .. note:
-    	
+        
         All substances must be defined at the start of the simulation (the substances themselves, not their concentrations). You cannot define new substances while the simulation is already running. 
 
 - If the simulation includes initial water (in the 1D and/or 2D domain), you may set an initial concentration of the substance(s) you have defined in the initial water.

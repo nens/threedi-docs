@@ -49,12 +49,12 @@ We are proud to announce that we have added water quality capabilities to 3Di. M
 - The logging includes a substance summary (similar to the flow summary) in JSON format
 
 .. note:
-	
-	- Input is purely API based (no GUI) 
     
-	- Multiple laterals cannot be added to a single computational cell
-	
-	- All substances are known at the start of the simulation, although amounts can be set to 0.0 [g/m3,?].
+    - Input is purely API based (no GUI) 
+    
+    - Multiple laterals cannot be added to a single computational cell
+    
+    - All substances are known at the start of the simulation, although amounts can be set to 0.0 [g/m3,?].
 
 **Other improvements and bugfixes**
 
@@ -103,14 +103,14 @@ September 21th, 2023
 
 - The :ref:`conveyance_method` can now be used, for more accurate calculation of friction in 1D open water. For this new feature, the following checks where added to the schematisation checker.
      
-	- Check 26: make sure friction types with conveyance are only used on v2_cross_section_location
-	
-	- Check 27: make sure friction types with conveyance are only used on tabulated rectangle, tabulated trapezium, or tabulated yz shapes.
-	
-	- Check 28: make sure cross-sections with conveyance friction monotonically increase in width
-	
-	- Check 29: advice to use friction with conveyance on cross-sections where it is possible, has not been used.
-	
+    - Check 26: make sure friction types with conveyance are only used on v2_cross_section_location
+    
+    - Check 27: make sure friction types with conveyance are only used on tabulated rectangle, tabulated trapezium, or tabulated yz shapes.
+    
+    - Check 28: make sure cross-sections with conveyance friction monotonically increase in width
+    
+    - Check 29: advice to use friction with conveyance on cross-sections where it is possible, has not been used.
+    
 - The schematisation page in 3Di Management has been revised.
 
 - Schematisation-level description can be added in 3Di Management
@@ -653,70 +653,70 @@ A schematisation contains:
 
 General rasters:
 
--	dem_file
--	frict_coef_file
--	interception_file
+- dem_file
+- frict_coef_file
+- interception_file
 
 Simple infiltration rasters:
 
--	infiltration_rate_file
--	max_infiltration_capacity_file
+- infiltration_rate_file
+- max_infiltration_capacity_file
 
 Interflow rasters:
 
--	hydraulic_conductivity_file
--	porosity_file
+- hydraulic_conductivity_file
+- porosity_file
 
 Ground water rasters
 
--	equilibrium_infiltration_rate_file
--	groundwater_hydro_connectivity_file
--	groundwater_impervious_layer_level_file
--	infiltration_decay_period_file
--	initial_infiltration_rate_file
--	leakage_file
--	phreatic_storage_capacity_file
+- equilibrium_infiltration_rate_file
+- groundwater_hydro_connectivity_file
+- groundwater_impervious_layer_level_file
+- infiltration_decay_period_file
+- initial_infiltration_rate_file
+- leakage_file
+- phreatic_storage_capacity_file
 
 1D elements:
 
--	channels
--	pipes
--	manholes
--	connection nodes
--	structures:
-	-	weirs
-	-	culverts
-	-	orifices
-	-	pumps
--	location (node id) & type (e.g. water level / discharge / etc) of boundary conditions
--	dem averaging
--	impervious surfaces & mapping
--	surfaces
--	dem refinement
--	cross section locations
--	levees & obstacles
+- channels
+- pipes
+- manholes
+- connection nodes
+- structures:
+    - weirs
+    - culverts
+    - orifices
+    - pumps
+- location (node id) & type (e.g. water level / discharge / etc) of boundary conditions
+- dem averaging
+- impervious surfaces & mapping
+- surfaces
+- dem refinement
+- cross section locations
+- levees & obstacles
 
 GridSettings
 
--	use_2d: bool
--	use_1d_flow: bool
--	use_2d_flow: bool
--	grid_space: float
--	dist_calc_points: float
--	kmax: int
--	embedded_cutoff_threshold: float = 0.05
--	max_angle_1d_advection: float = 90.0
+- use_2d: bool
+- use_1d_flow: bool
+- use_2d_flow: bool
+- grid_space: float
+- dist_calc_points: float
+- kmax: int
+- embedded_cutoff_threshold: float = 0.05
+- max_angle_1d_advection: float = 90.0
 
 TableSettings
 
--	table_step_size: float
--	frict_coef: float
--	frict_coef_type: InitializationType
--	frict_type: int = 4
--	interception_global: Optional[float] = None
--	interception_type: Optional[InitializationType] = None
--	table_step_size_1d: float = None
--	table_step_size_volume_2d: float = None
+- table_step_size: float
+- frict_coef: float
+- frict_coef_type: InitializationType
+- frict_type: int = 4
+- interception_global: Optional[float] = None
+- interception_type: Optional[InitializationType] = None
+- table_step_size_1d: float = None
+- table_step_size_volume_2d: float = None
 
 
 

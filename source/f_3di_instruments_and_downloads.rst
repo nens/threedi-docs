@@ -68,7 +68,7 @@ The :ref:`mi_3di_plugins` can be updated in the following way:
    
    .. note::
        If you update, always update *all* 3Di plugins that have updates available at the same time.
-	   
+       
 #) Click the plugin name. At the bottom right, click *Upgrade plugin*
 #) If you are asked to install or update the Nelen & Schuurmans Dependency Loader, please do so.
 #) Updating the Nelen & Schuurmans Dependency Loader requires a restart of the 3Di Modeller Interface. Do this when prompted, and also when you get a Python error during installation.

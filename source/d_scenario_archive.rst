@@ -103,7 +103,7 @@ Arrival time
 ------------
 
 Arrival times are the time (in seconds) since the start of the simulation that the water depth at a pixel becomes > 0.
-	
+
 
 .. _damage_estimation:
 

@@ -233,7 +233,7 @@ March 18, 2024
 - Change bulk lateral creation to reduce memory usage (#2129)
 
 - Bugfix: initial substance concentrations were not always passed to the computational core correctly
-	
+
 February 2, 2024
 ^^^^^^^^^^^^^^^^
 

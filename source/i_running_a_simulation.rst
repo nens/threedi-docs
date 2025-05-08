@@ -305,14 +305,14 @@ Generating 1D initial conditions CSV files
 
 - Load the computational grid for your 3Di model, using the :ref:`3Di Results Analysis panel<3di_results_manager>`, or the :ref:`processing algorithms<visualing_computational_grids>` that are available for this.
 - In the *Layers* panel, right-click the *Nodes* layer > *Filter* 
-- As *Provider specific filter expression*, set: "calculation_type" in (3, 4)
+- As *Provider specific filter expression*, set: *node_type in (3, 4)*
 - Export the filtered nodes to a GeoPackage (Right-click the *Nodes* layer > *Export* > *Save features as*)
 - Remove the filter expression from the original Nodes layer
 - Open the attribute table of the layer that contains the exported nodes.
 - Use the field calculator to add a new field:
     - Output field name: "value"
-	- Output field type: Decimal number (real)
-	- Expression: anything you want. E.g. if you want the initial water level to be 2.43 for all nodes, fill in 2.43 as expression.
+    - Output field type: Decimal number (real)
+    - Expression: anything you want. E.g. if you want the initial water level to be 2.43 for all nodes, fill in 2.43 as expression.
 - Now use any native QGIS method to set the value to what you want it to be
 - Once you are happy with the values you filled in, export the result to CSV (Right-click the *Nodes* layer > *Export* > *Save features as*)
     - Format: Comma Separated Values [CSV]
