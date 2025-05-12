@@ -306,7 +306,7 @@ Generating 1D initial conditions CSV files
 - Load the computational grid for your 3Di model, using the :ref:`3Di Results Analysis panel<3di_results_manager>`, or the :ref:`processing algorithms<visualing_computational_grids>` that are available for this.
 - In the *Layers* panel, right-click the *Nodes* layer > *Filter* 
 - As *Provider specific filter expression*, set: *node_type in (3, 4)*
-- Export the filtered nodes to a GeoPackage (Right-click the *Nodes* layer > *Export* > *Save features as*)
+- Export the filtered nodes to a GeoPackage: Right-click the *Nodes* layer > *Export* > *Save features as*
 - Remove the filter expression from the original Nodes layer
 - Open the attribute table of the layer that contains the exported nodes.
 - Use the field calculator to add a new field:

@@ -3,6 +3,21 @@
 3Di Modeller Interface
 ----------------------
 
+May 12th, 2025
+^^^^^^^^^^^^^^
+
+3Di Results Analysis 3.18
+"""""""""""""""""""""""""
+
+- The Fraction Analysis Tool is a new analytical tool for analysing water quality simulations, and understanding the composition of water at any location over time. (#1068)
+
+3Di Schematisation Editor 2.2.1
+"""""""""""""""""""""""""""""""
+
+- Bugfix: when importing vector data, input values are converted to target data types and the string "NULL" is interpreted as a `NULL` value. If the conversion to the target data type fails (e.g. the input for *Visualisation* is 'Manhole', which cannot be converted to the integer 0), the field will be left empty and a warning will be given to specify this (#364).
+- Bugfix: when importing structures into an existing channel network, a KeyError would be raised if the connection nodes are not exactly on the start or end vertex of the channel. This has been fixed now (#372)
+
+
 May 7th, 2025
 ^^^^^^^^^^^^^
 

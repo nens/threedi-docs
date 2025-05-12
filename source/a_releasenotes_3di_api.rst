@@ -3,6 +3,12 @@
 3Di API
 -------
 
+May 1st, 2025
+^^^^^^^^^^^^^
+
+- Bugfix for api client RESTResponse not containing a reason field
+
+
 April 30th, 2025
 ^^^^^^^^^^^^^^^^
 
