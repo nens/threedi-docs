@@ -653,13 +653,13 @@ The following shapes are supported:
      - Specify cross-section width. Height will be 1.5 * width.
    * - Tabulated rectangle
      - 5
-     - Fill cross-section table as CSV-style table of height, width pairs 
+     - Fill cross-section table as CSV-style table of height, width pairs. The lowest height should always be 0; the cross-section is defined starting from the reference or crest level. 
    * - Tabulated trapezium
      - 6
-     - Fill cross-section table as CSV-style table of height, width pairs
+     - Fill cross-section table as CSV-style table of height, width pairs.  The lowest height should always be 0; the cross-section is defined starting from the reference or crest level.
    * - YZ
      - 7
-     - Fill cross-section table as CSV-style table of Y, Z pairs
+     - Fill cross-section table as CSV-style table of Y, Z pairs. Y = distance across the channel, Z = elevation relative to reference or crest level. The lowest Z value should always be 0; the cross-section is defined starting from the reference or crest level.
    * - Inverted egg
      - 8
      - Specify cross-section width. Height will be 1.5 * width.
