@@ -17,6 +17,7 @@ May 12th, 2025
 
 - Bugfix: when importing vector data, input values are converted to target data types and the string "NULL" is interpreted as a `NULL` value. If the conversion to the target data type fails (e.g. the input for *Visualisation* is 'Manhole', which cannot be converted to the integer 0), the field will be left empty and a warning will be given to specify this (#364).
 - Bugfix: when importing structures into an existing channel network, a KeyError would be raised if the connection nodes are not exactly on the start or end vertex of the channel. This has been fixed now (#372)
+- Bugfix: the 3Di Schematisation Checker did not allow *Action value 2* of *Memory control* to be left empty, while this is allowed for most action types (#468)
 
 3Di Models & Simulations 3.18.1
 """""""""""""""""""""""""""""""
