@@ -15,6 +15,8 @@ The 3Di workflow consists of four steps, as depicted in the image below:
    
    3Di modelling workflow, including quality control options at every step
 
+.. _best_practices:
+
 Best practices
 --------------
 

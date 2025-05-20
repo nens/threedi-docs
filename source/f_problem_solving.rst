@@ -55,10 +55,73 @@ The maximum size of the Digital Elevation Model is 5 billion pixels. This includ
 Problem solving guide
 ---------------------
 
-The 3Di computational core is very stable and crashing simulations are very uncommon. Most schematisation errors that result in a failure to generate a valid 3Di model, or in crashing simulations, will be caught by the :ref:`schematisation checker<checking_model>`. However, if you do run into an error or crash, there are several things you can do to resolve the issues before contacting the :ref:`servicedesk`. The service desk will always ask you to go through these steps before your issue is taken up.
+If you run into problems, it helps to understand where you are in the :ref:`modelling workflow<workflow>`. Try to go back to the last revision in which everything worked fine, and make small step-by-step changes, so you can pinpoint which change causes the issue. Follow the :ref:`best_practices` guide in your modelling workflow to prevent running into hard-to-solve issues.
+
+Import errors in the 3Di Modeller Interface
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Updating the 3Di Modeller Interface and/or its plugins may in some cases lead to import errors, for example *ImportError: cannot import name 'Dataset' from 'h5py' (unknown location)*. The whole error will look something like this::
+
+    Couldn't load plugin 'threedi_results_analysis' due to an error when calling its classFactory() method 
+
+    ImportError: cannot import name 'Dataset' from 'h5py' (unknown location) 
+    Traceback (most recent call last):
+      File "C:\PROGRA~1/3DIMOD~1.34/apps/qgis-ltr/./python\qgis\utils.py", line 423, in _startPlugin
+        plugins[packageName] = package.classFactory(iface)
+      File "C:\Users\user.name\AppData\Roaming\3Di\QGIS3\profiles\default/python/plugins\threedi_results_analysis\__init__.py", line 53, in classFactory
+        from .threedi_plugin import ThreeDiPlugin
+      File "C:\PROGRA~1/3DIMOD~1.34/apps/qgis-ltr/./python\qgis\utils.py", line 892, in _import
+        mod = _builtin_import(name, globals, locals, fromlist, level)
+      File "C:\Users\user.name\AppData\Roaming\3Di\QGIS3\profiles\default/python/plugins\threedi_results_analysis\threedi_plugin.py", line 10, in 
+        from threedi_results_analysis.processing.providers import ThreediProvider
+      File "C:\PROGRA~1/3DIMOD~1.34/apps/qgis-ltr/./python\qgis\utils.py", line 892, in _import
+        mod = _builtin_import(name, globals, locals, fromlist, level)
+      File "C:\Users\user.name\AppData\Roaming\3Di\QGIS3\profiles\default/python/plugins\threedi_results_analysis\processing\providers.py", line 7, in 
+        from threedi_results_analysis.processing.cross_sectional_discharge_algorithm import CrossSectionalDischargeAlgorithm
+      File "C:\PROGRA~1/3DIMOD~1.34/apps/qgis-ltr/./python\qgis\utils.py", line 892, in _import
+        mod = _builtin_import(name, globals, locals, fromlist, level)
+      File "C:\Users\user.name\AppData\Roaming\3Di\QGIS3\profiles\default/python/plugins\threedi_results_analysis\processing\cross_sectional_discharge_algorithm.py", line 59, in 
+        from threedigrid.admin.gridresultadmin import GridH5ResultAdmin
+      File "C:\PROGRA~1/3DIMOD~1.34/apps/qgis-ltr/./python\qgis\utils.py", line 892, in _import
+        mod = _builtin_import(name, globals, locals, fromlist, level)
+      File "C:\Users\user.name\AppData\Roaming\3Di\QGIS3\profiles\default\python\plugins\threedi_results_analysis\deps\threedigrid\admin\gridresultadmin.py", line 15, in 
+        from threedigrid.admin.gridadmin import GridH5Admin
+      File "C:\PROGRA~1/3DIMOD~1.34/apps/qgis-ltr/./python\qgis\utils.py", line 892, in _import
+        mod = _builtin_import(name, globals, locals, fromlist, level)
+      File "C:\Users\user.name\AppData\Roaming\3Di\QGIS3\profiles\default\python\plugins\threedi_results_analysis\deps\threedigrid\admin\gridadmin.py", line 13, in 
+        from threedigrid.admin.h5py_datasource import H5pyGroup
+      File "C:\PROGRA~1/3DIMOD~1.34/apps/qgis-ltr/./python\qgis\utils.py", line 892, in _import
+        mod = _builtin_import(name, globals, locals, fromlist, level)
+      File "C:\Users\user.name\AppData\Roaming\3Di\QGIS3\profiles\default\python\plugins\threedi_results_analysis\deps\threedigrid\admin\h5py_datasource.py", line 7, in 
+        from h5py import Dataset
+    ImportError: cannot import name 'Dataset' from 'h5py' (unknown location)
+     
+In most cases, this will be fixed by restarting the 3Di Modeller Interface.
+
+If that does not work, the following approach should fix the issues:
+
+- Open the user profile folder via *Settings* > *User profiles* > *Open active profile folder*. A Windows Explorer window will now open
+- Close all 3Di Modeller Interfaces you have open
+- In the Windows Explorer window, browse to *python* > *plugins*
+- Delete the following folders:
+    - lizard_qgis_plugin
+    - nens_dependency_loader
+    - threedi_models_and_simulations
+    - threedi_results_analysis
+    - threedi_schematisation_editor
+- If you get a message during the deletion that a file cannot be deleted because it is in use by qgs-ltr-bin.exe, close all QGIS processes via *Ctrl+Alt+Del* > *Task manager* and try again
+- Restart 3Di Modeller Interface
+- Go to *Plugins* > *Manage and install plugins* > *Not installed* and install the following plugins:
+    - 3Di Models & Simulations
+    - 3Di Results Analysis
+    - 3Di Schematisation Editor
+    - Lizard (if you have a Lizard subscription)
+
+Everything should now work normally again
 
 Errors during 3Di model generation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 - Run the :ref:`schematisation checker<checking_model>`. Resolve any errors reported by the checker. Also look into the warnings and info messages and try to resolve those as well, unless you are convinced that the schematisation choice for which te schematisation checker gives a warning is the correct choice for your specific use case.
 - Check if the 3Di Modeller Interface and the 3Di plugins are up to date. If this is not the case, :ref:`update the 3Di plugins<updating_plugin_schem_editor>` and run the schematisation checker again. It is recommended to :ref:`re-install the 3Di Modeller Interface<MI_installation>` every year at the end of March.
 - Check if your model is not too large, see :ref:`model_size_limitations`
@@ -69,6 +132,8 @@ Errors during 3Di model generation
 
 Crashed simulations
 ^^^^^^^^^^^^^^^^^^^
+
+The 3Di computational core is very stable and crashing simulations are very uncommon. Most schematisation errors that result in a failure to generate a valid 3Di model, or in crashing simulations, will be caught by the :ref:`schematisation checker<checking_model>`. However, if you do run into an error or crash, there are several things you can do to resolve the issues before contacting the :ref:`servicedesk`. The service desk will always ask you to go through these steps before your issue is taken up.
 
 Common causes for crashing simulations are noted in the list below. Please check these if you encounter crashing simulations. 
 
