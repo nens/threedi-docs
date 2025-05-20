@@ -3,6 +3,18 @@
 3Di Modeller Interface
 ----------------------
 
+May 20th, 2025
+^^^^^^^^^^^^^^
+
+3Di Schematisation Editor 2.2.2
+"""""""""""""""""""""""""""""""
+
+- Table control, memory control: dynamically change attribute form based on *Action type* (#381)
+- Bugfix: you can now import orifices and weirs from source data that has > 2 vertices. Note that only the first and last vertex will be used in the 3Di schematisation. (#382)
+- Bugfix: no longer give a Python error when identifying a channel that has no cross-section locations (#379)
+- Bugfix: correctly import overlapping structures when using the *Edit channels* option (#370)
+
+
 May 12th, 2025
 ^^^^^^^^^^^^^^
 
