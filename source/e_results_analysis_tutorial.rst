@@ -1,3 +1,5 @@
+.. _tutorial_analysing_simulation_results:
+
 Tutorial 6: Analysing simulation results
 ========================================
 
