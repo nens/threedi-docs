@@ -3,6 +3,18 @@
 3Di API
 -------
 
+June 10th, 2025
+^^^^^^^^^^^^^^
+
+- Cloud-optimized geotiffs (COGs) are now always converted to Float32, to prevent issues with downstream packages that cannot handle Float64 rasters .
+- Initial 1D concentration now accepts both 'value' and 'values' as key in the data JSON (threedi-api #2470)
+- Automatically generate unique schematisation slug (threedi-api #2477)
+- Bugfix: Output results_3di.nc files could not be visualised as flow velocity when opening them as mesh in QGIS. This has been fixed now. (threedi-api #909)
+- Bugfix: Embedded connection node connected to channel created 1D2D connection while it should not (threedigrid-builder #423)
+- Bugfix: Migration failed when v2_surface_parameters with id 101 - 115 already exist (threedi-schema #229)
+- Bugfix: Gridbuilder now gives a clear and specific error if groundwater exchange is attempted where there is no DEM (#422)
+
+
 May 1st, 2025
 ^^^^^^^^^^^^^
 

@@ -3,6 +3,11 @@
 3Di Computational core
 ----------------------
 
+June 10th, 2025
+^^^^^^^^^^^^^^^
+
+- Improved stabilitity of water quality module
+
 April 30th, 2025
 ^^^^^^^^^^^^^^^^
 
