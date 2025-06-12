@@ -13,7 +13,7 @@ Some exciting new options are available for labelling flows: labelling dry weath
 
 - The simulation wizard now has the option to create a simulation template only, without starting the simulation (#680)
 
-- Two processing algorithms have been introduced for labelling dry weather flow (DWF) and labelling rain according to the zone in falls in. First create a simulation template that includes all the forcings and settings you want to use, than run one of these algorithms to algorithm to add dry weather flow or label rain zones and start the simulation (#681, #682).
+- Two processing algorithms have been introduced for labelling dry weather flow (DWF) and labelling rain according to the zone in falls in. First create a simulation template that includes all the forcings and settings you want to use, than run one of these algorithms to add dry weather flow or label rain zones and start the simulation (#681, #682).
 
 
 
@@ -27,9 +27,11 @@ Some exciting new options are available for labelling flows: labelling dry weath
 3Di Schematisation Editor 2.3
 """""""""""""""""""""""""""""
 
-- Since the introduction of database schema 300, pipes can have a polyline geometry. Changes have now been made to the 3Di Schematisation Editor to make it easier to add such pipes with more than two vertices to your schematisation (#342):
+- Since the introduction of database schema 300, pipes can have a polyline geometry. Changes have now been made to the 3Di Schematisation Editor to make it easier to add such pipes with more than two vertices to your schematisation (#342)
+
     - When digitising (drawing) a new pipe feature, it is no longer cut up into multiple pipes
     - When importing pipes using the vector data importer, the intermediate vertices are no longer removed 
+
 - A processing algorithm to add NWRW surface parameters to a schematisation was added (#333)
 - Bugfix: Changing Material back to what it was did not update the friction type and value (#345)
 - Bugfix: When loading a template in the vector data importers, all forms are cleared first (#286)
