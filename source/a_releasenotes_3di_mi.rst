@@ -27,7 +27,7 @@ Some exciting new options are available for labelling flows: labelling dry weath
 3Di Schematisation Editor 2.3
 """""""""""""""""""""""""""""
 
-- Since the introduction of database schema 300, pipes can have a polyline geometry. Changes have now been made to the 3Di Schematisation Editor to make it easier to add such pipes with more than two vertices to your schematisation (#342)
+- Since the introduction of database schema 300, pipes can have a polyline geometry. Changes have now been made to the 3Di Schematisation Editor to make it easier to add such pipes with more than two vertices to your schematisation (#342)\:
 
     - When digitising (drawing) a new pipe feature, it is no longer cut up into multiple pipes
     - When importing pipes using the vector data importer, the intermediate vertices are no longer removed 
