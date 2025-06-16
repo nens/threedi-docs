@@ -2,6 +2,15 @@
 
 3Di Modeller Interface
 ----------------------
+June 16th, 2025
+^^^^^^^^^^^^^^^
+
+3Di Models & Simulations 3.21
+"""""""""""""""""""""""""""""
+
+- Allow other plugins to display a progress bar while downloading schematisations via the 3Di Models & Simulations plugin (nens/rana#1745)
+
+- Bugfix: Correctly sort *Expires* column in the *Download simulation results* dialog (#668)
 
 June 10th, 2025
 ^^^^^^^^^^^^^^^
