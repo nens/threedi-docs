@@ -316,6 +316,9 @@
      - cross_section_location.channel_id cannot be null
    * - 0003
      - Error
+     - cross_section_location.cross_section_shape cannot be null
+   * - 0003
+     - Error
      - cross_section_location.friction_type cannot be null
    * - 0003
      - Error
@@ -332,6 +335,9 @@
    * - 0003
      - Error
      - culvert.connection_node_id_start cannot be null
+   * - 0003
+     - Error
+     - culvert.cross_section_shape cannot be null
    * - 0003
      - Error
      - culvert.geom cannot be null
@@ -365,6 +371,9 @@
    * - 0003
      - Error
      - dry_weather_flow_map.id cannot be null
+   * - 0003
+     - Error
+     - dry_weather_flow_map.percentage cannot be null
    * - 0003
      - Error
      - exchange_line.geom cannot be null
@@ -490,6 +499,9 @@
      - orifice.crest_type cannot be null
    * - 0003
      - Error
+     - orifice.cross_section_shape cannot be null
+   * - 0003
+     - Error
      - orifice.geom cannot be null
    * - 0003
      - Error
@@ -503,6 +515,9 @@
    * - 0003
      - Error
      - pipe.connection_node_id_start cannot be null
+   * - 0003
+     - Error
+     - pipe.cross_section_shape cannot be null
    * - 0003
      - Error
      - pipe.exchange_type cannot be null
@@ -574,6 +589,9 @@
      - surface_map.id cannot be null
    * - 0003
      - Error
+     - surface_map.percentage cannot be null
+   * - 0003
+     - Error
      - surface_map.surface_id cannot be null
    * - 0003
      - Error
@@ -638,6 +656,9 @@
    * - 0003
      - Error
      - weir.crest_type cannot be null
+   * - 0003
+     - Error
+     - weir.cross_section_shape cannot be null
    * - 0003
      - Error
      - weir.geom cannot be null
