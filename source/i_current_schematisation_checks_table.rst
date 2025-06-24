@@ -277,7 +277,19 @@
      - windshielding_1d.id should be unique
    * - 0003
      - Error
+     - aggregation_settings.aggregation_method cannot be null
+   * - 0003
+     - Error
+     - aggregation_settings.flow_variable cannot be null
+   * - 0003
+     - Error
      - aggregation_settings.id cannot be null
+   * - 0003
+     - Error
+     - aggregation_settings.interval cannot be null
+   * - 0003
+     - Error
+     - boundary_condition_1d.connection_node_id cannot be null
    * - 0003
      - Error
      - boundary_condition_1d.geom cannot be null
@@ -286,10 +298,31 @@
      - boundary_condition_1d.id cannot be null
    * - 0003
      - Error
+     - boundary_condition_1d.time_units cannot be null
+   * - 0003
+     - Error
+     - boundary_condition_1d.timeseries cannot be null
+   * - 0003
+     - Error
+     - boundary_condition_1d.type cannot be null
+   * - 0003
+     - Error
      - boundary_condition_2d.geom cannot be null
    * - 0003
      - Error
      - boundary_condition_2d.id cannot be null
+   * - 0003
+     - Error
+     - boundary_condition_2d.interpolate cannot be null
+   * - 0003
+     - Error
+     - boundary_condition_2d.time_units cannot be null
+   * - 0003
+     - Error
+     - boundary_condition_2d.timeseries cannot be null
+   * - 0003
+     - Error
+     - boundary_condition_2d.type cannot be null
    * - 0003
      - Error
      - channel.connection_node_id_end cannot be null
@@ -316,7 +349,13 @@
      - cross_section_location.channel_id cannot be null
    * - 0003
      - Error
+     - cross_section_location.cross_section_shape cannot be null
+   * - 0003
+     - Error
      - cross_section_location.friction_type cannot be null
+   * - 0003
+     - Error
+     - cross_section_location.friction_value cannot be null
    * - 0003
      - Error
      - cross_section_location.geom cannot be null
@@ -332,6 +371,12 @@
    * - 0003
      - Error
      - culvert.connection_node_id_start cannot be null
+   * - 0003
+     - Error
+     - culvert.cross_section_shape cannot be null
+   * - 0003
+     - Error
+     - culvert.exchange_type cannot be null
    * - 0003
      - Error
      - culvert.geom cannot be null
@@ -352,19 +397,43 @@
      - dem_average_area.id cannot be null
    * - 0003
      - Error
+     - dry_weather_flow.daily_total cannot be null
+   * - 0003
+     - Error
+     - dry_weather_flow.dry_weather_flow_distribution_id cannot be null
+   * - 0003
+     - Error
      - dry_weather_flow.geom cannot be null
    * - 0003
      - Error
      - dry_weather_flow.id cannot be null
    * - 0003
      - Error
+     - dry_weather_flow.multiplier cannot be null
+   * - 0003
+     - Error
+     - dry_weather_flow_distribution.distribution cannot be null
+   * - 0003
+     - Error
      - dry_weather_flow_distribution.id cannot be null
+   * - 0003
+     - Error
+     - dry_weather_flow_map.connection_node_id cannot be null
+   * - 0003
+     - Error
+     - dry_weather_flow_map.dry_weather_flow_id cannot be null
    * - 0003
      - Error
      - dry_weather_flow_map.geom cannot be null
    * - 0003
      - Error
      - dry_weather_flow_map.id cannot be null
+   * - 0003
+     - Error
+     - dry_weather_flow_map.percentage cannot be null
+   * - 0003
+     - Error
+     - exchange_line.channel_id cannot be null
    * - 0003
      - Error
      - exchange_line.geom cannot be null
@@ -403,16 +472,46 @@
      - interflow.id cannot be null
    * - 0003
      - Error
+     - lateral_1d.connection_node_id cannot be null
+   * - 0003
+     - Error
      - lateral_1d.geom cannot be null
    * - 0003
      - Error
      - lateral_1d.id cannot be null
    * - 0003
      - Error
+     - lateral_1d.time_units cannot be null
+   * - 0003
+     - Error
+     - lateral_1d.timeseries cannot be null
+   * - 0003
+     - Error
+     - lateral_1d.units cannot be null
+   * - 0003
+     - Error
      - lateral_2d.geom cannot be null
    * - 0003
      - Error
      - lateral_2d.id cannot be null
+   * - 0003
+     - Error
+     - lateral_2d.time_units cannot be null
+   * - 0003
+     - Error
+     - lateral_2d.timeseries cannot be null
+   * - 0003
+     - Error
+     - lateral_2d.type cannot be null
+   * - 0003
+     - Error
+     - lateral_2d.units cannot be null
+   * - 0003
+     - Error
+     - material.friction_coefficient cannot be null
+   * - 0003
+     - Error
+     - material.friction_type cannot be null
    * - 0003
      - Error
      - material.id cannot be null
@@ -428,6 +527,9 @@
    * - 0003
      - Error
      - measure_location.measure_variable cannot be null
+   * - 0003
+     - Error
+     - measure_map.control_id cannot be null
    * - 0003
      - Error
      - measure_map.control_type cannot be null
@@ -457,10 +559,16 @@
      - memory_control.id cannot be null
    * - 0003
      - Error
+     - memory_control.lower_threshold cannot be null
+   * - 0003
+     - Error
      - memory_control.target_id cannot be null
    * - 0003
      - Error
      - memory_control.target_type cannot be null
+   * - 0003
+     - Error
+     - memory_control.upper_threshold cannot be null
    * - 0003
      - Error
      - model_settings.id cannot be null
@@ -470,6 +578,9 @@
    * - 0003
      - Error
      - numerical_settings.id cannot be null
+   * - 0003
+     - Error
+     - obstacle.crest_level cannot be null
    * - 0003
      - Error
      - obstacle.geom cannot be null
@@ -490,6 +601,9 @@
      - orifice.crest_type cannot be null
    * - 0003
      - Error
+     - orifice.cross_section_shape cannot be null
+   * - 0003
+     - Error
      - orifice.geom cannot be null
    * - 0003
      - Error
@@ -503,6 +617,9 @@
    * - 0003
      - Error
      - pipe.connection_node_id_start cannot be null
+   * - 0003
+     - Error
+     - pipe.cross_section_shape cannot be null
    * - 0003
      - Error
      - pipe.exchange_type cannot be null
@@ -520,10 +637,16 @@
      - pipe.invert_level_start cannot be null
    * - 0003
      - Error
+     - potential_breach.channel_id cannot be null
+   * - 0003
+     - Error
      - potential_breach.geom cannot be null
    * - 0003
      - Error
      - potential_breach.id cannot be null
+   * - 0003
+     - Error
+     - potential_breach.initial_exchange_level cannot be null
    * - 0003
      - Error
      - pump.capacity cannot be null
@@ -565,13 +688,25 @@
      - simulation_template_settings.id cannot be null
    * - 0003
      - Error
+     - surface.area cannot be null
+   * - 0003
+     - Error
      - surface.id cannot be null
+   * - 0003
+     - Error
+     - surface.surface_parameters_id cannot be null
+   * - 0003
+     - Error
+     - surface_map.connection_node_id cannot be null
    * - 0003
      - Error
      - surface_map.geom cannot be null
    * - 0003
      - Error
      - surface_map.id cannot be null
+   * - 0003
+     - Error
+     - surface_map.percentage cannot be null
    * - 0003
      - Error
      - surface_map.surface_id cannot be null
@@ -613,6 +748,9 @@
      - table_control.id cannot be null
    * - 0003
      - Error
+     - table_control.measure_operator cannot be null
+   * - 0003
+     - Error
      - table_control.target_id cannot be null
    * - 0003
      - Error
@@ -638,6 +776,9 @@
    * - 0003
      - Error
      - weir.crest_type cannot be null
+   * - 0003
+     - Error
+     - weir.cross_section_shape cannot be null
    * - 0003
      - Error
      - weir.geom cannot be null
