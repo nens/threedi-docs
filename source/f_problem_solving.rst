@@ -95,10 +95,16 @@ Updating the 3Di Modeller Interface and/or its plugins may in some cases lead to
       File "C:\Users\user.name\AppData\Roaming\3Di\QGIS3\profiles\default\python\plugins\threedi_results_analysis\deps\threedigrid\admin\h5py_datasource.py", line 7, in 
         from h5py import Dataset
     ImportError: cannot import name 'Dataset' from 'h5py' (unknown location)
-     
-In most cases, this will be fixed by restarting the 3Di Modeller Interface.
 
-If that does not work, the following approach should fix the issues:
+If this happens right after updating any of the 3Di plugins, restarting the 3Di Modeller Interface will fix the issue in most cases.
+
+If your installation work correctly before, but produces these errors now, **make sure that the Nelen & Schuurmans Dependency Loader is activated**. QGIS sometimes disables plugins after it has crashed, but the 3Di plugins will not function without the Nelen & Schuurmans Dependency Loader. Do the following:
+
+- Go to *Plugins* > *Manage and install plugins* > *Installed*
+- Find the Nelen & Schuurmans Dependency Loader in the list
+- Check its box to activate it
+
+If that still does not work, the following approach should fix the issues. It is a bit of a rough remedy, but it is generally effective.
 
 - Open the user profile folder via *Settings* > *User profiles* > *Open active profile folder*. A Windows Explorer window will now open
 - Close all 3Di Modeller Interfaces you have open
