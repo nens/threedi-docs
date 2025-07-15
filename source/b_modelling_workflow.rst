@@ -60,8 +60,12 @@ The modelling process becomes smoother and more efficient when using many small 
 Save and check often
 """"""""""""""""""""
 
-Throughout the process, 3Di facilitates saving and checking your work at every step. 
+Throughout the process, 3Di facilitates saving and checking your work at every step.
+ 
 - Each time you add things to your schematisation, save it as a new revision. This allows you to go back to that revision at any time in the future if you make mistakes later. 
+
 - Check and fix errors and warnings in your schematisation often. It becomes harder to solve issues in your schematisation if they stack up. Some tools may also give unexpected results if there are mistakes in the schematisation.
+
 - Generate and check the computational grid often to make sure your schematisation is converted to a 3Di model in the way you intended.
+
 - Simulate often, also with preliminary versions of the model. Use 3Di Live to check if the model generally behaves the way you expect. Have a quick look at the flow summary, to get a feeling for the water balance of your area. If the simulation time, the volume error, or the water balance changes significantly due to changes you made to the model, try to understand why. 
