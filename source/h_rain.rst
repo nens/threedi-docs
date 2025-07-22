@@ -40,43 +40,76 @@ Rainfall on 0D node (inflow)
 .. note::
     See :ref:`howto_use_inflow` for instructions on using this in your model.
 
-In models with 1D elements, rainfall-runoff processes can be included using '0D inflow', i.e. inflow from a surface with a specified area and hydrological parameters that determine how much runoff flows into the 1D network.  This runoff is forced on the model as a lateral discharge on a node. 0D inflow can be combined with direct rainfall on 2D cells (0D-1D-2D model) or be used with 1D only (0D-1D model). It is also possible to use 0D inflow without having a 1D network, by mapping the inflow surfaces to embedded nodes (0D-2D model).
+In addition to the hydrological processes that are computed in the 2D domain of 3Di, it is possible to schematize some of these processes using the so-called 0D-inflow concept. The 0D-inflow concept computes runoff in a simplified box-model. By defining some basic characteristics for such as size, storage capacity, outflow, location and infiltration it computes the runoff out of this box-model. In models with 1D elements, this runoff is forced on the model as a lateral discharge on a node. 
 
-There are two methods for incorporating inflow in a 3Di schematisation: using 'surfaces', a versatile method that gives you complete freedom in setting the inflow model parameters for each surface, and using 'impervious surfaces', with predefined parameters that follow the Dutch *NWRW* inflow model, common in urban drainage modelling in the Netherlands.
+There are two methods for incorporating inflow in a 3Di schematisation: using 'surfaces', a versatile method that gives you complete freedom in setting the inflow model parameters for each surface, and using 'impervious surfaces', with predefined parameters that follow the Dutch *NWRW* inflow model, common in urban drainage modelling in the Netherlands. Surfaces can represent (green) roofs, neighbourhoods or whole catchments. 0D inflow can be combined with direct rainfall on 2D cells (0D-1D-2D model) or be used with 1D only (0D-1D model). It is also possible to use 0D inflow without having a 1D network, by mapping the inflow surfaces to embedded nodes (0D-2D model).
 
-The runoff from each surface as calculated by the 3Di 0D inflow model is Hortonian infiltration excess overland flow, that relates the runoff (:math:`R`) to precipitation (:math:`P`) and infiltration (:math:`I`):
+The surfaces define a box that is filled by precipitation. Once the box contains some water, water can be leave the box by infiltration. In case the precipitation rate is below the infiltration rate, the box is filling up. In case this volume exceeds the storage capacity, an outflow is initiated. That outflow is coupled to one or multiple 3Di nodes. Users can specify the amount that is actually added to the model. This implies that the runoff is computed based on the following parameters:
+| :math:`P` is the precipitation [m3/s]
+| :math:`A` is the surface area [m^2]
+| :math:`S` is the storage capacity [m3], is based on the surface layer thickness [mm]
+| :math:`I` is the infiltration [m3/s]
+| :math:`R` is the runoff [m3/s]
+| :math:`k_Q` is the outflow delay constant [/min]
+| :math:`Q` is the inflow in 3Di node [m3/s]
+| :math:`\alpha` is the inflow distribution factor [\%]
+
+The figure below givens an overview of these parameters. Note, that the dimensions such as time and size are not all in SI units. Behind the scenes we make sure all is consistent. 
+
+.. figure:: image/surface_runoff_parameters_v2.png
+   :scale: 50%
+   :alt: Parameters used to calculate runoff in the 3Di 0D inflow model
+
+   Parameters used to calculate runoff in the 3Di 0D inflow model
+
+The precipitation is calculated as the rain intensity multiplied by the surface area. When using spatially variable rain, the rain intensity at the location of the centroid of the surface is used to define the rain intensity.   
+
+The infiltration is computed based on so-called modified Horton method. This method assumes an initial infiltration rate that decreases exponentially to an equilibrium rate when the soil becomes wetter. When the soil dries, the infiltration rate recovers exponentially to the initial infiltration rate. Mathematically, the infiltration is defined under wet conditions as:
 
 .. math::
-   :label: horton_runoff
+   :label: horton_infiltration_0D
 
-   `R = P - I`
+   I = A [f_e+(f_i-f_e) e^{-k_d (t-t_w)}]
 
-The amount of precipitation is calculated as the rain intensity multiplied by the surface area. When using spatially variable rain, the rain intensity at the centroid of the surface is used for determining the rain intensity.
+and under dry conditions as
 
-However, there is a delay between the accumulation of water on the surface (ponding) and the production of runoff. The runoff at time t :math:`Q_t` is a function of the water volume :math:`V` of water stored at the surface and outflow delay constant :math:`k_q`.
+.. math::
+   :label: horton_infiltration_0D
+
+   I = A [f_i-(f_i-f_e) e^{-k_r (t-t_d)}]
+
+| In which:
+| :math:`t` is the time [h]
+| :math:`t_w` is the time when the surface becomes wet [h]
+| :math:`t_d` is the time when the surface becomes dry [h]
+| :math:`f_i` is the initial (maximum) infiltration rate [mm/h]
+| :math:`f_e` is the equilibrium (minimum) infiltration rate [mm/h] that is reached once the soil has been saturated
+| :math:`k_d` is the decay constant that governs how quickly the infiltration rate decreases [/h]
+| :math:`k_r` is the recovery constant that governs how quickly the infiltration rate recovers [/h]
+
+In the figure below, the infiltration rate is plotted where there is water in the box the first 3 hours and than becomes dry. 
+
+.. figure:: image/h_horton_inf_0Dinflow.png
+   :alt: Example of how the infiltration rate varies over time
+
+   Example of how the infiltration rate varies over time, using :math:`f_i=300 mm/h`, :math:`f_e=150 mm/h`, :math:`k_d=1.5 /h`, and :math:`k_r=0.5 /h`.
+
+The runoff discharge is initiated when the volume (:math:`V [m3]`) in the box model is higher than the storage capacity. The runoff discharge is defined using a delay factor as:
 
 .. math::
    :label: outflow_delay
 
-   `Q_t = k_q V_t`
+   R = k_Q (V-S)
 
-The infiltration rate decays over time, and then recovers again after the rainfall event. This is described by the modified Horton infiltration equation:
+The actual inflow in the 3Di nodes is computed as:
 
 .. math::
-   :label: horton_infiltration
+   :label: inflow
 
-   `f_t = \frac{f_0}{1+k_d(t-1)} + \frac{f_c}{1+kt} + \frac{f_r}{1+k_r t}`
+   Q = \alpha R
 
-| In which:
-| :math:`f_t` is the infiltration rate at time :math:`t`
-| :math:`f_0` is the initial (maximum) infiltration rate
-| :math:`f_c` is the equilibrium (minimum) infiltration rate that is reached once the soil has been saturated
-| :math:`k_d` is the decay constant that governs how quickly the infiltration rate decreases
-| :math:`k_r` is the recovery constant that governs how quickly the infiltration rate recovers
+in which :math:`\alpha` determines which fraction of the runoff actually reaches which 3Di node. In the flow_summary.log the water balances of all surfaces combined can be found. 
 
-The figure below givens an overview of these parameters.
 
-.. figure:: image/surface_runoff_parameters.png
-   :alt: Parameters used to calculate runoff in the 3Di 0D inflow model
 
-   Parameters used to calculate runoff in the 3Di 0D inflow model
+
