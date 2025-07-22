@@ -3,27 +3,24 @@
 Watershed tool
 ==============
 
-The Watershed Tool (|watershedtoolbar|) allows you to determine the upstream and downstream catchment at any point or area. Upstream or downstream elements include surface areas (2D cells), sewerage and channel flow (1D flowlines) as well as impervious surfaces (0D inflow). If there is net flow from the element to the target node(s) above a user-defined threshold, the element is included in the upstream results; for the downstream area, this is based on flow originated from the target node(s) to the downstream elements. These connections may consist of any (combination of) flowline(s) included in the model. 
+The Watershed Tool (|watershedtoolbar|) allows you to determine the upstream and downstream catchment at any point or area. Upstream or downstream elements include surface areas (2D cells), sewerage and channel flow (1D flowlines) as well as surfaces (0D inflow). If there is net flow from the element to the target node(s) above a user-defined threshold, the element is included in the upstream results; for the downstream area, this is based on flow originated from the target node(s) to the downstream elements. These connections may consist of any (combination of) flowline(s) included in the model. 
 
 .. @Leendert: Is this still correct?
 .. note::
-   -  Pumplines (pumping stations that pump water from one location in the model to another) are not taken into account in the network analysis.
+   -  Pump maps (pumps that pump water from one location in the model to another) are not taken into account in the network analysis.
    -  Interflow is not taken into account in the network analysis.
    -  Groundwater flow is taken into account but has not been tested yet, please check the results.
 
-.. @Leendert: is it still the case that v2_surfaces are not supported?
-
-
 .. figure:: image/i_watershed_tool.png
-	:alt: Watershed Tool
-	:align: right
-	:scale: 65%
+    :alt: Watershed Tool
+    :align: right
+    :scale: 65%
 
-	
+    
 **Inputs**
 
-1) Select the simulation results you want to analyse.
-2) The 3Di schematisation spatialite (.sqlite-file) is an optional input, required only for visualizing the upstream v2_impervious_surfaces. This functionality is currently not supported for v2_surface features.
+#. Select the simulation results you want to analyse.
+#. The 3Di schematisation database (\*.gpkg) is an optional input, required only for visualizing the upstream Surfaces.
 
 **Settings**
 
@@ -46,6 +43,6 @@ The Watershed Tool (|watershedtoolbar|) allows you to determine the upstream and
 
 
 .. |watershedtoolbar| image:: image/i_3di_results_analysis_toolbar_watershed.png
-	:scale: 25%
-	
+    :scale: 25%
+    
 .. |qgisselecttool| image:: image/pictogram_qgis_select_tool.png

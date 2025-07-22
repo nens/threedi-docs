@@ -147,23 +147,23 @@ Below two tables are included with a summary of the possible settings for interf
    :header-rows: 1
 
    * - Parameter
-     - Uniform in Model Domain
-     - Spatially Varying in Model Domain
+     - Uniform in model domain
+     - Spatially varying in model domain
    * - Porosity
      - .. math::
          \checkmark
      - .. math::
          \checkmark
-   * - Porosity Layer
+   * - Porosity layer
      - .. math::
          \checkmark
-     - 	X
-   * - Hydraulic Connectivity
+     - X
+   * - Hydraulic conductivity
      - .. math::
          \checkmark
      - .. math::
          \checkmark
-   * - Impervious Layer Elevation
+   * - Impervious layer elevation
      - .. math::
          \checkmark
      - X

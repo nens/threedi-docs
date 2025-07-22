@@ -1,28 +1,29 @@
 .. _boundary_conditions:
 
-Boundary conditions
-===================
+Open boundary conditions
+========================
 
-Boundary conditions define the conditions beyond the boundary of the model and allow water to flow into or out of the model domain.
+At open boundaries, one needs to define the conditions beyond the boundary of the model. This will allow water to flow into or out of the model domain. These conditions can of course change during the course of a simulation. Therefore, one defines a boundary condition type and, a time varying value. Boundary conditions are generally defined far away from the region of interest, as one wants to study the natural flow, and not the behaviour of the boundary conditions. It is important to choose the location of a boundary condition carefully. Locations, where the flow and the bathymetry is simple and predictable, generally give better results. In addtion, one should be careful about the grid resolution transitions at the boundary location. Especially, for the water level and discharge boundaries, because for those types, the boundary cells are treated independent of its resolution.
 
 Domains
 -------
 
-Boundary conditions can be used for 1D flow, 2D surface flow and 2D groundwater flow.
+Boundary conditions need to be defined at the open boundaries in the 1D, 2D surface and 2D groundwater domain. In case no boundaries are defined, 3Di treat it as a closed boundary, which means that water cannot flow in or out.
 
 Types
 -----
 
-A boundary condition must define one variable, so that the computational core can calculate the flow based on the values of the neighbouring node or flowline. You can define one of the following variables in a boundary condition:
+There are various types of boundaries, which define the in- and outgoing discharges. 3Di supports the following boundary types:
 
-* Water level, a user defines a water level (time series). This value is fixed at the boundary cell (1D domain) or for all cells along the boundary (2D surface and groundwater domains).
+* Water level: This type defines the water level and enforces water to flow in or out of the domain based on this condition. 
 
-* Flow velocity, a user defines the flow velocity (time series). This value is fixed at the boundary cell (1D domain) or for all cells along the boundary (2D surface).
+* Velocity: This type prescribes the flow velocity at the boundary location. Depending on the local depth at the boundary, the in- or out-going flux is defined. Take care of the sign of the value, as the sign of the velocity determines the flow direction. 
 
-* Discharge, a user defines the discharge (time series). This value is fixed at the boundary cell (1D domain) or for all cells along the boundary (2D surface and groundwater domains). Please note, the total amount of water is the sum of the discharge over all boundary flow lines.
+* Discharge: This type prescribes the discharge. It defines the flux in/out of the model domain. Generally, this is the boundary condition type one uses for upstream boundaries. Keep in mind the sign of the value, as it is linked to the flow direction. Note that this value is defined for each boundary flow line in all model domains. However, concerning the 2D (surface and groundwater domains), the total incoming discharge is the sum of the discharge over all boundary flow lines. For 2D boundary cells, it is advised to use the Total discharge boundary type, which is explained below.
 
-* Water level gradient (Sommerfeld boundary)
+* Water level gradient (Sommerfeld boundary): This type prescribes the water level gradient at the boundary. This will try to get the system to an equilibrium condition. Use this boundary condition, when one expects a system that is in (near) equilibrium state.
 
+* Total discharge: A user can define the total discharge for a boundary in one of the 2D domains (surface and groundwater). 3Di will distribute the total discharge over the boundary cells. For 2D surface water, the distribution of the discharge over the full edge is based on a so-called conveyance approach. It uses information of the wet area, roughness, and vegetation of the cell. When an interflow layer is present in the model, the distribution is also dependent on the wet area and hydraulic conductivity there. In case of a groundwater boundary condition, the distribution of the discharge is based on the wet area and hydraulic conductivity.  
 
 
 Time series

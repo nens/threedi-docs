@@ -26,46 +26,37 @@ Before you get started:
 * Install the 3Di Modeller Interface, see :ref:`3di_instruments_and_downloads`.
 * Download the dataset for this tutorial `here <https://nens.lizard.net/media/3di-tutorials/3di-tutorial-05.zip>`_.
 
-.. Checken dat Wolf zipje erop heeft gezet.
-
 
 Creating a new schematisation
 ------------------------------
-Follow these steps to convert the existing Spatialite to a :ref:`schematisation`:
+Follow these steps to convert an existing schematisation database file to a :ref:`schematisation`:
 
-#) Unzip the downloaded dataset for this tutorial and save the contents into a folder. The dataset for this tutorial contains a partially configured .sqlite database, a digital elevation model (DEM) and an initial water level raster.
+#) Unzip the downloaded dataset for this tutorial and save the contents into a folder. The dataset for this tutorial contains a partially configured schematisation database, a digital elevation model (DEM) and an initial water level raster.
 
 #) Open the 3Di Modeller Interface.
 
-#) Click the 3Di Models and Simulations icon (|modelsSimulations|). You should now see the 3Di Models and Simulations panel.
+#) Click the 3Di Models and Simulations icon |modelsSimulations|. You should now see the 3Di Models and Simulations panel.
 
-#) In the *Schematisation* section of the 3Di Models and Simulations panel, click the *New* button (|newschematisation|). The *New schematisation* wizard is shown.
+#) In the *Schematisation* section of the 3Di Models and Simulations panel, click the *New* button |newschematisation|. The *New schematisation* wizard is shown.
 
-#) Fill in a schematisation name, such as 'Tutorial 2D flood adaptation <your_name>'. Select the organisation you want to be the owner of the new schematisation (most users have rights for only one organisation). Tags are optional, you can leave this field empty for now.
+#) Fill in a schematisation name, such as 'Tutorial 2D flood adaptation <your_name>'. Select the organisation you want to be the owner of the new schematisation (most users have rights for only one organisation). Project and Tags are optional, you can leave these fields empty for now.
 
-#) Since we are creating a schematisation from an existing Spatialite, select the *Choose file* option. Select the 'Strand - Western Cape.sqlite' file you downloaded and click *Create schematisation*.
+#) Since we are creating a schematisation from an existing schematisation database file, select the *Choose file* option. Select the 'Strand - Western Cape.sqlite' file you downloaded and click *Create schematisation*.
 
-
-Viewing the schematisation
---------------------------
-The schematisation must be imported in the 3Di Modeller Interface to view and modify its contents. The schematisation can be loaded by following these steps:
-
-#) At the top of the 3Di Models & Simulations panel, click the (blue, underlined) name of your schematisation. This will open Windows Explorer. Browse to *work in progress/schematisation* and copy the path from the Windows Explorer address bar.
-
-#) In the 3Di Schematisation Editor toolbar, click the *Load from Spatialite* button (|load_from_spatialite|). Paste the path to the spatialite and click *Open*.
+#) Once the schematisation has been created succesfully, you will be asked "Do you want to load schematisation data from the associated GeoPackage file?". Click *Yes*
 
 #) Add a background map from OpenStreetMap by clicking *Web* in the Main Menu > *Quick Map Services* > *OSM* > *OSM Standard*.
 
 #) In the Layers panel, reorder the layers such that the OpenStreetMap layer is below the 3Di schematisation.
 
-You should now see the DEM and schematisation of the town Strand with a useful background-layer.
+You should now see the DEM and schematisation of the town Strand with a useful background layer.
 
 
 Uploading the schematisation
 ----------------------------
 We will now upload the schematisation as a first :ref:`revision` and process it into a :ref:`threedimodel`. All these steps are covered by the upload wizard.
 
-#) Click the upload button (|upload|) in the 3Di Models and Simulations panel.
+#) Click the upload button |upload| in the 3Di Models and Simulations panel.
 
 #) In the dialog that has appeared, click *New upload* and click *Next* twice.
 
@@ -77,9 +68,9 @@ Your 3Di model is now ready to run simulations!
 
 
 Starting the simulation with discharge in 3Di Live
----------------------------------------------------
+--------------------------------------------------
 
-Now we have created a model, we need to add a forcing to the model. In this case we are going to add discharge to the Lourens river:
+Now we have created a model, we need to add a forcing to the model. In this case we are going to add discharge to the Lourens river.
 
 #) :ref:`Load <loading_model_3di_live>` the created model in 3Di Live.
 
@@ -111,11 +102,11 @@ The simulation (including the discharge you added) can be saved as a template. T
 
 #) Click *Restart simulation* in the user menu (|user_menu|). 
 
-#)	Select *Store results instead of restarting*
+#) Select *Store results instead of restarting*
 
-#)	Select *Create simulation template from simulation*
+#) Select *Create simulation template from simulation*
 
-#)	Choose a template name (Like: 'Discharge 30 m³/s for 24 hours') and make sure the boxes *Include events*, *Include initials* and *Include settings* are checked. Then click *Store results*.
+#) Choose a template name (Like: 'Discharge 30 m³/s for 24 hours') and make sure the boxes *Include events*, *Include initials* and *Include settings* are checked. Then click *Store results*.
 
 
 Adding a flood barrier to your simulation
@@ -146,17 +137,17 @@ As we have seen earlier in this tutorial, the inundation reaches 2.35 m MSL, if 
 
 #) Click the :ref:`flood_barrier_tool_3di_live` button (|barrier_tool|).
 
-#)	Use an elevation of 2.5 m MSL. This is the flood barrier's crest level.
+#) Use an elevation of 2.5 m MSL. This is the flood barrier's crest level.
 
-#)	Click *Draw on map*.
+#) Click *Draw on map*.
 
-#)	Draw a flood barrier on the map as is shown in the figure below. When you are finished drawing, click *Confirm*.
+#) Draw a flood barrier on the map as is shown in the figure below. When you are finished drawing, click *Confirm*.
 
-#)	Select the barrier using the Selection tool to check whether the height is correct and see the total length of the placed flood barrier.
+#) Select the barrier using the Selection tool to check whether the height is correct and see the total length of the placed flood barrier.
 
-#)	Start the simulation and let it run for 1 hour.
+#) Start the simulation and let it run for 1 hour.
 
-#)	To make a quick comparison, take a screenshot of the results and paste it next to the screenshot of the model without barrier. Did the flood barrier properly protect the urban area?
+#) To make a quick comparison, take a screenshot of the results and paste it next to the screenshot of the model without barrier. Did the flood barrier properly protect the urban area?
 
 .. figure:: image/t_05_location_barrier.png
    :alt: Location of the barrier
@@ -170,9 +161,6 @@ As we have seen earlier in this tutorial, the inundation reaches 2.35 m MSL, if 
 
 .. |newschematisation| image:: /image/pictogram_newschematisation.png
     :scale: 80%
-
-.. |load_from_spatialite| image:: /image/pictogram_load_from_spatialite.png
-	:scale: 80%
 
 .. |discharge_tool| image:: /image/pictogram_discharge_tool.png
     :scale: 80%

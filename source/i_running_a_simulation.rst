@@ -24,7 +24,7 @@ Starting a simulation
 
       * :ref:`simulate_api_qgis_boundary_conditions`: Boundary conditions are taken from the spatialite directly.
       * :ref:`simulate_api_qgis_laterals`: Select laterals to use in the model.
-      * :ref:`dry_weather_flow`: Include dry weather flow in your model.
+      * :ref:`simulate_dry_weather_flow`: Include dry weather flow in your model.
       * :ref:`simulate_api_qgis_precipitation`: Define precipitation in the model.
       * :ref:`wind_apiclient`: Define wind in the model.
       * Raster edits
@@ -188,32 +188,137 @@ If the 3Di model contains boundary conditions, you can only run a simulation if 
 Initial conditions
 ==================
 
-Initial conditions either refer to the use of saved state file, or the use of initial water level in 1D, 2D or groundwater (2D):
+Initial conditions either refer to the use of saved state file, or the use of initial water level in 1D, 2D or groundwater (2D)
 
-1D options:
+Saved state
+-----------
 
-- Global value: a generic initial water level value in m MSL which is applied in all 1D nodes of the model.
-- From Spatialite: the initial water level as defined in the column initial_waterlevel in the connection nodes in the spatialite.
+Choose this option if you want to start a simulation from a previously saved state. This state includes all variables know to the computational core, including water levels, volumes, velocities, discharges, etc. It is an "all or nothing" state: you can either start the simulation using the entire saved state, or not use it at all. It is not possible to combine saved states with other initial conditions, as these are already included in the saved state.
 
+If you have not yet generated a saved state, this option will not be available. To generate a saved state, choose the option "Generate saved state" when starting a simulation.
+
+1D initial water levels
+-----------------------
+
+- Global value: specify an initial water level value in m MSL which is applied to all 1D nodes of the model.
+- From Spatialite: use the initial water level as defined in the column initial_waterlevel in the connection nodes in the spatialite that was used when generating the 3Di model and simulation template that you picked.
+- Online file: use a set of 1D initial water levels that you have uploaded for this 3Di model previously.
+- Upload CSV: upload a CSV file with an initial water level for one or more *calculation nodes* (not connection nodes) 
 
 2D Surface Water options:
 
 - Global value: a generic initial water level value in m MSL which is applied in all 2D nodes of the model.
 - Online Raster: the initial water level raster as uploaded with the model to the model database.
 - Local Raster: a local the initial water level raster.
-- Aggregation method: this can mean, min or max.
-
+- Aggregation method: this can be  mean, min or max.
 
 2D Groundwater options:
 
 - Global value: a generic initial water level value in m MSL which is applied in all 2D groundwater nodes of the model.
 - Online Raster: the initial water level raster as uploaded with the model to the model database.
 - Local Raster: a local the initial water level raster.
-- Aggregation method: this can mean, min or max.
+- Aggregation method: this can be mean, min or max.
 
-.. VRAAG: moet er nog meer uitleg bij de aggregation method?
+.. _1d_initial_water_levels_csv_file_format:
 
-|
+1D initial water levels file format CSV file format
+---------------------------------------------------
+
+The columns in the CSV file are to be comma-separated. 
+
+The CSV file input should have the following columns:
+
+- "id": calculation node ID's. Note that these are **not connection node IDs**. 
+- "value": the initial water level to be used for this calculation node
+
+Any additional columns will be ignored.
+
+Text example::
+
+    id,value
+    8548,0.43
+    8549,0.43
+    8550,0.43
+    8551,-0.5
+    8552,-0.5
+    8553,-0.5
+    8554,-0.5
+    8555,-0.5
+    8556,0.43
+    8557,0.43
+    8558,0.43
+    8559,0.43
+    8560,0.43
+    8561,2.31
+    8562,2.31
+    8563,2.31
+    8564,2.31
+
+See also :ref:`generating_1d_initial_conditions_csv_files`.
+
+.. _1d_initial_concentrations_csv_file_format:
+
+1D Initial concentrations CSV file format
+-----------------------------------------
+
+If you have defined one or more substances on the :ref:`simulation_wizard_substances` page, you can upload substance concentrations for calculation node.
+
+The CSV file for initial concentrations in the 1D domain should look like this::
+
+    id,value
+    8548,100
+    8549,100
+    8550,100
+    8551,100
+    8552,100
+    8553,100
+    8554,100
+    8555,100
+    8556,100
+    8557,100
+    8558,100
+    8559,100
+    8560,100
+    8561,100
+    8562,100
+    8563,100
+    8564,100
+
+This will add an initial concentration of 100 (e.g. 100%) to calculation nodes 8548 - 8564.
+
+Requirements: 
+
+- Columns are comma-separated
+
+- The file includes the columns "id" and "value". Any additional columns are ignored; the sequence of the columns is not important.
+
+- The id's are calculation node ID's, not connection node IDs. 
+
+- The units of the values depend on the substance for which this file is used. E.g. if the substance has *mg* as units, this will be the unit of the value in this CSV file. See :ref:`simulation_wizard_substances`
+
+See also :ref:`generating_1d_initial_conditions_csv_files`.
+
+.. _generating_1d_initial_conditions_csv_files:
+
+Generating 1D initial conditions CSV files
+------------------------------------------
+
+- Load the computational grid for your 3Di model, using the :ref:`3Di Results Analysis panel<3di_results_manager>`, or the :ref:`processing algorithms<visualing_computational_grids>` that are available for this.
+- In the *Layers* panel, right-click the *Nodes* layer > *Filter* 
+- As *Provider specific filter expression*, set: *node_type in (3, 4)*
+- Export the filtered nodes to a GeoPackage: Right-click the *Nodes* layer > *Export* > *Save features as*
+- Remove the filter expression from the original Nodes layer
+- Open the attribute table of the layer that contains the exported nodes.
+- Use the field calculator to add a new field:
+    - Output field name: "value"
+    - Output field type: Decimal number (real)
+    - Expression: anything you want. E.g. if you want the initial water level to be 2.43 for all nodes, fill in 2.43 as expression.
+- Now use any native QGIS method to set the value to what you want it to be
+- Once you are happy with the values you filled in, export the result to CSV (Right-click the *Nodes* layer > *Export* > *Save features as*)
+    - Format: Comma Separated Values [CSV]
+    - Under *Select fields to export and their export options*, check only *id* and *value*
+    - Under *Geometry*, set *Geometry type*  to *No Geometry*
+- Click *OK*.
 
 .. _simulate_api_qgis_laterals:
 
@@ -230,11 +335,11 @@ If the option 'Interpolate' is checked, the value between time steps will be lin
 
 .. note:: 
     
-	If the box *Use 1D laterals from the simulation template* is checked and *Upload 1D laterals* is also checked, the uploaded laterals are added to the laterals already present in the simulation template. The same applies to 2D laterals.
+    If the box *Use 1D laterals from the simulation template* is checked and *Upload 1D laterals* is also checked, the uploaded laterals are added to the laterals already present in the simulation template. The same applies to 2D laterals.
 
 .. note:: 
     
-	The time units you choose should match the time units used in the CSV file. The default is minutes (mins), because this is the time unit that is used in the 3Di spatialite
+    The time units you choose should match the time units used in the CSV file. The default is minutes (mins), because this is the time unit that is used in the 3Di spatialite
 
 
 .. _laterals_1d_csv_format_requirements:
@@ -371,7 +476,7 @@ Requirements:
 
 - The units of the values depend on how this has been defined when the substance was created; see :ref:`simulation_wizard_substances`
 
-.. _dry_weather_flow:
+.. _simulate_dry_weather_flow:
 
 Dry weather flow
 ================
@@ -588,20 +693,20 @@ The *value* parameter must be a list, even if it contains 1 value (e.g. [0.3]), 
 
 The following example JSON file sets the discharge coefficients of weir 21 to 0.4 (positive) and 0.8 (negative) for the first 100 s of the simulation::
 
-	{
-		"timed": [
-			{
-			  "offset": 0,
-			  "duration": 100,
-			  "value": [
-				0.4, 0.8
-			  ],
-			  "type": "set_discharge_coefficients",
-			  "structure_id": 21,
-			  "structure_type": "v2_weir"
-			}
-		]
-	}
+    {
+        "timed": [
+            {
+              "offset": 0,
+              "duration": 100,
+              "value": [
+                0.4, 0.8
+              ],
+              "type": "set_discharge_coefficients",
+              "structure_id": 21,
+              "structure_type": "v2_weir"
+            }
+        ]
+    }
 
 .. _sim_memory_control:
 
@@ -697,35 +802,38 @@ The *value* parameter must be a list, even if it contains 1 value (e.g. [0.3]), 
 
 The following example JSON file activates a memory control after one hour since the start of the simulation, that sets the crest level of weir 13 to 9.05 m MSL when the water level at connection node 356 rises above 0.3m. It will go back to its initial value when the water level falls below 0.1 m MSL::
 
-	{
-		"memory": [
-			{
-			  "offset": 3600,
-			  "duration": 259200,
-			  "measure_specification": {
-				"locations": [
-				  {
-					"weight": 1.00,
-					"content_type": "v2_connection_node",
-					"content_pk": 356
-				  }
-				],
-				"variable": "s1",
-				"operator": ">"
-			  },
-			  "structure_id": 13,
-			  "structure_type": "v2_weir",
-			  "type": "set_crest_level",
-			  "value": [
-				9.05
-			  ],
-			  "upper_threshold": 0.3,
-			  "lower_threshold": 0.1,
-			  "is_active": false,
-			  "is_inverse": false
-			}
-		]
-	}
+    {
+        "memory": [
+            {
+              "offset": 3600,
+              "duration": 259200,
+              "measure_specification": {
+                "locations": [
+                  {
+                    "weight": 1.00,
+                    "content_type": "v2_connection_node",
+                    "content_pk": 356
+                  }
+                ],
+                "variable": "s1",
+                "operator": ">"
+              },
+              "structure_id": 13,
+              "structure_type": "v2_weir",
+              "type": "set_crest_level",
+              "value": [
+                9.05
+              ],
+              "upper_threshold": 0.3,
+              "lower_threshold": 0.1,
+              "is_active": false,
+              "is_inverse": false
+            }
+        ]
+    }
+
+.. note::
+    References to object types must include the *v2_* prefix in this JSON file. This is a legacy of the table names in the schematisation database as defined up until March 2025 that has been upheld for reasons of backward compatibility.
 
 The figure below shows three examples of JSON files.
 
@@ -801,44 +909,46 @@ The following arguments can be specified for a :ref:`table_control`:
 
 The following example JSON file activates a table control during the first hour of the simulation. It that sets the gate level of orifice 27 to an action value defined in the action table, when the water level at connection node 356 falls below the threshold value in the action table::
 
-	{
-		"table": [
-			{
-				"offset": 0,
-				"duration": 3600,
-				"measure_specification": {
-					"locations": [
-						{
-							"weight": 1.00,
-							"content_type": "v2_connection_node",
-							"content_pk": 356
-						}
-					],
-					"variable": "s1",
-					"operator": "<"
-				},
-				"structure_id": 27,
-				"structure_type": "v2_orifice",
-				"type": "set_gate_level",
-				"values": [
-					[
-						9.05,
-						-1.45
-					], 
-					[
-						9.10,
-						-1.5
-					],
-					[
-						9.15,
-						-1.55
-					]
-				]
-			}
-		]
-	}
+    {
+        "table": [
+            {
+                "offset": 0,
+                "duration": 3600,
+                "measure_specification": {
+                    "locations": [
+                        {
+                            "weight": 1.00,
+                            "content_type": "v2_connection_node",
+                            "content_pk": 356
+                        }
+                    ],
+                    "variable": "s1",
+                    "operator": "<"
+                },
+                "structure_id": 27,
+                "structure_type": "v2_orifice",
+                "type": "set_gate_level",
+                "values": [
+                    [
+                        9.05,
+                        -1.45
+                    ], 
+                    [
+                        9.10,
+                        -1.5
+                    ],
+                    [
+                        9.15,
+                        -1.55
+                    ]
+                ]
+            }
+        ]
+    }
 
-
+.. note::
+    References to object types must include the *v2_* prefix in this JSON file. This is a legacy of the table names in the schematisation database as defined up until March 2025 that has been upheld for reasons of backward compatibility.
+    
 .. _table_control_values:
 
 Values parameter of table control
@@ -927,7 +1037,7 @@ A *Measure location* defines a location and its weight relative to other measure
    * - content_type
      - string
      - Yes
-     - spatialite table from which to select a feature to use as measure location.
+     - schematisation database table from which to select a feature to use as measure location, e.g. 'v2_connection_node'
    * - content_pk
      - integer
      - Yes
@@ -936,8 +1046,10 @@ A *Measure location* defines a location and its weight relative to other measure
      - integer
      - No
      - Computational grid ID of the node or flowline to use as measure location.
-	 
-	 
+
+.. note::
+    References to object types must include the *v2_* prefix in this JSON file. This is a legacy of the table names in the schematisation database as defined up until March 2025 that has been upheld for reasons of backward compatibility.
+     
 .. _simulate_api_qgis_breaches:
 
 Breaches

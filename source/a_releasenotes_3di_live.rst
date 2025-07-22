@@ -53,9 +53,9 @@ June 5th, 2024
 
 - The UI for the visualisation of 1D and 2D flow has been improved:
 
-	- It has been made clearer which elements are visible/invisible on the map (#1759)
+    - It has been made clearer which elements are visible/invisible on the map (#1759)
 
-	- For the 1D flow/2D flow settings, the "down arrow" has been replaced with a "settings" icon (#1761)
+    - For the 1D flow/2D flow settings, the "down arrow" has been replaced with a "settings" icon (#1761)
 
 - File 2D laterals in the simulation template are now also visible on the map in 3Di Live, similar to non-file 2D laterals (#1757)
 
@@ -76,14 +76,14 @@ March 26th, 2024
 - 1D flow above 2 m/s (or other user-defined threshold) is highlighted (#1558)
 
 - Design of the layers panel has been simplified by putting the flow velocity settings (for 1D and 2D) in a drop-down menu (#1692)
-	
+
 - Visibility of assets, breaches and model grid is no longer dependent on zoom level (#1674, #1575)
 
 - Model flowlines are shown only when drawing flood barriers (#1521)
 
 - "Code" is now shown in asset details (#1683)
 
-- Some improvements in spelling & terminology have been made (#1559)	
+- Some improvements in spelling & terminology have been made (#1559)
 
 - Technical change: 3Di Live now uses deck.gl instead of Leaflet (#1562)
 

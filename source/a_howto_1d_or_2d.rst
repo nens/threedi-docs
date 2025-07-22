@@ -1,9 +1,9 @@
-Choose for 1D or 2D
-===================
+Choose between 1D and 2D
+=========================
 
-An important modelling choice is choosing between 1D or 2D flow. This "how to" aims to provide some guidelines when making such choices. While in some situations there is cleare a 'best' option, there are also many situations where the 'best' choice really depends on the specific modelling objectives, performance requirements and data availability.
+An important modelling choice is choosing between 1D or 2D flow. This "how to" aims to provide some guidelines when making such choices. While in some situations there is clearly a 'best' option, there are also many situations where the 'best' choice really depends on the specific modelling objectives, performance requirements and data availability.
 
-A common pitfall is to let the choice between 1D and 2D depend mainly on data availability, i.e., schematising all waterways and structures for which data is available in 1D. This often lead to sub-optimal results. Take for example a flat area with a lot of small ditches. Adding all these ditches to the schematisation as 1D elements is quite a bit of work, while carving them out in the DEM is simple and will probably capture their function in storage and drainage with sufficient accuracy. This "how to" will help you to make better choices in such situations.
+A common pitfall is to let the choice between 1D and 2D depend mainly on data availability, i.e., schematising all waterways and structures for which data is available in 1D. This often leads to sub-optimal results. Take for example a flat area with a lot of small ditches. Adding all these ditches to the schematisation as 1D elements is quite a bit of work, while carving them out in the DEM is simple and will probably capture their function in storage and drainage with sufficient accuracy. This "how to" will help you to make better choices in such situations.
 
 
 2D if possible, 1D if needed
@@ -40,8 +40,8 @@ When combining 1D and 2D domain, extra care should be given to preventing 'doubl
 There are several options for preventing this, each with their own merits.
 
 * Use only 2D. If the DEM is accurate enough, you may not need a 1D schematisation of the water course at all. Note that DEMs are often less accurate in the vicinity of waterways, due to the vegetation that is present and the poor LIDAR reflectance of water. It may be needed to carve the channel into the DEM to make the 2D representation more accurate.
-* Use 1D with the calculation type :ref:`calculation_type_embedded`. Without adding 1D nodes, the 1D channel will be used to connect 2D cells for the part of the 1D profile that is below the DEM. The volume-storage relations of the 1D channel and the 2D cell will be merged into one, so double counting of storage is not possible. This is especially useful if channel is narrower than the computational cell. 
-* Set DEM pixels to NODATA where channels are located, and include the channels' calculation type to (double) connected. If you set the channel calculation type to *double connected* and place *exchange lines* on either side of the channel, water can flow into or out of the channel from both sides. Note that with this solution, it can no longer rain on the water surface in the 2D domain. If the water surface is significant, you may want to add a :ref:`surface` to one or more channel connection nodes. 
+* Use 1D with the exchange type :ref:`calculation_type_embedded`. Without adding 1D nodes, the 1D channel will be used to connect 2D cells for the part of the 1D profile that is below the DEM. The volume-storage relations of the 1D channel and the 2D cell will be merged into one, so double counting of storage is not possible. This is especially useful if channel is narrower than the computational cell. 
+* Set DEM pixels to NODATA where channels are located, and include the channels' exchange type to (double) connected. If you set the channel exchange type to *double connected* and place *exchange lines* on either side of the channel, water can flow into or out of the channel from both sides. Note that with this solution, it can no longer rain on the water surface in the 2D domain. If the water surface is significant, you may want to add a :ref:`surface` to one or more channel connection nodes. 
 * Similar to the previous option, you can use a very high elevation where channels are located. Again, you can use *double connected* with exchange lines on both sides. An advantage is that it can rain directly on the water surface. Disadvantages include that it may lead to interpolation artifacts and it makes it harder to automatically style the DEM properly.
 
 If you use either of the last two options, it is highly recommended to use :ref:`Exchange lines<exchange_line>` to make sure the channel exchanges correctly with the 2D cells at either side.

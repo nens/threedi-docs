@@ -156,16 +156,16 @@ November 21th 2022
 February 2022 (Klondike) v2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--	Fixed a bug where the models map page stayed empty if there were no models
--	Fixed a bug where a schematisation that has no revisions yet showed an empty page
--	Add information about the current framework version, so the user knows if the current 3Di model is up to date
--	Show model id as well as name on the models list page
--	The gridadmin.h5 file can now be downloaded from the model detail page as well as from the simulation results download
--	Simulation templates can now also be deleted
--	The information on the models list page can be exported as an Excel file
--	Generating a model can fail if the schematisation already has the maximum number; show an error message if this happens.
--	Add a column for 'latest revision' to the Schematisations table.
--	Instead of subpages, now everything is reachable from the front page
+- Fixed a bug where the models map page stayed empty if there were no models
+- Fixed a bug where a schematisation that has no revisions yet showed an empty page
+- Add information about the current framework version, so the user knows if the current 3Di model is up to date
+- Show model id as well as name on the models list page
+- The gridadmin.h5 file can now be downloaded from the model detail page as well as from the simulation results download
+- Simulation templates can now also be deleted
+- The information on the models list page can be exported as an Excel file
+- Generating a model can fail if the schematisation already has the maximum number; show an error message if this happens.
+- Add a column for 'latest revision' to the Schematisations table.
+- Instead of subpages, now everything is reachable from the front page
 
 
 February 2022 (Klondike)

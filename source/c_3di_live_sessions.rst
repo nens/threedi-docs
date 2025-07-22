@@ -23,11 +23,11 @@ A new session will be started. During the start up of the model tips for use of 
 
 .. note::
 
-	The number of sessions that can run simultaneously by your organisation depends on your organisation's 3Di subscription. If this limit is reached, the message "Your organisation is already running X sessions" will be shown.
-	
-	If you organisation has a limited number of simulation hours in its subscription, the time that the session is active is subtracted from the available number of hours for the current year.
-	
-	When paused and inactive for too long, the session will close and say: 'This simulations is no longer active. You may start a new simulation.'
+    The number of sessions that can run simultaneously by your organisation depends on your organisation's 3Di subscription. If this limit is reached, the message "Your organisation is already running X sessions" will be shown.
+    
+    If you organisation has a limited number of simulation hours in its subscription, the time that the session is active is subtracted from the available number of hours for the current year.
+    
+    When paused and inactive for too long, the session will close and say: 'This simulations is no longer active. You may start a new simulation.'
 
 
 
@@ -52,7 +52,7 @@ Preferences
 """""""""""
 
 .. figure:: image/d2.8_user_menu.png 
-	:alt: User menu
+    :alt: User menu
 
 **Calculation speed** 
 The Calculation speed is the rate at which the calculations are shown on screen. The Calculation speed is slowed down (**capped speed**) by default. This is done because 3Di Live is meant to give a live insights in what is happening. If the model is too fast, it can be hard to understand the flows. 
@@ -90,7 +90,7 @@ Storing results
 
 .. note::
     
-	:ref:`Raw results<outputs>` will always be stored for 7 days, even if you choose the option *Quit, don't store results*. 
+    :ref:`Raw results<outputs>` will always be stored for 7 days, even if you choose the option *Quit, don't store results*. 
 
 
 Direct download

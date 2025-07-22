@@ -13,7 +13,7 @@ The 3Di Modeller Interface consists of five components:
 
 .. todo: 
 
-	This image needs to be updated once the modeller interface is updated with the new results analysis tool!
+    This image needs to be updated once the modeller interface is updated with the new results analysis tool!
 
 .. figure:: image/i_overview_modeller_interface.png
    :alt: 3Di Modeller Interface
@@ -121,10 +121,10 @@ The results are visualised on the flowlines, 1D nodes and 2D computational cells
 9) Export the results as png's for every or any timestep.
 
 .. image:: /image/i_temporal_controller.png
-	:alt: Temporal Controller panel
+    :alt: Temporal Controller panel
 
 .. |temporalcontroller| image:: /image/i_temporal_controller.png
-	:scale: 90%
+    :scale: 90%
 
 .. _3di_processing_toolbox:
 
@@ -137,15 +137,15 @@ Many 3Di related actions can be performed by running a Processing Algorithm. The
 .. |processing_toolbox_icon| image:: /image/pictogram_processing_toolbox.png
 
 .. figure:: image/i_3di_processing_toolbox.png 
-	:alt: Processing Toolbox dock panel
-	:align: right
-	:scale: 30% 
+    :alt: Processing Toolbox dock panel
+    :align: right
+    :scale: 30% 
 
 .. |modelsSimulations| image:: /image/pictogram_modelsandsimulations.png
     :scale: 90%
 
 .. |closed_eye| image:: /image/pictogram_temporal_controller_load_results_closed_eye.png
-	:scale: 100%
-	
+    :scale: 100%
+    
 .. |opened_eye| image:: /image/pictogram_temporal_controller_load_results_opened_eye.png
-	:scale: 100%
+    :scale: 100%

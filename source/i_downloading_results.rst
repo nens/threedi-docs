@@ -29,9 +29,9 @@ The files that are downloaded in this way are the :ref:`Raw results<outputs>`. T
 
 .. |modelsSimulations| image:: /image/pictogram_modelsandsimulations.png
     :scale: 90%
-	
+
 .. |download_results| image:: /image/pictogram_download_results.png
-	:scale: 60%
+    :scale: 60%
 
 .. _dl_via_lizard_plugin:
 

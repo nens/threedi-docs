@@ -88,7 +88,7 @@ Cells that already have a water depth of 1.5 m at the start of the simulation ar
 
 .. note::
     
-	This raster is calculated from the :ref:`3dinetcdf`. The temporal resolution (output time step) of this file determines the precision of :math:`\delta t`.
+    This raster is calculated from the :ref:`3dinetcdf`. The temporal resolution (output time step) of this file determines the precision of :math:`\delta t`.
 
 
 Max flow velocity
@@ -103,7 +103,7 @@ Arrival time
 ------------
 
 Arrival times are the time (in seconds) since the start of the simulation that the water depth at a pixel becomes > 0.
-	
+
 
 .. _damage_estimation:
 

@@ -38,7 +38,7 @@ Rainfall on 0D node (inflow)
 ----------------------------
 
 .. note::
-	See :ref:`howto_use_inflow` for instructions on using this in your model.
+    See :ref:`howto_use_inflow` for instructions on using this in your model.
 
 In models with 1D elements, rainfall-runoff processes can be included using '0D inflow', i.e. inflow from a surface with a specified area and hydrological parameters that determine how much runoff flows into the 1D network.  This runoff is forced on the model as a lateral discharge on a node. 0D inflow can be combined with direct rainfall on 2D cells (0D-1D-2D model) or be used with 1D only (0D-1D model). It is also possible to use 0D inflow without having a 1D network, by mapping the inflow surfaces to embedded nodes (0D-2D model).
 

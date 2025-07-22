@@ -16,7 +16,7 @@ It involves the following steps:
 - Define one or more substances that you want to use in the simulation, e.g. "Benzene hexachloride", "Biological Oxygen Demand (BOD)", or "Contaminant".
 
     .. note:
-    	
+        
         All substances must be defined at the start of the simulation (the substances themselves, not their concentrations). You cannot define new substances while the simulation is already running. 
 
 - If the simulation includes initial water (in the 1D and/or 2D domain), you may set an initial concentration of the substance(s) you have defined in the initial water.
@@ -25,7 +25,7 @@ It involves the following steps:
     
     .. note:: 
         
-		The way substance concentrations are defined, mirrors the way that the initials or forcings are defined. I.e., 2D initial water levels are supplied as a raster, so 2D initial substance concentrations are also supplied as a raster; substance concentrations in time series rain is also provided as a time series; et cetera.
+        The way substance concentrations are defined, mirrors the way that the initials or forcings are defined. I.e., 2D initial water levels are supplied as a raster, so 2D initial substance concentrations are also supplied as a raster; substance concentrations in time series rain is also provided as a time series; et cetera.
 
 - Run the simulation in the same way as you are used to
 
@@ -48,7 +48,7 @@ Follow the :ref:`same workflow as for starting any other simulation <simulate_ap
 Water quality simulations using the 3Di API
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you want to use water quality features that are not yet supported in the 3Di Modeller Interface, such as substance decay or adding substance concentrations to forcings other than laterals, you can use the :ref:`a_api` directly. Contact the :ref:`servicedesk` for example scripts that fit your specific purpose.
+If you want to use water quality features that are not yet supported in the 3Di Modeller Interface, you can use the :ref:`a_api` directly. Contact the :ref:`servicedesk` for example scripts that fit your specific purpose.
 
 
 Viewing and analysing water quality results

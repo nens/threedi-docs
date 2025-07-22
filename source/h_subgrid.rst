@@ -46,7 +46,6 @@ The use of high resolution information also means that more data is used during 
 * Cross-sectional area per half of cell face (2D)
 * Friction parameters per waterlevel (2D)
 * Infiltration rates (2D)
-* Interception rates (2D)
 * Interflow volumes per computational cell (2D)
 * Groundwater volumes per computational cell (2D)
 

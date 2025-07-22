@@ -3,8 +3,63 @@
 3Di API
 -------
 
-February 24th, 2025
+June 10th, 2025
 ^^^^^^^^^^^^^^
+
+- Cloud-optimized geotiffs (COGs) are now always converted to Float32, to prevent issues with downstream packages that cannot handle Float64 rasters .
+- Initial 1D concentration now accepts both 'value' and 'values' as key in the data JSON (threedi-api #2470)
+- Automatically generate unique schematisation slug (threedi-api #2477)
+- Bugfix: Output results_3di.nc files could not be visualised as flow velocity when opening them as mesh in QGIS. This has been fixed now. (threedi-api #909)
+- Bugfix: Embedded connection node connected to channel created 1D2D connection while it should not (threedigrid-builder #423)
+- Bugfix: Migration failed when v2_surface_parameters with id 101 - 115 already exist (threedi-schema #229)
+- Bugfix: Gridbuilder now gives a clear and specific error if groundwater exchange is attempted where there is no DEM (#422)
+
+
+May 1st, 2025
+^^^^^^^^^^^^^
+
+- Bugfix for api client RESTResponse not containing a reason field
+
+
+April 30th, 2025
+^^^^^^^^^^^^^^^^
+
+- New administration for lateral forcings and substance events to make it possible to use substances in dry weather flow (threedi-api#2393, #2394, threedi-api#2384)
+- In water quality simulations, rain zones can be defined to add substance concentrations to rain that falls in specific zones (threedi-api#2372)
+- Bugfix: action tables as created by the 3Di Schematisation Editor are now correctly parsed
+- Bugfix: there was a bug in the conversion of time units in the schematisation to the simulation template for laterals and boundary conditions (threedi-api#2456)
+- Bugfix: simulation template generator would give an error when initial conditions table has no rows (threedi-api#2464)
+
+Database schema
+"""""""""""""""
+
+- Spatialites are deleted after conversion to geopackage if there are no errors or warnings during the migration.
+- Sewerage type can now have any integer value
+- Bugfix: Several fixes in progress tracking during migrations (these fixes were already included in the 3Di Modeller Interface)
+- Bugfix: some old index tables would not be deleted during migration, this has been fixed now
+
+Grid builder
+""""""""""""
+
+- Make compatible with GDAL 3.10 (threedigrid-builder#415)
+
+Schematisation checker
+""""""""""""""""""""""
+
+- Bugfix: Schematisation checker would stop at 95% for some schematisations (threedi-modelchecker#454)
+- Bugfix: Schematisation checker no longer gives Python error when it encounters an empty cross_section_table
+- Add check if grid level is NULL in *Grid refinement area* or *Grid refinement line* (#459)
+- Bugfix: When *Use structure control* is set to *True*, *Table control* and *Memory control* cannot both be empty. The bug was that if one of them was empty and the other one not, a warning was still given. 
+- Add check (1207) for valid values for time units in boundary conditions and laterals.
+- Add exporter that includes geometries
+- Remove warning level override for old enum checks.
+- Bugfix: cross-section checks no longer break when shape is NULL (this fix was already included in the 3Di Modeller Interface)
+- Removed checks: 28, 186, 1601, 1602, 1603 (this was already included in the 3Di Modeller Interface)
+- Checks 95, 96, 97 are not only run for channels (this was already included in the 3Di Modeller Interface)
+- Some textual improvements (this was already included in the 3Di Modeller Interface)
+
+February 24th, 2025
+^^^^^^^^^^^^^^^^^^^
 
 - Threedi-schema from 0.227 to 0.300
 
@@ -196,7 +251,7 @@ March 18, 2024
 - Change bulk lateral creation to reduce memory usage (#2129)
 
 - Bugfix: initial substance concentrations were not always passed to the computational core correctly
-	
+
 February 2, 2024
 ^^^^^^^^^^^^^^^^
 
@@ -444,9 +499,9 @@ February 2022 (Klondike)
 
 - If the direction of a channel/pipe/culvert geometry is reversed compared to the “connection_node_start” and “connection_node_end”, then this is now fixed automatically.
 
-- The calculation type of culverts is not ignored anymore.
+- The exchange type of culverts is not ignored anymore.
 
-- For calculation nodes on channels with connected calculation type, the cross section will be used until the surface level of the DEM. This will give differences for channels with connected calculation type in case the cross section is below the surface level.
+- For calculation nodes on channels with connected exchange type, the cross section will be used until the surface level of the DEM. This will give differences for channels with connected exchange type in case the cross section is below the surface level.
 
 
 **Cross section definitions**

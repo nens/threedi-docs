@@ -52,15 +52,15 @@ This example uses ``gdalwarp`` to change the nodata value of the DEM to -9999 (a
     gdalwarp -dstnodata -9999 dem.tif dem_new_nodata_value.tif
 
 .. note:: 
-	
-	The words that start with ``-`` are parameters that are passed to the ``gdalwarp`` command. They are followed by a parameter value specific to that option.
+    
+    The words that start with ``-`` are parameters that are passed to the ``gdalwarp`` command. They are followed by a parameter value specific to that option.
 
 Clip rasters to a cutline polygon
 """""""""""""""""""""""""""""""""
 
 This example shows how to use ``gdalwarp`` to clip a raster to an area defined by a polygon ("cutline")::
 
-	gdalwarp -crop_to_cutline -cutline study-area.shp dem.tif dem_clipped.tif
+    gdalwarp -crop_to_cutline -cutline study-area.shp dem.tif dem_clipped.tif
 
 Change multiple raster properties at once
 """""""""""""""""""""""""""""""""""""""""
@@ -86,7 +86,7 @@ The creation options (``-co``) PREDICTOR and ZLEVEL are not strictly necessary, 
 
 .. note::
 
-	It is recommended to always use DEFLATE compression. Other options may give better compression or performance in certain cases, but may not work in in 3Di.
+    It is recommended to always use DEFLATE compression. Other options may give better compression or performance in certain cases, but may not work in in 3Di.
 
 .. _rasters_python:
 
@@ -133,8 +133,8 @@ The code snippet below illustrates how you can use SQL to add a Pipe to your sch
         MakeLine((SELECT geom from connection_node where id = 27928), (SELECT geom from connection_node where id = 27918))
     )
     ;
-	
-	
+    
+    
 .. _scripting_python:
 
 Using Python
