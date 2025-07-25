@@ -108,7 +108,7 @@ The actual inflow in the 3Di nodes is computed as:
 
    Q = \alpha R
 
-in which :math:`\alpha` determines which fraction of the runoff actually reaches a specific 3Di node. In the flow_summary.log, the water balances of all surfaces combined can be found. 
+in which :math:`\alpha` determines which fraction of the runoff actually reaches a specific 3Di node. In the flow_summary.log the water balances of all surfaces combined can be found. 
 
 
 
