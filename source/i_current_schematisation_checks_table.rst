@@ -3778,10 +3778,10 @@
      - connection_node.id has more than 50 surface areas mapped to it; this might be an error.
    * - 0616
      - Warning
-     - No inflow will be generated for this feature, because model_settings.use_0d_inflow is not set to use dry_weather_flow.
+     - No dry weather inflow will be generated for this feature, because model_settings.use_0d_inflow is set to False.
    * - 0616
      - Warning
-     - No inflow will be generated for this feature, because model_settings.use_0d_inflow is not set to use surface.
+     - No surface inflow will be generated for this feature, because model_settings.use_0d_inflow is set to False.
    * - 0617
      - Warning
      - model_settings.use_0d_inflow is set to use dry_weather_flow, but dry_weather_flow does not contain any features.
