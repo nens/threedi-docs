@@ -111,6 +111,7 @@ The flow in a 1D network is computed using the equations of conservation of mass
 | :math:`u` is the cross-sectionally averaged velocity
 | :math:`s` is the 1D coordinate along the network
 | :math:`g` is the gravitational acceleration
+| :math:`\zeta` is the water level
 | :math:`\rho` is the density of the water
 | :math:`\tau_f` is the shear stress due to bottom friction
 | :math:`\tau_w` is the shear stress due to wind
