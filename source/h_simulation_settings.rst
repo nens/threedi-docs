@@ -46,7 +46,7 @@ Max degree Gauss-Seidel
 """""""""""""""""""""""
 [max_degree_gauss_seidel](no default)
 
-One of the methods to solve a matrix is by Gauss-Seidel elimination, substitution. This method is efficient for 1D-dominated models, but less so for 2D-dominated models. A higher value will lead the computational core to use this method more often. 
+One of the methods used by the computational core to solve matrix equations is the Gauss-Seidel method. This method is efficient for systems with limited connections, for example 1D-dominated models, but less efficient for systems with lots of bifurcations, for example 2D-dominated models. A higher value will allow the computational core more iterations to reach convergence.
 
 Values below are advised for different model types:
 - 5 for surface 2D flow only
