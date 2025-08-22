@@ -89,7 +89,7 @@ and under dry conditions as
 
 In the figure below, the infiltration rate is plotted. In this example, the box contains water during the first three hours and than becomes dry.
 
-.. figure:: image/h_horton_inf_0Dinflow.png
+.. figure:: image/h_horton_inf_inflow.png
    :alt: Example of how the infiltration rate varies over time
 
    Example of how the infiltration rate varies over time, using :math:`f_i=300 mm/h`, :math:`f_e=150 mm/h`, :math:`k_d=1.5 h^{-1}`, and :math:`k_r=0.5 h^{-1}`.
