@@ -32,8 +32,8 @@ Some strategies that you can pursue to reduce the number of nodes are:
 
 - Choosing the model boundaries differently, e.g. following the hydrological watershed boundaries more precisely
 - Dividing the model up in multple smaller models
-- Choose a smaller *grid_space* and/or the *kmax*, see :ref:`global_settings`
-- Use fewer grid refinements (see :ref:`grid_refinement` and ref:`grid_refinement_area`), or increase their refinement level.
+- Choose a larger *Minimum cell size* and/or smaller *Number of grid levels*, see :ref:`model_settings`
+- Use fewer grid refinements, or increase their grid level. See :ref:`grid_refinement_line` and ref:`grid_refinement_area`.
 - Choosing a simpler schematisation of the less important parts of the model, e.g. increase the cell size in those areas or schematise parts of the model in 1D instead of 2D. See :ref:`howto_convert_to_1d2d`.
 
 Vertical resolution
@@ -43,7 +43,7 @@ Several settings and schematisation choices control the size of the :ref:`subgri
 
 - Elevation range, i.e. the difference between the highest and the lowest pixel in the DEM. If the elevation range is very large, consider removing the highest parts of the model domain, e.g. replace them by :ref:`Surfaces<surface>`. 
 - The :ref:`table step size<subgrid_table_settings>`. If the table increments are very small and the elevation range very large, the subgrid tables may become too large.
-- The number of pixels per cell. If the *grid_space* or the *kmax* (see :ref:`global_settings`) values are large and the DEM pixel size is small, there will be many pixels in one cell. This will require a large number of table increments in the subgrid tables.
+- The number of pixels per cell. If the *Minimum cell size* or the *Number of grid levels* (see :ref:`model_settings`) values are large and the DEM pixel size is small, there will be many pixels in one cell. This will require a large number of table increments in the subgrid tables.
 
 Maximum raster size
 ^^^^^^^^^^^^^^^^^^^
@@ -55,10 +55,79 @@ The maximum size of the Digital Elevation Model is 5 billion pixels. This includ
 Problem solving guide
 ---------------------
 
-The 3Di computational core is very stable and crashing simulations are very uncommon. Most schematisation errors that result in a failure to generate a valid 3Di model, or in crashing simulations, will be caught by the :ref:`schematisation checker<checking_model>`. However, if you do run into an error or crash, there are several things you can do to resolve the issues before contacting the :ref:`servicedesk`. The service desk will always ask you to go through these steps before your issue is taken up.
+If you run into problems, it helps to understand where you are in the :ref:`modelling workflow<workflow>`. Try to go back to the last revision in which everything worked fine, and make small step-by-step changes, so you can pinpoint which change causes the issue. Follow the :ref:`best_practices` guide in your modelling workflow to prevent running into hard-to-solve issues.
+
+Import errors in the 3Di Modeller Interface
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Updating the 3Di Modeller Interface and/or its plugins may in some cases lead to import errors, for example *ImportError: cannot import name 'Dataset' from 'h5py' (unknown location)*. The whole error will look something like this::
+
+    Couldn't load plugin 'threedi_results_analysis' due to an error when calling its classFactory() method 
+
+    ImportError: cannot import name 'Dataset' from 'h5py' (unknown location) 
+    Traceback (most recent call last):
+      File "C:\PROGRA~1/3DIMOD~1.34/apps/qgis-ltr/./python\qgis\utils.py", line 423, in _startPlugin
+        plugins[packageName] = package.classFactory(iface)
+      File "C:\Users\user.name\AppData\Roaming\3Di\QGIS3\profiles\default/python/plugins\threedi_results_analysis\__init__.py", line 53, in classFactory
+        from .threedi_plugin import ThreeDiPlugin
+      File "C:\PROGRA~1/3DIMOD~1.34/apps/qgis-ltr/./python\qgis\utils.py", line 892, in _import
+        mod = _builtin_import(name, globals, locals, fromlist, level)
+      File "C:\Users\user.name\AppData\Roaming\3Di\QGIS3\profiles\default/python/plugins\threedi_results_analysis\threedi_plugin.py", line 10, in 
+        from threedi_results_analysis.processing.providers import ThreediProvider
+      File "C:\PROGRA~1/3DIMOD~1.34/apps/qgis-ltr/./python\qgis\utils.py", line 892, in _import
+        mod = _builtin_import(name, globals, locals, fromlist, level)
+      File "C:\Users\user.name\AppData\Roaming\3Di\QGIS3\profiles\default/python/plugins\threedi_results_analysis\processing\providers.py", line 7, in 
+        from threedi_results_analysis.processing.cross_sectional_discharge_algorithm import CrossSectionalDischargeAlgorithm
+      File "C:\PROGRA~1/3DIMOD~1.34/apps/qgis-ltr/./python\qgis\utils.py", line 892, in _import
+        mod = _builtin_import(name, globals, locals, fromlist, level)
+      File "C:\Users\user.name\AppData\Roaming\3Di\QGIS3\profiles\default/python/plugins\threedi_results_analysis\processing\cross_sectional_discharge_algorithm.py", line 59, in 
+        from threedigrid.admin.gridresultadmin import GridH5ResultAdmin
+      File "C:\PROGRA~1/3DIMOD~1.34/apps/qgis-ltr/./python\qgis\utils.py", line 892, in _import
+        mod = _builtin_import(name, globals, locals, fromlist, level)
+      File "C:\Users\user.name\AppData\Roaming\3Di\QGIS3\profiles\default\python\plugins\threedi_results_analysis\deps\threedigrid\admin\gridresultadmin.py", line 15, in 
+        from threedigrid.admin.gridadmin import GridH5Admin
+      File "C:\PROGRA~1/3DIMOD~1.34/apps/qgis-ltr/./python\qgis\utils.py", line 892, in _import
+        mod = _builtin_import(name, globals, locals, fromlist, level)
+      File "C:\Users\user.name\AppData\Roaming\3Di\QGIS3\profiles\default\python\plugins\threedi_results_analysis\deps\threedigrid\admin\gridadmin.py", line 13, in 
+        from threedigrid.admin.h5py_datasource import H5pyGroup
+      File "C:\PROGRA~1/3DIMOD~1.34/apps/qgis-ltr/./python\qgis\utils.py", line 892, in _import
+        mod = _builtin_import(name, globals, locals, fromlist, level)
+      File "C:\Users\user.name\AppData\Roaming\3Di\QGIS3\profiles\default\python\plugins\threedi_results_analysis\deps\threedigrid\admin\h5py_datasource.py", line 7, in 
+        from h5py import Dataset
+    ImportError: cannot import name 'Dataset' from 'h5py' (unknown location)
+
+If this happens right after updating any of the 3Di plugins, restarting the 3Di Modeller Interface will fix the issue in most cases.
+
+If your installation work correctly before, but produces these errors now, **make sure that the Nelen & Schuurmans Dependency Loader is activated**. QGIS sometimes disables plugins after it has crashed, but the 3Di plugins will not function without the Nelen & Schuurmans Dependency Loader. Do the following:
+
+- Go to *Plugins* > *Manage and install plugins* > *Installed*
+- Find the Nelen & Schuurmans Dependency Loader in the list
+- Check its box to activate it
+
+If that still does not work, the following approach should fix the issues. It is a bit of a rough remedy, but it is generally effective.
+
+- Open the user profile folder via *Settings* > *User profiles* > *Open active profile folder*. A Windows Explorer window will now open
+- Close all 3Di Modeller Interfaces you have open
+- In the Windows Explorer window, browse to *python* > *plugins*
+- Delete the following folders:
+    - lizard_qgis_plugin
+    - nens_dependency_loader
+    - threedi_models_and_simulations
+    - threedi_results_analysis
+    - threedi_schematisation_editor
+- If you get a message during the deletion that a file cannot be deleted because it is in use by qgs-ltr-bin.exe, close all QGIS processes via *Ctrl+Alt+Del* > *Task manager* and try again
+- Restart 3Di Modeller Interface
+- Go to *Plugins* > *Manage and install plugins* > *Not installed* and install the following plugins:
+    - 3Di Models & Simulations
+    - 3Di Results Analysis
+    - 3Di Schematisation Editor
+    - Lizard (if you have a Lizard subscription)
+
+Everything should now work normally again
 
 Errors during 3Di model generation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 - Run the :ref:`schematisation checker<checking_model>`. Resolve any errors reported by the checker. Also look into the warnings and info messages and try to resolve those as well, unless you are convinced that the schematisation choice for which te schematisation checker gives a warning is the correct choice for your specific use case.
 - Check if the 3Di Modeller Interface and the 3Di plugins are up to date. If this is not the case, :ref:`update the 3Di plugins<updating_plugin_schem_editor>` and run the schematisation checker again. It is recommended to :ref:`re-install the 3Di Modeller Interface<MI_installation>` every year at the end of March.
 - Check if your model is not too large, see :ref:`model_size_limitations`
@@ -70,15 +139,17 @@ Errors during 3Di model generation
 Crashed simulations
 ^^^^^^^^^^^^^^^^^^^
 
+The 3Di computational core is very stable and crashing simulations are very uncommon. Most schematisation errors that result in a failure to generate a valid 3Di model, or in crashing simulations, will be caught by the :ref:`schematisation checker<checking_model>`. However, if you do run into an error or crash, there are several things you can do to resolve the issues before contacting the :ref:`servicedesk`. The service desk will always ask you to go through these steps before your issue is taken up.
+
 Common causes for crashing simulations are noted in the list below. Please check these if you encounter crashing simulations. 
 
 - Download the simulation logging, and check the contents of all log files. In particular:
-	
-	- flow_summary.json: large volume errors or NaN values indicate that the simulation has become numerically unstable (matrix convergence was impossible). You will probably find more information in matrix.log in this case. 
-	
-	- simulation.log: if any errors are mentioned, they will probably be at/near the end of the file. But make sure to also check the rest of the file for errors or messages that may tell you more about the crash.
-	
-	- matrix.log: if there are any messages in this file, check if it is mentioned in the list of common error messages below, and follow the instructions for that error message.
+    
+    - flow_summary.json: large volume errors or NaN values indicate that the simulation has become numerically unstable (matrix convergence was impossible). You will probably find more information in matrix.log in this case. 
+    
+    - simulation.log: if any errors are mentioned, they will probably be at/near the end of the file. But make sure to also check the rest of the file for errors or messages that may tell you more about the crash.
+    
+    - matrix.log: if there are any messages in this file, check if it is mentioned in the list of common error messages below, and follow the instructions for that error message.
 
 - Check if your 3Di model is up to date. The model generation will always use the latest 3Di framework, but if the 3Di model was generated a long time ago, or there was a new release after the generation of your model, your 3di Model may be outdated. Please :ref:`re-generate the 3Di model<regenerate_3di_model>` to see if this resolves your issue.
 
@@ -147,9 +218,9 @@ An explainer on schematisations and simulation templates can be found here* :ref
 
 - Why is the name of my simulation template 'default'? 
 
-*The name is being read from the v2_global_settings table in the 'name' column. If that happens to be 'default', then that is the name of your simulation template.*
+*The name is being read from the 'name' attribute in the *Simulation template settings* table. If that happens to be 'default', then that is the name of your simulation template.*
 
-- What happens if I add an extra entry in the v2_global_settings table? 
+- What happens if I add an extra entry in the *Simulation template settings* table? 
 
 *Extra entries will be ignored.*
 
@@ -166,8 +237,8 @@ First of all, instability is not common within 3Di, but certain settings or mode
 #) Make sure you have fixed all errors *and warnings* that the Schematisation checker gives. 
 #) Decrease your calculation time step (background information: courant number)
 #) Temporarily decrease your output time step . This makes it easier to analyse what goes wrong
-#) Check if there are pump stations that are pumping to another 1D-node within the same 2D-computational cell
-#) Put the 'pump_implicit_ratio' in the numerical settings to 1. This makes sure that the model calculates smoothly for pump stations (see :ref:`matrixsolvers` --> pump_implicit_ratio)
+#) Check if there are pumps that are pumping to another 1D node within the same 2D computational cell
+#) Put the 'pump_implicit_ratio' in the numerical settings to 1. This makes sure that the model calculates smoothly for pumps (see :ref:`matrixsolvers` --> pump_implicit_ratio)
 
 
 .. _known_issues:
@@ -204,7 +275,7 @@ Via the 3Di Models & Simulations plugin settings (see below).
     :alt: Open the settings of 3Di Models and Simulations
 
 .. figure:: image/f_changepluginsettings2.png
-    :alt: Change the working directory of 3Di Models and Simulations	
+    :alt: Change the working directory of 3Di Models and Simulations
 
 3Di Modeller Interface in other languages than English
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -212,6 +283,17 @@ Via the 3Di Models & Simulations plugin settings (see below).
 The 3Di Modeller Interface can be used in other languages than English. What matters is that the numbers notation is set to English. There is a bug in QGIS with scientific notations and Dutch number notations which can cause unexpected behaviour. This may also apply to number locations in other locales.  
 Please go to *Settings* > *Options* > *General* and set *Locale (numbers, date and currency formats)* to *en_GB*.
 
+Database is locked
+""""""""""""""""""
+
+In some cases the following happens:
+- You want to save your edits
+- QGIS freezes for several minutes
+- Finally, you see the error: "Could not commit changes to layer {layer name}. Errors: ERROR: 1 attribute value change not applied. Provider errors: OGR error committing transaction: sqlite3_exec(COMMIT) failed: database is locked"
+
+The cause of this is probably that you have created a Query layer that uses the schematisation database that you are trying to edit as provider/source.
+
+To resolve the issue, remove the Query layer from your project and try again.
 
 SSLError (HTTPSConnectionPool(host='api.3di.live', port=443): Max retries exceeded with url ...)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -3,6 +3,20 @@
 3Di Management
 --------------
 
+October 22, 2024
+^^^^^^^^^^^^^^^^
+
+We have released a new version of 3Di Management, with several small new features and a bugfix:
+
+- Show tags and "projects" in simulation detail page (#1741)
+
+- Inherit simulation templates from previous 3Di model (#1604)
+
+- Download button for "File" events, such as file laterals, file boundary conditions, etc. (#1793)
+
+- Bugfix: Visual of rainfall sometimes did not show any rain when it should (#1769)
+
+
 March 26th, 2024
 ^^^^^^^^^^^^^^^^
 
@@ -142,16 +156,16 @@ November 21th 2022
 February 2022 (Klondike) v2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--	Fixed a bug where the models map page stayed empty if there were no models
--	Fixed a bug where a schematisation that has no revisions yet showed an empty page
--	Add information about the current framework version, so the user knows if the current 3Di model is up to date
--	Show model id as well as name on the models list page
--	The gridadmin.h5 file can now be downloaded from the model detail page as well as from the simulation results download
--	Simulation templates can now also be deleted
--	The information on the models list page can be exported as an Excel file
--	Generating a model can fail if the schematisation already has the maximum number; show an error message if this happens.
--	Add a column for 'latest revision' to the Schematisations table.
--	Instead of subpages, now everything is reachable from the front page
+- Fixed a bug where the models map page stayed empty if there were no models
+- Fixed a bug where a schematisation that has no revisions yet showed an empty page
+- Add information about the current framework version, so the user knows if the current 3Di model is up to date
+- Show model id as well as name on the models list page
+- The gridadmin.h5 file can now be downloaded from the model detail page as well as from the simulation results download
+- Simulation templates can now also be deleted
+- The information on the models list page can be exported as an Excel file
+- Generating a model can fail if the schematisation already has the maximum number; show an error message if this happens.
+- Add a column for 'latest revision' to the Schematisations table.
+- Instead of subpages, now everything is reachable from the front page
 
 
 February 2022 (Klondike)

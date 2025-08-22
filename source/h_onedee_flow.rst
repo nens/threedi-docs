@@ -8,6 +8,7 @@
 - :ref:`1d_network`
 - :ref:`cross_section_of_1d_element`
 - :ref:`1d_momentum_equation`
+- :ref:`1d_advection`
 - :ref:`1d_friction`
 - :ref:`1d_vegetation`
 - :ref:`1Dpressurized`
@@ -98,9 +99,10 @@ Some examples are shown in the figures below.
 1D momentum equation
 --------------------
 
-The flow in 1D networks is computed using the equations of conservation of mass and momentum, more specifically the 1D depth-averaged shallow water equations. The momentum equation for 1D flow is:
+The flow in a 1D network is computed using the equations of conservation of mass and momentum. For this type of flow, these are known as the 1D depth-averaged shallow water equations. The momentum equation for 1D flow in non-conservative form is:
 
 .. math::
+   :name: momentum_equation_1d
    :label: 1D momentum equation
 
    \frac{\partial u}{\partial t}+u \frac{\partial u}{\partial s}=-g\frac{\partial \zeta}{\partial s}-\frac{\tau_f}{R\rho}-\frac{\tau_w}{H \rho}
@@ -109,13 +111,46 @@ The flow in 1D networks is computed using the equations of conservation of mass 
 | :math:`u` is the cross-sectionally averaged velocity
 | :math:`s` is the 1D coordinate along the network
 | :math:`g` is the gravitational acceleration
+| :math:`\zeta` is the water level
 | :math:`\rho` is the density of the water
 | :math:`\tau_f` is the shear stress due to bottom friction
 | :math:`\tau_w` is the shear stress due to wind
 | :math:`H` is the water depth
 | :math:`R` is the hydraulic radius
 
-In words; in 1D, 3Di takes inertia, advection, pressure gradients, bottom friction and wind shear stresses into account. This yields for all types of 1D network elements. However, there are some differences in the computation of advection and the effect of wind stress for specific 1D network This will be explained more elaborated, where these difference are relevant.
+In words; in 1D, 3Di takes inertia, advection, pressure gradients, bottom friction and wind shear stresses into account. This yields for almost all elements in a 1D network. However, there are, for example, some differences in the computation of advection and the effect of wind stress for specific 1D elements. This will be explained in detail in the following sections.
+
+.. _1d_advection:
+
+Advection in 1D domain
+----------------------
+
+The second term on the left-hand side of equation :eq:`momentum_equation_1d` :math:`u \frac{\partial u}{\partial s}` represents the advective term. Based on the spatial gradient of the velocity, it represents the transport of momentum. Advective terms can be numerically solved in various ways: implicit/explicit central difference method, first/second order upwind difference method, among others. Although all are mathematically correct and consistent, they all have their own advantages and disadvantages. They differ in their computational cost, accuracy, time step sensitivity, robustness and/or stability. Depending on the application, some of these characteristics are more pronounced than others. 
+
+All these methods are consistent under smooth conditions, but under certain conditions they can result in very different solutions, some even physically incorrect (:cite:t:`Stelling2003`). Exemplary are the results near sudden bed transitions or channel expansions or contractions. At those locations, there are large gradients in the velocity field. Under these circumstances the 1D momentum equation is not adequate. The vertical flow developed at the edge of these sudden transitions is at a scale too small to be resolved by large-scale models and more importantly, 3-dimensional approximations are required to model such complex flows. However, with applying correct conservation properties, accurate solutions can be achieved. Below, those that are used in 3Di are explained.
+
+3Di benefits from two main methods, both of which have been studied to be efficient and accurate. The first method is derived based on the momentum conservative form of equation :eq:`momentum_equation_1d`.
+
+.. math::
+   \frac{\partial (Hu)}{\partial t}+\frac{\partial (Hu^2 + \frac{1}{2}gH^2)}{\partial s}+c_{f}u=gH\frac{\partial d}{\partial s}
+
+For positive flow direction, the advection approximation of above equation yields a simple, first-order accurate, expression. In the discrete format, it is given by:
+
+.. math::
+   u\frac{\partial u}{\partial s} = \frac{q_{i-\frac{1}{2}}+q_{i+\frac{1}{2}}}{H_{i}+H_{i+1}} \frac{u_{i+\frac{1}{2}}-u_{i-\frac{1}{2}}}{ds}
+   
+The second method is derived based on the energy-head conservation form of equation :eq:`momentum_equation_1d`:
+
+.. math::
+   \frac{\partial u}{\partial t}+\frac{\partial (\frac{1}{2}u^2+g\zeta)}{\partial s}+c_{f}\frac{u|u|}{h}=0
+
+
+For positive flow direction, the advection approximation of above equation yields a first-order expression. In the discrete format, it is given by:
+
+.. math::
+   u\frac{\partial u}{\partial s} = \frac{u_{i-\frac{1}{2}}+u_{i+\frac{1}{2}}}{2} \frac{u_{i+\frac{1}{2}}-u_{i-\frac{1}{2}}}{ds}
+   
+All discretisation schemes produce errors. These errors can be observed in the results as extra or diminishing energy/momentum losses. In case of, for example, a channel flow, these losses would be translated in an increase in the backwater curve. This is in such case an artificial backwater curve. Therefore, it is important to examine the amount of energy losses due to numerical errors arising with different advection methods (artificial backwater). In case of an energy-conservative scheme, as the approach would suggest, the total energy head loss is zero. Then, the advection term has no contribution to the artificial backwater. This is a stable method without creating any numerical errors. However, it also generates no head loss in case it is expected, e.g., in sudden expansions. The momentum-conservative method, on the other hand, always produces a minimum amount of backwater. In case of sudden expansions, the head loss generated by this method is in line with expectations, however application of this principle at strong contractions would increase the energy head. This is wrong from the physical point of view and might affect the stability. 3Di supports a momentum-conservative method, a energy-conservative method and (as a default) a combined approach. In this default option, a momentum-conservative method is applied except at sudden contractions. This combination ensures stability and realistic results.
 
 .. _1d_friction:
 
@@ -220,6 +255,8 @@ In 1D elements with closed cross-sections, flow may become pressurized. The way 
 
 Because 3Di uses this method, not only flooding and drying is automatically accounted for, but also pressurized flow can be taken into account. One of the advantages is that from the moment the pipe is full (and the volume can no longer increase), the water level can still rise and the same flow equations are still valid. From this point forward, the 'water level' in the pipe represents a pressure. This makes 3Di calculations very stable in transitions between pressurized and non-pressurized flow, without the need for Preissmann slots or other workarounds.
 
+This works the same for flow through all types of structures with closed cross-sections, includings weirs and orifices.
+
 .. _channelflow:
 
 Channels, culverts and pipes
@@ -280,7 +317,7 @@ The critical velocity over the structure is given by:
 .. math::
    u_{II}= C_1 \sqrt{\frac{2}{3} g (h_I-a)}
 
-:math:`C_1` is a loss coefficient, which can be set depending on the type and the shape of the structure itself and the entrance. The effective cross-sectional area is in this case based on the critical water depth. For a simple rectangular cross-section:
+:math:`C_1` is a loss coefficient, which can be set depending on the type and the shape of the structure itself and the entrance. In this case, the effective cross-sectional area is based on the critical water depth. For a simple rectangular cross-section:
 
 .. math::
    A_{eff}= C_2 W \frac{2}{3}(h_I-a)
@@ -297,10 +334,14 @@ In case of sub-critical flows, the waterlevel downstream of the structure is imp
 .. math::
    u_{II}= C_1 \sqrt{2 g (h_{I}-h_{II}-a)}
 
-To determine the depth at the crest, it is assumed that the waterlevel at the crest is equal to the waterlevel downstream. Based on that assumption, the effective cross-section becomes:
+To determine the depth at the crest, it is assumed that the water level at the crest is equal to the water level downstream. Based on that assumption, the effective cross-section (for an open rectangle cross-section) becomes:
 
 .. math::
-   A_{sub}= C_2 W h_{II}
+   A_{eff, sub}= C_2 W h_{II}
+   
+.. note::
+
+   For non-rectangular cross-section shapes, the wet cross-sectional area (:math:`W h_{II}` in the equation above) is calculated differently, i.e. by filling up the cross-section to :math:`h_{II}`, measured from the deepest point in the cross-section. In :ref:`pressurized flow <1Dpressurized>` conditions, the wet cross-sectional area is maximized at the maximum cross-sectional area of the structure; in other words, it does not become larger once the whole cross-section has been filled up. This may seem obvious, but many other hydrodynamic models do not allow this, and instead require solutions like Preissmann slots. See :ref:`Pressurized flow <1Dpressurized>` for more information.
 
 Combining these equations, results in the discharge formulation.
 
@@ -323,7 +364,7 @@ where :math:`c_f` is the dimensionless friction coefficient, :math:`L` the lengt
 Pumps
 ------
 
-Pumps in 3Di drain water from one location to another location, within the model domain (:ref:`pumpstation_with_end_node`) or out of the model domain (:ref:`pumpstation_without_end_node`). The behaviour of a pump is specified by defining the start and stop levels of the pump and the pump capacity, as illustrated in the figure below. See :ref:`pumpstation_with_end_node` and :ref:`pumpstation_without_end_node` for details on how to set these parameters.
+Pumps in 3Di drain water from one location to another location, within the model domain (:ref:`pump_schematisation_object` with a :ref:`pump_map`) or out of the model domain (:ref:`pump_schematisation_object` without a :ref:`pump_map`). The behaviour of a pump is specified by defining the start and stop levels of the pump and the pump capacity, as illustrated in the figure below. See :ref:`pump_schematisation_object` and :ref:`pump_map` for details on how to set these parameters.
 
 .. figure:: image/b_structures_pump.png
    :scale: 50% 

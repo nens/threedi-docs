@@ -29,16 +29,16 @@ The files that are downloaded in this way are the :ref:`Raw results<outputs>`. T
 
 .. |modelsSimulations| image:: /image/pictogram_modelsandsimulations.png
     :scale: 90%
-	
+
 .. |download_results| image:: /image/pictogram_download_results.png
-	:scale: 60%
+    :scale: 60%
 
 .. _dl_via_lizard_plugin:
 
 Download via the Lizard plugin
 ------------------------------
 
-If you have stored simulation results in the :ref:`scenario_archive`, you can download them using the `Lizard plugin <https://docs.lizard.net/d_qgisplugin.html>`_.
+If you have stored simulation results in the :ref:`scenario_archive`, you can download them using the `Lizard plugin <https://docs.lizard.net/b_lizardplugin.html>`_.
 
 Instructions for storing simulation results in the Scenario Archive can be found here:
 

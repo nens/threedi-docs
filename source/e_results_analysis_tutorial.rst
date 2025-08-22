@@ -1,3 +1,5 @@
+.. _tutorial_analysing_simulation_results:
+
 Tutorial 6: Analysing simulation results
 ========================================
 
@@ -18,16 +20,16 @@ Case study
 Our study is Langå, a small railway town located in central Denmark. 
 
 .. image:: /image/e_langaa_overview_map.png
-	:scale: 100%
-	:alt: Overview of the modelled area: Langå, Denmark
+    :scale: 100%
+    :alt: Overview of the modelled area: Langå, Denmark
 
 Langå is situated between raised agricultural lands to the west and the Gudena River to the east of the town. The urban area has a seperated sewer system. The sanitary sewer inclines towards a pumping station, and the stormwater sewer has two outlets close to the Gudena River.
 
 Several houses on the road Vaethvej (numbers 21-29) are vulnerable to flooding. Recently, the inhabitants living there have reported flood problems after a 40 mm rainfall event. 
 
 .. image:: /image/e_langaa_aoi.png
-	:scale: 80%
-	:alt: Vaethvej 21-29, Langå, Denmark
+    :scale: 80%
+    :alt: Vaethvej 21-29, Langå, Denmark
 
 Now the municipality wants to reproduce this inundation with a hydrodynamic model, to gain insight in the flood properties such as flood extent, flood volume, and flood duration. The municipality also wants to know where the flood water originates from. These insights will help the municipal government to design measures to reduce the flood risk.  
 
@@ -115,7 +117,7 @@ Viewing the schematisation
 
 We will load the schematisation in the 3Di Modeller Interface to view it. Later in this tutorial we will also make some modifications. The schematisation can be loaded by following these steps:
 
-#) In the 3Di Schematisation Editor toolbar, click the |load_from_spatialite| *Load from Spatialite* button.
+#) In the 3Di Schematisation Editor toolbar, click the *Add schematisation* |add_schematisation| button.
 
 #) Double-click the name of the schematisation you want to load.
 
@@ -279,8 +281,8 @@ We will now make all water depths between 0 and 1 cm transparent.
 The result should look like this:
 
 .. image:: /image/langaa_water_depth.png
-	:scale: 80%
-	:alt: Maximum water depth map
+    :scale: 80%
+    :alt: Maximum water depth map
 
 
 Finding the maximum inundation depth
@@ -352,8 +354,8 @@ Another way to analyse the flow pattern is by using the *3Di Results Aggregation
 The result should like like this:
 
 .. image:: /image/langaa_flow_pattern.png
-	:scale: 80%
-	:alt: Flow pattern
+    :scale: 80%
+    :alt: Flow pattern
 
 #) You can zoom in on the flow pattern to discern the individual arrows. As you can see, the direction of the arrow indicates the direction of the flow. The colour of the arrow is scaled with the discharge.
 
@@ -367,24 +369,24 @@ Another quick way to find out where the flood water comes from is using the *Wat
 
 #) In the group *3Di Results* > *{name of your 3Di Model}* > *Computational grid*, make sure all the layers and the group itself are checked, so that the nodes are visible.
 
-#)	Now, open the Watershed tool |watershed_tool| in the 3Di Results Analysis toolbar.
+#) Now, open the Watershed tool |watershed_tool| in the 3Di Results Analysis toolbar.
  
-#)	In the Watershed tool panel, define the *Input*: select your simulations results under *3Di results*.
+#) In the Watershed tool panel, define the *Input*: select your simulations results under *3Di results*.
 
-#)	Leave the *Settings* as they are.
+#) Leave the *Settings* as they are.
 
-#)	In the section *Target nodes*, click *Click on canvas* to activate the map tool. On the map canvas, click on a node in the inundated area near Vaethvej 21-29.
+#) In the section *Target nodes*, click *Click on canvas* to activate the map tool. On the map canvas, click on a node in the inundated area near Vaethvej 21-29.
  
 The tool automatically calculates the upstream catchment area for the nodes that you selected. By choosing *Clear results*, the catchment will disappear and you can choose different nodes to derive the upstream catchment for.
 
-#)	In the *Output* section, check the *Downstream* option and uncheck the *Upstream* option. The result gives us a indication of how the flood volume is drained during and after the event.
+#) In the *Output* section, check the *Downstream* option and uncheck the *Upstream* option. The result gives us a indication of how the flood volume is drained during and after the event.
 
 The upstream and downstream areas for Vaethvej 21-29 should look like this:
 
 
 .. image:: /image/langaa_watershed_output.png
-	:scale: 80%
-	:alt: Watershed tool output
+    :scale: 80%
+    :alt: Watershed tool output
 
 #) Using the methods outlined above, can you identify a suitable location for a flood retention basin?
 
@@ -409,10 +411,10 @@ To determine the flood volume in our study area, we are going to use the *Water 
 #) Click *Main Menu* > *Layer* > *Create new layer* > *New Temporary Scratch Layer*. Fill in the following values:
 
     - Layer name: "Flood risk area"
-	- Geometry type: Polygon
-	- CRS: EPSG:4094 - ETRS89 / DKTM2
-	- You do not have to add any fields
-	- Click OK
+    - Geometry type: Polygon
+    - CRS: EPSG:4094 - ETRS89 / DKTM2
+    - You do not have to add any fields
+    - Click OK
 
 #) The new layer is added to the project in edit mode. Click |add_polygon| *Add Polygon Feature* in the main toolbar.
 
@@ -420,17 +422,17 @@ To determine the flood volume in our study area, we are going to use the *Water 
 
 
 .. image:: /image/langaa_water_balance_polygon.png
-	:scale: 80%
-	:alt: Water balance polygon
+    :scale: 80%
+    :alt: Water balance polygon
 
 
-#)	Click the Water balance tool button |water_balance_tool| in the 3Di Results Analysis toolbar.  
+#) Click the Water balance tool button |water_balance_tool| in the 3Di Results Analysis toolbar.  
  
-#)	Choose *Select polygon* and click on the polygon. Choose *Flood prone area* in the context menu. The tool will now automatically calculate and visualize the water balance for this area.
+#) Choose *Select polygon* and click on the polygon. Choose *Flood prone area* in the context menu. The tool will now automatically calculate and visualize the water balance for this area.
 
-#)	In the water balance plot, you can either show discharge (m³/s) or volumes (cumulative discharge, m³). The tool is automatically set to discharge. Now change to volume by using the dropdown menu and choose the *m³ cumulative* option. 
+#) In the water balance plot, you can either show discharge (m³/s) or volumes (cumulative discharge, m³). The tool is automatically set to discharge. Now change to volume by using the dropdown menu and choose the *m³ cumulative* option. 
  
-#)	In the graph, the cumulative volumes of water for flows are displayed. At the right side, you can activate and deactivate different the flows. Hover over the different components to see which ones are indicated in the graph. 
+#) In the graph, the cumulative volumes of water for flows are displayed. At the right side, you can activate and deactivate different the flows. Hover over the different components to see which ones are indicated in the graph. 
 
 The main component that is of interest in this question is *2D flow*. Notice that the graph displays both a positive and negative cumulative 2D Flow. The positive 2D flow indicates flow into the polygon, the negative 2D flow indicates flow out of the polygon. The net 2D flow (change in storage) is represented by the dotted red line, representing the *volume change 2D*. Use your mouse to zoom in on the y-axis. You can check the net 2D volume change at the end of the simulation, which should be around 2000 m³. 
 
@@ -444,8 +446,8 @@ Applying measures
 The last step is to include the new retention area in the model, to see if it works as intended. Based on our analysis and the suitability of the terrain, the following location is chosen as retention area:
 
 .. image:: /image/langaa_retention_area.png
-	:scale: 80%
-	:alt: Retention area location
+    :scale: 80%
+    :alt: Retention area location
 
 Drawing the retention area polygon
 ##################################
@@ -482,9 +484,9 @@ We will now use this polygon to edit the DEM, so that we can assess the effect o
 
 #) Fill in the following parameters:
     
-	- Input vector layer: "Retention area"
-	- Input raster layer: "Digital Elevation Model [m MSL]"
-	- A fixed value to burn: fill in the new elevation that you have calculated in the previous step
+    - Input vector layer: "Retention area"
+    - Input raster layer: "Digital Elevation Model [m MSL]"
+    - A fixed value to burn: fill in the new elevation that you have calculated in the previous step
 
 #) Click OK and wait for the processing algorithm to finish.
 
@@ -512,13 +514,13 @@ If you would like to learn more about the tools available for analysing your 3Di
 
 
 .. |langaa_waterbalans_leeg| image:: /image/langaa_waterbalans_leeg.png
-	:scale: 100%
+    :scale: 100%
 
 .. |langaa_waterbalans_antwoord| image:: /image/langaa_waterbalans_antwoord.png
-	:scale: 100%
+    :scale: 100%
 
-.. |load_from_spatialite| image:: /image/pictogram_load_from_spatialite.png
-	:scale: 80%
+.. |add_schematisation| image:: /image/add_schematisation.png
+    :scale: 25%
 
 .. |toggle_editing| image:: /image/pictogram_toggle_editing.png
     :scale: 80%
@@ -541,35 +543,32 @@ If you would like to learn more about the tools available for analysing your 3Di
 .. |modelsSimulations| image:: /image/pictogram_modelsandsimulations.png
     :scale: 90%
 
-.. |save_to_spatialite| image:: /image/pictogram_save_to_spatialite.png
-	:scale: 80%
-
 .. |newschematisation| image:: /image/pictogram_newschematisation.png
     :scale: 80%
 
 .. |simulate| image:: /image/pictogram_simulate.png
     :scale: 80%
-	
+    
 .. |download_results| image:: /image/pictogram_download_results.png
     :scale: 80%
 
 .. |results_manager| image:: /image/i_3di_results_analysis_toolbar_results_manager.png
     :scale: 25%
-	
+    
 .. |closed_eye| image:: /image/pictogram_temporal_controller_load_results_closed_eye.png
-	:scale: 100%
+    :scale: 100%
 
 .. |resultsaggregationtoolbar| image:: image/i_3di_results_analysis_toolbar_aggregation.png
-	:scale: 25%
+    :scale: 25%
 
 .. |watershed_tool| image:: image/i_3di_results_analysis_toolbar_watershed.png
-	:scale: 25%
-	
+    :scale: 25%
+    
 .. |water_balance_tool| image:: image/i_3di_results_analysis_toolbar_waterbalance.png
-	:scale: 25%
+    :scale: 25%
 
 .. |value_tool| image:: image/value_tool.png
-	:scale: 50%
+    :scale: 50%
 
 .. |new_geopackage| image:: image/new_geopackage.png
-	:scale: 100%
+    :scale: 100%

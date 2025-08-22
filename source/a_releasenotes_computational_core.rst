@@ -3,6 +3,53 @@
 3Di Computational core
 ----------------------
 
+June 10th, 2025
+^^^^^^^^^^^^^^^
+
+- Improved stabilitity of water quality module
+
+April 30th, 2025
+^^^^^^^^^^^^^^^^
+
+- Refactor of laterals and substance laterals to make it possible to use substances in DWF and fix several issues with laterals and DWF (threedi-calculationcore#852, #860, #859, #861, #857)
+- Total discharge boundary condition is now compatible with interflow (threedi-tables#280, threedi-calculationcore#821)
+- Interflow discharge and velocity at boundary lines for total discharge boundary type are added in netCDF file 
+
+
+February 24th, 2025
+^^^^^^^^^^^^^^^^^^^
+
+- Total discharge boundary for 2D and Groundwater
+
+- Upgrade to python 3.12
+
+- Fix NaN value propagation from gridadmin and tables files
+
+- Bugfix for 0D inflow from impervious surfaces
+
+
+
+October 10, 2024
+^^^^^^^^^^^^^^^^
+
+- Customized result files for hydrodynamic and water quality results (nens/threedi-api#2339, threedi-calculationcore#803, threedi-calculationcore#799, threedi-calculationcore#823)
+
+- Receive new result file settings from API (#798)
+
+- Bugfix: Set threedicore-version in attribute of netcdf result files (#841)
+
+
+September 11, 2024
+^^^^^^^^^^^^^^^^^^
+
+- When using a saved state for a model with interflow, the interflow velocities and discharges from that saved state are now written to the results NetCDF at timestep 0.
+
+- When using a saved state, the initial intercepted volume and initial infiltrated volume from that saved state are now included in the flow summary (#766)
+
+- In water quality, support for (physical) diffusion has been implemented in the computational core (not yet in the API) (#773, #774)
+
+- For 1D advection, two new types of calculating 1D advection have been introduced. The current advection method (1) is momentum conservative. The two new methods are (2) energy conservative and (3) a 'smart' method that uses the energy conservative or momentum conservative method depending on the situation. See :ref:`1d_advection` for details. (#753, #754, #755)
+
 .. _release_notes_calccore_20240605:
 
 June 5, 2024
@@ -78,7 +125,7 @@ June 2023
 April 2023
 ^^^^^^^^^^
 
-- Channels with calculation type *connected* or *double connected* can now be placed outside the DEM, as long as they connect to a location where a 2D cell is present. If a 'potential breach' or 'exchange line' is used to set the location to which the calculation node connects, the location of those features determines whether an error is raised. If a channel with calculation type connected is outside of the DEM, but the closest point on its exchange_line is on the DEM, the computational grid can be built and the 3Di model is valid.
+- Channels with exchange type *connected* or *double connected* can now be placed outside the DEM, as long as they connect to a location where a 2D cell is present. If a 'potential breach' or 'exchange line' is used to set the location to which the calculation node connects, the location of those features determines whether an error is raised. If a channel with exchange type connected is outside of the DEM, but the closest point on its exchange_line is on the DEM, the computational grid can be built and the 3Di model is valid.
 
 - 1D-2D links that cross an obstacle will take the exchange level from the obstacle
 
@@ -108,9 +155,9 @@ March 2022
 
 - If the direction of a channel/pipe/culvert geometry is reversed compared to the “connection_node_start” and “connection_node_end”, then this is now fixed automatically.
 
-- The calculation type of culverts is not ignored anymore.
+- The exchange type of culverts is not ignored anymore.
 
-- For calculation nodes on channels with connected calculation type, the cross section will be used until the surface level of the DEM. This will give differences for channels with connected calculation type in case the cross section is below the surface level.
+- For calculation nodes on channels with connected exchange type, the cross section will be used until the surface level of the DEM. This will give differences for channels with connected exchange type in case the cross section is below the surface level.
 
 
 **Cross section definitions**

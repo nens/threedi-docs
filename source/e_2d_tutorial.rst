@@ -46,7 +46,7 @@ Follow these steps to create a new :ref:`schematisation`:
 
 #) In the *Schematisation* section of the 3Di Models and Simulations panel, click the *New* button (|newschematisation|). The *New schematisation* wizard is shown.
 
-#) Fill in a  schematisation name, such as 'Tutorial 2 <your_name>'. Select the organisation you want to be the owner of the new schematisation (most users have rights for only one organisation). Tags are optional, you can leave this field empty for now. Since we are creating a schematisation from scratch, select the *Create new Spatialite* option. Click *Next*.
+#) Fill in a  schematisation name, such as 'Tutorial 2 <your_name>'. Select the organisation you want to be the owner of the new schematisation (most users have rights for only one organisation). Project and Tags are optional, you can leave these fields empty for now. Since we are creating a schematisation from scratch, select the *Create new Geopackage* option. Click *Next*.
 
 #) Read the explanation on the second page of the *New schematisation* wizard. Click *Next*.
 
@@ -54,35 +54,29 @@ Follow these steps to create a new :ref:`schematisation`:
 
 #) Fill in the following settings:
 
-	* Computational cell size: 64
+    * Computational cell size: 64
 
-	* The model area is predominantly: Flat
+    * The model area is predominantly: Flat
 
-	* No 1D flow
+    * No 1D flow
 
-	* No 0D flow
+    * No 0D flow
 
-	* Friction type: Manning
+    * Friction type: Manning
 
-	* No friction file
+    * No friction file
 
-	* Global 2D friction coefficient: 0.06
+    * Global 2D friction coefficient: 0.06
 
-	* Simulation timestep: 30 s
+    * Simulation time step: 30 s
 
-	* Typical simulation duration: 0-3 hours
+    * Typical simulation duration: 0-3 hours
 
-#) Click *Create schematisation*. A popup message will tell you that the the schematisation was created. Copy the path that is shown in the popup message.
+#) Click *Create schematisation*. 
 
+    A popup message will tell you that the the schematisation was created, asking you if you want to add it to the project. 
 
-Viewing the schematisation
---------------------------
-
-You will now add the schematisation in your 3Di Modeller Interface project and add a background map for reference. This will allow you to check if the schematisation looks as you expect.
-
-You will need the path to the spatialite file (.sqlite) for this schematisation. If you have not copied the path to the spatialite in the previous step, do the following to find it: At the top of the 3Di Models & Simulations panel, click on the (blue, underlined) name of your schematisation. Windows Explorer will open; browse to *work in progress/schematisation* and copy the path from the Windows Explorer address bar.
-
-#) In the 3Di Schematisation Editor toolbar, click the *Load from Spatialite* button (|load_from_spatialite|). Paste the path to the spatialite and click *Open*.
+#) Click *Yes*
 
 #) Add a background map from OpenStreetMap by clicking *Web* in the Main Menu > *Quick Map Services* > *OSM* > *OSM Standard*.
 
@@ -103,15 +97,15 @@ The next step is to check the schematisation, upload it as a first :ref:`revisio
 
 #) Click *Check schematisation*. This will check your schematisations for any errors. A schematisation that contains errors cannot be processed into a 3Di model and simulation template. The schematisation checker may also produce warnings or info level messages. These help you to improve the schematisation. If you have followed the instructions in this tutorial, the schematisation checker should not produce any errors, warnings or info level messages.
 
-	.. note::
-	   Please do not ignore warnings. These are given for schematisation choices that are usually wrong and negatively impact the performance of you model. It will still be possible generate a model from a schematisation with warnings, and there may also be special cases where your schematisation choice is intentional and you deliberately ignore the warning. If the performance of you model is sub-par, please fix any warnings before reaching out to the servicedesk.
+    .. note::
+       Please do not ignore warnings. These are given for schematisation choices that are usually wrong and negatively impact the performance of you model. It will still be possible generate a model from a schematisation with warnings, and there may also be special cases where your schematisation choice is intentional and you deliberately ignore the warning. If the performance of you model is sub-par, please fix any warnings before reaching out to the servicedesk.
 
 #) Continue to the next screen. Here you have to fill in a commit message that describes the changes your have made relative to the previous revision. As this is the first revision of this schematisation, you can instead provide a short description of what you upload. For example: "Default settings, DEM only".
 
 #) Click *Start upload*. Check if it is the upload is successful and if the uploaded data is successfully processed into a 3Di model.  
 
     .. note::
-        By default, this page of the upload wizard is set to *UPLOAD AND PROCESS*, so that a 3Di model and simulation template will be generated automatically after the upload. When you start using the upload wizard regularly, you may sometimes want to upload data without generating a new 3Di model from it. In that case, choose the *UPLOAD ONLY* option.
+        By default, on this page of the upload wizard, the checkbox *Make 3Di model* is checked, so that a 3Di model and simulation template will be generated automatically after the upload. When you start using the upload wizard regularly, you may sometimes want to upload data without generating a new 3Di model from it. For example, when the schematisation still contains errors. In that case, uncheck the *Make 3Di model* checkbox.
 
 Your 3Di model is now ready for simulation!  
 
@@ -124,7 +118,7 @@ You will now start a simulation with the 3Di model you have created.
 
 #) In the 3Di Models and Simulations panel, click *Simulate* (|simulate|) > *New simulation*.  
 
-#) Select your model and simulation template and click *Next*. A new dialog opens with several options for your simulation.  
+#) Select your 3Di model and simulation template and click *Next*. A new dialog opens with several options for your simulation.  
 
 #) Check the box for *Include precipitation*. Click *Next*.
 
@@ -158,44 +152,40 @@ To add infiltration to the model, you need to create a *Simple infiltration sett
 
 Follow these steps:
 
-#) In the *Layers* panel, under *Settings*, click on the *Simple infiltration settings* layer
+#) In the *Layers* panel, under *Hydrological processes*, click the *Simple infiltration* layer
+
+#) Click *Switch to form view* in the bottom right corner.
 
 #) Click the *Toggle editing mode* button (|toggle_editing|) in the top left corner, then click the *Add Feature* button (|add_feature|). Fill in the values from the table below (:ref:`inf_settings`) and click *OK*.
 
 #) Click the *Toggle editing mode* button in the toolbar and save your edits to this layer.
 
-	.. csv-table:: Simple infiltration settings
-		:name: inf_settings
-		:header: "Setting", "Value for this tutorial", "Comments"
+    .. csv-table:: Simple infiltration settings
+        :name: inf_settings
+        :header: "Setting", "Value for this tutorial", "Comments"
 
-		"id", "1", "Must match the simple_infiltration_settings_id in the v2_global_settings_table"
-		"display_name", "infiltration"
-		"infiltration_rate", "360", "in mm/day; uniform silty sand is assumed in this tutorial"
-		"infiltration_rate_file", "NULL", "Only used for spatially varying infiltration rates"
-		"max_infiltration_capacity", "NULL", "infinite infiltration capacity is assumed in this tutorial"
-		"max_infiltration_capacity_file", "NULL", "infinite infiltration capacity is assumed in this tutorial"
-		"infiltration_surface_option", "Rain", "See :ref:`infiltration`"
-
+        "ID", "1", ""
+        "Infiltration rate [mm/d]", "360", "Uniform silty sand is assumed in this tutorial"
+        "Infiltration rate file", "NULL", "Only used for spatially varying infiltration rates"
+        "Infiltration surface option", "0: Whole surface when raining", "See :ref:`infiltration`"
+        "Max. infiltration volume [m]", "NULL", "Infinite infiltration capacity is assumed in this tutorial"
+        "Max. infiltration volume file", "NULL", "Infinite infiltration capacity is assumed in this tutorial"
 
 
-Now you need to reference this *Simple infiltration settings* record from the *Global settings* table.
+Now you need to enable *Use simple infiltration* in the *Model settings* table.
 
-#) In the *Layers* panel, under *Settings*, right-click the *Global settings* layer > *Open attribute table*
+#) In the *Layers* panel, under *Settings*, right-click the *Model settings* layer > *Open attribute table*
 
 #) Click *Switch to form view* in the bottom right corner.
 
-#) Click *Toggle editing mode* in the top left corner.
+#) Click *Toggle editing mode* |toggle_editing| in the top left corner.
 
-#) In the tab *Settings IDs*, fill in the ID (1) of the *Simple infiltration settings* record you have just created.
+#) In the tab *Processes*, check the box for *Use simple infiltration*
 
 #) Click the *Toggle editing mode* button in the toolbar and save your edits to this layer.
 
 
-To make a new revision that includes these edits, you need to save the changes to the spatialite and upload them.
-
-#) In the 3Di Schematisation Editor toolbar, click *Save to Spatialite* (|save_to_spatialite|). Wait for this process to finish.
-
-#) Upload a new revision, in the same way you did before (see :ref:`tut_uploading`).
+To make a new revision that includes these edits, you need to upload a new revision, in the same way you did before (see :ref:`tut_uploading`).
 
 
 Running a simulation with infiltration
@@ -251,9 +241,6 @@ To view the model on 3Di Management:
 .. |upload| image:: /image/pictogram_upload_schematisation.png
     :scale: 80%
 
-.. |load_from_spatialite| image:: /image/pictogram_load_from_spatialite.png
-	:scale: 80%
-
 .. |simulate| image:: /image/pictogram_simulate.png
     :scale: 80%
 
@@ -261,8 +248,4 @@ To view the model on 3Di Management:
     :scale: 80%
 
 .. |add_feature| image:: /image/pictogram_addfeature.png
-	:scale: 80%
-
-.. |save_to_spatialite| image:: /image/pictogram_save_to_spatialite.png
-	:scale: 80%
-	
+    :scale: 80%

@@ -22,11 +22,11 @@ The plot-data can be exported as image or csv-file. Right-click the plot and cho
 .. VRAAG: I CAN"T GET THE IMAGE TO SCALE PROPERLY. THE SIZE (pxs) IS COMPLETELY THE SAME AS THE SIDEVIEW TOOL, WHICH DOES RESPOND TO MY CHANGING THE SIZE..
 .. figure:: image/i_time_series_plotter.png
     :alt: Time Series Plotter
-	:scale: 75%
+    :scale: 75%
 
 .. |timeseriesplottertoolbar| image:: image/i_3di_results_analysis_toolbar_plotter.png
-	:scale: 25%
-	
+    :scale: 25%
+    
 .. |A-icon| image:: /image/pictogram_capital_a_icon.png
-	:scale: 120%
-	
+    :scale: 120%
+    
