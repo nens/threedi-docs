@@ -5,7 +5,7 @@ Computational grid
 
 To allow flow to be computed numerically, space and time must be discretised. Time steps are defined for time and grids are defined for space. 
 
-3Di simulations can consist of a surface water, a groundwater and a 1D network component. The surface water and groundwater components are in principle a two-layer model, which can be coupled to the 1D network. The grids of the surface water and groundwater domain are similar, while the 1D network is fundamentally different.
+3Di models can consist of a 2D surface water, 2D groundwater and/or 1D network component. The surface water and groundwater components are a two-layer model, which can be coupled to the 1D network. The grids of the surface water and groundwater domain are similar, while the 1D network is fundamentally different. All these components are parts of one single grid, for which 3Di solves equations in a single matrix during the simulation.
 
 In the sections below, we elaborate on the grids specified for computations in the 2D surface water and groundwater domains and in the 1D domain. 
 
@@ -100,7 +100,7 @@ The available storage for a 1D node consists of the storage of the node (if the 
 Calculation point distance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When the computational grid is generated from the schematisation input, computational nodes are placed at each connection node. Additionally, computational nodes can be generated in between these locations. The spacing between these computational nodes is determined by a calculation point distance, the 1D grid resolution. In 3Di this distance can be specified for each individual pipe, culvert, or channel by filling the ‘dist_calc_points’ attribute of those features.
+When the computational grid is generated from the schematisation input, computational nodes are placed at each connection node. Additionally, computational nodes can be generated in between these locations. The spacing between these computational nodes is determined by a calculation point distance, the 1D grid resolution. In 3Di this distance can be specified for each individual pipe, culvert, or channel by filling the *Calculation point distance* attribute of those features.
 If the specified calculation point distance is larger than the length of the feature, no additional calculation nodes are generated in between the connection nodes. This is visualised in the figure below.
 
 .. figure:: image/h_calculation_point_distance_intro.png
@@ -118,7 +118,7 @@ If more than two cross-section locations exist between two velocity points, the 
    
    Example of the generated velocity points between cross-section locations.
 
-These additional computational nodes can be isolated, (double) connected or embedded. This depends on the type that was attributed to the original pipe, cannel or culvert. In case of (double) connected elements the exchange levels are set automatically. The exchange levels for for (double) connected elements are determined similarly as with the cross-sections. For channels, the bank levels for the additional computational nodes are determined by linear interpolation between the bank levels that are specified by the user at  the cross-section locations on the channel. If the computational node is not in between two cross-section locations, the bank level of the nearest cross-section location is used. This is illustrated in the figure below.
+These additional computational nodes can have exchange types *Isolated*, *(Double) connected* or *Embedded*. This depends on the exchange type that was attributed to the original pipe, channel or culvert. In case of (double) connected elements, the exchange levels are set automatically. The exchange levels for for (double) connected elements are determined similarly as with the cross-sections. For channels, the bank levels for the additional computational nodes are determined by linear interpolation between the bank levels that are specified by the user at the cross-section locations on the channel. If the computational node is not in between two cross-section locations, the bank level of the nearest cross-section location is used. This is illustrated in the figure below.
 In case more than two cross-section locations are defined between two (new) computational nodes, the ones in the middle are ignored.
 
 .. figure:: image/h_calculation_point_distance_bank_level.png
@@ -135,7 +135,7 @@ If drain levels are not set, the height of the DEM at that location is used as e
 
 Computational grid objects
 --------------------------
-The schematisation input in the 1D and 2D domain results in one computational grid. This grid consists of the following objects:
+The computational grid can be :ref:`visualised as vector layers <visualising_computational_grids>`). This section describes those vector layers and their attributes. The computational grid consists of the following objects:
 
 * Cell
 * Flowline
@@ -146,11 +146,11 @@ The schematisation input in the 1D and 2D domain results in one computational gr
 
 Cell
 ^^^^
-The cells of the computational grid. 
+The 2D cells (surface water and groundwater domains).
 
 Geometry
 ++++++++
-Polygon.
+Polygon
 
 Attributes
 ++++++++++
@@ -173,7 +173,7 @@ Attributes
      - node_type
      - integer
      - \-
-     - Defines the type of the calculation node as 2D Surface water (1), 2D Groundwater (2), 1D Without storage (3), 1D With storage (4), 2D Surface water boundary (5), 2D Groundwater boundary (6), or 1D Boundary (7). 
+     - Defines the type of the calculation node as 2D Surface water (1), 2D Groundwater (2), 1D open water (3), 1D closed system (4), 2D Surface water boundary (5), 2D Groundwater boundary (6), or 1D Boundary (7).
    * - DEM averaged
      - has_dem_averaged
      - boolean
@@ -183,21 +183,21 @@ Attributes
      - max_surface_area
      - decimal number
      - m\ :sup:`2`
-     - xHELPx
+     - Total surface area the pixels in the cell, excluding nodata pixels
    * - Bottom level
      - bottom_level
      - decimal number
      - m MSL
-     - Subgrid cell with the lowest elevation within the calculation cell.
+     - Elevation of the lowest DEM pixel in the cell.
    * - Impervious layer elevation
      - impervious_layer_elevation
      - decimal number
      - m MSL
-     - xHELPx
+     - Level of the impervious layer that acts as the bottom (and thus boundary) of the groundwater or interflow layer.
 
 Flowline
 ^^^^^^^^
-Straight line between two nodes.
+Line between two nodes
 
 Geometry
 ++++++++
@@ -235,42 +235,42 @@ Attributes
      - source_table
      - text
      - \-
-     - For flowlines generated from 1D objects: the table in which this object is described.
+     - Name of the layer in the schematisation database from which this flowline was generated.
    * - Source table ID
      - source_table_id
      - integer
      - \-
-     - For flowlines generated from 1D objects: the ID of the table in which this object is described.
+     - The ID of the feature in the schematisation database layer from which this flowline was generated.
    * - Invert level of the start point
      - invert_level_start_point
      - decimal number
      - m MSL
-     - If the flowline belongs to a 1D object: the invert level of the start point of the object.
+     - Invert level of the start point of the object.
    * - Invert level of the end point
      - invert_level_end_point
      - decimal number
      - m MSL
-     - If the flowline belongs to a 1D object: the invert level of the end point of the object.
+     - Invert level of the end point of the object.
    * - Exchange level
      - exchange_level
      - decimal number
      - m MSL
-     - If the flowline belongs to a 1D object: the exchange level of the object.
+     - Water only flows through this flowline if the water level in either the start node or the end node exceeds the exchange level.
    * - Start calculation node ID
      - calculation_node_id_start
      - integer
      - \-
-     - ID of the calculation node that coincides with the starting point of the flowline.
+     - ID of the calculation node at the start of the flowline.
    * - End calculation node ID
      - calculation_node_id_end
      - integer
      - \-
-     - ID of the calculation node that coincides with the end point of the flowline.
+     - ID of the calculation node at the end of the flowline.
    * - Sewerage
      - sewerage
      - boolean
      - \-
-     - If set to 'true': flowline belongs to a sewerage object.
+     - *True* if flowline belongs to a sewerage object. Used for visualisation and administrative purposes only.
    * - Sewerage type
      - sewerage_type
      - integer
@@ -279,7 +279,7 @@ Attributes
 
 Node
 ^^^^
-Centre of a computational cell in which water levels and pressures are defined (2D domain) or the end point of a 1D object or the connection point between two 1D objects (1D domain).
+Node in the computational grid where volumes and water levels are defined. In the 2D domain, the node is located at the center of a cell.
 
 Geometry
 ++++++++
@@ -302,23 +302,23 @@ Attributes
      - connection_node_id
      - integer
      - \-
-     - xHELPx
+     - If applicable: ID of the connection node from which this calculation node was generated.
    * - Node type
      - node_type
      - integer
      - \-
-     - Defines the type of the calculation node as 2D Surface water (1), 2D Groundwater (2), 1D Without storage (3), 1D With storage (4), 2D Surface water boundary (5), 2D Groundwater boundary (6), or 1D Boundary (7). 
+     - Defines the type of the calculation node as 2D Surface water (1), 2D Groundwater (2), 1D open water (3), 1D closed system (4), 2D Surface water boundary (5), 2D Groundwater boundary (6), or 1D Boundary (7).
    * - Calculation type
      - calculation_type
      - integer
      - Yes
      - \-
-     - Sets the 1D2D exchange type: embedded (100), isolated (101), connected (102), or double connected (105). See :ref:`calculation_types`.
+     - 1D2D exchange type: embedded (0), isolated (1), connected (2), or double connected (5). See :ref:`calculation_types`.
    * - Is manhole
      - is_manhole
      - boolean
      - \-
-     - \-
+     - *True* if the bottom level was filled in for the connection node from which this node was generated
    * - Storage area of the connection node 
      - connection_node_storage_area
      - decimal number
@@ -328,21 +328,21 @@ Attributes
      - max_surface_area
      - decimal number
      - m\ :sup:`2`
-     - xHELPx
+     - Largest possible wet surface area for this node
    * - Bottom level
      - bottom_level
      - decimal number
      - m MSL
-     - Subgrid cell with the lowest elevation within the associated calculation cell.
+     - Lowest point of this node
    * - Drain level
      - drain_level
      - decimal number
      - m MSL
-     - Drain level of the manhole. See :ref:`_manhole_notes_for_modellers`.
+     - Exchange level that was filled in for the connection node form which this node was generated. Drain level of the manhole. See also :ref:`notes_for_modellers_connection_nodes_exchange_level`.
 
 Obstacle
 ^^^^^^^^
-Border of a computational cell along which exchange with the neighbouring cell cannot take place for water levels under the crest level of the obstacle.
+Border of a computational cell that was affected by an obstacle. The exchange level of intersected flowlines may be affected by this obstacle (depending on the obstacle's settings).
 
 Geometry
 ++++++++
@@ -365,12 +365,12 @@ Attributes
      - exchange_level
      - decimal number
      - m MSL
-     - Exchange level for the linear obstacle.
+     - Exchange level for the obstacle.
 
 
 Pump (line)
 ^^^^^^^^^^^
-Pumpstation that transports water from one connection node to another.
+Pump that transports water from one connection node to another.
 
 Geometry
 ++++++++
@@ -408,7 +408,7 @@ Attributes
      - source_table_id
      - integer
      - \-
-     - The ID of the table in which the pump is described.
+     - ID of the feature in the *Pump* layer in the schematisation database from which this pump is generated.
    * - Type
      - type
      - integer
@@ -418,7 +418,7 @@ Attributes
      - bottom_level
      - decimal number
      - m MSL
-     - Subgrid cell with the lowest elevation within the calculation cell.
+     - Lowest point of the node from which the water is pumped.
    * - Start level
      - start_level
      - decimal number
@@ -440,7 +440,7 @@ Attributes
 
 Pump (point)
 ^^^^^^^^^^^^
-Pumpstation that pumps water out of the model domain.
+Pump that pumps water out of the model domain or to another calculation node within the model.
 
 Geometry
 ++++++++
@@ -478,7 +478,7 @@ Attributes
      - source_table_id
      - integer
      - \-
-     - The ID of the table in which the pump is described.
+     - ID of the feature in the *Pump* layer in the schematisation database from which this pump is generated.
    * - Type
      - type
      - integer
@@ -488,7 +488,7 @@ Attributes
      - bottom_level
      - decimal number
      - m MSL
-     - Subgrid cell with the lowest elevation within the calculation cell.
+     - Lowest point of the node from which the water is pumped.
    * - Start level
      - start_level
      - decimal number
