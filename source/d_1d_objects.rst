@@ -438,6 +438,8 @@ Exchange type
 
 It is recommended to explicitly set the exchange type to avoid confusion. If left empty, 3Di will attempt to infer the exchange type from adjacent objects. This will not be possible if the connection node is not connected to any objects with an exchange type. In that case, setting the exchange type is mandatory. See :ref:`calculation_types` for more information.
 
+.. _notes_for_modellers_connection_nodes_exchange_level
+
 Exchange level
 """"""""""""""
 

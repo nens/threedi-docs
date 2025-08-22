@@ -3,9 +3,9 @@
 Subgrid method
 ==============
 
-Flow is strongly affected by the bathymetry. Therefore, to simulate flow accurately, information of the bathymetry is crucial. To illustrate the importance of a well described bathymetry, consider the three flows in a flume shown in the Figure below. While the bathymetry differs only slightly, the flow behaves completely different.
+Flow is strongly affected by the bathymetry. To simulate flow accurately, information on the bathymetry is crucial. To illustrate the importance of a well-described bathymetry, consider the three flows in a flume shown in the Figure below. While the bathymetry differs only slightly, the flow behaves completely different.
 
-Nowadays, detailed bathymetry information becomes more and more available.  However, it is difficult to take detailed grid information into account, without a strong increase in computational cost. In search of an optimal balance between computational cost and accuracy, the so-called subgrid method (:cite:t:`Casulli2009`, :cite:t:`Casulli2011`, :cite:t:`Stelling2015`, :cite:t:`Volp2013`) is developed and implemented in 3Di.
+Nowadays, detailed bathymetry information becomes more and more available. However, it is difficult to take detailed grid information into account, without a strong increase in computational cost. In search of an optimal balance between computational cost and accuracy, the so-called subgrid method (:cite:t:`Casulli2009`, :cite:t:`Casulli2011`, :cite:t:`Stelling2015`, :cite:t:`Volp2013`) was developed and implemented in 3Di.
 
 .. figure:: image/b1_3.png
    :figwidth: 600 px
@@ -34,7 +34,6 @@ The subgrid method has three implications:
 
    An example of a computational cell with a bathymetry defined on the subgrid.
 
-
 .. _subgrid_tables:
 
 Subgrid tables
@@ -56,7 +55,7 @@ This relation is specific for each cell, node or, in case of cross-sectional are
 Subgrid table settings
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Higher vertical precision in the description of the relations mentioned above requires subgrid tables with many entries. Such large tables may reduce the computational speed, and require a large data storage. 3Di uses a method that minimizes the number of entries in the subgrid tables. The way that this method is applied can be further tuned by setting the *Table step size*, the *Maximum table step size*, and the *Table step size 1D*. These allows you to balance the vertical precision against computational speed and data storage.
+Higher vertical precision in the description of the relations mentioned above requires subgrid tables with many entries. Such large tables may reduce the computational speed, and require a large data storage. 3Di uses a method that minimizes the number of entries in the subgrid tables. The application of this method can be further tuned by setting the *Table step size*, the *Maximum table step size*, and the *Table step size 1D*. These allow you to balance the vertical precision against computational speed and data storage.
 
 In the 2D domain, the *Table step size* is used as a minimum increment height between successive table entries. For example, if the *Table step size* is 0.1 m, and we have previously found a
 table increment at pixel height 1.5 m, the pixel values that are considered for the next table increment have to be at least 1.6 m and the water level / volume relation between 1.5 and 1.6 m is assumed linear. Decreasing the *Table step size* will increase numerical precision at the cost of computational speed. For simulations with extensive flooding and drying, it can be advantageous to increase the *Table step size*, thereby
