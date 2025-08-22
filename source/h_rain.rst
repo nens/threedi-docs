@@ -40,21 +40,21 @@ Rainfall on 0D node (inflow)
 .. note::
     See :ref:`howto_use_inflow` for instructions on using this in your model.
 
-In addition to the hydrological processes that are computed in the 2D domain of 3Di, it is possible to schematize some of these processes using the so-called 0D-inflow concept. The 0D-inflow concept computes runoff in a simplified box-model. By defining some basic characteristics for a 'surface' such as size, storage capacity, outflow, location and infiltration it computes the runoff out of this box-model. In models with 1D elements, this runoff is forced on the model as a lateral discharge on a node. 
+In addition to the hydrological processes that are computed in the 2D domain of 3Di, it is possible to schematise some of these processes using *0D-inflow*. The 0D-inflow concept computes runoff in a simplified box-model. By defining some basic characteristics for a 'surface' such as area, storage capacity, outflow, location, and infiltration, it computes the runoff out of this box-model. In models with 1D elements, this runoff is forced onto the model as a lateral discharge on a node.
 
-There are two methods for incorporating inflow in a 3Di schematisation: using 'surfaces', a versatile method that gives you complete freedom in setting the inflow model parameters for each surface, and using 'impervious surfaces', with predefined parameters that follow the Dutch *NWRW* inflow model, common in urban drainage modelling in the Netherlands. Surfaces can represent (green) roofs, neighbourhoods or whole catchments. 0D inflow can be combined with direct rainfall on 2D cells (0D-1D-2D model) or be used with 1D only (0D-1D model). It is also possible to use 0D inflow without having a 1D network, by mapping the inflow surfaces to embedded nodes (0D-2D model). For practical instruction how to use this in your model see :ref:`howto_use_inflow` .
+0D inflow can be combined with direct rainfall on 2D cells (0D-1D-2D model) or be used with 1D only (0D-1D model). It is also possible to use 0D inflow without having a 1D network, by mapping the inflow surfaces to embedded nodes (0D-2D model). For practical instruction how to use this in your model see :ref:`howto_use_inflow` .
 
-The surfaces define a box that is filled by precipitation. Once the box contains water, it can leave by infiltration. In case the precipitation rate is below the infiltration rate, the box is filling up. In case this volume exceeds the storage capacity, an outflow is initiated. That outflow is coupled to one or multiple 3Di nodes. Users can specify the amount that is actually added to the model. This implies that the runoff is computed based on the following parameters:
+The surfaces define a box that is filled by precipitation. Once the box contains water, it can leave via infiltration. In case the precipitation rate is below the infiltration rate, the box is filling up. From the moment the volume exceeds the storage capacity, an outflow is initiated. That outflow is coupled to one or multiple calculation nodes; users can define how the outflow is distributed over the nodes. The runoff is computed based on the following parameters:
 | :math:`P` is the precipitation [m3/s]
 | :math:`A` is the surface area [m^2]
 | :math:`S` is the storage capacity [m3], is based on the surface layer thickness [mm]
 | :math:`I` is the infiltration [m3/s]
 | :math:`R` is the runoff [m3/s]
 | :math:`k_Q` is the outflow delay constant [/min]
-| :math:`Q` is the inflow in 3Di node [m3/s]
+| :math:`Q` is the inflow into the calculation node [m3/s]
 | :math:`\alpha` is the inflow distribution factor [\%]
 
-The figure below givens an overview of these parameters. Note, that the dimensions such as time and size are not all in SI units. Behind the scenes we make sure all is consistent. 
+The figure below gives an overview of these parameters. Note that the dimensions (such as outflow delay constant) are not all in SI units.
 
 .. figure:: image/surface_runoff_parameters_v2.png
    :scale: 50%
@@ -64,7 +64,7 @@ The figure below givens an overview of these parameters. Note, that the dimensio
 
 The precipitation is calculated as the rain intensity multiplied by the surface area. When using spatially variable rain, the rain intensity at the location of the centroid of the surface is used.
 
-The infiltration is computed based on so-called modified Horton method. This method assumes an initial infiltration rate that decreases exponentially to an equilibrium rate when the soil becomes wetter. When the soil dries, the infiltration rate recovers exponentially to the initial infiltration rate. Mathematically, the infiltration is defined under wet conditions as:
+The infiltration is computed based on *modified Horton method*. This method assumes an initial infiltration rate that decreases exponentially to an equilibrium rate when the soil becomes wetter. When the soil dries, the infiltration rate recovers exponentially to the initial infiltration rate. Mathematically, the infiltration is defined under wet conditions as:
 
 .. math::
    :label: horton_infiltration_0D
@@ -87,7 +87,7 @@ and under dry conditions as
 | :math:`k_d` is the decay constant that governs how quickly the infiltration rate decreases [/h]
 | :math:`k_r` is the recovery constant that governs how quickly the infiltration rate recovers [/h]
 
-In the figure below, the infiltration rate is plotted. In this example, there is water in the box during the first 3 hours and than becomes dry. 
+In the figure below, the infiltration rate is plotted. In this example, the box contains water during the first three hours and than becomes dry.
 
 .. figure:: image/h_horton_inf_0Dinflow.png
    :alt: Example of how the infiltration rate varies over time
@@ -108,7 +108,7 @@ The actual inflow in the 3Di nodes is computed as:
 
    Q = \alpha R
 
-in which :math:`\alpha` determines which fraction of the runoff actually reaches a specific 3Di node. In the flow_summary.log the water balances of all surfaces combined can be found. 
+in which :math:`\alpha` determines which fraction of the runoff actually reaches a specific 3Di node. In the :ref:`flow_summary` the water balance of all surfaces combined can be found.
 
 
 
