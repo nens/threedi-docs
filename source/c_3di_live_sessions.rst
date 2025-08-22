@@ -73,8 +73,8 @@ Quitting the session
 
 In the **User menu** you can select **quitting the simulation**, this ends the use of calculation time. If this option is not used, the session remains active. One of the following scenarios might apply:
 
-- time out after being inactive is set to 30 minutes for a running simulation
-- time out after being inactive is set to 5 minutes for a paused simulation
+- timeout after being inactive is set to 30 minutes for a running simulation
+- timeout after being inactive is set to 5 minutes for a paused simulation
 - leaving the session via a tab will close the simulation after 30 minutes
 
 You can:
