@@ -351,15 +351,7 @@ Attributes
      - Integer
      - Yes
      - \-
-     - Determines the efficiency of the matrix solver. Advised values depend on the type of model:
-     
-       - Only 1D flow: 700
-       - 1D and 2D flow: 7
-       - Only surface 2D flow: 5
-       - Surface and groundwater flow: 7
-       - 1D, 2D surface and groundwater flow: 70 (or higher). 
-       
-       Play around with this value in case of groundwater. This could potentially speed up your simulation significantly.
+     - See :ref:`max_degree_gauss_seidel`. The optimal value for this depends on the characteristics of the model. In some cases, it can significantly improve the simulation speed.
    * - CFL strictness factor 1D
      - cfl_strictness_factor_1d
      - Decimal number
