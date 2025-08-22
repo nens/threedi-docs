@@ -43,19 +43,15 @@ In models with groundwater, the grid refinement is applied in both the surface w
 ++++++++++++++++
 
 The 2D computational grid is generated based on the following settings:
+- Minimum cell size
+- Number of grid levels
+- Grid refinements
 
-- *Minimum cell size (grid_space)*: height or width of the smallest cell, in meters. 
+The *Minimum cell size* is the width or length of a computational cell. An even number of subgrid pixels must fit in the *Minimum cell size*. In case the dimensions of a subgrid pixel are *0.5 x 0.5 m*:sup:`2`, the *Minimum cell size* can be 5.0 x 5.0 :math:`m^2`. In case the dimensions of a subgrid pixel are *1.0 x 1.0 m*:sup:`2`, the *Minimum cell size* can not be *5.0 x 5.0 m*:sup:`2`. The *Minimum cell size* is defined in the :ref:`model_settings`. The *Number of grid levels* setting is the number of refinement levels. Locations where the grid needs to be refined can be defined using a :ref:`grid_refinement_line`, or a :ref:`grid_refinement_area`. In case two refinement levels are defined at the same location, 3Di will refine to smallest cell size of the two. Next to the cells that intersect the grid refinement, the cells will become larger again. This is done using the quadtree method described above.
 
-
-	.. note: 
-		
-		The minimum cell size (grid_space) must be an even multiple of the pixel size of the DEM. For example, if the pixel size is 0.5 m, the minimum cell size can be 5.0 m (5 / 0.5 = 10, which is even). But if the pixel size is 1 m, the minimum cell size cannot be 5.0 m (5 / 1 = 5, which is not even). 
-
-- *Number of refinement levels (kmax)*: the number of refinement levels. The size of all cells will be :math:`grid_space × 2^{kmax - 1}`, unless the are affected by grid refinements. For example, if the minimum cell size is 10 m and kmax is 1, all cells will be 10 × 10 m. If the minimum cell size is 10 and kmax is 3, the cell width becomes 10 × 2 × 2 = 40 m, so all cells will be 40 × 40 m.
-
-- *Grid refinements*: locations where the number of refinement levels is locally maximised. In case two refinement levels are defined at the same location, 3Di will refine to the smallest cell size indicated.
-
-
+.. note::
+    
+    A computational grid with many cell size transitions may also slow down the simulation. It is therefore recommended to merge grid refinements that are close together and prevent gaps between them. Sometimes a large area with uniform small cell size is more efficient than a large variation in cell sizes, even if the latter has fewer cells. Try out what works best in your situation.
 
 Groundwater
 ^^^^^^^^^^^
@@ -131,7 +127,8 @@ In case more than two cross-section locations are defined between two (new) comp
    
    Example of the used bank levels based on the cross-section locations for (double) connected elements.
 
-For pipes and culverts, the drain level of the generated computational nodes is determined by linear interpolation between the drain levels at the start and end of the pipe or culvert. This is relevant only for pipes and culverts with calculation type ‘connected’. In the case of pipes, this can be a way to schematise gullies. Pipes and culverts always have a single cross-section over their entire length, so interpolation of the cross-section is not necessary.
+For pipes and culverts, the drain level of the generated computational nodes is determined by linear interpolation between the drain levels at the start and end of the pipe or culvert. This is relevant only for pipes and culverts with exchange type *Connected*. In the case of pipes, this can be a way to schematise gullies. Pipes and culverts always have a single cross-section over their entire length, so interpolation of the cross-section is not necessary.
+
 If drain levels are not set, the height of the DEM at that location is used as exchange height.
 
 .. _computational_grid_objects:

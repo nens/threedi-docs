@@ -21,7 +21,7 @@ Choosing the right method for schematising vegetation
 
 3Di offers various methods for taking the effects of vegetation into account. Choosing the right method for schematising vegetation depends on the application, the model objective and data availability. Each use case is different and asks for some expert judgement. We can however provide some general guidelines.
 
-* **Sheet flow** If the flow depth is only a few millimeters to centimeters (e.g. sheet flow from hills), modelling vegetation will not have additional benefits. Using only bottom roughness (Manning or Chezy) will be sufficient.
+* **Sheet flow** If the flow depth is only a few millimeters to centimeters (e.g. sheet flow from hills), modelling vegetation will not have additional benefits. Using only bottom roughness (Manning or Chézy) will be sufficient.
 
 * **Low vegetation** Low vegetation is vegetation that has the height of the underlying bottom roughness. Generally, as soon as such an area gets wet, it is submerged and the height of the vegetation is in the same order of magnitude as the vertical accuracy of the DEM. Under these conditions it is advantageous to model the vegetation as a bottom roughness, using Manning or Chézy values. This method is available for 1D and 2D flow.
 
@@ -32,22 +32,22 @@ Choosing the right method for schematising vegetation
 Vegetation drag parameter values
 --------------------------------
 
-If you want to use vegetation drag, you need to supply three input parameters to 3Di: *vegetation height*, *vegetation stem count*, *vegetation stem diameter*, and *vegetation drag coefficient*; see :ref:`vegetation_drag` for details. It can be a challenge to choose the correct values for these parameters. Even in acadamic research, the incorporation of vegetational effects in large scale hydrodynamic models is still a quite new, so there is not yet a large body of literature to draw from when setting these parameters.
+If you want to use vegetation drag, you need to supply three input parameters to 3Di: *vegetation height*, *vegetation stem count*, *vegetation stem diameter*, and *vegetation drag coefficient*; see :ref:`hp_2d_vegetation_drag` or :ref:`cross_section_location` (1D) for details. It can be a challenge to choose the correct values for these parameters. Even in acadamic research, the incorporation of vegetational effects in large scale hydrodynamic models is still a quite new, so there is not yet a large body of literature to draw from when setting these parameters.
 
 The correct values for the vegetation parameters depend on the plant species, its growth stage and the season. The stem diameter, the height and the number of stems can be measured relatively easy, at least, compared to the drag coefficient. In the last decade, more and more measurements have been performed to define these values. Unfortunately, there is not a general overview of these values per species. :cite:t:`VargasLuna2015` can serve as a starting point. In the formulation in 3Di, it is generally OK to start with a drag coefficient set to 1. Depending on the data you have of the area, it allows a more detailed calibration and tuning to the local conditions. The other parameters can be derived from land use maps and ecological maps.
 
-Vegetation drag can only be used with friction type 'Chezy', because the vegetation formulation (initially introduced by Baptist 2005) uses Chezy.
+Vegetation drag can only be used with friction type *Chézy*, because the vegetation formulation (initially introduced by Baptist 2005) uses Chézy.
 
 Example: Biesbosch
 ------------------
-To illustrate how vegetation drag parameters can be chosen for your use case, we will take the Biesbosch as an example. The Biesbosch is an estuary in the west of the Netherlands, near Rotterdam. A vegetation map is available from the Dutch national water management authority Rijkswaterstaat, see their `viewer < https://maps.rijkswaterstaat.nl/geoweb55/index.html?viewer=Vegetatielegger>`. This data can be added to your 3Di Modeller Interface project as an ArcGIS REST service, using this link: https://geo.rijkswaterstaat.nl/arcgis/rest/services/GDR/rws_vegetatielegger/FeatureServer .
+To illustrate how vegetation drag parameters can be chosen for your use case, we will take the Biesbosch as an example. The Biesbosch is an estuary in the west of the Netherlands, near Rotterdam. A vegetation map is available from the Dutch national water management authority Rijkswaterstaat, see their `viewer <https://geoweb.rijkswaterstaat.nl/ModuleViewer/?app=988a774e44ba4a3084e721d95c4b49a5>`_. This data can be added to your 3Di Modeller Interface project as an ArcGIS REST service, using this link: https://geo.rijkswaterstaat.nl/arcgis/rest/services/GDR/rws_vegetatielegger/FeatureServer .
 
 .. figure:: image/a_vegetation_data_example_biesbosch.png
     :scale: 80%
 
     Vegation map of the Biesbosch (Rijkswaterstaat vegetatielegger viewer).
 
-The vegetation dataset has nine classes. An explanation of these classes is given in the `Beeldenboek vegetatiebeheer grote rivieren <https://open.rws.nl/overige-publicaties/2020/beeldenboek-vegetatiebeheer-grote/>`. Based in this information, we can make an educated guess for the vegetation parameters for these classes, summarized in this table:
+The vegetation dataset has nine classes. An explanation of these classes is given in the `Beeldenboek vegetatiebeheer grote rivieren <https://open.rws.nl/overige-publicaties/2020/beeldenboek-vegetatiebeheer-grote/>`_. Based in this information, we can make an educated guess for the vegetation parameters for these classes, summarized in this table:
 
 .. list-table:: Educated guesses for vegetation parameters for the vegetation classes in the Biesbosch example dataset
    :widths: 20 30 10 10 15 20

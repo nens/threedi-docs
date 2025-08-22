@@ -2,8 +2,71 @@
 
 3Di Live
 --------
+
+October 22, 2024
+^^^^^^^^^^^^^^^^
+
+We have released a new version of 3Di Live. There is one new feature:
+
+- Cross-sections are now visualised in a graph under *Details* (#454, #2082)
+
+The release also includes several minor improvements and bugfixes:
+
+- Rain is now shown in mm/h in graph, instead of m/s (#1863)
+- Some improvements have been made in how node details are shown (#1876)
+- Show pumpstation line + put pumpstation symbol at start node (#446, #1940, #1956)
+- Some improvements where made to the labels that are shown when hovering over a graph (#1875)
+- Performance improvements (mainly for large models) (#1786)
+- Bugfix: Side view visualisation with groundwater was often wrong #1885
+- Bugfix: DEM edit confirm button was not shown when Side view tool was active (#1971)
+- Bugfix: Some sewerage types were not visible (#2085)
+- Bugfix: 2D flow was not visualised in cells where the flow was negative in X and Y directions (#2083)
+- Bugfix: Throttling issues would sometimes occur due to a too large number of requests for permissions (#1907)
+
+
+July 11th, 2024
+^^^^^^^^^^^^^^^
+
+Several changes have been made to improve the performance of 3Di Live:
+
+- Line elements (e.g. channels, obstacles, etc.) are simplified before rendering
+ 
+- Improved efficiency in rendering 2D flow, especially when panning around the model domain.
+
+- No longer use a javascript worker, because this decreased the lag.
+
+- When 2D flow or the DEM are switched off, the rendering was still done (just not shown), therefore putting strain on the GPU. Now, when these options are not used, the entire rendering is skipped. 
+
+- Limit the width of the 1D flow visualisation to 100 m if no maximum cross-sectional width is available. This also strongly improves the general performance of 3Di Live for specific 3Di models. 
+
+
+.. _release_notes_3di_live_20240605:
+
+June 5th, 2024
+^^^^^^^^^^^^^^
+
+- Improved interpolation of 2D flow visualisation between cells (#1594)
+
+- Improve 3Di Live performance of 2D flow visualisation by reducing the redrawing frequency (#1686)
+
+- Show exchange level in Breaches details (#1673)
+
+- The UI for the visualisation of 1D and 2D flow has been improved:
+
+    - It has been made clearer which elements are visible/invisible on the map (#1759)
+
+    - For the 1D flow/2D flow settings, the "down arrow" has been replaced with a "settings" icon (#1761)
+
+- File 2D laterals in the simulation template are now also visible on the map in 3Di Live, similar to non-file 2D laterals (#1757)
+
+- Bugfix: "Billing goes to" dropdown was very slow sometimes (#1785)
+
+- Bugfix: opening breaches in 3Di Live did not work for 3Di models generated after May 30th. This has been fixed now (#1843)
+
+
 March 26th, 2024
 ^^^^^^^^^^^^^^^^
+
 - 2D flow is now visualised using traces. The visualisation of 2D flow is based on the flow velocity at the center of the computational grid cells. Note that it does not take into account intra-cell variation of flow velocity or direction. For this reason, you may see flow in dry parts of cells. (#1705, #1703, #1670, #1617, #1682, #1675, #1612, #1576, #1561, #440)
 
 - Hillshade and new colour map in for the DEM (#1671, #1707, #1681, #1677, #1616, #1577)
@@ -13,14 +76,14 @@ March 26th, 2024
 - 1D flow above 2 m/s (or other user-defined threshold) is highlighted (#1558)
 
 - Design of the layers panel has been simplified by putting the flow velocity settings (for 1D and 2D) in a drop-down menu (#1692)
-	
+
 - Visibility of assets, breaches and model grid is no longer dependent on zoom level (#1674, #1575)
 
 - Model flowlines are shown only when drawing flood barriers (#1521)
 
 - "Code" is now shown in asset details (#1683)
 
-- Some improvements in spelling & terminology have been made (#1559)	
+- Some improvements in spelling & terminology have been made (#1559)
 
 - Technical change: 3Di Live now uses deck.gl instead of Leaflet (#1562)
 

@@ -98,7 +98,7 @@ Table of contents
    a_releasenotes_computational_core
    a_releasenotes_3di_api
 
-.. toctree::	
+.. toctree::
    :maxdepth: 1
    :caption: Literature
    :name: Literature

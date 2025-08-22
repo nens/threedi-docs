@@ -6,14 +6,13 @@ Install and update manual
 .. note::
 
     Are you running into problems when downloading or updating the software? Please consult the :ref:`problem solving<problem_solving_3di_mi>` section. If the error and/or solution is not mentioned, please contact our :ref:`servicedesk`
-	
 
 .. _MI_installation:
 
 Installing the 3Di Modeller Interface
 ---------------------------------------
 
-To install the 3Di Modeller Interface, download the and execute the `3Di Modeller Interface Installer <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.34.4-1-2-Setup-x86_64.exe>`_
+To install the 3Di Modeller Interface, download the and execute the `3Di Modeller Interface Installer 3.40.6 installer <https://docs.3di.live/modeller-interface-downloads/3DiModellerInterface-OSGeo4W-3.40.6-1-3-Setup-x86_64.exe>`_
 
 
 .. _setting_up_models_and_simulations:
@@ -62,30 +61,31 @@ The 3Di Modeller Interface consists of two parts: QGIS and 3Di plugins. Each of 
 The :ref:`mi_3di_plugins` can be updated in the following way:
 
 #) Start the 3Di Modeller Interface
-#) If any schematisation is loaded, click *Save to Spatialite* and then *Remove 3Di model*
+#) If any schematisation is loaded, remove them before proceeding
 #) In the main menu click *Plugins* > *Manage and Install plugins*
 #) At the left side, click *Installed*
 #) Plugins that can be updated are shown in **bold**
-#) Click the plugin name. At the bottom right, click *Upgrade plugin*
-#) Updating the 3Di Results Analysis plugin requires a restart of the 3Di Modeller Interface. Do this when prompted.
-#) Do **not** use *Open 3Di GeoPackage* the first time you load your schematisation after having upgraded all 3Di plugins. Use *Load from Spatialite* instead.
-
-.. note:
-   If you update a 3Di plugin, make sure to update all at once.
    
+   .. note::
+       If you update, always update *all* 3Di plugins that have updates available at the same time.
+       
+#) Click the plugin name. At the bottom right, click *Upgrade plugin*
+#) If you are asked to install or update the Nelen & Schuurmans Dependency Loader, please do so.
+#) Updating the Nelen & Schuurmans Dependency Loader requires a restart of the 3Di Modeller Interface. Do this when prompted, and also when you get a Python error during installation.
+
 Advanced: separate installation of QGIS and 3Di plugins
 -------------------------------------------------------
 
-You can also install QGIS separately with the appropriate plugins. We only recommend this if you have specific reasons for this. Do the following:
+You can also install QGIS separately with the appropriate plugins. This is not recommended. Do this only if you have specific reasons for it, and you know what you are doing. Do the following:
 
 * QGIS Standalone Installer (Long term release). `Get QGIS <http://www.qgis.org/en/site/forusers/download.html#>`_ . 
 
     After the installation of QGIS, set the interface language and locale to American English. This makes it easier to understand the instructions in this documentation. Some locales do not support scientific notations of numbers, these are required for very small numbers (e.g. 1e-09).
-
+    
     * Go to Settings > Options > General
     * Tick the box 'Override System Locale'
     * For User Interface Translation, choose 'American English'
-    * For Locale, choose 'English UnitedStates (en_US)'
+    * For Locale, choose 'English United Kingdom (en_GB)'
     * Restart QGIS
 
 .. note:
@@ -98,8 +98,7 @@ You can also install QGIS separately with the appropriate plugins. We only recom
 
 * Install the 3Di plugins: in the tab *All*, install the :ref:`mi_3di_plugins`. Restart QGIS when prompted.
 
-* Enable macros
-    * Make sure that *Enable macros* is set to *Always* in Settings > Options > General > Project files. 
+* Enable project's embedded Python code: Make sure that this is set to *Always* in Settings > Options > General > Project files. 
 
 .. note: 
     On Linux/OSX: install the following system dependencies: `python3-h5py python3-scipy python3-pyqt5.qtwebsockets`

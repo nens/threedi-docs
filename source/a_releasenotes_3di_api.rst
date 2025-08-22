@@ -3,6 +3,215 @@
 3Di API
 -------
 
+June 10th, 2025
+^^^^^^^^^^^^^^
+
+- Cloud-optimized geotiffs (COGs) are now always converted to Float32, to prevent issues with downstream packages that cannot handle Float64 rasters .
+- Initial 1D concentration now accepts both 'value' and 'values' as key in the data JSON (threedi-api #2470)
+- Automatically generate unique schematisation slug (threedi-api #2477)
+- Bugfix: Output results_3di.nc files could not be visualised as flow velocity when opening them as mesh in QGIS. This has been fixed now. (threedi-api #909)
+- Bugfix: Embedded connection node connected to channel created 1D2D connection while it should not (threedigrid-builder #423)
+- Bugfix: Migration failed when v2_surface_parameters with id 101 - 115 already exist (threedi-schema #229)
+- Bugfix: Gridbuilder now gives a clear and specific error if groundwater exchange is attempted where there is no DEM (#422)
+
+
+May 1st, 2025
+^^^^^^^^^^^^^
+
+- Bugfix for api client RESTResponse not containing a reason field
+
+
+April 30th, 2025
+^^^^^^^^^^^^^^^^
+
+- New administration for lateral forcings and substance events to make it possible to use substances in dry weather flow (threedi-api#2393, #2394, threedi-api#2384)
+- In water quality simulations, rain zones can be defined to add substance concentrations to rain that falls in specific zones (threedi-api#2372)
+- Bugfix: action tables as created by the 3Di Schematisation Editor are now correctly parsed
+- Bugfix: there was a bug in the conversion of time units in the schematisation to the simulation template for laterals and boundary conditions (threedi-api#2456)
+- Bugfix: simulation template generator would give an error when initial conditions table has no rows (threedi-api#2464)
+
+Database schema
+"""""""""""""""
+
+- Spatialites are deleted after conversion to geopackage if there are no errors or warnings during the migration.
+- Sewerage type can now have any integer value
+- Bugfix: Several fixes in progress tracking during migrations (these fixes were already included in the 3Di Modeller Interface)
+- Bugfix: some old index tables would not be deleted during migration, this has been fixed now
+
+Grid builder
+""""""""""""
+
+- Make compatible with GDAL 3.10 (threedigrid-builder#415)
+
+Schematisation checker
+""""""""""""""""""""""
+
+- Bugfix: Schematisation checker would stop at 95% for some schematisations (threedi-modelchecker#454)
+- Bugfix: Schematisation checker no longer gives Python error when it encounters an empty cross_section_table
+- Add check if grid level is NULL in *Grid refinement area* or *Grid refinement line* (#459)
+- Bugfix: When *Use structure control* is set to *True*, *Table control* and *Memory control* cannot both be empty. The bug was that if one of them was empty and the other one not, a warning was still given. 
+- Add check (1207) for valid values for time units in boundary conditions and laterals.
+- Add exporter that includes geometries
+- Remove warning level override for old enum checks.
+- Bugfix: cross-section checks no longer break when shape is NULL (this fix was already included in the 3Di Modeller Interface)
+- Removed checks: 28, 186, 1601, 1602, 1603 (this was already included in the 3Di Modeller Interface)
+- Checks 95, 96, 97 are not only run for channels (this was already included in the 3Di Modeller Interface)
+- Some textual improvements (this was already included in the 3Di Modeller Interface)
+
+February 24th, 2025
+^^^^^^^^^^^^^^^^^^^
+
+- Threedi-schema from 0.227 to 0.300
+
+- Option to include DWF distribution from sqlite
+
+- Modelchecker from 2.14.1 to 2.17.3
+
+- Calccore from 3.5.4 to 3.6.4
+
+
+November 18, 2024
+^^^^^^^^^^^^^^^^^
+
+- Some internal functionalities were added allowing Rana to add users and create/revoke Personal API Keys
+
+- Restrict substance units to ASCII characters (#2343)
+
+- Bugfix: Starting simulation from the 3Di Modeller Interface with the option to upload a local raster as 2D initial concentration raster would give the error "Failed to process Initial Concentration raster". This has now been fixed by including an internal wait time for concentration file uploads in the API (#2256) 
+
+- Bugfix: in the *settings* migration for database schema 300, the raster paths for vegetation_drag_2d were not stripped of 'rasters/' (threedi-schema#131)
+
+October 23, 2024
+^^^^^^^^^^^^^^^^
+
+Database schema 300
+"""""""""""""""""""
+
+In the database schema, some additional changes were made to structure control:
+
+- Use *Measure variable* from *Control measure location* instead of from *Memory control* or *Table control* (threedi-api#2322)
+
+- Check if all measure locations that are mapped to the same *Table control* or *Memory control* have the same *Measure variable* (threedi-modelchecker#395)
+
+- Remove *Measure variable* from *Memory control* and *Table control*; this should be specified at the *Measure location* (nens/threedi-schema#97)
+
+Bugfixes and minor improvements
+"""""""""""""""""""""""""""""""
+
+Several bugfixes and improvements were made:
+
+- Improvements in "simulation crashed" email (threedi-api#2331)
+
+- The available historical and radar rain services were recently made configurable per organisation; it is now possible to set a list of services for each, instead of only one (threedi-api#2353)
+
+- Bugfix: Fix 1D initial substance concentration bug (threedi-api#2347)
+
+- Bugfix: YZ cross-sections are not processed correctly if they have an irregular shape (threedigrid-builder#383)
+
+- Bugfix: Some settings were not migrated correctly if the original spatialite still was a Spatialite 3 file instead of Spatialite 4 (threedi-schema#121)
+
+- Bugfix: Structure control type could not be validated succesfully (threedi-api#2354)
+
+- Bugfix: Bulk forcing does not take file offset into account (threedi-api#2351)
+
+
+
+
+October 10, 2024
+^^^^^^^^^^^^^^^^
+
+More control over output files
+""""""""""""""""""""""""""""""
+
+- A new output file type has been introduced, *Customized results*. Like the *results_3di.nc* and *water_quality_results_3di.nc*, this file contains snapshots at each output time step. The advantage is that you can customize what is written to this file: limit the results to a specific area of interest, and/or to a subset of flow variables. This allows you to output e.g. water levels at the location of a stage gauging station at a very high temporal resolution, while keeping the output files small. Customized result files are available for both hydrodynamic and water quality results (threedi-api#2198, threedi-api#2199, nens/threedigrid#237).
+
+- A new category of simulation settings has been introduced: output settings (both for hydrodynamic and water quality outputs. This includes:
+
+    - On/off switch for creating the results_3di.nc file (i.e. if you only want customized_results_3di.nc)
+
+    - On/off switch for creating the water_quality_results_3di.nc file (i.e. if you only want customized_water_quality_results_3di.nc)
+    - Start time and end time for the results_3di.nc and customized_results_3di.nc files, for if you are only interested in a specific temporal part of your hydrodynamic simulation results
+
+    - Start time and end time for the water_quality_results_3di.nc and customized_water_quality_results_3di.nc files, for if you are only interested in a specific temporal part of your water quality results
+
+    - Switching between single precision or double precision outputs for each results file.
+
+Database schema 300
+"""""""""""""""""""
+
+We continue to work on :ref:`schema_300`. Two additional migrations are now in use on the 3Di server. When a 3Di model is generated from a schematisation, the spatialite is first migrated to the latest schema version. Additional parts of the database schema that are migrated to the new database schema are from this release onwards are:
+
+- 2D & 1D2D. This encompasses the obstacles, grid refinement (lines and areas), dem average areas, exchange lines, and potential breaches (nens/threedi-schema#73, nens/threedigrid-builder#375, nens/threedi-modelchecker#387, nens/threedi-api#2279, nens/threedi-schema#108).
+
+- Boundary conditions (1D and 2D) and Laterals (1D and 2D) (nens/threedi-schema#69, nens/threedi-modelchecker#381, nens/threedigrid-builder#371, nens/threedi-api#2262, nens/threedi-schema#106)
+
+Some bugfixes on the previously released schema migrations have also been released:
+
+- Bugfix: Control measure map geometry was reversed (nens/threedi-schema#96)
+
+- Bugfix: Ensure dry_weather_flow_map.geom and surface_map.geom are valid, also in special cases. This fixed situations where the error "dry_weather_flow_map.geom is an invalid geometry" was given (nens/threedi-schema#102)
+
+- Bugfix: Warning instead of error for schematisations that have structure controls that reference non-existing connection nodes (#91)
+
+- Bugfix: Prevent migrations to fail if the spatialite contains user-created tables named "temp" or having the same name of one of the new tables created in the migration (nens/threedi-schema#93, nens/threedi-schema#95)
+
+Other changes
+"""""""""""""
+
+- Support for setting the diffusion parameter for substances has been added to the API (#2253)
+
+- Support for the two new 1D advection types (see :ref:`1d_advection`) has been implemented in the API (#2289) and in the database schema (threedi-schema#84)
+
+
+September 11, 2024
+^^^^^^^^^^^^^^^^^^
+
+Database schema 300
+"""""""""""""""""""
+
+The first migrations to :ref:`schema_300` are now in use on the 3Di server. When a 3Di model is generated from a schematisation, the spatialite is first migrated to the latest schema version. Parts of the database schema that are, from this release onwards, migrated to the new database schema are:
+
+- Settings (threedi-schema#75, threedi-schema#81, threedi-schema#79, threedi-modelchecker#363, threedi-api#2168, threedigrid-builder#355)
+
+- Inflow (threedi-schema#65, threedi-api#2228, threedigrid-builder#362)
+
+- Structure control (threedi-schema#70, threedi-modelchecker#382, threedi-modelchecker#385, threedigrid-builder#373, threedi-api#2263)
+
+Other changes
+"""""""""""""
+
+- Access to historical and forecast rain radar services can now be configured on organisation level (by the service desk) (#2244)
+
+- Multiple 3Di accounts can now be coupled to the same Lizard account (Scenario archive) by the service desk #2203
+
+- Tags can now be added to schematisation revisions (#1948)
+
+- Bugfix: Substance concentrations were connected to DWF laterals while forcing only added substance to 2D lateral (#2243)
+
+- Bugfix: Substance concentration was only added to one boundary condition, even when user specified it should be added to multiple boundary conditions (#2242)
+
+- Bugfix: DEM en water depth maps in 3Di Live are now visualised correctly also when the DEM nodata value is not -9999 (#2257)
+
+- Bugfix: NetCDF forcings with long projection strings are now also accepted
+
+
+.. _release_notes_3di_api_20240530:
+
+May 30, 2024
+^^^^^^^^^^^^
+- Implement substance decay (threedi-api #2150)
+
+- Add a *started_from* property to simulations to indicate which user interface started the simulation (3Di Live or 3Di Modeller Interface) (threedi-api #1328)
+
+- Add units to substances (threedi-api #2085, threedigrid #223)
+
+- Add linestring geometry to pumps in geojson (threed-api #1955)
+
+- Bugfix: Assymmetric YZ profiles were not processed correctly (threedigrid #228)
+
+- Bugfix: Simulation with multiple substances no longer crashes (threedi-api #2223)
+
+
 April 29, 2024
 ^^^^^^^^^^^^^^
 
@@ -29,7 +238,7 @@ April 29, 2024
 
 
 March 18, 2024
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 - Add water quality settings and substance settings.
 
@@ -42,7 +251,7 @@ March 18, 2024
 - Change bulk lateral creation to reduce memory usage (#2129)
 
 - Bugfix: initial substance concentrations were not always passed to the computational core correctly
-	
+
 February 2, 2024
 ^^^^^^^^^^^^^^^^
 
@@ -290,9 +499,9 @@ February 2022 (Klondike)
 
 - If the direction of a channel/pipe/culvert geometry is reversed compared to the “connection_node_start” and “connection_node_end”, then this is now fixed automatically.
 
-- The calculation type of culverts is not ignored anymore.
+- The exchange type of culverts is not ignored anymore.
 
-- For calculation nodes on channels with connected calculation type, the cross section will be used until the surface level of the DEM. This will give differences for channels with connected calculation type in case the cross section is below the surface level.
+- For calculation nodes on channels with connected exchange type, the cross section will be used until the surface level of the DEM. This will give differences for channels with connected exchange type in case the cross section is below the surface level.
 
 
 **Cross section definitions**

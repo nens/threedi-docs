@@ -127,15 +127,16 @@ If a new user needs access to 3Di from the organisation, this can be granted by 
 #. Click `+ NEW USER` at the top right of the screen.
 #. Type the user's email in the 'email' field
 
-	.. figure:: /image/m_threedi_uitnodiging_rechten.png
-		:scale: 50%
-		:alt: Invitation screen for new users of 3Di. Enter an email and select the roles for the new user.
+    .. figure:: /image/m_threedi_uitnodiging_rechten.png
+        :scale: 50%
+        :alt: Invitation screen for new users of 3Di. Enter an email and select the roles for the new user.
 
-		The invitation screen for new users. You select the roles by clicking on them.
+        The invitation screen for new users. You select the roles by clicking on them.
 
 #. Select the roles the user will have (see :ref:`roles`)
 #. Click *SAVE*.
-#. Success! The invitation has been sent and will be in the new user's mailbox within 5 minutes. An existing user can use the invitation link to accept the invitation. 
+#. Success! The invitation has been sent and will be in the new user's mailbox within 5 minutes. An existing user can use the invitation link to accept the invitation.
+ 
 A new user can create an account by using the :ref:`a_singing_up` guide. When accepted, the user will appear in the *User Management* overview.
 
 .. tip:: Clicking 🛈 will also show you an overview of the roles and the rights associated with them.
@@ -168,10 +169,11 @@ Removing users
 You can remove a user from your organisation by removing all the user's roles. 
 This will not delete the account of the user, but just revoke that user's right to your organisation. If you want to entirely deactivate a user's account, contact the :ref:`servicedesk`.
 
-You cannot revoke your own *Manager* role.	
+You cannot revoke your own *Manager* role.
 
 
 .. _roles:
+
 User roles
 ----------
 

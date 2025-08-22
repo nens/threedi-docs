@@ -7,10 +7,10 @@ Running the tool produces temporary layers. If you want to save the output expor
 
 
 .. |resultsaggregationtoolbar| image:: image/i_3di_results_analysis_toolbar_aggregation.png
-	:scale: 25%
-	
+    :scale: 25%
+    
 .. |savescratchlayer| image:: image/pictogram_save_scratch_layer.png
-	
+    
 Options
 ^^^^^^^
 **Inputs**
@@ -24,15 +24,15 @@ Options
 - *Flow pattern* generates a flow pattern map. The aggregation calculates total outflow per node in x and y-directions, resampled to grid_space. In the styling that is applied, the shade of blue and the rotation of the arrows are based on the resultant of these two.
 - *Timestep reduction analysis* calculates the percentage of time that the flow through each flowline limits the calculation timestep to below 1, 3 or 5 seconds. The styling highlights the flowlines that have a timestep of:
 
-	- < 1 second 10% of the time and/or
-	- < 3 seconds 50% of the time and/or
-	- < 5 seconds 80% of the time
-- *Water on street duration (0D1D)* calculates the time [s] that the water level in manholes exceeds the *drain level*. In 3Di models without 2D, this is the level at which water flows onto the street (i.e., where the storage area changes from what is specified at the connection node to what is specified as manhole storage area in the global settings). See also :ref:`manhole_notes_for_modellers`.
+    - < 1 second 10% of the time and/or
+    - < 3 seconds 50% of the time and/or
+    - < 5 seconds 80% of the time
+- *Water on street duration (0D1D)* calculates the time [s] that the water level in manholes exceeds the *drain level*. In 3Di models without 2D, this is the level at which water flows onto the street (i.e., where the storage area changes from what is specified at the connection node to what is specified as manhole storage area in the global settings). See also :ref:`notes_for_modellers_connection_nodes`.
 
 .. note:
     Do not use this preset for 3Di models with 2D. In such models, the drain level defined at the manhole is not always the level at which water flows onto the street. If this drain level is lower than the bottom level (lowest pixel) of the 2D cell the manhole is in, the water must rise until the 2D cell's bottom level is reached before it can flow onto the street.
 
-- *Water on street duration (1D2D)* calculates the time [s] that the water level in manholes exceeds the *1D2D exchange level*. In 3Di models with 2D, this is the level at which water flows onto the street. The exchange level is the maximum of two values: the drain level specified for the manhole, or the bottom level (lowest pixel) of the 2D cell the manhole is in. See also :ref:`manhole_notes_for_modellers`.
+- *Water on street duration (1D2D)* calculates the time [s] that the water level in manholes exceeds the *1D2D exchange level*. In 3Di models with 2D, this is the level at which water flows onto the street. The exchange level is the maximum of two values: the drain level specified for the manhole, or the bottom level (lowest pixel) of the 2D cell the manhole is in. See also :ref:`notes_for_modellers_connection_nodes`.
 
 .. note: 
     Manholes that have no connection to the 2D domain do not have an exchange level; the 'water on street duration' is always 0 for these manholes.
@@ -49,62 +49,62 @@ Options
 
 - *Variables*: Select the desired variable from the drop-down menu. If you've select a Preset in the Input-tab the required variables are automatically added.
 
-	- Flowline: Discharge
-	- Flowline: Velocity
-	- Flowline: Wet cross-sectional area
-	- Flowline: Discharge in interflow layer
-	- Flowline: Velocity in interflow layer
-	- Flowline: Max. possible timestep
-	- Flowline: Water level gradient
-	- Flowline: Bed level gradient
-	- Flowline: Water level at cross-section
-	- Node: Water level
-	- Node: Volume	
-	- Node: Rain intensity
-	- Node: Rain depth
-	- Node: Infiltration rate
-	- Node: Infiltration rate per m\ :sup:`2`
-	- Node: Wet surface area
-	- Node: Flow velocity at cell center
-	- Node: Flow velocity in x-direction at cell center
-	- Node: Flow velocity in y-direction at cell center
-	- Node: Lateral discharge
-	- Node: Lateral discharge per m\ :sup:`2`
-	- Node: Intercepted volume
-	- Node: Intercepted volume per m\ :sup:`2`
-	- Node: Surface sources and sinks discharge
-	- Node: Surface sources and sinks discharge per m\ :sup:`2`
-	- Node: Node inflow in x-direction
-	- Node: Node inflow in x-direction per m\ :sup:`2`
-	- Node: Node inflow in y-direction
-	- Node: Node inflow in y-direction per m\ :sup:`2`
-	- Node: Node outflow in x-direction
-	- Node: Node outflow in x-direction per m\ :sup:`2`
-	- Node: Node outflow in y-direction
-	- Node: Node outflow in y-direction per m\ :sup:`2`
-	
+    - Flowline: Discharge
+    - Flowline: Velocity
+    - Flowline: Wet cross-sectional area
+    - Flowline: Discharge in interflow layer
+    - Flowline: Velocity in interflow layer
+    - Flowline: Max. possible timestep
+    - Flowline: Water level gradient
+    - Flowline: Bed level gradient
+    - Flowline: Water level at cross-section
+    - Node: Water level
+    - Node: Volume
+    - Node: Rain intensity
+    - Node: Rain depth
+    - Node: Infiltration rate
+    - Node: Infiltration rate per m\ :sup:`2`
+    - Node: Wet surface area
+    - Node: Flow velocity at cell center
+    - Node: Flow velocity in x-direction at cell center
+    - Node: Flow velocity in y-direction at cell center
+    - Node: Lateral discharge
+    - Node: Lateral discharge per m\ :sup:`2`
+    - Node: Intercepted volume
+    - Node: Intercepted volume per m\ :sup:`2`
+    - Node: Surface sources and sinks discharge
+    - Node: Surface sources and sinks discharge per m\ :sup:`2`
+    - Node: Node inflow in x-direction
+    - Node: Node inflow in x-direction per m\ :sup:`2`
+    - Node: Node inflow in y-direction
+    - Node: Node inflow in y-direction per m\ :sup:`2`
+    - Node: Node outflow in x-direction
+    - Node: Node outflow in x-direction per m\ :sup:`2`
+    - Node: Node outflow in y-direction
+    - Node: Node outflow in y-direction per m\ :sup:`2`
+    
 - *Direction*: Select the desired direction for the analysis, choosing from: net, positive, negative or absolute. For some variables this is greyed out (e.g. Node: Water level).
 
 - *Method*: Select the required aggregation method:
 
-	- Sum: cumulative value over all timesteps
-	- Max: maximum value over all timesteps
-	- Time to max: the time it takes to reach the maximum value
-	- Min: minimum value over all timesteps
-	- Mean: mean value over all timesteps
-	- Median: median value over all timesteps
-	- First: First value
-	- First non-empty: first actual value. When a node is dry, it has the value NULL. When a node receives water, this changes and become the first non-empty value.
-	- Last: Last value
-	- Last non-empty: last actual value. When a node/flowline is dry, it has the value NULL. When a node/flowline receives water, this changes. The last non-empty value is the last value in a node or flowline with any non-NULL value.
-	- Percentage of time above threshold: the percentage of time that a value is above the defined threshold.
-	- Percentage of time below threshold: the percentage of time that a value is below the defined threshold.
-	- Time above threshold: the time that a value is above the defined threshold.
+    - Sum: cumulative value over all timesteps
+    - Max: maximum value over all timesteps
+    - Time to max: the time it takes to reach the maximum value
+    - Min: minimum value over all timesteps
+    - Mean: mean value over all timesteps
+    - Median: median value over all timesteps
+    - First: First value
+    - First non-empty: first actual value. When a node is dry, it has the value NULL. When a node receives water, this changes and become the first non-empty value.
+    - Last: Last value
+    - Last non-empty: last actual value. When a node/flowline is dry, it has the value NULL. When a node/flowline receives water, this changes. The last non-empty value is the last value in a node or flowline with any non-NULL value.
+    - Percentage of time above threshold: the percentage of time that a value is above the defined threshold.
+    - Percentage of time below threshold: the percentage of time that a value is below the defined threshold.
+    - Time above threshold: the time that a value is above the defined threshold.
 
 - *Threshold*: Determine the threshold that is taken into account with the aggregation that used a threshold.
 
 - *Units*: The units that correspond to the selected variable and associated aggregation method are automatically updated.
-	
+    
 With the '+' and '-' buttons at the top right, you can add or remove variables.
 
 **Outputs and styling**

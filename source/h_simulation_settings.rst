@@ -40,11 +40,24 @@ Maximum number of non linear iterations (max_nonlin_iterations) is the number th
 
 Nested newton iterations are needed in case profiles in 1D are narrowing with height. Mathematically, in case d^2V/d\zeta^2<0. This occurs, for example, a lot in sewerage systems. For these cases, the Newton iteration method does not guarantee a solution, so the system is split in two systems that do guarantee a solution. In case 3Di cannot find a solution it will always try, whether it can find a solution using the nested Newton method. However, in case one has an application that consists of many of these profiles it is faster to tel the system that it should always used the nested Newton method (use_of_nested_newton).
 
-Maximum Degree
-""""""""""""""
-[max_degree](no default)
+.. _max_degree_gauss_seidel:
 
-One of the methods to solve a matrix is by Gauss-Jordan elimination, substitution. Depending on the type of network, either 1D, 2D or 1D with many bifurcations or combination of those, this method is very efficient or not. It is also possible to solve parts of the system using this method and others with the other method. The efficiency of the solver depends on the network. For 1D simulations this is a very efficient solver, for 2D simulations it is less so.
+Max degree Gauss-Seidel
+"""""""""""""""""""""""
+[max_degree_gauss_seidel](no default)
+
+One of the methods used by the computational core to solve matrix equations is the Gauss-Seidel method. This method is efficient for systems with limited connections, for example 1D-dominated models, but less efficient for systems with lots of bifurcations, for example 2D-dominated models. A higher value will allow the computational core more iterations to reach convergence.
+
+Values below are advised for different model types:
+- 5 for surface 2D flow only
+- 7 for 2D and 1D flow
+- 7 for surface and groundwater flow
+- 70 (or higher) for 1D, 2D surface and groundwater flow
+- 700 for 1D flow
+
+The optimal value for this depends on the characteristics of the model. In some cases, it can significantly improve the simulation speed. Try out different values to find the best value for your application. You may try to double or halve the recommended values. Some examples:
+- Models with groundwater flow: try out higher and lower values than the recommended values
+- 1D-2D models: if they are dominated by 1D (i.e., a large part of the flow is through 1D), a higher value may significantly speed up the simulation.
 
 Conjugate gradient method
 """""""""""""""""""""""""
@@ -121,7 +134,7 @@ Limiter for cross-sectional area
 
 *limiter_slope_crossectional_area_2d = 0 (default)*
 
-The :ref:`subgridmethod` assumes that the variation in water levels is much more gradual than variations in bottom elevation or bathymetry. Within a computational cell, the water level is assumed uniform, while the bottom elevation is allowed to vary. This assumption is not valid in sloping areas where water flowss down the slope as sheet flow. In such situations, the spatial variation of the water level has the same length scales as the bottom elevation. The uniform water level assumption can lead to overestimating the wet cross-sectional area at a computational cell edge and an underestimation of the friction. This would lead to an overestimation of the discharge. Therefore, 3Di uses limiters to correct the computed cross-sectional areas and the friction. These limiters are based on the sheet flow concept; in these sloping areas, it is assumed that the water *depth* is uniform within a flow domain instead assuming the water *level* to be uniform. The way this uniform water depth is calculated, depends on the limiter type that is chosen:
+The :ref:`subgridmethod` assumes that the variation in water levels is much more gradual than variations in bottom elevation or bathymetry. Within a computational cell, the water level is assumed uniform, while the bottom elevation is allowed to vary. This assumption is not valid in sloping areas where water flows down the slope as sheet flow. In such situations, the spatial variation of the water level has the same length scales as the bottom elevation. The uniform water level assumption can lead to overestimating the wet cross-sectional area at a computational cell edge and an underestimation of the friction. This would lead to an overestimation of the discharge. Therefore, 3Di uses limiters to correct the computed cross-sectional areas and the friction. These limiters are based on the sheet flow concept; in these sloping areas, it is assumed that the water *depth* is uniform within a flow domain instead assuming the water *level* to be uniform. The way this uniform water depth is calculated, depends on the limiter type that is chosen:
 
 .. figure:: image/nolimiter.png
    :figwidth: 1000 px

@@ -1,3 +1,5 @@
+.. _threedi_live_toc:
+
 3Di Live
 ===============
 

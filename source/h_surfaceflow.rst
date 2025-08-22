@@ -3,12 +3,17 @@
 2D Surface flow
 ===============
 
-
 The 2D surface flow is based on the 2D depth-averaged shallow water equations. These equations are based on the conservation of momentum. 3Di considers the various processes; inertia, advection, pressure and friction for computing the horizontal flow.
 
 The methods that 3Di uses to deal with the flow in the 2D domain are thoroughly described and published in :cite:t:`Casulli2009`, :cite:t:`Casulli2011`, :cite:t:`Stelling2015`, and :cite:t:`Volp2013`.
 
- .. TODO: Extend
+- :ref:`surface_flow_cross_sections`
+- :ref:`obstacles`
+- :ref:`friction_2d_domain`
+- :ref:`water_level_gradients`
+- :ref:`sloping_terrain`
+- :ref:`flow_with_vegetation`
+
 
 .. _surface_flow_cross_sections:
 
@@ -50,10 +55,14 @@ If the model wishes to include an obstacle that may not be detected by the compu
 
    In sub-figure (A) the flow can freely flow from left to right as the blocking features are not on the cell edges. Sub-figure (B) shows the effect of the obstacle: it affects the exchange level of the nearest cell edge.
 
-Friction
---------
+.. _friction_2d_domain:
+
+Friction in the 2D domain
+-------------------------
 
 In the 2D domain, the friction is calculated using the flow depth at each :ref:`subgrid <subgridmethod>` pixel in the :ref:`momentum domain<computational_grid_2d_domain>`. The formulations of Chézy or Manning can be used for the calculation of friction.
+
+.. _water_level_gradients:
 
 Water level gradients
 ---------------------
@@ -61,6 +70,8 @@ Water level gradients
 On flat terrain without steep steps or jumps in elevation, the water level gradient is simply determined by the difference in water level over the x-axis or y-axis distance between the cell centers.
 
 If there are steep steps in the terrain, a :ref:`limiter_gradient` may be used to correctly calculate the water level gradient.
+
+.. _sloping_terrain:
 
 Sloping terrain
 ---------------
@@ -70,8 +81,8 @@ Calculating 2D flow on sloping terrain requires some special attention. If the d
 
 .. _flow_with_vegetation:
 
-Vegetation
-----------
+Vegetation in the 2D domain
+---------------------------
 
 Vegetation in a water course strongly affects the flow, as the vegetation exerts a *drag force* on the flowing water. In 3Di, this drag force can be calculated from the characteristics of the vegetation that is present in the water course.
 
@@ -112,7 +123,7 @@ Secondly, vegetation drag is larger when the representative vertical plane is la
 | :math:`C_{DV}` The vegetation drag coefficient 
 
 
-The final four parameters of the equation are all input parameters that are used for 2D flow with vegetation. These are described in detail in :ref:`vegetation_drag`. They can be defined as raster values and as global values. The parameters that describe the vegetation characteristics are defined at the subgrid resolution. The high resolution information is used in the computation of the drag in several ways. In the first place, to determine the correct vertical plane that enforces the drag, the vegetation height is combined with high resolution bathymetry information. This ensures that only the vegetation in the wet domain contributes to the force balance and that the correct vertical plane is defined. Moreover, knowing that the bathymetry and the drag significantly changes within a momentum domain, means that the velocity within such a domain varies as well. Based on this, an estimate is made of the high resolution velocity variation (similar to how this is implemented for bottom friction, see Volp et al. 2013. This formulation uses the vegetation characteristics, the bottom roughness and the bathymetry variations. This results in very accurate results, even when using coarse computational cells.
+The final four parameters of the equation are all input parameters that are used for 2D flow with vegetation. These are described in detail in :ref:`hp_2d_vegetation_drag`. They can be defined as raster values and as global values. The parameters that describe the vegetation characteristics are defined at the subgrid resolution. The high resolution information is used in the computation of the drag in several ways. In the first place, to determine the correct vertical plane that enforces the drag, the vegetation height is combined with high resolution bathymetry information. This ensures that only the vegetation in the wet domain contributes to the force balance and that the correct vertical plane is defined. Moreover, knowing that the bathymetry and the drag significantly changes within a momentum domain, means that the velocity within such a domain varies as well. Based on this, an estimate is made of the high resolution velocity variation (similar to how this is implemented for bottom friction, see Volp et al. 2013. This formulation uses the vegetation characteristics, the bottom roughness and the bathymetry variations. This results in very accurate results, even when using coarse computational cells.
 
 This formulation was deliberately chosen to be generally applicable to a large range of plant species, using a limited number of input parameters. It can be used for aquatic species, herbaceous species (grasses, grains, reeds), and woody species (shrubs and trees). The equation is applicable to both submerged and emergent vegetation, and transitions between these situations during the simulation. It does not apply not to free-floating plants.
 

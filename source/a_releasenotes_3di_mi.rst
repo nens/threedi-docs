@@ -2,6 +2,633 @@
 
 3Di Modeller Interface
 ----------------------
+June 16th, 2025
+^^^^^^^^^^^^^^^
+
+3Di Models & Simulations 3.21
+"""""""""""""""""""""""""""""
+
+- Allow other plugins to display a progress bar while downloading schematisations via the 3Di Models & Simulations plugin (nens/rana#1745)
+
+- Bugfix: Correctly sort *Expires* column in the *Download simulation results* dialog (#668)
+
+June 10th, 2025
+^^^^^^^^^^^^^^^
+
+3Di Models & Simulations 3.20
+"""""""""""""""""""""""""""""
+
+Some exciting new options are available for labelling flows: labelling dry weather flow and labelling rain according to the zone it falls in. As we are currently working on a re-implementation of the simulation wizard, these two options are temporarily provided via processing algorithms.
+
+- The simulation wizard now has the option to create a simulation template only, without starting the simulation (#680)
+
+- Two processing algorithms have been introduced for labelling dry weather flow (DWF) and labelling rain according to the zone in falls in. First create a simulation template that includes all the forcings and settings you want to use, than run one of these algorithms to add dry weather flow or label rain zones and start the simulation (#681, #682).
+
+
+
+3Di Results Analysis 3.19
+"""""""""""""""""""""""""
+
+- The schematisation checker now shows errors, warnings and info messages on the map instead of in a table (#1049)
+- Bugfix: Import GWSW HydX no longer fails when some pipes do not have a identificatieprofieldefinitie (hydxlib #53)
+
+
+3Di Schematisation Editor 2.3
+"""""""""""""""""""""""""""""
+
+- Since the introduction of database schema 300, pipes can have a polyline geometry. Changes have now been made to the 3Di Schematisation Editor to make it easier to add such pipes with more than two vertices to your schematisation (#342)\:
+
+    - When digitising (drawing) a new pipe feature, it is no longer cut up into multiple pipes
+    - When importing pipes using the vector data importer, the intermediate vertices are no longer removed 
+
+- A processing algorithm to add NWRW surface parameters to a schematisation was added (#333)
+- Bugfix: Changing Material back to what it was did not update the friction type and value (#345)
+- Bugfix: When loading a template in the vector data importers, all forms are cleared first (#286)
+- Bugfix: Value map for integer source attribute values are now saved and interpreted correctly (#279)
+- Bugfix: Processing algorithm *Map surfaces to connection nodes* now works correctly for surfaces that have centroids outside of their polygon (#396)
+- Bugfix: In specific cases, existing cross-section locations were (wrongly) removed when importing orifices (#378)
+
+
+May 20th, 2025
+^^^^^^^^^^^^^^
+
+3Di Schematisation Editor 2.2.2
+"""""""""""""""""""""""""""""""
+
+- Table control, memory control: dynamically change attribute form based on *Action type* (#381)
+- Bugfix: you can now import orifices and weirs from source data that has > 2 vertices. Note that only the first and last vertex will be used in the 3Di schematisation. (#382)
+- Bugfix: no longer give a Python error when identifying a channel that has no cross-section locations (#379)
+- Bugfix: correctly import overlapping structures when using the *Edit channels* option (#370)
+
+
+May 12th, 2025
+^^^^^^^^^^^^^^
+
+3Di Results Analysis 3.18
+"""""""""""""""""""""""""
+
+- The Fraction Analysis Tool is a new analytical tool for analysing water quality simulations, and understanding the composition of water at any location over time. (#1068)
+- Bugfix: In the *Result aggregation* tool, the preset *Flow pattern* did not work on models with groundwater (#1109)
+
+3Di Schematisation Editor 2.2.1
+"""""""""""""""""""""""""""""""
+
+- Bugfix: when importing vector data, input values are converted to target data types and the string "NULL" is interpreted as a `NULL` value. If the conversion to the target data type fails (e.g. the input for *Visualisation* is 'Manhole', which cannot be converted to the integer 0), the field will be left empty and a warning will be given to specify this (#364).
+- Bugfix: when importing structures into an existing channel network, a KeyError would be raised if the connection nodes are not exactly on the start or end vertex of the channel. This has been fixed now (#372)
+- Bugfix: the 3Di Schematisation Checker did not allow *Action value 2* of *Memory control* to be left empty, while this is allowed for most action types (#468)
+
+3Di Models & Simulations 3.18.1
+"""""""""""""""""""""""""""""""
+
+- Bugfix: correctly set *Calculation point distance 1D* in new schematisations
+
+
+May 7th, 2025
+^^^^^^^^^^^^^
+
+3Di Schematisation Editor 2.2.0
+"""""""""""""""""""""""""""""""
+
+- It is now possible to specify a total discharge for 2D boundary conditions, instead of specifying a discharge per flowline. This option is available for both surface water and groundwater.
+- Any warnings that are raised during the migration of a schematisation are now displayed
+- Removed python dependencies, added a plugin dependency for Nelen & Schuurmans Dependency Loader instead
+- Added new sewerage types for visualisation and administration purposes. Infiltration drain (8), Slot/trench drain (9), and Pressure sewer (10) (#332)
+- Bugfix: zooming to DEM extent when schematisation CRS differs from project CRS
+- Bugfix: when importing structures using the "edit channels" option, ID's would always start counting at 1, even when features were already present in the target layer.
+- Bugfix: When importing connection nodes using the vector data importers, the values for manhole surface level and bottom level were swapped. This has been fixed now.
+- Bugfix: id, code, display name labels did not work for line geometry layers
+
+3Di Results Analysis 3.17.0
+"""""""""""""""""""""""""""
+
+- Any warnings that are raised during the migration of a schematisation are now displayed
+- Added check for legacy geopackages generated by older versions of the schematisation editor.
+- Compatibility with GDAL>=3.9 (#1094).
+- Removed python dependencies, added a plugin dependency for Nelen & Schuurmans Dependency Loader instead
+- Bugfix: Correctly find DEM in processing algorithm "Computational grid from schematisation"
+
+3Di Models & Simulations 3.18.0
+"""""""""""""""""""""""""""""""
+
+- Removed python dependencies, added a plugin dependency for Nelen & Schuurmans Dependency Loader instead
+
+April 28th, 2025
+^^^^^^^^^^^^^^^^
+ 
+3Di Schematisation Editor 2.1.5
+"""""""""""""""""""""""""""""""
+
+- Bugfix: remove rounding to 3 decimals for *Max angle 1D advection*
+- Bugfix: *Calculation point distance* was not editable for Pipe features
+
+April 18th, 2025
+^^^^^^^^^^^^^^^^
+ 
+3Di Schematisation Editor 2.1.4
+"""""""""""""""""""""""""""""""
+
+- Make surface styling 25% transparent so that objects that are underneath can still be seen
+- Bugfix: write correct target type values to the database for memory and table control
+- Bugfix: integer attributes that could be set with a checkbox (such as *Use 2D rain* in *Model settings*) could not be edited
+- Bugfix: grid level was not editable for grid refinement layers
+
+April 14, 2025
+^^^^^^^^^^^^^^
+
+3Di Schematisation Editor 2.1.3
+"""""""""""""""""""""""""""""""
+
+- Removed "duplicate features", because it crashed QGIS when editing vertices (#359)
+- Added backwards compatibility to load a schematisation in QGIS 3.28. (#351)
+
+April 3rd, 2025
+^^^^^^^^^^^^^^^
+
+3Di Schematisation Editor 2.1.1
+"""""""""""""""""""""""""""""""
+
+- Added check for legacy geopackages generated by older versions of the schematisation editor.
+
+April 2nd, 2025
+^^^^^^^^^^^^^^^
+
+3Di Results Analysis 3.16.0
+"""""""""""""""""""""""""""
+
+- Bugfix: If there was a schematisation in the 3Di working directory that was corrupt or its database schema version could not be recognized, a Python error was given, making it impossible to load any schematisation. Now such corrupt schematisations are simply omitted from the list.
+
+3Di Schematisation Editor 2.1.0
+"""""""""""""""""""""""""""""""
+
+- Bugfix: If there was a schematisation in the 3Di working directory that was corrupt or its database schema version could not be recognized, a Python error was given, making it impossible to load any schematisation. Now such corrupt schematisations are simply omitted from the list.
+
+
+3Di Models & Simulations 3.17.0
+"""""""""""""""""""""""""""""""
+
+- Bugfix: If there was a schematisation in the 3Di working directory that was corrupt or its database schema version could not be recognized, a Python error was given, making it impossible to load any schematisation. Now such corrupt schematisations are simply omitted from the list.
+
+April 1st, 2025
+^^^^^^^^^^^^^^^
+
+3Di Schematisation Editor 2.0.0
+"""""""""""""""""""""""""""""""
+
+- Compatibility with database schema 300, see :ref:`schema_300`.
+
+
+3Di Results Analysis 3.15.0
+"""""""""""""""""""""""""""
+- Compatibility with database schema 300, see :ref:`schema_300`
+
+- Removed processing algorithms Import SUF-Hyd, Guess Indicators, and DWF Calculator (#1079, #1051).
+- Watershed tool support geopackage and update to new database schema (#1085)
+- Bugfix: In the visualisation on the map canvas, the next time step was visualised. Now the nearest result time step at or before the time the temporal controller is set to is visualised. (#1058)
+
+3Di Models & Simulations 3.16.0
+"""""""""""""""""""""""""""""""
+
+- Compatibility with database schema 300, see :ref:`schema_300`.
+- Fixed schematisation tag setting (#640)
+- Simulation wizard: Add water quality settings to settings page (#604)
+
+March 12th, 2025
+^^^^^^^^^^^^^^^^
+
+3Di Schematisation Editor 1.16.0
+""""""""""""""""""""""""""""""""
+
+- Fixed import error
+
+
+January 23rd, 2024
+^^^^^^^^^^^^^^^^^^^
+
+3Di Results Analysis 3.14.0
+"""""""""""""""""""""""""""
+
+- Fix issue with wrong version of h5py being used.
+
+
+January 10th, 2025
+^^^^^^^^^^^^^^^^^^
+
+3Di Models & Simulations 3.15.2
+"""""""""""""""""""""""""""""""
+
+- Bugfix: Lateral time steps were wrongly converted when adding substance to laterals from template (#639)
+
+December 12th, 2025
+^^^^^^^^^^^^^^^^^^^
+
+3Di Models & Simulations 3.15.1
+"""""""""""""""""""""""""""""""
+
+- Empty list of tags is now properly transfered to the 3Di API.
+
+December 10th, 2024
+^^^^^^^^^^^^^^^^^^^
+
+3Di Results Analysis 3.12.0
+"""""""""""""""""""""""""""
+
+- Compatibility with Python 3.12 (#1061)
+- Added Processing Algorithm "Extract structure control actions" (#926)
+- Fixed attributeError when loading a QGIS project (#1063)
+- Fix in Rasters to NetCDF algorithm to properly convert the units Enum to string (#1067)
+
+December 2nd, 2024
+^^^^^^^^^^^^^^^^^^
+
+3Di Schematisation Editor 1.15.0
+""""""""""""""""""""""""""""""""
+
+- Compatibility with QGIS 3.38 (#278)
+- Add 3Di news to news feed (#281)
+
+
+November 12th, 2024
+^^^^^^^^^^^^^^^^^^^
+
+3Di Models & Simulations 3.15.0
+"""""""""""""""""""""""""""""""
+
+This release introduces several useful new options for water quality simulations:
+
+- You can now use constant substance concentrations for laterals and boundary conditions (#1024). This means that you can input one concentration (e.g. 100%) to be applied to all laterals or boundary conditions in the simulation, for their whole duration. It is also still possible to specify a concentration time series for each individual lateral or boundary condition
+
+- You can now add substance concentrations to rain, e.g. to use as a label or tracer (#537). In the current implementation, the concentration is added all the rain, regardless of where it falls. In the near future you will also be able to label rain depending on the area where it falls.
+
+- You can now add substance concentrations to 1D initial water (#609). This option was already available for 2D concentrations.
+
+- A diffusion parameter can be specified for each substance, to set the amount of (physical) diffusion for that substance (#602).
+
+- Using water quality is disabled if your organisation does not include the water quality module in its contract (#625). This will become effective from March 1st, 2024.
+
+- The use of special characters in units field of substances has been restricted to the characters that are accepted by the calculation core (#621)
+
+
+Other new options and additions:
+
+- Simulation wizard: include option to select previously uploaded 1D initial water level file (#610)
+
+- New options for :ref:`1d_advection` are now also available in the simulation wizard. New schematisations will by default use the combined energy/momentum conservative scheme instead of the momentum conservative scheme that was the previous default (#603).
+
+- Simulation template creation: append prefix to saved template name in case of multiple simulations (#613)
+
+Bugfixes:
+
+- Simulation wizard now gives proper feedback if you choose an invalid boundary conditions file (#624)
+
+- Fix for error when trying to refresh list of downloadable simulations (#622)
+
+- "Stop after" was not read correctly from the simulation template in some cases (#616)
+
+- Substance decay coefficients are now loaded from the simulation template (#612)
+
+
+3Di Schematisation Editor 1.14.0
+""""""""""""""""""""""""""""""""
+
+- New options for :ref:`1d_advection` are now also available in *Global settings* attribute form (#255)
+
+- Vector data importers remember the last directory from which config json was loaded (#254)
+
+- Moving through attribute forms using TAB now follows a logical sequence (#149)
+
+- Bugfix: you can now load multiple schematisations with the same name without getting errors (#270)
+
+
+
+3Di Results Analysis 3.11.0
+"""""""""""""""""""""""""""
+
+- Several options were added to customise how nodes and flowlines are visualised on the map canvas (#1046)
+
+- The cross-sectional discharge algorithm can now deal with LinestringZ input (#1057)
+
+- The "use selected features" behaviour in the cross-sectional discharge algorithm has been made more explicit (#1057)
+
+- Bugfix: Import GWSW-Hyd no longer gives a KeyError when an outlet references a non-existent node (hydxlib#59)
+
+
+September 25th, 2024
+^^^^^^^^^^^^^^^^^^^^
+
+3Di Models & Simulations 3.14.1
+"""""""""""""""""""""""""""""""
+
+- Bugfix for *KeyError: 'simulation_user_first_name'* issue
+
+
+September 24th, 2024
+^^^^^^^^^^^^^^^^^^^^
+
+3Di Schematisation Editor 1.13.0
+""""""""""""""""""""""""""""""""
+
+- You can now load multiple schematisations at the same time. This also makes it very easy to import (parts of) schematisations into other schematisations (#186, #250, #257)
+
+- The vector data importer has several new features (#167)
+    
+    - When importing a weir, orifice, or culvert in a location where a channel is present, the structure can now be inserted into the channel network. The channel will be cut automatically, and cross-section locations will be moved and duplicated accordingly. 
+
+    - If your culvert/weir/orifice source data has a point geometry, the importer will convert them to line geometries on the fly.
+
+- Some changes where made to the default properties of the Digital Elevation Model layer, so that it can now be used seamlessly in the QGIS native Elevation profile tool (#116)
+
+3Di Models & Simulations 3.14.0
+"""""""""""""""""""""""""""""""
+
+- The user interface for adding breach events to your simulation has been reimplemented for an improved user experience (#440). New possibilities include:
+
+    - Searching for potential breaches by code or display name
+    
+    - Selecting any 1D2D flowline as a breach location
+    
+    - Adding multiple breach events in the same simulation
+
+- The user experience in the *Download results* window has been improved in several ways (#368):
+
+    - You can now filter the results by username 
+
+    - You can start downloading a simulation result by double-clicking it
+
+    - The "Simulation name" column has been made wide enough to view the whole simulation name
+
+September 12th, 2024
+^^^^^^^^^^^^^^^^^^^^
+
+3Di Results Analysis 3.10.0
+"""""""""""""""""""""""""""
+
+- A new tool has been introduced for viewing and comparing flow summaries (#725)
+
+- A new processing algorithm has been introduced to generate spatiotemporal forcing NetCDFs from a list of rasters (#1029)
+
+- Several additions have been made to the *Result aggregation tool* (#861):
+
+    - You can now choose *pump discharge* as variable.
+
+    - The methods comparing the time series to a threshold have been extended. You can now choose the (percentage of) time a variable is below, on or above a threshold. The margin used for a value being "on" a threshold is 1e-06. The way to define the threshold has also been made much more versatile: you can choose any attribute that contains decimal numbers as threshold (e.g. pump capacity or drain level), or define a fixed number as threshold value.   
+
+    - Preset *Total pumped volume* has been added
+
+    - Preset *Pumps: % of time at max capacity* has been added
+
+- Bugfix: Watershed tool: 2D flowlines intersecting obstacles are shown as 1D flowlines (#1034)
+
+- Bugfix: In the Result manager's *Model selection* dialog, the sorting takes into account each column's data type (#1039)
+
+- Bugfix: the cross-sectional discharge algorithm no longer gives a python error if cross-section lines have different CRS then the 3Di results. The cross-section lines are automatically reprojected.
+
+- Bugfix: Time series plotter would give and attribute error when picking a flowline when the simulation includes both pumps and substances (#1044)
+
+
+3Di Models & Simulations 3.13.0
+"""""""""""""""""""""""""""""""
+
+- You now have the option to cancel uploads of new schematisation revisions (#551)
+
+- Several improvements where made to the *Download schematisation* dialog (#276):
+
+    - The *Model slug* column was removed
+
+    - A *Updated* column was added, showing the moment this schematisation was last updated
+
+    - Revisions are automatically fetched when you click on a schematisation (the *Fetch revisions* button was removed)
+
+    - In the *Schematisations* table, the *Created by* and *Commited by* columns now show the user's first and last name instead of their user name
+
+- The gridadmin files are no longer downloaded to the *work in progress* folder, but to the *revision {nr}\grid* folder, because they are read-only (#449)
+
+- The *work in progress\grid* and *work in progress\results* folders are no longer created, as they are not used for anything
+
+- Bugfix: the *Last updated* column in the Simulation Wizard's *Select model* dialog now sorts numerically instead of lexicographically (#587)
+
+- Bugfix for error when trying to start a simulation with laterals and substances (#589)
+
+August 14th, 2024
+^^^^^^^^^^^^^^^^^
+
+3Di Results Analysis 3.9.3
+""""""""""""""""""""""""""
+
+- Bugfix: Fix "Not a string" error in the Watershed tool (#1032)
+
+August 6th, 2024
+^^^^^^^^^^^^^^^^^
+
+3Di Results Analysis 3.9.2
+""""""""""""""""""""""""""
+
+- Bugfix: Removed field *max_capacity* from the Sufhyd import tool (#1030)
+
+July 17th, 2024
+^^^^^^^^^^^^^^^
+
+3Di Models & Simulations 3.12.0
+"""""""""""""""""""""""""""""""
+
+The following new features have been added to the simulation wizard:
+
+- Upload 1D initial water levels (#137)
+
+- Add initial concentrations to your simulations (#535)
+
+- Option to choose the time units for uploaded substance concentration time series on the *Boundary Conditions* page (#577)
+
+- More intuitive navigation using *Tab* in Simulation Wizard (#480)
+
+Other new features:
+
+- Download multiple simulation results in parallel (#391)
+
+- Schematisation descriptions are now also implemented in 3Di Models and Simulations (#493)
+    
+    - You can fill in a schematisation description when creating a new schematisation
+    
+    - The schematisation description is shown in the overview of schematisations available for download
+
+- After creating, loading, or downloading a schematisation, you are now asked if you want to load the schematisation into you project
+
+- On the first page of the wizard for uploading new schematisations, it has been made clearer that the schematisation revision history overview is purely informative, i.e. that you do not need make a choice here (#496)
+
+- When uploading a new revision, you are no longer warned that this is not the same revision as you have loaded via the 3Di Schematisation Editor if you have not loaded any. (#526)
+
+
+3Di Results Analysis 3.9.1
+""""""""""""""""""""""""""
+
+- Since the previous release, threedigrid-builder was re-installed every time at startup. This has been fixed. (#1023)
+
+3Di Schematisation Editor 1.12.0
+""""""""""""""""""""""""""""""""
+
+- Other plugins or scripts can now tell the 3Di Schematisation Editor to load a specific sqlite or geopackage file as active schematisation (#238)
+
+- Backwards compatibility of the 3Di Schematisation Editor for older spatialites has been increased (#241)
+
+- The 3Di Schematisation Editor buttons are now contained in their own toolbar instead of in the generic *Plugins* toolbar, so that it is easier to customize the 3Di Modeller Interface in the way you prefer (#184)
+
+
+.. _release_notes_mi_20240621
+
+June 21st, 2024
+^^^^^^^^^^^^^^^
+
+3Di Models and Simulations 3.11.0
+"""""""""""""""""""""""""""""""""
+
+Several improvements were made to the Simulation Wizard, mainly to support Water Quality simulations:
+
+    - Add substance concentrations to boundary conditions page (#536)
+
+    - Add column "decay coefficient" to table on substances page (#572)
+
+    - Read substance data from simulation template when initializing the simulation wizard (#568)
+
+    - Set the new simulation property *started_from* to "3Di Modeller Interface" (#556)
+
+    - (Bugfix): since the :ref:`release_notes_mi_20230605` release, 3Di simulations with 2D laterals but without substances could not be started from the 3Di Modeller Interface. This has been fixed now (#576)
+
+The naming of downloaded simulation results has been changed to fix some issues:
+
+    - Download results: Make simulation directory name the same for Lizard QGIS plugin and 3Di Models & Simulations (#530)
+
+    - Download results: Remove slashes from simulation name (#497)
+
+The computational grid can now be checked before uploading a new revision of your schematisation:
+
+    - Upload wizard: Check computational grid before upload (#429)
+
+3Di Results Analysis 3.9.0
+""""""""""""""""""""""""""
+
+Water quality results can now be visualized on the map canvas. Some improvements have been made in the *Time series plotter* support for Water Quality results:
+
+    - Substance concentrations can now be visualized on the map canvas (#978)
+
+    - Styling improvements in results shown on the map (#1020):
+
+        - Using pretty breaks instead of equal count bins and 2 percent cutoff thresholds
+
+        - Improved labels for first and last legend class
+
+        - Fix drawing direction of breaches
+
+        - Set rendering order for lines (lowest values are rendered first, highest are rendered last, i.e. on top)
+
+    - Time series plotter: do not show warning when there is no Water Quality NetCDF (#1017)
+
+    - Time series plotter: Show (-) if the substance that is to be plotted has no units (#1011)
+
+- Load simulation results (Bugfix): sort by revision ID as integer not string (#1008)
+
+3Di Schematisation Editor 1.11.0
+""""""""""""""""""""""""""""""""
+
+- Bugfix: When starting to draw a Culvert, a Python error was produced. This problem was introduced recently and has been fixed now. (#236)
+
+
+
+
+
+.. _release_notes_mi_20230605:
+
+June 5th, 2024
+^^^^^^^^^^^^^^
+
+3Di Results Analysis 3.8.1
+""""""""""""""""""""""""""
+
+- Time series plotter: you can now plot substance concentrations for individual nodes in the Time series plotter (#975)
+
+- Result layers in the Result Aggregation, Cross-Sectional Discharge, and Watershed tools now have the exact same fields and field names as the input node, cell, and flowline layers (#914) 
+
+- Several small issues were fixed in the Watershed tool:
+
+    - Do not empty the result layers when closing the tool (and remove the result sets filter when closing the tool)
+
+    - Do not empty the result layers when toggling "Smooth result watersheds"
+
+    - Only show the relevant target node marker when browsing result sets
+
+    - Do not smooth result watersheds of previous result sets; "smooth result watersheds" now only affects new result sets.
+
+    - Bugfix: Catchment polygon was not created when Browse Results was checked (#655)
+
+- Bugfix: when visualising results on the map, the styling of the flowline results was partly broken in QGIS 3.34 (#1005)
+
+- Bugfix: Processing algorithm "Detect leaking obstacles in DEM" gave a Python error after completion (#1004)
+
+3Di Models & Simulations 3.10.2
+"""""""""""""""""""""""""""""""
+
+- Several new features and improvements have been implemented in the Simulation wizard:
+
+    - The laterals page has been improved (#467). See :ref:`simulate_api_qgis_laterals` for more information.
+    
+    - The CSV file format requirements for :ref:`simulate_api_qgis_boundary_conditions`, :ref:`simulate_api_qgis_laterals`, and :ref:`dry_weather_flow` have been made less strict (#560)
+
+    - You can now add substances to your simulation via laterals (#534, #538). See :ref:`simulation_wizard_substances` for instructions on how to define the substances you want to use in your simulation and :ref:`laterals_substance_concentrations` for instructions on how to add those substances to the lateral discharges in your simulation.
+
+- Bugfix: When sorting, table widgets that include a revision ID treat it as an integer instead of a string (#564)
+
+- When uploading a new revision, simulation templates can now be inherited from the previous revision (#529)
+
+- Compatibility with schema 219 to support 1D vegetation (#532)
+
+
+3Di Schematisation Editor 1.10.1
+""""""""""""""""""""""""""""""""
+
+- **Vegetation** can now also be used in the 1D domain; this has been implemented in the cross-section location attribute form (#188, #229, #235)
+
+- You can now specify a different friction value for each segment of a cross-section with YZ shape (#188, #229, #235).
+
+- Several improvements for **manual editing** have been made:
+
+    - Cross-section location can now be placed on a channel segment, not just on channel vertex (#196)
+
+    - Channel ID is updated when moving a cross-section location (#221)
+
+    - Channel ID is filled in when drawing a potential breach (#230)
+
+    - When moving or changing the geometry of schematisation objects, related objects are also moved (topological editing). The implementation of topological editing has been improved to make it more consistent (#219, #220, #232).
+
+        - General topological editing for Connection nodes; when moving a connection node, all schematisation objects that are connected to it are also affected.
+
+        - Specific logic for Channels
+
+            - Cross-section locations are topologically edited when a Channel geometry is edited. Cross-section location can be on a channel vertex or segment.
+
+            - Potential breaches (start vertex) are topologically edited when Channel geometry is edited. Start vertex of a Potential breach can be on a channel vertex or segment.
+
+        - Specific logic for Impervious surface
+
+            - Impervious surface map is topologically edited when Impervious surface geometry changes. The start vertex of the Impervious surface map is on the *point on surface* of the Impervious surface.
+
+        - Specific logic for Surface
+
+            - Surface map is topologically edited when Surface geometry changes. The start vertex of the Surface map is on the *point on surface* of the Surface
+
+- Several improvements have been made to the **vector data importers**:
+
+    - Changes to the layers affected by the import are no longer committed automatically, so that you can review the added features before deciding to commit them to the layer (#228)
+
+    - If geometries in the source layer are different from the geometry type of the target layer, the vector data importer will try to convert them to a compatible type. For example, multipart to singlepart, or MultiCurve to polygon (#222)
+
+    - "Expression" has been added as a method to convert source attributes to target attributes (#211). This can be used e.g. to convert millimeters to meters, to create a code from a combination of source attributes, or to apply more complex if/then/else logic to the source attributes.
+
+    - Source attributes are automatically selected if they have the same name as the target attribute (#190)
+
+    - Import manholes: source manholes are skipped if they are snapped to connection nodes that already have a manhole (#224)
+
+- In the processing algorithm "Map (impervious) surfaces to connection nodes", the option has been added to use "Selected features only" for all vector layer inputs (#227)
+
+
+
 
 April 11, 2024
 ^^^^^^^^^^^^^^
@@ -609,7 +1236,7 @@ New in version 1.1 (for those users who already tried out version 1.0):
 - Pump capacity should be NULL by default
 - Add geopackage database connection to QGIS list
 - Refresh map canvas after removing 3Di model
-- Correct list of calculation types in culvert attribute form
+- Correct list of exchange types in culvert attribute form
 - Guarantee that layers are added to the correct group
 - Add hillshade styled DEM
 - Raster styling classes
@@ -620,7 +1247,7 @@ New in version 1.1 (for those users who already tried out version 1.0):
 - Rename plugin to 3Di Schematisation Editor
 - Fix width and diameter labels for tabulated cross sections
 - Compatibility with QGIS 3.22 / Spatialite v4.3
-- Drop-downs are used in the attribute table for fields with a limited list of valid integer values (e.g. calculation type).
+- Drop-downs are used in the attribute table for fields with a limited list of valid integer values (e.g. exchange type).
 
 *3Di Toolbox v2.1*
 
@@ -657,12 +1284,12 @@ March 2022
 
 *3Di Customisations  v1.2*
 
--	Remove all user interface customisations, except red menu bar
--	Add "About 3Di modeller interface" dialog
+-    Remove all user interface customisations, except red menu bar
+-    Add "About 3Di modeller interface" dialog
 
 *3Di Toolbox v1.33*
 
--	Processing tools have been added to check the Spatialite and Rasters. These processing algorithms add the check results as layers to your QGIS project, instead of in a separate shapefile, csv, or text file. You can access them through Processing > Toolbox > 3Di > Schematisation. In the future, these processing algorithms will replace the current checker tools available in the 'Commands' Toolbox.
+-    Processing tools have been added to check the Spatialite and Rasters. These processing algorithms add the check results as layers to your QGIS project, instead of in a separate shapefile, csv, or text file. You can access them through Processing > Toolbox > 3Di > Schematisation. In the future, these processing algorithms will replace the current checker tools available in the 'Commands' Toolbox.
 
 
 
@@ -703,9 +1330,9 @@ The styling of all animation layers has been improved. The value categories are 
 Below are examples of a dike breach. Animation 1 is showing relative change in water level and discharge. The plot is done for every calculation cell and flow line. Animation 2 is the same situation as an absolute plot showing the water level per calculation cell and the discharge over the flow lines.
 Some other improvements to the toolbar include:
 
--	More user feedback.
--	The animation layers are removed when the Animation Toolbar is deactivated.
--	The groundwater layers are only displayed when the simulation includes groundwater.
+-    More user feedback.
+-    The animation layers are removed when the Animation Toolbar is deactivated.
+-    The groundwater layers are only displayed when the simulation includes groundwater.
 
 *Dry weather flow calculator*
 
@@ -719,11 +1346,11 @@ We have added the option to generate water depth/level maps for a range of times
 
 The water depth processing algorithm also has various minor bugfixes and improvements:
 
--	Selecting DEM layer from project no longer gives an error.
--	Generating outputs for timestep 0 without moving the timestep slider no longer gives an error.
--	Improved readability of LCD display by adding days to the display.
--	Set LCD value to 00:00 when file is loaded.
--	More accurate description of what the tool does.
+-    Selecting DEM layer from project no longer gives an error.
+-    Generating outputs for timestep 0 without moving the timestep slider no longer gives an error.
+-    Improved readability of LCD display by adding days to the display.
+-    Set LCD value to 00:00 when file is loaded.
+-    More accurate description of what the tool does.
 
 
 *Bugfix SideView tool*
