@@ -2,6 +2,63 @@
 
 3Di Modeller Interface
 ----------------------
+
+August 27th, 2025
+^^^^^^^^^^^^^^^^^
+
+3Di Models and Simulations 3.24
+"""""""""""""""""""""""""""""""
+
+- Bugfix: Allow multiple polygons per substance in the "Simulate with rain zones" processing algorithm
+- Warn user when Nelen & Schuurmans dependency loader plugin is disabled or not installed, and propose to fix it.
+
+3Di Results Analysis 3.22
+"""""""""""""""""""""""""
+
+- Make handling of errors in processing values in the schematisation checker generic to prevent crashes on checks with unexpected values
+- Warn user when Nelen & Schuurmans dependency loader plugin is disabled or not installed, and propose to fix it.
+
+3Di Schematisation Editor 2.4
+"""""""""""""""""""""""""""""
+
+- Bugfix: Update references to connection node and channel when moving 1D lateral, 1D boundary condition, or 1D wind shielding feature
+- Bugfix: Allow attributes named "area" to be edited without applying the default
+- Warn user when Nelen & Schuurmans dependency loader plugin is disabled or not installed, and propose to fix it.
+
+
+July 16th, 2025
+^^^^^^^^^^^^^^^
+
+3Di Models and Simulations 3.23
+"""""""""""""""""""""""""""""""
+
+- Fix incorrect filtering and project id retrieval in simulation results dialog.
+- Bump Nelen & Schuurmans Dependency Loader plugin version to 1.2.1 (nens/nens-dependency-loader#14)
+
+3Di Results Analysis 3.21
+"""""""""""""""""""""""""
+
+- Use randomly generated colour for time series plotter when list of colours runs out (#1111)
+- Fix issue where checks on a geometry column could not be processed by the schematisation checker (#1122)
+- Show number of features for each of the schematisation checker results layers (#1124)
+- Bump Nelen & Schuurmans Dependency Loader plugin version to 1.2.1 (nens/nens-dependency-loader#14)
+
+3Di Schematisation Editor 2.3.1
+"""""""""""""""""""""""""""""""
+
+- Bump Nelen & Schuurmans Dependency Loader plugin version to 1.2.1 (nens/nens-dependency-loader#14)
+
+July 8th, 2025
+^^^^^^^^^^^^^^
+
+3Di Results Analysis 3.20
+"""""""""""""""""""""""""
+
+- Bugfix: issue when plotting pump structure control (#1117)
+- Added global load_result function for external invocation (#1118)
+- Change flowline and node symbology labels
+
+
 June 16th, 2025
 ^^^^^^^^^^^^^^^
 
