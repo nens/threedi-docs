@@ -6,25 +6,27 @@
 August 27th, 2025
 ^^^^^^^^^^^^^^^^^
 
-3Di Models and Simulations 3.24
+3Di Models and Simulations 3.25
 """""""""""""""""""""""""""""""
 
 - Bugfix: Allow multiple polygons per substance in the "Simulate with rain zones" processing algorithm
-- Warn user when Nelen & Schuurmans dependency loader plugin is disabled or not installed, and propose to fix it.
+- Warn user when Nelen & Schuurmans dependency loader plugin is disabled or not installed, and propose to fix it. (nens/nens-dependency-loader#19)
 
-3Di Results Analysis 3.22
+3Di Results Analysis 3.24
 """""""""""""""""""""""""
 
-- Make handling of errors in processing values in the schematisation checker generic to prevent crashes on checks with unexpected values
-- Warn user when Nelen & Schuurmans dependency loader plugin is disabled or not installed, and propose to fix it.
+- Improve error handling in the schematisation checker to prevent crashes on when checks return unexpected values
+- Warn user when Nelen & Schuurmans dependency loader plugin is disabled or not installed, and propose to fix it. (nens/nens-dependency-loader#19)
+- Ignore vertical flow (groundwater/surface water exchange) in Flow pattern algorithm
+- Add water depth difference processing algorithm (#1136)
+- Support Numpy 2.0
 
-3Di Schematisation Editor 2.4
-"""""""""""""""""""""""""""""
+3Di Schematisation Editor 2.3.2
+"""""""""""""""""""""""""""""""
 
 - Bugfix: Update references to connection node and channel when moving 1D lateral, 1D boundary condition, or 1D wind shielding feature
 - Bugfix: Allow attributes named "area" to be edited without applying the default
 - Warn user when Nelen & Schuurmans dependency loader plugin is disabled or not installed, and propose to fix it.
-
 
 July 16th, 2025
 ^^^^^^^^^^^^^^^
