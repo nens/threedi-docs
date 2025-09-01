@@ -2881,7 +2881,7 @@
      - pipe.calculation_point_distance should preferably be at least 5.0 metres to prevent simulation timestep reduction.
    * - 0045
      - Future_error
-     - connection_node.storage_area should be defined and greater than 0 if the connection nodes has no connections to channels, culverts, pipes, weirs, or orifices0. From September 2025 onwards, this will be an ERROR.
+     - connection_node.storage_area should be defined and greater than 0 if the connection node has no connections to channels, culverts, pipes, weirs, or orifices. From September 2025 onwards, this will be an ERROR.
    * - 0046
      - Future_error
      - A connection node that is not connected to a pipe, channel, culvert, weir, or orifice must have a defined bottom_level.
@@ -3160,7 +3160,7 @@
      - pump.lower_stop_level should be higher than connection_node.bottom_level. In the future, this will lead to an error.
    * - 0106
      - Warning
-     - connection_node.exchange_level >= connection_node.bottom_level when connection_node.exchange_type is CONNECTED. In the future, this will lead to an error.
+     - connection_node.exchange_level must be >= connection_node.bottom_level when connection_node.exchange_type is CONNECTED. In the future, this will lead to an error.
    * - 0107
      - Warning
      - connection_node.exchange_level cannot be null when using sub-basins (model_settings.manhole_aboveground_storage_area > 0) and no DEM is supplied.
@@ -3373,7 +3373,7 @@
      - This connection node is not connected to a pipe, channel, culvert, weir, orifice or pumpstation.
    * - 0252
      - Warning
-     - When connecting two isolated pipes, it is recommended to add storage to the connection node.
+     - When connecting two isolated or connected pipes, it is recommended to add storage to the connection node.
    * - 0253
      - Future_error
      - a channel cannot be connected to itself (connection_node_id_start must not equal connection_node_id_end)
@@ -3451,7 +3451,7 @@
      - model_settings.calculation_point_distance_1d is not greater than 0, in the future this will lead to an error
    * - 0307
      - Error
-     - model_settings.minimum_cell_size is <=0
+     - model_settings.minimum_cell_size is <=0; this is not allowed when model_settings.dem_file is filled in
    * - 0308
      - Error
      - model_settings.embedded_cutoff_threshold is <0
@@ -3469,7 +3469,7 @@
      - model_settings.friction_coefficient is <0 and/or >1
    * - 0314
      - Error
-     - model_settings.friction_coefficient is <0
+     - model_settings.friction_coefficient is <1
    * - 0315
      - Error
      - interception.interception is <0
@@ -3778,10 +3778,10 @@
      - connection_node.id has more than 50 surface areas mapped to it; this might be an error.
    * - 0616
      - Warning
-     - No inflow will be generated for this feature, because model_settings.use_0d_inflow is not set to use dry_weather_flow.
+     - No dry weather inflow will be generated for this feature, because model_settings.use_0d_inflow is set to False.
    * - 0616
      - Warning
-     - No inflow will be generated for this feature, because model_settings.use_0d_inflow is not set to use surface.
+     - No surface inflow will be generated for this feature, because model_settings.use_0d_inflow is set to False.
    * - 0617
      - Warning
      - model_settings.use_0d_inflow is set to use dry_weather_flow, but dry_weather_flow does not contain any features.
@@ -3806,6 +3806,12 @@
    * - 0623
      - Error
      - The values in dry_weather_flow_distribution.dry_weather_flow_distribution.distribution should add up to 100 %
+   * - 0624
+     - Warning
+     - Dry weather flow does not have dry weather flow map. It will be ignored. Make sure that this is intentional.
+   * - 0624
+     - Warning
+     - Surface does not have surface map. It will be ignored. Make sure that this is intentional.
    * - 0700
      - Warning
      - raster checks require GDAL to be available
