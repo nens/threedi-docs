@@ -3,6 +3,25 @@
 3Di Modeller Interface
 ----------------------
 
+September 8th, 2025
+^^^^^^^^^^^^^^^^^^^
+
+3Di Results Analysis 3.25.1
+"""""""""""""""""""""""""""
+
+- Added volume/load mode to Fraction Analysis Tool (#1112)
+- Bumped Nelen & Schuurmans dependency loader to 1.2.2
+
+3Di Models and Simulations 3.26
+"""""""""""""""""""""""""""""""
+
+- Bumped Nelen & Schuurmans dependency loader to 1.2.2
+
+3Di Schematisation Editor 2.3.3
+"""""""""""""""""""""""""""""""
+
+- Bumped Nelen & Schuurmans dependency loader to 1.2.2
+
 August 27th, 2025
 ^^^^^^^^^^^^^^^^^
 
