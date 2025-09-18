@@ -78,7 +78,7 @@ Attributes
      - integer
      - Yes
      - \-
-     - Sets the type to 1: Water level, 2: Velocity, 3: Discharge, 5: Sommerfeld, 6: Groundwater level or 7: Groundwater discharge
+     - Sets the type to 1: Water level, 2: Velocity, 3: Discharge, 5: Sommerfeld, 6: Groundwater level, 7: Groundwater discharge, 8: Total discharge, or 9: Groundwater total discharge
    * - Time units
      - time_units
      - text
