@@ -78,7 +78,7 @@ Attributes
      - integer
      - Yes
      - \-
-     - Sets the type to 1: Water level, 2: Velocity, 3: Discharge, 5: Sommerfeld, 6: Groundwater level or 7: Groundwater discharge
+     - Sets the type to 1: Water level, 2: Velocity, 3: Discharge, 5: Sommerfeld, 6: Groundwater level, 7: Groundwater discharge, 8: Total discharge, or 9: Groundwater total discharge
    * - Time units
      - time_units
      - text
@@ -124,6 +124,8 @@ Time series
     - Sommerfeld: m/m
     - Groundwater level: m MSL
     - Groundwater discharge: m³/s
+    - Total discharge: m³/s
+    - Groundwater total discharge: m³/s
 
 - The time series string cannot contain any spaces or empty rows
 
