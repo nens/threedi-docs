@@ -124,6 +124,8 @@ Time series
     - Sommerfeld: m/m
     - Groundwater level: m MSL
     - Groundwater discharge: m³/s
+    - Total discharge: m³/s
+    - Groundwater total discharge: m³/s
 
 - The time series string cannot contain any spaces or empty rows
 
