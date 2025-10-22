@@ -3,6 +3,48 @@
 3Di Modeller Interface
 ----------------------
 
+October 22nd, 2025
+^^^^^^^^^^^^^^^^^^
+
+3Di Results Analysis 3.26
+"""""""""""""""""""""""""
+
+- Water depth/level raster algorithm has been split into two algorithms: single and multiple time steps (#958)
+- Appropriately style and name water depth/level algorithm outputs.
+- New processing algorithms for creating Concentration rasters: single time step, multiple time steps, and maximum
+- Bugfix: Processing algorithm "Maximum water depth/level" no longer fails when writing to a temporary result (#945)
+- Some fixes for QGIS 4 compatibility (#1144)
+- Flow Summary Tool: Tool no longer covers Load Simulation dialogs (#1139)
+
+3Di Schematisation Editor 2.3.5
+"""""""""""""""""""""""""""""""
+
+- More robust loading of projects that contain schematisations (#437)
+
+3Di Models & Simulations 3.27.2
+"""""""""""""""""""""""""""""""
+
+- Processing algorithms *Simulate with DWF labelling* and *Simulate with rain zones* now use original simulation start datetime instead of current datetime.
+
+October 1st, 2025
+^^^^^^^^^^^^^^^^^
+
+3Di Results Analysis 3.25.1
+"""""""""""""""""""""""""""
+
+Several improvements to the Fraction Analysis tool:
+- Toggle multiple items with space bar (#1135)
+- Set color of plot (#1134)
+- Visibility (item checked) now persists when switching stacked/volume mode.
+- Substances are listed alphabetically (#1133)
+- Plot highlighting (#1132)
+
+Other improvements:
+- Make compatible with QGIS 4 (#1144)
+- Add support for aggregate_results_3di.nc files in threedidepth processing algorithms (#874)
+
+
+
 September 8th, 2025
 ^^^^^^^^^^^^^^^^^^^
 
