@@ -3,6 +3,22 @@
 3Di API
 -------
 
+November 11th, 2025
+^^^^^^^^^^^^^^^^^^^
+
+**Water quality**
+
+- Substance concentrations that are added to rain are now also applied to surface inflow
+- Time series rain can now be supplied as a file. This makes it possible to include a larger number or more complex rain zones for water quality / labelling.
+- Add support for interior rings on Polygon fields (e.g. rain zones)
+- Bugfix: simulations started from a template that include water quality forcings (e.g. file lateral with substance concentration time series) no longer give an error. Substances defined for one simulation can now be used in other simulations as well.
+ 
+**Schematisation checker**
+
+- Add check: connection node exchange level cannot be NULL when exchange type is *Connected*. Included in existing check 0107. (#494)
+- Add check 0075 to give a warning when a 2D boundary condition partially overlaps a grid refinement area. (#356)
+- Allow smaller convergence_eps value. This is recommended for water quality simulations. (#511)
+
 June 10th, 2025
 ^^^^^^^^^^^^^^
 

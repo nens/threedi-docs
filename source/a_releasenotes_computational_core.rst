@@ -3,6 +3,24 @@
 3Di Computational core
 ----------------------
 
+November 12th, 2025
+^^^^^^^^^^^^^^^^^^^
+
+**Water quality**
+
+- Substance concentrations that are added to rain are now also applied to surface inflow
+- Use global implicit solve for water quality if implicit is needed somewhere.
+- In substance summary, sort on substance id
+
+**Hydrodynamics**
+
+- Bugfix for 2D advection in cases of dry and/or inactive neighbouring cells in grid transitions
+- Improve formulation of inflow infiltration by improving the recovery rates
+
+**General**
+
+- Extra checks on file close for NetCDF files based on allocation
+
 June 10th, 2025
 ^^^^^^^^^^^^^^^
 
