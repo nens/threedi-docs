@@ -10,6 +10,7 @@ November 18, 2025
 """""""""""""""""""""""""""""
 
 **Vector data importers**
+
 - Add importer for channels (#251)
 - Add importer for cross section locations (#252)
 - Add importer for cross section data (#253)
@@ -24,6 +25,7 @@ November 18, 2025
 - Let import algorithms return the target geopackage so that they can be chained in the Processing Model Builder
 
 **Converting 1D to 2D**
+
 - Add *Rasterize channels* processing algorithm (#448)
 
 3Di Models & Simulations 3.27.3
