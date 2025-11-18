@@ -3,6 +3,34 @@
 3Di Modeller Interface
 ----------------------
 
+November 18, 2025
+^^^^^^^^^^^^^^^^^
+
+3Di Schematisation Editor 2.4
+"""""""""""""""""""""""""""""
+
+**Vector data importers**
+- Add importer for channels (#251)
+- Add importer for cross section locations (#252)
+- Add importer for cross section data (#253)
+- Add option to integrate weirs and orifices in existing sewer (pipe) networks (#246)
+- Improve handling of structures integrated on channels (#376):
+    - Prevent structures from sticking out on the start or end of the channel.
+    - Prevent overlapping structures.
+    - Prevent too short channels in between structures and at the start or end of the channel.
+- Improved validation of configuration files for vector data importing (#441)
+- New user interface for vector data importers: multi-page wizard instead of single page with tabs (#430)
+- Add import utility algorithms *Get config file from directory* and *Extract layer by name*
+- Let import algorithms return the target geopackage so that they can be chained in the Processing Model Builder
+
+**Converting 1D to 2D**
+- Add *Rasterize channels* processing algorithm (#448)
+
+3Di Models & Simulations 3.27.3
+"""""""""""""""""""""""""""""""
+
+- Beta processing algorithm "Simulate with rain zones" can now handle larger numbers of polygons, and/or polygons with more complex shapes (more vertices). 
+
 October 22nd, 2025
 ^^^^^^^^^^^^^^^^^^
 
@@ -32,18 +60,18 @@ October 1st, 2025
 3Di Results Analysis 3.25.1
 """""""""""""""""""""""""""
 
-Several improvements to the Fraction Analysis tool:
+**Fraction Analysis tool improvements**
+
 - Toggle multiple items with space bar (#1135)
 - Set color of plot (#1134)
 - Visibility (item checked) now persists when switching stacked/volume mode.
 - Substances are listed alphabetically (#1133)
 - Plot highlighting (#1132)
 
-Other improvements:
+**Other improvements**
+
 - Make compatible with QGIS 4 (#1144)
 - Add support for aggregate_results_3di.nc files in threedidepth processing algorithms (#874)
-
-
 
 September 8th, 2025
 ^^^^^^^^^^^^^^^^^^^
