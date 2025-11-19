@@ -15,7 +15,7 @@ November 18, 2025
 - Add importer for cross section locations (#252)
 - Add importer for cross section data (#253)
 - Add option to integrate weirs and orifices in existing sewer (pipe) networks (#246)
-- Improve handling of structures integrated on channels (#376):
+- Improve handling of structures integrated on channels (#376)
     - Prevent structures from sticking out on the start or end of the channel.
     - Prevent overlapping structures.
     - Prevent too short channels in between structures and at the start or end of the channel.
