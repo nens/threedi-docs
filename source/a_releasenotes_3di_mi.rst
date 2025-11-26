@@ -3,11 +3,29 @@
 3Di Modeller Interface
 ----------------------
 
+November 26, 2025
+^^^^^^^^^^^^^^^^^
+
+3Di Schematisation Editor 2.4.3
+"""""""""""""""""""""""""""""""
+
+Several small bugfixes and improvements were done to the vector data importers:
+
+- Allow 3 instead of 2 decimals for default values of float types (#459)
+
+- Remove upper limit for default values (#459)
+
+- Remove empty page from connection nodes importer (#462)
+
+- Bugfix: connection node attributes were not filled in (#461)
+
+- Bugfix: no longer create duplicate connection nodes for imported pipes that touch one another (#460)
+
 November 18, 2025
 ^^^^^^^^^^^^^^^^^
 
-3Di Schematisation Editor 2.4
-"""""""""""""""""""""""""""""
+3Di Schematisation Editor 2.4.2
+"""""""""""""""""""""""""""""""
 
 **Vector data importers**
 
