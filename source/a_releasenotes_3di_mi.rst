@@ -3,7 +3,7 @@
 3Di Modeller Interface
 ----------------------
 
-November 26, 2025
+November 26th, 2025
 ^^^^^^^^^^^^^^^^^
 
 3Di Schematisation Editor 2.4.3
@@ -21,7 +21,9 @@ Several small bugfixes and improvements were done to the vector data importers:
 
 - Bugfix: no longer create duplicate connection nodes for imported pipes that touch one another (#460)
 
-November 18, 2025
+- Bugfix: Importing cross-section locations via processing algorithm now works correctly (#457)
+
+November 18th, 2025
 ^^^^^^^^^^^^^^^^^
 
 3Di Schematisation Editor 2.4.2
